@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Negocios Informales — Mérida, Yucatán</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/css/styles.css"/>
+<!-- Firebase Auth SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script>
+  firebase.initializeApp({
+    apiKey:           "AIzaSyBGWOAInmciLek9_GQx7wxgjFk5NVXSGU4",
+    authDomain:       "canaco-info.firebaseapp.com",
+    projectId:        "canaco-info",
+    storageBucket:    "canaco-info.firebasestorage.app",
+    messagingSenderId:"1065227431213",
+    appId:            "1:1065227431213:web:1ecbb5c2f197461ed9f7a4",
+  });
+  window._auth = firebase.auth();
+</script>
+</head>
+<body>
+
+<!-- ══ HEADER ════════════════════════════════════════════════════════════════ -->
+<div id="header">
+  <div>
+    <h1>GeoFormal</h1>
+    <p>Mérida, Yucatán · Google Maps vs DENUE</p>
+  </div>
+  <div class="badge" id="badge">Cargando…</div>
+</div>
+
+<!-- ══ TABS ══════════════════════════════════════════════════════════════════ -->
+<div id="tabs">
+  <button class="tab active" onclick="showTab('mapa',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6-10l6-3m0 13l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 9m0 0V3"/></svg>
+    Mapa
+  </button>
+  <button class="tab" onclick="showTab('val',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+    Validación
+  </button>
+  <button class="tab" onclick="showTab('pred',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+    Predicción
+  </button>
+  <button class="tab" onclick="showTab('ruta',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13V7m0 0l6-3m0 0l4.553-2.276A1 1 0 0121 5.618v10.764a1 1 0 01-.553.894L15 19.5m0-15.5v15.5"/></svg>
+    Ruta
+  </button>
+  <button class="tab" onclick="showTab('reportes',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+    Reportes
+  </button>
+  <button class="tab" onclick="showTab('campanas',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+    Campañas
+  </button>
+  <button class="tab admin-only" id="tab-admin" onclick="showTab('admin',this)" style="display:none">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+    Admin
+  </button>
+</div>
+
+<!-- ══ SHELL ═════════════════════════════════════════════════════════════════ -->
+<div id="shell">
+
+  <!-- ══ PANEL MAPA ══════════════════════════════════════════════════════════ -->
+  <div id="panel" class="side-panel">
+
+    <div class="psec">
+      <h2>Candidatos</h2>
+      <div id="mets"><div style="color:#243351;font-size:11px">Cargando…</div></div>
+    </div>
+
+    <div class="psec">
+      <h2>Tipos de negocio</h2>
+      <div id="tipos"></div>
+    </div>
+
+    <div class="psec">
+      <h2>Filtrar por colonia</h2>
+      <select class="filtro-input select-colonia" onchange="onColoniaChange(this)">
+        <option value="">Todas las colonias</option>
+      </select>
+    </div>
+
+    <div class="psec">
+      <h2>Filtrar por estado</h2>
+      <div class="tipo-filters">
+        <button onclick="filtrarPorTipo('informal',this)">🔴 Informal</button>
+        <button onclick="filtrarPorTipo('en_proceso',this)">🟠 En proceso</button>
+        <button onclick="filtrarPorTipo('formal',this)">🟢 Formal</button>
+      </div>
+    </div>
+
+    <div class="psec">
+      <h2>Buscar negocio</h2>
+      <input class="filtro-input" id="filtro" placeholder="Nombre del negocio…" oninput="filtrar()"/>
+    </div>
+
+    <div id="lista" style="flex:1;overflow-y:auto"></div>
+  </div>
+
+  <!-- ══ PANEL PREDICCIÓN ════════════════════════════════════════════════════ -->
+  <div id="pred-panel" class="side-panel" style="display:none">
+    <div class="psec">
+      <h2>Clic en el mapa</h2>
+      <button id="pred-mode-btn" class="pred-btn" onclick="togglePredMode()">
+        🖱️ Activar predicción por clic
+      </button>
+      <p style="font-size:10px;color:#475569;margin-top:10px;line-height:1.6">
+        Activa el modo y haz clic sobre cualquier punto del mapa para ver si hay un negocio formal, informal o sin datos.
+      </p>
+    </div>
+    <div class="psec">
+      <h2>O ingresa coordenadas</h2>
+      <div style="display:flex;gap:6px;margin-bottom:8px">
+        <input id="pred-lat" class="filtro-input" placeholder="Lat: 20.967" style="flex:1"/>
+        <input id="pred-lng" class="filtro-input" placeholder="Lng: -89.592" style="flex:1"/>
+      </div>
+      <button onclick="predecirManual()" class="ruta-btn">🔍 Predecir</button>
+    </div>
+    <div class="psec" style="flex:1;overflow-y:auto;border-bottom:none">
+      <h2>Resultado</h2>
+      <div id="pred-result" style="color:#334155;font-size:11px;line-height:1.6">
+        Haz clic en el mapa o ingresa coordenadas.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PANEL RUTA ══════════════════════════════════════════════════════════ -->
+  <div id="ruta-panel" class="side-panel" style="display:none">
+
+    <div class="psec">
+      <h2>Ruta automática por colonia</h2>
+      <select class="filtro-input select-colonia" id="ruta-colonia-sel" style="margin-bottom:8px">
+        <option value="">Selecciona una colonia…</option>
+      </select>
+      <div style="display:flex;gap:8px;margin-bottom:8px;align-items:center">
+        <label style="font-size:10px;color:#475569;white-space:nowrap;font-weight:600">Límite:</label>
+        <input type="number" id="ruta-colonia-limit" value="20" min="2" max="50"
+               class="filtro-input" style="width:80px"/>
+      </div>
+      <button id="btn-ruta-colonia" class="ruta-btn" onclick="calcularRutaColonia()">
+        🚗 Generar ruta de colonia
+      </button>
+    </div>
+
+    <div class="psec">
+      <h2>Selección manual</h2>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <span id="ruta-count" style="font-size:12px;color:#94a3b8;font-weight:600">0 seleccionados</span>
+        <button onclick="limpiarRuta()"
+                style="padding:4px 10px;border-radius:6px;border:1px solid #1e2d4d;
+                       background:transparent;color:#64748b;font-size:11px;cursor:pointer;
+                       font-family:'Inter',sans-serif">
+          Limpiar
+        </button>
+      </div>
+      <button id="btn-calcular" class="ruta-btn" onclick="calcularRuta()">
+        🗺️ Calcular mejor ruta
+      </button>
+      <p style="font-size:10px;color:#475569;margin-bottom:0">Máx. 20 puntos · TSP + OSRM · En auto</p>
+      <div id="ruta-info"></div>
+    </div>
+
+    <div class="psec">
+      <h2>Buscar candidato</h2>
+      <input class="filtro-input" id="filtro-ruta" placeholder="Buscar por nombre…"
+             oninput="renderListaRuta()"/>
+    </div>
+
+    <div id="lista-ruta" style="flex:1;overflow-y:auto"></div>
+  </div>
+
+  <!-- ══ PANEL REPORTES ══════════════════════════════════════════════════════ -->
+  <div id="reportes-panel" class="side-panel" style="display:none">
+
+    <div class="psec">
+      <h2>Nuevo reporte ciudadano</h2>
+      <form id="form-reporte" onsubmit="enviarReporte(event)">
+        <div style="margin-bottom:10px">
+          <label style="font-size:10px;color:#475569;font-weight:700;text-transform:uppercase;
+                        letter-spacing:.6px;display:block;margin-bottom:5px">Tipo de problema</label>
+          <select id="reporte-tipo" class="filtro-input" required>
+            <option value="bache">🕳️ Bache</option>
+            <option value="luminaria">💡 Luminaria dañada</option>
+            <option value="basura">🗑️ Acumulación de basura</option>
+            <option value="arbol">🌳 Árbol / vegetación</option>
+            <option value="vandalism">🔨 Vandalismo</option>
+            <option value="otro">⚠️ Otro</option>
+          </select>
+        </div>
+        <div style="margin-bottom:10px">
+          <label style="font-size:10px;color:#475569;font-weight:700;text-transform:uppercase;
+                        letter-spacing:.6px;display:block;margin-bottom:5px">Descripción</label>
+          <textarea id="reporte-desc" class="filtro-input" placeholder="Describe el problema…"
+                    style="height:64px"></textarea>
+        </div>
+        <button type="button" id="btn-reporte-mode" class="pred-btn" style="margin-bottom:8px"
+                onclick="toggleReporteMode()">
+          📍 Clic en el mapa para ubicar
+        </button>
+        <input type="hidden" id="reporte-lat"/>
+        <input type="hidden" id="reporte-lng"/>
+        <div style="margin-bottom:10px">
+          <label style="font-size:10px;color:#475569;font-weight:700;text-transform:uppercase;
+                        letter-spacing:.6px;display:block;margin-bottom:5px">Dirección detectada</label>
+          <input id="reporte-direccion" class="filtro-input" readonly
+                 placeholder="Se llenará al colocar en el mapa…" style="font-size:10px"/>
+        </div>
+        <div style="margin-bottom:10px">
+          <label style="font-size:10px;color:#475569;font-weight:700;text-transform:uppercase;
+                        letter-spacing:.6px;display:block;margin-bottom:5px">Foto (opcional)</label>
+          <input id="reporte-foto" type="file" accept="image/*"
+                 class="filtro-input" style="padding:5px;font-size:11px"/>
+        </div>
+        <button type="submit" id="btn-enviar-reporte" class="ruta-btn green-btn">
+          📤 Enviar reporte
+        </button>
+        <div id="reporte-exito">✅ Reporte enviado correctamente</div>
+      </form>
+    </div>
+
+    <div class="psec" style="flex-shrink:0">
+      <h2>Filtrar reportes</h2>
+      <select id="filtro-status-reporte" class="filtro-input" onchange="cargarReportes()">
+        <option value="">Todos los estados</option>
+        <option value="pendiente">Pendiente</option>
+        <option value="en_proceso">En proceso</option>
+        <option value="resuelto">Resuelto</option>
+      </select>
+    </div>
+
+    <div id="lista-reportes" style="flex:1;overflow-y:auto"></div>
+  </div>
+
+  <!-- ══ PANEL CAMPAÑAS ══════════════════════════════════════════════════════ -->
+  <div id="campanas-panel" class="side-panel" style="display:none">
+
+    <!-- Vista: lista -->
+    <div id="campanas-lista-view" style="display:flex;flex-direction:column;flex:1;overflow:hidden">
+      <div class="psec" style="flex-shrink:0">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+          <h2 style="margin:0">Campañas de visita</h2>
+          <button onclick="mostrarModalCrearCampana()" class="btn-primary"
+                  style="padding:6px 14px;font-size:11px;border-radius:8px">
+            + Nueva campaña
+          </button>
+        </div>
+        <select id="filtro-status-campana" class="filtro-input" onchange="cargarCampanas()">
+          <option value="">Todas las campañas</option>
+          <option value="activa">Activas</option>
+          <option value="cerrada">Cerradas</option>
+          <option value="cancelada">Canceladas</option>
+        </select>
+      </div>
+      <div id="campanas-lista" style="flex:1;overflow-y:auto"></div>
+    </div>
+
+    <!-- Vista: detalle -->
+    <div id="campanas-detail-view" style="display:none;flex-direction:column;flex:1;overflow:hidden">
+      <div class="psec" style="flex-shrink:0">
+        <button onclick="volverListaCampanas()"
+                style="font-size:11px;color:#475569;background:transparent;border:none;
+                       cursor:pointer;margin-bottom:8px;display:flex;align-items:center;gap:4px;
+                       font-family:'Inter',sans-serif">
+          ← Volver
+        </button>
+        <div id="campana-detail-title"
+             style="font-size:15px;font-weight:700;margin-bottom:4px;color:#f1f5f9"></div>
+        <div id="campana-detail-meta"
+             style="font-size:11px;color:#64748b;margin-bottom:12px;line-height:1.5"></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button id="btn-ver-ruta-campana" onclick="verRutaCampana()"
+                  class="ruta-btn" style="margin-bottom:0;padding:7px 12px;font-size:11px;width:auto;flex:1">
+            🗺️ Ver ruta
+          </button>
+          <button onclick="descargarReporteCampana()"
+                  class="ruta-btn green-btn" style="margin-bottom:0;padding:7px 12px;font-size:11px;width:auto;flex:1">
+            📄 Reporte
+          </button>
+          <button onclick="agregarNegociosSeleccionados()"
+                  style="padding:7px 12px;border-radius:8px;border:1px solid #1e2d4d;background:transparent;
+                         color:#94a3b8;font-size:11px;cursor:pointer;font-family:'Inter',sans-serif;flex:1">
+            + Agregar
+          </button>
+          <button onclick="cerrarCampana()" class="btn-secondary"
+                  style="padding:7px 12px;font-size:11px;flex:0">
+            ✓ Cerrar
+          </button>
+          <button onclick="eliminarCampana()" class="btn-danger"
+                  style="padding:7px 12px;font-size:11px;flex:0">
+            🗑
+          </button>
+        </div>
+      </div>
+      <div style="flex:1;overflow-y:auto">
+        <table class="campanas-table">
+          <thead>
+            <tr>
+              <th style="width:32px">✓</th>
+              <th>Negocio</th>
+              <th>Notas</th>
+              <th>Fecha visita</th>
+            </tr>
+          </thead>
+          <tbody id="campana-negocios-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MAPA (compartido) ═══════════════════════════════════════════════════ -->
+  <div id="map-wrap">
+    <div id="map"></div>
+
+    <!-- Controles flotantes de capas del mapa -->
+    <div id="map-layer-controls">
+      <button id="btn-zonas" class="layer-btn" onclick="toggleZonas(this)">
+        <span class="dot"></span> Probabilidad
+      </button>
+      <button id="btn-colonias" class="layer-btn" onclick="toggleColoniasLayer(this)">
+        <span class="dot"></span> Colonias
+      </button>
+    </div>
+
+    <!-- Leyenda -->
+    <div class="map-legend">
+      <div class="legend-item"><span class="legend-dot" style="background:#22c55e"></span> Formal</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#f97316"></span> En proceso</div>
+      <div class="legend-item"><span class="legend-dot" style="background:#dc2626"></span> Informal</div>
+    </div>
+  </div>
+
+  <!-- ══ VALIDACIÓN ══════════════════════════════════════════════════════════ -->
+  <div id="val-wrap">
+    <div class="vsec">
+      <h3>✅ Matches confirmados — formales encontrados en DENUE</h3>
+      <p>Negocios en Google Maps que SÍ tienen match en DENUE · Score: similitud de nombre (100 = idéntico, &gt;72 = válido). Distancia en metros.</p>
+      <table>
+        <thead><tr><th>Nombre Maps</th><th>Match DENUE</th><th>Score</th><th>Distancia</th></tr></thead>
+        <tbody id="t-match"></tbody>
+      </table>
+    </div>
+    <div class="vsec">
+      <h3>🔴 Candidatos informales — sin match en DENUE</h3>
+      <p>Aparecen como OPERATIONAL en Google Maps pero no tienen match en DENUE a 50 metros.</p>
+      <table>
+        <thead><tr><th>Nombre</th><th>Tipo</th><th>Lat</th><th>Lng</th></tr></thead>
+        <tbody id="t-inf"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /shell -->
+
+<!-- ══ MODAL: Crear campaña ══════════════════════════════════════════════════ -->
+<div id="modal-campana" class="modal-overlay">
+  <div class="modal-box">
+    <h3>📋 Nueva campaña de visitas</h3>
+    <form id="form-crear-campana" onsubmit="crearCampana(event)">
+      <div class="modal-field">
+        <label>Nombre de la campaña *</label>
+        <input id="campana-nombre" class="filtro-input"
+               placeholder="Ej: Centro — Mayo 2026" required/>
+      </div>
+      <div class="modal-field">
+        <label>Descripción</label>
+        <textarea id="campana-desc" class="filtro-input" style="height:55px"
+                  placeholder="Objetivo de la campaña…"></textarea>
+      </div>
+      <div class="modal-field">
+        <label>Colonia objetivo</label>
+        <select id="campana-colonia-input" class="filtro-input">
+          <option value="">Sin colonia específica</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:8px">
+        <div class="modal-field" style="flex:1">
+          <label>Fecha inicio</label>
+          <input id="campana-fecha-inicio" type="date" class="filtro-input"/>
+        </div>
+        <div class="modal-field" style="flex:1">
+          <label>Fecha fin</label>
+          <input id="campana-fecha-fin" type="date" class="filtro-input"/>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" onclick="cerrarModalCampana()">Cancelar</button>
+        <button type="submit" class="btn-primary">Crear campaña</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ══ Panel Admin ═════════════════════════════════════════════════════════ -->
+<div id="admin-panel" style="display:none;flex-direction:column;width:100%;height:100%;overflow-y:auto;background:#0f172a;padding:24px;gap:24px">
+
+  <!-- Usuarios -->
+  <div style="background:#1e293b;border-radius:12px;overflow:hidden">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid #0f172a">
+      <div>
+        <div style="font-size:15px;font-weight:700;color:#f1f5f9">Usuarios</div>
+        <div style="font-size:11px;color:#64748b;margin-top:2px">Gestiona roles y accesos</div>
+      </div>
+      <button onclick="mostrarModalCrearUsuario()"
+              style="background:#2563eb;color:#fff;border:none;border-radius:8px;
+                     padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer">
+        + Nuevo usuario
+      </button>
+    </div>
+    <div id="admin-usuarios-lista">
+      <div style="color:#475569;font-size:12px;padding:20px;text-align:center">Cargando...</div>
+    </div>
+  </div>
+
+  <!-- Asignación de campañas -->
+  <div style="background:#1e293b;border-radius:12px;overflow:hidden">
+    <div style="padding:16px 20px;border-bottom:1px solid #0f172a">
+      <div style="font-size:15px;font-weight:700;color:#f1f5f9">Asignar campañas a técnicos</div>
+      <div style="font-size:11px;color:#64748b;margin-top:2px">
+        Los técnicos solo ven las campañas que les asignas (o las sin asignar)
+      </div>
+    </div>
+    <div id="admin-asignaciones-lista">
+      <div style="color:#475569;font-size:12px;padding:20px;text-align:center">Cargando...</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Modal crear usuario -->
+<div id="modal-crear-usuario" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);
+     z-index:1000;align-items:center;justify-content:center">
+  <div style="background:#1e293b;border-radius:12px;padding:28px;width:380px;max-width:95vw">
+    <div style="font-size:16px;font-weight:700;color:#f1f5f9;margin-bottom:20px">Nuevo usuario</div>
+    <form id="form-crear-usuario" onsubmit="crearUsuario(event)">
+      <div style="margin-bottom:14px">
+        <label style="color:#94a3b8;font-size:11px;font-weight:600;display:block;margin-bottom:5px">NOMBRE</label>
+        <input id="nu-nombre" type="text" required placeholder="Nombre completo"
+               style="width:100%;background:#0f172a;border:1px solid #334155;color:#f1f5f9;
+                      padding:9px 12px;border-radius:7px;font-size:13px;outline:none;box-sizing:border-box"/>
+      </div>
+      <div style="margin-bottom:14px">
+        <label style="color:#94a3b8;font-size:11px;font-weight:600;display:block;margin-bottom:5px">CORREO</label>
+        <input id="nu-email" type="email" required placeholder="correo@ejemplo.com"
+               style="width:100%;background:#0f172a;border:1px solid #334155;color:#f1f5f9;
+                      padding:9px 12px;border-radius:7px;font-size:13px;outline:none;box-sizing:border-box"/>
+      </div>
+      <div style="margin-bottom:14px">
+        <label style="color:#94a3b8;font-size:11px;font-weight:600;display:block;margin-bottom:5px">CONTRASEÑA</label>
+        <input id="nu-pass" type="password" required placeholder="Mínimo 8 caracteres"
+               style="width:100%;background:#0f172a;border:1px solid #334155;color:#f1f5f9;
+                      padding:9px 12px;border-radius:7px;font-size:13px;outline:none;box-sizing:border-box"/>
+      </div>
+      <div style="margin-bottom:20px">
+        <label style="color:#94a3b8;font-size:11px;font-weight:600;display:block;margin-bottom:5px">ROL</label>
+        <select id="nu-role"
+                style="width:100%;background:#0f172a;border:1px solid #334155;color:#f1f5f9;
+                       padding:9px 12px;border-radius:7px;font-size:13px;outline:none">
+          <option value="tecnico">Técnico</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:flex-end">
+        <button type="button" onclick="cerrarModalCrearUsuario()"
+                style="background:#334155;color:#94a3b8;border:none;border-radius:7px;
+                       padding:9px 18px;font-size:13px;cursor:pointer">Cancelar</button>
+        <button type="submit"
+                style="background:#2563eb;color:#fff;border:none;border-radius:7px;
+                       padding:9px 18px;font-size:13px;font-weight:700;cursor:pointer">Crear</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ══ Scripts ════════════════════════════════════════════════════════════════ -->
+<script src="/js/app.js"></script>
+<script src="/js/colonias.js"></script>
+<script src="/js/reportes.js"></script>
+<script src="/js/campanas.js"></script>
+<script src="/js/admin.js"></script>
+<script>
+// Extender showTab para manejar tabs nuevas (reportes, campañas)
+const _showTabOriginal = showTab;
+showTab = function(tab, btn) {
+  // Ocultar paneles de tabs nuevas
+  ["reportes-panel", "campanas-panel", "admin-panel"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = "none";
+  });
+
+  if (["mapa","val","pred","ruta"].includes(tab)) {
+    _showTabOriginal(tab, btn);
+    return;
+  }
+
+  // Quitar active de tabs de navegación (no de botones de capas)
+  document.querySelectorAll(".tab:not(#btn-zonas):not(#btn-colonias)")
+    .forEach(t => t.classList.remove("active"));
+  if (btn) btn.classList.add("active");
+
+  // Ocultar todo
+  document.getElementById("map-wrap").style.display = "none";
+  document.getElementById("val-wrap").style.display  = "none";
+  ["panel","pred-panel","ruta-panel"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = "none";
+  });
+
+  if (tab === "reportes") {
+    const rp = document.getElementById("reportes-panel");
+    rp.style.display = "flex";
+    rp.style.width   = "320px";
+    document.getElementById("map-wrap").style.display = "";
+    cargarReportes();
+    setTimeout(() => map.invalidateSize(), 50);
+  } else if (tab === "campanas") {
+    const cp = document.getElementById("campanas-panel");
+    cp.style.display = "flex";
+    cp.style.width   = "100%";
+    cargarCampanas();
+  } else if (tab === "admin") {
+    const ap = document.getElementById("admin-panel");
+    ap.style.display = "flex";
+    cargarPanelAdmin();
+  }
+};
+
+// Inicializar capas al cargar — solo si ya hay usuario autenticado
+function _initApp() {
+  cargarColonias();
+  cargarColoniasConCandidatos();
+}
+
+// auth.js llama _bootApp → que llama _initApp si la app ya está montada
+// Si el usuario ya está logueado al cargar, onAuthStateChanged dispara primero
+window._appInit = _initApp;
+</script>
+<script src="/js/auth.js"></script>
+<script>
+// Esperar a que auth esté listo antes de inicializar la app
+const _waitAuth = setInterval(() => {
+  if (window._authReady && window._currentUser) {
+    clearInterval(_waitAuth);
+    _initApp();
+    _bootApp(window._currentUser.role);
+  }
+}, 100);
+</script>
+</body>
+</html>

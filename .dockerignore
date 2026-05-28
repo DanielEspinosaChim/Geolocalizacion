@@ -1,0 +1,14 @@
+.git
+.claude
+__pycache__
+*.pyc
+*.pyo
+.env
+mapas/
+data/raw/
+src/
+*.md
+check_gmaps.py
+consultar.py
+cruce.py
+main.py
