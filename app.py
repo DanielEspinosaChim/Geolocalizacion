@@ -78,6 +78,8 @@ FRONT = BASE / "frontend"
 PRED  = BASE / "data/procesado/predicciones_zonas.csv"
 COLONIAS_GEOJSON  = BASE / "data/procesado/colonias_merida.geojson"
 MUNICIPIO_GEOJSON = BASE / "data/procesado/municipio_merida.geojson"
+AGEBS_GEOJSON     = BASE / "data/inegi/agebs_urbanos_merida.geojson"
+MUNICIPIOS_YUC    = BASE / "data/inegi/municipios_yucatan.geojson"
 
 app = FastAPI(title="GeoFormal")
 app.mount("/css", StaticFiles(directory=str(FRONT / "css")), name="css")
@@ -235,6 +237,58 @@ def reload_colonias():
         "ok": True,
         "colonias": len(_colonias_geojson_cache.get("features", [])),
         "municipio": len(_municipio_geojson_cache.get("features", [])),
+    }
+
+
+# ── AGEBs de INEGI (zonas censales con datos demográficos) ────────────────────
+
+_agebs_geojson_cache = None
+_municipios_yuc_cache = None
+
+@app.get("/api/agebs-geojson")
+def get_agebs_geojson():
+    """GeoJSON con 545 AGEBs urbanos de Mérida (INEGI 2025) + datos del Censo 2020."""
+    global _agebs_geojson_cache
+    if _agebs_geojson_cache is None:
+        _agebs_geojson_cache = _load_geojson(AGEBS_GEOJSON)
+    return _agebs_geojson_cache
+
+@app.get("/api/municipios-yucatan-geojson")
+def get_municipios_yucatan():
+    """GeoJSON con los 106 municipios de Yucatán (INEGI 2025)."""
+    global _municipios_yuc_cache
+    if _municipios_yuc_cache is None:
+        _municipios_yuc_cache = _load_geojson(MUNICIPIOS_YUC)
+    return _municipios_yuc_cache
+
+@app.get("/api/datos-geograficos")
+def get_datos_geograficos():
+    """Resumen de todos los datos geográficos disponibles."""
+    return {
+        "colonias": {
+            "endpoint": "/api/colonias-geojson",
+            "descripcion": "640 polígonos de colonias por código postal (SEPOMEX)",
+            "features": len(_load_geojson(COLONIAS_GEOJSON).get("features", [])),
+        },
+        "municipio_merida": {
+            "endpoint": "/api/municipio-geojson",
+            "descripcion": "Polígono del municipio de Mérida (INEGI)",
+            "features": len(_load_geojson(MUNICIPIO_GEOJSON).get("features", [])),
+        },
+        "agebs": {
+            "endpoint": "/api/agebs-geojson",
+            "descripcion": "545 AGEBs urbanos con datos del Censo 2020 (INEGI)",
+            "features": len(_load_geojson(AGEBS_GEOJSON).get("features", [])),
+        },
+        "municipios_yucatan": {
+            "endpoint": "/api/municipios-yucatan-geojson",
+            "descripcion": "106 municipios de Yucatán (INEGI)",
+            "features": len(_load_geojson(MUNICIPIOS_YUC).get("features", [])),
+        },
+        "fuentes": {
+            "inegi": "https://gaia.inegi.org.mx/wscatgeo/v2/",
+            "sepomex": "Correos de México - Datos Abiertos",
+        }
     }
 
 

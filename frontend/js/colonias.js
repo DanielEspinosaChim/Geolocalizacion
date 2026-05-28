@@ -1,15 +1,18 @@
 /* ══════════════════════════════════════════════════════════════════════════
-   colonias.js — Polígonos reales de colonias de Mérida (OpenStreetMap)
-                 + contorno del municipio como fondo
+   colonias.js — Polígonos geográficos de Mérida y Yucatán (INEGI + SEPOMEX)
    ══════════════════════════════════════════════════════════════════════════ */
 
-let coloniasLayer   = null;   // L.layerGroup con los polígonos de colonias
-let municipioLayer  = null;   // L.geoJSON con el contorno de la ciudad
-let coloniasData    = [];     // [{id, nombre, count}]  — para dropdowns
-let zonasData       = [];     // Zonas Firestore (legacy fallback)
-let coloniasGeoJSON = null;   // FeatureCollection OSM colonias
-let coloniaActual   = null;   // nombre seleccionado (MAYUSCULAS) o null
-let _coloniasVisible = false;
+let coloniasLayer      = null;   // L.layerGroup con los polígonos de colonias
+let municipioLayer     = null;   // L.geoJSON con el contorno de Mérida
+let municipiosYucLayer = null;   // L.geoJSON con los 106 municipios de Yucatán
+let agebsLayer         = null;   // L.geoJSON con los 545 AGEBs de Mérida
+let coloniasData       = [];     // [{id, nombre, count}]  — para dropdowns
+let zonasData          = [];     // Zonas Firestore (legacy fallback)
+let coloniasGeoJSON    = null;   // FeatureCollection colonias
+let coloniaActual      = null;   // nombre seleccionado (MAYUSCULAS) o null
+let _coloniasVisible      = false;
+let _municipiosYucVisible = false;
+let _agebsVisible         = false;
 
 // Paleta de 14 colores para las colonias
 const COLONIA_COLORS = [
@@ -84,7 +87,7 @@ function _renderMunicipio(geojson) {
   // Se muestra solo cuando la capa de colonias está activa
 }
 
-// ── Renderiza polígonos reales de OSM ─────────────────────────────────────────
+// ── Renderiza polígonos reales (INEGI/SEPOMEX) ────────────────────────────────
 function _renderColoniasReales() {
   if (coloniasLayer) map.removeLayer(coloniasLayer);
   if (!coloniasGeoJSON || !coloniasGeoJSON.features || !coloniasGeoJSON.features.length) {
@@ -95,7 +98,18 @@ function _renderColoniasReales() {
   coloniasLayer = L.layerGroup();
 
   coloniasGeoJSON.features.forEach((feat, i) => {
-    const nombreRaw = feat.properties.nombre_raw || feat.properties.nombre || "Colonia";
+    // Soporta formato INEGI/SEPOMEX: nombre, d_codigo, tipo, colonias[]
+    const props = feat.properties || {};
+    const nombreRaw = props.nombre || props.nombre_raw || `CP ${props.d_codigo || "?"}`;
+    const tipo = props.tipo || "";
+    const cp = props.d_codigo || "";
+    const numColonias = props.num_colonias || 1;
+
+    // Tooltip con info detallada
+    let tooltipText = nombreRaw;
+    if (tipo) tooltipText += ` (${tipo})`;
+    if (cp) tooltipText += `<br><small>CP: ${cp}</small>`;
+    if (numColonias > 1) tooltipText += `<br><small>${numColonias} colonias en este CP</small>`;
 
     try {
       const color = COLONIA_COLORS[i % COLONIA_COLORS.length];
@@ -112,11 +126,11 @@ function _renderColoniasReales() {
         e.target.setStyle({ fillOpacity: 0.30, weight: 2.5, color: "#ffffff" });
       });
       lyr.on("mouseout", e => {
-        const sel = coloniaActual && coloniaActual === (feat.properties.nombre || "").toUpperCase();
+        const sel = coloniaActual && coloniaActual === (props.nombre || "").toUpperCase();
         e.target.setStyle({ fillOpacity: sel ? 0.35 : 0.14, weight: sel ? 3 : 1.2 });
       });
       lyr.on("click", () => {
-        const nombre_upper = (feat.properties.nombre || nombreRaw).toUpperCase();
+        const nombre_upper = (props.nombre || nombreRaw).toUpperCase();
         const match = _buscarColoniaMatch(nombre_upper);
         const val   = match ? match.id : nombre_upper;
         document.querySelectorAll(".select-colonia").forEach(s => { s.value = val; });
@@ -127,7 +141,7 @@ function _renderColoniasReales() {
         }
       });
 
-      lyr.bindTooltip(nombreRaw, {
+      lyr.bindTooltip(tooltipText, {
         permanent:  false,
         direction:  "center",
         className:  "colonia-tooltip",
@@ -218,5 +232,159 @@ function onColoniaChange(selectEl) {
   if (coloniaActual && coloniasLayer) _resaltarColonia(coloniaActual);
   if (typeof cargarCandidatos === "function") {
     cargarCandidatos(coloniaActual, filtroTipoActual || null);
+  }
+}
+
+
+// ══════════════════════════════════════════════════════════════════════════════
+// MUNICIPIOS DE YUCATÁN (106 municipios con polígonos INEGI)
+// ══════════════════════════════════════════════════════════════════════════════
+
+async function cargarMunicipiosYucatan() {
+  console.log("[DEBUG] Iniciando fetch /api/municipios-yucatan-geojson");
+  try {
+    const r = await fetch("/api/municipios-yucatan-geojson");
+    console.log("[DEBUG] Response status:", r.status);
+    const geojson = await r.json();
+    console.log("[DEBUG] Municipios features:", geojson?.features?.length);
+    _renderMunicipiosYucatan(geojson);
+  } catch (e) {
+    console.error("[municipios] Error al cargar:", e);
+  }
+}
+
+function _renderMunicipiosYucatan(geojson) {
+  if (municipiosYucLayer) map.removeLayer(municipiosYucLayer);
+  if (!geojson || !geojson.features || !geojson.features.length) return;
+
+  municipiosYucLayer = L.geoJSON(geojson, {
+    style: (feat) => ({
+      color:       "#f59e0b",
+      weight:      2,
+      fillColor:   "#f59e0b",
+      fillOpacity: 0.08,
+    }),
+    onEachFeature: (feat, lyr) => {
+      const props = feat.properties || {};
+      const nombre = props.nomgeo || props.nom_mun || "Municipio";
+      const pob = props.pob_total ? parseInt(props.pob_total).toLocaleString() : "?";
+
+      lyr.bindTooltip(`<b>${nombre}</b><br>Población: ${pob}`, {
+        permanent: false,
+        direction: "center",
+        className: "colonia-tooltip",
+      });
+
+      lyr.on("mouseover", e => {
+        e.target.setStyle({ fillOpacity: 0.25, weight: 3 });
+      });
+      lyr.on("mouseout", e => {
+        e.target.setStyle({ fillOpacity: 0.08, weight: 2 });
+      });
+    }
+  });
+}
+
+function toggleMunicipiosYucatan(btn) {
+  console.log("[DEBUG] toggleMunicipiosYucatan llamado");
+  if (!municipiosYucLayer) {
+    _municipiosYucVisible = true;
+    btn.classList.add("active");
+    cargarMunicipiosYucatan().then(() => {
+      console.log("[DEBUG] municipiosYucLayer cargado:", municipiosYucLayer);
+      if (_municipiosYucVisible && municipiosYucLayer) municipiosYucLayer.addTo(map);
+    }).catch(e => console.error("[DEBUG] Error cargando municipios:", e));
+    return;
+  }
+
+  _municipiosYucVisible = !_municipiosYucVisible;
+  if (_municipiosYucVisible) {
+    municipiosYucLayer.addTo(map);
+    btn.classList.add("active");
+  } else {
+    map.removeLayer(municipiosYucLayer);
+    btn.classList.remove("active");
+  }
+}
+
+
+// ══════════════════════════════════════════════════════════════════════════════
+// AGEBs DE MÉRIDA (545 zonas censales con datos del Censo 2020)
+// ══════════════════════════════════════════════════════════════════════════════
+
+async function cargarAgebs() {
+  console.log("[DEBUG] Iniciando fetch /api/agebs-geojson");
+  try {
+    const r = await fetch("/api/agebs-geojson");
+    console.log("[DEBUG] Response status:", r.status);
+    const geojson = await r.json();
+    console.log("[DEBUG] AGEBs features:", geojson?.features?.length);
+    _renderAgebs(geojson);
+  } catch (e) {
+    console.error("[agebs] Error al cargar:", e);
+  }
+}
+
+function _renderAgebs(geojson) {
+  if (agebsLayer) map.removeLayer(agebsLayer);
+  if (!geojson || !geojson.features || !geojson.features.length) return;
+
+  // Calcular max población para escala de colores
+  const pobs = geojson.features.map(f => parseInt(f.properties?.pob_total || 0));
+  const maxPob = Math.max(...pobs);
+
+  agebsLayer = L.geoJSON(geojson, {
+    style: (feat) => {
+      const pob = parseInt(feat.properties?.pob_total || 0);
+      const intensity = Math.min(pob / (maxPob * 0.5), 1); // Normalizar
+      return {
+        color:       "#10b981",
+        weight:      1,
+        fillColor:   `rgba(16, 185, 129, ${0.1 + intensity * 0.4})`,
+        fillOpacity: 0.1 + intensity * 0.4,
+      };
+    },
+    onEachFeature: (feat, lyr) => {
+      const props = feat.properties || {};
+      const clave = props.cve_ageb || props.cvegeo || "?";
+      const pob = props.pob_total ? parseInt(props.pob_total).toLocaleString() : "?";
+      const viv = props.total_viviendas_habitadas ? parseInt(props.total_viviendas_habitadas).toLocaleString() : "?";
+
+      lyr.bindTooltip(
+        `<b>AGEB ${clave}</b><br>` +
+        `Población: ${pob}<br>` +
+        `Viviendas: ${viv}`,
+        { permanent: false, direction: "center", className: "colonia-tooltip" }
+      );
+
+      lyr.on("mouseover", e => {
+        e.target.setStyle({ weight: 3, color: "#ffffff" });
+      });
+      lyr.on("mouseout", e => {
+        e.target.setStyle({ weight: 1, color: "#10b981" });
+      });
+    }
+  });
+}
+
+function toggleAgebs(btn) {
+  console.log("[DEBUG] toggleAgebs llamado");
+  if (!agebsLayer) {
+    _agebsVisible = true;
+    btn.classList.add("active");
+    cargarAgebs().then(() => {
+      console.log("[DEBUG] agebsLayer cargado:", agebsLayer);
+      if (_agebsVisible && agebsLayer) agebsLayer.addTo(map);
+    }).catch(e => console.error("[DEBUG] Error cargando agebs:", e));
+    return;
+  }
+
+  _agebsVisible = !_agebsVisible;
+  if (_agebsVisible) {
+    agebsLayer.addTo(map);
+    btn.classList.add("active");
+  } else {
+    map.removeLayer(agebsLayer);
+    btn.classList.remove("active");
   }
 }
