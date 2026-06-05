@@ -97,16 +97,48 @@ body {
   color: #60a5fa;
   border-bottom-color: #3b82f6;
 }
+/* Campañas + Validación comparten acento verde-azul para marcarlos como grupo de campo */
+button.tab[onclick*="campanas"].active,
+button.tab[onclick*="val"].active {
+  color: #34d399;
+  border-bottom-color: #10b981;
+}
 
 /* ── Layout principal ───────────────────────────────────── */
 #shell { display: flex; flex: 1; overflow: hidden; min-height: 0; }
 
 /* ── Panel lateral ──────────────────────────────────────── */
 .side-panel {
-  width: 300px;
+  width: 420px;
   flex-shrink: 0;
   background: #0d1830;
   border-right: 1px solid #1a2d56;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative; /* needed so absolute panel-modals stay inside */
+}
+
+/* ── Modales dentro del panel (no cubren el mapa) ────────── */
+.panel-modal {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: rgba(2,6,18,.72);
+  z-index: 50;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+}
+.panel-modal-box {
+  width: 392px;
+  max-height: 94%;
+  background: linear-gradient(160deg,#0f1d35 0%,#080d1c 100%);
+  border: 1px solid rgba(99,102,241,.3);
+  border-top: 3px solid #6366f1;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 24px 70px rgba(0,0,0,.95);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -463,37 +495,127 @@ tr:hover td { background: #111827; }
 .reporte-item:hover { background: #1a2540; }
 
 /* ── Campañas ───────────────────────────────────────────── */
-.campana-card {
-  padding: 14px 16px;
-  border-bottom: 1px solid #0f1929;
-  cursor: pointer;
-  transition: background .15s;
+#campanas-panel { background: #070f1f; }
+
+.campanas-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  width: 100%;
 }
-.campana-card:hover { background: #1a2540; }
+
+/* Topbar — mismo tono que el header y las tabs */
+.campanas-topbar {
+  flex-shrink: 0;
+  background: #0d1830;
+  border-bottom: 1px solid #1a2d56;
+  padding: 22px 28px;
+}
+
+#campanas-lista { overflow-y: auto; flex: 1; }
+
+.campanas-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  padding: 24px;
+  align-content: start;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* Cards — mismo estilo que .stat-card del resto de la app */
+.campana-card {
+  background: #0a1428;
+  border: 1px solid #1a2d56;
+  border-left: 3px solid #1a2d56; /* sobrescrito inline por status */
+  border-radius: 10px;
+  padding: 16px;
+  cursor: pointer;
+  transition: background .12s;
+  position: relative;
+}
+.campana-card:hover { background: #0e1e38; }
+
+/* Tarjetas de negocio */
+.negocio-campana-card {
+  background: #0a1428;
+  border: 1px solid #1a2d56;
+  border-radius: 8px;
+  padding: 12px 14px;
+  transition: background .12s;
+}
+.negocio-campana-card:hover { background: #0e1e38; }
+.negocio-campana-card.negocio-visitado { opacity: .45; }
+
+#campana-negocios-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+
+/* Botones de herramienta — mismo estilo que .layer-btn */
+.camp-tool-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  background: transparent;
+  border: 1px solid #1a2d56;
+  border-radius: 8px;
+  color: #3b6ab5;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s;
+  white-space: nowrap;
+  font-family: 'Inter', sans-serif;
+}
+.camp-tool-btn:hover { background: rgba(29,58,122,.3); border-color: #2d4488; color: #94a3b8; }
+
+/* Botones de gestión de ciclo de vida */
+.camp-mgmt-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 11px;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all .15s;
+  white-space: nowrap;
+  background: transparent;
+}
+.camp-mgmt-btn.complete { border: 1px solid #1e3a56; color: #475569; }
+.camp-mgmt-btn.complete:hover { border-color: #334155; color: #94a3b8; }
+.camp-mgmt-btn.delete   { border: 1px solid #2d1515; color: #7f3434; }
+.camp-mgmt-btn.delete:hover   { border-color: #7f1d1d; color: #f87171; }
 
 /* ── Modal ──────────────────────────────────────────────── */
 .modal-overlay {
   display: none; position: fixed; inset: 0;
-  background: rgba(0,0,0,.7); z-index: 2000;
+  background: rgba(0,5,15,.55); z-index: 2000;
   align-items: center; justify-content: center;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(2px);
 }
 .modal-box {
-  background: #0d1830;
-  border: 1px solid #1a2d56;
-  border-radius: 14px;
-  padding: 24px;
-  width: 400px;
-  max-width: 95vw;
-  box-shadow: 0 20px 60px rgba(0,0,0,.6);
+  background: linear-gradient(160deg,#0e1d38 0%,#080f20 100%);
+  border: 1px solid #1f3460;
+  border-top: 2px solid #2563eb;
+  border-radius: 12px;
+  padding: 16px 18px;
+  width: 340px;
+  max-width: 90vw;
+  box-shadow: 0 24px 64px rgba(0,0,0,.8), 0 0 0 1px rgba(37,99,235,.08);
 }
-.modal-box h3 { font-size: 14px; font-weight: 700; margin-bottom: 18px; color: #f1f5f9; }
-.modal-field  { margin-bottom: 14px; }
+.modal-box h3 { font-size: 13px; font-weight: 700; margin-bottom: 16px; color: #f1f5f9; }
+.modal-field  { margin-bottom: 12px; }
 .modal-field label {
   display: block; font-size: 10px; font-weight: 700;
-  color: #475569; text-transform: uppercase; letter-spacing: .6px; margin-bottom: 5px;
+  color: #3d5a8a; text-transform: uppercase; letter-spacing: .6px; margin-bottom: 5px;
 }
-.modal-actions { display: flex; gap: 8px; margin-top: 20px; }
+.modal-actions { display: flex; gap: 8px; margin-top: 16px; }
 
 /* ── Botones modal ──────────────────────────────────────── */
 .btn-primary {

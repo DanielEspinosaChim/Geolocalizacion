@@ -125,13 +125,19 @@ async function enviarReporte(e) {
 
 // ── Cargar y mostrar reportes ─────────────────────────────────────────────────
 
+let _reportesCargados = false;
 async function cargarReportes() {
   try {
-    const filtro  = document.getElementById("filtro-status-reporte")?.value || "";
-    let url = "/api/reportes?limit=200";
-    if (filtro) url += `&status=${filtro}`;
-    const r       = await fetch(url);
-    const reportes = await r.json();
+    const filtro = document.getElementById("filtro-status-reporte")?.value || "";
+    let reportes;
+    if (!filtro && !_reportesCargados && window._preloads?.reportes) {
+      reportes = await window._preloads.reportes;
+      _reportesCargados = true;
+    } else {
+      let url = "/api/reportes?limit=200";
+      if (filtro) url += `&status=${filtro}`;
+      reportes = await fetch(url).then(r => r.json());
+    }
     _renderListaReportes(reportes);
     _renderReportesEnMapa(reportes);
   } catch (e) {
@@ -165,6 +171,8 @@ function _renderListaReportes(reportes) {
           <div style="font-size:10px;color:#475569;margin-top:4px">${(r.fecha||"").slice(0,10)}</div>
         </div>
       </div>
+      ${r.foto_url ? `<img src="${r.foto_url}" onclick="window.open('${r.foto_url}')"
+        style="width:100%;max-height:140px;object-fit:cover;border-radius:6px;margin-top:6px;cursor:pointer">` : ""}
       <div style="display:flex;gap:4px;margin-top:6px">
         ${r.status !== "resuelto" ? `
           <button onclick="actualizarStatusReporte('${r.id}','${r.status === 'pendiente' ? 'en_proceso' : 'resuelto'}')"

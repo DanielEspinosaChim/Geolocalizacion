@@ -78,6 +78,7 @@ async function cambiarRoleUsuario(uid, role) {
     if (r.ok) {
       _showAdminToast(`Rol actualizado a ${role} — aplica en el próximo inicio de sesión`);
       await cargarUsuariosAdmin();
+      _renderAsignaciones();
     } else {
       const d = await r.json();
       alert('Error: ' + (d.detail || 'No se pudo cambiar el rol'));
@@ -88,6 +89,15 @@ async function cambiarRoleUsuario(uid, role) {
 }
 
 async function toggleUsuario(uid, disabled) {
+  if (disabled) {
+    const asignadas = _adminCampanas.filter(c => c.asignado_a === uid);
+    if (asignadas.length) {
+      const nombres = asignadas.map(c => `• ${c.nombre}`).join('\n');
+      const u = _adminUsuarios.find(u => u.uid === uid);
+      alert(`No puedes deshabilitar a ${u?.email || uid} mientras tenga campañas asignadas:\n\n${nombres}\n\nDesasígnalo primero.`);
+      return;
+    }
+  }
   try {
     await fetch(`/api/admin/usuarios/${uid}`, {
       method: 'PATCH',
@@ -95,12 +105,19 @@ async function toggleUsuario(uid, disabled) {
       body: JSON.stringify({ disabled }),
     });
     await cargarUsuariosAdmin();
+    _renderAsignaciones();
   } catch (e) {
     alert('Error de conexión: ' + e.message);
   }
 }
 
 async function eliminarUsuario(uid, email) {
+  const asignadas = _adminCampanas.filter(c => c.asignado_a === uid);
+  if (asignadas.length) {
+    const nombres = asignadas.map(c => `• ${c.nombre}`).join('\n');
+    alert(`No puedes eliminar a ${email} mientras tenga campañas asignadas:\n\n${nombres}\n\nDesasígnalo primero.`);
+    return;
+  }
   if (!confirm(`¿Eliminar a ${email}? Esta acción no se puede deshacer.`)) return;
   try {
     const r = await fetch(`/api/admin/usuarios/${uid}`, { method: 'DELETE' });
@@ -140,6 +157,7 @@ async function crearUsuario(e) {
       cerrarModalCrearUsuario();
       _showAdminToast(`Usuario ${body.email} creado con rol ${body.role}`);
       await cargarUsuariosAdmin();
+      _renderAsignaciones();
     } else {
       alert('Error: ' + (d.detail || 'No se pudo crear el usuario'));
     }
