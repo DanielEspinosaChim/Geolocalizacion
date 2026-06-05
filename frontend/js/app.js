@@ -29,7 +29,7 @@ function tipoColor(tipo){
   return '#dc2626'; // informal (default)
 }
 
-/* ── Mapa base ───────────────────────────────────────────────────────────── */
+/* ── Mapa base ─────────────────────────────────────────────────────────────────── */
 const map = L.map('map').setView([20.9674,-89.5926],11);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
   {attribution:'© OpenStreetMap',maxZoom:19}).addTo(map);
@@ -38,69 +38,224 @@ let allData=[], markers=[], markerLayer=null;
 let _rutaData=[];            // Todos los candidatos para la pestaña Ruta (sin filtro de colonia)
 let _zonasCsvData=[], zonaLayer=null, mostrarZonas=false;
 let filtroTipoActual = null;
+let _cacheReady = false;
 
-/* ── Candidatos ──────────────────────────────────────────────────────────── */
+/* ── Candidatos ────────────────────────────────────────────────────────────────── */
+
+let _cacheWatchTimer = null;
+let _lastFetchServerCount = 0;  // conteo del servidor en el último fetch de datos
+
+// Punto de entrada de carga. Llamado desde _bootApp tras confirmar login.
+// Fetch inmediato para mostrar lo disponible, luego watcher progresivo.
+async function cargarDatosIniciales() {
+  const badge = document.getElementById('badge');
+  badge.textContent = '⏳ Cargando…';
+  badge.style.background = '#f97316';
+  try {
+    const data = await fetch('/api/candidatos').then(r => r.json());
+    if (data.length > 0) {
+      allData = data; _rutaData = data.slice();
+      renderLista(data); renderMapa(data);
+      badge.textContent = `${data.length.toLocaleString()} candidatos cargando…`;
+    }
+  } catch(e) { /* continúa al watcher */ }
+  _watchCacheReady();
+}
+
+// Polling liviano (/api/cache-status < 100 bytes cada 500 ms).
+// Lógica de fetch de datos:
+//   - Cuando ready=true: un fetch final + stop.
+//   - Cuando allData.length === 0 y count ≥ 200: primer fetch visible.
+//   - Cuando server acumula 2000 docs más desde el último fetch: fetch incremental.
+// En warm start (inicial devuelve todos los docs): solo el fetch final cuando ready.
+async function _watchCacheReady() {
+  if (_cacheWatchTimer) { clearTimeout(_cacheWatchTimer); _cacheWatchTimer = null; }
+  const badge = document.getElementById('badge');
+  try {
+    const st = await fetch('/api/cache-status').then(r => r.json());
+
+    if (st.ready) {
+      const data = await fetch('/api/candidatos').then(r => r.json());
+      if (data.length > 0) _mergeData(data);
+      _cacheReady = true;
+      badge.textContent = `${allData.length.toLocaleString()} candidatos`;
+      badge.style.background = '#22c55e';
+      return;
+    }
+
+    const needsFetch = (allData.length === 0 && st.count >= 200) ||
+                       (st.count >= _lastFetchServerCount + 2000);
+    if (needsFetch && st.count > 0) {
+      _lastFetchServerCount = st.count;
+      const data = await fetch('/api/candidatos').then(r => r.json());
+      if (data.length > 0) _mergeData(data);
+    }
+
+    const shown = allData.length > 0 ? `${allData.length.toLocaleString()} ` : '';
+    const prog  = st.count > 0 ? `(${st.count.toLocaleString()} en servidor)` : '';
+    badge.textContent = `${shown}${prog} cargando…`;
+    badge.style.background = '#f97316';
+    _cacheWatchTimer = setTimeout(_watchCacheReady, 500);
+  } catch(e) {
+    _cacheWatchTimer = setTimeout(_watchCacheReady, 1500);
+  }
+}
+
+// Fusiona newData con allData: actualiza lista y agrega solo los marcadores nuevos.
+function _mergeData(newData) {
+  if (newData.length <= allData.length) return;
+  const known  = new Set(allData.map(c => c.place_id));
+  const nuevos = newData.filter(c => !known.has(c.place_id));
+  allData = newData; _rutaData = newData.slice();
+  renderLista(newData);
+  if (nuevos.length > 0) _agregarMarcadores(nuevos);
+}
+
+// Agrega marcadores nuevos al cluster sin destruirlo (para cargas incrementales)
+function _agregarMarcadores(data) {
+  if (!markerLayer) { renderMapa(data); return; }
+  const nuevosLeaflet = [];
+  data.forEach(c => {
+    if (!c.lat || !c.lng) return;
+    const idx   = allData.findIndex(x => x.place_id === c.place_id);
+    const color = tipoColor(c.tipo || 'informal');
+    const m = L.circleMarker([c.lat, c.lng],
+      { radius: 7, color: '#fff', weight: 1.5, fillColor: color, fillOpacity: .85 });
+    m.bindPopup(()=>popupHtml(c,idx));
+    m._popupIdx = idx;
+    m.on('click', () => resaltar(idx));
+    nuevosLeaflet.push(m);
+    markers.push({ marker: m, idx, data: c });
+  });
+  markerLayer.addLayers(nuevosLeaflet);
+}
+
 async function cargarCandidatos(colonia=null, tipo=null){
-  let url = '/api/candidatos?limit=2000';
-  if(colonia) url += `&colonia=${encodeURIComponent(colonia)}`;
-  if(tipo)    url += `&tipo=${tipo}`;
+  const badge = document.getElementById('badge');
+  let url = '/api/candidatos';
+  const params = [];
+  if(colonia) params.push(`colonia=${encodeURIComponent(colonia)}`);
+  if(tipo)    params.push(`tipo=${tipo}`);
+  if(params.length) url += '?' + params.join('&');
+
+  badge.textContent = '⏳ Filtrando…';
+  badge.style.background = '#f97316';
   const r = await fetch(url);
   allData = await r.json();
-  document.getElementById('badge').textContent = allData.length+' candidatos';
+  badge.textContent = allData.length.toLocaleString()+' candidatos';
+  badge.style.background = '#22c55e';
   renderLista(allData);
   renderMapa(allData);
 }
 
+function popupHtml(c, i){
+  const gurl = `https://www.google.com/maps/dir/?api=1&destination=${c.lat},${c.lng}`;
+  const wurl = `https://waze.com/ul?ll=${c.lat},${c.lng}&navigate=yes`;
+  const t = c.tipo || 'informal';
+  return `
+    <div class="pbox">
+      <div class="pnom">${c.nombre}</div>
+      <div class="ptip">${tipoLeg(c.tipos)}</div>
+      <div class="ptipo-row">
+        <select id="tipo-sel-${c.place_id}">
+          <option value="informal"   ${t==='informal'   ?'selected':''}>🔴 Informal</option>
+          <option value="en_proceso" ${t==='en_proceso' ?'selected':''}>🟠 En proceso</option>
+          <option value="formal"     ${t==='formal'     ?'selected':''}>🟢 Formal</option>
+        </select>
+        <button id="btn-guardar-${c.place_id}" onclick="guardarTipo('${c.place_id}', ${i})">Guardar</button>
+      </div>
+      <a class="bnav"  href="${gurl}" target="_blank">📍 Ir en Google Maps</a>
+      <a class="bwaze" href="${wurl}" target="_blank">🚗 Abrir en Waze</a>
+    </div>`;
+}
+
 function renderMapa(data){
   if(markerLayer) map.removeLayer(markerLayer);
-  markerLayer = L.layerGroup().addTo(map);
+  markerLayer = L.markerClusterGroup({
+    chunkedLoading: true,
+    chunkInterval: 200,   // ms entre chunks — da tiempo al browser de pintar
+    chunkDelay: 50,
+    maxClusterRadius: 60,
+    spiderfyOnMaxZoom: true,
+    showCoverageOnHover: false,
+    disableClusteringAtZoom: 17,
+  });
+  // Añadir al mapa PRIMERO — así el primer chunk aparece de inmediato
+  map.addLayer(markerLayer);
+
   markers = [];
+  const leafletMarkers = [];
   data.forEach((c,i)=>{
     if(!c.lat||!c.lng) return;
     const color = tipoColor(c.tipo || 'informal');
-    const gurl  = `https://www.google.com/maps/dir/?api=1&destination=${c.lat},${c.lng}`;
-    const wurl  = `https://waze.com/ul?ll=${c.lat},${c.lng}&navigate=yes`;
     const m = L.circleMarker([c.lat,c.lng],
       {radius:7,color:'#fff',weight:1.5,fillColor:color,fillOpacity:.85});
-
-    m.bindPopup(`
-      <div class="pbox">
-        <div class="pnom">${c.nombre}</div>
-        <div class="ptip">${tipoLeg(c.tipos)}</div>
-        <div class="ptipo-row">
-          <select id="tipo-sel-${c.place_id}">
-            <option value="informal"   ${(c.tipo||'informal')==='informal'   ?'selected':''}>🔴 Informal</option>
-            <option value="en_proceso" ${(c.tipo||'')==='en_proceso'?'selected':''}>🟠 En proceso</option>
-            <option value="formal"     ${(c.tipo||'')==='formal'    ?'selected':''}>🟢 Formal</option>
-          </select>
-          <button onclick="guardarTipo('${c.place_id}', ${i})">Guardar</button>
-        </div>
-        <a class="bnav"  href="${gurl}" target="_blank">📍 Ir en Google Maps</a>
-        <a class="bwaze" href="${wurl}" target="_blank">🚗 Abrir en Waze</a>
-      </div>`);
+    // Popup lazy: el HTML se genera solo cuando el usuario abre el popup
+    m.bindPopup(()=>popupHtml(c,i));
+    m._popupIdx = i;
     m.on('click',()=>resaltar(i));
-    m.addTo(markerLayer);
+    leafletMarkers.push(m);
     markers.push({marker:m,idx:i,data:c});
   });
+  // addLayers (plural) + chunkedLoading = primer chunk visible en < 100 ms
+  markerLayer.addLayers(leafletMarkers);
 }
 
 async function guardarTipo(placeId, idx){
   const sel  = document.getElementById(`tipo-sel-${placeId}`);
+  const btn  = document.getElementById(`btn-guardar-${placeId}`);
   const tipo = sel.value;
-  const resp = await fetch(`/api/candidatos/${placeId}/tipo`, {
-    method:'PATCH', headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({tipo}),
-  });
-  const d = await resp.json();
-  if(d.ok){
-    // actualizar datos en memoria y re-colorear marker
-    const entry = markers.find(m=>m.data.place_id===placeId);
-    if(entry){
-      entry.data.tipo = tipo;
-      entry.marker.setStyle({fillColor: tipoColor(tipo)});
-    }
-    allData[idx] = {...allData[idx], tipo};
+
+  // ── Optimistic update: cambiar UI ANTES de esperar al servidor ──────────────
+  const entry    = markers.find(m => m.data.place_id === placeId);
+  const tipoAntes = (entry?.data?.tipo) || allData[idx]?.tipo || 'informal';
+
+  if (entry) {
+    entry.data.tipo = tipo;
+    entry.marker.setStyle({ fillColor: tipoColor(tipo) });
+    entry.marker.bindPopup(() => popupHtml(entry.data, idx));
   }
+  if (allData[idx]) allData[idx] = { ...allData[idx], tipo };
+  const li = document.getElementById(`ci-${idx}`);
+  if (li) li.style.borderLeft = `3px solid ${tipoColor(tipo)}`;
+
+  if (btn) { btn.disabled = true; btn.textContent = 'Guardando…'; }
+
+  // ── Llamada al servidor en segundo plano ────────────────────────────────────
+  try {
+    const resp = await fetch(`/api/candidatos/${placeId}/tipo`, {
+      method: 'PATCH', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tipo }),
+    });
+    const d = await resp.json();
+    if (d.ok) {
+      if (btn) {
+        btn.disabled = false; btn.textContent = 'Guardado ✓';
+        setTimeout(() => { if (btn) btn.textContent = 'Guardar'; }, 1500);
+      }
+      entry?.marker?.closePopup();
+      _actualizarMetricasLocales();
+    } else {
+      _revertirTipo(entry, idx, tipoAntes, btn);
+    }
+  } catch(e) {
+    _revertirTipo(entry, idx, tipoAntes, btn);
+  }
+}
+
+function _revertirTipo(entry, idx, tipoAntes, btn) {
+  if (entry) {
+    entry.data.tipo = tipoAntes;
+    entry.marker.setStyle({ fillColor: tipoColor(tipoAntes) });
+    entry.marker.bindPopup(popupHtml(entry.data, idx));
+  }
+  if (allData[idx]) allData[idx] = { ...allData[idx], tipo: tipoAntes };
+  const li = document.getElementById(`ci-${idx}`);
+  if (li) li.style.borderLeft = `3px solid ${tipoColor(tipoAntes)}`;
+  const sel = document.querySelector(`#tipo-sel-${entry?.data?.place_id}`);
+  if (sel) sel.value = tipoAntes;
+  if (btn) { btn.disabled = false; btn.textContent = 'Guardar'; }
+  alert('Error al guardar. Intenta de nuevo.');
 }
 
 function renderLista(data){
@@ -151,8 +306,7 @@ async function toggleZonas(btn) {
   if (mostrarZonas) {
     btn.classList.add('active');
     if (_zonasCsvData.length === 0) {
-      const r = await fetch('/api/predicciones');
-      _zonasCsvData = await r.json();
+      _zonasCsvData = await (window._preloads?.predicciones || fetch('/api/predicciones').then(r => r.json()));
     }
     renderZonas();
     _renderLeyendaZonas();
@@ -223,6 +377,27 @@ function _renderLeyendaZonas() {
 }
 
 /* ── Métricas ────────────────────────────────────────────────────────────── */
+
+// Recalcula desde allData local — sin red, para reflejar cambios de tipo al instante
+function _actualizarMetricasLocales() {
+  if (!allData.length) return;
+  const total      = allData.length;
+  const formales   = allData.filter(c => c.tipo === 'formal').length;
+  const enProceso  = allData.filter(c => c.tipo === 'en_proceso').length;
+  const informales = total - formales - enProceso;
+  const pct        = Math.round(informales / total * 1000) / 10;
+  document.getElementById('mets')?.querySelectorAll('.stat-card').forEach(card => {
+    const label = card.querySelector('.stat-label')?.textContent?.trim();
+    const val   = card.querySelector('.stat-value');
+    if (!val) return;
+    if (label === 'Total')      val.textContent = total.toLocaleString();
+    if (label === 'Sin reg.')   val.textContent = pct + '%';
+    if (label === 'Formales')   val.textContent = formales.toLocaleString();
+    if (label === 'En proceso') val.textContent = enProceso.toLocaleString();
+    if (label === 'Informales') val.textContent = informales.toLocaleString();
+  });
+}
+
 async function cargarMetricas(){
   const m = await fetch('/api/metricas').then(r=>r.json());
   if(!m.total) return;
@@ -239,6 +414,10 @@ async function cargarMetricas(){
       <div class="stat-card green">
         <div class="stat-label">Formales</div>
         <div class="stat-value">${m.formales.toLocaleString()}</div>
+      </div>
+      <div class="stat-card orange">
+        <div class="stat-label">En proceso</div>
+        <div class="stat-value">${(m.en_proceso||0).toLocaleString()}</div>
       </div>
       <div class="stat-card red">
         <div class="stat-label">Informales</div>
@@ -258,12 +437,18 @@ async function cargarMetricas(){
 let valCargada=false;
 async function cargarValidacion(){
   if(valCargada) return;
-  const d = await fetch('/api/muestra-validacion').then(r=>r.json());
-  document.getElementById('t-match').innerHTML=(d.matches||[]).map(m=>`
+  document.getElementById('t-match').innerHTML='<tr><td colspan="4" style="text-align:center;color:#64748b;padding:16px">Cargando…</td></tr>';
+  document.getElementById('t-inf').innerHTML='<tr><td colspan="4" style="text-align:center;color:#64748b;padding:16px">Cargando…</td></tr>';
+  const d = await (window._preloads?.validacion || fetch('/api/muestra-validacion').then(r=>r.json()));
+  const matches   = d.matches   || [];
+  const noMatches = d.no_matches || [];
+  document.getElementById('count-match').textContent = `${matches.length.toLocaleString()} registros`;
+  document.getElementById('count-inf').textContent   = `${noMatches.length.toLocaleString()} registros`;
+  document.getElementById('t-match').innerHTML = matches.map(m=>`
     <tr><td>${m.nombre}</td><td>${m.nombre_denue||'—'}</td>
     <td><span class="sbadge ${m.fuzzy_score>=85?'sh':'sm'}">${m.fuzzy_score}</span></td>
     <td>${m.distancia_m<9999?m.distancia_m+' m':'—'}</td></tr>`).join('');
-  document.getElementById('t-inf').innerHTML=(d.no_matches||[]).map(c=>`
+  document.getElementById('t-inf').innerHTML = noMatches.map(c=>`
     <tr><td>${c.nombre}</td><td>${tipoLeg(c.tipos)}</td>
     <td>${(c.lat||0).toFixed(5)}</td><td>${(c.lng||0).toFixed(5)}</td></tr>`).join('');
   valCargada=true;
@@ -473,7 +658,7 @@ function renderRutaEnMapa(d){
   const horas = Math.floor(d.tiempo_min / 60);
   const mins  = d.tiempo_min % 60;
   const tStr  = horas > 0 ? `${horas}h ${mins} min` : `${d.tiempo_min} min`;
-  const ids   = d.waypoints_ordenados.map(p=>p.place_id).filter(id=>id!=='__origen__');
+  window._rutaPlaceIds = d.waypoints_ordenados.map(p=>p.place_id).filter(id=>id&&id!=='__origen__');
 
   document.getElementById('ruta-info').innerHTML = `
     <div class="ruta-info-card">
@@ -482,7 +667,7 @@ function renderRutaEnMapa(d){
       <div class="ruta-stat"><span>📍 Paradas</span><b>${d.waypoints_ordenados.length}</b></div>
     </div>
     <button class="ruta-btn green-btn" style="margin-top:8px"
-            onclick="descargarReporte(${JSON.stringify(ids)})">
+            onclick="descargarReporte(window._rutaPlaceIds)">
       📄 Descargar reporte de visita
     </button>
     <p style="font-size:10px;color:#475569;margin-top:5px;margin-bottom:8px">
@@ -524,10 +709,12 @@ function showTab(tab, btn){
   };
   const mw  = document.getElementById('map-wrap');
   const vw  = document.getElementById('val-wrap');
+  const iw  = document.getElementById('indice-wrap');
 
   Object.values(panels).forEach(p=>{ if(p) p.style.display='none'; });
   mw.style.display = 'none';
   vw.style.display = 'none';
+  if(iw) iw.style.display = 'none';
 
   if(tab === 'mapa'){
     mw.style.display = '';
@@ -536,6 +723,10 @@ function showTab(tab, btn){
     vw.style.display = 'block';
     cargarValidacion();
     return;
+  } else if(tab === 'indice'){
+    if(iw) iw.style.display = 'flex';
+    cargarIndice();
+    return;
   } else if(tab === 'pred'){
     mw.style.display = '';
     panels.pred.style.display = 'flex';
@@ -543,8 +734,11 @@ function showTab(tab, btn){
     mw.style.display = '';
     panels.ruta.style.display = 'flex';
     // Siempre mostrar TODOS los candidatos en Ruta, sin filtro de colonia
-    if(!_rutaData.length){
-      fetch('/api/candidatos?limit=2000')
+    if(!_rutaData.length && allData.length){
+      _rutaData = allData.slice();
+      renderListaRuta();
+    } else if(!_rutaData.length){
+      fetch('/api/candidatos')
         .then(r=>r.json())
         .then(data=>{ _rutaData=data; renderListaRuta(); })
         .catch(()=>{ _rutaData=allData.slice(); renderListaRuta(); });
@@ -555,6 +749,83 @@ function showTab(tab, btn){
   setTimeout(()=>map.invalidateSize(), 50);
 }
 
-/* ── Init ────────────────────────────────────────────────────────────────── */
-cargarCandidatos();
-cargarMetricas();
+/* ── Índice de informalidad ──────────────────────────────────────────────── */
+let _indiceLoaded = false;
+async function cargarIndice(){
+  if(_indiceLoaded) return;
+  _indiceLoaded = true;
+  try {
+    const d = await (window._preloads?.indice || fetch('/api/indice').then(r=>r.json()));
+    const fmt = n => n.toLocaleString('es-MX');
+
+    const N1    = fmt(d.datos_entrada.N1_denue);
+    const ngm   = fmt(d.datos_entrada.n_gmaps_negocios);
+    const m     = fmt(d.datos_entrada.m_overlap);
+    const ninf  = fmt(d.datos_entrada.n_inf_observados);
+    const esc0  = d.escenarios[0];
+    const Ninf  = fmt(esc0.N_inf_estimado);
+
+    ['idx-N1','idx-N1b','idx-N1c'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=N1; });
+    ['idx-ngmaps'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=ngm; });
+    document.getElementById('idx-ngmaps-raw').textContent = fmt(d.datos_entrada.n_gmaps_csv || 27242);
+    ['idx-m','idx-m2'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=m; });
+    ['idx-ninf-obs','idx-ninf-obs2','idx-ninf-obs3'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=ninf; });
+    ['idx-Ninf','idx-Ninf2','idx-Ninf3'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=Ninf; });
+    document.getElementById('idx-p').textContent    = d.cobertura_gmaps_pct + '%';
+    document.getElementById('idx-mult').textContent = d.multiplicador;
+    document.getElementById('idx-I').textContent    = esc0.indice_pct + '%';
+    document.getElementById('idx-central').textContent = d.central_indice_pct + '%';
+    document.getElementById('idx-ic').textContent =
+      d.ic95_indice_inferior.low + '–' + d.ic95_indice_inferior.high + '%';
+
+    const rLow  = d.escenarios[0].indice_pct;
+    const rHigh = d.escenarios[2].indice_pct;
+    document.getElementById('idx-rango').textContent = rLow + '%–' + rHigh + '%';
+
+    const colores = ['#94a3b8','#60a5fa','#f59e0b','#f87171'];
+    document.getElementById('idx-escenarios').innerHTML = d.escenarios.map((e,i)=>{
+      const w = Math.min(100, e.indice_pct * 1.2);
+      return `
+      <div style="background:#070f1f;border:1px solid #0f2040;border-radius:10px;padding:14px 18px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div>
+            <span style="font-size:12px;font-weight:700;color:${colores[i]}">${e.etiqueta}</span>
+            <span style="font-size:11px;color:#334155;margin-left:8px">α = ${e.alpha.toFixed(2)}</span>
+          </div>
+          <div style="text-align:right">
+            <span style="font-size:18px;font-weight:800;color:${colores[i]}">${e.indice_pct}%</span>
+            <span style="font-size:10px;color:#334155;margin-left:6px">${fmt(e.N_inf_estimado)} negocios inf. estimados</span>
+          </div>
+        </div>
+        <div style="background:#0d1830;border-radius:4px;height:6px;overflow:hidden">
+          <div style="width:${w}%;height:100%;background:${colores[i]};border-radius:4px;transition:width .6s ease"></div>
+        </div>
+      </div>`;
+    }).join('');
+
+    document.getElementById('idx-refs').innerHTML = d.referencias.map(ref=>
+      `<div>· ${ref}</div>`
+    ).join('');
+
+  } catch(e) {
+    console.error('Error cargando índice:', e);
+  }
+}
+
+/* ── Precargas en background ─────────────────────────────────────────────────
+   Se llama desde _bootApp (auth.js) después del login. Dispara todos los fetches
+   en paralelo para que cada tab cargue instantáneo al abrirse.              */
+window._preloads = {};
+
+function _iniciarPrecargas() {
+  window._preloads.colonias   = fetch('/api/colonias').then(r => r.json()).catch(() => []);
+  window._preloads.indice     = fetch('/api/indice').then(r => r.json()).catch(() => null);
+  window._preloads.validacion = fetch('/api/muestra-validacion').then(r => r.json()).catch(() => null);
+  window._preloads.campanas   = fetch('/api/campanas').then(r => r.json()).catch(() => []);
+  window._preloads.reportes   = fetch('/api/reportes').then(r => r.json()).catch(() => []);
+  window._preloads.predicciones = fetch('/api/predicciones').then(r => r.json()).catch(() => []);
+}
+
+/* ── Init ────────────────────────────────────────────────────────────────────── */
+// Las llamadas a API se disparan desde _bootApp (auth.js) una vez confirmado el login,
+// con el token de Firebase ya inyectado en fetch. No llamar aquí.
