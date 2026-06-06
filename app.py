@@ -23,16 +23,23 @@ import uvicorn
 import firebase_admin
 from firebase_admin import credentials, auth as fb_auth
 
-_SA = Path(__file__).parent / "service_account.json"
-if _SA.exists() and not firebase_admin._apps:
-    firebase_admin.initialize_app(
-        credentials.Certificate(str(_SA)),
-        {"storageBucket": "canaco-info.appspot.com"},
-    )
-    print("  [Firebase] Admin SDK inicializado OK")
-else:
-    if not firebase_admin._apps:
-        print("  [Firebase] Sin service_account.json — modo local")
+_BUCKET = "canaco-info.appspot.com"
+_SA     = Path(__file__).parent / "service_account.json"
+
+if not firebase_admin._apps:
+    if _SA.exists():
+        # Desarrollo local: usa el archivo de clave
+        firebase_admin.initialize_app(
+            credentials.Certificate(str(_SA)),
+            {"storageBucket": _BUCKET},
+        )
+        print("  [Firebase] Admin SDK inicializado con service_account.json")
+    else:
+        # Cloud Run / GCP: usa Application Default Credentials (ADC)
+        firebase_admin.initialize_app(
+            options={"storageBucket": _BUCKET},
+        )
+        print("  [Firebase] Admin SDK inicializado con ADC (Cloud Run)")
 
 _firebase_ok = bool(firebase_admin._apps)
 
