@@ -518,6 +518,13 @@ function _renderTablaNegociosCampana(negocios) {
           ${resumenHtml ? `<div style="margin-top:6px">${resumenHtml}</div>` : ""}
           ${metaDatos ? `<div style="font-size:10px;color:#64748b;margin-top:5px;line-height:1.5">${metaDatos}</div>` : ""}
           ${n.notas ? `<div style="font-size:10px;color:#475569;margin-top:4px;line-height:1.4">${n.notas.slice(0, 80)}${n.notas.length > 80 ? "…" : ""}</div>` : ""}
+          ${n.visita_lat != null ? (() => {
+            const d = n.visita_distancia;
+            const c = d != null ? (d <= 100 ? '#22c55e' : d <= 300 ? '#f59e0b' : '#ef4444') : '#64748b';
+            const distTxt = d != null ? ` · a ${d} m` : '';
+            const dir = n.visita_direccion || `${n.visita_lat.toFixed(5)}, ${n.visita_lng.toFixed(5)}`;
+            return `<div class="gps-badge" style="font-size:9px;color:${c};margin-top:3px;font-weight:600;line-height:1.4">📍 ${dir}${distTxt}</div>`;
+          })() : ""}
         </div>
         ${fotoThumb}
       </div>
@@ -855,6 +862,7 @@ function volverListaCampanas() {
 
 async function abrirModalVisita(negocioId, nombre) {
   _visitaModal = { negocioId, nombre };
+  _vfFotoCleared = false;
   document.getElementById("modal-visita-negocio").textContent = nombre;
 
   // Cargar plantillas si no están en caché
@@ -874,10 +882,22 @@ async function abrirModalVisita(negocioId, nombre) {
     || { campos: [], id: null };
   _visitaModal.plantillaId = plantilla.id;
 
-  // Pre-llenar campos fijos: visitado y notas
+  // Pre-llenar campos fijos: visitado, notas y foto existente
   _vfSetVisitado(!!negocioData.completado);
   const notasEl = document.getElementById("vf-fixed-notas");
   if (notasEl) notasEl.value = negocioData.notas || "";
+  const fotoPrev = document.getElementById("vf-fixed-foto-prev");
+  const fotoInp  = document.getElementById("vf-fixed-foto");
+  const fotoWrap = document.getElementById("vf-fixed-foto-wrap");
+  if (fotoInp) fotoInp.value = "";
+  if (negocioData.foto_visita_url && fotoPrev && fotoWrap) {
+    fotoPrev.src = negocioData.foto_visita_url;
+    fotoPrev.onclick = () => window.open(negocioData.foto_visita_url);
+    fotoWrap.style.display = "inline-flex";
+  } else {
+    if (fotoPrev) fotoPrev.src = "";
+    if (fotoWrap) fotoWrap.style.display = "none";
+  }
 
   _renderSelectorPlantilla(plantilla.id);
   _renderCamposVisita(plantilla.campos, datosExist);
@@ -938,16 +958,19 @@ function _cambiarPlantillaVisita(plantillaId) {
 function cerrarModalVisita() {
   document.getElementById("modal-visita").style.display = "none";
   _visitaModal = { negocioId: null, nombre: null };
+  _vfFotoCleared = false;
+  _vfClearFoto();
 }
 
 function _renderCamposVisita(campos, datosExist) {
   const el = document.getElementById("modal-visita-campos");
-  if (!campos.length) {
-    el.innerHTML = `<div style="color:#475569;font-size:12px;padding:12px;text-align:center">
-      Sin campos configurados en la plantilla.</div>`;
+  // Excluir "notas" porque ya existe el campo fijo en el modal
+  const camposFiltrados = campos.filter(c => c.key !== "notas");
+  if (!camposFiltrados.length) {
+    el.innerHTML = "";
     return;
   }
-  el.innerHTML = campos.map(c => {
+  el.innerHTML = camposFiltrados.map(c => {
     const val = datosExist[c.key];
     return `<div style="margin-bottom:14px">
       <div style="font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;
@@ -1003,15 +1026,22 @@ function _inputParaCampo(c, val) {
                object-fit:cover;border-radius:6px;margin-right:8px;vertical-align:middle"/>`;
       return `<div style="display:flex;align-items:center">
         ${preview}
-        <input id="${id}" type="file" accept="image/*" capture="environment" style="display:none"
+        <input id="${id}" type="file" accept="image/*" style="display:none"
                onchange="_vfFotoChange('${id}')"/>
-        <button type="button" onclick="document.getElementById('${id}').click()"
-                style="flex:1;padding:8px;border-radius:7px;
-                       border:1px dashed #334155;background:transparent;
-                       color:#60a5fa;font-size:11px;font-weight:600;
-                       cursor:pointer;font-family:'Inter',sans-serif">
-          📷 Subir foto
-        </button>
+        <div style="flex:1;display:flex;gap:5px">
+          <button type="button" onclick="_vfPlantillaAbrirCamara('${id}')"
+                  style="flex:1;padding:7px 4px;border-radius:7px;border:1px solid #1e3a5f;
+                         background:#0a1e38;color:#60a5fa;font-size:11px;font-weight:600;
+                         cursor:pointer;font-family:'Inter',sans-serif">
+            📷 Cámara
+          </button>
+          <button type="button" onclick="_vfPlantillaAbrirGaleria('${id}')"
+                  style="flex:1;padding:7px 4px;border-radius:7px;border:1px dashed #334155;
+                         background:transparent;color:#94a3b8;font-size:11px;font-weight:600;
+                         cursor:pointer;font-family:'Inter',sans-serif">
+            🖼 Galería
+          </button>
+        </div>
       </div>`;
     }
     default:
@@ -1039,12 +1069,74 @@ function _vfBoolChange(groupId) {
   });
 }
 
+function _vfPlantillaAbrirCamara(id) {
+  _abrirCamara(id, file => {
+    const dt = new DataTransfer();
+    dt.items.add(file);
+    document.getElementById(id).files = dt.files;
+    _vfFotoChange(id);
+  });
+}
+
+function _vfPlantillaAbrirGaleria(id) {
+  const inp = document.getElementById(id);
+  inp.removeAttribute('capture');
+  inp.click();
+}
+
 function _vfFotoChange(id) {
   const input = document.getElementById(id);
   const prev = document.getElementById(`${id}-prev`);
   if (!input || !input.files || !input.files[0] || !prev) return;
   prev.src = URL.createObjectURL(input.files[0]);
   prev.style.display = "inline-block";
+}
+
+function _vfAbrirCamara() {
+  _abrirCamara('vf-fixed-foto', file => {
+    const dt = new DataTransfer();
+    dt.items.add(file);
+    document.getElementById('vf-fixed-foto').files = dt.files;
+    _vfFixedFotoChange();
+  });
+}
+
+function _vfAbrirGaleria() {
+  const inp = document.getElementById('vf-fixed-foto');
+  inp.removeAttribute('capture');
+  inp.click();
+}
+
+function _vfFixedFotoChange() {
+  const input = document.getElementById('vf-fixed-foto');
+  const prev  = document.getElementById('vf-fixed-foto-prev');
+  const wrap  = document.getElementById('vf-fixed-foto-wrap');
+  if (!input || !input.files[0] || !prev) return;
+  const url = URL.createObjectURL(input.files[0]);
+  prev.src = url;
+  prev.onclick = () => window.open(url);
+  if (wrap) wrap.style.display = 'inline-flex';
+}
+
+let _vfFotoCleared = false;
+
+function _vfClearFoto() {
+  const inp  = document.getElementById('vf-fixed-foto');
+  const prev = document.getElementById('vf-fixed-foto-prev');
+  const wrap = document.getElementById('vf-fixed-foto-wrap');
+  if (inp)  { inp.value = ''; }
+  if (prev) { prev.src = ''; }
+  if (wrap) { wrap.style.display = 'none'; }
+  _vfFotoCleared = true;
+}
+
+function _haversineM(lat1, lng1, lat2, lng2) {
+  const R = 6371000;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a = Math.sin(dLat / 2) ** 2
+    + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLng / 2) ** 2;
+  return Math.round(R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
 }
 
 async function guardarVisita() {
@@ -1082,25 +1174,32 @@ async function guardarVisita() {
   const notasEl = document.getElementById("vf-fixed-notas");
   const notas = notasEl ? notasEl.value.trim() : "";
 
+  // Foto fija del modal (tiene prioridad sobre la de plantilla)
+  const fixedFotoInput = document.getElementById('vf-fixed-foto');
+  if (fixedFotoInput && fixedFotoInput.files[0]) fotoFile = fixedFotoInput.files[0];
+
+  const negId  = _visitaModal.negocioId;
+  const negData = _campanaNegocios.find(n => n.negocio_id === negId);
+  const base   = `/api/campanas/${campanaActualId}/negocios/${negId}`;
+
   const fd = new FormData();
   fd.append("datos_json", JSON.stringify(datos));
   fd.append("plantilla_id", _visitaModal.plantillaId || "");
+  fd.append("completado", visitado ? "true" : "false");
   if (fotoFile) fd.append("foto", fotoFile);
-
-  const negId = _visitaModal.negocioId;
-  const base = `/api/campanas/${campanaActualId}/negocios/${negId}`;
 
   // Guardar visita (datos de plantilla + foto)
   const resp = await fetch(`${base}/visita`, { method: "POST", body: fd });
 
-  // Guardar notas (completado lo establece automáticamente el POST de visita)
-  if (notas) {
-    await fetch(base, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ notas }),
-    });
-  }
+  // Forzar completado y notas via PATCH (garantiza el valor correcto)
+  const patchBody = { completado: visitado, ...(notas ? { notas } : {}) };
+  // Si el usuario borró la foto activamente (X) y no subió una nueva, limpiarla
+  if (_vfFotoCleared && !fotoFile) patchBody.foto_visita_url = "";
+  await fetch(base, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(patchBody),
+  });
 
   if (btn) { btn.disabled = false; btn.textContent = "Guardar visita"; }
 
@@ -1111,9 +1210,65 @@ async function guardarVisita() {
     _campanaNegocios = d.negocios || [];
     _renderTablaNegociosCampana(_campanaNegocios);
     _actualizarMeta(d.campana);
+    // GPS en background — no bloquea el cierre del modal
+    _guardarGPSVisita(base, negData);
   } else {
     alert("Error al guardar la visita.");
   }
+}
+
+async function _guardarGPSVisita(base, negData) {
+  try {
+    const pos = await new Promise((resolve, reject) =>
+      navigator.geolocation.getCurrentPosition(resolve, reject,
+        { enableHighAccuracy: true, timeout: 8000, maximumAge: 0 })
+    );
+    const gps = {
+      visita_lat:       pos.coords.latitude,
+      visita_lng:       pos.coords.longitude,
+      visita_precision: Math.round(pos.coords.accuracy),
+    };
+    if (negData && negData.lat && negData.lng) {
+      const dist = _haversineM(negData.lat, negData.lng, pos.coords.latitude, pos.coords.longitude);
+      if (dist < 10000) gps.visita_distancia = dist;
+    }
+    try {
+      const geo = await fetch(
+        `https://nominatim.openstreetmap.org/reverse?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&format=json`
+      ).then(r => r.json());
+      gps.visita_direccion = (geo.display_name || "").split(",").slice(0, 3).join(",").trim();
+    } catch { gps.visita_direccion = `${pos.coords.latitude.toFixed(5)}, ${pos.coords.longitude.toFixed(5)}`; }
+
+    await fetch(base, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(gps),
+    });
+    // Actualizar tarjeta en el DOM directamente (el modal ya está cerrado)
+    const negId = base.split("/negocios/")[1];
+    const neg = _campanaNegocios.find(n => n.negocio_id === negId);
+    if (neg) {
+      Object.assign(neg, gps);
+      const row = document.getElementById(`cn-row-${negId}`);
+      if (row) _actualizarBadgeGPS(row, gps);
+    }
+  } catch { /* GPS no disponible o denegado — sin problema */ }
+}
+
+function _actualizarBadgeGPS(row, gps) {
+  let badge = row.querySelector('.gps-badge');
+  if (!badge) {
+    badge = document.createElement('div');
+    badge.className = 'gps-badge';
+    const notasEl = row.querySelector('[style*="color:#475569"]');
+    if (notasEl) notasEl.after(badge);
+    else row.querySelector('[style*="flex:1"]')?.append(badge);
+  }
+  const d = gps.visita_distancia;
+  const c = d != null ? (d <= 100 ? '#22c55e' : d <= 300 ? '#f59e0b' : '#ef4444') : '#64748b';
+  const distTxt = d != null ? ` · a ${d} m` : '';
+  badge.style.cssText = `font-size:9px;color:${c};margin-top:3px;font-weight:600;line-height:1.4`;
+  badge.textContent = `📍 ${gps.visita_direccion || ''}${distTxt}`;
 }
 
 

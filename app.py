@@ -87,16 +87,48 @@ MUNICIPIOS_YUC    = BASE / "data/inegi/municipios_yucatan.geojson"
 UPLOADS_DIR  = BASE / "data/uploads"
 UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
 
+_DISK_CACHE = BASE / "data/procesado/candidatos_slim_cache.json.gz"
+
+def _load_disk_cache():
+    """Carga el slim JSON desde disco (si existe) — instante, sin Firestore."""
+    global _slim_json, _slim_json_gz, _cache_progress
+    if not _DISK_CACHE.exists():
+        return
+    try:
+        gz = _DISK_CACHE.read_bytes()
+        raw = gzip.decompress(gz)
+        with _slim_json_lock:
+            _slim_json    = raw
+            _slim_json_gz = gz
+        _cache_progress = "ready"
+        print(f"  [Cache] Disco: {len(json.loads(raw))} candidatos cargados en <1s")
+    except Exception as e:
+        print(f"  [Cache] Disco: fallo al leer — {e}")
+
+
+def _save_disk_cache():
+    """Persiste el slim JSON a disco para warm-start en el próximo arranque."""
+    try:
+        with _slim_json_lock:
+            gz = _slim_json_gz
+        if gz:
+            _DISK_CACHE.write_bytes(gz)
+            print(f"  [Cache] Disco: guardado {len(gz):,} bytes en {_DISK_CACHE.name}")
+    except Exception as e:
+        print(f"  [Cache] Disco: fallo al guardar — {e}")
+
+
 @asynccontextmanager
 async def _lifespan(app: FastAPI):
-    """Startup: dispara precarga del cache una sola vez por proceso."""
+    """Startup: carga disco primero (instante) y luego Firestore en background."""
+    global _cache_loading
+    _load_disk_cache()
     if _firebase_ok:
-        global _cache_loading
         with _cache_lock:
             if not _cache_loading:
                 _cache_loading = True
                 threading.Thread(target=_load_cache_background, daemon=True).start()
-                print("  [Cache] Pre-carga iniciada en background")
+                print("  [Cache] Pre-carga Firestore iniciada en background")
     yield  # app corriendo
     # (shutdown: nada que limpiar — threads daemon mueren solos)
 
@@ -137,22 +169,23 @@ def _rebuild_slim_json(docs: list):
 
 
 def _load_cache_background():
-    """Carga Firestore paginado en background; actualiza _cands_cache cada 200 docs.
-    - _cache_loading permanece True durante todos los reintentos (se libera en finally).
-    - all_docs y last_doc se preservan entre reintentos: cada intento reanuda
-      desde el último doc exitoso, nunca retrocede ni sobreescribe datos previos.
+    """Carga Firestore paginado en background; actualiza _cands_cache cada 50 docs.
+    Si ya hay datos del disco-cache, el refresh de Firestore es silencioso
+    (no cambia _cache_progress) para que el frontend no vea "cargando" otra vez.
     """
     global _cands_cache, _cands_ts, _cache_loading, _cache_progress
     t0        = time.time()
-    all_docs  = []          # acumulador entre reintentos
-    last_doc  = None        # cursor de paginación; se preserva en retries
+    all_docs  = []
+    last_doc  = None
     batch_num = 0
+    silent    = _cache_progress == "ready"   # disco-cache ya cargó → refresh silencioso
     try:
         max_retries = 3
         for attempt in range(max_retries):
             try:
-                _cache_progress = f"loading ({len(all_docs)} docs)" if all_docs else "loading"
-                print(f"  [Cache] Cargando... (intento {attempt+1}/{max_retries}, base={len(all_docs)} docs)")
+                if not silent:
+                    _cache_progress = f"loading ({len(all_docs)} docs)" if all_docs else "loading"
+                print(f"  [Cache] {'Refresh' if silent else 'Cargando'}... (intento {attempt+1}/{max_retries})")
                 while True:
                     batch_num += 1
                     q = (_fdb.collection("candidatos").limit(2000)
@@ -162,21 +195,24 @@ def _load_cache_background():
                     for doc in q.stream(timeout=60):
                         batch_docs.append(doc)
                         all_docs.append(doc)
-                        if len(all_docs) % 200 == 0:
+                        if len(all_docs) % 50 == 0:
                             snap = [d.to_dict() for d in all_docs]
                             with _cache_lock:
                                 _cands_cache = snap
                                 if _cands_ts == 0.0:
                                     _cands_ts = time.time()
-                            _cache_progress = f"loading ({len(all_docs)} docs)"
-                            _rebuild_slim_json(snap)
+                            if not silent:
+                                _cache_progress = f"loading ({len(all_docs)} docs)"
+                                _rebuild_slim_json(snap)  # solo actualiza slim JSON en carga cold
                     if not batch_docs:
                         break  # stream agotado — todos los docs están en all_docs
                     last_doc = batch_docs[-1]
                     snap = [doc.to_dict() for doc in all_docs]
                     with _cache_lock:
                         _cands_cache = snap
-                    _cache_progress = f"loading ({len(all_docs)} docs, lote {batch_num})"
+                    if not silent:
+                        _cache_progress = f"loading ({len(all_docs)} docs, lote {batch_num})"
+                        _rebuild_slim_json(snap)  # solo en cold start
                     print(f"  [Cache] Lote {batch_num}: {len(batch_docs)} docs (total: {len(all_docs)})")
                 # Éxito: finalizar cache
                 snap = [doc.to_dict() for doc in all_docs]
@@ -185,12 +221,14 @@ def _load_cache_background():
                     _cands_ts    = time.time()
                 _rebuild_slim_json(snap)
                 _cache_progress = "ready"
-                print(f"  [Cache] OK {len(_cands_cache)} candidatos en {round(time.time()-t0,1)}s")
+                print(f"  [Cache] {'Refresh' if silent else 'OK'} {len(_cands_cache)} candidatos en {round(time.time()-t0,1)}s")
+                _save_disk_cache()
                 return  # finally libera _cache_loading
             except Exception as e:
                 print(f"  [Cache] Intento {attempt+1}/{max_retries} falló en doc {len(all_docs)}: {e}")
                 if attempt < max_retries - 1:
-                    _cache_progress = f"retrying ({len(all_docs)} docs, intento {attempt+2})"
+                    if not silent:
+                        _cache_progress = f"retrying ({len(all_docs)} docs, intento {attempt+2})"
                     time.sleep(2 ** attempt)
                 else:
                     snap = [d.to_dict() for d in all_docs]
@@ -203,7 +241,8 @@ def _load_cache_background():
                         _cache_progress = "ready"
                         print(f"  [Cache] Usando {len(snap)} docs del cache parcial")
                     else:
-                        _cache_progress = "error"
+                        if not silent:
+                            _cache_progress = "error"
                         print("  [Cache] Sin datos — error fatal")
     finally:
         with _cache_lock:
@@ -1198,6 +1237,7 @@ async def guardar_visita_negocio(
     foto:         Optional[UploadFile] = File(None),
     datos_json:   str                  = Form("{}"),
     plantilla_id: str                  = Form(""),
+    completado:   str                  = Form("true"),
 ):
     if _fdb is None:
         raise HTTPException(503, "Firestore no disponible")
@@ -1230,7 +1270,7 @@ async def guardar_visita_negocio(
 
     safe_id = negocio_id.replace("/", "__")
     upd = {
-        "completado":   True,
+        "completado":   completado.lower() not in ("false", "0", ""),
         "fecha_visita": datetime.now().strftime("%Y-%m-%d"),
         "visita_datos": datos,
         "notas":        datos.get("notas", ""),

@@ -52,36 +52,36 @@
 <div id="tabs">
   <button class="tab active" onclick="showTab('mapa',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6-10l6-3m0 13l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-1.447-.894L15 9m0 0V3"/></svg>
-    Mapa
+    <span class="tab-text">Mapa</span>
   </button>
   <button class="tab" onclick="showTab('pred',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-    Predicción
+    <span class="tab-text">Predicción</span>
   </button>
   <button class="tab" onclick="showTab('ruta',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13V7m0 0l6-3m0 0l4.553-2.276A1 1 0 0121 5.618v10.764a1 1 0 01-.553.894L15 19.5m0-15.5v15.5"/></svg>
-    Ruta
+    <span class="tab-text">Ruta</span>
   </button>
   <button class="tab" onclick="showTab('reportes',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-    Reportes
+    <span class="tab-text">Reportes</span>
   </button>
   <div style="width:1px;background:#1a2d56;margin:10px 2px;flex-shrink:0"></div>
   <button class="tab" onclick="showTab('campanas',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-    Campañas
+    <span class="tab-text">Campañas</span>
   </button>
   <button class="tab" onclick="showTab('val',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-    Validación
+    <span class="tab-text">Validación</span>
   </button>
   <button class="tab" onclick="showTab('indice',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-    Índice
+    <span class="tab-text">Índice</span>
   </button>
   <button class="tab admin-only" id="tab-admin" onclick="showTab('admin',this)" style="display:none">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-    Admin
+    <span class="tab-text">Admin</span>
   </button>
 </div>
 
@@ -90,6 +90,8 @@
 
   <!-- ══ PANEL MAPA ══════════════════════════════════════════════════════════ -->
   <div id="panel" class="side-panel">
+
+    <div class="drag-handle" onpointerdown="initPanelDrag(event)"></div>
 
     <div class="psec">
       <h2>Candidatos</h2>
@@ -155,6 +157,8 @@
   <!-- ══ PANEL RUTA ══════════════════════════════════════════════════════════ -->
   <div id="ruta-panel" class="side-panel" style="display:none;flex-direction:column">
 
+    <div class="drag-handle" onpointerdown="initPanelDrag(event)"></div>
+
     <!-- Controles fijos arriba -->
     <div style="flex-shrink:0">
       <div class="psec" style="padding-bottom:8px">
@@ -206,8 +210,29 @@
   <!-- ══ PANEL REPORTES ══════════════════════════════════════════════════════ -->
   <div id="reportes-panel" class="side-panel" style="display:none">
 
-    <div class="psec">
-      <h2>Nuevo reporte ciudadano</h2>
+    <div class="drag-handle" onpointerdown="initPanelDrag(event)"></div>
+
+    <!-- Filtro + lista PRIMERO (visible inmediatamente al abrir) -->
+    <div class="psec" style="flex-shrink:0">
+      <h2>Historial de reportes</h2>
+      <select id="filtro-status-reporte" class="filtro-input" onchange="cargarReportes()">
+        <option value="">Todos los estados</option>
+        <option value="pendiente">Pendiente</option>
+        <option value="en_proceso">En proceso</option>
+        <option value="resuelto">Resuelto</option>
+      </select>
+    </div>
+
+    <div id="lista-reportes" style="flex:1;overflow-y:auto;min-height:80px"></div>
+
+    <!-- Formulario nuevo reporte AL FINAL (scroll hacia abajo) -->
+    <div class="psec" style="flex-shrink:0;border-top:2px solid #1d3a7a">
+      <h2 class="nuevo-reporte-title" style="margin-bottom:12px">Nuevo reporte ciudadano</h2>
+      <button class="nuevo-reporte-toggle" type="button" onclick="toggleNuevoReporteForm()">
+        <span>➕ Nuevo reporte ciudadano</span>
+        <span id="nuevo-reporte-arrow" style="font-size:10px">▼</span>
+      </button>
+      <div id="form-reporte-wrap">
       <form id="form-reporte" onsubmit="enviarReporte(event)">
         <div style="margin-bottom:10px">
           <label style="font-size:10px;color:#475569;font-weight:700;text-transform:uppercase;
@@ -242,27 +267,42 @@
         <div style="margin-bottom:10px">
           <label style="font-size:10px;color:#475569;font-weight:700;text-transform:uppercase;
                         letter-spacing:.6px;display:block;margin-bottom:5px">Foto (opcional)</label>
-          <input id="reporte-foto" type="file" accept="image/*"
-                 class="filtro-input" style="padding:5px;font-size:11px"/>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div id="reporte-foto-wrap" style="display:none;position:relative;flex-shrink:0">
+              <img id="reporte-foto-prev"
+                   style="width:56px;height:56px;object-fit:cover;border-radius:6px;
+                          cursor:pointer;display:block"/>
+              <button type="button" onclick="_reporteClearFoto()"
+                      style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;
+                             border-radius:50%;background:#ef4444;border:2px solid #0a1428;
+                             color:#fff;font-size:9px;cursor:pointer;line-height:1;padding:0;
+                             display:flex;align-items:center;justify-content:center;font-weight:700">✕</button>
+            </div>
+            <input id="reporte-foto" type="file" accept="image/*" style="display:none"
+                   onchange="_reporteFotoChange()"/>
+            <div style="flex:1;display:flex;gap:5px">
+              <button type="button" onclick="_reporteAbrirCamara()"
+                      style="flex:1;padding:8px 4px;border-radius:7px;border:1px solid #1e3a5f;
+                             background:#0a1e38;color:#60a5fa;font-size:11px;font-weight:600;
+                             cursor:pointer;font-family:'Inter',sans-serif">
+                📷 Cámara
+              </button>
+              <button type="button" onclick="_reporteAbrirGaleria()"
+                      style="flex:1;padding:8px 4px;border-radius:7px;border:1px dashed #334155;
+                             background:transparent;color:#94a3b8;font-size:11px;font-weight:600;
+                             cursor:pointer;font-family:'Inter',sans-serif">
+                🖼 Galería
+              </button>
+            </div>
+          </div>
         </div>
         <button type="submit" id="btn-enviar-reporte" class="ruta-btn green-btn">
           📤 Enviar reporte
         </button>
         <div id="reporte-exito">✅ Reporte enviado correctamente</div>
       </form>
+      </div><!-- /form-reporte-wrap -->
     </div>
-
-    <div class="psec" style="flex-shrink:0">
-      <h2>Filtrar reportes</h2>
-      <select id="filtro-status-reporte" class="filtro-input" onchange="cargarReportes()">
-        <option value="">Todos los estados</option>
-        <option value="pendiente">Pendiente</option>
-        <option value="en_proceso">En proceso</option>
-        <option value="resuelto">Resuelto</option>
-      </select>
-    </div>
-
-    <div id="lista-reportes" style="flex:1;overflow-y:auto"></div>
   </div>
 
   <!-- ══ PANEL CAMPAÑAS ══════════════════════════════════════════════════════ -->
@@ -448,6 +488,37 @@
           <textarea id="vf-fixed-notas" class="filtro-input"
                     style="margin:0;height:64px;resize:vertical"
                     placeholder="Observaciones, comentarios…"></textarea>
+          <!-- Foto del local -->
+          <div style="font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;
+                      letter-spacing:.06em;margin:10px 0 6px">Foto del local</div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div id="vf-fixed-foto-wrap" style="display:none;position:relative;flex-shrink:0">
+              <img id="vf-fixed-foto-prev"
+                   style="width:56px;height:56px;object-fit:cover;border-radius:6px;
+                          cursor:pointer;display:block"/>
+              <button type="button" onclick="_vfClearFoto()"
+                      style="position:absolute;top:-6px;right:-6px;width:18px;height:18px;
+                             border-radius:50%;background:#ef4444;border:2px solid #0d1830;
+                             color:#fff;font-size:9px;cursor:pointer;line-height:1;padding:0;
+                             display:flex;align-items:center;justify-content:center;font-weight:700">✕</button>
+            </div>
+            <input id="vf-fixed-foto" type="file" accept="image/*" style="display:none"
+                   onchange="_vfFixedFotoChange()"/>
+            <div style="flex:1;display:flex;gap:5px">
+              <button type="button" onclick="_vfAbrirCamara()"
+                      style="flex:1;padding:7px 4px;border-radius:7px;border:1px solid #1e3a5f;
+                             background:#0a1e38;color:#60a5fa;font-size:11px;font-weight:600;
+                             cursor:pointer;font-family:'Inter',sans-serif">
+                📷 Cámara
+              </button>
+              <button type="button" onclick="_vfAbrirGaleria()"
+                      style="flex:1;padding:7px 4px;border-radius:7px;border:1px dashed #334155;
+                             background:transparent;color:#94a3b8;font-size:11px;font-weight:600;
+                             cursor:pointer;font-family:'Inter',sans-serif">
+                🖼 Galería
+              </button>
+            </div>
+          </div>
         </div>
 
         <div id="modal-visita-campos" style="flex:1;overflow-y:auto;min-height:0;padding-right:3px"></div>
@@ -528,7 +599,7 @@
       <div style="background:#0d1830;border:1px solid #1a2d56;border-radius:16px;padding:28px;margin-bottom:24px">
         <div style="font-size:12px;font-weight:700;color:#3b82f6;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px">Los dos conjuntos de datos</div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+        <div class="idx-grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
           <!-- Google Maps -->
           <div style="background:#0a1428;border:1px solid #f59e0b44;border-radius:12px;padding:20px">
             <div style="font-size:11px;color:#f59e0b;font-weight:700;text-transform:uppercase;margin-bottom:12px">🗺️ Tu descarga de Google Maps</div>
@@ -554,7 +625,7 @@
         <!-- Resultado del cruce -->
         <div style="background:#070f1f;border:1px solid #0f2040;border-radius:12px;padding:20px">
           <div style="font-size:11px;color:#64748b;font-weight:700;text-transform:uppercase;margin-bottom:14px">Al cruzar los dos conjuntos, de los 24,147 negocios de Google Maps:</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="idx-grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
             <div style="background:#0d1830;border-radius:10px;padding:14px;text-align:center;border:1px solid #22c55e33">
               <div style="font-size:24px;font-weight:800;color:#22c55e" id="idx-m">9,613</div>
               <div style="font-size:11px;color:#475569;margin-top:4px">coinciden con el DENUE</div>
@@ -641,6 +712,9 @@
         <div id="idx-refs" style="font-size:11px;color:#475569;line-height:1.8"></div>
       </div>
 
+      <!-- Calculadora de impacto -->
+      <div id="calc-indice" style="background:#0d1830;border:1px solid #1e3a5f;border-radius:16px;padding:28px;margin-top:24px"></div>
+
     </div>
   </div>
 
@@ -678,7 +752,7 @@
       <h3>✅ Matches confirmados — formales encontrados en DENUE</h3>
       <p>Negocios en Google Maps que SÍ tienen match en DENUE · Score: similitud de nombre (100 = idéntico, &gt;72 = válido). Distancia en metros.</p>
       <p id="count-match" style="font-size:11px;color:#64748b"></p>
-      <div style="max-height:400px;overflow-y:auto;border:1px solid #1e293b;border-radius:6px">
+      <div style="max-height:400px;overflow-y:auto;overflow-x:auto;border:1px solid #1e293b;border-radius:6px">
         <table style="margin:0">
           <thead style="position:sticky;top:0;background:#0f172a;z-index:1"><tr><th>Nombre Maps</th><th>Match DENUE</th><th>Score</th><th>Distancia</th></tr></thead>
           <tbody id="t-match"></tbody>
@@ -689,13 +763,49 @@
       <h3>🔴 Candidatos informales — sin match en DENUE</h3>
       <p>Aparecen como OPERATIONAL en Google Maps pero no tienen match en DENUE a 50 metros.</p>
       <p id="count-inf" style="font-size:11px;color:#64748b"></p>
-      <div style="max-height:400px;overflow-y:auto;border:1px solid #1e293b;border-radius:6px">
+      <div style="max-height:400px;overflow-y:auto;overflow-x:auto;border:1px solid #1e293b;border-radius:6px">
         <table style="margin:0">
           <thead style="position:sticky;top:0;background:#0f172a;z-index:1"><tr><th>Nombre</th><th>Tipo</th><th>Lat</th><th>Lng</th></tr></thead>
           <tbody id="t-inf"></tbody>
         </table>
       </div>
     </div>
+  </div>
+
+  <!-- ══ Panel Admin ═══════════════════════════════════════════════════════ -->
+  <div id="admin-panel" style="display:none;flex-direction:column;flex:1;overflow-y:auto;background:#0f172a;padding:24px;gap:24px">
+
+    <!-- Usuarios -->
+    <div style="background:#1e293b;border-radius:12px;overflow:hidden">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid #0f172a">
+        <div>
+          <div style="font-size:15px;font-weight:700;color:#f1f5f9">Usuarios</div>
+          <div style="font-size:11px;color:#64748b;margin-top:2px">Gestiona roles y accesos</div>
+        </div>
+        <button onclick="mostrarModalCrearUsuario()"
+                style="background:#2563eb;color:#fff;border:none;border-radius:8px;
+                       padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer">
+          + Nuevo usuario
+        </button>
+      </div>
+      <div id="admin-usuarios-lista">
+        <div style="color:#475569;font-size:12px;padding:20px;text-align:center">Cargando...</div>
+      </div>
+    </div>
+
+    <!-- Asignación de campañas -->
+    <div style="background:#1e293b;border-radius:12px;overflow:hidden">
+      <div style="padding:16px 20px;border-bottom:1px solid #0f172a">
+        <div style="font-size:15px;font-weight:700;color:#f1f5f9">Asignar campañas a técnicos</div>
+        <div style="font-size:11px;color:#64748b;margin-top:2px">
+          Los técnicos solo ven las campañas que les asignas (o las sin asignar)
+        </div>
+      </div>
+      <div id="admin-asignaciones-lista">
+        <div style="color:#475569;font-size:12px;padding:20px;text-align:center">Cargando...</div>
+      </div>
+    </div>
+
   </div>
 
 </div><!-- /shell -->
@@ -737,42 +847,6 @@
       </div>
     </form>
   </div>
-</div>
-
-<!-- ══ Panel Admin ═════════════════════════════════════════════════════════ -->
-<div id="admin-panel" style="display:none;flex-direction:column;width:100%;height:100%;overflow-y:auto;background:#0f172a;padding:24px;gap:24px">
-
-  <!-- Usuarios -->
-  <div style="background:#1e293b;border-radius:12px;overflow:hidden">
-    <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid #0f172a">
-      <div>
-        <div style="font-size:15px;font-weight:700;color:#f1f5f9">Usuarios</div>
-        <div style="font-size:11px;color:#64748b;margin-top:2px">Gestiona roles y accesos</div>
-      </div>
-      <button onclick="mostrarModalCrearUsuario()"
-              style="background:#2563eb;color:#fff;border:none;border-radius:8px;
-                     padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer">
-        + Nuevo usuario
-      </button>
-    </div>
-    <div id="admin-usuarios-lista">
-      <div style="color:#475569;font-size:12px;padding:20px;text-align:center">Cargando...</div>
-    </div>
-  </div>
-
-  <!-- Asignación de campañas -->
-  <div style="background:#1e293b;border-radius:12px;overflow:hidden">
-    <div style="padding:16px 20px;border-bottom:1px solid #0f172a">
-      <div style="font-size:15px;font-weight:700;color:#f1f5f9">Asignar campañas a técnicos</div>
-      <div style="font-size:11px;color:#64748b;margin-top:2px">
-        Los técnicos solo ven las campañas que les asignas (o las sin asignar)
-      </div>
-    </div>
-    <div id="admin-asignaciones-lista">
-      <div style="color:#475569;font-size:12px;padding:20px;text-align:center">Cargando...</div>
-    </div>
-  </div>
-
 </div>
 
 <!-- Modal crear usuario -->
@@ -821,11 +895,12 @@
 </div>
 
 <!-- ══ Scripts ════════════════════════════════════════════════════════════════ -->
-<script src="/js/app.js"></script>
-<script src="/js/colonias.js"></script>
-<script src="/js/reportes.js"></script>
-<script src="/js/campanas.js"></script>
-<script src="/js/admin.js"></script>
+<script src="/js/camera.js?v=1"></script>
+<script src="/js/app.js?v=3"></script>
+<script src="/js/colonias.js?v=3"></script>
+<script src="/js/reportes.js?v=3"></script>
+<script src="/js/campanas.js?v=3"></script>
+<script src="/js/admin.js?v=3"></script>
 <script>
 // Extender showTab para manejar tabs nuevas (reportes, campañas)
 const _showTabOriginal = showTab;
@@ -859,10 +934,10 @@ showTab = function(tab, btn) {
   if (tab === "reportes") {
     const rp = document.getElementById("reportes-panel");
     rp.style.display = "flex";
-    rp.style.width   = "320px";
+    rp.style.width   = window.innerWidth < 641 ? "100%" : "320px";
     document.getElementById("map-wrap").style.display = "";
     cargarReportes();
-    setTimeout(() => map.invalidateSize(), 50);
+    setTimeout(() => { map.invalidateSize(); _reporteAutoUbicacion(); }, 100);
   } else if (tab === "campanas") {
     const cp = document.getElementById("campanas-panel");
     cp.style.display = "flex";
@@ -875,6 +950,60 @@ showTab = function(tab, btn) {
   }
 };
 
+// Drag-to-resize: arrastra el handle para subir/bajar el panel en mobile
+function initPanelDrag(e) {
+  if (window.innerWidth >= 641) return;
+  e.preventDefault();
+
+  const panel   = e.currentTarget.parentElement;
+  const mapWrap = document.getElementById("map-wrap");
+  const shell   = document.getElementById("shell");
+  const handle  = e.currentTarget;
+
+  const startY      = e.clientY;
+  const shellH      = shell.offsetHeight;
+  const startPanelH = panel.offsetHeight;
+
+  // Fijar alturas explícitas para poder ajustarlas
+  mapWrap.style.flex   = "none";
+  mapWrap.style.height = (shellH - startPanelH - 22) + "px";
+  panel.style.height   = startPanelH + "px";
+  handle.classList.add("dragging");
+
+  const MIN_MAP   = 80;
+  const MIN_PANEL = 100;
+
+  function onMove(ev) {
+    ev.preventDefault();
+    const delta     = startY - ev.clientY;          // arriba = positivo = panel sube
+    const newPanel  = Math.min(shellH - MIN_MAP - 22,
+                       Math.max(MIN_PANEL, startPanelH + delta));
+    const newMap    = shellH - newPanel - 22;
+    panel.style.height   = newPanel + "px";
+    mapWrap.style.height = newMap   + "px";
+    if (window.map) map.invalidateSize();
+  }
+
+  function onEnd() {
+    handle.classList.remove("dragging");
+    document.removeEventListener("pointermove", onMove);
+    document.removeEventListener("pointerup",   onEnd);
+    if (window.map) map.invalidateSize();
+  }
+
+  document.addEventListener("pointermove", onMove, { passive: false });
+  document.addEventListener("pointerup",   onEnd);
+}
+
+// Toggle formulario nuevo reporte (solo en mobile)
+function toggleNuevoReporteForm() {
+  const wrap  = document.getElementById("form-reporte-wrap");
+  const arrow = document.getElementById("nuevo-reporte-arrow");
+  const open  = wrap.classList.toggle("open");
+  if (arrow) arrow.textContent = open ? "▲" : "▼";
+  if (open) wrap.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
 // Inicializar capas al cargar — solo si ya hay usuario autenticado
 function _initApp() {
   cargarColonias();
@@ -885,7 +1014,7 @@ function _initApp() {
 // Si el usuario ya está logueado al cargar, onAuthStateChanged dispara primero
 window._appInit = _initApp;
 </script>
-<script src="/js/auth.js"></script>
+<script src="/js/auth.js?v=3"></script>
 <script>
 // Esperar a que auth esté listo antes de inicializar la app
 const _waitAuth = setInterval(() => {
@@ -896,5 +1025,61 @@ const _waitAuth = setInterval(() => {
   }
 }, 100);
 </script>
+
+<!-- ── Modal Cámara ─────────────────────────────────────────────────────────── -->
+<div id="camera-modal"
+     style="display:none;position:fixed;inset:0;z-index:10000;
+            background:rgba(0,0,0,.96);flex-direction:column;
+            align-items:center;justify-content:center;gap:16px;padding:20px;
+            box-sizing:border-box">
+
+  <video id="cam-video" autoplay playsinline muted
+         style="max-width:100%;max-height:55vh;border-radius:14px;
+                background:#111;object-fit:cover"></video>
+  <canvas id="cam-canvas" style="display:none"></canvas>
+
+  <!-- Controles en vivo -->
+  <div id="cam-live-btns" style="display:flex;gap:12px">
+    <button onclick="_cameraCancelar()"
+            style="padding:10px 22px;border-radius:10px;border:1px solid #334155;
+                   background:transparent;color:#94a3b8;font-size:13px;font-weight:600;
+                   cursor:pointer;font-family:'Inter',sans-serif">
+      ✕ Cancelar
+    </button>
+    <button onclick="_cameraCapturar()"
+            style="padding:11px 32px;border-radius:10px;border:none;
+                   background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;
+                   font-size:14px;font-weight:700;cursor:pointer;
+                   font-family:'Inter',sans-serif;
+                   box-shadow:0 4px 16px rgba(37,99,235,.45)">
+      📸 Capturar
+    </button>
+  </div>
+
+  <!-- Preview después de capturar -->
+  <div id="cam-prev-wrap"
+       style="display:none;flex-direction:column;align-items:center;gap:14px">
+    <img id="cam-prev-img"
+         style="max-width:min(360px,92vw);max-height:52vh;border-radius:12px;
+                object-fit:contain;box-shadow:0 8px 32px rgba(0,0,0,.6)"/>
+    <div style="display:flex;gap:10px">
+      <button onclick="_cameraReintentar()"
+              style="padding:9px 20px;border-radius:10px;border:1px solid #334155;
+                     background:transparent;color:#94a3b8;font-size:12px;font-weight:600;
+                     cursor:pointer;font-family:'Inter',sans-serif">
+        🔄 Repetir
+      </button>
+      <button onclick="_cameraUsar()"
+              style="padding:9px 26px;border-radius:10px;border:none;
+                     background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;
+                     font-size:12px;font-weight:700;cursor:pointer;
+                     font-family:'Inter',sans-serif;
+                     box-shadow:0 4px 14px rgba(22,163,74,.35)">
+        ✓ Usar esta foto
+      </button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

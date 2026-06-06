@@ -83,8 +83,8 @@ async function _watchCacheReady() {
       return;
     }
 
-    const needsFetch = (allData.length === 0 && st.count >= 200) ||
-                       (st.count >= _lastFetchServerCount + 2000);
+    const needsFetch = (allData.length === 0 && st.count > 0) ||
+                       (st.count >= _lastFetchServerCount + 200);
     if (needsFetch && st.count > 0) {
       _lastFetchServerCount = st.count;
       const data = await fetch('/api/candidatos').then(r => r.json());
@@ -95,7 +95,7 @@ async function _watchCacheReady() {
     const prog  = st.count > 0 ? `(${st.count.toLocaleString()} en servidor)` : '';
     badge.textContent = `${shown}${prog} cargando…`;
     badge.style.background = '#f97316';
-    _cacheWatchTimer = setTimeout(_watchCacheReady, 500);
+    _cacheWatchTimer = setTimeout(_watchCacheReady, 300);
   } catch(e) {
     _cacheWatchTimer = setTimeout(_watchCacheReady, 1500);
   }
@@ -235,6 +235,7 @@ async function guardarTipo(placeId, idx){
       }
       entry?.marker?.closePopup();
       _actualizarMetricasLocales();
+      _calcIndice();
     } else {
       _revertirTipo(entry, idx, tipoAntes, btn);
     }
@@ -265,6 +266,51 @@ function renderLista(data){
         <div class="cnom">${c.nombre}</div>
         <div class="ctip">${tipoLeg(c.tipos)}</div>
       </div>`).join('');
+  if (data.length > 0) _renderMetricasLocales(data);
+}
+
+function _renderMetricasLocales(data) {
+  const total      = data.length;
+  const formales   = data.filter(c => c.tipo === 'formal').length;
+  const enProceso  = data.filter(c => c.tipo === 'en_proceso').length;
+  const informales = total - formales - enProceso;
+  const pct        = Math.round(informales / total * 1000) / 10;
+  document.getElementById('mets').innerHTML = `
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total</div>
+        <div class="stat-value">${total.toLocaleString()}</div>
+      </div>
+      <div class="stat-card orange">
+        <div class="stat-label">Sin reg.</div>
+        <div class="stat-value">${pct}%</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-label">Formales</div>
+        <div class="stat-value">${formales.toLocaleString()}</div>
+      </div>
+      <div class="stat-card orange">
+        <div class="stat-label">En proceso</div>
+        <div class="stat-value">${enProceso.toLocaleString()}</div>
+      </div>
+      <div class="stat-card red">
+        <div class="stat-label">Informales</div>
+        <div class="stat-value">${informales.toLocaleString()}</div>
+      </div>
+    </div>`;
+  const SKIP = new Set(['point_of_interest','establishment','service','']);
+  const tc = {};
+  data.forEach(c => {
+    if ((c.tipo || 'informal') !== 'formal') {
+      (c.tipos || '').split(',').forEach(t => {
+        t = t.trim();
+        if (!SKIP.has(t)) tc[t] = (tc[t] || 0) + 1;
+      });
+    }
+  });
+  const top = Object.entries(tc).sort((a,b) => b[1]-a[1]).slice(0,8);
+  document.getElementById('tipos').innerHTML =
+    top.map(([t,n]) => `<span class="chip">${TIPOS_ES[t]||t} <b>${n}</b></span>`).join('');
 }
 
 function filtrar(){
@@ -379,7 +425,7 @@ function _renderLeyendaZonas() {
 /* ── Métricas ────────────────────────────────────────────────────────────── */
 
 // Recalcula desde allData local — sin red, para reflejar cambios de tipo al instante
-function _actualizarMetricasLocales() {
+function _actualizarMetricasLocales(tipoAntes, tipoNuevo) {
   if (!allData.length) return;
   const total      = allData.length;
   const formales   = allData.filter(c => c.tipo === 'formal').length;
@@ -400,7 +446,7 @@ function _actualizarMetricasLocales() {
 
 async function cargarMetricas(){
   const m = await fetch('/api/metricas').then(r=>r.json());
-  if(!m.total) return;
+  if(!m.total) { setTimeout(cargarMetricas, 3000); return; }
   document.getElementById('mets').innerHTML=`
     <div class="stat-grid">
       <div class="stat-card">
@@ -751,11 +797,14 @@ function showTab(tab, btn){
 
 /* ── Índice de informalidad ──────────────────────────────────────────────── */
 let _indiceLoaded = false;
+let _indiceBase   = null;  // datos crudos para la calculadora
+
 async function cargarIndice(){
   if(_indiceLoaded) return;
   _indiceLoaded = true;
   try {
     const d = await (window._preloads?.indice || fetch('/api/indice').then(r=>r.json()));
+    _indiceBase = d;
     const fmt = n => n.toLocaleString('es-MX');
 
     const N1    = fmt(d.datos_entrada.N1_denue);
@@ -807,9 +856,98 @@ async function cargarIndice(){
       `<div>· ${ref}</div>`
     ).join('');
 
+    _renderCalculadoraIndice();
+
   } catch(e) {
     console.error('Error cargando índice:', e);
   }
+}
+
+function _renderCalculadoraIndice() {
+  const el = document.getElementById('calc-indice');
+  if (!el || !_indiceBase) return;
+  el.innerHTML = `
+    <div style="font-size:12px;font-weight:700;color:#3b82f6;text-transform:uppercase;
+                letter-spacing:1px;margin-bottom:16px">📊 Estimación actualizada</div>
+    <p style="font-size:12px;color:#64748b;margin:0 0 16px;line-height:1.6">
+      Se recalcula automáticamente con los negocios que hayas marcado como formal o en proceso en el mapa.
+    </p>
+    <div id="calc-resultado"></div>`;
+  _calcIndice();
+}
+
+function _calcIndice() {
+  const el = document.getElementById('calc-resultado');
+  if (!el || !_indiceBase) return;
+  const b      = _indiceBase;
+  const N1     = b.datos_entrada.N1_denue;
+  const mult   = b.multiplicador;
+  const esc0   = b.escenarios[0];
+  const ninfBase = b.datos_entrada.n_inf_observados;
+
+  // Usar datos reales de allData si están disponibles
+  const formalesActuales  = allData.length ? allData.filter(c => c.tipo === 'formal').length : 0;
+  const enProcesoActuales = allData.length ? allData.filter(c => c.tipo === 'en_proceso').length : 0;
+  const ninfObs = allData.length
+    ? allData.filter(c => !c.tipo || c.tipo === 'informal').length
+    : ninfBase;
+
+  const NinfEst  = Math.round(ninfObs * mult);
+  const idxNuevo = ((NinfEst / (NinfEst + N1)) * 100).toFixed(1);
+  const idxBase  = esc0.indice_pct;
+  const delta    = (idxNuevo - idxBase).toFixed(1);
+  const deltaColor = +delta <= 0 ? '#22c55e' : '#f87171';
+  const fmt = n => n.toLocaleString('es-MX');
+
+  const barra = (val, max, color) => {
+    const w = Math.min(100, (val / max) * 100).toFixed(1);
+    return `<div style="background:#0d1830;border-radius:4px;height:8px;overflow:hidden;margin-top:6px">
+      <div style="width:${w}%;height:100%;background:${color};border-radius:4px;transition:width .4s ease"></div>
+    </div>`;
+  };
+
+  el.innerHTML = `
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px">
+      <div style="text-align:center">
+        <div style="font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px">Informales obs.</div>
+        <div style="font-size:22px;font-weight:800;color:#f87171">${fmt(ninfObs)}</div>
+        <div style="font-size:10px;color:#475569">base: ${fmt(ninfBase)}</div>
+        ${barra(ninfObs, ninfBase, '#f87171')}
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px">N inf. estimado</div>
+        <div style="font-size:22px;font-weight:800;color:#f59e0b">${fmt(NinfEst)}</div>
+        <div style="font-size:10px;color:#475569">base: ${fmt(esc0.N_inf_estimado)}</div>
+        ${barra(NinfEst, esc0.N_inf_estimado, '#f59e0b')}
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px">Índice</div>
+        <div style="font-size:22px;font-weight:800;color:${+idxNuevo < 50 ? '#22c55e' : +idxNuevo < 80 ? '#f59e0b' : '#f87171'}">${idxNuevo}%</div>
+        <div style="font-size:10px;color:${deltaColor};font-weight:700">${+delta > 0 ? '+' : ''}${delta}pp vs base</div>
+        ${barra(+idxNuevo, 100, +idxNuevo < 50 ? '#22c55e' : '#f59e0b')}
+      </div>
+    </div>
+    <div style="display:flex;gap:8px;margin-bottom:12px">
+      <div style="flex:1;background:#070f1f;border:1px solid #0f2040;border-radius:8px;padding:10px;text-align:center">
+        <div style="font-size:10px;color:#64748b;margin-bottom:2px">Formales</div>
+        <div style="font-size:18px;font-weight:800;color:#22c55e">${fmt(formalesActuales)}</div>
+      </div>
+      <div style="flex:1;background:#070f1f;border:1px solid #0f2040;border-radius:8px;padding:10px;text-align:center">
+        <div style="font-size:10px;color:#64748b;margin-bottom:2px">En proceso</div>
+        <div style="font-size:18px;font-weight:800;color:#f59e0b">${fmt(enProcesoActuales)}</div>
+      </div>
+    </div>
+    ${formalesActuales + enProcesoActuales > 0
+      ? `<div style="border-top:1px solid #0f2040;padding-top:12px;font-size:12px;color:#475569;line-height:1.6">
+          Con <b style="color:#22c55e">${fmt(formalesActuales)}</b> formales y
+          <b style="color:#f59e0b">${fmt(enProcesoActuales)}</b> en proceso,
+          el índice estimado es <b style="color:${deltaColor}">${idxNuevo}%</b>
+          (${+delta <= 0 ? '' : '+'}${delta}pp respecto al cálculo base de ${idxBase}%).
+        </div>`
+      : `<div style="border-top:1px solid #0f2040;padding-top:12px;font-size:12px;color:#334155;text-align:center">
+          Marca negocios como formal en el mapa para ver el impacto aquí.
+        </div>`
+    }`;
 }
 
 /* ── Precargas en background ─────────────────────────────────────────────────
