@@ -493,6 +493,8 @@ tr:hover td { background: #111827; }
   transition: background .12s;
 }
 .reporte-item:hover { background: #1a2540; }
+.nuevo-reporte-toggle { display: none; } /* visible only on mobile via media query */
+.drag-handle { display: none; }         /* visible only on mobile via media query */
 
 /* ── Campañas ───────────────────────────────────────────── */
 #campanas-panel { background: #070f1f; }
@@ -701,4 +703,146 @@ tr:hover td { background: #111827; }
 .progress-fill {
   background: linear-gradient(90deg, #2563eb, #3b82f6);
   height: 100%; border-radius: 4px; transition: width .3s ease;
+}
+
+/* ══ RESPONSIVE — Mobile (≤ 640px) ═══════════════════════════════════════════ */
+@media (max-width: 640px) {
+
+  /* Header ──────────────────────────────────────────────────── */
+  #header { height: 46px; padding: 0 12px; }
+  #header p { display: none; }
+  #header h1 { font-size: 14px; }
+
+  /* Tabs — solo ícono en móvil ──────────────────────────────── */
+  #tabs { height: 42px; padding: 0 2px; gap: 0; }
+  .tab { padding: 0 11px; height: 42px; gap: 0; }
+  .tab-text { display: none; }
+  .tab svg { width: 18px; height: 18px; }
+
+  /* Shell → columna; mapa sube con order ───────────────────── */
+  #shell { flex-direction: column; }
+
+  /* Mapa: aparece primero (arriba) gracias a order: -1 */
+  #map-wrap { order: -1; min-height: 200px !important; flex: 1; }
+
+  /* Paneles laterales → ancho total, panel abajo del mapa ───── */
+  .side-panel {
+    width: 100% !important;
+    height: 52vh;
+    border-right: none;
+    border-top: 2px solid #1a2d56;
+    flex-shrink: 0;
+  }
+  /* Campañas y admin: pantalla completa (sin mapa) */
+  #campanas-panel, #admin-panel { height: auto; flex: 1; border-top: none; }
+  /* Reportes: taller para mostrar más historial */
+  #reportes-panel { height: 62vh; }
+
+  /* Handle de arrastre real — drag to resize ────────────────── */
+  .drag-handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
+    flex-shrink: 0;
+    cursor: ns-resize;
+    touch-action: none;
+    user-select: none;
+    background: #0d1830;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  .drag-handle::after {
+    content: '';
+    width: 38px;
+    height: 4px;
+    background: #2d4070;
+    border-radius: 2px;
+    transition: background .15s;
+  }
+  .drag-handle:active::after,
+  .drag-handle.dragging::after { background: #3b82f6; }
+
+  /* Campañas — topbar más compacto ──────────────────────────── */
+  .campanas-topbar { padding: 12px 14px; }
+  .campanas-cards-grid { padding: 12px; gap: 10px; }
+  /* Header de campañas: título + botón en columna */
+  .campanas-topbar .campanas-inner > div:first-child { flex-wrap: wrap; gap: 10px; }
+  #btn-nueva-campana { width: 100%; justify-content: center; }
+
+  /* Índice — padding reducido, grids 2→1 col ────────────────── */
+  #indice-wrap { padding: 14px 10px !important; overflow-x: hidden; }
+  #indice-wrap h2 { font-size: 20px !important; }
+  .idx-grid2 { grid-template-columns: 1fr !important; }
+
+  /* Título y separación entre secciones del índice */
+  #indice-wrap > div > div:first-child { margin-bottom: 16px !important; }
+  #indice-wrap [style*="margin-bottom:24px"] { margin-bottom: 12px !important; }
+  #indice-wrap [style*="margin-bottom:32px"] { margin-bottom: 16px !important; }
+
+  /* Cards internas del índice: menos padding */
+  #indice-wrap [style*="padding:28px"] { padding: 14px !important; }
+  #indice-wrap [style*="padding:20px"] { padding: 12px !important; }
+  #indice-wrap [style*="padding:16px"] { padding: 10px !important; }
+
+  /* Textos y fórmulas: que hagan wrap sin overflow */
+  #indice-wrap [style*="font-size:13px"] { font-size: 12px !important; overflow-wrap: break-word; word-break: break-word; }
+  #indice-wrap [style*="font-size:28px"] { font-size: 22px !important; }
+  #indice-wrap [style*="font-size:24px"] { font-size: 20px !important; }
+  #indice-wrap [style*="font-size:18px"] { font-size: 16px !important; }
+
+  /* Calculadora: grid 3 cols → 1 col */
+  #calc-resultado > div:first-child { grid-template-columns: 1fr !important; }
+
+  /* Escenarios: fila con % y N estimados se apila en mobile */
+  #idx-escenarios > div > div:first-child {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px;
+  }
+  #idx-escenarios > div > div:first-child > div[style*="text-align:right"] {
+    text-align: left !important;
+  }
+
+  /* Validación ──────────────────────────────────────────────── */
+  #val-wrap { padding: 12px !important; }
+  th, td { padding: 5px 7px; font-size: 10px; }
+
+  /* La barra sticky de ruta ya no necesita sticky en mobile ─── */
+  #ruta-panel [style*="position:sticky"] { position: relative !important; top: auto !important; }
+
+  /* Paneles con listas: scroll completo en mobile ───────────── */
+  #panel, #reportes-panel, #ruta-panel { overflow-y: auto; }
+  #panel #lista,
+  #reportes-panel #lista-reportes,
+  #ruta-panel #lista-ruta { overflow: visible; flex: none; height: auto; }
+
+  /* Fotos en cards de reportes: compactas en mobile */
+  #lista-reportes img { max-height: 80px !important; }
+
+  /* Sección interna (psec) más compacta ─────────────────────── */
+  .psec { padding: 10px 12px; }
+
+  /* Formulario nuevo reporte: colapsable en mobile ───────────── */
+  .nuevo-reporte-title { display: none !important; }
+  .nuevo-reporte-toggle {
+    display: flex; width: 100%; align-items: center; justify-content: space-between;
+    background: none; border: 1px solid #2d4070; color: #7fa8e0;
+    font-size: 12px; font-weight: 700; padding: 9px 12px; border-radius: 7px;
+    cursor: pointer; font-family: 'Inter', sans-serif; letter-spacing: .2px;
+  }
+  .nuevo-reporte-toggle:hover { background: #1a2540; }
+  #form-reporte-wrap { display: none; }
+  #form-reporte-wrap.open { display: block; padding-top: 12px; }
+
+  /* Leyenda del mapa — más arriba en mobile ─────────────────── */
+  .map-legend { bottom: 10px; left: 8px; padding: 7px 10px; gap: 4px; }
+  .legend-item { font-size: 10px; }
+  #map-layer-controls { top: 8px; right: 8px; gap: 4px; }
+  .layer-btn { padding: 5px 9px; font-size: 11px; }
+
+  /* Modales full-width en móvil ─────────────────────────────── */
+  .modal-box { width: calc(100vw - 20px) !important; max-width: none !important; }
+  .panel-modal-box { width: calc(100vw - 16px) !important; }
 }

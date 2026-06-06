@@ -42,13 +42,20 @@ function _renderLoginScreen() {
     <div style="margin-bottom:24px">
       <label style="color:#3b6ab5;font-size:10px;font-weight:700;display:block;margin-bottom:6px;
                     text-transform:uppercase;letter-spacing:.8px">Contraseña</label>
-      <input id="login-pass" type="password" placeholder="••••••••"
-             style="width:100%;background:#0a1428;border:1px solid #1a2d56;color:#dde9ff;
-                    padding:11px 14px;border-radius:10px;font-size:14px;outline:none;box-sizing:border-box;
-                    font-family:'Inter',sans-serif;transition:border-color .15s"
-             onfocus="this.style.borderColor='#3b82f6'"
-             onblur="this.style.borderColor='#1a2d56'"
-             onkeydown="if(event.key==='Enter')doLogin()"/>
+      <div style="position:relative">
+        <input id="login-pass" type="password" placeholder="••••••••"
+               style="width:100%;background:#0a1428;border:1px solid #1a2d56;color:#dde9ff;
+                      padding:11px 44px 11px 14px;border-radius:10px;font-size:14px;outline:none;
+                      box-sizing:border-box;font-family:'Inter',sans-serif;transition:border-color .15s"
+               onfocus="this.style.borderColor='#3b82f6'"
+               onblur="this.style.borderColor='#1a2d56'"
+               onkeydown="if(event.key==='Enter')doLogin()"/>
+        <button type="button" onclick="_togglePass()"
+                style="position:absolute;right:12px;top:50%;transform:translateY(-50%);
+                       background:transparent;border:none;cursor:pointer;
+                       color:#3b6ab5;font-size:16px;padding:0;line-height:1"
+                id="login-pass-eye">👁</button>
+      </div>
     </div>
     <button onclick="doLogin()" id="login-btn"
             style="width:100%;background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;border:none;
@@ -74,6 +81,15 @@ function _renderLoginScreen() {
     </div>
   </div>`;
   document.body.appendChild(overlay);
+}
+
+function _togglePass() {
+  const inp = document.getElementById('login-pass');
+  const btn = document.getElementById('login-pass-eye');
+  if (!inp) return;
+  const show = inp.type === 'password';
+  inp.type = show ? 'text' : 'password';
+  if (btn) btn.textContent = show ? '🙈' : '👁';
 }
 
 async function doLogin() {
@@ -183,15 +199,17 @@ function logout() {
 // ── Boot: inyectar user info en el header y aplicar restricciones de rol ─────
 
 function _bootApp(role) {
-  // Quitar el overlay de login sin recargar la página
+  // Quitar el overlay de login sin recargar la página (si existe)
   const overlay = document.getElementById('login-overlay');
   if (overlay) {
     overlay.remove();
     if (typeof map !== 'undefined' && map && map.invalidateSize) {
       setTimeout(() => map.invalidateSize(), 50);
     }
-    // Cargar datos del mapa y precargar todas las secciones en paralelo.
-    // Ejecutar en el siguiente tick para que el overlay ya esté fuera del DOM.
+  }
+  // Cargar datos siempre — tanto si venía del overlay como si ya estaba logueado
+  if (!window._appBooted) {
+    window._appBooted = true;
     setTimeout(() => {
       if (typeof cargarDatosIniciales === 'function') cargarDatosIniciales();
       if (typeof cargarMetricas === 'function') cargarMetricas();
