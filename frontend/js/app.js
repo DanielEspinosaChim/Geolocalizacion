@@ -76,7 +76,7 @@ async function _watchCacheReady() {
 
     if (st.ready) {
       const data = await fetch('/api/candidatos').then(r => r.json());
-      if (data.length > 0) _mergeData(data);
+      if (data.length > 0) _mergeDataForce(data);
       _cacheReady = true;
       badge.textContent = `${allData.length.toLocaleString()} candidatos`;
       badge.style.background = '#22c55e';
@@ -104,6 +104,15 @@ async function _watchCacheReady() {
 // Fusiona newData con allData: actualiza lista y agrega solo los marcadores nuevos.
 function _mergeData(newData) {
   if (newData.length <= allData.length) return;
+  const known  = new Set(allData.map(c => c.place_id));
+  const nuevos = newData.filter(c => !known.has(c.place_id));
+  allData = newData; _rutaData = newData.slice();
+  renderLista(newData);
+  if (nuevos.length > 0) _agregarMarcadores(nuevos);
+}
+
+// Igual que _mergeData pero siempre actualiza lista y mapa (para el flush final de cache)
+function _mergeDataForce(newData) {
   const known  = new Set(allData.map(c => c.place_id));
   const nuevos = newData.filter(c => !known.has(c.place_id));
   allData = newData; _rutaData = newData.slice();
@@ -814,9 +823,13 @@ async function cargarIndice(){
     const esc0  = d.escenarios[0];
     const Ninf  = fmt(esc0.N_inf_estimado);
 
+    const mTotal   = fmt(d.datos_entrada.n_formales_total || d.datos_entrada.m_overlap);
+    const mOtros   = d.datos_entrada.n_formales_otros || 0;
     ['idx-N1','idx-N1b','idx-N1c'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=N1; });
     ['idx-ngmaps'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=ngm; });
-    document.getElementById('idx-ngmaps-raw').textContent = fmt(d.datos_entrada.n_gmaps_csv || 27242);
+    document.getElementById('idx-ngmaps-raw').textContent = fmt(d.datos_entrada.n_gmaps_csv || 29234);
+    const elMTotal = document.getElementById('idx-m-total'); if(elMTotal) elMTotal.textContent = mTotal;
+    const elMBreak = document.getElementById('idx-m-breakdown'); if(elMBreak) elMBreak.textContent = `${m} en DENUE · ${fmt(mOtros)} por tipo/cadena`;
     ['idx-m','idx-m2'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=m; });
     ['idx-ninf-obs','idx-ninf-obs2','idx-ninf-obs3'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=ninf; });
     ['idx-Ninf','idx-Ninf2','idx-Ninf3'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=Ninf; });
