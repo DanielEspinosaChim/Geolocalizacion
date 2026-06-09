@@ -119,7 +119,7 @@ def _load_disk_cache():
         with _slim_json_lock:
             _slim_json    = raw
             _slim_json_gz = gz
-        _cache_progress = "ready"
+        _cache_progress = "warm"   # disco listo pero Firestore aún no — frontend sigue polling
         print(f"  [Cache] Disco: {len(json.loads(raw))} candidatos cargados en <1s")
     except Exception as e:
         print(f"  [Cache] Disco: fallo al leer — {e}")
@@ -555,10 +555,10 @@ def get_indice():
     # Datos fijos del cruce (valores del último cruce ejecutado)
     N1               = 144_576  # DENUE Mérida — formales registrados (ancla)
     m                = 9_040    # overlap GM∩DENUE (decision_fuente=formal_denue) — ancla del método
-    n_formales_otros = 4_491    # formal_cadena(2445) + formal_tipo_gmaps(1186) + formal_institucion(860)
-    n_formales_total = m + n_formales_otros  # 13,531 formales identificados en total
+    n_formales_otros = 10_269   # cadena(2445)+tipo_gmaps(1186)+institucion(860)+excluido_tipo(5108)+excluido_nombre(670)
+    n_formales_total = m + n_formales_otros  # 19,309 = todos los no-informales (es_informal=False)
     n_inf_obs        = 9_925    # informales confirmados (es_informal=True)
-    n_gmaps          = 23_456   # negocios reales en Google Maps (sin excluidos)
+    n_gmaps          = 29_234   # total CSV (19,309 formales + 9,925 informales)
 
     p_formal   = m / N1                      # cobertura GM para formales
     multiplicador = N1 / m
