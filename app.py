@@ -553,10 +553,12 @@ def get_indice():
     import math as _math
 
     # Datos fijos del cruce (valores del último cruce ejecutado)
-    N1         = 144_576   # DENUE Mérida — formales registrados (ancla)
-    m          = 9_040     # overlap Google Maps ∩ DENUE (decision_fuente=formal_denue)
-    n_inf_obs  = 9_925     # informales confirmados (es_informal=True)
-    n_gmaps    = 23_456    # negocios reales en Google Maps (sin excluidos ni instituciones)
+    N1               = 144_576  # DENUE Mérida — formales registrados (ancla)
+    m                = 9_040    # overlap GM∩DENUE (decision_fuente=formal_denue) — ancla del método
+    n_formales_otros = 4_491    # formal_cadena(2445) + formal_tipo_gmaps(1186) + formal_institucion(860)
+    n_formales_total = m + n_formales_otros  # 13,531 formales identificados en total
+    n_inf_obs        = 9_925    # informales confirmados (es_informal=True)
+    n_gmaps          = 23_456   # negocios reales en Google Maps (sin excluidos)
 
     p_formal   = m / N1                      # cobertura GM para formales
     multiplicador = N1 / m
@@ -583,11 +585,13 @@ def get_indice():
 
     return {
         "datos_entrada": {
-            "N1_denue":        N1,
-            "m_overlap":       m,
-            "n_inf_observados": n_inf_obs,
-            "n_gmaps_negocios": n_gmaps,
-            "n_gmaps_csv":     29_234,
+            "N1_denue":          N1,
+            "m_overlap":         m,
+            "n_formales_total":  n_formales_total,
+            "n_formales_otros":  n_formales_otros,
+            "n_inf_observados":  n_inf_obs,
+            "n_gmaps_negocios":  n_gmaps,
+            "n_gmaps_csv":       29_234,
         },
         "cobertura_gmaps_pct": round(p_formal * 100, 2),
         "multiplicador":        round(multiplicador, 2),
