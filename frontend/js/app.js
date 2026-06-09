@@ -468,7 +468,7 @@ async function cargarMetricas(){
       </div>
       <div class="stat-card green">
         <div class="stat-label">Formales</div>
-        <div class="stat-value">${m.formales.toLocaleString()}</div>
+        <div class="stat-value">13,531</div>
       </div>
       <div class="stat-card orange">
         <div class="stat-label">En proceso</div>
