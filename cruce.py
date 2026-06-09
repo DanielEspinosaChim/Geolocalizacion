@@ -90,9 +90,10 @@ TIPOS_NO_NEGOCIO = {
     # Espacios públicos / recreación no-comercial
     "park", "city_park", "national_park", "playground", "dog_park",
     "cemetery", "funeral_home",
-    # Transporte / infraestructura
+    # Transporte / infraestructura (incluyendo paradas de bus que GMaps a veces etiqueta mal)
     "parking", "parking_lot", "parking_garage",
-    "transit_station", "bus_station", "train_station", "subway_station",
+    "transit_station", "transit_stop", "bus_stop", "bus_station",
+    "train_station", "subway_station",
     "airport", "light_rail_station",
     # Vivienda / residencial
     "housing_complex", "condominium_complex", "apartment_complex",
@@ -114,7 +115,76 @@ TIPOS_SIEMPRE_FORMALES = {
     "movie_theater", "cinema",
     "airport",
     "insurance_agency",
+    "casino",           # casinos: regulados federalmente
+    "car_dealership",   # agencias de autos: concesionarias registradas
+    "resort_hotel",     # resorts de cadena
+    "amusement_park",   # parques de diversiones con permiso
+    "water_park",       # parques acuáticos comerciales
+    "stadium",          # estadios/recintos registrados
 }
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CAPA 0: PRE-FILTRO — Instituciones formales obvias por nombre
+# ═══════════════════════════════════════════════════════════════════════════════
+# Nombres de instituciones públicas / corporativas que son OBVIAMENTE formales
+# y que ninguna lógica de tipos/DENUE debería necesitar: se sacan antes del cruce.
+
+_INST_PUBLICAS = [
+    # Energía
+    "CFE", "COMISION FEDERAL DE ELECTRICIDAD",
+    "PEMEX", "PETROLEOS MEXICANOS",
+    "CRE",  # Comisión Reguladora de Energía
+    # Agua
+    "JAPAY", "JUNTA DE AGUA", "SISTEMA DE AGUA", "SIMAS", "SAPAM",
+    # Salud pública
+    "IMSS", "ISSSTE", "INSABI", "IMSS BIENESTAR", "SEGURO POPULAR",
+    "CONAPRA", "CENSIDA",
+    "UNIDAD MEDICA", "CLINICA IMSS", "CLINICA ISSSTE", "UMF ",
+    "HOSPITAL GENERAL", "HOSPITAL REGIONAL", "HOSPITAL CIVIL",
+    "HOSPITAL DEL NINO", "HOSPITAL DE LA MUJER",
+    "CENTRO DE SALUD", "CASA DE SALUD",
+    # Vivienda / crédito
+    "INFONAVIT", "FOVISSSTE", "SHF", "FONHAPO",
+    # Educación pública
+    "SEP ", "CONAFE", "INEA", "CBTIS", "CBTA", "CONALEP", "COBACH",
+    "PREPARATORIA FEDERAL", "BACHILLERES", "TELESECUNDARIA",
+    "INSTITUTO TECNOLOGICO", "TECNOLOGICO NACIONAL",
+    "UNIVERSIDAD AUTONOMA", "UADY", "UNAM", "IPN", "TECNOLOGICO DE MERIDA",
+    # Gobierno / administración
+    "AYUNTAMIENTO", "PRESIDENCIA MUNICIPAL", "COMISARIA MUNICIPAL",
+    "DELEGACION", "SUBDELEGACION", "REGISTRO CIVIL",
+    "SAT ", "SERVICIO DE ADMINISTRACION TRIBUTARIA",
+    "INEGI", "CONAFOR", "SEMARNAT", "PROFEPA",
+    "CONAGUA", "SAGARPA", "SADER",
+    "SEDENA", "SEMAR", "PGR", "FGR", "FISCALIA",
+    "POLICIA MUNICIPAL", "POLICIA ESTATAL", "POLICIA FEDERAL",
+    # Paraestatales / fideicomisos
+    "BANOBRAS", "NAFINSA", "BANJERCITO", "BANSEFI", "BIENESTAR",
+    "LICONSA", "DICONSA", "CONASUPO",
+    # Grandes corporativos obvios (no en la lista de cadenas)
+    "MICROSOFT", "GOOGLE", "AMAZON MEXICO", "MERCADO LIBRE",
+    "BIMBO", "CEMEX", "VITRO", "ALFA",
+]
+
+_INST_PUBLICAS_NORM = [normalizar(n) for n in _INST_PUBLICAS]
+
+
+def es_institucion_formal_obvia(nombre: str) -> tuple[bool, str]:
+    """
+    Detecta si el nombre corresponde a una institución pública o corporativa
+    registrada que es 100% formal por definición.
+    Returns: (es_formal, razon)
+    """
+    nombre_norm = normalizar(nombre)
+    for inst in _INST_PUBLICAS_NORM:
+        # Coincidencia como subcadena (con espacio para evitar falsos positivos cortos)
+        if inst in nombre_norm:
+            return True, f"Institución formal: {inst}"
+        # Para tokens muy cortos (≤4 chars) requerir que sea palabra completa
+        if len(inst.strip()) <= 4:
+            if re.search(r'\b' + re.escape(inst.strip()) + r'\b', nombre_norm):
+                return True, f"Institución formal: {inst}"
+    return False, ""
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -127,6 +197,14 @@ TIPOS_SIEMPRE_FORMALES = {
 _CADENAS_CONVENIENCIA = [
     "OXXO", "7 ELEVEN", "7-ELEVEN", "CIRCLE K", "EXTRA",
     "MODELORAMA",
+    "TIENDA SIX", "TIENDAS SIX",   # conveniencia FEMSA (hermana de Oxxo)
+]
+
+# Cadenas regionales del sureste / Yucatán (no nacionales, pero formales)
+_CADENAS_YUCATAN = [
+    "DUNOSUSA", "ABARROTES DUNOSUSA",
+    "HELADOS SANTA CLARA", "TIENDAS SANTA CLARA",
+    "GRUPO MERZA",
 ]
 
 _CADENAS_SUPER_DEPTO = [
@@ -211,10 +289,16 @@ _CADENAS_SERVICIOS = [
     "DEVLYN", "OPTICAS LUX",
     "NIKE", "ADIDAS", "PUMA", "SKECHERS", "FLEXI",
     "HERTZ", "AVIS RENT", "EUROPCAR", "SIXT",
-    "HOTEL HOLIDAY INN", "HOTEL FIESTA INN", "FIESTA AMERICANA",
-    "HOTEL IBIS", "HAMPTON INN", "MARRIOTT", "HILTON",
-    "HYATT", "WESTIN", "COURTYARD",
-    "HOTEL MISION", "HOTEL GAMMA",
+    # Hoteles de cadena
+    "HOLIDAY INN", "FIESTA INN", "FIESTA AMERICANA",
+    "HOTEL IBIS", "IBIS HOTEL", "HAMPTON INN", "HAMPTON BY HILTON",
+    "MARRIOTT", "HILTON", "DOUBLETREE", "SHERATON",
+    "HYATT", "WESTIN", "COURTYARD", "FOUR POINTS", "ALOFT",
+    "HOTEL MISION", "HOTEL GAMMA", "CAMINO REAL",
+    "RADISSON", "BEST WESTERN", "WYNDHAM", "DAYS INN",
+    "FOUR SEASONS", "ST REGIS", "W HOTEL", "LE MERIDIEN",
+    "NOVOTEL", "MERCURE", "SOFITEL",
+    "WINPOT", "GOLDEN ISLAND CASINO", "PLAYCITY",   # Casinos
 ]
 
 _CADENAS_LOGISTICA = [
@@ -231,9 +315,10 @@ _CADENAS_SALUD = [
 
 # Compilar todas las cadenas normalizadas
 CADENAS_FORMALES = set()
-for lista in [_CADENAS_CONVENIENCIA, _CADENAS_SUPER_DEPTO, _CADENAS_COMIDA,
-              _CADENAS_FARMACIA, _CADENAS_BANCO, _CADENAS_GASOLINERA,
-              _CADENAS_SERVICIOS, _CADENAS_LOGISTICA, _CADENAS_SALUD]:
+for lista in [_CADENAS_CONVENIENCIA, _CADENAS_YUCATAN, _CADENAS_SUPER_DEPTO,
+              _CADENAS_COMIDA, _CADENAS_FARMACIA, _CADENAS_BANCO,
+              _CADENAS_GASOLINERA, _CADENAS_SERVICIOS, _CADENAS_LOGISTICA,
+              _CADENAS_SALUD]:
     for nombre in lista:
         CADENAS_FORMALES.add(normalizar(nombre))
 
@@ -269,6 +354,7 @@ def es_cadena_conocida(nombre_negocio: str) -> tuple[bool, str]:
 # ═══════════════════════════════════════════════════════════════════════════════
 
 PATRONES_NO_NEGOCIO = [
+    # Educación
     r"\bPARQUE\b",          # parques públicos
     r"\bESCUELA\b",         # escuelas
     r"\bPRIMARIA\b",        # escuelas primarias
@@ -278,11 +364,21 @@ PATRONES_NO_NEGOCIO = [
     r"\bJARDIN DE NINOS\b",
     r"\bUNIVERSIDAD\b",
     r"\bFACULTAD\b",
+    r"\bTECNOLOGICO\b",     # ITESM, UADY, IPN, etc.
+    # Religión
     r"\bIGLESIA\b",
     r"\bTEMPLO\b",
     r"\bCAPILLA\b",
     r"\bCATEDRAL\b",
+    r"\bPARROQUIA\b",
+    r"\bPARROCHIA\b",
+    # Gobierno / infraestructura
     r"\bCOMISARIA\b",       # comisarías municipales
+    r"\bAYUNTAMIENTO\b",
+    r"\bPRESIDENCIA MUNICIPAL\b",
+    r"\bREGISTRO CIVIL\b",
+    r"\bDELEGACION\b",
+    # Salud pública (no privada)
     r"\bCEMENTERIO\b",
     r"\bPANTEON\b",
     r"\bHOSPITAL\b",        # hospitales grandes = formales
@@ -290,7 +386,9 @@ PATRONES_NO_NEGOCIO = [
     r"\bCLINICA ISSSTE\b",
     r"\bUNIDAD MEDICA\b",
     r"\bCENTRO DE SALUD\b",
-    r"\bCBTA\b",            # bachillerato técnico
+    r"\bCASA DE SALUD\b",
+    # Educación técnica federal
+    r"\bCBTA\b",
     r"\bCBTIS\b",
     r"\bCONALEP\b",
     r"\bCOBACH\b",
@@ -300,11 +398,17 @@ PATRONES_NO_NEGOCIO = [
     r"\bSEMINARIO\b",
     r"\bCOLEGIO\b",
     r"\bINSTITUTO TECNOLOGICO\b",
+    r"\bTELESECUNDARIA\b",
+    # Deportes / espacios públicos
     r"\bCAMPO DE BEISBOL\b",
     r"\bCAMPO DE FUTBOL\b",
     r"\bCANCHA\b",
     r"\bESTADIO\b",
     r"\bALBERCA PUBLICA\b",
+    r"\bUNIDAD DEPORTIVA\b",   # unidades deportivas municipales
+    r"\bCOMPLEJO DEPORTIVO\b",
+    r"\bPOLIFUNCIONAL\b",
+    # Cultura / turismo / atracciones no comerciales
     r"\bBIBLIOTECA\b",
     r"\bMUSEO\b",
     r"\bRECINTO FERIAL\b",
@@ -314,16 +418,29 @@ PATRONES_NO_NEGOCIO = [
     r"\bFUENTE\b",          # fuentes de plaza
     r"\bARCO\b",
     r"\bHACIENDA\b",        # haciendas históricas
-    r"\bQUINTA\b",          # quintas/salones de eventos
+    r"\bZONA ARQUEOLOGICA\b",
+    r"\bARQUEOLOGICO\b",
+    r"\bGLORIETA\b",        # glorietas viales
     r"\bRESERVA ECOLOGICA\b",
     r"\bZOOLOGICO\b",
     r"\bZOO\b",
+    # Transporte público / infraestructura
+    r"\bAEROPUERTO\b",
+    r"\bTERMINAL AEREA\b",
+    r"\bAIRPORT\b",
+    r"\bTREN MAYA\b",
+    r"\bESTACION DE TREN\b",
+    r"\bESTACION DEL TREN\b",
     r"\bFRACCIONAMIENTO\b",
     r"\bRESIDENCIAL\b",
     r"\bESTACIONAMIENTO\b",
     r"\bPARADERO\b",
     r"\bTERMINAL DE AUTOBUSES\b",
-    # Inglés (Google Maps a veces traduce nombres)
+    r"\bCAMINO REAL\b",     # vialidades, no el hotel
+    r"\bTRAMO CARRETERA\b",
+    # Quinteros / haciendas / ranchos sin negocio aparente
+    r"\bQUINTA\b",          # quintas de eventos (se revisan por tipo también)
+    # Inglés (Google Maps a veces usa en inglés)
     r"\bPARISH\b",
     r"\bCHURCH\b",
     r"\bCHAPEL\b",
@@ -333,7 +450,9 @@ PATRONES_NO_NEGOCIO = [
     r"\bNATIONAL PARK\b",
     r"\bTOWNSHIP\b",
     r"\bCOMMISSION BUILDING\b",
-    # Otros
+    r"\bARCHAEOLOGICAL ZONE\b",
+    r"\bARCHAEOLOGICAL SITE\b",
+    # Otros no-negocios
     r"\bACUAPARQUE\b",
     r"\bBIOPARQUE\b",
     r"\bPLAZA GRANDE\b",      # plaza central, no negocio
@@ -341,6 +460,10 @@ PATRONES_NO_NEGOCIO = [
     r"\bDEPORTIVO UNIVERSITARIO\b",
     r"\bBRIDGE\b",            # puentes
     r"\bPUENTE\b",
+    r"\bBRECHA\b",            # brechas / caminos rurales
+    r"\bAGUADA\b",            # aguadas / estanques naturales
+    r"\bPREDIO\b",            # predios / terrenos sin uso comercial
+    r"\bLOTE\b",              # lotes baldios
 ]
 
 
@@ -611,10 +734,23 @@ def clasificar_por_tipos(tipos_str: str) -> str:
         "cemetery", "funeral_home",
         "museum", "art_gallery",
         "bridge",
-    "national_forest", "nature_preserve", "wildlife_refuge", "wildlife_park",
+        "national_forest", "nature_preserve", "wildlife_refuge", "wildlife_park",
         "historical_landmark", "historical_place",
         "school", "primary_school", "secondary_school", "preschool",
         "kindergarten", "educational_institution",
+        # Gobierno — si su tipo principal es gobierno, no es negocio informal
+        "government_office", "local_government_office",
+        "city_hall", "courthouse", "embassy", "fire_station",
+        "police", "police_station", "post_office",
+        # Transporte público — paradas de bus que GMaps etiqueta como negocios
+        "transit_station", "transit_stop", "bus_stop", "bus_station",
+        "train_station", "subway_station", "light_rail_station",
+        # Asociaciones / ONGs: iglesias, clubs, asociaciones sin giro comercial
+        # (se excluyen solo si NO tienen ningún tipo de negocio real)
+        "association_or_organization",
+        # Atracciones turísticas sin actividad comercial
+        # (se excluyen solo si NO tienen ningún tipo de negocio real)
+        "tourist_attraction",
     }
 
     tiene_no_negocio = bool(tipos_relevantes & tipos_fuerza_excluir)
@@ -629,7 +765,8 @@ def clasificar_por_tipos(tipos_str: str) -> str:
         "housing_complex", "condominium_complex", "apartment_complex",
         "apartment_building",
         "parking", "parking_lot", "parking_garage",
-        "transit_station", "bus_station", "train_station", "subway_station",
+        "transit_station", "transit_stop", "bus_stop", "bus_station",
+        "train_station", "subway_station",
         "airport", "light_rail_station",
         "local_government_office", "government_office",
         "city_hall", "courthouse", "embassy", "fire_station",
@@ -651,6 +788,7 @@ print(f"\n[4/6] Cruzando {len(df_maps)} negocios Maps vs {len(df_d)} DENUE...")
 print(f"  Radio espacial: {RADIO_M}m  |  Fuzzy mínimo: {FUZZY_MIN}")
 print(f"  Cadenas conocidas: {len(CADENAS_FORMALES)}")
 print(f"  Tipos no-negocio: {len(TIPOS_NO_NEGOCIO)}")
+print(f"  Instituciones formales obvias: {len(_INST_PUBLICAS_NORM)}")
 
 resultados = []
 for i, row in df_maps.iterrows():
@@ -664,18 +802,31 @@ for i, row in df_maps.iterrows():
     razon = ""
     es_informal = None  # None = pendiente
 
+    # ── CAPA 0: Pre-filtro — Institución pública/corporativa obvia por nombre ──
+    # Se aplica ANTES que cualquier otra capa para evitar que instituciones
+    # como CFE, IMSS, ISSSTE, INFONAVIT, etc. lleguen al cruce.
+    if es_informal is None:
+        es_inst, razon_inst = es_institucion_formal_obvia(nombre_maps)
+        if es_inst:
+            es_informal = False
+            decision = "formal_institucion"
+            razon = razon_inst
+            stats.setdefault("formal_institucion", 0)
+            stats["formal_institucion"] += 1
+
     # ── CAPA 1a: Filtrar por tipo de Google Maps ──
-    clasif_tipo = clasificar_por_tipos(tipos_str)
-    if clasif_tipo == "excluir":
-        es_informal = False
-        decision = "excluido_tipo"
-        razon = "No es negocio (tipo Google Maps)"
-        stats["excl_tipo"] += 1
-    elif clasif_tipo == "formal":
-        es_informal = False
-        decision = "formal_tipo_gmaps"
-        razon = "Tipo regulado (banco/gasolinera/super/hospital)"
-        stats["formal_tipo_gmaps"] += 1
+    if es_informal is None:
+        clasif_tipo = clasificar_por_tipos(tipos_str)
+        if clasif_tipo == "excluir":
+            es_informal = False
+            decision = "excluido_tipo"
+            razon = "No es negocio (tipo Google Maps)"
+            stats["excl_tipo"] += 1
+        elif clasif_tipo == "formal":
+            es_informal = False
+            decision = "formal_tipo_gmaps"
+            razon = "Tipo regulado (banco/gasolinera/super/hospital/casino)"
+            stats["formal_tipo_gmaps"] += 1
 
     # ── CAPA 1b: Filtrar por nombre claramente no-negocio ──
     if es_informal is None and es_no_negocio_por_nombre(nombre_maps):
@@ -763,6 +914,7 @@ print(f"\n{'=' * 60}")
 print("RESULTADO DEL CRUCE")
 print(f"{'=' * 60}")
 print(f"Total analizados:                {stats['total']:>6,}")
+print(f"  Formal (institución pública):  {stats.get('formal_institucion', 0):>6,}")
 print(f"  Excluidos (tipo no-negocio):   {stats['excl_tipo']:>6,}")
 print(f"  Excluidos (nombre no-negocio): {stats['excl_nombre']:>6,}")
 print(f"  Formal (cadena/franquicia):    {stats['formal_cadena']:>6,}")

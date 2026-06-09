@@ -1,12 +1,18 @@
-# Graph Report - .  (2026-06-05)
+# Graph Report - Geolocalizacion  (2026-06-08)
 
 ## Corpus Check
-- Large corpus: 84 files � ~2,950,639 words. Semantic extraction will be expensive (many Claude tokens). Consider running on a subfolder.
+- 61 files · ~3,108,585 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2219 nodes · 2636 edges · 258 communities (239 shown, 19 thin omitted)
-- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 46 edges (avg confidence: 0.87)
-- Token cost: 370,651 input · 0 output
+- 2328 nodes · 2780 edges · 264 communities (247 shown, 17 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 51 edges (avg confidence: 0.87)
+- Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `3fd4cff6`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - [[_COMMUNITY_Nominatim Geocoding Cache|Nominatim Geocoding Cache]]
@@ -261,18 +267,23 @@
 - [[_COMMUNITY_Community 255|Community 255]]
 - [[_COMMUNITY_Community 256|Community 256]]
 - [[_COMMUNITY_Community 257|Community 257]]
+- [[_COMMUNITY_Community 258|Community 258]]
+- [[_COMMUNITY_Community 259|Community 259]]
+- [[_COMMUNITY_Community 260|Community 260]]
+- [[_COMMUNITY_Community 261|Community 261]]
+- [[_COMMUNITY_Community 262|Community 262]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `col()` - 29 edges
-2. `str` - 18 edges
-3. `doc_to_dict()` - 17 edges
-4. `_get_candidatos()` - 13 edges
-5. `FastAPI` - 12 edges
-6. `main()` - 12 edges
+1. `col()` - 30 edges
+2. `str` - 19 edges
+3. `doc_to_dict()` - 18 edges
+4. `_get_candidatos()` - 16 edges
+5. `main()` - 12 edges
+6. `FastAPI` - 12 edges
 7. `descargar_places_merida()` - 11 edges
-8. `places/ChIJM-6fFUptVo8RG0z3nTH6qFg` - 9 edges
-9. `places/ChIJE36TB-BsVo8RrUO7JfU5r9c` - 9 edges
-10. `places/ChIJj2-fpgJtVo8ROvc8n53Y_HM` - 9 edges
+8. `Geolocalizacion Mérida — Documentación Completa` - 11 edges
+9. `places/ChIJM-6fFUptVo8RG0z3nTH6qFg` - 9 edges
+10. `places/ChIJE36TB-BsVo8RrUO7JfU5r9c` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `ResNet50 U-Net Semantic Segmentation` --semantically_similar_to--> `ML Pipeline (Random Forest + XGBoost)`  [INFERRED] [semantically similar]
@@ -287,6 +298,7 @@
   app.py → backend/app.py
 
 ## Import Cycles
+- 1-file cycle: `app.py -> app.py`
 - 1-file cycle: `backend/app.py -> backend/app.py`
 
 ## Hyperedges (group relationships)
@@ -303,7 +315,7 @@
 - **Formalization Prediction ML Pipeline** — concept_formalization_prediction, concept_pct_recientes_1a, mapas_curva_roc_formalizacion, mapas_importancia_variables_formalizacion [EXTRACTED 1.00]
 - **Field Visit Photo Upload Pattern** — concept_visit_record, uploads_visita_5t4oodtl_20260529_011153_person_portrait, uploads_visita_knepCf4w_20260529_002823_person_portrait, uploads_visita_knepCf4w_20260529_052947_person_portrait, uploads_visita_knepCf4w_20260528_143113_resnet50_diagram [INFERRED 0.85]
 
-## Communities (258 total, 19 thin omitted)
+## Communities (264 total, 17 thin omitted)
 
 ### Community 0 - "Nominatim Geocoding Cache"
 Cohesion: 0.00
@@ -311,39 +323,39 @@ Nodes (500): 20.84298,-89.63458, 20.84519,-89.64207, 20.84717,-89.58511, 20.8520
 
 ### Community 1 - "Campanas de Visita (Frontend)"
 Cohesion: 0.06
-Nodes (49): Campaña de Visita de Campo, abrirModalPlantillas(), abrirModalVisita(), _actualizarMeta(), agregarCampoPlantilla(), agregarNegocio(), buscarNegociosParaAgregar(), _cambiarPlantillaVisita() (+41 more)
+Nodes (53): Campaña de Visita de Campo, abrirModalPlantillas(), abrirModalVisita(), _actualizarBadgeGPS(), _actualizarMeta(), agregarCampoPlantilla(), agregarNegocio(), buscarNegociosParaAgregar() (+45 more)
 
 ### Community 2 - "Mapa Interactivo (app.js)"
-Cohesion: 0.08
-Nodes (38): _actualizarMetricasLocales(), _agregarMarcadores(), allData, calcularRuta(), calcularRutaColonia(), cargarCandidatos(), cargarIndice(), cargarProgresivo() (+30 more)
+Cohesion: 0.07
+Nodes (44): _actualizarMetricasLocales(), _agregarMarcadores(), allData, _calcIndice(), calcularRuta(), calcularRutaColonia(), cargarCandidatos(), cargarDatosIniciales() (+36 more)
 
 ### Community 3 - "Colonias GeoJSON & INEGI"
-Cohesion: 0.07
-Nodes (35): colonias_merida.geojson (INEGI/SEPOMEX/OSM polygons), INEGI Geospatial Data (AGEBs, municipios, colonias), data/inegi/asentamientos_merida.json, data/procesado/resumen_datos.json (INEGI/SEPOMEX metadata), cargarAgebs(), cargarColonias(), cargarMunicipiosYucatan(), COLONIA_COLORS (+27 more)
+Cohesion: 0.13
+Nodes (19): INEGI Geospatial Data (AGEBs, municipios, colonias), data/inegi/asentamientos_merida.json, data/procesado/resumen_datos.json (INEGI/SEPOMEX metadata), cargarAgebs(), cargarColonias(), cargarMunicipiosYucatan(), COLONIA_COLORS, coloniasData (+11 more)
 
 ### Community 4 - "Firestore Database Layer"
-Cohesion: 0.18
-Nodes (27): bool, int, str, Firestore Database, add_negocios_to_campana(), col(), create_campana(), create_reporte() (+19 more)
+Cohesion: 0.15
+Nodes (30): bool, int, str, Firestore Database, add_negocios_to_campana(), col(), create_campana(), create_reporte() (+22 more)
 
 ### Community 5 - "API Monolítica (app.py)"
-Cohesion: 0.13
-Nodes (15): actualizar_negocio_campana(), actualizar_plantilla(), actualizar_reporte(), actualizar_status_campana(), actualizar_usuario(), asignar_campana(), eliminar_campana(), eliminar_plantilla() (+7 more)
+Cohesion: 0.11
+Nodes (18): actualizar_negocio_campana(), actualizar_plantilla(), actualizar_reporte(), actualizar_status_campana(), actualizar_usuario(), asignar_campana(), eliminar_campana(), eliminar_plantilla() (+10 more)
 
 ### Community 6 - "Auth & Admin Router"
 Cohesion: 0.13
 Nodes (21): require_admin(), int, str, asignar_campana(), AsignarCampanaBody, cambiar_role(), CambiarRoleBody, crear_usuario() (+13 more)
 
 ### Community 7 - "Cache de Candidatos & Rutas"
-Cohesion: 0.14
-Nodes (20): _build_route, _get_candidatos, _prewarm_cache, agregar_negocios_campana(), _build_route(), calcular_ruta(), _get_candidatos(), GET /api/candidatos (+12 more)
+Cohesion: 0.20
+Nodes (12): _build_route, _get_candidatos, _prewarm_cache, _build_route(), calcular_ruta(), GET /api/candidatos, get_metricas(), guardar_tipo() (+4 more)
 
 ### Community 8 - "OSRM Routing & Modelos"
 Cohesion: 0.17
-Nodes (17): _osrm_route, BaseModel, OSRM Public Routing Service, CampanaOut, PrediccionNegocioResponse, PrediccionZonaResponse, SinDatosResponse, _calcular_con_osrm (+9 more)
+Nodes (16): _osrm_route, _tsp_nn, OSRM Public Routing Service, TSP Nearest Neighbor Heuristic, nearest_neighbor_tsp(), Ordena puntos con el heurístico del vecino más cercano (TSP)., _calcular_con_osrm, _calcular_con_osrm() (+8 more)
 
 ### Community 9 - "Backend Modular (FastAPI v2)"
 Cohesion: 0.14
-Nodes (14): lifespan(), Backend — Mapa de Candidatos Informales + Predicción + Rutas ===================, bool, SQLite negocios.db, Connection, get_db(), Helpers compartidos de base de datos y utilidades geoespaciales., Retorna una conexión SQLite con WAL habilitado. (+6 more)
+Nodes (15): lifespan(), FastAPI, Backend — Mapa de Candidatos Informales + Predicción + Rutas ===================, bool, SQLite negocios.db, Connection, get_db(), Helpers compartidos de base de datos y utilidades geoespaciales. (+7 more)
 
 ### Community 10 - "Cruce GMaps/DENUE (Fuzzy)"
 Cohesion: 0.18
@@ -374,8 +386,8 @@ Cohesion: 0.14
 Nodes (11): SQLite to Firestore Migration, campanas Table, candidatos Table, colonias Table, negocios.db (SQLite), reportes Table, batch_upload(), batch_upload_candidatos() (+3 more)
 
 ### Community 17 - "GeoJSON Endpoints (AGEBS/Municipios)"
-Cohesion: 0.18
-Nodes (14): _load_geojson, get_agebs_geojson(), get_colonias_geojson(), get_datos_geograficos(), get_municipio_geojson(), get_municipios_yucatan(), _load_geojson(), GeoJSON con polígonos de colonias de Mérida (OSM + generados desde candidatos). (+6 more)
+Cohesion: 0.12
+Nodes (20): _load_geojson, get_agebs_geojson(), get_colonias_geojson(), get_datos_geograficos(), get_municipio_geojson(), get_municipios_yucatan(), _load_geojson(), GeoJSON con polígonos de colonias de Mérida (OSM + generados desde candidatos). (+12 more)
 
 ### Community 18 - "Router Campanas (Backend v2)"
 Cohesion: 0.23
@@ -390,24 +402,24 @@ Cohesion: 0.18
 Nodes (12): me(), get_current_user(), _get_uid_and_role(), _is_auth_enabled(), bool, str, Autenticación y roles con Firebase Auth + Firestore.  Roles:   admin   — acceso, Detecta si Firebase Auth está habilitado en el proyecto. (+4 more)
 
 ### Community 21 - "Community 21"
-Cohesion: 0.19
-Nodes (10): int, str, actualizar_tipo(), ActualizarTipoBody, ActualizarTipoResponse, cache_status(), Candidato, get_candidatos() (+2 more)
+Cohesion: 0.15
+Nodes (15): int, str, BaseModel, CampanaOut, actualizar_tipo(), ActualizarTipoBody, ActualizarTipoResponse, cache_status() (+7 more)
 
 ### Community 22 - "Community 22"
-Cohesion: 0.22
-Nodes (10): actualizarStatusReporte(), cargarReportes, cargarReportes(), eliminarReporte(), enviarReporte(), _renderListaReportes(), _renderReportesEnMapa(), REPORTE_ICONS (+2 more)
+Cohesion: 0.07
+Nodes (31): Nominatim Reverse Geocoding, _abrirCamara(), _abrirCamaraModal(), _cameraCancelar(), _cameraDetenerStream(), _cameraReintentar(), _cameraShowLive(), _esMobil() (+23 more)
 
 ### Community 23 - "Community 23"
 Cohesion: 0.28
 Nodes (10): main(), SISTEMA DE PREDICCION DE FORMALIZACION DE NEGOCIOS Mérida, Yucatán, México  Ejec, descargar_denue_yucatan(), filtrar_merida(), limpiar_denue(), main(), PASO 1 — Descarga datos del DENUE (INEGI) Descarga todos los negocios formales d, Limpia y prepara el DataFrame de negocios de Mérida. (+2 more)
 
 ### Community 24 - "Community 24"
-Cohesion: 0.23
-Nodes (8): _iniciarPrecargas, _applyTecnicoRestrictions, _applyTecnicoRestrictions(), _bootApp(), doLogin(), doLoginGoogle(), _patchFetch(), _showLoginError()
+Cohesion: 0.17
+Nodes (11): _get_uid_and_role, Firebase Authentication, _iniciarPrecargas, _applyTecnicoRestrictions, _applyTecnicoRestrictions(), _bootApp(), doLogin(), doLoginGoogle() (+3 more)
 
 ### Community 25 - "Community 25"
-Cohesion: 0.22
-Nodes (11): _haversine (root app.py), _tsp_nn, float, float, Haversine Distance Formula, TSP Nearest Neighbor Heuristic, haversine(), nearest_neighbor_tsp() (+3 more)
+Cohesion: 0.33
+Nodes (7): _haversine (root app.py), float, float, Haversine Distance Formula, haversine(), Distancia en metros entre dos puntos (lat/lng en grados)., predecir()
 
 ### Community 26 - "Community 26"
 Cohesion: 0.25
@@ -422,12 +434,12 @@ Cohesion: 0.20
 Nodes (10): app.py (root), backend/app.py (FastAPI app v2.1), admin router, campanas router, candidatos router, prediccion router, reportes router, ruta router (+2 more)
 
 ### Community 29 - "Community 29"
-Cohesion: 0.22
-Nodes (8): MRT MAQUINARIA Y REFACCIONES MÉRIDA|ESTACION SANTA CRUZ, confianza, match, razon, TRANSPORTES CASTORES MÉRIDA CEDIS|HOUSE CONECTOR, confianza, match, razon
+Cohesion: 0.50
+Nodes (4): MRT MAQUINARIA Y REFACCIONES MÉRIDA|ESTACION SANTA CRUZ, confianza, match, razon
 
 ### Community 30 - "Community 30"
-Cohesion: 0.22
-Nodes (9): Candidatos Informales (negocios sin registro DENUE), DENUE (Directorio Estadístico Nacional de Unidades Económicas), Google Maps Places Data, ML Pipeline (Random Forest + XGBoost formalization prediction), data/raw/gmaps_places.json, _cargar_datos, main (main.py), migrate_to_firestore (script) (+1 more)
+Cohesion: 0.17
+Nodes (12): Candidatos Informales (negocios sin registro DENUE), Google Cloud Run deployment, DENUE (Directorio Estadístico Nacional de Unidades Económicas), Firebase Firestore, Google Maps Places Data, ML Pipeline (Random Forest + XGBoost formalization prediction), data/raw/gmaps_places.json, _cargar_datos (+4 more)
 
 ### Community 31 - "Community 31"
 Cohesion: 0.39
@@ -662,8 +674,8 @@ Cohesion: 0.29
 Nodes (8): DENUE (INEGI Formal Business Registry), Informal Economy Proxy (GMaps-DENUE Gap), Yucatan Business Density Heatmap, DENUE vs GMaps Cross-Reference, SECTORES_INFORMALES, calcular_features_por_zona(), gmaps_brecha Feature, Calcula todas las características (features) por zona.     Estas son las variabl
 
 ### Community 89 - "Community 89"
-Cohesion: 0.38
-Nodes (6): str, _render_template, generar_reporte_visita(), Renderiza el reporte usando Jinja2 si el template existe, o HTML inline., _render_template(), ReporteVisitaBody
+Cohesion: 0.24
+Nodes (9): str, get_candidatos_by_place_ids(), Trae candidatos por lista de place_ids (en lotes de 30)., Trae candidatos por lista de place_ids (en lotes de 30)., _render_template, generar_reporte_visita(), Renderiza el reporte usando Jinja2 si el template existe, o HTML inline., _render_template() (+1 more)
 
 ### Community 90 - "Community 90"
 Cohesion: 0.29
@@ -682,20 +694,20 @@ Cohesion: 0.53
 Nodes (6): _verify_token, get_usuarios(), require_admin(), require_auth(), _verify_token(), Request
 
 ### Community 94 - "Community 94"
-Cohesion: 0.33
-Nodes (6): crear_reporte(), guardar_visita_negocio(), _haversine(), predecir(), float, UploadFile
+Cohesion: 0.17
+Nodes (11): crear_reporte(), guardar_visita_negocio(), _haversine(), predecir(), float, UploadFile, str, Sube las imagenes de data/uploads/ a Firebase Storage (canaco-info-reportes) con (+3 more)
 
 ### Community 95 - "Community 95"
-Cohesion: 0.33
-Nodes (6): _get_uid_and_role, Google Cloud Run deployment, Firebase Authentication, Firebase Firestore, guardarVisita, crear_usuarios (script)
+Cohesion: 0.08
+Nodes (23): 1. Colonias en el mapa (Feature 1), 2. Reportes ciudadanos (Feature 3), 3. Reporte de visita descargable (Feature 5), 4. Campañas con checklist y rutas (Feature 6), Base de datos (SQLite), Columnas nuevas en `candidatos` (agregadas automáticamente), Cómo levantar el servicio, Deploy a producción (Cloud Run) (+15 more)
 
 ### Community 96 - "Community 96"
 Cohesion: 0.40
 Nodes (6): Business Formalization Prediction Model, Gini Coefficient for Digital Visibility Inequality, pct_recientes_1a Feature (Recent Registrations in 1 Year), ROC Curve — Prediccion de Formalizacion Merida Yucatan, Feature Importance — Formalization Prediction (Random Forest), Lorenz Curve — Digital Visibility of Barberias in Merida
 
 ### Community 97 - "Community 97"
-Cohesion: 0.40
-Nodes (5): Nominatim Reverse Geocoding, get_colonia(), actualizar_colonias_reales.py ============================== Asigna la colonia r, Reverse geocoding con Nominatim. Devuelve (colonia_nombre, display_name)., save_cache()
+Cohesion: 0.25
+Nodes (10): colonias_merida.geojson (INEGI/SEPOMEX/OSM polygons), encontrar_colonia (OSM Firestore), cargar_colonias(), encontrar_colonia(), procesar_candidatos(), punto_en_bbox(), Carga polígonos de colonias y prepara para búsqueda., Verifica si un punto está dentro del bounding box. (+2 more)
 
 ### Community 98 - "Community 98"
 Cohesion: 0.53
@@ -734,8 +746,8 @@ Cohesion: 0.50
 Nodes (4): BOMSSA CEDIS|BARBACOA TULANCINGO, confianza, match, razon
 
 ### Community 107 - "Community 107"
-Cohesion: 0.50
-Nodes (4): BOMSSA CEDIS|BOMSSA PERIFERICO, confianza, match, razon
+Cohesion: 0.22
+Nodes (8): BOMSSA CEDIS|BOMSSA PERIFERICO, confianza, match, razon, QUINTA MÓNACO|HIPICA SOLUNA DEL MAYAB, confianza, match, razon
 
 ### Community 108 - "Community 108"
 Cohesion: 0.50
@@ -1094,8 +1106,8 @@ Cohesion: 0.50
 Nodes (4): QUINTA MÓNACO|HERRERIA SIN NOMBRE, confianza, match, razon
 
 ### Community 197 - "Community 197"
-Cohesion: 0.50
-Nodes (4): QUINTA MÓNACO|HIPICA SOLUNA DEL MAYAB, confianza, match, razon
+Cohesion: 0.29
+Nodes (6): extract_filename(), is_firebase_url(), bool, str, Corrige URLs de Firestore: cambia firebasestorage.googleapis.com URLs a /uploads, Extrae el nombre del archivo de una URL de Firebase Storage.
 
 ### Community 198 - "Community 198"
 Cohesion: 0.50
@@ -1226,8 +1238,8 @@ Cohesion: 0.50
 Nodes (4): calcular_features_gmaps(), Calcula features de Google Maps por zona (0.5 km × 0.5 km).      Retorna DataFra, TIPOS_ECONOMICOS, TIPOS_INFORMALES
 
 ### Community 230 - "Community 230"
-Cohesion: 0.67
-Nodes (3): get_indice(), Índice de informalidad usando Estimador de Razón (Multiplier Method)., Estimador de Razón / Multiplier Method
+Cohesion: 0.50
+Nodes (4): get_indice(), Índice de informalidad usando Estimador de Razón (Multiplier Method)., Índice de informalidad usando Estimador de Razón (Multiplier Method)., Estimador de Razón / Multiplier Method
 
 ### Community 232 - "Community 232"
 Cohesion: 0.67
@@ -1237,25 +1249,53 @@ Nodes (3): ResNet50 U-Net Semantic Segmentation, U-Net ResNet50 Encoder-Decoder 
 Cohesion: 0.67
 Nodes (3): Firebase Auth Integration, GeoFormal Frontend UI, Backend FastAPI (backend/app.py)
 
+### Community 235 - "Community 235"
+Cohesion: 0.67
+Nodes (3): cache_status(), Devuelve el estado de carga del cache de candidatos., Devuelve el estado de carga del cache de candidatos.
+
+### Community 236 - "Community 236"
+Cohesion: 0.67
+Nodes (3): get_predicciones(), Devuelve las predicciones de zonas del modelo ML (CSV predicciones_zonas.csv)., Devuelve las predicciones de zonas del modelo ML (CSV predicciones_zonas.csv).
+
+### Community 237 - "Community 237"
+Cohesion: 0.17
+Nodes (13): agregar_negocios_campana(), _get_candidatos(), get_colonias(), get_reportes(), muestra_validacion(), _prewarm_cache(), int, Carga candidatos de Firestore en background al iniciar. (+5 more)
+
+### Community 258 - "Community 258"
+Cohesion: 0.38
+Nodes (6): normalize(), actualizar_zonas_poligonos.py ============================== Reemplaza las bound, Quita acentos, minusculas, colapsa espacios., relation_to_geom(), way_to_coords(), way_to_geom()
+
+### Community 259 - "Community 259"
+Cohesion: 0.33
+Nodes (6): _load_cache_background(), Persiste el slim JSON a disco para warm-start en el próximo arranque., Proyecta campos slim, serializa a JSON y precomprime con gzip., Carga Firestore paginado en background; actualiza _cands_cache cada 50 docs., _rebuild_slim_json(), _save_disk_cache()
+
+### Community 260 - "Community 260"
+Cohesion: 0.40
+Nodes (5): _lifespan(), _load_disk_cache(), FastAPI, Carga el slim JSON desde disco (si existe) — instante, sin Firestore., Startup: carga disco primero (instante) y luego Firestore en background.
+
+### Community 261 - "Community 261"
+Cohesion: 0.50
+Nodes (4): TRANSPORTES CASTORES MÉRIDA CEDIS|HOUSE CONECTOR, confianza, match, razon
+
 ## Knowledge Gaps
-- **1429 isolated node(s):** `PreToolUse`, `allow`, `defaultMode`, `bool`, `str` (+1424 more)
+- **1451 isolated node(s):** `PreToolUse`, `allow`, `defaultMode`, `bool`, `str` (+1446 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `FastAPI` connect `Backend Modular (FastAPI v2)` to `API Monolítica (app.py)`, `Auth & Admin Router`, `OSRM Routing & Modelos`, `Router Campanas (Backend v2)`, `Community 20`, `Community 21`, `Community 89`, `Community 26`?**
-  _High betweenness centrality (0.009) - this node is a cross-community bridge._
-- **Why does `Firebase Authentication` connect `Community 95` to `Community 24`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
-- **Why does `_get_uid_and_role` connect `Community 95` to `Firestore Database Layer`, `Community 20`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
+- **Why does `_get_uid_and_role` connect `Community 24` to `Firestore Database Layer`, `Community 20`?**
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+- **Why does `Informalidad Económica` connect `Detección de Informalidad (Core)` to `Campanas de Visita (Frontend)`?**
+  _High betweenness centrality (0.012) - this node is a cross-community bridge._
 - **What connects `PreToolUse`, `allow`, `defaultMode` to the rest of the system?**
-  _1530 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _1578 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Nominatim Geocoding Cache` be split into smaller, more focused modules?**
   _Cohesion score 0.003992015968063872 - nodes in this community are weakly interconnected._
 - **Should `Campanas de Visita (Frontend)` be split into smaller, more focused modules?**
-  _Cohesion score 0.06291591046581972 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.055288461538461536 - nodes in this community are weakly interconnected._
 - **Should `Mapa Interactivo (app.js)` be split into smaller, more focused modules?**
-  _Cohesion score 0.07575757575757576 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07137254901960784 - nodes in this community are weakly interconnected._
+- **Should `Colonias GeoJSON & INEGI` be split into smaller, more focused modules?**
+  _Cohesion score 0.12648221343873517 - nodes in this community are weakly interconnected._
