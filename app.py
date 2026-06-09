@@ -232,6 +232,14 @@ def _load_cache_background():
                     for doc in q.stream():
                         batch_docs.append(doc)
                         all_docs.append(doc)
+                        # Actualizar cache cada 200 docs para que el frontend vea progreso inmediato
+                        if len(all_docs) % 200 == 0:
+                            snap = [d.to_dict() for d in all_docs]
+                            with _cache_lock:
+                                _cands_cache = snap
+                            _rebuild_slim_json(snap)
+                            if not silent:
+                                _cache_progress = f"loading ({len(all_docs)} docs)"
                     if not batch_docs:
                         break  # stream agotado — todos los docs están en all_docs
                     last_doc = batch_docs[-1]
