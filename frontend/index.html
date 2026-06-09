@@ -603,11 +603,11 @@
           <!-- Google Maps -->
           <div style="background:#0a1428;border:1px solid #f59e0b44;border-radius:12px;padding:20px">
             <div style="font-size:11px;color:#f59e0b;font-weight:700;text-transform:uppercase;margin-bottom:12px">🗺️ Tu descarga de Google Maps</div>
-            <div style="font-size:28px;font-weight:800;color:#dde9ff" id="idx-ngmaps-raw">27,242</div>
+            <div style="font-size:28px;font-weight:800;color:#dde9ff" id="idx-ngmaps-raw">29,234</div>
             <div style="font-size:11px;color:#475569;margin-top:4px">registros descargados del CSV</div>
             <div style="margin-top:12px;font-size:11px;color:#475569;border-top:1px solid #0f2040;padding-top:12px">
               Menos parques, escuelas, iglesias, etc.<br>
-              → <span style="color:#dde9ff;font-weight:600" id="idx-ngmaps">24,147</span> negocios reales analizados
+              → <span style="color:#dde9ff;font-weight:600" id="idx-ngmaps">23,456</span> negocios reales analizados
             </div>
           </div>
           <!-- DENUE -->
@@ -624,15 +624,15 @@
 
         <!-- Resultado del cruce -->
         <div style="background:#070f1f;border:1px solid #0f2040;border-radius:12px;padding:20px">
-          <div style="font-size:11px;color:#64748b;font-weight:700;text-transform:uppercase;margin-bottom:14px">Al cruzar los dos conjuntos, de los 24,147 negocios de Google Maps:</div>
+          <div style="font-size:11px;color:#64748b;font-weight:700;text-transform:uppercase;margin-bottom:14px">Al cruzar los dos conjuntos, de los 23,456 negocios de Google Maps:</div>
           <div class="idx-grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
             <div style="background:#0d1830;border-radius:10px;padding:14px;text-align:center;border:1px solid #22c55e33">
-              <div style="font-size:24px;font-weight:800;color:#22c55e" id="idx-m">9,613</div>
+              <div style="font-size:24px;font-weight:800;color:#22c55e" id="idx-m">9,040</div>
               <div style="font-size:11px;color:#475569;margin-top:4px">coinciden con el DENUE</div>
               <div style="font-size:10px;color:#22c55e;margin-top:4px;font-weight:600">→ FORMALES confirmados</div>
             </div>
             <div style="background:#0d1830;border-radius:10px;padding:14px;text-align:center;border:1px solid #f8717133">
-              <div style="font-size:24px;font-weight:800;color:#f87171" id="idx-ninf-obs">11,018</div>
+              <div style="font-size:24px;font-weight:800;color:#f87171" id="idx-ninf-obs">9,925</div>
               <div style="font-size:11px;color:#475569;margin-top:4px">no están en el DENUE</div>
               <div style="font-size:10px;color:#f87171;margin-top:4px;font-weight:600">→ INFORMALES detectados</div>
             </div>
@@ -648,9 +648,9 @@
         <div style="padding:16px;background:#070f1f;border-radius:10px;border:1px solid #0f2040;margin-bottom:12px">
           <div style="font-size:11px;color:#f59e0b;font-weight:700;margin-bottom:8px">PASO 1 · Medir el "lente" de Google Maps</div>
           <div style="font-size:13px;color:#94a3b8;line-height:1.7">
-            Google Maps capturó <strong style="color:#22c55e" id="idx-m2">9,613</strong> de los <strong style="color:#3b82f6" id="idx-N1b">144,576</strong> formales del DENUE.<br>
-            Eso significa que Google Maps solo "ve" el <strong style="color:#60a5fa" id="idx-p">6.65%</strong> de la realidad formal.<br>
-            <span style="font-size:11px;color:#475569">Fórmula: p̂ = 9,613 / 144,576 = 6.65%</span>
+            Google Maps capturó <strong style="color:#22c55e" id="idx-m2">9,040</strong> de los <strong style="color:#3b82f6" id="idx-N1b">144,576</strong> formales del DENUE.<br>
+            Eso significa que Google Maps solo "ve" el <strong style="color:#60a5fa" id="idx-p">6.25%</strong> de la realidad formal.<br>
+            <span style="font-size:11px;color:#475569">Fórmula: p̂ = 9,040 / 144,576 = 6.25%</span>
           </div>
         </div>
 
@@ -658,9 +658,9 @@
         <div style="padding:16px;background:#070f1f;border-radius:10px;border:1px solid #0f2040;margin-bottom:12px">
           <div style="font-size:11px;color:#f59e0b;font-weight:700;margin-bottom:8px">PASO 2 · Escalar los informales al universo real</div>
           <div style="font-size:13px;color:#94a3b8;line-height:1.7">
-            Si Google Maps solo ve el 6.65%, los <strong style="color:#f87171" id="idx-ninf-obs2">11,018</strong> informales detectados también son solo el 6.65% del total real.<br>
-            Total estimado = <strong style="color:#f87171" id="idx-ninf-obs3">11,018</strong> ÷ 6.65% = <strong style="color:#f87171;font-size:16px" id="idx-Ninf">165,707</strong> informales<br>
-            <span style="font-size:11px;color:#475569">Fórmula: N̂_inf = 11,018 × (144,576 / 9,613) = 11,018 × <span id="idx-mult">15.04</span></span>
+            Si Google Maps solo ve el 6.25%, los <strong style="color:#f87171" id="idx-ninf-obs2">9,925</strong> informales detectados también son solo el 6.25% del total real.<br>
+            Total estimado = <strong style="color:#f87171" id="idx-ninf-obs3">9,925</strong> ÷ 6.25% = <strong style="color:#f87171;font-size:16px" id="idx-Ninf">158,800</strong> informales<br>
+            <span style="font-size:11px;color:#475569">Fórmula: N̂_inf = 9,925 × (144,576 / 9,040) = 9,925 × <span id="idx-mult">15.99</span></span>
           </div>
         </div>
 
@@ -669,7 +669,7 @@
           <div style="font-size:11px;color:#f59e0b;font-weight:700;margin-bottom:8px">PASO 3 · Índice de informalidad</div>
           <div style="font-size:13px;color:#94a3b8;line-height:1.7">
             Informales estimados ÷ (Formales DENUE + Informales estimados)<br>
-            = <strong style="color:#f87171" id="idx-Ninf2">165,707</strong> ÷ (<strong style="color:#3b82f6" id="idx-N1c">144,576</strong> + <strong style="color:#f87171" id="idx-Ninf3">165,707</strong>) = <strong style="color:#f87171;font-size:18px" id="idx-I">53.4%</strong> <span style="font-size:11px;color:#475569">(límite inferior)</span>
+            = <strong style="color:#f87171" id="idx-Ninf2">158,800</strong> ÷ (<strong style="color:#3b82f6" id="idx-N1c">144,576</strong> + <strong style="color:#f87171" id="idx-Ninf3">158,800</strong>) = <strong style="color:#f87171;font-size:18px" id="idx-I">52.4%</strong> <span style="font-size:11px;color:#475569">(límite inferior)</span>
           </div>
         </div>
       </div>

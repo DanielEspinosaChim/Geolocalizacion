@@ -232,15 +232,6 @@ def _load_cache_background():
                     for doc in q.stream():
                         batch_docs.append(doc)
                         all_docs.append(doc)
-                        if len(all_docs) % 50 == 0:
-                            snap = [d.to_dict() for d in all_docs]
-                            with _cache_lock:
-                                _cands_cache = snap
-                                if _cands_ts == 0.0:
-                                    _cands_ts = time.time()
-                            if not silent:
-                                _cache_progress = f"loading ({len(all_docs)} docs)"
-                            _rebuild_slim_json(snap)
                     if not batch_docs:
                         break  # stream agotado — todos los docs están en all_docs
                     last_doc = batch_docs[-1]
@@ -563,9 +554,9 @@ def get_indice():
 
     # Datos fijos del cruce (valores del último cruce ejecutado)
     N1         = 144_576   # DENUE Mérida — formales registrados (ancla)
-    m          = 9_613     # overlap Google Maps ∩ DENUE
-    n_inf_obs  = 11_018    # informales observados en Google Maps
-    n_gmaps    = 24_147    # negocios reales en Google Maps (sin excluidos)
+    m          = 9_040     # overlap Google Maps ∩ DENUE (decision_fuente=formal_denue)
+    n_inf_obs  = 9_925     # informales confirmados (es_informal=True)
+    n_gmaps    = 23_456    # negocios reales en Google Maps (sin excluidos ni instituciones)
 
     p_formal   = m / N1                      # cobertura GM para formales
     multiplicador = N1 / m
@@ -596,7 +587,7 @@ def get_indice():
             "m_overlap":       m,
             "n_inf_observados": n_inf_obs,
             "n_gmaps_negocios": n_gmaps,
-            "n_gmaps_csv":     27_242,
+            "n_gmaps_csv":     29_234,
         },
         "cobertura_gmaps_pct": round(p_formal * 100, 2),
         "multiplicador":        round(multiplicador, 2),
