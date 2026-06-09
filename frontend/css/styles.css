@@ -773,11 +773,22 @@ tr:hover td { background: #111827; }
 
   /* Índice — padding reducido, grids 2→1 col ────────────────── */
   #indice-wrap { padding: 14px 10px !important; overflow-x: hidden; }
+  #indice-wrap > div { max-width: 100% !important; overflow-x: hidden; }
   #indice-wrap h2 { font-size: 20px !important; }
-  .idx-grid2 { grid-template-columns: 1fr !important; }
+
+  /* Todos los grids de 2 columnas → 1 columna */
+  .idx-grid2,
+  #indice-wrap [style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Bloque INEGI validación: icon + texto → columna en mobile */
+  #indice-wrap [style*="align-items:center"][style*="gap:20px"] {
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
 
   /* Título y separación entre secciones del índice */
-  #indice-wrap > div > div:first-child { margin-bottom: 16px !important; }
   #indice-wrap [style*="margin-bottom:24px"] { margin-bottom: 12px !important; }
   #indice-wrap [style*="margin-bottom:32px"] { margin-bottom: 16px !important; }
 
@@ -785,15 +796,19 @@ tr:hover td { background: #111827; }
   #indice-wrap [style*="padding:28px"] { padding: 14px !important; }
   #indice-wrap [style*="padding:20px"] { padding: 12px !important; }
   #indice-wrap [style*="padding:16px"] { padding: 10px !important; }
+  #indice-wrap [style*="padding:24px"] { padding: 12px !important; }
 
   /* Textos y fórmulas: que hagan wrap sin overflow */
-  #indice-wrap [style*="font-size:13px"] { font-size: 12px !important; overflow-wrap: break-word; word-break: break-word; }
-  #indice-wrap [style*="font-size:28px"] { font-size: 22px !important; }
-  #indice-wrap [style*="font-size:24px"] { font-size: 20px !important; }
-  #indice-wrap [style*="font-size:18px"] { font-size: 16px !important; }
+  #indice-wrap * { overflow-wrap: break-word; word-break: break-word; max-width: 100%; }
+  #indice-wrap [style*="font-size:13px"] { font-size: 12px !important; }
+  #indice-wrap [style*="font-size:28px"] { font-size: 20px !important; }
+  #indice-wrap [style*="font-size:24px"] { font-size: 18px !important; }
+  #indice-wrap [style*="font-size:48px"] { font-size: 32px !important; }
+  #indice-wrap [style*="font-size:36px"] { font-size: 24px !important; }
+  #indice-wrap [style*="font-size:18px"] { font-size: 15px !important; }
 
   /* Calculadora: grid 3 cols → 1 col */
-  #calc-resultado > div:first-child { grid-template-columns: 1fr !important; }
+  #calc-resultado [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
 
   /* Escenarios: fila con % y N estimados se apila en mobile */
   #idx-escenarios > div > div:first-child {
@@ -845,4 +860,32 @@ tr:hover td { background: #111827; }
   /* Modales full-width en móvil ─────────────────────────────── */
   .modal-box { width: calc(100vw - 20px) !important; max-width: none !important; }
   .panel-modal-box { width: calc(100vw - 16px) !important; }
+
+  /* Header: user-info responsive — solo mostrar botón Salir en mobile ─── */
+  #user-info { gap: 6px; flex-shrink: 0; }
+  #user-info > div:first-child { display: none; }  /* ocultar email + role badge */
+  #user-info button { padding: 5px 12px; font-size: 11px; white-space: nowrap; }
+  /* Badge de candidatos más compacto en pantallas pequeñas */
+  #header { overflow: hidden; }
+  .badge { font-size: 10px; padding: 4px 10px; flex-shrink: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+
+  /* Calculadora del índice: grid 3→1 columna (refuerza el override inline) */
+  #calc-resultado > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    display: grid !important;
+  }
+  #calc-indice { padding: 14px !important; }
+
+  /* Admin: padding reducido, botón "nuevo usuario" full-width */
+  #admin-panel { padding: 12px !important; gap: 12px !important; }
+  #admin-panel [style*="justify-content:space-between"] {
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+  #admin-panel [onclick*="mostrarModalCrearUsuario"] {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  #admin-panel [style*="padding:16px 20px"] { padding: 12px !important; }
+  #admin-panel [style*="padding:24px"] { padding: 12px !important; }
 }

@@ -53,6 +53,17 @@ else:
     _fdb     = None
     _storage = None
 
+# ── GCS client con credenciales explícitas del SA ────────────────────────────
+from google.cloud import storage as _gcs_module
+
+if _SA.exists():
+    _sa_info    = json.loads(_SA.read_text())
+    _gcs_client = _gcs_module.Client.from_service_account_info(_sa_info)
+    print(f"  [GCS] Cliente SA OK ({_sa_info['project_id']})")
+else:
+    _gcs_client = _gcs_module.Client()
+    print("  [GCS] Cliente ADC")
+
 
 # ── Auth helpers ──────────────────────────────────────────────────────────────
 def _verify_token(request: Request) -> Optional[dict]:
@@ -91,8 +102,9 @@ MUNICIPIO_GEOJSON = BASE / "data/procesado/municipio_merida.geojson"
 AGEBS_GEOJSON     = BASE / "data/inegi/agebs_urbanos_merida.geojson"
 MUNICIPIOS_YUC    = BASE / "data/inegi/municipios_yucatan.geojson"
 
-UPLOADS_DIR  = BASE / "data/uploads"
+UPLOADS_DIR   = BASE / "data/uploads"
 UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
+GCS_BUCKET    = "canaco-info-reportes"
 
 _DISK_CACHE = BASE / "data/procesado/candidatos_slim_cache.json.gz"
 
@@ -141,9 +153,27 @@ async def _lifespan(app: FastAPI):
 
 
 app = FastAPI(title="GeoFormal", lifespan=_lifespan)
-app.mount("/css",     StaticFiles(directory=str(FRONT / "css")),  name="css")
-app.mount("/js",      StaticFiles(directory=str(FRONT / "js")),   name="js")
-app.mount("/uploads", StaticFiles(directory=str(UPLOADS_DIR)),    name="uploads")
+app.mount("/css", StaticFiles(directory=str(FRONT / "css")), name="css")
+app.mount("/js",  StaticFiles(directory=str(FRONT / "js")),  name="js")
+
+
+@app.get("/uploads/{filename:path}")
+def serve_upload(filename: str):
+    """Sirve imágenes desde GCS (Cloud Run) o disco local (dev)."""
+    import sys
+    try:
+        blob = _gcs_client.bucket(GCS_BUCKET).blob(filename)
+        data = blob.download_as_bytes()
+        mime = blob.content_type or "image/jpeg"
+        return Response(content=data, media_type=mime,
+                        headers={"Cache-Control": "public, max-age=86400"})
+    except Exception as e:
+        print(f"  [serve_upload] GCS error for {filename}: {type(e).__name__}: {e}", file=sys.stderr, flush=True)
+    # Fallback: disco local
+    local = UPLOADS_DIR / filename
+    if local.exists():
+        return FileResponse(str(local))
+    raise HTTPException(404, "Imagen no encontrada")
 
 
 # ── Cache en memoria de candidatos ────────────────────────────────────────────
@@ -199,7 +229,7 @@ def _load_cache_background():
                                 .start_after(last_doc) if last_doc
                          else _fdb.collection("candidatos").limit(2000))
                     batch_docs = []
-                    for doc in q.stream(timeout=60):
+                    for doc in q.stream():
                         batch_docs.append(doc)
                         all_docs.append(doc)
                         if len(all_docs) % 50 == 0:
@@ -210,7 +240,7 @@ def _load_cache_background():
                                     _cands_ts = time.time()
                             if not silent:
                                 _cache_progress = f"loading ({len(all_docs)} docs)"
-                                _rebuild_slim_json(snap)  # solo actualiza slim JSON en carga cold
+                            _rebuild_slim_json(snap)
                     if not batch_docs:
                         break  # stream agotado — todos los docs están en all_docs
                     last_doc = batch_docs[-1]
@@ -219,7 +249,7 @@ def _load_cache_background():
                         _cands_cache = snap
                     if not silent:
                         _cache_progress = f"loading ({len(all_docs)} docs, lote {batch_num})"
-                        _rebuild_slim_json(snap)  # solo en cold start
+                    _rebuild_slim_json(snap)
                     print(f"  [Cache] Lote {batch_num}: {len(batch_docs)} docs (total: {len(all_docs)})")
                 # Éxito: finalizar cache
                 snap = [doc.to_dict() for doc in all_docs]
@@ -832,14 +862,13 @@ def reporte_visita(body: dict = Body(...)):
         tipo_label = TIPO_LABEL.get(c.get("tipo", "informal"), "🔴 Informal")
         vis_txt    = "✓ Visitado" if completado else "Pendiente"
         vis_color  = "#16a34a"    if completado else "#94a3b8"
+        fecha_span = f'<br><span style="font-size:10px;color:#94a3b8">{fecha_vis}</span>' if fecha_vis else ''
         filas += (
             f"<tr>"
             f"<td style='font-weight:600'>{html.escape(c.get('nombre','') or '')}</td>"
             f"<td style='color:#64748b;font-size:12px'>{html.escape(c.get('direccion','') or '')}</td>"
             f"<td>{tipo_label}</td>"
-            f"<td style='color:{vis_color};font-weight:700;white-space:nowrap'>{vis_txt}"
-            f"{'<br><span style=\"font-size:10px;color:#94a3b8\">' + fecha_vis + '</span>' if fecha_vis else ''}"
-            f"</td>"
+            f"<td style='color:{vis_color};font-weight:700;white-space:nowrap'>{vis_txt}{fecha_span}</td>"
             f"<td style='font-size:12px;color:#334155'>{html.escape(notas_raw)}</td>"
             f"</tr>"
         )
@@ -919,28 +948,14 @@ async def crear_reporte(
         ext          = Path(foto.filename).suffix.lower() or ".jpg"
         fname        = f"reporte_{_uuid.uuid4().hex}{ext}"
 
-        # Intentar subir a Firebase Storage
-        if _storage is not None:
-            try:
-                bucket_name = None
-                for bname in ("canaco-info.appspot.com", "canaco-info.firebasestorage.app"):
-                    try:
-                        _storage.bucket(bname).blob("_probe").exists()
-                        bucket_name = bname
-                        break
-                    except Exception:
-                        continue
-                if bucket_name:
-                    blob = _storage.bucket(bucket_name).blob(f"reportes/{fname}")
-                    blob.upload_from_string(data_bytes, content_type=content_type)
-                    foto_url = (f"https://firebasestorage.googleapis.com/v0/b/{bucket_name}/o/"
-                                f"{quote(blob.name, safe='')}?alt=media")
-                    print(f"  [Storage] Foto subida a Firebase: {fname}")
-            except Exception as e:
-                print(f"  [Storage] Upload fallido: {e}")
-
-        # Respaldo local si Firebase no funcionó
-        if not foto_url:
+        # Subir a GCS
+        try:
+            blob = _gcs_client.bucket(GCS_BUCKET).blob(fname)
+            blob.upload_from_string(data_bytes, content_type=content_type)
+            foto_url = f"/uploads/{fname}"
+            print(f"  [Storage] Foto subida a GCS: {fname}")
+        except Exception as e:
+            print(f"  [Storage] Upload fallido: {e}")
             dest = UPLOADS_DIR / fname
             dest.write_bytes(data_bytes)
             foto_url = f"/uploads/{fname}"
@@ -1257,20 +1272,13 @@ async def guardar_visita_negocio(
     if foto and foto.filename:
         data_bytes = await foto.read()
         fname      = f"visita_{campana_id[:8]}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.jpg"
-        if _firebase_ok:
-            try:
-                import firebase_admin.storage as fb_storage
-                bucket      = fb_storage.bucket()
-                bucket_name = bucket.name
-                blob        = bucket.blob(f"visitas/{fname}")
-                blob.upload_from_string(data_bytes, content_type=foto.content_type or "image/jpeg")
-                blob.make_public()
-                from urllib.parse import quote
-                foto_url = (f"https://firebasestorage.googleapis.com/v0/b/{bucket_name}/o/"
-                            f"{quote('visitas/'+fname, safe='')}?alt=media")
-            except Exception as e:
-                print(f"  [Storage] Visita upload fallido: {e}")
-        if not foto_url:
+        try:
+            blob = _gcs_client.bucket(GCS_BUCKET).blob(fname)
+            blob.upload_from_string(data_bytes, content_type=foto.content_type or "image/jpeg")
+            foto_url = f"/uploads/{fname}"
+            print(f"  [Storage] Visita subida a GCS: {fname}")
+        except Exception as e:
+            print(f"  [Storage] Visita upload fallido: {e}")
             dest = UPLOADS_DIR / fname
             dest.write_bytes(data_bytes)
             foto_url = f"/uploads/{fname}"
