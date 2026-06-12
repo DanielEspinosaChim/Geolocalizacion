@@ -119,7 +119,7 @@ def _load_disk_cache():
         with _slim_json_lock:
             _slim_json    = raw
             _slim_json_gz = gz
-        _cache_progress = "warm"   # disco listo pero Firestore aún no — frontend sigue polling
+        _cache_progress = "ready"
         print(f"  [Cache] Disco: {len(json.loads(raw))} candidatos cargados en <1s")
     except Exception as e:
         print(f"  [Cache] Disco: fallo al leer — {e}")
@@ -232,14 +232,6 @@ def _load_cache_background():
                     for doc in q.stream():
                         batch_docs.append(doc)
                         all_docs.append(doc)
-                        # Actualizar cache cada 200 docs para que el frontend vea progreso inmediato
-                        if len(all_docs) % 200 == 0:
-                            snap = [d.to_dict() for d in all_docs]
-                            with _cache_lock:
-                                _cands_cache = snap
-                            _rebuild_slim_json(snap)
-                            if not silent:
-                                _cache_progress = f"loading ({len(all_docs)} docs)"
                     if not batch_docs:
                         break  # stream agotado — todos los docs están en all_docs
                     last_doc = batch_docs[-1]
@@ -562,11 +554,11 @@ def get_indice():
 
     # Datos fijos del cruce (valores del último cruce ejecutado)
     N1               = 144_576  # DENUE Mérida — formales registrados (ancla)
-    m                = 9_040    # overlap GM∩DENUE (decision_fuente=formal_denue) — ancla del método
-    n_formales_otros = 10_269   # cadena(2445)+tipo_gmaps(1186)+institucion(860)+excluido_tipo(5108)+excluido_nombre(670)
-    n_formales_total = m + n_formales_otros  # 19,309 = todos los no-informales (es_informal=False)
-    n_inf_obs        = 9_925    # informales confirmados (es_informal=True)
-    n_gmaps          = 29_234   # total CSV (19,309 formales + 9,925 informales)
+    m                = 8_901    # overlap GM∩DENUE (decision_fuente=formal_denue) — ancla del método
+    n_formales_otros = 4_616    # formal_cadena(2427) + formal_tipo_gmaps(1142) + formal_institucion(1047)
+    n_formales_total = m + n_formales_otros  # 13,517 formales identificados en total
+    n_inf_obs        = 9_775    # informales confirmados (es_informal=True)
+    n_gmaps          = 23_292   # negocios reales en Google Maps (sin excluidos)
 
     p_formal   = m / N1                      # cobertura GM para formales
     multiplicador = N1 / m
@@ -623,10 +615,14 @@ def get_metricas():
         return {"total": 0, "formales": 0, "informales": 0, "pct_informal": 0,
                 "score_prom": 0, "dist_prom_m": 0, "top_tipos": []}
     total      = len(cands)
-    # Usar campo 'tipo' (el que cambia el usuario) para clasificar
-    formales   = sum(1 for c in cands if c.get("tipo") == "formal")
-    en_proceso = sum(1 for c in cands if c.get("tipo") == "en_proceso")
-    informales = total - formales - en_proceso
+    # formales_cruce = confirmados por el cruce (base fija del CSV)
+    # formales_manual = candidatos que el usuario marcó como formal en Firebase
+    FORMALES_CRUCE = 13_680  # formal_denue(8902) + formal_cadena(2428) + formal_tipo_gmaps(1171) + formal_institucion(1179)
+    formales_manual = sum(1 for c in cands if c.get("tipo") == "formal")
+    en_proceso      = sum(1 for c in cands if c.get("tipo") == "en_proceso")
+    informales      = total - formales_manual - en_proceso
+    formales_total  = FORMALES_CRUCE + formales_manual
+    total_universo  = FORMALES_CRUCE + total  # formales cruce + todos los candidatos
     scores = [float(c["fuzzy_score"]) for c in cands if c.get("fuzzy_score")]
     dists  = [float(c["distancia_m"]) for c in cands
               if c.get("distancia_m") and float(c.get("distancia_m", 9999)) < 9999]
@@ -639,14 +635,17 @@ def get_metricas():
                 if t not in SKIP:
                     tipos_counts[t] += 1
     return {
-        "total":        total,
-        "formales":     formales,
-        "en_proceso":   en_proceso,
-        "informales":   informales,
-        "pct_informal": round(informales / total * 100, 1) if total else 0,
-        "score_prom":   round(sum(scores) / len(scores), 1) if scores else 0,
-        "dist_prom_m":  round(sum(dists) / len(dists), 1) if dists else 0,
-        "top_tipos":    tipos_counts.most_common(8),
+        "total":            total,
+        "formales":         formales_total,
+        "formales_cruce":   FORMALES_CRUCE,
+        "formales_manual":  formales_manual,
+        "en_proceso":       en_proceso,
+        "informales":       informales,
+        "total_universo":   total_universo,
+        "pct_informal":     round(informales / total * 100, 1) if total else 0,
+        "score_prom":       round(sum(scores) / len(scores), 1) if scores else 0,
+        "dist_prom_m":      round(sum(dists) / len(dists), 1) if dists else 0,
+        "top_tipos":        tipos_counts.most_common(8),
     }
 
 

@@ -823,15 +823,22 @@ async function cargarIndice(){
     const esc0  = d.escenarios[0];
     const Ninf  = fmt(esc0.N_inf_estimado);
 
-    const mTotal   = fmt(d.datos_entrada.n_formales_total || d.datos_entrada.m_overlap);
+    const nGmapsCSV = d.datos_entrada.n_gmaps_csv || 29234;
+    const mTotal   = fmt(nGmapsCSV - d.datos_entrada.n_inf_observados);
     const mOtros   = d.datos_entrada.n_formales_otros || 0;
+    const excluidos = nGmapsCSV - d.datos_entrada.n_inf_observados - (d.datos_entrada.n_formales_total || 0);
     ['idx-N1','idx-N1b','idx-N1c'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=N1; });
     ['idx-ngmaps'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=ngm; });
-    document.getElementById('idx-ngmaps-raw').textContent = fmt(d.datos_entrada.n_gmaps_csv || 29234);
+    document.getElementById('idx-ngmaps-raw').textContent = fmt(nGmapsCSV);
     const elMTotal = document.getElementById('idx-m-total'); if(elMTotal) elMTotal.textContent = mTotal;
-    const elMBreak = document.getElementById('idx-m-breakdown'); if(elMBreak) elMBreak.textContent = `${m} en DENUE · ${fmt(mOtros)} por tipo/cadena`;
+    const elMBreak = document.getElementById('idx-m-breakdown'); if(elMBreak) elMBreak.textContent = `${m} en DENUE · ${fmt(mOtros)} por tipo/cadena · ${fmt(excluidos)} excluidos`;
     ['idx-m','idx-m2'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=m; });
     ['idx-ninf-obs','idx-ninf-obs2','idx-ninf-obs3'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=ninf; });
+    // Actualizar textos de fórmulas (dinámicos)
+    const elVerif = document.getElementById('idx-verificacion'); if(elVerif) elVerif.textContent = mTotal + ' + ' + ninf + ' = ' + fmt(nGmapsCSV) + ' ✓';
+    const elFP  = document.getElementById('idx-formula-p');    if(elFP)  elFP.textContent  = `Fórmula: p̂ = ${m} / ${N1} = ${d.cobertura_gmaps_pct}%`;
+    const elP2  = document.getElementById('idx-p2');           if(elP2)  elP2.textContent  = d.cobertura_gmaps_pct + '%';
+    const elFNI = document.getElementById('idx-formula-ninf'); if(elFNI) elFNI.innerHTML   = `Fórmula: N̂_inf = ${ninf} × (${N1} / ${m}) = ${ninf} × <span id="idx-mult">${d.multiplicador}</span>`;
     ['idx-Ninf','idx-Ninf2','idx-Ninf3'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=Ninf; });
     document.getElementById('idx-p').textContent    = d.cobertura_gmaps_pct + '%';
     document.getElementById('idx-mult').textContent = d.multiplicador;
@@ -894,7 +901,7 @@ function _calcIndice() {
   if (!el || !_indiceBase) return;
   const b      = _indiceBase;
   const N1     = b.datos_entrada.N1_denue;
-  const mult   = b.multiplicador;
+  const m      = b.datos_entrada.m_overlap;
   const esc0   = b.escenarios[0];
   const ninfBase = b.datos_entrada.n_inf_observados;
 
@@ -905,7 +912,7 @@ function _calcIndice() {
     ? allData.filter(c => !c.tipo || c.tipo === 'informal').length
     : ninfBase;
 
-  const NinfEst  = Math.round(ninfObs * mult);
+  const NinfEst  = Math.round(ninfObs * N1 / m);
   const idxNuevo = ((NinfEst / (NinfEst + N1)) * 100).toFixed(1);
   const idxBase  = esc0.indice_pct;
   const delta    = (idxNuevo - idxBase).toFixed(1);

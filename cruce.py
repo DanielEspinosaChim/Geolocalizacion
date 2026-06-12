@@ -164,7 +164,28 @@ _INST_PUBLICAS = [
     # Grandes corporativos obvios (no en la lista de cadenas)
     "MICROSOFT", "GOOGLE", "AMAZON MEXICO", "MERCADO LIBRE",
     "BIMBO", "CEMEX", "VITRO", "ALFA",
+    # Industriales / multinacionales con presencia local confirmada
+    "HEINEKEN", "CERVEZAS HEINEKEN",
+    "LEONI WIRING", "LEONI WIRING SYSTEMS",
+    "ECISA CONSTRUCCIONES", "ECISA ",
+    "AJEMEX", "BIG COLA",
+    "GRUPO CARSO", "CARSO INFRAESTRUCTURA",
+    # Transporte formal explícito
+    "AUTOBUSES MINIS",
 ]
+
+# Regex para detectar razón social formal en el nombre del negocio
+# Atrapa: S.A. de C.V., SA de CV, S. de R.L. de C.V., SAPI de CV, etc.
+_REGEX_RAZON_SOCIAL = re.compile(
+    r'\b('
+    r'S\.?\s*A\.?\s*(de\s+)?C\.?\s*V\.?'
+    r'|SA\s+de\s+CV'
+    r'|S\s+de\s+R\.?\s*L\.?(\s+(de\s+)?C\.?\s*V\.?)?'
+    r'|S\.?\s*de\s+R\.?\s*L\.?'
+    r'|SAPI\s*(de\s+)?C\.?\s*V\.?'
+    r')\b',
+    re.IGNORECASE
+)
 
 _INST_PUBLICAS_NORM = [normalizar(n) for n in _INST_PUBLICAS]
 
@@ -175,6 +196,10 @@ def es_institucion_formal_obvia(nombre: str) -> tuple[bool, str]:
     registrada que es 100% formal por definición.
     Returns: (es_formal, razon)
     """
+    # Detectar razón social formal en el nombre crudo (S.A. de C.V., SA de CV, etc.)
+    if _REGEX_RAZON_SOCIAL.search(nombre):
+        return True, "Razón social formal (S.A. de C.V. / SA de CV / S. de R.L.)"
+
     nombre_norm = normalizar(nombre)
     for inst in _INST_PUBLICAS_NORM:
         # Coincidencia como subcadena (con espacio para evitar falsos positivos cortos)
@@ -205,6 +230,18 @@ _CADENAS_YUCATAN = [
     "DUNOSUSA", "ABARROTES DUNOSUSA",
     "HELADOS SANTA CLARA", "TIENDAS SANTA CLARA",
     "GRUPO MERZA",
+]
+
+# Aerolíneas, transferencias de dinero, gimnasios e instituciones varias formales
+_CADENAS_VARIAS = [
+    # Aerolíneas (incluye sus módulos de carga en aeropuerto)
+    "VIVA AEROBUS", "VIVAAEROBUS", "VOLARIS", "AEROMEXICO",
+    "MAGNICHARTERS", "AEROMAR", "INTERJET",
+    # Transferencias de dinero / financieras reguladas
+    "WESTERN UNION", "MONEYGRAM",
+    "NACIONAL MONTE DE PIEDAD", "MONTE DE PIEDAD",
+    # Gimnasios de cadena
+    "SMART FIT", "SMARTFIT", "SPORT CITY", "ANYTIME FITNESS",
 ]
 
 _CADENAS_SUPER_DEPTO = [
@@ -315,10 +352,10 @@ _CADENAS_SALUD = [
 
 # Compilar todas las cadenas normalizadas
 CADENAS_FORMALES = set()
-for lista in [_CADENAS_CONVENIENCIA, _CADENAS_YUCATAN, _CADENAS_SUPER_DEPTO,
-              _CADENAS_COMIDA, _CADENAS_FARMACIA, _CADENAS_BANCO,
-              _CADENAS_GASOLINERA, _CADENAS_SERVICIOS, _CADENAS_LOGISTICA,
-              _CADENAS_SALUD]:
+for lista in [_CADENAS_CONVENIENCIA, _CADENAS_YUCATAN, _CADENAS_VARIAS,
+              _CADENAS_SUPER_DEPTO, _CADENAS_COMIDA, _CADENAS_FARMACIA,
+              _CADENAS_BANCO, _CADENAS_GASOLINERA, _CADENAS_SERVICIOS,
+              _CADENAS_LOGISTICA, _CADENAS_SALUD]:
     for nombre in lista:
         CADENAS_FORMALES.add(normalizar(nombre))
 
@@ -332,6 +369,12 @@ def es_cadena_conocida(nombre_negocio: str) -> tuple[bool, str]:
     Returns: (es_cadena, nombre_cadena_match)
     """
     nombre_norm = normalizar(nombre_negocio)
+
+    # Tiendas Six: la cadena nombra sus sucursales "SIX <apodo>" (Six Becky,
+    # Six La Avenida, etc.). Se detecta por PREFIJO en vez de substring para
+    # no marcar por error nombres que contienen "six" (Sixto, etc.).
+    if nombre_norm == "SIX" or nombre_norm.startswith("SIX "):
+        return True, "TIENDAS SIX"
 
     for cadena in CADENAS_FORMALES:
         # El nombre del negocio contiene la cadena
@@ -425,6 +468,7 @@ PATRONES_NO_NEGOCIO = [
     r"\bZOOLOGICO\b",
     r"\bZOO\b",
     # Transporte público / infraestructura
+    r"\bVA VEN\b",          # sistema de transporte público de Mérida (normalizado: "Va y Ven" → "VA VEN")
     r"\bAEROPUERTO\b",
     r"\bTERMINAL AEREA\b",
     r"\bAIRPORT\b",
@@ -802,6 +846,15 @@ for i, row in df_maps.iterrows():
     razon = ""
     es_informal = None  # None = pendiente
 
+    # ── CAPA -1: Transporte público de Mérida (Va y Ven) ──
+    # Se aplica antes de todo para que paradas/cajeros/oficinas del sistema
+    # de transporte no cuenten como negocios ni inflen los informales.
+    if es_informal is None and es_no_negocio_por_nombre(nombre_maps):
+        es_informal = False
+        decision = "excluido_nombre"
+        razon = "No es negocio (nombre detectado)"
+        stats["excl_nombre"] += 1
+
     # ── CAPA 0: Pre-filtro — Institución pública/corporativa obvia por nombre ──
     # Se aplica ANTES que cualquier otra capa para evitar que instituciones
     # como CFE, IMSS, ISSSTE, INFONAVIT, etc. lleguen al cruce.
@@ -924,19 +977,6 @@ print(f"  -------------------------------------")
 print(f"  INFORMALES CONFIRMADOS:        {stats['informal']:>6,}  "
       f"({stats['informal'] / stats['total'] * 100:.1f}%)")
 print(f"{'=' * 60}")
-
-# Verificación: mostrar los informales más "sospechosos" para revisión
-print("\nVERIFICACION - Top 20 informales (revisar que sean realmente informales):")
-cols_show = ["nombre", "tipos", "fuzzy_score", "nombre_denue"]
-cols_show = [c for c in cols_show if c in df_inf.columns]
-print(df_inf[cols_show].head(20).to_string(index=False))
-
-# Distribución de tipos en informales
-print("\nTipos Google Maps en informales confirmados:")
-tipos_inf = df_inf["tipos"].dropna().str.split(",").explode().str.strip()
-tipos_inf = tipos_inf[~tipos_inf.isin(["point_of_interest", "establishment", "service"])]
-print(tipos_inf.value_counts().head(15).to_string())
-
 
 # ── 6. GUARDAR ─────────────────────────────────────────────────────────────────
 print(f"\n[6/6] Guardando resultados...")
