@@ -556,8 +556,9 @@ def get_indice():
     N1               = 144_576  # DENUE Mérida — formales registrados (ancla)
     m                = 8_901    # overlap GM∩DENUE (decision_fuente=formal_denue) — ancla del método
     n_formales_otros = 4_616    # formal_cadena(2427) + formal_tipo_gmaps(1142) + formal_institucion(1047)
-    n_formales_total = m + n_formales_otros  # 13,517 formales identificados en total
-    n_inf_obs        = 9_775    # informales confirmados (es_informal=True)
+    n_formales_base  = 3_809    # formal_base: match BASE.xlsx (RFC + licencias municipales)
+    n_formales_total = m + n_formales_otros + n_formales_base  # 17,326 formales identificados en total
+    n_inf_obs        = 5_966    # informales confirmados (es_informal=True) tras cruce con BASE.xlsx
     n_gmaps          = 23_292   # negocios reales en Google Maps (sin excluidos)
 
     p_formal   = m / N1                      # cobertura GM para formales
@@ -589,6 +590,7 @@ def get_indice():
             "m_overlap":         m,
             "n_formales_total":  n_formales_total,
             "n_formales_otros":  n_formales_otros,
+            "n_formales_base":   n_formales_base,
             "n_inf_observados":  n_inf_obs,
             "n_gmaps_negocios":  n_gmaps,
             "n_gmaps_csv":       29_234,

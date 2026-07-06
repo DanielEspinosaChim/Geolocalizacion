@@ -30,10 +30,12 @@ gcloud run deploy "${SERVICE}" \
   --service-account=589026168608-compute@developer.gserviceaccount.com \
   --allow-unauthenticated \
   --max-instances=100 \
+  --min-instances=1 \
   --cpu=2 \
   --memory=2Gi \
   --concurrency=160 \
   --timeout=300 \
+  --no-cpu-throttling \
   --set-env-vars="GOOGLE_MAPS_API_KEY=AIzaSyBN-M3SBIhlFi9P6qmug4kgeYGCcWmZlEc"
 
 echo ""

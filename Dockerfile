@@ -9,7 +9,6 @@ COPY app.py .
 COPY service_account.json .
 COPY frontend/ frontend/
 COPY data/procesado/predicciones_zonas.csv data/procesado/
-COPY data/procesado/cruce_completo.csv data/procesado/
 COPY data/procesado/colonias_merida.geojson data/procesado/
 COPY data/procesado/municipio_merida.geojson data/procesado/
 COPY data/inegi/ data/inegi/

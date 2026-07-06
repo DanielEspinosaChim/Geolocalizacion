@@ -726,6 +726,62 @@ denue_colon = df_d["colonia"].values if "colonia" in df_d.columns else np.array(
 print(f"  {len(df_d)} registros DENUE con coordenadas válidas")
 
 
+# ── 2b. CARGAR BASE.xlsx (padrón adicional, solo nombres únicos vs DENUE) ──────
+BASE_XLSX = "data/data/BASE.xlsx"
+base_token_index: dict = {}  # token → set de nombres normalizados
+
+if os.path.exists(BASE_XLSX):
+    print("\n[2b] Cargando BASE.xlsx (padrón adicional)...")
+    try:
+        import openpyxl as _opxl
+        _wb = _opxl.load_workbook(BASE_XLSX, read_only=True, data_only=True)
+
+        _nombres_raw = []
+        # Hoja1: col 1 = Nombre
+        for _row in list(_wb["Hoja1"].rows)[1:]:
+            _v = [_c.value for _c in _row]
+            _n = str(_v[1] or "").strip().lstrip(".") if len(_v) > 1 else ""
+            if _n and _n.lower() not in ("none", "nan", "nombre"):
+                _nombres_raw.append(_n)
+        # Hoja2: col 2 = NombreComercial
+        for _row in list(_wb["Hoja2"].rows)[1:]:
+            _v = [_c.value for _c in _row]
+            _n = str(_v[2] or "").strip().lstrip(".") if len(_v) > 2 else ""
+            if _n and _n.lower() not in ("none", "nan", "nombre comercial"):
+                _nombres_raw.append(_n)
+
+        print(f"  {len(_nombres_raw):,} nombres leídos de BASE.xlsx")
+
+        # Deduplicar: solo conservar los que NO estén en DENUE (exact norm match)
+        _denue_norm_set = set(denue_nom_norm)
+        _seen = set()
+        _skip_denue = 0
+        _base_unicos: set = set()
+        for _nombre in _nombres_raw:
+            _norm = normalizar(_nombre)
+            if _norm in _seen:
+                continue
+            _seen.add(_norm)
+            if _norm in _denue_norm_set:
+                _skip_denue += 1
+                continue
+            _base_unicos.add(_norm)
+
+        print(f"  {_skip_denue:,} ya existían en DENUE → omitidos")
+        print(f"  {len(_base_unicos):,} nombres únicos de BASE.xlsx agregados como fuente formal")
+
+        # Índice inverso por tokens para búsqueda rápida en el cruce
+        for _norm in _base_unicos:
+            for _tok in _norm.split():
+                if len(_tok) >= 4:
+                    base_token_index.setdefault(_tok, set()).add(_norm)
+
+    except Exception as _e:
+        print(f"  [WARN] No se pudo cargar BASE.xlsx: {_e}")
+else:
+    print("\n[2b] BASE.xlsx no encontrado, se omite")
+
+
 # ── 3. APLICAR CAPA 1: FILTRO DE TIPOS NO-NEGOCIO ────────────────────────────
 print("\n[3/6] Aplicando filtros de calidad...")
 
@@ -924,12 +980,36 @@ for i, row in df_maps.iterrows():
 
     match_denue = mejor_score >= FUZZY_MIN
 
+    # ── CAPA 3b: Cruce por nombre contra BASE.xlsx (sin coordenadas) ──
+    match_base = False
+    nombre_base_match = ""
+    score_base = 0
+
+    if es_informal is None and not match_denue and base_token_index:
+        _nm = normalizar(nombre_maps)
+        _toks = {t for t in _nm.split() if len(t) >= 4}
+        _candidatos = set()
+        for _t in _toks:
+            _candidatos |= base_token_index.get(_t, set())
+        for _bn in _candidatos:
+            _sc = max(fuzz.token_sort_ratio(_nm, _bn), fuzz.token_set_ratio(_nm, _bn))
+            if _sc > score_base:
+                score_base = _sc
+                nombre_base_match = _bn
+        match_base = score_base >= 80  # umbral más alto: sin ancla espacial
+
     if es_informal is None:
         if match_denue:
             es_informal = False
             decision = "formal_denue"
             razon = f"Match DENUE: {mejor_nombre_denue} (score={mejor_score:.0f}, dist={dist_match}m)"
             stats["formal_denue"] += 1
+        elif match_base:
+            es_informal = False
+            decision = "formal_base"
+            razon = f"Match BASE.xlsx: {nombre_base_match} (score={score_base:.0f})"
+            stats.setdefault("formal_base", 0)
+            stats["formal_base"] += 1
         else:
             es_informal = True
             decision = "informal"
@@ -953,6 +1033,8 @@ for i, row in df_maps.iterrows():
         "es_informal":   es_informal,
         "decision_fuente": decision,
         "cadena_detectada": cadena_match,
+        "nombre_base":   nombre_base_match,
+        "score_base":    round(score_base, 1),
         "razon_decision": razon,
         "fuente":        row.get("fuente", "google_maps"),
     })
@@ -973,6 +1055,7 @@ print(f"  Excluidos (nombre no-negocio): {stats['excl_nombre']:>6,}")
 print(f"  Formal (cadena/franquicia):    {stats['formal_cadena']:>6,}")
 print(f"  Formal (tipo GMaps regulado):  {stats['formal_tipo_gmaps']:>6,}")
 print(f"  Formal (match DENUE):          {stats['formal_denue']:>6,}")
+print(f"  Formal (match BASE.xlsx):      {stats.get('formal_base', 0):>6,}")
 print(f"  -------------------------------------")
 print(f"  INFORMALES CONFIRMADOS:        {stats['informal']:>6,}  "
       f"({stats['informal'] / stats['total'] * 100:.1f}%)")
