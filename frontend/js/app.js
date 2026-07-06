@@ -826,16 +826,20 @@ async function cargarIndice(){
     const nGmapsCSV = d.datos_entrada.n_gmaps_csv || 29234;
     const mTotal   = fmt(nGmapsCSV - d.datos_entrada.n_inf_observados);
     const mOtros   = d.datos_entrada.n_formales_otros || 0;
-    const excluidos = nGmapsCSV - d.datos_entrada.n_inf_observados - (d.datos_entrada.n_formales_total || 0);
+    const mBase    = d.datos_entrada.n_formales_base  || 0;
+    const nGmapsReal = d.datos_entrada.n_gmaps_negocios;  // 23,292 sin excluidos
     ['idx-N1','idx-N1b','idx-N1c'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=N1; });
-    ['idx-ngmaps'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=ngm; });
+    ['idx-ngmaps','idx-ngmaps2'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=ngm; });
     document.getElementById('idx-ngmaps-raw').textContent = fmt(nGmapsCSV);
-    const elMTotal = document.getElementById('idx-m-total'); if(elMTotal) elMTotal.textContent = mTotal;
-    const elMBreak = document.getElementById('idx-m-breakdown'); if(elMBreak) elMBreak.textContent = `${m} en DENUE · ${fmt(mOtros)} por tipo/cadena · ${fmt(excluidos)} excluidos`;
+    // mTotal = solo formales reales (sin excluidos — no son negocios, no cuentan aquí)
+    const mTotalFmt = fmt(d.datos_entrada.n_formales_total);
+    const elMTotal = document.getElementById('idx-m-total'); if(elMTotal) elMTotal.textContent = mTotalFmt;
+    const elMBreak = document.getElementById('idx-m-breakdown');
+    if(elMBreak) elMBreak.textContent = `${m} en DENUE · ${fmt(mBase)} BASE.xlsx · ${fmt(mOtros)} cadena/tipo`;
     ['idx-m','idx-m2'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=m; });
     ['idx-ninf-obs','idx-ninf-obs2','idx-ninf-obs3'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=ninf; });
-    // Actualizar textos de fórmulas (dinámicos)
-    const elVerif = document.getElementById('idx-verificacion'); if(elVerif) elVerif.textContent = mTotal + ' + ' + ninf + ' = ' + fmt(nGmapsCSV) + ' ✓';
+    // Verificación correcta: formales + informales = 23,292 (universo real, sin excluidos)
+    const elVerif = document.getElementById('idx-verificacion'); if(elVerif) elVerif.textContent = mTotalFmt + ' + ' + ninf + ' = ' + fmt(nGmapsReal) + ' ✓';
     const elFP  = document.getElementById('idx-formula-p');    if(elFP)  elFP.textContent  = `Fórmula: p̂ = ${m} / ${N1} = ${d.cobertura_gmaps_pct}%`;
     const elP2  = document.getElementById('idx-p2');           if(elP2)  elP2.textContent  = d.cobertura_gmaps_pct + '%';
     const elFNI = document.getElementById('idx-formula-ninf'); if(elFNI) elFNI.innerHTML   = `Fórmula: N̂_inf = ${ninf} × (${N1} / ${m}) = ${ninf} × <span id="idx-mult">${d.multiplicador}</span>`;

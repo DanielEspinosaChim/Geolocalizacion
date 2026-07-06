@@ -250,6 +250,10 @@ function _bootApp(role) {
   if (role === 'tecnico') {
     _applyTecnicoRestrictions();
   }
+
+  // Revelar tabs ya con el rol correcto aplicado (evita flash de tabs incorrectos)
+  const tabsEl = document.getElementById('tabs');
+  if (tabsEl) tabsEl.style.visibility = 'visible';
 }
 
 // ── Restricciones para rol técnico ───────────────────────────────────────────
@@ -267,9 +271,14 @@ function _applyTecnicoRestrictions() {
     sep.style.display = 'none';
   });
 
-  // Ocultar botones de gestión administrativa
+  // Ocultar tab Admin (por si quedó visible de una sesión admin previa)
+  const tabAdmin = document.getElementById('tab-admin');
+  if (tabAdmin) tabAdmin.style.display = 'none';
+
+  // Ocultar botones de gestión administrativa en campañas
   ['btn-nueva-campana', 'btn-finalizar-campana',
-   'btn-borrar-campana', 'btn-plantillas-campana'].forEach(id => {
+   'btn-borrar-campana', 'btn-plantillas-campana',
+   'btn-toggle-agregar'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.style.display = 'none';
   });

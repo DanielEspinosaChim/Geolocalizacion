@@ -256,32 +256,35 @@ function _renderDetalleCampanaTecnico(d) {
 
   tecBar.innerHTML = `
     <!-- Fila 1: Acciones principales -->
-    <div style="display:flex;gap:8px;margin-bottom:8px">
+    <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap">
       <button onclick="verRutaCampana()" id="btn-ver-ruta-campana"
-              style="flex:1;padding:11px 0;border-radius:9px;border:none;
+              style="flex:1;min-width:120px;padding:11px 8px;border-radius:9px;border:none;
                      background:linear-gradient(135deg,#2563eb,#1d4ed8);
                      color:#fff;font-size:12px;font-weight:700;cursor:pointer;
-                     box-shadow:0 3px 10px rgba(37,99,235,.35)">
+                     box-shadow:0 3px 10px rgba(37,99,235,.35);white-space:nowrap">
         📍 Definir ruta
       </button>
       <button onclick="descargarReporteCampana()"
-              style="padding:11px 16px;border-radius:9px;border:1px solid #1a2d56;
-                     background:transparent;color:#3b6ab5;font-size:12px;font-weight:600;cursor:pointer">
+              style="flex-shrink:0;padding:11px 14px;border-radius:9px;border:1px solid #1a2d56;
+                     background:transparent;color:#3b6ab5;font-size:12px;font-weight:600;
+                     cursor:pointer;white-space:nowrap">
         📄 Reporte
       </button>
     </div>
     <!-- Fila 2: Filtro -->
     <div style="display:flex;gap:6px">
       <button id="tec-filtro-pend" onclick="_tecFiltro('pendientes')"
-              style="flex:1;padding:7px 0;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;
-                     font-family:'Inter',sans-serif;border:none;
+              style="flex:1;min-width:0;padding:7px 4px;border-radius:7px;font-size:11px;font-weight:700;
+                     cursor:pointer;font-family:'Inter',sans-serif;border:none;overflow:hidden;
+                     text-overflow:ellipsis;white-space:nowrap;
                      background:${_tecnicoFiltro === 'pendientes' ? '#1e3a8a' : '#0a1428'};
                      color:${_tecnicoFiltro === 'pendientes' ? '#93c5fd' : '#334155'}">
         ⏳ Pendientes (${pendientes})
       </button>
       <button id="tec-filtro-todos" onclick="_tecFiltro('todos')"
-              style="flex:1;padding:7px 0;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;
-                     font-family:'Inter',sans-serif;border:none;
+              style="flex:1;min-width:0;padding:7px 4px;border-radius:7px;font-size:11px;font-weight:700;
+                     cursor:pointer;font-family:'Inter',sans-serif;border:none;overflow:hidden;
+                     text-overflow:ellipsis;white-space:nowrap;
                      background:${_tecnicoFiltro === 'todos' ? '#1e3a8a' : '#0a1428'};
                      color:${_tecnicoFiltro === 'todos' ? '#93c5fd' : '#334155'}">
         Todos (${total})
@@ -417,49 +420,58 @@ function _renderChecklistTecnico(negocios) {
       </div>
 
       <!-- Fila 2: acciones -->
-      <div style="display:flex;gap:6px;padding-left:20px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:6px;padding-left:20px">
 
-        <!-- Par de navegación: Maps + Waze -->
-        <div style="display:flex;border-radius:8px;overflow:hidden;border:1px solid #1a2d56;flex-shrink:0">
-          <a href="${mapsUrl}" target="_blank" rel="noopener"
-             style="padding:7px 10px;font-size:11px;font-weight:600;text-decoration:none;
-                    background:transparent;color:#3b82f6;display:inline-flex;
-                    align-items:center;gap:3px;border-right:1px solid #1a2d56;
-                    transition:background .15s"
-             onmouseover="this.style.background='rgba(59,130,246,.12)'"
-             onmouseout="this.style.background='transparent'">
-            📍 Maps
-          </a>
-          <a href="${wazeUrl}" target="_blank" rel="noopener"
-             style="padding:7px 10px;font-size:11px;font-weight:600;text-decoration:none;
-                    background:transparent;color:#33ccff;display:inline-flex;
-                    align-items:center;gap:3px;transition:background .15s"
-             onmouseover="this.style.background='rgba(51,204,255,.1)'"
-             onmouseout="this.style.background='transparent'">
-            🚗 Waze
-          </a>
+        <!-- Fila nav: Maps + Waze -->
+        <div style="display:flex;gap:6px;align-items:center">
+          <div style="display:flex;border-radius:8px;overflow:hidden;border:1px solid #1a2d56;flex-shrink:0">
+            <a href="${mapsUrl}" target="_blank" rel="noopener"
+               style="padding:7px 10px;font-size:11px;font-weight:600;text-decoration:none;
+                      background:transparent;color:#3b82f6;display:inline-flex;
+                      align-items:center;gap:3px;border-right:1px solid #1a2d56;
+                      transition:background .15s"
+               onmouseover="this.style.background='rgba(59,130,246,.12)'"
+               onmouseout="this.style.background='transparent'">
+              📍 Maps
+            </a>
+            <a href="${wazeUrl}" target="_blank" rel="noopener"
+               style="padding:7px 10px;font-size:11px;font-weight:600;text-decoration:none;
+                      background:transparent;color:#33ccff;display:inline-flex;
+                      align-items:center;gap:3px;transition:background .15s"
+               onmouseover="this.style.background='rgba(51,204,255,.1)'"
+               onmouseout="this.style.background='transparent'">
+              🚗 Waze
+            </a>
+          </div>
+
+          ${!visitado
+          ? `<button onclick="abrirModalVisita('${safeId}','${safeNombre}')"
+                      style="flex:1;padding:8px 0;border-radius:8px;font-size:12px;font-weight:700;
+                             cursor:pointer;font-family:'Inter',sans-serif;border:none;color:#fff;
+                             background:linear-gradient(135deg,#2563eb,#1d4ed8);
+                             box-shadow:0 2px 10px rgba(37,99,235,.4)">
+                📝 Registrar visita
+              </button>`
+          : ``}
         </div>
 
         ${visitado
-        ? `<button onclick="_revertirPendiente('${safeId}',this)"
-                    style="padding:7px 10px;border-radius:7px;font-size:11px;font-weight:600;
-                           cursor:pointer;font-family:'Inter',sans-serif;flex-shrink:0;
-                           background:transparent;border:1px solid #7f1d1d;color:#f87171">
+        ? `<!-- Fila extra: Pendiente + Editar (solo visitados) -->
+           <div style="display:flex;gap:6px">
+             <button onclick="_revertirPendiente('${safeId}',this)"
+                     style="flex:1;padding:7px 0;border-radius:7px;font-size:11px;font-weight:600;
+                            cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;
+                            background:transparent;border:1px solid #7f1d1d;color:#f87171">
                ↩ Pendiente
              </button>
              <button onclick="abrirModalVisita('${safeId}','${safeNombre}')"
                      style="flex:1;padding:7px 0;border-radius:7px;font-size:11px;font-weight:600;
-                            cursor:pointer;font-family:'Inter',sans-serif;
+                            cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;
                             background:transparent;border:1px solid #1e293b;color:#64748b">
                ✏️ Editar
-             </button>`
-        : `<button onclick="abrirModalVisita('${safeId}','${safeNombre}')"
-                    style="flex:1;padding:8px 0;border-radius:8px;font-size:12px;font-weight:700;
-                           cursor:pointer;font-family:'Inter',sans-serif;border:none;color:#fff;
-                           background:linear-gradient(135deg,#2563eb,#1d4ed8);
-                           box-shadow:0 2px 10px rgba(37,99,235,.4)">
-              📝 Registrar visita
-            </button>`}
+             </button>
+           </div>`
+        : ``}
       </div>
 
     </div>`;

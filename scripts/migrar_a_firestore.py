@@ -71,7 +71,7 @@ rows = conn.execute("SELECT * FROM candidatos").fetchall()
 def transform_candidato(d):
     d["lat"] = float(d["lat"]) if d["lat"] else None
     d["lng"] = float(d["lng"]) if d["lng"] else None
-    d["colonia_id"] = int(d["colonia_id"]) if d["colonia_id"] else None
+    d["colonia_id"] = int(d["colonia_id"]) if d.get("colonia_id") else None
     # doc_id no puede tener "/" — usamos el place_id encodeado
     d["_doc_id"] = d["place_id"].replace("/", "__")
     return d
