@@ -1,0 +1,42 @@
+{
+  "js/admin.js": {
+    "mtime": 1783279266.8468611,
+    "ast_hash": "b864a7db8d6c9cd1d6c4c394885d67a6",
+    "semantic_hash": ""
+  },
+  "js/app.js": {
+    "mtime": 1783279266.8468611,
+    "ast_hash": "8455553dc8dfcf9ae4177bfe82bdf362",
+    "semantic_hash": ""
+  },
+  "js/auth.js": {
+    "mtime": 1783279266.8480744,
+    "ast_hash": "fbbea61855e001520ef2ab3e3084f53c",
+    "semantic_hash": ""
+  },
+  "js/camera.js": {
+    "mtime": 1783279266.8480744,
+    "ast_hash": "4840f556bfd074a63d42825d7ffcb733",
+    "semantic_hash": ""
+  },
+  "js/campanas.js": {
+    "mtime": 1783279266.850083,
+    "ast_hash": "90ac8986994d8a85a008d65d470f204a",
+    "semantic_hash": ""
+  },
+  "js/colonias.js": {
+    "mtime": 1783279266.8512065,
+    "ast_hash": "02285975ca3eb21779e418dd120d7338",
+    "semantic_hash": ""
+  },
+  "js/reportes.js": {
+    "mtime": 1783279266.8512065,
+    "ast_hash": "ba1e0027266f8a807a025d50665ddd42",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1783279266.844855,
+    "ast_hash": "bc783dc7cecb3207b1101f8aedd062c9",
+    "semantic_hash": ""
+  }
+}
