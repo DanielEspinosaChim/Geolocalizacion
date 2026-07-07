@@ -775,103 +775,10 @@
   </div>
 
   <!-- ══ Panel Admin ═══════════════════════════════════════════════════════ -->
-  <div id="admin-panel" style="display:none;flex-direction:row;flex:1;overflow:hidden;background:#0f172a">
-
-    <!-- Sidebar navegación -->
-    <div style="width:180px;flex-shrink:0;background:#0a1120;border-right:1px solid #1e293b;
-                display:flex;flex-direction:column;padding:16px 0;gap:2px;overflow-y:auto">
-      <div style="font-size:9px;font-weight:700;color:#334155;text-transform:uppercase;
-                  letter-spacing:.8px;padding:0 16px 10px">Navegación</div>
-      <button onclick="adminScrollTo('sec-mi-cuenta')"
-              id="admin-nav-mi-cuenta"
-              style="background:transparent;border:none;text-align:left;padding:9px 16px;cursor:pointer;
-                     font-size:12px;font-weight:600;color:#64748b;border-left:3px solid transparent;
-                     transition:all .15s;font-family:'Inter',sans-serif"
-              onmouseover="this.style.color='#f1f5f9';this.style.background='#1e293b'"
-              onmouseout="if(!this.classList.contains('active')){this.style.color='#64748b';this.style.background='transparent'}">
-        👤 Mi cuenta
-      </button>
-      <button onclick="adminScrollTo('sec-usuarios')"
-              id="admin-nav-usuarios"
-              style="background:transparent;border:none;text-align:left;padding:9px 16px;cursor:pointer;
-                     font-size:12px;font-weight:600;color:#64748b;border-left:3px solid transparent;
-                     transition:all .15s;font-family:'Inter',sans-serif"
-              onmouseover="this.style.color='#f1f5f9';this.style.background='#1e293b'"
-              onmouseout="if(!this.classList.contains('active')){this.style.color='#64748b';this.style.background='transparent'}">
-        👥 Usuarios
-      </button>
-      <button onclick="adminScrollTo('sec-campanas')"
-              id="admin-nav-campanas"
-              style="background:transparent;border:none;text-align:left;padding:9px 16px;cursor:pointer;
-                     font-size:12px;font-weight:600;color:#64748b;border-left:3px solid transparent;
-                     transition:all .15s;font-family:'Inter',sans-serif"
-              onmouseover="this.style.color='#f1f5f9';this.style.background='#1e293b'"
-              onmouseout="if(!this.classList.contains('active')){this.style.color='#64748b';this.style.background='transparent'}">
-        📋 Campañas
-      </button>
-    </div>
-
-    <!-- Contenido scrolleable -->
-    <div id="admin-content" style="flex:1;overflow-y:auto;padding:24px;display:flex;flex-direction:column;gap:24px">
-
-    <!-- Mi cuenta -->
-    <div id="sec-mi-cuenta" style="background:#1e293b;border-radius:12px;overflow:hidden">
-      <div style="padding:16px 20px;border-bottom:1px solid #0f172a">
-        <div style="font-size:15px;font-weight:700;color:#f1f5f9">Mi cuenta</div>
-        <div style="font-size:11px;color:#64748b;margin-top:2px">Sesión activa y configuración personal</div>
-      </div>
-      <div style="padding:16px 20px">
-        <!-- Info usuario actual -->
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
-          <div id="mi-cuenta-avatar"
-               style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#3b82f6);
-                      display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;
-                      color:#fff;flex-shrink:0">?</div>
-          <div>
-            <div id="mi-cuenta-email" style="font-size:14px;font-weight:600;color:#f1f5f9">—</div>
-            <div id="mi-cuenta-role"
-                 style="display:inline-block;margin-top:4px;font-size:10px;font-weight:700;
-                        padding:2px 8px;border-radius:4px;background:#166534;color:#86efac">Admin</div>
-          </div>
-        </div>
-        <!-- Botón cambiar contraseña -->
-        <button onclick="toggleCambiarPass()"
-                style="background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;border-radius:8px;
-                       padding:7px 14px;font-size:12px;font-weight:600;cursor:pointer">
-          🔑 Cambiar contraseña
-        </button>
-        <!-- Form cambio de contraseña (oculto por defecto) -->
-        <div id="form-cambiar-pass-wrap" style="display:none;margin-top:14px">
-          <form id="form-cambiar-pass" onsubmit="cambiarContrasena(event)"
-                style="display:flex;flex-direction:column;gap:10px;max-width:320px">
-            <input id="nueva-pass" type="password" placeholder="Nueva contraseña (mín. 8 caracteres)"
-                   autocomplete="new-password" required minlength="8"
-                   style="background:#0a1428;border:1px solid #334155;color:#f1f5f9;padding:9px 12px;
-                          border-radius:8px;font-size:13px;outline:none;font-family:'Inter',sans-serif"/>
-            <input id="confirmar-pass" type="password" placeholder="Confirmar contraseña"
-                   autocomplete="new-password" required minlength="8"
-                   style="background:#0a1428;border:1px solid #334155;color:#f1f5f9;padding:9px 12px;
-                          border-radius:8px;font-size:13px;outline:none;font-family:'Inter',sans-serif"/>
-            <div style="display:flex;gap:8px">
-              <button type="submit"
-                      style="background:#2563eb;color:#fff;border:none;border-radius:8px;
-                             padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer">
-                Guardar
-              </button>
-              <button type="button" onclick="toggleCambiarPass()"
-                      style="background:transparent;border:1px solid #334155;color:#64748b;border-radius:8px;
-                             padding:8px 16px;font-size:13px;cursor:pointer">
-                Cancelar
-              </button>
-            </div>
-          </form>
-          <div id="cambiar-pass-msg" style="display:none;margin-top:10px;font-size:12px;border-radius:6px;padding:8px 12px"></div>
-        </div>
-      </div>
-    </div>
+  <div id="admin-panel" style="display:none;flex-direction:column;flex:1;overflow-y:auto;background:#0f172a;padding:24px;gap:24px">
 
     <!-- Usuarios -->
-    <div id="sec-usuarios" style="background:#1e293b;border-radius:12px;overflow:hidden">
+    <div style="background:#1e293b;border-radius:12px;overflow:hidden">
       <div style="display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid #0f172a">
         <div>
           <div style="font-size:15px;font-weight:700;color:#f1f5f9">Usuarios</div>
@@ -889,7 +796,7 @@
     </div>
 
     <!-- Asignación de campañas -->
-    <div id="sec-campanas" style="background:#1e293b;border-radius:12px;overflow:hidden">
+    <div style="background:#1e293b;border-radius:12px;overflow:hidden">
       <div style="padding:16px 20px;border-bottom:1px solid #0f172a">
         <div style="font-size:15px;font-weight:700;color:#f1f5f9">Asignar campañas a técnicos</div>
         <div style="font-size:11px;color:#64748b;margin-top:2px">
@@ -901,7 +808,6 @@
       </div>
     </div>
 
-    </div><!-- /admin-content -->
   </div>
 
 </div><!-- /shell -->
