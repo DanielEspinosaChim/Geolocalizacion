@@ -8,7 +8,60 @@ let _adminCampanas  = [];   // cache de campañas para asignación
 // ── Inicializar ───────────────────────────────────────────────────────────────
 
 async function cargarPanelAdmin() {
+  _renderMiCuenta();
   await Promise.all([cargarUsuariosAdmin(), cargarCampanasAdmin()]);
+}
+
+function _renderMiCuenta() {
+  const u = window._currentUser;
+  if (!u) return;
+  const av = document.getElementById('mi-cuenta-avatar');
+  const em = document.getElementById('mi-cuenta-email');
+  const ro = document.getElementById('mi-cuenta-role');
+  if (av) av.textContent = (u.email || '?')[0].toUpperCase();
+  if (em) em.textContent = u.email || '—';
+  if (ro) {
+    ro.textContent = u.role === 'admin' ? 'Admin' : 'Técnico';
+    ro.style.background = u.role === 'admin' ? '#166534' : '#78350f';
+    ro.style.color      = u.role === 'admin' ? '#86efac' : '#fde68a';
+  }
+}
+
+function toggleCambiarPass() {
+  const wrap = document.getElementById('form-cambiar-pass-wrap');
+  if (!wrap) return;
+  const abierto = wrap.style.display !== 'none';
+  wrap.style.display = abierto ? 'none' : 'block';
+  if (abierto) {
+    document.getElementById('form-cambiar-pass')?.reset();
+    const msg = document.getElementById('cambiar-pass-msg');
+    if (msg) msg.style.display = 'none';
+  }
+}
+
+async function cambiarContrasena(e) {
+  e.preventDefault();
+  const nueva     = document.getElementById('nueva-pass').value;
+  const confirmar = document.getElementById('confirmar-pass').value;
+  const msg       = document.getElementById('cambiar-pass-msg');
+  const show = (txt, ok) => {
+    msg.textContent = txt; msg.style.display = 'block';
+    msg.style.background = ok ? 'rgba(22,101,52,.4)' : 'rgba(127,29,29,.4)';
+    msg.style.color      = ok ? '#86efac' : '#fca5a5';
+    msg.style.border     = `1px solid ${ok ? 'rgba(34,197,94,.3)' : 'rgba(239,68,68,.3)'}`;
+  };
+  if (nueva !== confirmar) { show('Las contraseñas no coinciden', false); return; }
+  if (nueva.length < 8)    { show('Mínimo 8 caracteres', false); return; }
+  try {
+    await firebase.auth().currentUser.updatePassword(nueva);
+    show('Contraseña actualizada', true);
+    document.getElementById('form-cambiar-pass').reset();
+    setTimeout(toggleCambiarPass, 2000);
+  } catch (err) {
+    show(err.code === 'auth/requires-recent-login'
+      ? 'Sesión expirada — cierra sesión, vuelve a entrar y cambia la contraseña'
+      : 'Error: ' + (err.message || err.code), false);
+  }
 }
 
 // ── Usuarios ──────────────────────────────────────────────────────────────────
