@@ -778,7 +778,7 @@
   <div id="admin-panel" style="display:none;flex-direction:column;flex:1;overflow-y:auto;background:#0f172a;padding:24px;gap:24px">
 
     <!-- Mi cuenta -->
-    <div style="background:#1e293b;border-radius:12px;overflow:hidden">
+    <div style="background:#1e293b;border-radius:12px">
       <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;flex-wrap:wrap">
         <div style="display:flex;align-items:center;gap:14px">
           <div id="mi-cuenta-avatar"
@@ -813,7 +813,7 @@
           + Nuevo usuario
         </button>
       </div>
-      <div id="admin-usuarios-lista">
+      <div id="admin-usuarios-lista" style="max-height:320px;overflow-y:auto">
         <div style="color:#475569;font-size:12px;padding:20px;text-align:center">Cargando...</div>
       </div>
     </div>
@@ -826,7 +826,7 @@
           Los técnicos solo ven las campañas que les asignas (o las sin asignar)
         </div>
       </div>
-      <div id="admin-asignaciones-lista">
+      <div id="admin-asignaciones-lista" style="max-height:320px;overflow-y:auto">
         <div style="color:#475569;font-size:12px;padding:20px;text-align:center">Cargando...</div>
       </div>
     </div>
@@ -1118,6 +1118,14 @@ const _waitAuth = setInterval(() => {
               style="background:transparent;border:none;color:#64748b;font-size:20px;cursor:pointer;line-height:1">✕</button>
     </div>
     <form id="form-cambiar-pass" onsubmit="cambiarContrasena(event)">
+      <div style="margin-bottom:14px">
+        <label style="color:#94a3b8;font-size:11px;font-weight:600;display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px">Contraseña actual</label>
+        <input id="pass-actual" type="password" placeholder="Tu contraseña actual"
+               autocomplete="current-password" required
+               style="width:100%;background:#0f172a;border:1px solid #334155;color:#f1f5f9;
+                      padding:10px 12px;border-radius:8px;font-size:13px;outline:none;
+                      box-sizing:border-box;font-family:'Inter',sans-serif"/>
+      </div>
       <div style="margin-bottom:14px">
         <label style="color:#94a3b8;font-size:11px;font-weight:600;display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px">Nueva contraseña</label>
         <input id="nueva-pass" type="password" placeholder="Mínimo 8 caracteres"

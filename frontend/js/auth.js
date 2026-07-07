@@ -219,15 +219,19 @@ function _bootApp(role) {
     }, 0);
   }
 
-  // Añadir info de usuario al header
+  // Añadir / actualizar info de usuario en el header
   const header = document.getElementById('header');
-  if (header && !document.getElementById('user-info')) {
+  if (header) {
     const u = window._currentUser;
     const roleColor = u.role === 'admin' ? '#22c55e' : '#f59e0b';
     const roleLabel = u.role === 'admin' ? 'Admin' : 'Técnico';
-    const div = document.createElement('div');
-    div.id = 'user-info';
-    div.style.cssText = 'display:flex;align-items:center;gap:12px;margin-left:auto';
+    let div = document.getElementById('user-info');
+    if (!div) {
+      div = document.createElement('div');
+      div.id = 'user-info';
+      div.style.cssText = 'display:flex;align-items:center;gap:12px;margin-left:auto';
+      header.appendChild(div);
+    }
     div.innerHTML = `
       <div style="text-align:right">
         <div style="color:#dde9ff;font-size:12px;font-weight:600;letter-spacing:-.1px">${u.email}</div>
@@ -239,7 +243,6 @@ function _bootApp(role) {
               font-family:'Inter',sans-serif;transition:all .15s"
               onmouseover="this.style.borderColor='#2d4488';this.style.color='#94a3b8'"
               onmouseout="this.style.borderColor='#1a2d56';this.style.color='#4a6490'">Salir</button>`;
-    header.appendChild(div);
   }
 
   // Mostrar tab admin solo para administradores
