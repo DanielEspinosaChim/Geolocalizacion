@@ -32,6 +32,7 @@ function _renderLoginScreen() {
       <label style="color:#3b6ab5;font-size:10px;font-weight:700;display:block;margin-bottom:6px;
                     text-transform:uppercase;letter-spacing:.8px">Correo</label>
       <input id="login-email" type="email" placeholder="usuario@canaco.mx"
+             autocomplete="off" value=""
              style="width:100%;background:#0a1428;border:1px solid #1a2d56;color:#dde9ff;
                     padding:11px 14px;border-radius:10px;font-size:14px;outline:none;box-sizing:border-box;
                     font-family:'Inter',sans-serif;transition:border-color .15s"
@@ -44,6 +45,7 @@ function _renderLoginScreen() {
                     text-transform:uppercase;letter-spacing:.8px">Contraseña</label>
       <div style="position:relative">
         <input id="login-pass" type="password" placeholder="••••••••"
+               autocomplete="new-password" value=""
                style="width:100%;background:#0a1428;border:1px solid #1a2d56;color:#dde9ff;
                       padding:11px 44px 11px 14px;border-radius:10px;font-size:14px;outline:none;
                       box-sizing:border-box;font-family:'Inter',sans-serif;transition:border-color .15s"
