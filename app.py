@@ -175,26 +175,6 @@ async def _auth_barrier(request: Request, call_next):
 app.mount("/css", StaticFiles(directory=str(FRONT / "css")), name="css")
 app.mount("/js",  StaticFiles(directory=str(FRONT / "js")),  name="js")
 
-# ── OpenAPI: candados en Swagger ──────────────────────────────────────────────
-from fastapi.openapi.utils import get_openapi
-
-def _custom_openapi():
-    if app.openapi_schema:
-        return app.openapi_schema
-    schema = get_openapi(title="GeoFormal", version="0.1.0", routes=app.routes)
-    schema.setdefault("components", {})["securitySchemes"] = {
-        "BearerAuth": {"type": "http", "scheme": "bearer", "bearerFormat": "JWT (Firebase)"}
-    }
-    _sin_auth = {"/", "/uploads/{filename:path}", "/api/cache-status"}
-    for path, methods in schema.get("paths", {}).items():
-        if path not in _sin_auth:
-            for op in methods.values():
-                if isinstance(op, dict):
-                    op["security"] = [{"BearerAuth": []}]
-    app.openapi_schema = schema
-    return schema
-
-app.openapi = _custom_openapi
 
 
 @app.get("/uploads/{filename:path}")
@@ -1411,6 +1391,25 @@ async def eliminar_usuario(request: Request, uid: str):
     except Exception as e:
         raise HTTPException(400, str(e))
 
+
+# ══════════════════════════════════════════════════════════════════════════════
+# OpenAPI schema con candados en Swagger — se genera DESPUÉS de registrar rutas
+from fastapi.openapi.utils import get_openapi
+
+def _build_secure_schema():
+    schema = get_openapi(title="GeoFormal", version="0.1.0", routes=app.routes)
+    schema.setdefault("components", {})["securitySchemes"] = {
+        "BearerAuth": {"type": "http", "scheme": "bearer", "bearerFormat": "JWT (Firebase)"}
+    }
+    _sin_auth = {"/", "/uploads/{filename:path}", "/api/cache-status"}
+    for path, methods in schema.get("paths", {}).items():
+        if path not in _sin_auth:
+            for op in methods.values():
+                if isinstance(op, dict):
+                    op["security"] = [{"BearerAuth": []}]
+    return schema
+
+app.openapi_schema = _build_secure_schema()
 
 # ══════════════════════════════════════════════════════════════════════════════
 if __name__ == "__main__":
