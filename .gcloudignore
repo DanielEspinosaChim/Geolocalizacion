@@ -11,7 +11,6 @@ data/procesado/negocios.db
 data/procesado/modelo_randomforest.pkl
 data/procesado/modelo_xgboost.pkl
 data/procesado/candidatos_informales.csv
-data/procesado/cruce_completo.csv
 data/procesado/candidatos_con_colonia.csv
 data/procesado/features_zonas.csv
 
