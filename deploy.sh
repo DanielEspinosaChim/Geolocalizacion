@@ -4,6 +4,11 @@
 
 set -e
 
+# Cargar variables locales (nunca se commitean)
+if [ -f .env ]; then
+  set -a && source .env && set +a
+fi
+
 PROJECT="videoimet"
 SERVICE="geolocalizacion-merida"
 REGION="us-central1"
@@ -36,7 +41,7 @@ gcloud run deploy "${SERVICE}" \
   --concurrency=160 \
   --timeout=300 \
   --no-cpu-throttling \
-  --set-secrets="GOOGLE_MAPS_API_KEY=GOOGLE_MAPS_API_KEY:latest"
+  --set-env-vars="GOOGLE_MAPS_API_KEY=${GOOGLE_MAPS_API_KEY}"
 
 echo ""
 echo "=== LISTO ==="
