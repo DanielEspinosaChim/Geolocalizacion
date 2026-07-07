@@ -27,10 +27,7 @@ spec:
             memory: 2Gi
         env:
         - name: GOOGLE_MAPS_API_KEY
-          valueFrom:
-            secretKeyRef:
-              name: GOOGLE_MAPS_API_KEY
-              key: latest
+          value: ""  # se inyecta vía deploy.sh desde .env local
   traffic:
   - latestRevision: true
     percent: 100
