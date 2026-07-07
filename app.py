@@ -15,7 +15,7 @@ from urllib.parse import quote
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, HTTPException, Form, UploadFile, File, Body, Request
-from fastapi.responses import FileResponse, Response
+from fastapi.responses import FileResponse, Response, JSONResponse
 from fastapi.staticfiles import StaticFiles
 import uvicorn
 
@@ -153,6 +153,25 @@ async def _lifespan(app: FastAPI):
 
 
 app = FastAPI(title="GeoFormal", lifespan=_lifespan)
+
+# ── Barrera de autenticación ──────────────────────────────────────────────────
+# Todos los endpoints /api/ requieren token Firebase válido.
+# Excepción: /api/cache-status (usado antes del login para mostrar progreso).
+_API_PUBLIC = {"/api/cache-status"}
+
+@app.middleware("http")
+async def _auth_barrier(request: Request, call_next):
+    if request.url.path.startswith("/api/") and request.url.path not in _API_PUBLIC:
+        if _firebase_ok:
+            hdr = request.headers.get("Authorization", "")
+            if not hdr.startswith("Bearer "):
+                return JSONResponse({"detail": "No autenticado"}, status_code=401)
+            try:
+                fb_auth.verify_id_token(hdr[7:])
+            except Exception:
+                return JSONResponse({"detail": "Token inválido o expirado"}, status_code=401)
+    return await call_next(request)
+
 app.mount("/css", StaticFiles(directory=str(FRONT / "css")), name="css")
 app.mount("/js",  StaticFiles(directory=str(FRONT / "js")),  name="js")
 
@@ -452,8 +471,9 @@ def get_municipio_geojson():
     return _municipio_geojson_cache
 
 @app.post("/api/admin/reload-colonias")
-def reload_colonias():
+def reload_colonias(request: Request):
     """Fuerza recarga del GeoJSON de colonias desde disco (sin reiniciar servidor)."""
+    require_admin(request)
     global _colonias_geojson_cache, _municipio_geojson_cache
     _colonias_geojson_cache  = _load_geojson(COLONIAS_GEOJSON)
     _municipio_geojson_cache = _load_geojson(MUNICIPIO_GEOJSON)
@@ -1307,6 +1327,7 @@ async def guardar_visita_negocio(
 
 @app.get("/api/admin/usuarios")
 def get_usuarios(request: Request):
+    require_admin(request)
     if not _firebase_ok:
         return []
     try:
@@ -1326,7 +1347,8 @@ def get_usuarios(request: Request):
 
 
 @app.post("/api/admin/usuarios")
-async def crear_usuario(body: dict = Body(...)):
+async def crear_usuario(request: Request, body: dict = Body(...)):
+    require_admin(request)
     if not _firebase_ok:
         raise HTTPException(503, "Firebase no configurado")
     try:
@@ -1340,7 +1362,8 @@ async def crear_usuario(body: dict = Body(...)):
 
 
 @app.patch("/api/admin/usuarios/{uid}")
-async def actualizar_usuario(uid: str, body: dict = Body(...)):
+async def actualizar_usuario(request: Request, uid: str, body: dict = Body(...)):
+    require_admin(request)
     if not _firebase_ok:
         raise HTTPException(503, "Firebase no configurado")
     try:
@@ -1357,7 +1380,8 @@ async def actualizar_usuario(uid: str, body: dict = Body(...)):
 
 
 @app.delete("/api/admin/usuarios/{uid}")
-async def eliminar_usuario(uid: str):
+async def eliminar_usuario(request: Request, uid: str):
+    require_admin(request)
     if not _firebase_ok:
         raise HTTPException(503, "Firebase no configurado")
     try:
