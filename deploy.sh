@@ -36,7 +36,7 @@ gcloud run deploy "${SERVICE}" \
   --concurrency=160 \
   --timeout=300 \
   --no-cpu-throttling \
-  --set-env-vars="GOOGLE_MAPS_API_KEY=AIzaSyBN-M3SBIhlFi9P6qmug4kgeYGCcWmZlEc"
+  --set-secrets="GOOGLE_MAPS_API_KEY=GOOGLE_MAPS_API_KEY:latest"
 
 echo ""
 echo "=== LISTO ==="

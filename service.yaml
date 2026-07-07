@@ -27,7 +27,10 @@ spec:
             memory: 2Gi
         env:
         - name: GOOGLE_MAPS_API_KEY
-          value: AIzaSyBN-M3SBIhlFi9P6qmug4kgeYGCcWmZlEc
+          valueFrom:
+            secretKeyRef:
+              name: GOOGLE_MAPS_API_KEY
+              key: latest
   traffic:
   - latestRevision: true
     percent: 100
