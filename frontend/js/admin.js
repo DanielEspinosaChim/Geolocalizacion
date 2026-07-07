@@ -5,10 +5,42 @@
 let _adminUsuarios  = [];   // cache de usuarios
 let _adminCampanas  = [];   // cache de campañas para asignación
 
+// ── Navegación sidebar ────────────────────────────────────────────────────────
+
+const _adminNavMap = {
+  'sec-mi-cuenta': 'admin-nav-mi-cuenta',
+  'sec-usuarios':  'admin-nav-usuarios',
+  'sec-campanas':  'admin-nav-campanas',
+};
+
+function adminScrollTo(secId) {
+  const sec = document.getElementById(secId);
+  const content = document.getElementById('admin-content');
+  if (!sec || !content) return;
+  content.scrollTo({ top: sec.offsetTop - 12, behavior: 'smooth' });
+  // highlight activo
+  Object.values(_adminNavMap).forEach(btnId => {
+    const btn = document.getElementById(btnId);
+    if (!btn) return;
+    btn.classList.remove('active');
+    btn.style.color = '#64748b';
+    btn.style.background = 'transparent';
+    btn.style.borderLeftColor = 'transparent';
+  });
+  const active = document.getElementById(_adminNavMap[secId]);
+  if (active) {
+    active.classList.add('active');
+    active.style.color = '#f1f5f9';
+    active.style.background = '#1e293b';
+    active.style.borderLeftColor = '#2563eb';
+  }
+}
+
 // ── Inicializar ───────────────────────────────────────────────────────────────
 
 async function cargarPanelAdmin() {
   _renderMiCuenta();
+  adminScrollTo('sec-mi-cuenta');
   await Promise.all([cargarUsuariosAdmin(), cargarCampanasAdmin()]);
 }
 
