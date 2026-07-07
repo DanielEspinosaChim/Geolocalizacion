@@ -27,16 +27,20 @@ function _renderMiCuenta() {
   }
 }
 
-function toggleCambiarPass() {
-  const wrap = document.getElementById('form-cambiar-pass-wrap');
-  if (!wrap) return;
-  const abierto = wrap.style.display !== 'none';
-  wrap.style.display = abierto ? 'none' : 'block';
-  if (abierto) {
-    document.getElementById('form-cambiar-pass')?.reset();
-    const msg = document.getElementById('cambiar-pass-msg');
-    if (msg) msg.style.display = 'none';
-  }
+function abrirModalCambiarPass() {
+  document.getElementById('form-cambiar-pass')?.reset();
+  const msg = document.getElementById('cambiar-pass-msg');
+  if (msg) msg.style.display = 'none';
+  const modal = document.getElementById('modal-cambiar-pass');
+  if (modal) modal.style.display = 'flex';
+}
+
+function cerrarModalCambiarPass() {
+  const modal = document.getElementById('modal-cambiar-pass');
+  if (modal) modal.style.display = 'none';
+  document.getElementById('form-cambiar-pass')?.reset();
+  const msg = document.getElementById('cambiar-pass-msg');
+  if (msg) msg.style.display = 'none';
 }
 
 async function cambiarContrasena(e) {
@@ -56,7 +60,7 @@ async function cambiarContrasena(e) {
     await firebase.auth().currentUser.updatePassword(nueva);
     show('Contraseña actualizada', true);
     document.getElementById('form-cambiar-pass').reset();
-    setTimeout(toggleCambiarPass, 2000);
+    setTimeout(cerrarModalCambiarPass, 1500);
   } catch (err) {
     show(err.code === 'auth/requires-recent-login'
       ? 'Sesión expirada — cierra sesión, vuelve a entrar y cambia la contraseña'
