@@ -175,6 +175,27 @@ async def _auth_barrier(request: Request, call_next):
 app.mount("/css", StaticFiles(directory=str(FRONT / "css")), name="css")
 app.mount("/js",  StaticFiles(directory=str(FRONT / "js")),  name="js")
 
+# ── OpenAPI: candados en Swagger ──────────────────────────────────────────────
+from fastapi.openapi.utils import get_openapi
+
+def _custom_openapi():
+    if app.openapi_schema:
+        return app.openapi_schema
+    schema = get_openapi(title="GeoFormal", version="0.1.0", routes=app.routes)
+    schema.setdefault("components", {})["securitySchemes"] = {
+        "BearerAuth": {"type": "http", "scheme": "bearer", "bearerFormat": "JWT (Firebase)"}
+    }
+    _sin_auth = {"/", "/uploads/{filename:path}", "/api/cache-status"}
+    for path, methods in schema.get("paths", {}).items():
+        if path not in _sin_auth:
+            for op in methods.values():
+                if isinstance(op, dict):
+                    op["security"] = [{"BearerAuth": []}]
+    app.openapi_schema = schema
+    return schema
+
+app.openapi = _custom_openapi
+
 
 @app.get("/uploads/{filename:path}")
 def serve_upload(filename: str):
