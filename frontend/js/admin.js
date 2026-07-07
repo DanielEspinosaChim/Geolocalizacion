@@ -45,6 +45,7 @@ function cerrarModalCambiarPass() {
 
 async function cambiarContrasena(e) {
   e.preventDefault();
+  const actual    = document.getElementById('pass-actual').value;
   const nueva     = document.getElementById('nueva-pass').value;
   const confirmar = document.getElementById('confirmar-pass').value;
   const msg       = document.getElementById('cambiar-pass-msg');
@@ -57,14 +58,20 @@ async function cambiarContrasena(e) {
   if (nueva !== confirmar) { show('Las contraseñas no coinciden', false); return; }
   if (nueva.length < 8)    { show('Mínimo 8 caracteres', false); return; }
   try {
-    await firebase.auth().currentUser.updatePassword(nueva);
-    show('Contraseña actualizada', true);
+    const user       = firebase.auth().currentUser;
+    const credential = firebase.auth.EmailAuthProvider.credential(user.email, actual);
+    await user.reauthenticateWithCredential(credential);
+    await user.updatePassword(nueva);
+    show('Contraseña actualizada correctamente', true);
     document.getElementById('form-cambiar-pass').reset();
     setTimeout(cerrarModalCambiarPass, 1500);
   } catch (err) {
-    show(err.code === 'auth/requires-recent-login'
-      ? 'Sesión expirada — cierra sesión, vuelve a entrar y cambia la contraseña'
-      : 'Error: ' + (err.message || err.code), false);
+    const msgs = {
+      'auth/wrong-password':      'Contraseña actual incorrecta',
+      'auth/invalid-credential':  'Contraseña actual incorrecta',
+      'auth/too-many-requests':   'Demasiados intentos, espera unos minutos',
+    };
+    show(msgs[err.code] || 'Error: ' + (err.message || err.code), false);
   }
 }
 
