@@ -1220,7 +1220,7 @@
       "source_location": "L775",
       "_origin": "ast",
       "id": "js_campanas_descargarreportecampana",
-      "community": 4,
+      "community": 2,
       "norm_label": "descargarreportecampana()"
     },
     {
@@ -1880,7 +1880,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "js_reportes_reporteabrircamara",
-      "community": 3,
+      "community": 6,
       "norm_label": "_reporteabrircamara()"
     },
     {
@@ -2404,10 +2404,20 @@
       "norm_label": "@testing-library/react"
     },
     {
-      "label": "@types/leaflet",
+      "label": "@types/geojson",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L40",
+      "_origin": "ast",
+      "id": "package_devdependencies_types_geojson",
+      "community": 5,
+      "norm_label": "@types/geojson"
+    },
+    {
+      "label": "@types/leaflet",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "package_devdependencies_types_leaflet",
       "community": 5,
@@ -2417,7 +2427,7 @@
       "label": "@types/leaflet.markercluster",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L41",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "package_devdependencies_types_leaflet_markercluster",
       "community": 5,
@@ -2427,7 +2437,7 @@
       "label": "@types/node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L42",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "package_devdependencies_types_node",
       "community": 5,
@@ -2437,7 +2447,7 @@
       "label": "@types/react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L43",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "package_devdependencies_types_react",
       "community": 5,
@@ -2447,7 +2457,7 @@
       "label": "@types/react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L44",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "package_devdependencies_types_react_dom",
       "community": 5,
@@ -2457,7 +2467,7 @@
       "label": "@vitejs/plugin-react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L45",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "package_devdependencies_vitejs_plugin_react",
       "community": 5,
@@ -2467,7 +2477,7 @@
       "label": "autoprefixer",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L46",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "package_devdependencies_autoprefixer",
       "community": 5,
@@ -2477,7 +2487,7 @@
       "label": "eslint",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L47",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "package_devdependencies_eslint",
       "community": 5,
@@ -2487,7 +2497,7 @@
       "label": "eslint-import-resolver-typescript",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L48",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "package_devdependencies_eslint_import_resolver_typescript",
       "community": 5,
@@ -2497,7 +2507,7 @@
       "label": "eslint-plugin-boundaries",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L49",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "package_devdependencies_eslint_plugin_boundaries",
       "community": 5,
@@ -2507,7 +2517,7 @@
       "label": "eslint-plugin-import",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L50",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "package_devdependencies_eslint_plugin_import",
       "community": 5,
@@ -2517,7 +2527,7 @@
       "label": "eslint-plugin-jsx-a11y",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L51",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "package_devdependencies_eslint_plugin_jsx_a11y",
       "community": 5,
@@ -2527,7 +2537,7 @@
       "label": "eslint-plugin-react-hooks",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L52",
+      "source_location": "L53",
       "_origin": "ast",
       "id": "package_devdependencies_eslint_plugin_react_hooks",
       "community": 5,
@@ -2537,7 +2547,7 @@
       "label": "jsdom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L53",
+      "source_location": "L54",
       "_origin": "ast",
       "id": "package_devdependencies_jsdom",
       "community": 5,
@@ -2547,7 +2557,7 @@
       "label": "postcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L54",
+      "source_location": "L55",
       "_origin": "ast",
       "id": "package_devdependencies_postcss",
       "community": 5,
@@ -2557,7 +2567,7 @@
       "label": "prettier",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L55",
+      "source_location": "L56",
       "_origin": "ast",
       "id": "package_devdependencies_prettier",
       "community": 5,
@@ -2567,7 +2577,7 @@
       "label": "tailwindcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L56",
+      "source_location": "L57",
       "_origin": "ast",
       "id": "package_devdependencies_tailwindcss",
       "community": 5,
@@ -2577,7 +2587,7 @@
       "label": "typescript",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L57",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "package_devdependencies_typescript",
       "community": 5,
@@ -2587,7 +2597,7 @@
       "label": "typescript-eslint",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L58",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "package_devdependencies_typescript_eslint",
       "community": 5,
@@ -2597,7 +2607,7 @@
       "label": "vite",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L59",
+      "source_location": "L60",
       "_origin": "ast",
       "id": "package_devdependencies_vite",
       "community": 5,
@@ -2607,7 +2617,7 @@
       "label": "vitest",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L60",
+      "source_location": "L61",
       "_origin": "ast",
       "id": "package_devdependencies_vitest",
       "community": 5,
@@ -2630,7 +2640,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "layout_appshell",
-      "community": 24,
+      "community": 10,
       "norm_label": "appshell.tsx"
     },
     {
@@ -2640,7 +2650,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "layout_appshell_appshell",
-      "community": 24,
+      "community": 10,
       "norm_label": "appshell()"
     },
     {
@@ -2650,7 +2660,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "layout_navtabs",
-      "community": 24,
+      "community": 10,
       "norm_label": "navtabs.tsx"
     },
     {
@@ -2660,7 +2670,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "layout_navtabs_navitem",
-      "community": 24,
+      "community": 10,
       "norm_label": "navitem"
     },
     {
@@ -2670,7 +2680,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "layout_navtabs_nav_items",
-      "community": 24,
+      "community": 10,
       "norm_label": "nav_items"
     },
     {
@@ -2680,7 +2690,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "layout_navtabs_navtabs",
-      "community": 24,
+      "community": 10,
       "norm_label": "navtabs()"
     },
     {
@@ -2690,7 +2700,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "layout_usermenu",
-      "community": 24,
+      "community": 10,
       "norm_label": "usermenu.tsx"
     },
     {
@@ -2700,7 +2710,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "layout_usermenu_usermenu",
-      "community": 24,
+      "community": 10,
       "norm_label": "usermenu()"
     },
     {
@@ -3300,7 +3310,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_googleicon",
-      "community": 24,
+      "community": 25,
       "norm_label": "googleicon.tsx"
     },
     {
@@ -3310,7 +3320,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "components_googleicon_googleicon",
-      "community": 24,
+      "community": 25,
       "norm_label": "googleicon()"
     },
     {
@@ -3320,7 +3330,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_loginform_test",
-      "community": 24,
+      "community": 25,
       "norm_label": "loginform.test.tsx"
     },
     {
@@ -3330,7 +3340,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "components_loginform_test_signinwithemail",
-      "community": 24,
+      "community": 25,
       "norm_label": "{ signinwithemail }"
     },
     {
@@ -3340,7 +3350,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "components_loginform_test_renderform",
-      "community": 24,
+      "community": 25,
       "norm_label": "renderform()"
     },
     {
@@ -3350,7 +3360,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_loginform",
-      "community": 24,
+      "community": 25,
       "norm_label": "loginform.tsx"
     },
     {
@@ -3360,7 +3370,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "components_loginform_divider",
-      "community": 24,
+      "community": 25,
       "norm_label": "divider()"
     },
     {
@@ -3370,7 +3380,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "components_loginform_loginform",
-      "community": 24,
+      "community": 25,
       "norm_label": "loginform()"
     },
     {
@@ -3380,7 +3390,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "hooks_usesession",
-      "community": 24,
+      "community": 10,
       "norm_label": "usesession.ts"
     },
     {
@@ -3390,7 +3400,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "hooks_usesession_usesession",
-      "community": 24,
+      "community": 10,
       "norm_label": "usesession()"
     },
     {
@@ -3400,7 +3410,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_features_auth_index_ts_auth_index",
-      "community": 24,
+      "community": 10,
       "norm_label": "index.ts"
     },
     {
@@ -3410,7 +3420,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "model_login",
-      "community": 24,
+      "community": 25,
       "norm_label": "login.ts"
     },
     {
@@ -3420,7 +3430,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "model_login_loginschema",
-      "community": 24,
+      "community": 25,
       "norm_label": "loginschema"
     },
     {
@@ -3430,7 +3440,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "model_login_logininput",
-      "community": 24,
+      "community": 25,
       "norm_label": "logininput"
     },
     {
@@ -3440,7 +3450,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_loginpage",
-      "community": 24,
+      "community": 10,
       "norm_label": "loginpage.tsx"
     },
     {
@@ -3450,7 +3460,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "routes_loginpage_loginpage",
-      "community": 24,
+      "community": 10,
       "norm_label": "loginpage()"
     },
     {
@@ -3764,6 +3774,36 @@
       "norm_label": "flyto()"
     },
     {
+      "label": "MapaCandidatos.tsx",
+      "file_type": "code",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_mapacandidatos",
+      "community": 27,
+      "norm_label": "mapacandidatos.tsx"
+    },
+    {
+      "label": "MapaCandidatosProps",
+      "file_type": "code",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "components_mapacandidatos_mapacandidatosprops",
+      "community": 27,
+      "norm_label": "mapacandidatosprops"
+    },
+    {
+      "label": "MapaCandidatos()",
+      "file_type": "code",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "components_mapacandidatos_mapacandidatos",
+      "community": 27,
+      "norm_label": "mapacandidatos()"
+    },
+    {
       "label": "MetricasPanel.tsx",
       "file_type": "code",
       "source_file": "src/features/candidatos/components/MetricasPanel.tsx",
@@ -3802,6 +3842,36 @@
       "id": "components_metricaspanel_metricaspanel",
       "community": 27,
       "norm_label": "metricaspanel()"
+    },
+    {
+      "label": "PanelLateral.tsx",
+      "file_type": "code",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_panellateral",
+      "community": 27,
+      "norm_label": "panellateral.tsx"
+    },
+    {
+      "label": "PanelLateralProps",
+      "file_type": "code",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "components_panellateral_panellateralprops",
+      "community": 27,
+      "norm_label": "panellateralprops"
+    },
+    {
+      "label": "PanelLateral()",
+      "file_type": "code",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "components_panellateral_panellateral",
+      "community": 27,
+      "norm_label": "panellateral()"
     },
     {
       "label": "index.ts",
@@ -3937,17 +4007,27 @@
       "label": "SIN_FILTROS",
       "file_type": "code",
       "source_file": "src/features/candidatos/model/filtros.ts",
-      "source_location": "L9",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "model_filtros_sin_filtros",
       "community": 27,
       "norm_label": "sin_filtros"
     },
     {
+      "label": "coloniaDe()",
+      "file_type": "code",
+      "source_file": "src/features/candidatos/model/filtros.ts",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "model_filtros_coloniade",
+      "community": 27,
+      "norm_label": "coloniade()"
+    },
+    {
       "label": "filtrarCandidatos()",
       "file_type": "code",
       "source_file": "src/features/candidatos/model/filtros.ts",
-      "source_location": "L11",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "model_filtros_filtrarcandidatos",
       "community": 27,
@@ -3957,7 +4037,7 @@
       "label": "Metricas",
       "file_type": "code",
       "source_file": "src/features/candidatos/model/filtros.ts",
-      "source_location": "L20",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "model_filtros_metricas",
       "community": 27,
@@ -3967,7 +4047,7 @@
       "label": "calcularMetricas()",
       "file_type": "code",
       "source_file": "src/features/candidatos/model/filtros.ts",
-      "source_location": "L30",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "model_filtros_calcularmetricas",
       "community": 27,
@@ -4057,7 +4137,7 @@
       "label": "CandidatosPage()",
       "file_type": "code",
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
-      "source_location": "L15",
+      "source_location": "L10",
       "_origin": "ast",
       "id": "routes_candidatospage_candidatospage",
       "community": 27,
@@ -4067,11 +4147,1081 @@
       "label": "VistaMovilToggle()",
       "file_type": "code",
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
-      "source_location": "L70",
+      "source_location": "L66",
       "_origin": "ast",
       "id": "routes_candidatospage_vistamoviltoggle",
       "community": 27,
       "norm_label": "vistamoviltoggle()"
+    },
+    {
+      "label": "useColonias.ts",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/api/useColonias.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "api_usecolonias",
+      "community": 28,
+      "norm_label": "usecolonias.ts"
+    },
+    {
+      "label": "useColonias()",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/api/useColonias.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "api_usecolonias_usecolonias",
+      "community": 28,
+      "norm_label": "usecolonias()"
+    },
+    {
+      "label": "useGeoJsonLayer()",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/api/useColonias.ts",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "api_usecolonias_usegeojsonlayer",
+      "community": 28,
+      "norm_label": "usegeojsonlayer()"
+    },
+    {
+      "label": "AgebsLayer.tsx",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/AgebsLayer.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_agebslayer",
+      "community": 28,
+      "norm_label": "agebslayer.tsx"
+    },
+    {
+      "label": "AgebProps",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/AgebsLayer.tsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "components_agebslayer_agebprops",
+      "community": 28,
+      "norm_label": "agebprops"
+    },
+    {
+      "label": "num()",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/AgebsLayer.tsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "components_agebslayer_num",
+      "community": 28,
+      "norm_label": "num()"
+    },
+    {
+      "label": "AgebsLayer()",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/AgebsLayer.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "components_agebslayer_agebslayer",
+      "community": 28,
+      "norm_label": "agebslayer()"
+    },
+    {
+      "label": "CapasToggles.tsx",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/CapasToggles.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_capastoggles",
+      "community": 28,
+      "norm_label": "capastoggles.tsx"
+    },
+    {
+      "label": "CapaId",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/CapasToggles.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_capastoggles_capaid",
+      "community": 28,
+      "norm_label": "capaid"
+    },
+    {
+      "label": "CAPAS",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/CapasToggles.tsx",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "components_capastoggles_capas",
+      "community": 28,
+      "norm_label": "capas"
+    },
+    {
+      "label": "CapasTogglesProps",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/CapasToggles.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "components_capastoggles_capastogglesprops",
+      "community": 28,
+      "norm_label": "capastogglesprops"
+    },
+    {
+      "label": "CapasToggles()",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/CapasToggles.tsx",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "components_capastoggles_capastoggles",
+      "community": 28,
+      "norm_label": "capastoggles()"
+    },
+    {
+      "label": "ColoniaSelect.tsx",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/ColoniaSelect.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_coloniaselect",
+      "community": 28,
+      "norm_label": "coloniaselect.tsx"
+    },
+    {
+      "label": "ColoniaSelectProps",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/ColoniaSelect.tsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "components_coloniaselect_coloniaselectprops",
+      "community": 28,
+      "norm_label": "coloniaselectprops"
+    },
+    {
+      "label": "ColoniaSelect()",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/ColoniaSelect.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "components_coloniaselect_coloniaselect",
+      "community": 28,
+      "norm_label": "coloniaselect()"
+    },
+    {
+      "label": "ColoniasLayer.tsx",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/ColoniasLayer.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_coloniaslayer",
+      "community": 28,
+      "norm_label": "coloniaslayer.tsx"
+    },
+    {
+      "label": "ColoniasLayerProps",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/ColoniasLayer.tsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "components_coloniaslayer_coloniaslayerprops",
+      "community": 28,
+      "norm_label": "coloniaslayerprops"
+    },
+    {
+      "label": "FeatureProps",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/ColoniasLayer.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "components_coloniaslayer_featureprops",
+      "community": 28,
+      "norm_label": "featureprops"
+    },
+    {
+      "label": "tooltipDe()",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/ColoniasLayer.tsx",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "components_coloniaslayer_tooltipde",
+      "community": 28,
+      "norm_label": "tooltipde()"
+    },
+    {
+      "label": "ColoniasLayer()",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/ColoniasLayer.tsx",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "components_coloniaslayer_coloniaslayer",
+      "community": 28,
+      "norm_label": "coloniaslayer()"
+    },
+    {
+      "label": "MunicipiosLayer.tsx",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/MunicipiosLayer.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_municipioslayer",
+      "community": 28,
+      "norm_label": "municipioslayer.tsx"
+    },
+    {
+      "label": "MunicipioProps",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/MunicipiosLayer.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "components_municipioslayer_municipioprops",
+      "community": 28,
+      "norm_label": "municipioprops"
+    },
+    {
+      "label": "MunicipiosLayer()",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/components/MunicipiosLayer.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "components_municipioslayer_municipioslayer",
+      "community": 28,
+      "norm_label": "municipioslayer()"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "colonias_zonas_index",
+      "community": 28,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "colonia.test.ts",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/model/colonia.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "model_colonia_test",
+      "community": 28,
+      "norm_label": "colonia.test.ts"
+    },
+    {
+      "label": "catalogo",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/model/colonia.test.ts",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "model_colonia_test_catalogo",
+      "community": 28,
+      "norm_label": "catalogo"
+    },
+    {
+      "label": "colonia.ts",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/model/colonia.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "model_colonia",
+      "community": 28,
+      "norm_label": "colonia.ts"
+    },
+    {
+      "label": "coloniaSchema",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/model/colonia.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "model_colonia_coloniaschema",
+      "community": 28,
+      "norm_label": "coloniaschema"
+    },
+    {
+      "label": "coloniaListSchema",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/model/colonia.ts",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "model_colonia_colonialistschema",
+      "community": 28,
+      "norm_label": "colonialistschema"
+    },
+    {
+      "label": "Colonia",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/model/colonia.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "model_colonia_colonia",
+      "community": 28,
+      "norm_label": "colonia"
+    },
+    {
+      "label": "COLONIA_COLORS",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/model/colonia.ts",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "model_colonia_colonia_colors",
+      "community": 28,
+      "norm_label": "colonia_colors"
+    },
+    {
+      "label": "buscarColoniaMatch()",
+      "file_type": "code",
+      "source_file": "src/features/colonias-zonas/model/colonia.ts",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "model_colonia_buscarcoloniamatch",
+      "community": 28,
+      "norm_label": "buscarcoloniamatch()"
+    },
+    {
+      "label": "reverseGeocode.ts",
+      "file_type": "code",
+      "source_file": "src/features/reportes/api/reverseGeocode.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "api_reversegeocode",
+      "community": 24,
+      "norm_label": "reversegeocode.ts"
+    },
+    {
+      "label": "reverseGeocode()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/api/reverseGeocode.ts",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "api_reversegeocode_reversegeocode",
+      "community": 24,
+      "norm_label": "reversegeocode()"
+    },
+    {
+      "label": "useReportes.ts",
+      "file_type": "code",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "api_usereportes",
+      "community": 24,
+      "norm_label": "usereportes.ts"
+    },
+    {
+      "label": "reportesKeys",
+      "file_type": "code",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "api_usereportes_reporteskeys",
+      "community": 24,
+      "norm_label": "reporteskeys"
+    },
+    {
+      "label": "useReportes()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "api_usereportes_usereportes",
+      "community": 24,
+      "norm_label": "usereportes()"
+    },
+    {
+      "label": "NuevoReporte",
+      "file_type": "code",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "api_usereportes_nuevoreporte",
+      "community": 24,
+      "norm_label": "nuevoreporte"
+    },
+    {
+      "label": "useCrearReporte()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "api_usereportes_usecrearreporte",
+      "community": 24,
+      "norm_label": "usecrearreporte()"
+    },
+    {
+      "label": "useActualizarReporte()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "api_usereportes_useactualizarreporte",
+      "community": 24,
+      "norm_label": "useactualizarreporte()"
+    },
+    {
+      "label": "useEliminarReporte()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "api_usereportes_useeliminarreporte",
+      "community": 24,
+      "norm_label": "useeliminarreporte()"
+    },
+    {
+      "label": "FlyToReporte.tsx",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/FlyToReporte.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_flytoreporte",
+      "community": 24,
+      "norm_label": "flytoreporte.tsx"
+    },
+    {
+      "label": "FlyTo()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/FlyToReporte.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "components_flytoreporte_flyto",
+      "community": 24,
+      "norm_label": "flyto()"
+    },
+    {
+      "label": "ReporteForm.tsx",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_reporteform",
+      "community": 24,
+      "norm_label": "reporteform.tsx"
+    },
+    {
+      "label": "Ubicacion",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "components_reporteform_ubicacion",
+      "community": 24,
+      "norm_label": "ubicacion"
+    },
+    {
+      "label": "ReporteFormProps",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "components_reporteform_reporteformprops",
+      "community": 24,
+      "norm_label": "reporteformprops"
+    },
+    {
+      "label": "ReporteForm()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "components_reporteform_reporteform",
+      "community": 24,
+      "norm_label": "reporteform()"
+    },
+    {
+      "label": "UbicacionControls()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L73",
+      "_origin": "ast",
+      "id": "components_reporteform_ubicacioncontrols",
+      "community": 24,
+      "norm_label": "ubicacioncontrols()"
+    },
+    {
+      "label": "FotoPicker()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L107",
+      "_origin": "ast",
+      "id": "components_reporteform_fotopicker",
+      "community": 24,
+      "norm_label": "fotopicker()"
+    },
+    {
+      "label": "ReporteItem.tsx",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_reporteitem",
+      "community": 24,
+      "norm_label": "reporteitem.tsx"
+    },
+    {
+      "label": "TONE_TEXT",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "components_reporteitem_tone_text",
+      "community": 24,
+      "norm_label": "tone_text"
+    },
+    {
+      "label": "ReporteItemProps",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "components_reporteitem_reporteitemprops",
+      "community": 24,
+      "norm_label": "reporteitemprops"
+    },
+    {
+      "label": "ReporteItem()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "components_reporteitem_reporteitem",
+      "community": 24,
+      "norm_label": "reporteitem()"
+    },
+    {
+      "label": "ReportesLayer.tsx",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/ReportesLayer.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_reporteslayer",
+      "community": 24,
+      "norm_label": "reporteslayer.tsx"
+    },
+    {
+      "label": "iconoReporte()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/ReportesLayer.tsx",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "components_reporteslayer_iconoreporte",
+      "community": 24,
+      "norm_label": "iconoreporte()"
+    },
+    {
+      "label": "ReportesLayer()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/ReportesLayer.tsx",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "components_reporteslayer_reporteslayer",
+      "community": 24,
+      "norm_label": "reporteslayer()"
+    },
+    {
+      "label": "UbicacionPicker()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/ReportesLayer.tsx",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "components_reporteslayer_ubicacionpicker",
+      "community": 24,
+      "norm_label": "ubicacionpicker()"
+    },
+    {
+      "label": "UbicacionTemporal()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/components/ReportesLayer.tsx",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "components_reporteslayer_ubicaciontemporal",
+      "community": 24,
+      "norm_label": "ubicaciontemporal()"
+    },
+    {
+      "label": "useResolverConGPS.ts",
+      "file_type": "code",
+      "source_file": "src/features/reportes/hooks/useResolverConGPS.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "hooks_useresolvercongps",
+      "community": 24,
+      "norm_label": "useresolvercongps.ts"
+    },
+    {
+      "label": "Verificacion",
+      "file_type": "code",
+      "source_file": "src/features/reportes/hooks/useResolverConGPS.ts",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "hooks_useresolvercongps_verificacion",
+      "community": 24,
+      "norm_label": "verificacion"
+    },
+    {
+      "label": "capturarVerificacion()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/hooks/useResolverConGPS.ts",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "hooks_useresolvercongps_capturarverificacion",
+      "community": 30,
+      "norm_label": "capturarverificacion()"
+    },
+    {
+      "label": "useResolverConGPS()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/hooks/useResolverConGPS.ts",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "hooks_useresolvercongps_useresolvercongps",
+      "community": 24,
+      "norm_label": "useresolvercongps()"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "src/features/reportes/index.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "reportes_index",
+      "community": 24,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "reporte.test.ts",
+      "file_type": "code",
+      "source_file": "src/features/reportes/model/reporte.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "model_reporte_test",
+      "community": 24,
+      "norm_label": "reporte.test.ts"
+    },
+    {
+      "label": "reporte.ts",
+      "file_type": "code",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "model_reporte",
+      "community": 24,
+      "norm_label": "reporte.ts"
+    },
+    {
+      "label": "TIPOS_REPORTE",
+      "file_type": "code",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "model_reporte_tipos_reporte",
+      "community": 24,
+      "norm_label": "tipos_reporte"
+    },
+    {
+      "label": "TipoReporte",
+      "file_type": "code",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "model_reporte_tiporeporte",
+      "community": 24,
+      "norm_label": "tiporeporte"
+    },
+    {
+      "label": "STATUS_REPORTE",
+      "file_type": "code",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "model_reporte_status_reporte",
+      "community": 24,
+      "norm_label": "status_reporte"
+    },
+    {
+      "label": "StatusReporte",
+      "file_type": "code",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "model_reporte_statusreporte",
+      "community": 24,
+      "norm_label": "statusreporte"
+    },
+    {
+      "label": "reporteSchema",
+      "file_type": "code",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "model_reporte_reporteschema",
+      "community": 24,
+      "norm_label": "reporteschema"
+    },
+    {
+      "label": "reporteListSchema",
+      "file_type": "code",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "model_reporte_reportelistschema",
+      "community": 24,
+      "norm_label": "reportelistschema"
+    },
+    {
+      "label": "Reporte",
+      "file_type": "code",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "model_reporte_reporte",
+      "community": 24,
+      "norm_label": "reporte"
+    },
+    {
+      "label": "REPORTE_META",
+      "file_type": "code",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "model_reporte_reporte_meta",
+      "community": 24,
+      "norm_label": "reporte_meta"
+    },
+    {
+      "label": "STATUS_META",
+      "file_type": "code",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "model_reporte_status_meta",
+      "community": 24,
+      "norm_label": "status_meta"
+    },
+    {
+      "label": "siguienteStatus()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "model_reporte_siguientestatus",
+      "community": 24,
+      "norm_label": "siguientestatus()"
+    },
+    {
+      "label": "toneVerificacion()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "model_reporte_toneverificacion",
+      "community": 24,
+      "norm_label": "toneverificacion()"
+    },
+    {
+      "label": "ReportesPage.tsx",
+      "file_type": "code",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "routes_reportespage",
+      "community": 24,
+      "norm_label": "reportespage.tsx"
+    },
+    {
+      "label": "ReportesPage()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "routes_reportespage_reportespage",
+      "community": 24,
+      "norm_label": "reportespage()"
+    },
+    {
+      "label": "ListaReportes()",
+      "file_type": "code",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "routes_reportespage_listareportes",
+      "community": 24,
+      "norm_label": "listareportes()"
+    },
+    {
+      "label": "useRuta.ts",
+      "file_type": "code",
+      "source_file": "src/features/rutas/api/useRuta.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "api_useruta",
+      "community": 29,
+      "norm_label": "useruta.ts"
+    },
+    {
+      "label": "useCalcularRuta()",
+      "file_type": "code",
+      "source_file": "src/features/rutas/api/useRuta.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "api_useruta_usecalcularruta",
+      "community": 29,
+      "norm_label": "usecalcularruta()"
+    },
+    {
+      "label": "useCalcularRutaColonia()",
+      "file_type": "code",
+      "source_file": "src/features/rutas/api/useRuta.ts",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "api_useruta_usecalcularrutacolonia",
+      "community": 29,
+      "norm_label": "usecalcularrutacolonia()"
+    },
+    {
+      "label": "descargarReporteVisita()",
+      "file_type": "code",
+      "source_file": "src/features/rutas/api/useRuta.ts",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "api_useruta_descargarreportevisita",
+      "community": 29,
+      "norm_label": "descargarreportevisita()"
+    },
+    {
+      "label": "RutaInfo.tsx",
+      "file_type": "code",
+      "source_file": "src/features/rutas/components/RutaInfo.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_rutainfo",
+      "community": 29,
+      "norm_label": "rutainfo.tsx"
+    },
+    {
+      "label": "RutaInfo()",
+      "file_type": "code",
+      "source_file": "src/features/rutas/components/RutaInfo.tsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "components_rutainfo_rutainfo",
+      "community": 29,
+      "norm_label": "rutainfo()"
+    },
+    {
+      "label": "RutaLayer.tsx",
+      "file_type": "code",
+      "source_file": "src/features/rutas/components/RutaLayer.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_rutalayer",
+      "community": 29,
+      "norm_label": "rutalayer.tsx"
+    },
+    {
+      "label": "iconoNumerado()",
+      "file_type": "code",
+      "source_file": "src/features/rutas/components/RutaLayer.tsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "components_rutalayer_icononumerado",
+      "community": 29,
+      "norm_label": "icononumerado()"
+    },
+    {
+      "label": "RutaLayer()",
+      "file_type": "code",
+      "source_file": "src/features/rutas/components/RutaLayer.tsx",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "components_rutalayer_rutalayer",
+      "community": 29,
+      "norm_label": "rutalayer()"
+    },
+    {
+      "label": "RutaLista.tsx",
+      "file_type": "code",
+      "source_file": "src/features/rutas/components/RutaLista.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_rutalista",
+      "community": 29,
+      "norm_label": "rutalista.tsx"
+    },
+    {
+      "label": "RutaListaProps",
+      "file_type": "code",
+      "source_file": "src/features/rutas/components/RutaLista.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "components_rutalista_rutalistaprops",
+      "community": 29,
+      "norm_label": "rutalistaprops"
+    },
+    {
+      "label": "RutaLista()",
+      "file_type": "code",
+      "source_file": "src/features/rutas/components/RutaLista.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "components_rutalista_rutalista",
+      "community": 29,
+      "norm_label": "rutalista()"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "src/features/rutas/index.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "rutas_index",
+      "community": 29,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "ruta.test.ts",
+      "file_type": "code",
+      "source_file": "src/features/rutas/model/ruta.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "model_ruta_test",
+      "community": 29,
+      "norm_label": "ruta.test.ts"
+    },
+    {
+      "label": "ruta.ts",
+      "file_type": "code",
+      "source_file": "src/features/rutas/model/ruta.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "model_ruta",
+      "community": 29,
+      "norm_label": "ruta.ts"
+    },
+    {
+      "label": "rutaSchema",
+      "file_type": "code",
+      "source_file": "src/features/rutas/model/ruta.ts",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "model_ruta_rutaschema",
+      "community": 29,
+      "norm_label": "rutaschema"
+    },
+    {
+      "label": "RutaCalculada",
+      "file_type": "code",
+      "source_file": "src/features/rutas/model/ruta.ts",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "model_ruta_rutacalculada",
+      "community": 29,
+      "norm_label": "rutacalculada"
+    },
+    {
+      "label": "formatearTiempo()",
+      "file_type": "code",
+      "source_file": "src/features/rutas/model/ruta.ts",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "model_ruta_formateartiempo",
+      "community": 29,
+      "norm_label": "formateartiempo()"
+    },
+    {
+      "label": "togglePunto()",
+      "file_type": "code",
+      "source_file": "src/features/rutas/model/ruta.ts",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "model_ruta_togglepunto",
+      "community": 29,
+      "norm_label": "togglepunto()"
+    },
+    {
+      "label": "RutasPage.tsx",
+      "file_type": "code",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "routes_rutaspage",
+      "community": 29,
+      "norm_label": "rutaspage.tsx"
+    },
+    {
+      "label": "RutasPage()",
+      "file_type": "code",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "routes_rutaspage_rutaspage",
+      "community": 29,
+      "norm_label": "rutaspage()"
+    },
+    {
+      "label": "RutaControles()",
+      "file_type": "code",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "routes_rutaspage_rutacontroles",
+      "community": 29,
+      "norm_label": "rutacontroles()"
+    },
+    {
+      "label": "geo.ts",
+      "file_type": "code",
+      "source_file": "src/shared/lib/geo.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "lib_geo",
+      "community": 30,
+      "norm_label": "geo.ts"
+    },
+    {
+      "label": "PosicionGPS",
+      "file_type": "code",
+      "source_file": "src/shared/lib/geo.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "lib_geo_posiciongps",
+      "community": 30,
+      "norm_label": "posiciongps"
+    },
+    {
+      "label": "GPS_ERRORES",
+      "file_type": "code",
+      "source_file": "src/shared/lib/geo.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "lib_geo_gps_errores",
+      "community": 30,
+      "norm_label": "gps_errores"
+    },
+    {
+      "label": "GpsError",
+      "file_type": "code",
+      "source_file": "src/shared/lib/geo.ts",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "lib_geo_gpserror",
+      "community": 30,
+      "norm_label": "gpserror"
+    },
+    {
+      "label": "obtenerGPS()",
+      "file_type": "code",
+      "source_file": "src/shared/lib/geo.ts",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "lib_geo_obtenergps",
+      "community": 30,
+      "norm_label": "obtenergps()"
+    },
+    {
+      "label": "haversineM()",
+      "file_type": "code",
+      "source_file": "src/shared/lib/geo.ts",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "lib_geo_haversinem",
+      "community": 30,
+      "norm_label": "haversinem()"
     },
     {
       "label": "Alert.tsx",
@@ -4080,7 +5230,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_alert",
-      "community": 4,
+      "community": 26,
       "norm_label": "alert.tsx"
     },
     {
@@ -4090,7 +5240,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "ui_alert_tone_classes",
-      "community": 4,
+      "community": 26,
       "norm_label": "tone_classes"
     },
     {
@@ -4100,7 +5250,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "ui_alert_alertprops",
-      "community": 4,
+      "community": 26,
       "norm_label": "alertprops"
     },
     {
@@ -4110,7 +5260,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "ui_alert_alert",
-      "community": 4,
+      "community": 2,
       "norm_label": "alert()"
     },
     {
@@ -9081,9 +10231,9 @@
       "source_file": "package.json",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "package_dependencies",
-      "target": "package_dependencies_leaflet_markercluster",
-      "confidence_score": 1.0
+      "target": "package_dependencies_leaflet_markercluster"
     },
     {
       "relation": "contains",
@@ -9319,6 +10469,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_types_geojson",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
       "source_location": "L39",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -9331,9 +10491,9 @@
       "source_file": "package.json",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "package_devdependencies",
-      "target": "package_devdependencies_types_leaflet_markercluster",
-      "confidence_score": 1.0
+      "target": "package_devdependencies_types_leaflet_markercluster"
     },
     {
       "relation": "contains",
@@ -10817,9 +11977,9 @@
       "source_file": "src/features/candidatos/api/useCandidatos.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_usecandidatos",
-      "target": "api_usecandidatos_candidatoskeys",
-      "confidence_score": 1.0
+      "target": "api_usecandidatos_candidatoskeys"
     },
     {
       "relation": "contains",
@@ -10827,9 +11987,9 @@
       "source_file": "src/features/candidatos/api/useCandidatos.ts",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_usecandidatos",
-      "target": "api_usecandidatos_usecandidatos",
-      "confidence_score": 1.0
+      "target": "api_usecandidatos_usecandidatos"
     },
     {
       "relation": "imports_from",
@@ -10838,9 +11998,9 @@
       "source_file": "src/features/candidatos/api/useCandidatos.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_usecandidatos",
-      "target": "model_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato"
     },
     {
       "relation": "imports",
@@ -10849,9 +12009,9 @@
       "source_file": "src/features/candidatos/api/useCandidatos.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_usecandidatos",
-      "target": "model_candidato_candidatolistschema",
-      "confidence_score": 1.0
+      "target": "model_candidato_candidatolistschema"
     },
     {
       "relation": "imports_from",
@@ -10860,9 +12020,9 @@
       "source_file": "src/features/candidatos/api/useCargaProgresiva.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_usecargaprogresiva",
-      "target": "api_usecandidatos",
-      "confidence_score": 1.0
+      "target": "api_usecandidatos"
     },
     {
       "relation": "imports_from",
@@ -10871,7 +12031,18 @@
       "source_file": "src/features/candidatos/api/useGuardarTipo.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_useguardartipo",
+      "target": "api_usecandidatos"
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "candidatos_index",
       "target": "api_usecandidatos",
       "confidence_score": 1.0
     },
@@ -10882,9 +12053,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "api_usecandidatos",
-      "confidence_score": 1.0
+      "target": "api_usecandidatos"
     },
     {
       "relation": "imports",
@@ -10893,9 +12064,9 @@
       "source_file": "src/features/candidatos/api/useCargaProgresiva.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_usecargaprogresiva",
-      "target": "api_usecandidatos_candidatoskeys",
-      "confidence_score": 1.0
+      "target": "api_usecandidatos_candidatoskeys"
     },
     {
       "relation": "imports",
@@ -10904,8 +12075,19 @@
       "source_file": "src/features/candidatos/api/useGuardarTipo.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_useguardartipo",
-      "target": "api_usecandidatos_candidatoskeys",
+      "target": "api_usecandidatos_candidatoskeys"
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "candidatos_index",
+      "target": "api_usecandidatos_usecandidatos",
       "confidence_score": 1.0
     },
     {
@@ -10915,9 +12097,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "api_usecandidatos_usecandidatos",
-      "confidence_score": 1.0
+      "target": "api_usecandidatos_usecandidatos"
     },
     {
       "relation": "calls",
@@ -10931,14 +12113,25 @@
       "target": "api_usecandidatos_usecandidatos"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "routes_rutaspage_rutaspage",
+      "target": "api_usecandidatos_usecandidatos"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/features/candidatos/api/useCargaProgresiva.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_usecargaprogresiva",
-      "target": "api_usecargaprogresiva_cachestatus",
-      "confidence_score": 1.0
+      "target": "api_usecargaprogresiva_cachestatus"
     },
     {
       "relation": "contains",
@@ -10946,9 +12139,9 @@
       "source_file": "src/features/candidatos/api/useCargaProgresiva.ts",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_usecargaprogresiva",
-      "target": "api_usecargaprogresiva_cachestatusschema",
-      "confidence_score": 1.0
+      "target": "api_usecargaprogresiva_cachestatusschema"
     },
     {
       "relation": "contains",
@@ -10956,9 +12149,9 @@
       "source_file": "src/features/candidatos/api/useCargaProgresiva.ts",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_usecargaprogresiva",
-      "target": "api_usecargaprogresiva_usecargaprogresiva",
-      "confidence_score": 1.0
+      "target": "api_usecargaprogresiva_usecargaprogresiva"
     },
     {
       "relation": "imports_from",
@@ -10967,9 +12160,9 @@
       "source_file": "src/features/candidatos/api/useCargaProgresiva.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_usecargaprogresiva",
-      "target": "model_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato"
     },
     {
       "relation": "imports",
@@ -10978,9 +12171,9 @@
       "source_file": "src/features/candidatos/api/useCargaProgresiva.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_usecargaprogresiva",
-      "target": "model_candidato_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato_candidato"
     },
     {
       "relation": "imports_from",
@@ -10989,7 +12182,18 @@
       "source_file": "src/features/candidatos/components/EstadoCargaChip.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_estadocargachip",
+      "target": "api_usecargaprogresiva"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "components_mapacandidatos",
       "target": "api_usecargaprogresiva",
       "confidence_score": 1.0
     },
@@ -11000,9 +12204,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "api_usecargaprogresiva",
-      "confidence_score": 1.0
+      "target": "api_usecargaprogresiva"
     },
     {
       "relation": "imports",
@@ -11011,9 +12215,9 @@
       "source_file": "src/features/candidatos/components/EstadoCargaChip.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_estadocargachip",
-      "target": "api_usecargaprogresiva_cachestatus",
-      "confidence_score": 1.0
+      "target": "api_usecargaprogresiva_cachestatus"
     },
     {
       "relation": "references",
@@ -11022,7 +12226,29 @@
       "source_file": "src/features/candidatos/components/EstadoCargaChip.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_estadocargachip_estadocargachipprops",
+      "target": "api_usecargaprogresiva_cachestatus"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "components_mapacandidatos",
+      "target": "api_usecargaprogresiva_cachestatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "components_mapacandidatos_mapacandidatosprops",
       "target": "api_usecargaprogresiva_cachestatus",
       "confidence_score": 1.0
     },
@@ -11033,9 +12259,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "api_usecargaprogresiva_usecargaprogresiva",
-      "confidence_score": 1.0
+      "target": "api_usecargaprogresiva_usecargaprogresiva"
     },
     {
       "relation": "calls",
@@ -11054,9 +12280,9 @@
       "source_file": "src/features/candidatos/api/useGuardarTipo.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_useguardartipo",
-      "target": "api_useguardartipo_guardartipoinput",
-      "confidence_score": 1.0
+      "target": "api_useguardartipo_guardartipoinput"
     },
     {
       "relation": "contains",
@@ -11064,9 +12290,9 @@
       "source_file": "src/features/candidatos/api/useGuardarTipo.ts",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_useguardartipo",
-      "target": "api_useguardartipo_useguardartipo",
-      "confidence_score": 1.0
+      "target": "api_useguardartipo_useguardartipo"
     },
     {
       "relation": "imports_from",
@@ -11075,9 +12301,9 @@
       "source_file": "src/features/candidatos/api/useGuardarTipo.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_useguardartipo",
-      "target": "model_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato"
     },
     {
       "relation": "imports",
@@ -11086,9 +12312,9 @@
       "source_file": "src/features/candidatos/api/useGuardarTipo.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_useguardartipo",
-      "target": "model_candidato_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato_candidato"
     },
     {
       "relation": "imports",
@@ -11097,9 +12323,9 @@
       "source_file": "src/features/candidatos/api/useGuardarTipo.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_useguardartipo",
-      "target": "model_candidato_tipo",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipo"
     },
     {
       "relation": "imports_from",
@@ -11108,9 +12334,9 @@
       "source_file": "src/features/candidatos/components/CandidatoCard.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatocard",
-      "target": "api_useguardartipo",
-      "confidence_score": 1.0
+      "target": "api_useguardartipo"
     },
     {
       "relation": "references",
@@ -11119,9 +12345,9 @@
       "source_file": "src/features/candidatos/api/useGuardarTipo.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_useguardartipo_guardartipoinput",
-      "target": "model_candidato_tipo",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipo"
     },
     {
       "relation": "imports",
@@ -11130,9 +12356,9 @@
       "source_file": "src/features/candidatos/components/CandidatoCard.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatocard",
-      "target": "api_useguardartipo_useguardartipo",
-      "confidence_score": 1.0
+      "target": "api_useguardartipo_useguardartipo"
     },
     {
       "relation": "calls",
@@ -11151,9 +12377,9 @@
       "source_file": "src/features/candidatos/components/CandidatoCard.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatocard",
-      "target": "components_candidatocard_candidatocard",
-      "confidence_score": 1.0
+      "target": "components_candidatocard_candidatocard"
     },
     {
       "relation": "contains",
@@ -11161,9 +12387,9 @@
       "source_file": "src/features/candidatos/components/CandidatoCard.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatocard",
-      "target": "components_candidatocard_candidatocardprops",
-      "confidence_score": 1.0
+      "target": "components_candidatocard_candidatocardprops"
     },
     {
       "relation": "imports_from",
@@ -11172,9 +12398,9 @@
       "source_file": "src/features/candidatos/components/CandidatoCard.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatocard",
-      "target": "model_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato"
     },
     {
       "relation": "imports",
@@ -11183,9 +12409,9 @@
       "source_file": "src/features/candidatos/components/CandidatoCard.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatocard",
-      "target": "model_candidato_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato_candidato"
     },
     {
       "relation": "imports",
@@ -11194,9 +12420,9 @@
       "source_file": "src/features/candidatos/components/CandidatoCard.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatocard",
-      "target": "model_candidato_tipo",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipo"
     },
     {
       "relation": "imports",
@@ -11205,9 +12431,9 @@
       "source_file": "src/features/candidatos/components/CandidatoCard.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatocard",
-      "target": "model_candidato_tipo_labels",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipo_labels"
     },
     {
       "relation": "imports",
@@ -11216,9 +12442,9 @@
       "source_file": "src/features/candidatos/components/CandidatoCard.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatocard",
-      "target": "model_candidato_tipo_tones",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipo_tones"
     },
     {
       "relation": "imports",
@@ -11227,9 +12453,9 @@
       "source_file": "src/features/candidatos/components/CandidatoCard.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatocard",
-      "target": "model_candidato_tipode",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipode"
     },
     {
       "relation": "imports",
@@ -11238,9 +12464,9 @@
       "source_file": "src/features/candidatos/components/CandidatoCard.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatocard",
-      "target": "model_candidato_tipos",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipos"
     },
     {
       "relation": "imports_from",
@@ -11249,9 +12475,9 @@
       "source_file": "src/features/candidatos/components/CandidatoCard.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatocard",
-      "target": "model_giros",
-      "confidence_score": 1.0
+      "target": "model_giros"
     },
     {
       "relation": "imports",
@@ -11260,8 +12486,19 @@
       "source_file": "src/features/candidatos/components/CandidatoCard.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatocard",
-      "target": "model_giros_girolabel",
+      "target": "model_giros_girolabel"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "components_mapacandidatos",
+      "target": "components_candidatocard",
       "confidence_score": 1.0
     },
     {
@@ -11271,9 +12508,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "components_candidatocard",
-      "confidence_score": 1.0
+      "target": "components_candidatocard"
     },
     {
       "relation": "references",
@@ -11282,9 +12519,9 @@
       "source_file": "src/features/candidatos/components/CandidatoCard.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatocard_candidatocardprops",
-      "target": "model_candidato_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato_candidato"
     },
     {
       "relation": "calls",
@@ -11312,12 +12549,23 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "components_mapacandidatos",
+      "target": "components_candidatocard_candidatocard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "components_candidatocard_candidatocard",
-      "confidence_score": 1.0
+      "target": "components_candidatocard_candidatocard"
     },
     {
       "relation": "contains",
@@ -11325,9 +12573,9 @@
       "source_file": "src/features/candidatos/components/CandidatosList.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatoslist",
-      "target": "components_candidatoslist_candidatoslist",
-      "confidence_score": 1.0
+      "target": "components_candidatoslist_candidatoslist"
     },
     {
       "relation": "contains",
@@ -11335,9 +12583,9 @@
       "source_file": "src/features/candidatos/components/CandidatosList.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatoslist",
-      "target": "components_candidatoslist_candidatoslistprops",
-      "confidence_score": 1.0
+      "target": "components_candidatoslist_candidatoslistprops"
     },
     {
       "relation": "imports_from",
@@ -11346,9 +12594,9 @@
       "source_file": "src/features/candidatos/components/CandidatosList.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatoslist",
-      "target": "model_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato"
     },
     {
       "relation": "imports",
@@ -11357,9 +12605,9 @@
       "source_file": "src/features/candidatos/components/CandidatosList.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatoslist",
-      "target": "model_candidato_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato_candidato"
     },
     {
       "relation": "imports",
@@ -11368,9 +12616,9 @@
       "source_file": "src/features/candidatos/components/CandidatosList.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatoslist",
-      "target": "model_candidato_tipo_colors",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipo_colors"
     },
     {
       "relation": "imports",
@@ -11379,9 +12627,9 @@
       "source_file": "src/features/candidatos/components/CandidatosList.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatoslist",
-      "target": "model_candidato_tipode",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipode"
     },
     {
       "relation": "imports_from",
@@ -11390,9 +12638,9 @@
       "source_file": "src/features/candidatos/components/CandidatosList.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatoslist",
-      "target": "model_giros",
-      "confidence_score": 1.0
+      "target": "model_giros"
     },
     {
       "relation": "imports",
@@ -11401,8 +12649,19 @@
       "source_file": "src/features/candidatos/components/CandidatosList.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatoslist",
-      "target": "model_giros_girolabel",
+      "target": "model_giros_girolabel"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_panellateral",
+      "target": "components_candidatoslist",
       "confidence_score": 1.0
     },
     {
@@ -11412,9 +12671,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "components_candidatoslist",
-      "confidence_score": 1.0
+      "target": "components_candidatoslist"
     },
     {
       "relation": "references",
@@ -11423,8 +12682,19 @@
       "source_file": "src/features/candidatos/components/CandidatosList.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_candidatoslist_candidatoslistprops",
-      "target": "model_candidato_candidato",
+      "target": "model_candidato_candidato"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_panellateral",
+      "target": "components_candidatoslist_candidatoslist",
       "confidence_score": 1.0
     },
     {
@@ -11434,9 +12704,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "components_candidatoslist_candidatoslist",
-      "confidence_score": 1.0
+      "target": "components_candidatoslist_candidatoslist"
     },
     {
       "relation": "contains",
@@ -11444,9 +12714,9 @@
       "source_file": "src/features/candidatos/components/ClusterLayer.tsx",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_clusterlayer",
-      "target": "components_clusterlayer_clusterlayer",
-      "confidence_score": 1.0
+      "target": "components_clusterlayer_clusterlayer"
     },
     {
       "relation": "contains",
@@ -11454,9 +12724,9 @@
       "source_file": "src/features/candidatos/components/ClusterLayer.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_clusterlayer",
-      "target": "components_clusterlayer_clusterlayerprops",
-      "confidence_score": 1.0
+      "target": "components_clusterlayer_clusterlayerprops"
     },
     {
       "relation": "contains",
@@ -11464,9 +12734,9 @@
       "source_file": "src/features/candidatos/components/ClusterLayer.tsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_clusterlayer",
-      "target": "components_clusterlayer_estadocluster",
-      "confidence_score": 1.0
+      "target": "components_clusterlayer_estadocluster"
     },
     {
       "relation": "contains",
@@ -11474,9 +12744,9 @@
       "source_file": "src/features/candidatos/components/ClusterLayer.tsx",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_clusterlayer",
-      "target": "components_clusterlayer_sincronizar",
-      "confidence_score": 1.0
+      "target": "components_clusterlayer_sincronizar"
     },
     {
       "relation": "imports_from",
@@ -11485,9 +12755,9 @@
       "source_file": "src/features/candidatos/components/ClusterLayer.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_clusterlayer",
-      "target": "model_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato"
     },
     {
       "relation": "imports",
@@ -11496,9 +12766,9 @@
       "source_file": "src/features/candidatos/components/ClusterLayer.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_clusterlayer",
-      "target": "model_candidato_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato_candidato"
     },
     {
       "relation": "imports",
@@ -11507,9 +12777,9 @@
       "source_file": "src/features/candidatos/components/ClusterLayer.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_clusterlayer",
-      "target": "model_candidato_tipo_colors",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipo_colors"
     },
     {
       "relation": "imports",
@@ -11518,8 +12788,19 @@
       "source_file": "src/features/candidatos/components/ClusterLayer.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_clusterlayer",
-      "target": "model_candidato_tipode",
+      "target": "model_candidato_tipode"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "components_mapacandidatos",
+      "target": "components_clusterlayer",
       "confidence_score": 1.0
     },
     {
@@ -11529,9 +12810,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "components_clusterlayer",
-      "confidence_score": 1.0
+      "target": "components_clusterlayer"
     },
     {
       "relation": "references",
@@ -11540,9 +12821,9 @@
       "source_file": "src/features/candidatos/components/ClusterLayer.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_clusterlayer_clusterlayerprops",
-      "target": "model_candidato_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato_candidato"
     },
     {
       "relation": "references",
@@ -11551,8 +12832,19 @@
       "source_file": "src/features/candidatos/components/ClusterLayer.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_clusterlayer_estadocluster",
-      "target": "model_candidato_candidato",
+      "target": "model_candidato_candidato"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "components_mapacandidatos",
+      "target": "components_clusterlayer_clusterlayer",
       "confidence_score": 1.0
     },
     {
@@ -11562,9 +12854,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "components_clusterlayer_clusterlayer",
-      "confidence_score": 1.0
+      "target": "components_clusterlayer_clusterlayer"
     },
     {
       "relation": "calls",
@@ -11573,9 +12865,9 @@
       "source_file": "src/features/candidatos/components/ClusterLayer.tsx",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_clusterlayer_sincronizar",
-      "target": "model_candidato_tipode",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipode"
     },
     {
       "relation": "contains",
@@ -11583,9 +12875,9 @@
       "source_file": "src/features/candidatos/components/EstadoCargaChip.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_estadocargachip",
-      "target": "components_estadocargachip_estadocargachip",
-      "confidence_score": 1.0
+      "target": "components_estadocargachip_estadocargachip"
     },
     {
       "relation": "contains",
@@ -11593,8 +12885,19 @@
       "source_file": "src/features/candidatos/components/EstadoCargaChip.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_estadocargachip",
-      "target": "components_estadocargachip_estadocargachipprops",
+      "target": "components_estadocargachip_estadocargachipprops"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "components_mapacandidatos",
+      "target": "components_estadocargachip",
       "confidence_score": 1.0
     },
     {
@@ -11604,8 +12907,19 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "components_estadocargachip",
+      "target": "components_estadocargachip"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "components_mapacandidatos",
+      "target": "components_estadocargachip_estadocargachip",
       "confidence_score": 1.0
     },
     {
@@ -11615,9 +12929,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "components_estadocargachip_estadocargachip",
-      "confidence_score": 1.0
+      "target": "components_estadocargachip_estadocargachip"
     },
     {
       "relation": "contains",
@@ -11625,9 +12939,9 @@
       "source_file": "src/features/candidatos/components/FiltrosBar.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_filtrosbar",
-      "target": "components_filtrosbar_chip_activo",
-      "confidence_score": 1.0
+      "target": "components_filtrosbar_chip_activo"
     },
     {
       "relation": "contains",
@@ -11635,9 +12949,9 @@
       "source_file": "src/features/candidatos/components/FiltrosBar.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_filtrosbar",
-      "target": "components_filtrosbar_filtrosbar",
-      "confidence_score": 1.0
+      "target": "components_filtrosbar_filtrosbar"
     },
     {
       "relation": "contains",
@@ -11645,9 +12959,9 @@
       "source_file": "src/features/candidatos/components/FiltrosBar.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_filtrosbar",
-      "target": "components_filtrosbar_filtrosbarprops",
-      "confidence_score": 1.0
+      "target": "components_filtrosbar_filtrosbarprops"
     },
     {
       "relation": "imports_from",
@@ -11656,9 +12970,9 @@
       "source_file": "src/features/candidatos/components/FiltrosBar.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_filtrosbar",
-      "target": "model_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato"
     },
     {
       "relation": "imports",
@@ -11667,9 +12981,9 @@
       "source_file": "src/features/candidatos/components/FiltrosBar.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_filtrosbar",
-      "target": "model_candidato_tipo",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipo"
     },
     {
       "relation": "imports",
@@ -11678,9 +12992,9 @@
       "source_file": "src/features/candidatos/components/FiltrosBar.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_filtrosbar",
-      "target": "model_candidato_tipo_labels",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipo_labels"
     },
     {
       "relation": "imports",
@@ -11689,9 +13003,9 @@
       "source_file": "src/features/candidatos/components/FiltrosBar.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_filtrosbar",
-      "target": "model_candidato_tipos",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipos"
     },
     {
       "relation": "imports_from",
@@ -11700,9 +13014,9 @@
       "source_file": "src/features/candidatos/components/FiltrosBar.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_filtrosbar",
-      "target": "model_filtros",
-      "confidence_score": 1.0
+      "target": "model_filtros"
     },
     {
       "relation": "imports",
@@ -11711,8 +13025,19 @@
       "source_file": "src/features/candidatos/components/FiltrosBar.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_filtrosbar",
-      "target": "model_filtros_filtros",
+      "target": "model_filtros_filtros"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_panellateral",
+      "target": "components_filtrosbar",
       "confidence_score": 1.0
     },
     {
@@ -11722,9 +13047,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "components_filtrosbar",
-      "confidence_score": 1.0
+      "target": "components_filtrosbar"
     },
     {
       "relation": "references",
@@ -11733,8 +13058,19 @@
       "source_file": "src/features/candidatos/components/FiltrosBar.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_filtrosbar_filtrosbarprops",
-      "target": "model_filtros_filtros",
+      "target": "model_filtros_filtros"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_panellateral",
+      "target": "components_filtrosbar_filtrosbar",
       "confidence_score": 1.0
     },
     {
@@ -11744,9 +13080,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "components_filtrosbar_filtrosbar",
-      "confidence_score": 1.0
+      "target": "components_filtrosbar_filtrosbar"
     },
     {
       "relation": "contains",
@@ -11754,9 +13090,9 @@
       "source_file": "src/features/candidatos/components/FlyTo.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_flyto",
-      "target": "components_flyto_flyto",
-      "confidence_score": 1.0
+      "target": "components_flyto_flyto"
     },
     {
       "relation": "contains",
@@ -11764,8 +13100,19 @@
       "source_file": "src/features/candidatos/components/FlyTo.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_flyto",
-      "target": "components_flyto_flytoprops",
+      "target": "components_flyto_flytoprops"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "components_mapacandidatos",
+      "target": "components_flyto",
       "confidence_score": 1.0
     },
     {
@@ -11775,8 +13122,19 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "components_flyto",
+      "target": "components_flyto"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "components_mapacandidatos",
+      "target": "components_flyto_flyto",
       "confidence_score": 1.0
     },
     {
@@ -11786,8 +13144,83 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "components_flyto_flyto",
+      "target": "components_flyto_flyto"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "components_mapacandidatos",
+      "target": "components_mapacandidatos_mapacandidatos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "components_mapacandidatos",
+      "target": "components_mapacandidatos_mapacandidatosprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "components_mapacandidatos",
+      "target": "model_candidato",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "components_mapacandidatos",
+      "target": "model_candidato_candidato",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routes_candidatospage",
+      "target": "components_mapacandidatos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/MapaCandidatos.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "components_mapacandidatos_mapacandidatosprops",
+      "target": "model_candidato_candidato",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routes_candidatospage",
+      "target": "components_mapacandidatos_mapacandidatos",
       "confidence_score": 1.0
     },
     {
@@ -11796,9 +13229,9 @@
       "source_file": "src/features/candidatos/components/MetricasPanel.tsx",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_metricaspanel",
-      "target": "components_metricaspanel_metricaspanel",
-      "confidence_score": 1.0
+      "target": "components_metricaspanel_metricaspanel"
     },
     {
       "relation": "contains",
@@ -11806,9 +13239,9 @@
       "source_file": "src/features/candidatos/components/MetricasPanel.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_metricaspanel",
-      "target": "components_metricaspanel_numero",
-      "confidence_score": 1.0
+      "target": "components_metricaspanel_numero"
     },
     {
       "relation": "contains",
@@ -11816,9 +13249,9 @@
       "source_file": "src/features/candidatos/components/MetricasPanel.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_metricaspanel",
-      "target": "components_metricaspanel_stat",
-      "confidence_score": 1.0
+      "target": "components_metricaspanel_stat"
     },
     {
       "relation": "imports_from",
@@ -11827,9 +13260,9 @@
       "source_file": "src/features/candidatos/components/MetricasPanel.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_metricaspanel",
-      "target": "model_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato"
     },
     {
       "relation": "imports",
@@ -11838,9 +13271,9 @@
       "source_file": "src/features/candidatos/components/MetricasPanel.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_metricaspanel",
-      "target": "model_candidato_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato_candidato"
     },
     {
       "relation": "imports_from",
@@ -11849,9 +13282,9 @@
       "source_file": "src/features/candidatos/components/MetricasPanel.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_metricaspanel",
-      "target": "model_filtros",
-      "confidence_score": 1.0
+      "target": "model_filtros"
     },
     {
       "relation": "imports",
@@ -11860,8 +13293,19 @@
       "source_file": "src/features/candidatos/components/MetricasPanel.tsx",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_metricaspanel",
-      "target": "model_filtros_calcularmetricas",
+      "target": "model_filtros_calcularmetricas"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_panellateral",
+      "target": "components_metricaspanel",
       "confidence_score": 1.0
     },
     {
@@ -11871,9 +13315,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "components_metricaspanel",
-      "confidence_score": 1.0
+      "target": "components_metricaspanel"
     },
     {
       "relation": "calls",
@@ -11882,9 +13326,9 @@
       "source_file": "src/features/candidatos/components/MetricasPanel.tsx",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_metricaspanel_metricaspanel",
-      "target": "components_metricaspanel_numero",
-      "confidence_score": 1.0
+      "target": "components_metricaspanel_numero"
     },
     {
       "relation": "calls",
@@ -11901,11 +13345,196 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_panellateral",
+      "target": "components_metricaspanel_metricaspanel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "components_metricaspanel_metricaspanel",
+      "target": "components_metricaspanel_metricaspanel"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "components_panellateral",
+      "target": "components_panellateral_panellateral",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "components_panellateral",
+      "target": "components_panellateral_panellateralprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_panellateral",
+      "target": "model_candidato",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_panellateral",
+      "target": "model_candidato_candidato",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_panellateral",
+      "target": "model_filtros",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_panellateral",
+      "target": "model_filtros_filtros",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "routes_candidatospage",
+      "target": "components_panellateral",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "components_panellateral_panellateralprops",
+      "target": "model_candidato_candidato",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/components/PanelLateral.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "components_panellateral_panellateralprops",
+      "target": "model_filtros_filtros",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "routes_candidatospage",
+      "target": "components_panellateral_panellateral",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/index.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "candidatos_index",
+      "target": "model_candidato",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/index.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "candidatos_index",
+      "target": "model_candidato_candidato",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/index.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "candidatos_index",
+      "target": "model_candidato_tipo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/index.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "candidatos_index",
+      "target": "model_candidato_tipode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "candidatos_index",
+      "target": "model_giros",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "candidatos_index",
+      "target": "model_giros_girolabel",
       "confidence_score": 1.0
     },
     {
@@ -11915,9 +13544,9 @@
       "source_file": "src/features/candidatos/index.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "candidatos_index",
-      "target": "routes_candidatospage",
-      "confidence_score": 1.0
+      "target": "routes_candidatospage"
     },
     {
       "relation": "re_exports",
@@ -11926,9 +13555,9 @@
       "source_file": "src/features/candidatos/index.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "candidatos_index",
-      "target": "routes_candidatospage_candidatospage",
-      "confidence_score": 1.0
+      "target": "routes_candidatospage_candidatospage"
     },
     {
       "relation": "contains",
@@ -11936,9 +13565,9 @@
       "source_file": "src/features/candidatos/model/candidato.ts",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_candidato",
-      "target": "model_candidato_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato_candidato"
     },
     {
       "relation": "contains",
@@ -11946,9 +13575,9 @@
       "source_file": "src/features/candidatos/model/candidato.ts",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_candidato",
-      "target": "model_candidato_candidatolistschema",
-      "confidence_score": 1.0
+      "target": "model_candidato_candidatolistschema"
     },
     {
       "relation": "contains",
@@ -11956,9 +13585,9 @@
       "source_file": "src/features/candidatos/model/candidato.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_candidato",
-      "target": "model_candidato_candidatoschema",
-      "confidence_score": 1.0
+      "target": "model_candidato_candidatoschema"
     },
     {
       "relation": "contains",
@@ -11966,9 +13595,9 @@
       "source_file": "src/features/candidatos/model/candidato.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_candidato",
-      "target": "model_candidato_tipo",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipo"
     },
     {
       "relation": "contains",
@@ -11976,9 +13605,9 @@
       "source_file": "src/features/candidatos/model/candidato.ts",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_candidato",
-      "target": "model_candidato_tipo_colors",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipo_colors"
     },
     {
       "relation": "contains",
@@ -11986,9 +13615,9 @@
       "source_file": "src/features/candidatos/model/candidato.ts",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_candidato",
-      "target": "model_candidato_tipo_labels",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipo_labels"
     },
     {
       "relation": "contains",
@@ -11996,9 +13625,9 @@
       "source_file": "src/features/candidatos/model/candidato.ts",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_candidato",
-      "target": "model_candidato_tipo_tones",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipo_tones"
     },
     {
       "relation": "contains",
@@ -12006,9 +13635,9 @@
       "source_file": "src/features/candidatos/model/candidato.ts",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_candidato",
-      "target": "model_candidato_tipode",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipode"
     },
     {
       "relation": "contains",
@@ -12016,9 +13645,9 @@
       "source_file": "src/features/candidatos/model/candidato.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_candidato",
-      "target": "model_candidato_tipos",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipos"
     },
     {
       "relation": "imports_from",
@@ -12027,9 +13656,9 @@
       "source_file": "src/features/candidatos/model/filtros.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_filtros",
-      "target": "model_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato"
     },
     {
       "relation": "imports_from",
@@ -12038,9 +13667,9 @@
       "source_file": "src/features/candidatos/model/modelo.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_modelo_test",
-      "target": "model_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato"
     },
     {
       "relation": "imports_from",
@@ -12049,9 +13678,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "model_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato"
     },
     {
       "relation": "imports",
@@ -12060,9 +13689,9 @@
       "source_file": "src/features/candidatos/model/filtros.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_filtros",
-      "target": "model_candidato_tipo",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipo"
     },
     {
       "relation": "references",
@@ -12071,9 +13700,9 @@
       "source_file": "src/features/candidatos/model/filtros.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_filtros_filtros",
-      "target": "model_candidato_tipo",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipo"
     },
     {
       "relation": "imports",
@@ -12082,9 +13711,9 @@
       "source_file": "src/features/candidatos/model/modelo.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_modelo_test",
-      "target": "model_candidato_candidatolistschema",
-      "confidence_score": 1.0
+      "target": "model_candidato_candidatolistschema"
     },
     {
       "relation": "imports",
@@ -12093,9 +13722,9 @@
       "source_file": "src/features/candidatos/model/filtros.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_filtros",
-      "target": "model_candidato_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato_candidato"
     },
     {
       "relation": "imports",
@@ -12104,9 +13733,9 @@
       "source_file": "src/features/candidatos/model/modelo.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_modelo_test",
-      "target": "model_candidato_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato_candidato"
     },
     {
       "relation": "imports",
@@ -12115,9 +13744,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "model_candidato_candidato",
-      "confidence_score": 1.0
+      "target": "model_candidato_candidato"
     },
     {
       "relation": "imports",
@@ -12126,9 +13755,9 @@
       "source_file": "src/features/candidatos/model/filtros.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_filtros",
-      "target": "model_candidato_tipode",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipode"
     },
     {
       "relation": "calls",
@@ -12148,9 +13777,9 @@
       "source_file": "src/features/candidatos/model/modelo.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_modelo_test",
-      "target": "model_candidato_tipode",
-      "confidence_score": 1.0
+      "target": "model_candidato_tipode"
     },
     {
       "relation": "contains",
@@ -12158,8 +13787,18 @@
       "source_file": "src/features/candidatos/model/filtros.ts",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_filtros",
-      "target": "model_filtros_calcularmetricas",
+      "target": "model_filtros_calcularmetricas"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/candidatos/model/filtros.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "model_filtros",
+      "target": "model_filtros_coloniade",
       "confidence_score": 1.0
     },
     {
@@ -12168,9 +13807,9 @@
       "source_file": "src/features/candidatos/model/filtros.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_filtros",
-      "target": "model_filtros_filtrarcandidatos",
-      "confidence_score": 1.0
+      "target": "model_filtros_filtrarcandidatos"
     },
     {
       "relation": "contains",
@@ -12178,9 +13817,9 @@
       "source_file": "src/features/candidatos/model/filtros.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_filtros",
-      "target": "model_filtros_filtros",
-      "confidence_score": 1.0
+      "target": "model_filtros_filtros"
     },
     {
       "relation": "contains",
@@ -12188,9 +13827,9 @@
       "source_file": "src/features/candidatos/model/filtros.ts",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_filtros",
-      "target": "model_filtros_metricas",
-      "confidence_score": 1.0
+      "target": "model_filtros_metricas"
     },
     {
       "relation": "contains",
@@ -12198,9 +13837,9 @@
       "source_file": "src/features/candidatos/model/filtros.ts",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_filtros",
-      "target": "model_filtros_sin_filtros",
-      "confidence_score": 1.0
+      "target": "model_filtros_sin_filtros"
     },
     {
       "relation": "imports_from",
@@ -12209,9 +13848,9 @@
       "source_file": "src/features/candidatos/model/filtros.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_filtros",
-      "target": "model_giros",
-      "confidence_score": 1.0
+      "target": "model_giros"
     },
     {
       "relation": "imports",
@@ -12220,9 +13859,9 @@
       "source_file": "src/features/candidatos/model/filtros.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_filtros",
-      "target": "model_giros_genericos",
-      "confidence_score": 1.0
+      "target": "model_giros_genericos"
     },
     {
       "relation": "imports",
@@ -12231,9 +13870,9 @@
       "source_file": "src/features/candidatos/model/filtros.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_filtros",
-      "target": "model_giros_giros_es",
-      "confidence_score": 1.0
+      "target": "model_giros_giros_es"
     },
     {
       "relation": "imports_from",
@@ -12242,9 +13881,9 @@
       "source_file": "src/features/candidatos/model/modelo.test.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_modelo_test",
-      "target": "model_filtros",
-      "confidence_score": 1.0
+      "target": "model_filtros"
     },
     {
       "relation": "imports_from",
@@ -12253,9 +13892,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "model_filtros",
-      "confidence_score": 1.0
+      "target": "model_filtros"
     },
     {
       "relation": "imports",
@@ -12264,9 +13903,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "model_filtros_filtros",
-      "confidence_score": 1.0
+      "target": "model_filtros_filtros"
     },
     {
       "relation": "imports",
@@ -12275,9 +13914,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "model_filtros_sin_filtros",
-      "confidence_score": 1.0
+      "target": "model_filtros_sin_filtros"
     },
     {
       "relation": "imports",
@@ -12286,9 +13925,9 @@
       "source_file": "src/features/candidatos/model/modelo.test.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_modelo_test",
-      "target": "model_filtros_filtrarcandidatos",
-      "confidence_score": 1.0
+      "target": "model_filtros_filtrarcandidatos"
     },
     {
       "relation": "imports",
@@ -12297,9 +13936,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "model_filtros_filtrarcandidatos",
-      "confidence_score": 1.0
+      "target": "model_filtros_filtrarcandidatos"
     },
     {
       "relation": "imports",
@@ -12308,9 +13947,9 @@
       "source_file": "src/features/candidatos/model/modelo.test.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_modelo_test",
-      "target": "model_filtros_calcularmetricas",
-      "confidence_score": 1.0
+      "target": "model_filtros_calcularmetricas"
     },
     {
       "relation": "contains",
@@ -12318,9 +13957,9 @@
       "source_file": "src/features/candidatos/model/giros.ts",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_giros",
-      "target": "model_giros_genericos",
-      "confidence_score": 1.0
+      "target": "model_giros_genericos"
     },
     {
       "relation": "contains",
@@ -12328,9 +13967,9 @@
       "source_file": "src/features/candidatos/model/giros.ts",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_giros",
-      "target": "model_giros_girolabel",
-      "confidence_score": 1.0
+      "target": "model_giros_girolabel"
     },
     {
       "relation": "contains",
@@ -12338,9 +13977,9 @@
       "source_file": "src/features/candidatos/model/giros.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_giros",
-      "target": "model_giros_giros_es",
-      "confidence_score": 1.0
+      "target": "model_giros_giros_es"
     },
     {
       "relation": "imports_from",
@@ -12349,9 +13988,9 @@
       "source_file": "src/features/candidatos/model/modelo.test.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_modelo_test",
-      "target": "model_giros",
-      "confidence_score": 1.0
+      "target": "model_giros"
     },
     {
       "relation": "imports",
@@ -12360,9 +13999,9 @@
       "source_file": "src/features/candidatos/model/modelo.test.ts",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_modelo_test",
-      "target": "model_giros_girolabel",
-      "confidence_score": 1.0
+      "target": "model_giros_girolabel"
     },
     {
       "relation": "contains",
@@ -12370,9 +14009,9 @@
       "source_file": "src/features/candidatos/model/modelo.test.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_modelo_test",
-      "target": "model_modelo_test_base",
-      "confidence_score": 1.0
+      "target": "model_modelo_test_base"
     },
     {
       "relation": "contains",
@@ -12380,9 +14019,9 @@
       "source_file": "src/features/candidatos/model/modelo.test.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_modelo_test",
-      "target": "model_modelo_test_datos",
-      "confidence_score": 1.0
+      "target": "model_modelo_test_datos"
     },
     {
       "relation": "contains",
@@ -12390,9 +14029,9 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "routes_candidatospage_candidatospage",
-      "confidence_score": 1.0
+      "target": "routes_candidatospage_candidatospage"
     },
     {
       "relation": "contains",
@@ -12400,8 +14039,2207 @@
       "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_candidatospage",
-      "target": "routes_candidatospage_vistamoviltoggle",
+      "target": "routes_candidatospage_vistamoviltoggle"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/features/candidatos/routes/CandidatosPage.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "routes_candidatospage_candidatospage",
+      "target": "api_usecolonias_usecolonias"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/api/useColonias.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "api_usecolonias",
+      "target": "api_usecolonias_usecolonias",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/api/useColonias.ts",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "api_usecolonias",
+      "target": "api_usecolonias_usegeojsonlayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/api/useColonias.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "api_usecolonias",
+      "target": "model_colonia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/api/useColonias.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "api_usecolonias",
+      "target": "model_colonia_colonialistschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "colonias_zonas_index",
+      "target": "api_usecolonias",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/AgebsLayer.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_agebslayer",
+      "target": "api_usecolonias",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/ColoniaSelect.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_coloniaselect",
+      "target": "api_usecolonias",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/ColoniasLayer.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_coloniaslayer",
+      "target": "api_usecolonias",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/MunicipiosLayer.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_municipioslayer",
+      "target": "api_usecolonias",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "colonias_zonas_index",
+      "target": "api_usecolonias_usecolonias",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/ColoniaSelect.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_coloniaselect",
+      "target": "api_usecolonias_usecolonias",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/features/colonias-zonas/components/ColoniaSelect.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "components_coloniaselect_coloniaselect",
+      "target": "api_usecolonias_usecolonias"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/AgebsLayer.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_agebslayer",
+      "target": "api_usecolonias_usegeojsonlayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/features/colonias-zonas/components/AgebsLayer.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "components_agebslayer_agebslayer",
+      "target": "api_usecolonias_usegeojsonlayer"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/ColoniasLayer.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_coloniaslayer",
+      "target": "api_usecolonias_usegeojsonlayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/features/colonias-zonas/components/ColoniasLayer.tsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "components_coloniaslayer_coloniaslayer",
+      "target": "api_usecolonias_usegeojsonlayer"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/MunicipiosLayer.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_municipioslayer",
+      "target": "api_usecolonias_usegeojsonlayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/features/colonias-zonas/components/MunicipiosLayer.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "components_municipioslayer_municipioslayer",
+      "target": "api_usecolonias_usegeojsonlayer"
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "colonias_zonas_index",
+      "target": "components_agebslayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/AgebsLayer.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_agebslayer",
+      "target": "components_agebslayer_agebprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/AgebsLayer.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "components_agebslayer",
+      "target": "components_agebslayer_agebslayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/AgebsLayer.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "components_agebslayer",
+      "target": "components_agebslayer_num",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "colonias_zonas_index",
+      "target": "components_agebslayer_agebslayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "colonias_zonas_index",
+      "target": "components_capastoggles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/CapasToggles.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "components_capastoggles",
+      "target": "components_capastoggles_capaid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/CapasToggles.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_capastoggles",
+      "target": "components_capastoggles_capas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/CapasToggles.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "components_capastoggles",
+      "target": "components_capastoggles_capastoggles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/CapasToggles.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "components_capastoggles",
+      "target": "components_capastoggles_capastogglesprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "colonias_zonas_index",
+      "target": "components_capastoggles_capaid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "colonias_zonas_index",
+      "target": "components_capastoggles_capastoggles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "colonias_zonas_index",
+      "target": "components_coloniaselect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/ColoniaSelect.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "components_coloniaselect",
+      "target": "components_coloniaselect_coloniaselect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/ColoniaSelect.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_coloniaselect",
+      "target": "components_coloniaselect_coloniaselectprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "colonias_zonas_index",
+      "target": "components_coloniaselect_coloniaselect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "colonias_zonas_index",
+      "target": "components_coloniaslayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/ColoniasLayer.tsx",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "components_coloniaslayer",
+      "target": "components_coloniaslayer_coloniaslayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/ColoniasLayer.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_coloniaslayer",
+      "target": "components_coloniaslayer_coloniaslayerprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/ColoniasLayer.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "components_coloniaslayer",
+      "target": "components_coloniaslayer_featureprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/ColoniasLayer.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "components_coloniaslayer",
+      "target": "components_coloniaslayer_tooltipde",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/ColoniasLayer.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_coloniaslayer",
+      "target": "model_colonia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/ColoniasLayer.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_coloniaslayer",
+      "target": "model_colonia_colonia_colors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "colonias_zonas_index",
+      "target": "components_coloniaslayer_coloniaslayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "colonias_zonas_index",
+      "target": "components_municipioslayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/MunicipiosLayer.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_municipioslayer",
+      "target": "components_municipioslayer_municipioprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/components/MunicipiosLayer.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "components_municipioslayer",
+      "target": "components_municipioslayer_municipioslayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "colonias_zonas_index",
+      "target": "components_municipioslayer_municipioslayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "colonias_zonas_index",
+      "target": "model_colonia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "colonias_zonas_index",
+      "target": "model_colonia_buscarcoloniamatch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/index.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "colonias_zonas_index",
+      "target": "model_colonia_colonia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/model/colonia.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "model_colonia_test",
+      "target": "model_colonia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/model/colonia.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "model_colonia_test",
+      "target": "model_colonia_buscarcoloniamatch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/model/colonia.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "model_colonia_test",
+      "target": "model_colonia_colonia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/model/colonia.test.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "model_colonia_test",
+      "target": "model_colonia_test_catalogo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/model/colonia.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "model_colonia",
+      "target": "model_colonia_buscarcoloniamatch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/model/colonia.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "model_colonia",
+      "target": "model_colonia_colonia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/model/colonia.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "model_colonia",
+      "target": "model_colonia_colonia_colors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/model/colonia.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "model_colonia",
+      "target": "model_colonia_colonialistschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/colonias-zonas/model/colonia.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "model_colonia",
+      "target": "model_colonia_coloniaschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/api/reverseGeocode.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "api_reversegeocode",
+      "target": "api_reversegeocode_reversegeocode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_reporteform",
+      "target": "api_reversegeocode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "api_reversegeocode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_reporteform",
+      "target": "api_reversegeocode_reversegeocode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "api_reversegeocode_reversegeocode",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "api_usereportes",
+      "target": "api_usereportes_nuevoreporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "api_usereportes",
+      "target": "api_usereportes_reporteskeys",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "api_usereportes",
+      "target": "api_usereportes_useactualizarreporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "api_usereportes",
+      "target": "api_usereportes_usecrearreporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "api_usereportes",
+      "target": "api_usereportes_useeliminarreporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "api_usereportes",
+      "target": "api_usereportes_usereportes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "api_usereportes",
+      "target": "model_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "api_usereportes",
+      "target": "model_reporte_reportelistschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "api_usereportes",
+      "target": "model_reporte_statusreporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "api_usereportes",
+      "target": "model_reporte_tiporeporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_reporteform",
+      "target": "api_usereportes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_reporteitem",
+      "target": "api_usereportes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/hooks/useResolverConGPS.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "hooks_useresolvercongps",
+      "target": "api_usereportes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "api_usereportes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "api_usereportes_usereportes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "routes_reportespage_reportespage",
+      "target": "api_usereportes_usereportes"
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/api/useReportes.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "api_usereportes_nuevoreporte",
+      "target": "model_reporte_tiporeporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_reporteform",
+      "target": "api_usereportes_usecrearreporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "components_reporteform_reporteform",
+      "target": "api_usereportes_usecrearreporte"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/hooks/useResolverConGPS.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "hooks_useresolvercongps",
+      "target": "api_usereportes_useactualizarreporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/features/reportes/hooks/useResolverConGPS.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "hooks_useresolvercongps_useresolvercongps",
+      "target": "api_usereportes_useactualizarreporte"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_reporteitem",
+      "target": "api_usereportes_useeliminarreporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "components_reporteitem_reporteitem",
+      "target": "api_usereportes_useeliminarreporte"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/FlyToReporte.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_flytoreporte",
+      "target": "components_flytoreporte_flyto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "components_flytoreporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "components_flytoreporte_flyto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L107",
+      "weight": 1.0,
+      "source": "components_reporteform",
+      "target": "components_reporteform_fotopicker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "components_reporteform",
+      "target": "components_reporteform_reporteform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "components_reporteform",
+      "target": "components_reporteform_reporteformprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_reporteform",
+      "target": "components_reporteform_ubicacion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "components_reporteform",
+      "target": "components_reporteform_ubicacioncontrols",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_reporteform",
+      "target": "model_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_reporteform",
+      "target": "model_reporte_reporte_meta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_reporteform",
+      "target": "model_reporte_tiporeporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteForm.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_reporteform",
+      "target": "model_reporte_tipos_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "components_reporteform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "components_reporteform_ubicacion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "components_reporteform_reporteform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "components_reporteitem",
+      "target": "components_reporteitem_reporteitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_reporteitem",
+      "target": "components_reporteitem_reporteitemprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_reporteitem",
+      "target": "components_reporteitem_tone_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_reporteitem",
+      "target": "hooks_useresolvercongps",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_reporteitem",
+      "target": "hooks_useresolvercongps_useresolvercongps",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_reporteitem",
+      "target": "model_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_reporteitem",
+      "target": "model_reporte_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_reporteitem",
+      "target": "model_reporte_reporte_meta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_reporteitem",
+      "target": "model_reporte_status_meta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_reporteitem",
+      "target": "model_reporte_toneverificacion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "components_reporteitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "components_reporteitem_reporteitemprops",
+      "target": "model_reporte_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "components_reporteitem_reporteitem",
+      "target": "hooks_useresolvercongps_useresolvercongps"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/features/reportes/components/ReporteItem.tsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "components_reporteitem_reporteitem",
+      "target": "model_reporte_toneverificacion"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "components_reporteitem_reporteitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReportesLayer.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_reporteslayer",
+      "target": "components_reporteslayer_iconoreporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReportesLayer.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "components_reporteslayer",
+      "target": "components_reporteslayer_reporteslayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReportesLayer.tsx",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "components_reporteslayer",
+      "target": "components_reporteslayer_ubicacionpicker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReportesLayer.tsx",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "components_reporteslayer",
+      "target": "components_reporteslayer_ubicaciontemporal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReportesLayer.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_reporteslayer",
+      "target": "model_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReportesLayer.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_reporteslayer",
+      "target": "model_reporte_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/components/ReportesLayer.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_reporteslayer",
+      "target": "model_reporte_reporte_meta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "components_reporteslayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "components_reporteslayer_reporteslayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "components_reporteslayer_ubicacionpicker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "components_reporteslayer_ubicaciontemporal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/hooks/useResolverConGPS.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "hooks_useresolvercongps",
+      "target": "hooks_useresolvercongps_capturarverificacion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/hooks/useResolverConGPS.ts",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "hooks_useresolvercongps",
+      "target": "hooks_useresolvercongps_useresolvercongps",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/hooks/useResolverConGPS.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "hooks_useresolvercongps",
+      "target": "hooks_useresolvercongps_verificacion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/hooks/useResolverConGPS.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "hooks_useresolvercongps",
+      "target": "model_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/hooks/useResolverConGPS.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "hooks_useresolvercongps",
+      "target": "model_reporte_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/hooks/useResolverConGPS.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "hooks_useresolvercongps",
+      "target": "model_reporte_siguientestatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/features/reportes/hooks/useResolverConGPS.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "hooks_useresolvercongps_capturarverificacion",
+      "target": "lib_geo_haversinem"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/features/reportes/hooks/useResolverConGPS.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "hooks_useresolvercongps_capturarverificacion",
+      "target": "lib_geo_obtenergps"
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "reportes_index",
+      "target": "routes_reportespage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "reportes_index",
+      "target": "routes_reportespage_reportespage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/model/reporte.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "model_reporte_test",
+      "target": "model_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/model/reporte.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "model_reporte_test",
+      "target": "model_reporte_reportelistschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/model/reporte.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "model_reporte_test",
+      "target": "model_reporte_siguientestatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/model/reporte.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "model_reporte_test",
+      "target": "model_reporte_toneverificacion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "model_reporte",
+      "target": "model_reporte_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "model_reporte",
+      "target": "model_reporte_reporte_meta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "model_reporte",
+      "target": "model_reporte_reportelistschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "model_reporte",
+      "target": "model_reporte_reporteschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "model_reporte",
+      "target": "model_reporte_siguientestatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "model_reporte",
+      "target": "model_reporte_status_meta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "model_reporte",
+      "target": "model_reporte_status_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "model_reporte",
+      "target": "model_reporte_statusreporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "model_reporte",
+      "target": "model_reporte_tiporeporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "model_reporte",
+      "target": "model_reporte_tipos_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/model/reporte.ts",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "model_reporte",
+      "target": "model_reporte_toneverificacion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "model_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "model_reporte_status_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "model_reporte_statusreporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "model_reporte_reporte",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "model_reporte_status_meta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "routes_reportespage_listareportes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/reportes/routes/ReportesPage.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "routes_reportespage",
+      "target": "routes_reportespage_reportespage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/api/useRuta.ts",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "api_useruta",
+      "target": "api_useruta_descargarreportevisita",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/api/useRuta.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "api_useruta",
+      "target": "api_useruta_usecalcularruta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/api/useRuta.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "api_useruta",
+      "target": "api_useruta_usecalcularrutacolonia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/api/useRuta.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "api_useruta",
+      "target": "model_ruta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/api/useRuta.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "api_useruta",
+      "target": "model_ruta_rutaschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/components/RutaInfo.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_rutainfo",
+      "target": "api_useruta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routes_rutaspage",
+      "target": "api_useruta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routes_rutaspage",
+      "target": "api_useruta_usecalcularruta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "routes_rutaspage_rutaspage",
+      "target": "api_useruta_usecalcularruta"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "routes_rutaspage",
+      "target": "api_useruta_usecalcularrutacolonia",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "routes_rutaspage_rutaspage",
+      "target": "api_useruta_usecalcularrutacolonia"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/components/RutaInfo.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "components_rutainfo",
+      "target": "api_useruta_descargarreportevisita",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/components/RutaInfo.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_rutainfo",
+      "target": "components_rutainfo_rutainfo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/components/RutaInfo.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_rutainfo",
+      "target": "model_ruta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/components/RutaInfo.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_rutainfo",
+      "target": "model_ruta_formateartiempo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/components/RutaInfo.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_rutainfo",
+      "target": "model_ruta_rutacalculada",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "routes_rutaspage",
+      "target": "components_rutainfo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/features/rutas/components/RutaInfo.tsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "components_rutainfo_rutainfo",
+      "target": "model_ruta_formateartiempo"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "routes_rutaspage",
+      "target": "components_rutainfo_rutainfo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/components/RutaLayer.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_rutalayer",
+      "target": "components_rutalayer_icononumerado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/components/RutaLayer.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "components_rutalayer",
+      "target": "components_rutalayer_rutalayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/components/RutaLayer.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_rutalayer",
+      "target": "model_ruta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/components/RutaLayer.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_rutalayer",
+      "target": "model_ruta_rutacalculada",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "routes_rutaspage",
+      "target": "components_rutalayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "routes_rutaspage",
+      "target": "components_rutalayer_rutalayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/components/RutaLista.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "components_rutalista",
+      "target": "components_rutalista_rutalista",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/components/RutaLista.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_rutalista",
+      "target": "components_rutalista_rutalistaprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "routes_rutaspage",
+      "target": "components_rutalista",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "routes_rutaspage",
+      "target": "components_rutalista_rutalista",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "rutas_index",
+      "target": "routes_rutaspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "rutas_index",
+      "target": "routes_rutaspage_rutaspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/model/ruta.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "model_ruta_test",
+      "target": "model_ruta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/model/ruta.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "model_ruta_test",
+      "target": "model_ruta_formateartiempo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/model/ruta.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "model_ruta_test",
+      "target": "model_ruta_togglepunto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/model/ruta.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "model_ruta",
+      "target": "model_ruta_formateartiempo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/model/ruta.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "model_ruta",
+      "target": "model_ruta_rutacalculada",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/model/ruta.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "model_ruta",
+      "target": "model_ruta_rutaschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/model/ruta.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "model_ruta",
+      "target": "model_ruta_togglepunto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "routes_rutaspage",
+      "target": "model_ruta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "routes_rutaspage",
+      "target": "model_ruta_togglepunto",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "routes_rutaspage",
+      "target": "routes_rutaspage_rutacontroles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "routes_rutaspage",
+      "target": "routes_rutaspage_rutaspage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/lib/geo.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "lib_geo",
+      "target": "lib_geo_gps_errores",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/lib/geo.ts",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "lib_geo",
+      "target": "lib_geo_gpserror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/lib/geo.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "lib_geo",
+      "target": "lib_geo_haversinem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/lib/geo.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "lib_geo",
+      "target": "lib_geo_obtenergps",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/lib/geo.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "lib_geo",
+      "target": "lib_geo_posiciongps",
       "confidence_score": 1.0
     },
     {
@@ -13328,9 +17166,9 @@
       "source_file": "tsconfig.app.json",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tsconfig_app_compileroptions",
-      "target": "tsconfig_app_compileroptions_esmoduleinterop",
-      "confidence_score": 1.0
+      "target": "tsconfig_app_compileroptions_esmoduleinterop"
     },
     {
       "relation": "contains",
@@ -13784,5 +17622,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "062ddc78590f06a99e61b14634adf99575639ea1"
+  "built_at_commit": "9502a13ed2f1704efa71764eea28c6feb06147cc"
 }

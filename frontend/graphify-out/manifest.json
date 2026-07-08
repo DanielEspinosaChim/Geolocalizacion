@@ -45,13 +45,13 @@
     "semantic_hash": ""
   },
   "eslint.config.js": {
-    "mtime": 1783469882.4210174,
-    "ast_hash": "922a5da09702536f33d42480c7ae5502",
+    "mtime": 1783471570.5342531,
+    "ast_hash": "c6d69780fe167feef20be67054a012bb",
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1783470721.552556,
-    "ast_hash": "b10f55407233b33f164e6c4cf16f24a9",
+    "mtime": 1783471466.088288,
+    "ast_hash": "edabd4b244c2641888a5bc05e661df25",
     "semantic_hash": ""
   },
   "postcss.config.js": {
@@ -105,8 +105,8 @@
     "semantic_hash": ""
   },
   "src/app/router/index.tsx": {
-    "mtime": 1783470857.0240204,
-    "ast_hash": "5d4cf115bde2b65b330f96c28a14c7b0",
+    "mtime": 1783471408.5592227,
+    "ast_hash": "085203103b03d307825d08b84bdb3328",
     "semantic_hash": ""
   },
   "src/core/api/http.ts": {
@@ -365,8 +365,8 @@
     "semantic_hash": ""
   },
   "src/features/candidatos/index.ts": {
-    "mtime": 1783470831.5735915,
-    "ast_hash": "64f04fb95274a09d8a438e26a75c2953",
+    "mtime": 1783471169.2545447,
+    "ast_hash": "79bdaca62d42b7d5ea346d7a569a2d16",
     "semantic_hash": ""
   },
   "src/features/candidatos/model/candidato.ts": {
@@ -375,8 +375,8 @@
     "semantic_hash": ""
   },
   "src/features/candidatos/model/filtros.ts": {
-    "mtime": 1783470736.4978404,
-    "ast_hash": "eb3aa9f6cd0b3b0a3fb943d92d1a534a",
+    "mtime": 1783471167.7657926,
+    "ast_hash": "73916c3dbca95567b473953aaf6aacaf",
     "semantic_hash": ""
   },
   "src/features/candidatos/model/giros.ts": {
@@ -385,13 +385,168 @@
     "semantic_hash": ""
   },
   "src/features/candidatos/model/modelo.test.ts": {
-    "mtime": 1783470875.3712628,
-    "ast_hash": "02dab49272345de39281bd13c4cfc07b",
+    "mtime": 1783471466.4947994,
+    "ast_hash": "324ed4884269a2ed55565fa738baad79",
     "semantic_hash": ""
   },
   "src/features/candidatos/routes/CandidatosPage.tsx": {
-    "mtime": 1783470826.217199,
-    "ast_hash": "0e4c89c111616c095c8ee070d2828c8b",
+    "mtime": 1783471589.2789931,
+    "ast_hash": "4107453528e9d652ac1dd305abc4a548",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/components/MapaCandidatos.tsx": {
+    "mtime": 1783471605.2418475,
+    "ast_hash": "68d617b641b6366b001da8de21ca62da",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/components/PanelLateral.tsx": {
+    "mtime": 1783471595.231588,
+    "ast_hash": "1405c35b2d8cb310ad0adc5e97cb2cc7",
+    "semantic_hash": ""
+  },
+  "src/features/colonias-zonas/api/useColonias.ts": {
+    "mtime": 1783471186.9354155,
+    "ast_hash": "ded2f6ddfd56991c9a2b5b6083aef333",
+    "semantic_hash": ""
+  },
+  "src/features/colonias-zonas/components/AgebsLayer.tsx": {
+    "mtime": 1783471477.6419842,
+    "ast_hash": "b07f9b1d9ea22e9eb9cccb81ba1f31bf",
+    "semantic_hash": ""
+  },
+  "src/features/colonias-zonas/components/CapasToggles.tsx": {
+    "mtime": 1783471219.4291399,
+    "ast_hash": "65a79a19581b743726e1b0ef3d7d6e63",
+    "semantic_hash": ""
+  },
+  "src/features/colonias-zonas/components/ColoniaSelect.tsx": {
+    "mtime": 1783471214.7500029,
+    "ast_hash": "97a1cc0370912fb827d696391586a6b6",
+    "semantic_hash": ""
+  },
+  "src/features/colonias-zonas/components/ColoniasLayer.tsx": {
+    "mtime": 1783471197.838539,
+    "ast_hash": "34426cf63e6ff7fac15833fbb5bdc87e",
+    "semantic_hash": ""
+  },
+  "src/features/colonias-zonas/components/MunicipiosLayer.tsx": {
+    "mtime": 1783471211.4455655,
+    "ast_hash": "bc8a695c46247d1b40b323473b7bdddf",
+    "semantic_hash": ""
+  },
+  "src/features/colonias-zonas/index.ts": {
+    "mtime": 1783471221.480481,
+    "ast_hash": "ac39e861a20cc8fa1db17a078c0eda7f",
+    "semantic_hash": ""
+  },
+  "src/features/colonias-zonas/model/colonia.test.ts": {
+    "mtime": 1783471421.1636217,
+    "ast_hash": "ee5a92d9944f59dae9866f5d2ba4d4de",
+    "semantic_hash": ""
+  },
+  "src/features/colonias-zonas/model/colonia.ts": {
+    "mtime": 1783471182.7189326,
+    "ast_hash": "859939725b41b5558ba402c7d7437a33",
+    "semantic_hash": ""
+  },
+  "src/features/reportes/api/reverseGeocode.ts": {
+    "mtime": 1783471309.403922,
+    "ast_hash": "e89b456f99447a1d80d9c8ccb2df71e1",
+    "semantic_hash": ""
+  },
+  "src/features/reportes/api/useReportes.ts": {
+    "mtime": 1783471306.1525385,
+    "ast_hash": "6010dd866d4f904b64818006513f521e",
+    "semantic_hash": ""
+  },
+  "src/features/reportes/components/FlyToReporte.tsx": {
+    "mtime": 1783471375.4384534,
+    "ast_hash": "db51e04baa41b14f4c6831f4f2c441f6",
+    "semantic_hash": ""
+  },
+  "src/features/reportes/components/ReporteForm.tsx": {
+    "mtime": 1783471629.8736064,
+    "ast_hash": "6bbe0664caed24925dc55bb2d7504d15",
+    "semantic_hash": ""
+  },
+  "src/features/reportes/components/ReporteItem.tsx": {
+    "mtime": 1783471362.176999,
+    "ast_hash": "81cc940ad41af37a767476dd31801ecf",
+    "semantic_hash": ""
+  },
+  "src/features/reportes/components/ReportesLayer.tsx": {
+    "mtime": 1783471326.568527,
+    "ast_hash": "e91a77c60b624b75d4ae8c6830c416ff",
+    "semantic_hash": ""
+  },
+  "src/features/reportes/hooks/useResolverConGPS.ts": {
+    "mtime": 1783471552.8153818,
+    "ast_hash": "f3744220861eb5d0c3aab9ce95a78671",
+    "semantic_hash": ""
+  },
+  "src/features/reportes/index.ts": {
+    "mtime": 1783471376.680497,
+    "ast_hash": "93491e89a8b86965092e018cd5919f51",
+    "semantic_hash": ""
+  },
+  "src/features/reportes/model/reporte.test.ts": {
+    "mtime": 1783471413.371226,
+    "ast_hash": "e2cbe96d440c5d564fda583a34db43d4",
+    "semantic_hash": ""
+  },
+  "src/features/reportes/model/reporte.ts": {
+    "mtime": 1783471296.249434,
+    "ast_hash": "b84a2d4d74061d72af6b348118ff8e84",
+    "semantic_hash": ""
+  },
+  "src/features/reportes/routes/ReportesPage.tsx": {
+    "mtime": 1783471642.4652321,
+    "ast_hash": "81ff7c7c3c3db4e7d3a4f73ccec798dc",
+    "semantic_hash": ""
+  },
+  "src/features/rutas/api/useRuta.ts": {
+    "mtime": 1783471244.8359768,
+    "ast_hash": "18c0465ce319e70a411100768538f3bd",
+    "semantic_hash": ""
+  },
+  "src/features/rutas/components/RutaInfo.tsx": {
+    "mtime": 1783471260.1028218,
+    "ast_hash": "e01f4a01882e4a851e5f0e54b2dbc99c",
+    "semantic_hash": ""
+  },
+  "src/features/rutas/components/RutaLayer.tsx": {
+    "mtime": 1783471481.643382,
+    "ast_hash": "a7b7be1ac586561531588df4c7edf649",
+    "semantic_hash": ""
+  },
+  "src/features/rutas/components/RutaLista.tsx": {
+    "mtime": 1783471266.9587817,
+    "ast_hash": "dc7f27b342e15a20beae0ef43111173a",
+    "semantic_hash": ""
+  },
+  "src/features/rutas/index.ts": {
+    "mtime": 1783471279.5002792,
+    "ast_hash": "085026ef0a2558967608b0061f51cac1",
+    "semantic_hash": ""
+  },
+  "src/features/rutas/model/ruta.test.ts": {
+    "mtime": 1783471417.402485,
+    "ast_hash": "25e1850764b515147d158f90b27ab8bf",
+    "semantic_hash": ""
+  },
+  "src/features/rutas/model/ruta.ts": {
+    "mtime": 1783471545.1017635,
+    "ast_hash": "ee0f6c91087d6c771f4481314235a1d6",
+    "semantic_hash": ""
+  },
+  "src/features/rutas/routes/RutasPage.tsx": {
+    "mtime": 1783471657.0155418,
+    "ast_hash": "b300fd5ef525a88c9fd2d7b62c8a046a",
+    "semantic_hash": ""
+  },
+  "src/shared/lib/geo.ts": {
+    "mtime": 1783471161.6180117,
+    "ast_hash": "50b11e6eea328452fcb0193f8f5a33c8",
     "semantic_hash": ""
   }
 }
