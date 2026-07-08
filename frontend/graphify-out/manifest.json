@@ -84,11 +84,6 @@
     "ast_hash": "3b1d9d0e870e5bf9b8799eefd0c5e42f",
     "semantic_hash": ""
   },
-  "src/app/router/PlaceholderPage.tsx": {
-    "mtime": 1783469738.94193,
-    "ast_hash": "44e693aff4ed8b833f01632317b7fa45",
-    "semantic_hash": ""
-  },
   "src/app/router/RouteError.tsx": {
     "mtime": 1783469742.220121,
     "ast_hash": "90d2502d8342c52b058eb4dabc8dacc5",
@@ -105,8 +100,8 @@
     "semantic_hash": ""
   },
   "src/app/router/index.tsx": {
-    "mtime": 1783472623.0720973,
-    "ast_hash": "ff9c9d915caf36da994e5944725dacfb",
+    "mtime": 1783474667.0529978,
+    "ast_hash": "4aabec91943a1e06e97e188d124adfdf",
     "semantic_hash": ""
   },
   "src/core/api/http.ts": {
@@ -125,13 +120,13 @@
     "semantic_hash": ""
   },
   "src/core/auth/index.ts": {
-    "mtime": 1783469605.66511,
-    "ast_hash": "9dc3d720e20d987bca9aa73dbbde772e",
+    "mtime": 1783474432.165797,
+    "ast_hash": "705a4851286173cebf742493b0e91be8",
     "semantic_hash": ""
   },
   "src/core/auth/session.ts": {
-    "mtime": 1783469603.760345,
-    "ast_hash": "6c29821bda1dffe4af214dacc01323df",
+    "mtime": 1783474431.0296137,
+    "ast_hash": "c6ca9cdd476909adee3da9df6044a952",
     "semantic_hash": ""
   },
   "src/core/config/env.ts": {
@@ -290,8 +285,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1783472634.2275,
-    "ast_hash": "fcaea32c89e6000eb08413044f7e1945",
+    "mtime": 1783474674.2984962,
+    "ast_hash": "3f1d575b305c9dcd1dbe27a3c3519fec",
     "semantic_hash": ""
   },
   "index.html": {
@@ -660,8 +655,8 @@
     "semantic_hash": ""
   },
   "src/features/campanas/index.ts": {
-    "mtime": 1783472621.330353,
-    "ast_hash": "33c74ba5ad0842dd1394b09431a51377",
+    "mtime": 1783474587.6622975,
+    "ast_hash": "6e46232e2aa4e3a1acc04c88f3c363d4",
     "semantic_hash": ""
   },
   "src/features/campanas/model/campana.test.ts": {
@@ -697,6 +692,121 @@
   "src/shared/ui/camera/FotoField.tsx": {
     "mtime": 1783472351.0647357,
     "ast_hash": "884b7730b392000c0aa584c8ce8aea47",
+    "semantic_hash": ""
+  },
+  "src/features/admin/api/useAsignarCampana.ts": {
+    "mtime": 1783474571.120445,
+    "ast_hash": "cce68ba76a713c039cf55a962eca1714",
+    "semantic_hash": ""
+  },
+  "src/features/admin/api/useCambiarPassword.ts": {
+    "mtime": 1783474574.2656848,
+    "ast_hash": "c81ffe0c311b4eabffdcbeb005daf7b4",
+    "semantic_hash": ""
+  },
+  "src/features/admin/api/useUsuarios.ts": {
+    "mtime": 1783474567.5741165,
+    "ast_hash": "3a0c0f16da597c88e123526e8bc7be10",
+    "semantic_hash": ""
+  },
+  "src/features/admin/components/AsignacionesList.tsx": {
+    "mtime": 1783474631.8928845,
+    "ast_hash": "295b00782c6204b32a8722b153d5787b",
+    "semantic_hash": ""
+  },
+  "src/features/admin/components/CambiarPasswordModal.tsx": {
+    "mtime": 1783474594.6819866,
+    "ast_hash": "961c7d6ed84a0b1775c962af674891a3",
+    "semantic_hash": ""
+  },
+  "src/features/admin/components/CrearUsuarioModal.tsx": {
+    "mtime": 1783474605.798085,
+    "ast_hash": "6f576652be18a7ac5dc90f20cc861778",
+    "semantic_hash": ""
+  },
+  "src/features/admin/components/MiCuenta.tsx": {
+    "mtime": 1783474600.0309305,
+    "ast_hash": "5b21e64f1fb5af0a6522b855d9a2a15d",
+    "semantic_hash": ""
+  },
+  "src/features/admin/components/UsuariosList.tsx": {
+    "mtime": 1783474624.3816311,
+    "ast_hash": "761d5e03c6cf4ddaeeac9babac1de818",
+    "semantic_hash": ""
+  },
+  "src/features/admin/index.ts": {
+    "mtime": 1783474640.2725227,
+    "ast_hash": "8702f520dd92dc8b26f2eeeeb1cfe1ad",
+    "semantic_hash": ""
+  },
+  "src/features/admin/model/usuario.test.ts": {
+    "mtime": 1783474672.5606544,
+    "ast_hash": "f42cd79c9947b5c347f29fdb6b34705f",
+    "semantic_hash": ""
+  },
+  "src/features/admin/model/usuario.ts": {
+    "mtime": 1783474559.087753,
+    "ast_hash": "7029f684edf10ce000fdf4d01cf28696",
+    "semantic_hash": ""
+  },
+  "src/features/admin/routes/AdminPage.tsx": {
+    "mtime": 1783474639.0900257,
+    "ast_hash": "ce971ed2268a15cc899db851a51e6ecd",
+    "semantic_hash": ""
+  },
+  "src/features/predicciones/api/usePredicciones.ts": {
+    "mtime": 1783474453.62996,
+    "ast_hash": "5bd766fd277735823075414b1c202408",
+    "semantic_hash": ""
+  },
+  "src/features/predicciones/components/IndicePanel.tsx": {
+    "mtime": 1783474492.5136175,
+    "ast_hash": "806475d072e92d383207c031815d0bf8",
+    "semantic_hash": ""
+  },
+  "src/features/predicciones/components/PrediccionResultado.tsx": {
+    "mtime": 1783474474.053547,
+    "ast_hash": "ed5b1a5043db3c81176efb56a02fba9c",
+    "semantic_hash": ""
+  },
+  "src/features/predicciones/components/PredictLayer.tsx": {
+    "mtime": 1783474721.1268773,
+    "ast_hash": "222351363fd16f022668acb33b48414c",
+    "semantic_hash": ""
+  },
+  "src/features/predicciones/index.ts": {
+    "mtime": 1783474540.3707266,
+    "ast_hash": "a7978f33e6632bd99ae6b2fe2b129515",
+    "semantic_hash": ""
+  },
+  "src/features/predicciones/model/indice.ts": {
+    "mtime": 1783474446.147493,
+    "ast_hash": "dfdc6691ab0ceb61a8693dbfd75bc5d6",
+    "semantic_hash": ""
+  },
+  "src/features/predicciones/model/prediccion.test.ts": {
+    "mtime": 1783474459.2781124,
+    "ast_hash": "5b4fca8996e99daab48b90c07a48164c",
+    "semantic_hash": ""
+  },
+  "src/features/predicciones/model/prediccion.ts": {
+    "mtime": 1783474440.6313307,
+    "ast_hash": "51187f9fbebd749fae0960996793cbe4",
+    "semantic_hash": ""
+  },
+  "src/features/predicciones/model/validacion.ts": {
+    "mtime": 1783474449.1826408,
+    "ast_hash": "631c37cb7a911676a28cc499cd516f44",
+    "semantic_hash": ""
+  },
+  "src/features/predicciones/routes/PrediccionesPage.tsx": {
+    "mtime": 1783474504.6017294,
+    "ast_hash": "721e453fec64b6c98e873ce7990d0d40",
+    "semantic_hash": ""
+  },
+  "src/features/predicciones/routes/ValidacionPage.tsx": {
+    "mtime": 1783474539.2493255,
+    "ast_hash": "ebb958160f82f4233a1ec22322960af3",
     "semantic_hash": ""
   }
 }
