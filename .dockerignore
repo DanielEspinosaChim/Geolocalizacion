@@ -12,3 +12,10 @@ check_gmaps.py
 consultar.py
 cruce.py
 main.py
+
+# Frontend: node_modules y build se regeneran dentro de la imagen (etapa web).
+# El código fuente (frontend/src, etc.) SÍ se sube: lo necesita `pnpm build`.
+frontend/node_modules/
+frontend/dist/
+frontend/graphify-out/
+frontend/legacy/

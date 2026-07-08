@@ -51,16 +51,17 @@ consola de Firebase o infraestructura queda `[ ]`.
 - [ ] 🟩 **CI**: cachear `~/.pnpm-store` y publicar artefacto de build; añadir el job de e2e
       cuando exista (`.github/workflows/frontend.yml`).
 
-## 3. Corte del legacy (Fase 7 final)
+## 3. Corte del legacy (Fase 7 final) — ✅ APLICADO en código
 
-El detalle operativo está en **`docs/CUTOVER.md`**. Resumen de lo que falta y **por qué no se
-hizo aquí** (tocan backend/deploy, fuera del alcance acordado):
+Ejecutado en esta rama (detalle en **`docs/CUTOVER.md`**). Falta solo desplegar y validar en prod.
 
-- [ ] 🟥 Backend sirve `frontend/dist` (build nueva) en vez de `frontend/legacy`.
-- [ ] 🟥 Pipeline de deploy construye el frontend (`pnpm build`) antes de empaquetar.
-- [ ] 🟥 `.dockerignore` / `.gcloudignore` excluyen `frontend/node_modules` y `frontend/src`
-      (hoy subirían ~400 MB al contexto de build).
-- [ ] 🟧 Eliminar `frontend/legacy/` una vez validada la paridad en producción.
+- [x] 🟥 Backend sirve `frontend/dist` con mount `/assets` + SPA fallback (`app.py`, `backend/app.py`).
+- [x] 🟥 `Dockerfile` multi-stage: etapa `node` construye el frontend, la de Python copia solo `dist`.
+- [x] 🟥 `.dockerignore` / `.gcloudignore` excluyen `frontend/node_modules` y `frontend/dist`
+      (el código fuente sí se sube: lo necesita `pnpm build` en Cloud Build).
+- [x] 🟧 `frontend/legacy/` eliminada.
+- [ ] 🟥 **Desplegar y validar en producción** (login, mapa, campañas, fotos, `/uploads`) — solo tú
+      puedes hacerlo. Si algo falla, rollback = volver `FRONT` a `frontend/legacy` (ver CUTOVER.md).
 
 ## 4. Observaciones de backend (fuera de alcance — pasar al equipo)
 
@@ -91,4 +92,4 @@ No se tocó `app.py`, `backend/` ni el deploy. Estas son necesarias para cerrar 
 | 4 | `reportes` · `rutas` · `colonias-zonas` | ✅ |
 | 5 | `campanas` + plantillas + cámara | ✅ |
 | 6 | `predicciones` + `admin` | ✅ |
-| 7 | Endurecimiento (código ✅) + **corte del legacy** (pendiente, ver §3) | 🚧 |
+| 7 | Endurecimiento + corte del legacy (código ✅) — falta desplegar y validar en prod (§1, §3) | 🚧 |

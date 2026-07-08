@@ -64,1993 +64,13 @@
       "norm_label": "eslint.config.js"
     },
     {
-      "label": "admin.js",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "js_admin",
-      "community": 2,
-      "norm_label": "admin.js"
-    },
-    {
-      "label": "_adminUsuarios",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "js_admin_adminusuarios",
-      "community": 2,
-      "norm_label": "_adminusuarios"
-    },
-    {
-      "label": "_adminCampanas",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "js_admin_admincampanas",
-      "community": 2,
-      "norm_label": "_admincampanas"
-    },
-    {
-      "label": "cargarPanelAdmin()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "js_admin_cargarpaneladmin",
-      "community": 2,
-      "norm_label": "cargarpaneladmin()"
-    },
-    {
-      "label": "_renderMiCuenta()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "js_admin_rendermicuenta",
-      "community": 2,
-      "norm_label": "_rendermicuenta()"
-    },
-    {
-      "label": "abrirModalCambiarPass()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "js_admin_abrirmodalcambiarpass",
-      "community": 2,
-      "norm_label": "abrirmodalcambiarpass()"
-    },
-    {
-      "label": "cerrarModalCambiarPass()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L38",
-      "_origin": "ast",
-      "id": "js_admin_cerrarmodalcambiarpass",
-      "community": 2,
-      "norm_label": "cerrarmodalcambiarpass()"
-    },
-    {
-      "label": "cambiarContrasena()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L46",
-      "_origin": "ast",
-      "id": "js_admin_cambiarcontrasena",
-      "community": 2,
-      "norm_label": "cambiarcontrasena()"
-    },
-    {
-      "label": "cargarUsuariosAdmin()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L80",
-      "_origin": "ast",
-      "id": "js_admin_cargarusuariosadmin",
-      "community": 2,
-      "norm_label": "cargarusuariosadmin()"
-    },
-    {
-      "label": "_renderUsuarios()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L91",
-      "_origin": "ast",
-      "id": "js_admin_renderusuarios",
-      "community": 2,
-      "norm_label": "_renderusuarios()"
-    },
-    {
-      "label": "cambiarRoleUsuario()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L135",
-      "_origin": "ast",
-      "id": "js_admin_cambiarroleusuario",
-      "community": 2,
-      "norm_label": "cambiarroleusuario()"
-    },
-    {
-      "label": "toggleUsuario()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L155",
-      "_origin": "ast",
-      "id": "js_admin_toggleusuario",
-      "community": 2,
-      "norm_label": "toggleusuario()"
-    },
-    {
-      "label": "eliminarUsuario()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L178",
-      "_origin": "ast",
-      "id": "js_admin_eliminarusuario",
-      "community": 2,
-      "norm_label": "eliminarusuario()"
-    },
-    {
-      "label": "mostrarModalCrearUsuario()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L197",
-      "_origin": "ast",
-      "id": "js_admin_mostrarmodalcrearusuario",
-      "community": 2,
-      "norm_label": "mostrarmodalcrearusuario()"
-    },
-    {
-      "label": "cerrarModalCrearUsuario()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L200",
-      "_origin": "ast",
-      "id": "js_admin_cerrarmodalcrearusuario",
-      "community": 2,
-      "norm_label": "cerrarmodalcrearusuario()"
-    },
-    {
-      "label": "crearUsuario()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L205",
-      "_origin": "ast",
-      "id": "js_admin_crearusuario",
-      "community": 2,
-      "norm_label": "crearusuario()"
-    },
-    {
-      "label": "cargarCampanasAdmin()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L237",
-      "_origin": "ast",
-      "id": "js_admin_cargarcampanasadmin",
-      "community": 2,
-      "norm_label": "cargarcampanasadmin()"
-    },
-    {
-      "label": "_renderAsignaciones()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L248",
-      "_origin": "ast",
-      "id": "js_admin_renderasignaciones",
-      "community": 2,
-      "norm_label": "_renderasignaciones()"
-    },
-    {
-      "label": "asignarCampana()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L296",
-      "_origin": "ast",
-      "id": "js_admin_asignarcampana",
-      "community": 2,
-      "norm_label": "asignarcampana()"
-    },
-    {
-      "label": "_showAdminToast()",
-      "file_type": "code",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L317",
-      "_origin": "ast",
-      "id": "js_admin_showadmintoast",
-      "community": 2,
-      "norm_label": "_showadmintoast()"
-    },
-    {
-      "label": "app.js",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "js_app",
-      "community": 2,
-      "norm_label": "app.js"
-    },
-    {
-      "label": "TIPOS_ES",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "js_app_tipos_es",
-      "community": 2,
-      "norm_label": "tipos_es"
-    },
-    {
-      "label": "tipoLeg()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "js_app_tipoleg",
-      "community": 2,
-      "norm_label": "tipoleg()"
-    },
-    {
-      "label": "tipoColor()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L26",
-      "_origin": "ast",
-      "id": "js_app_tipocolor",
-      "community": 2,
-      "norm_label": "tipocolor()"
-    },
-    {
-      "label": "map",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L33",
-      "_origin": "ast",
-      "id": "js_app_map",
-      "community": 2,
-      "norm_label": "map"
-    },
-    {
-      "label": "allData",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L37",
-      "_origin": "ast",
-      "id": "js_app_alldata",
-      "community": 2,
-      "norm_label": "alldata"
-    },
-    {
-      "label": "markers",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L37",
-      "_origin": "ast",
-      "id": "js_app_markers",
-      "community": 2,
-      "norm_label": "markers"
-    },
-    {
-      "label": "_rutaData",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L38",
-      "_origin": "ast",
-      "id": "js_app_rutadata",
-      "community": 2,
-      "norm_label": "_rutadata"
-    },
-    {
-      "label": "_zonasCsvData",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L39",
-      "_origin": "ast",
-      "id": "js_app_zonascsvdata",
-      "community": 2,
-      "norm_label": "_zonascsvdata"
-    },
-    {
-      "label": "cargarDatosIniciales()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L50",
-      "_origin": "ast",
-      "id": "js_app_cargardatosiniciales",
-      "community": 2,
-      "norm_label": "cargardatosiniciales()"
-    },
-    {
-      "label": "_watchCacheReady()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L71",
-      "_origin": "ast",
-      "id": "js_app_watchcacheready",
-      "community": 2,
-      "norm_label": "_watchcacheready()"
-    },
-    {
-      "label": "_mergeData()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L105",
-      "_origin": "ast",
-      "id": "js_app_mergedata",
-      "community": 2,
-      "norm_label": "_mergedata()"
-    },
-    {
-      "label": "_mergeDataForce()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L115",
-      "_origin": "ast",
-      "id": "js_app_mergedataforce",
-      "community": 2,
-      "norm_label": "_mergedataforce()"
-    },
-    {
-      "label": "_agregarMarcadores()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L124",
-      "_origin": "ast",
-      "id": "js_app_agregarmarcadores",
-      "community": 2,
-      "norm_label": "_agregarmarcadores()"
-    },
-    {
-      "label": "cargarCandidatos()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L142",
-      "_origin": "ast",
-      "id": "js_app_cargarcandidatos",
-      "community": 2,
-      "norm_label": "cargarcandidatos()"
-    },
-    {
-      "label": "popupHtml()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L160",
-      "_origin": "ast",
-      "id": "js_app_popuphtml",
-      "community": 2,
-      "norm_label": "popuphtml()"
-    },
-    {
-      "label": "renderMapa()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L181",
-      "_origin": "ast",
-      "id": "js_app_rendermapa",
-      "community": 2,
-      "norm_label": "rendermapa()"
-    },
-    {
-      "label": "guardarTipo()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L213",
-      "_origin": "ast",
-      "id": "js_app_guardartipo",
-      "community": 2,
-      "norm_label": "guardartipo()"
-    },
-    {
-      "label": "_revertirTipo()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L256",
-      "_origin": "ast",
-      "id": "js_app_revertirtipo",
-      "community": 2,
-      "norm_label": "_revertirtipo()"
-    },
-    {
-      "label": "renderLista()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L271",
-      "_origin": "ast",
-      "id": "js_app_renderlista",
-      "community": 2,
-      "norm_label": "renderlista()"
-    },
-    {
-      "label": "_renderMetricasLocales()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L281",
-      "_origin": "ast",
-      "id": "js_app_rendermetricaslocales",
-      "community": 2,
-      "norm_label": "_rendermetricaslocales()"
-    },
-    {
-      "label": "filtrar()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L325",
-      "_origin": "ast",
-      "id": "js_app_filtrar",
-      "community": 2,
-      "norm_label": "filtrar()"
-    },
-    {
-      "label": "filtrarPorTipo()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L332",
-      "_origin": "ast",
-      "id": "js_app_filtrarportipo",
-      "community": 2,
-      "norm_label": "filtrarportipo()"
-    },
-    {
-      "label": "irA()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L344",
-      "_origin": "ast",
-      "id": "js_app_ira",
-      "community": 2,
-      "norm_label": "ira()"
-    },
-    {
-      "label": "resaltar()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L352",
-      "_origin": "ast",
-      "id": "js_app_resaltar",
-      "community": 2,
-      "norm_label": "resaltar()"
-    },
-    {
-      "label": "toggleZonas()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L359",
-      "_origin": "ast",
-      "id": "js_app_togglezonas",
-      "community": 2,
-      "norm_label": "togglezonas()"
-    },
-    {
-      "label": "getColor()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L375",
-      "_origin": "ast",
-      "id": "js_app_getcolor",
-      "community": 2,
-      "norm_label": "getcolor()"
-    },
-    {
-      "label": "renderZonas()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L379",
-      "_origin": "ast",
-      "id": "js_app_renderzonas",
-      "community": 2,
-      "norm_label": "renderzonas()"
-    },
-    {
-      "label": "_renderLeyendaZonas()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L408",
-      "_origin": "ast",
-      "id": "js_app_renderleyendazonas",
-      "community": 2,
-      "norm_label": "_renderleyendazonas()"
-    },
-    {
-      "label": "_actualizarMetricasLocales()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L437",
-      "_origin": "ast",
-      "id": "js_app_actualizarmetricaslocales",
-      "community": 2,
-      "norm_label": "_actualizarmetricaslocales()"
-    },
-    {
-      "label": "cargarMetricas()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L456",
-      "_origin": "ast",
-      "id": "js_app_cargarmetricas",
-      "community": 2,
-      "norm_label": "cargarmetricas()"
-    },
-    {
-      "label": "cargarValidacion()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L493",
-      "_origin": "ast",
-      "id": "js_app_cargarvalidacion",
-      "community": 2,
-      "norm_label": "cargarvalidacion()"
-    },
-    {
-      "label": "togglePredMode()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L516",
-      "_origin": "ast",
-      "id": "js_app_togglepredmode",
-      "community": 2,
-      "norm_label": "togglepredmode()"
-    },
-    {
-      "label": "fetchPredecir()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L535",
-      "_origin": "ast",
-      "id": "js_app_fetchpredecir",
-      "community": 2,
-      "norm_label": "fetchpredecir()"
-    },
-    {
-      "label": "predecirManual()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L585",
-      "_origin": "ast",
-      "id": "js_app_predecirmanual",
-      "community": 2,
-      "norm_label": "predecirmanual()"
-    },
-    {
-      "label": "rutaSeleccion",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L598",
-      "_origin": "ast",
-      "id": "js_app_rutaseleccion",
-      "community": 2,
-      "norm_label": "rutaseleccion"
-    },
-    {
-      "label": "rutaMarkersExtra",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L600",
-      "_origin": "ast",
-      "id": "js_app_rutamarkersextra",
-      "community": 2,
-      "norm_label": "rutamarkersextra"
-    },
-    {
-      "label": "renderListaRuta()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L602",
-      "_origin": "ast",
-      "id": "js_app_renderlistaruta",
-      "community": 2,
-      "norm_label": "renderlistaruta()"
-    },
-    {
-      "label": "togglePunto()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L618",
-      "_origin": "ast",
-      "id": "js_app_togglepunto",
-      "community": 2,
-      "norm_label": "togglepunto()"
-    },
-    {
-      "label": "limpiarRuta()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L629",
-      "_origin": "ast",
-      "id": "js_app_limpiarruta",
-      "community": 2,
-      "norm_label": "limpiarruta()"
-    },
-    {
-      "label": "calcularRuta()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L639",
-      "_origin": "ast",
-      "id": "js_app_calcularruta",
-      "community": 2,
-      "norm_label": "calcularruta()"
-    },
-    {
-      "label": "calcularRutaColonia()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L660",
-      "_origin": "ast",
-      "id": "js_app_calcularrutacolonia",
-      "community": 2,
-      "norm_label": "calcularrutacolonia()"
-    },
-    {
-      "label": "renderRutaEnMapa()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L685",
-      "_origin": "ast",
-      "id": "js_app_renderrutaenmapa",
-      "community": 2,
-      "norm_label": "renderrutaenmapa()"
-    },
-    {
-      "label": "descargarReporte()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L741",
-      "_origin": "ast",
-      "id": "js_app_descargarreporte",
-      "community": 2,
-      "norm_label": "descargarreporte()"
-    },
-    {
-      "label": "showTab()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L755",
-      "_origin": "ast",
-      "id": "js_app_showtab",
-      "community": 2,
-      "norm_label": "showtab()"
-    },
-    {
-      "label": "cargarIndice()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L811",
-      "_origin": "ast",
-      "id": "js_app_cargarindice",
-      "community": 2,
-      "norm_label": "cargarindice()"
-    },
-    {
-      "label": "_renderCalculadoraIndice()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L890",
-      "_origin": "ast",
-      "id": "js_app_rendercalculadoraindice",
-      "community": 2,
-      "norm_label": "_rendercalculadoraindice()"
-    },
-    {
-      "label": "_calcIndice()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L903",
-      "_origin": "ast",
-      "id": "js_app_calcindice",
-      "community": 2,
-      "norm_label": "_calcindice()"
-    },
-    {
-      "label": "_iniciarPrecargas()",
-      "file_type": "code",
-      "source_file": "legacy/js/app.js",
-      "source_location": "L982",
-      "_origin": "ast",
-      "id": "js_app_iniciarprecargas",
-      "community": 2,
-      "norm_label": "_iniciarprecargas()"
-    },
-    {
-      "label": "auth.js",
-      "file_type": "code",
-      "source_file": "legacy/js/auth.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "js_auth",
-      "community": 7,
-      "norm_label": "auth.js"
-    },
-    {
-      "label": "_renderLoginScreen()",
-      "file_type": "code",
-      "source_file": "legacy/js/auth.js",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "js_auth_renderloginscreen",
-      "community": 7,
-      "norm_label": "_renderloginscreen()"
-    },
-    {
-      "label": "_togglePass()",
-      "file_type": "code",
-      "source_file": "legacy/js/auth.js",
-      "source_location": "L88",
-      "_origin": "ast",
-      "id": "js_auth_togglepass",
-      "community": 7,
-      "norm_label": "_togglepass()"
-    },
-    {
-      "label": "doLogin()",
-      "file_type": "code",
-      "source_file": "legacy/js/auth.js",
-      "source_location": "L97",
-      "_origin": "ast",
-      "id": "js_auth_dologin",
-      "community": 7,
-      "norm_label": "dologin()"
-    },
-    {
-      "label": "_showLoginError()",
-      "file_type": "code",
-      "source_file": "legacy/js/auth.js",
-      "source_location": "L126",
-      "_origin": "ast",
-      "id": "js_auth_showloginerror",
-      "community": 7,
-      "norm_label": "_showloginerror()"
-    },
-    {
-      "label": "doLoginGoogle()",
-      "file_type": "code",
-      "source_file": "legacy/js/auth.js",
-      "source_location": "L131",
-      "_origin": "ast",
-      "id": "js_auth_dologingoogle",
-      "community": 7,
-      "norm_label": "dologingoogle()"
-    },
-    {
-      "label": "_patchFetch()",
-      "file_type": "code",
-      "source_file": "legacy/js/auth.js",
-      "source_location": "L183",
-      "_origin": "ast",
-      "id": "js_auth_patchfetch",
-      "community": 7,
-      "norm_label": "_patchfetch()"
-    },
-    {
-      "label": "logout()",
-      "file_type": "code",
-      "source_file": "legacy/js/auth.js",
-      "source_location": "L197",
-      "_origin": "ast",
-      "id": "js_auth_logout",
-      "community": 7,
-      "norm_label": "logout()"
-    },
-    {
-      "label": "_bootApp()",
-      "file_type": "code",
-      "source_file": "legacy/js/auth.js",
-      "source_location": "L203",
-      "_origin": "ast",
-      "id": "js_auth_bootapp",
-      "community": 7,
-      "norm_label": "_bootapp()"
-    },
-    {
-      "label": "_applyTecnicoRestrictions()",
-      "file_type": "code",
-      "source_file": "legacy/js/auth.js",
-      "source_location": "L266",
-      "_origin": "ast",
-      "id": "js_auth_applytecnicorestrictions",
-      "community": 7,
-      "norm_label": "_applytecnicorestrictions()"
-    },
-    {
-      "label": "getAuthToken()",
-      "file_type": "code",
-      "source_file": "legacy/js/auth.js",
-      "source_location": "L309",
-      "_origin": "ast",
-      "id": "js_auth_getauthtoken",
-      "community": 7,
-      "norm_label": "getauthtoken()"
-    },
-    {
-      "label": "camera.js",
-      "file_type": "code",
-      "source_file": "legacy/js/camera.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "js_camera",
-      "community": 3,
-      "norm_label": "camera.js"
-    },
-    {
-      "label": "_esMobil()",
-      "file_type": "code",
-      "source_file": "legacy/js/camera.js",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "js_camera_esmobil",
-      "community": 3,
-      "norm_label": "_esmobil()"
-    },
-    {
-      "label": "_abrirCamara()",
-      "file_type": "code",
-      "source_file": "legacy/js/camera.js",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "js_camera_abrircamara",
-      "community": 3,
-      "norm_label": "_abrircamara()"
-    },
-    {
-      "label": "_abrirCamaraModal()",
-      "file_type": "code",
-      "source_file": "legacy/js/camera.js",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "js_camera_abrircamaramodal",
-      "community": 3,
-      "norm_label": "_abrircamaramodal()"
-    },
-    {
-      "label": "_cameraShowLive()",
-      "file_type": "code",
-      "source_file": "legacy/js/camera.js",
-      "source_location": "L68",
-      "_origin": "ast",
-      "id": "js_camera_camerashowlive",
-      "community": 3,
-      "norm_label": "_camerashowlive()"
-    },
-    {
-      "label": "_cameraCancelar()",
-      "file_type": "code",
-      "source_file": "legacy/js/camera.js",
-      "source_location": "L74",
-      "_origin": "ast",
-      "id": "js_camera_cameracancelar",
-      "community": 3,
-      "norm_label": "_cameracancelar()"
-    },
-    {
-      "label": "_cameraDetenerStream()",
-      "file_type": "code",
-      "source_file": "legacy/js/camera.js",
-      "source_location": "L80",
-      "_origin": "ast",
-      "id": "js_camera_cameradetenerstream",
-      "community": 3,
-      "norm_label": "_cameradetenerstream()"
-    },
-    {
-      "label": "_cameraCapturar()",
-      "file_type": "code",
-      "source_file": "legacy/js/camera.js",
-      "source_location": "L87",
-      "_origin": "ast",
-      "id": "js_camera_cameracapturar",
-      "community": 3,
-      "norm_label": "_cameracapturar()"
-    },
-    {
-      "label": "_cameraReintentar()",
-      "file_type": "code",
-      "source_file": "legacy/js/camera.js",
-      "source_location": "L100",
-      "_origin": "ast",
-      "id": "js_camera_camerareintentar",
-      "community": 3,
-      "norm_label": "_camerareintentar()"
-    },
-    {
-      "label": "_cameraUsar()",
-      "file_type": "code",
-      "source_file": "legacy/js/camera.js",
-      "source_location": "L104",
-      "_origin": "ast",
-      "id": "js_camera_camerausar",
-      "community": 3,
-      "norm_label": "_camerausar()"
-    },
-    {
-      "label": "campanas.js",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "js_campanas",
-      "community": 0,
-      "norm_label": "campanas.js"
-    },
-    {
-      "label": "_campanaNegocios",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "js_campanas_campananegocios",
-      "community": 0,
-      "norm_label": "_campananegocios"
-    },
-    {
-      "label": "_plantillasCache",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "js_campanas_plantillascache",
-      "community": 0,
-      "norm_label": "_plantillascache"
-    },
-    {
-      "label": "_visitaModal",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "js_campanas_visitamodal",
-      "community": 0,
-      "norm_label": "_visitamodal"
-    },
-    {
-      "label": "_epCampos",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "js_campanas_epcampos",
-      "community": 0,
-      "norm_label": "_epcampos"
-    },
-    {
-      "label": "cargarCampanas()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "js_campanas_cargarcampanas",
-      "community": 0,
-      "norm_label": "cargarcampanas()"
-    },
-    {
-      "label": "_renderListaCampanas()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L40",
-      "_origin": "ast",
-      "id": "js_campanas_renderlistacampanas",
-      "community": 0,
-      "norm_label": "_renderlistacampanas()"
-    },
-    {
-      "label": "_renderListaCampanasTecnico()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L90",
-      "_origin": "ast",
-      "id": "js_campanas_renderlistacampanastecnico",
-      "community": 0,
-      "norm_label": "_renderlistacampanastecnico()"
-    },
-    {
-      "label": "verCampana()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L152",
-      "_origin": "ast",
-      "id": "js_campanas_vercampana",
-      "community": 0,
-      "norm_label": "vercampana()"
-    },
-    {
-      "label": "_renderDetalleCampana()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L171",
-      "_origin": "ast",
-      "id": "js_campanas_renderdetallecampana",
-      "community": 0,
-      "norm_label": "_renderdetallecampana()"
-    },
-    {
-      "label": "_renderDetalleCampanaTecnico()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L192",
-      "_origin": "ast",
-      "id": "js_campanas_renderdetallecampanatecnico",
-      "community": 0,
-      "norm_label": "_renderdetallecampanatecnico()"
-    },
-    {
-      "label": "_revertirPendiente()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L300",
-      "_origin": "ast",
-      "id": "js_campanas_revertirpendiente",
-      "community": 0,
-      "norm_label": "_revertirpendiente()"
-    },
-    {
-      "label": "_tecFiltro()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L320",
-      "_origin": "ast",
-      "id": "js_campanas_tecfiltro",
-      "community": 0,
-      "norm_label": "_tecfiltro()"
-    },
-    {
-      "label": "_renderChecklistTecnico()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L336",
-      "_origin": "ast",
-      "id": "js_campanas_renderchecklisttecnico",
-      "community": 0,
-      "norm_label": "_renderchecklisttecnico()"
-    },
-    {
-      "label": "_renderTablaNegociosCampana()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L482",
-      "_origin": "ast",
-      "id": "js_campanas_rendertablanegocioscampana",
-      "community": 0,
-      "norm_label": "_rendertablanegocioscampana()"
-    },
-    {
-      "label": "toggleBusquedaAgregar()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L571",
-      "_origin": "ast",
-      "id": "js_campanas_togglebusquedaagregar",
-      "community": 0,
-      "norm_label": "togglebusquedaagregar()"
-    },
-    {
-      "label": "buscarNegociosParaAgregar()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L588",
-      "_origin": "ast",
-      "id": "js_campanas_buscarnegociosparaagregar",
-      "community": 0,
-      "norm_label": "buscarnegociosparaagregar()"
-    },
-    {
-      "label": "renderBusquedaResultados()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L608",
-      "_origin": "ast",
-      "id": "js_campanas_renderbusquedaresultados",
-      "community": 0,
-      "norm_label": "renderbusquedaresultados()"
-    },
-    {
-      "label": "agregarNegocio()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L638",
-      "_origin": "ast",
-      "id": "js_campanas_agregarnegocio",
-      "community": 0,
-      "norm_label": "agregarnegocio()"
-    },
-    {
-      "label": "quitarNegocioCampana()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L668",
-      "_origin": "ast",
-      "id": "js_campanas_quitarnegociocampana",
-      "community": 0,
-      "norm_label": "quitarnegociocampana()"
-    },
-    {
-      "label": "_actualizarMeta()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L681",
-      "_origin": "ast",
-      "id": "js_campanas_actualizarmeta",
-      "community": 0,
-      "norm_label": "_actualizarmeta()"
-    },
-    {
-      "label": "toggleCompletado()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L702",
-      "_origin": "ast",
-      "id": "js_campanas_togglecompletado",
-      "community": 0,
-      "norm_label": "togglecompletado()"
-    },
-    {
-      "label": "guardarNotas()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L716",
-      "_origin": "ast",
-      "id": "js_campanas_guardarnotas",
-      "community": 0,
-      "norm_label": "guardarnotas()"
-    },
-    {
-      "label": "guardarFechaVisita()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L724",
-      "_origin": "ast",
-      "id": "js_campanas_guardarfechavisita",
-      "community": 0,
-      "norm_label": "guardarfechavisita()"
-    },
-    {
-      "label": "verRutaCampana()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L732",
-      "_origin": "ast",
-      "id": "js_campanas_verrutacampana",
-      "community": 2,
-      "norm_label": "verrutacampana()"
-    },
-    {
-      "label": "descargarReporteCampana()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L775",
-      "_origin": "ast",
-      "id": "js_campanas_descargarreportecampana",
-      "community": 2,
-      "norm_label": "descargarreportecampana()"
-    },
-    {
-      "label": "mostrarModalCrearCampana()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L804",
-      "_origin": "ast",
-      "id": "js_campanas_mostrarmodalcrearcampana",
-      "community": 0,
-      "norm_label": "mostrarmodalcrearcampana()"
-    },
-    {
-      "label": "cerrarModalCampana()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L813",
-      "_origin": "ast",
-      "id": "js_campanas_cerrarmodalcampana",
-      "community": 0,
-      "norm_label": "cerrarmodalcampana()"
-    },
-    {
-      "label": "crearCampana()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L818",
-      "_origin": "ast",
-      "id": "js_campanas_crearcampana",
-      "community": 0,
-      "norm_label": "crearcampana()"
-    },
-    {
-      "label": "cerrarCampana()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L843",
-      "_origin": "ast",
-      "id": "js_campanas_cerrarcampana",
-      "community": 0,
-      "norm_label": "cerrarcampana()"
-    },
-    {
-      "label": "eliminarCampana()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L853",
-      "_origin": "ast",
-      "id": "js_campanas_eliminarcampana",
-      "community": 0,
-      "norm_label": "eliminarcampana()"
-    },
-    {
-      "label": "volverListaCampanas()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L859",
-      "_origin": "ast",
-      "id": "js_campanas_volverlistacampanas",
-      "community": 0,
-      "norm_label": "volverlistacampanas()"
-    },
-    {
-      "label": "abrirModalVisita()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L875",
-      "_origin": "ast",
-      "id": "js_campanas_abrirmodalvisita",
-      "community": 0,
-      "norm_label": "abrirmodalvisita()"
-    },
-    {
-      "label": "_vfSetVisitado()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L920",
-      "_origin": "ast",
-      "id": "js_campanas_vfsetvisitado",
-      "community": 0,
-      "norm_label": "_vfsetvisitado()"
-    },
-    {
-      "label": "_vfVisitadoChange()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L929",
-      "_origin": "ast",
-      "id": "js_campanas_vfvisitadochange",
-      "community": 0,
-      "norm_label": "_vfvisitadochange()"
-    },
-    {
-      "label": "_renderSelectorPlantilla()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L943",
-      "_origin": "ast",
-      "id": "js_campanas_renderselectorplantilla",
-      "community": 0,
-      "norm_label": "_renderselectorplantilla()"
-    },
-    {
-      "label": "_cambiarPlantillaVisita()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L962",
-      "_origin": "ast",
-      "id": "js_campanas_cambiarplantillavisita",
-      "community": 0,
-      "norm_label": "_cambiarplantillavisita()"
-    },
-    {
-      "label": "cerrarModalVisita()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L970",
-      "_origin": "ast",
-      "id": "js_campanas_cerrarmodalvisita",
-      "community": 0,
-      "norm_label": "cerrarmodalvisita()"
-    },
-    {
-      "label": "_renderCamposVisita()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L977",
-      "_origin": "ast",
-      "id": "js_campanas_rendercamposvisita",
-      "community": 0,
-      "norm_label": "_rendercamposvisita()"
-    },
-    {
-      "label": "_inputParaCampo()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L997",
-      "_origin": "ast",
-      "id": "js_campanas_inputparacampo",
-      "community": 0,
-      "norm_label": "_inputparacampo()"
-    },
-    {
-      "label": "_vfBoolChange()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1065",
-      "_origin": "ast",
-      "id": "js_campanas_vfboolchange",
-      "community": 0,
-      "norm_label": "_vfboolchange()"
-    },
-    {
-      "label": "_vfPlantillaAbrirCamara()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1084",
-      "_origin": "ast",
-      "id": "js_campanas_vfplantillaabrircamara",
-      "community": 3,
-      "norm_label": "_vfplantillaabrircamara()"
-    },
-    {
-      "label": "_vfPlantillaAbrirGaleria()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1093",
-      "_origin": "ast",
-      "id": "js_campanas_vfplantillaabrirgaleria",
-      "community": 0,
-      "norm_label": "_vfplantillaabrirgaleria()"
-    },
-    {
-      "label": "_vfFotoChange()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1099",
-      "_origin": "ast",
-      "id": "js_campanas_vffotochange",
-      "community": 0,
-      "norm_label": "_vffotochange()"
-    },
-    {
-      "label": "_vfAbrirCamara()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1107",
-      "_origin": "ast",
-      "id": "js_campanas_vfabrircamara",
-      "community": 3,
-      "norm_label": "_vfabrircamara()"
-    },
-    {
-      "label": "_vfAbrirGaleria()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1116",
-      "_origin": "ast",
-      "id": "js_campanas_vfabrirgaleria",
-      "community": 0,
-      "norm_label": "_vfabrirgaleria()"
-    },
-    {
-      "label": "_vfFixedFotoChange()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1122",
-      "_origin": "ast",
-      "id": "js_campanas_vffixedfotochange",
-      "community": 0,
-      "norm_label": "_vffixedfotochange()"
-    },
-    {
-      "label": "_vfClearFoto()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1135",
-      "_origin": "ast",
-      "id": "js_campanas_vfclearfoto",
-      "community": 0,
-      "norm_label": "_vfclearfoto()"
-    },
-    {
-      "label": "_haversineM()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1145",
-      "_origin": "ast",
-      "id": "js_campanas_haversinem",
-      "community": 0,
-      "norm_label": "_haversinem()"
-    },
-    {
-      "label": "guardarVisita()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1154",
-      "_origin": "ast",
-      "id": "js_campanas_guardarvisita",
-      "community": 0,
-      "norm_label": "guardarvisita()"
-    },
-    {
-      "label": "_guardarGPSVisita()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1232",
-      "_origin": "ast",
-      "id": "js_campanas_guardargpsvisita",
-      "community": 0,
-      "norm_label": "_guardargpsvisita()"
-    },
-    {
-      "label": "_actualizarBadgeGPS()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1270",
-      "_origin": "ast",
-      "id": "js_campanas_actualizarbadgegps",
-      "community": 0,
-      "norm_label": "_actualizarbadgegps()"
-    },
-    {
-      "label": "abrirModalPlantillas()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1291",
-      "_origin": "ast",
-      "id": "js_campanas_abrirmodalplantillas",
-      "community": 0,
-      "norm_label": "abrirmodalplantillas()"
-    },
-    {
-      "label": "cerrarModalPlantillas()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1298",
-      "_origin": "ast",
-      "id": "js_campanas_cerrarmodalplantillas",
-      "community": 0,
-      "norm_label": "cerrarmodalplantillas()"
-    },
-    {
-      "label": "_renderListaPlantillas()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1302",
-      "_origin": "ast",
-      "id": "js_campanas_renderlistaplantillas",
-      "community": 0,
-      "norm_label": "_renderlistaplantillas()"
-    },
-    {
-      "label": "mostrarEditorPlantilla()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1342",
-      "_origin": "ast",
-      "id": "js_campanas_mostrareditorplantilla",
-      "community": 0,
-      "norm_label": "mostrareditorplantilla()"
-    },
-    {
-      "label": "cerrarEditorPlantilla()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1361",
-      "_origin": "ast",
-      "id": "js_campanas_cerrareditorplantilla",
-      "community": 0,
-      "norm_label": "cerrareditorplantilla()"
-    },
-    {
-      "label": "_epSyncDOM()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1368",
-      "_origin": "ast",
-      "id": "js_campanas_epsyncdom",
-      "community": 0,
-      "norm_label": "_epsyncdom()"
-    },
-    {
-      "label": "_renderEditorCampos()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1377",
-      "_origin": "ast",
-      "id": "js_campanas_rendereditorcampos",
-      "community": 0,
-      "norm_label": "_rendereditorcampos()"
-    },
-    {
-      "label": "_epHandleDown()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1443",
-      "_origin": "ast",
-      "id": "js_campanas_ephandledown",
-      "community": 0,
-      "norm_label": "_ephandledown()"
-    },
-    {
-      "label": "_epHandleMove()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1467",
-      "_origin": "ast",
-      "id": "js_campanas_ephandlemove",
-      "community": 0,
-      "norm_label": "_ephandlemove()"
-    },
-    {
-      "label": "_epHandleUp()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1487",
-      "_origin": "ast",
-      "id": "js_campanas_ephandleup",
-      "community": 0,
-      "norm_label": "_ephandleup()"
-    },
-    {
-      "label": "_epUpdateCampo()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1503",
-      "_origin": "ast",
-      "id": "js_campanas_epupdatecampo",
-      "community": 0,
-      "norm_label": "_epupdatecampo()"
-    },
-    {
-      "label": "_epQuitarCampo()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1512",
-      "_origin": "ast",
-      "id": "js_campanas_epquitarcampo",
-      "community": 0,
-      "norm_label": "_epquitarcampo()"
-    },
-    {
-      "label": "agregarCampoPlantilla()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1518",
-      "_origin": "ast",
-      "id": "js_campanas_agregarcampoplantilla",
-      "community": 0,
-      "norm_label": "agregarcampoplantilla()"
-    },
-    {
-      "label": "guardarPlantilla()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1526",
-      "_origin": "ast",
-      "id": "js_campanas_guardarplantilla",
-      "community": 0,
-      "norm_label": "guardarplantilla()"
-    },
-    {
-      "label": "eliminarPlantilla()",
-      "file_type": "code",
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1570",
-      "_origin": "ast",
-      "id": "js_campanas_eliminarplantilla",
-      "community": 0,
-      "norm_label": "eliminarplantilla()"
-    },
-    {
-      "label": "colonias.js",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "js_colonias",
-      "community": 1,
-      "norm_label": "colonias.js"
-    },
-    {
-      "label": "coloniasData",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "js_colonias_coloniasdata",
-      "community": 1,
-      "norm_label": "coloniasdata"
-    },
-    {
-      "label": "zonasData",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "js_colonias_zonasdata",
-      "community": 1,
-      "norm_label": "zonasdata"
-    },
-    {
-      "label": "COLONIA_COLORS",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "js_colonias_colonia_colors",
-      "community": 1,
-      "norm_label": "colonia_colors"
-    },
-    {
-      "label": "cargarColonias()",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L25",
-      "_origin": "ast",
-      "id": "js_colonias_cargarcolonias",
-      "community": 1,
-      "norm_label": "cargarcolonias()"
-    },
-    {
-      "label": "cargarColoniasConCandidatos()",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L44",
-      "_origin": "ast",
-      "id": "js_colonias_cargarcoloniasconcandidatos",
-      "community": 1,
-      "norm_label": "cargarcoloniasconcandidatos()"
-    },
-    {
-      "label": "_poblarSelectColonia()",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L58",
-      "_origin": "ast",
-      "id": "js_colonias_poblarselectcolonia",
-      "community": 1,
-      "norm_label": "_poblarselectcolonia()"
-    },
-    {
-      "label": "_renderMunicipio()",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L72",
-      "_origin": "ast",
-      "id": "js_colonias_rendermunicipio",
-      "community": 1,
-      "norm_label": "_rendermunicipio()"
-    },
-    {
-      "label": "_renderColoniasReales()",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L91",
-      "_origin": "ast",
-      "id": "js_colonias_rendercoloniasreales",
-      "community": 1,
-      "norm_label": "_rendercoloniasreales()"
-    },
-    {
-      "label": "_renderZonasFirestore()",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L158",
-      "_origin": "ast",
-      "id": "js_colonias_renderzonasfirestore",
-      "community": 1,
-      "norm_label": "_renderzonasfirestore()"
-    },
-    {
-      "label": "_resaltarColonia()",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L175",
-      "_origin": "ast",
-      "id": "js_colonias_resaltarcolonia",
-      "community": 1,
-      "norm_label": "_resaltarcolonia()"
-    },
-    {
-      "label": "_buscarColoniaMatch()",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L190",
-      "_origin": "ast",
-      "id": "js_colonias_buscarcoloniamatch",
-      "community": 1,
-      "norm_label": "_buscarcoloniamatch()"
-    },
-    {
-      "label": "toggleColoniasLayer()",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L206",
-      "_origin": "ast",
-      "id": "js_colonias_togglecoloniaslayer",
-      "community": 1,
-      "norm_label": "togglecoloniaslayer()"
-    },
-    {
-      "label": "onColoniaChange()",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L227",
-      "_origin": "ast",
-      "id": "js_colonias_oncoloniachange",
-      "community": 1,
-      "norm_label": "oncoloniachange()"
-    },
-    {
-      "label": "cargarMunicipiosYucatan()",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L243",
-      "_origin": "ast",
-      "id": "js_colonias_cargarmunicipiosyucatan",
-      "community": 1,
-      "norm_label": "cargarmunicipiosyucatan()"
-    },
-    {
-      "label": "_renderMunicipiosYucatan()",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L256",
-      "_origin": "ast",
-      "id": "js_colonias_rendermunicipiosyucatan",
-      "community": 1,
-      "norm_label": "_rendermunicipiosyucatan()"
-    },
-    {
-      "label": "toggleMunicipiosYucatan()",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L288",
-      "_origin": "ast",
-      "id": "js_colonias_togglemunicipiosyucatan",
-      "community": 1,
-      "norm_label": "togglemunicipiosyucatan()"
-    },
-    {
-      "label": "cargarAgebs()",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L315",
-      "_origin": "ast",
-      "id": "js_colonias_cargaragebs",
-      "community": 1,
-      "norm_label": "cargaragebs()"
-    },
-    {
-      "label": "_renderAgebs()",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L328",
-      "_origin": "ast",
-      "id": "js_colonias_renderagebs",
-      "community": 1,
-      "norm_label": "_renderagebs()"
-    },
-    {
-      "label": "toggleAgebs()",
-      "file_type": "code",
-      "source_file": "legacy/js/colonias.js",
-      "source_location": "L370",
-      "_origin": "ast",
-      "id": "js_colonias_toggleagebs",
-      "community": 1,
-      "norm_label": "toggleagebs()"
-    },
-    {
-      "label": "reportes.js",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "js_reportes",
-      "community": 3,
-      "norm_label": "reportes.js"
-    },
-    {
-      "label": "reporteMarkers",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "js_reportes_reportemarkers",
-      "community": 3,
-      "norm_label": "reportemarkers"
-    },
-    {
-      "label": "REPORTE_ICONS",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "js_reportes_reporte_icons",
-      "community": 3,
-      "norm_label": "reporte_icons"
-    },
-    {
-      "label": "STATUS_LABELS",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L20",
-      "_origin": "ast",
-      "id": "js_reportes_status_labels",
-      "community": 3,
-      "norm_label": "status_labels"
-    },
-    {
-      "label": "_reporteAbrirCamara()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L28",
-      "_origin": "ast",
-      "id": "js_reportes_reporteabrircamara",
-      "community": 3,
-      "norm_label": "_reporteabrircamara()"
-    },
-    {
-      "label": "_reporteAbrirGaleria()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L37",
-      "_origin": "ast",
-      "id": "js_reportes_reporteabrirgaleria",
-      "community": 3,
-      "norm_label": "_reporteabrirgaleria()"
-    },
-    {
-      "label": "_reporteFotoChange()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L43",
-      "_origin": "ast",
-      "id": "js_reportes_reportefotochange",
-      "community": 3,
-      "norm_label": "_reportefotochange()"
-    },
-    {
-      "label": "_reporteClearFoto()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L54",
-      "_origin": "ast",
-      "id": "js_reportes_reporteclearfoto",
-      "community": 3,
-      "norm_label": "_reporteclearfoto()"
-    },
-    {
-      "label": "toggleReporteMode()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L65",
-      "_origin": "ast",
-      "id": "js_reportes_togglereportemode",
-      "community": 3,
-      "norm_label": "togglereportemode()"
-    },
-    {
-      "label": "_setReporteUbicacion()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L83",
-      "_origin": "ast",
-      "id": "js_reportes_setreporteubicacion",
-      "community": 3,
-      "norm_label": "_setreporteubicacion()"
-    },
-    {
-      "label": "_reporteAutoUbicacion()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L111",
-      "_origin": "ast",
-      "id": "js_reportes_reporteautoubicacion",
-      "community": 3,
-      "norm_label": "_reporteautoubicacion()"
-    },
-    {
-      "label": "_onMapClickReporte()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L132",
-      "_origin": "ast",
-      "id": "js_reportes_onmapclickreporte",
-      "community": 3,
-      "norm_label": "_onmapclickreporte()"
-    },
-    {
-      "label": "enviarReporte()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L142",
-      "_origin": "ast",
-      "id": "js_reportes_enviarreporte",
-      "community": 3,
-      "norm_label": "enviarreporte()"
-    },
-    {
-      "label": "cargarReportes()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L192",
-      "_origin": "ast",
-      "id": "js_reportes_cargarreportes",
-      "community": 3,
-      "norm_label": "cargarreportes()"
-    },
-    {
-      "label": "_renderListaReportes()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L211",
-      "_origin": "ast",
-      "id": "js_reportes_renderlistareportes",
-      "community": 3,
-      "norm_label": "_renderlistareportes()"
-    },
-    {
-      "label": "_renderReportesEnMapa()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L274",
-      "_origin": "ast",
-      "id": "js_reportes_renderreportesenmapa",
-      "community": 3,
-      "norm_label": "_renderreportesenmapa()"
-    },
-    {
-      "label": "_haversineM()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L312",
-      "_origin": "ast",
-      "id": "js_reportes_haversinem",
-      "community": 3,
-      "norm_label": "_haversinem()"
-    },
-    {
-      "label": "_obtenerGPS()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L321",
-      "_origin": "ast",
-      "id": "js_reportes_obtenergps",
-      "community": 3,
-      "norm_label": "_obtenergps()"
-    },
-    {
-      "label": "actualizarStatusReporte()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L329",
-      "_origin": "ast",
-      "id": "js_reportes_actualizarstatusreporte",
-      "community": 3,
-      "norm_label": "actualizarstatusreporte()"
-    },
-    {
-      "label": "eliminarReporte()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L371",
-      "_origin": "ast",
-      "id": "js_reportes_eliminarreporte",
-      "community": 3,
-      "norm_label": "eliminarreporte()"
-    },
-    {
-      "label": "irAReporte()",
-      "file_type": "code",
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L377",
-      "_origin": "ast",
-      "id": "js_reportes_irareporte",
-      "community": 3,
-      "norm_label": "irareporte()"
-    },
-    {
       "label": "package.json",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L1",
       "_origin": "ast",
       "id": "package",
-      "community": 37,
+      "community": 9,
       "norm_label": "package.json"
     },
     {
@@ -2060,7 +80,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "package_name",
-      "community": 37,
+      "community": 9,
       "norm_label": "name"
     },
     {
@@ -2070,7 +90,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "package_private",
-      "community": 37,
+      "community": 9,
       "norm_label": "private"
     },
     {
@@ -2080,7 +100,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "package_version",
-      "community": 37,
+      "community": 9,
       "norm_label": "version"
     },
     {
@@ -2090,7 +110,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "package_type",
-      "community": 37,
+      "community": 9,
       "norm_label": "type"
     },
     {
@@ -2100,7 +120,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "package_packagemanager",
-      "community": 37,
+      "community": 9,
       "norm_label": "packagemanager"
     },
     {
@@ -2110,7 +130,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "package_engines",
-      "community": 37,
+      "community": 9,
       "norm_label": "engines"
     },
     {
@@ -2120,7 +140,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "package_engines_node",
-      "community": 37,
+      "community": 9,
       "norm_label": "node"
     },
     {
@@ -2130,7 +150,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "package_scripts",
-      "community": 36,
+      "community": 9,
       "norm_label": "scripts"
     },
     {
@@ -2140,7 +160,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "package_scripts_dev",
-      "community": 36,
+      "community": 9,
       "norm_label": "dev"
     },
     {
@@ -2150,7 +170,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "package_scripts_build",
-      "community": 36,
+      "community": 9,
       "norm_label": "build"
     },
     {
@@ -2160,7 +180,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "package_scripts_preview",
-      "community": 36,
+      "community": 9,
       "norm_label": "preview"
     },
     {
@@ -2170,7 +190,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "package_scripts_typecheck",
-      "community": 36,
+      "community": 9,
       "norm_label": "typecheck"
     },
     {
@@ -2180,7 +200,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "package_scripts_lint",
-      "community": 36,
+      "community": 9,
       "norm_label": "lint"
     },
     {
@@ -2190,7 +210,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "package_scripts_format",
-      "community": 36,
+      "community": 9,
       "norm_label": "format"
     },
     {
@@ -2200,7 +220,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "package_scripts_test",
-      "community": 36,
+      "community": 9,
       "norm_label": "test"
     },
     {
@@ -2210,7 +230,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "package_scripts_test_watch",
-      "community": 36,
+      "community": 9,
       "norm_label": "test:watch"
     },
     {
@@ -2640,7 +660,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_errorboundary",
-      "community": 34,
+      "community": 25,
       "norm_label": "errorboundary.tsx"
     },
     {
@@ -2650,7 +670,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "app_errorboundary_state",
-      "community": 34,
+      "community": 25,
       "norm_label": "state"
     },
     {
@@ -2660,7 +680,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "app_errorboundary_errorboundary",
-      "community": 34,
+      "community": 25,
       "norm_label": "errorboundary"
     },
     {
@@ -2670,7 +690,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "app_errorboundary_errorboundary_getderivedstatefromerror",
-      "community": 34,
+      "community": 25,
       "norm_label": ".getderivedstatefromerror()"
     },
     {
@@ -2680,7 +700,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "app_errorboundary_errorboundary_componentdidcatch",
-      "community": 34,
+      "community": 25,
       "norm_label": ".componentdidcatch()"
     },
     {
@@ -2690,7 +710,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "app_errorboundary_errorboundary_render",
-      "community": 34,
+      "community": 25,
       "norm_label": ".render()"
     },
     {
@@ -2700,7 +720,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "layout_appshell",
-      "community": 38,
+      "community": 4,
       "norm_label": "appshell.tsx"
     },
     {
@@ -2710,7 +730,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "layout_appshell_appshell",
-      "community": 39,
+      "community": 4,
       "norm_label": "appshell()"
     },
     {
@@ -2720,7 +740,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "layout_navtabs",
-      "community": 38,
+      "community": 4,
       "norm_label": "navtabs.tsx"
     },
     {
@@ -2730,7 +750,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "layout_navtabs_navitem",
-      "community": 38,
+      "community": 4,
       "norm_label": "navitem"
     },
     {
@@ -2740,7 +760,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "layout_navtabs_nav_items",
-      "community": 38,
+      "community": 4,
       "norm_label": "nav_items"
     },
     {
@@ -2750,7 +770,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "layout_navtabs_navtabs",
-      "community": 38,
+      "community": 4,
       "norm_label": "navtabs()"
     },
     {
@@ -2760,7 +780,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "layout_usermenu",
-      "community": 38,
+      "community": 4,
       "norm_label": "usermenu.tsx"
     },
     {
@@ -2770,7 +790,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "layout_usermenu_usermenu",
-      "community": 38,
+      "community": 4,
       "norm_label": "usermenu()"
     },
     {
@@ -2780,7 +800,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_main",
-      "community": 34,
+      "community": 25,
       "norm_label": "main.tsx"
     },
     {
@@ -2790,7 +810,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "app_main_rootelement",
-      "community": 34,
+      "community": 25,
       "norm_label": "rootelement"
     },
     {
@@ -2800,7 +820,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "providers_appproviders",
-      "community": 34,
+      "community": 25,
       "norm_label": "appproviders.tsx"
     },
     {
@@ -2810,7 +830,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "providers_appproviders_appproviders",
-      "community": 34,
+      "community": 25,
       "norm_label": "appproviders()"
     },
     {
@@ -2820,7 +840,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "router_routeerror",
-      "community": 10,
+      "community": 25,
       "norm_label": "routeerror.tsx"
     },
     {
@@ -2830,7 +850,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "router_routeerror_routeerror",
-      "community": 10,
+      "community": 25,
       "norm_label": "routeerror()"
     },
     {
@@ -2840,7 +860,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "router_guards_test",
-      "community": 10,
+      "community": 25,
       "norm_label": "guards.test.ts"
     },
     {
@@ -2850,7 +870,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "router_guards_test_getsessionuser",
-      "community": 10,
+      "community": 25,
       "norm_label": "{ getsessionuser }"
     },
     {
@@ -2860,7 +880,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "router_guards_test_admin",
-      "community": 10,
+      "community": 25,
       "norm_label": "admin"
     },
     {
@@ -2870,7 +890,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "router_guards_test_tecnico",
-      "community": 10,
+      "community": 25,
       "norm_label": "tecnico"
     },
     {
@@ -2880,7 +900,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "router_guards_test_expectredirect",
-      "community": 10,
+      "community": 25,
       "norm_label": "expectredirect()"
     },
     {
@@ -2890,7 +910,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "router_guards",
-      "community": 10,
+      "community": 25,
       "norm_label": "guards.ts"
     },
     {
@@ -2900,7 +920,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "router_guards_requireauth",
-      "community": 10,
+      "community": 25,
       "norm_label": "requireauth()"
     },
     {
@@ -2910,7 +930,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "router_guards_requirerole",
-      "community": 10,
+      "community": 25,
       "norm_label": "requirerole()"
     },
     {
@@ -2920,7 +940,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "router_guards_redirectifauthed",
-      "community": 10,
+      "community": 25,
       "norm_label": "redirectifauthed()"
     },
     {
@@ -2930,7 +950,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "router_guards_indexloader",
-      "community": 10,
+      "community": 25,
       "norm_label": "indexloader()"
     },
     {
@@ -2940,7 +960,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "router_index",
-      "community": 10,
+      "community": 25,
       "norm_label": "index.tsx"
     },
     {
@@ -2950,7 +970,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "router_index_router",
-      "community": 34,
+      "community": 25,
       "norm_label": "router"
     },
     {
@@ -3720,7 +1740,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "components_loginform_test_renderform",
-      "community": 34,
+      "community": 25,
       "norm_label": "renderform()"
     },
     {
@@ -3760,7 +1780,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "hooks_usesession",
-      "community": 39,
+      "community": 4,
       "norm_label": "usesession.ts"
     },
     {
@@ -3770,7 +1790,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "hooks_usesession_usesession",
-      "community": 39,
+      "community": 4,
       "norm_label": "usesession()"
     },
     {
@@ -3780,7 +1800,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_features_auth_index_ts_auth_index",
-      "community": 39,
+      "community": 4,
       "norm_label": "index.ts"
     },
     {
@@ -3820,7 +1840,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_loginpage",
-      "community": 39,
+      "community": 4,
       "norm_label": "loginpage.tsx"
     },
     {
@@ -3830,7 +1850,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "routes_loginpage_loginpage",
-      "community": 39,
+      "community": 4,
       "norm_label": "loginpage()"
     },
     {
@@ -3970,7 +1990,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "api_useguardarvisita_capturargps",
-      "community": 30,
+      "community": 6,
       "norm_label": "capturargps()"
     },
     {
@@ -5920,7 +3940,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "components_indicepanel_fmt",
-      "community": 2,
+      "community": 33,
       "norm_label": "fmt()"
     },
     {
@@ -5950,7 +3970,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "components_indicepanel_escenario",
-      "community": 2,
+      "community": 33,
       "norm_label": "escenario()"
     },
     {
@@ -6500,7 +4520,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "hooks_useresolvercongps_capturarverificacion",
-      "community": 30,
+      "community": 6,
       "norm_label": "capturarverificacion()"
     },
     {
@@ -6930,7 +4950,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_geo",
-      "community": 30,
+      "community": 6,
       "norm_label": "geo.ts"
     },
     {
@@ -6940,7 +4960,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "lib_geo_posiciongps",
-      "community": 30,
+      "community": 6,
       "norm_label": "posiciongps"
     },
     {
@@ -6950,7 +4970,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "lib_geo_gps_errores",
-      "community": 30,
+      "community": 6,
       "norm_label": "gps_errores"
     },
     {
@@ -6960,7 +4980,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "lib_geo_gpserror",
-      "community": 30,
+      "community": 6,
       "norm_label": "gpserror"
     },
     {
@@ -6970,7 +4990,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "lib_geo_obtenergps",
-      "community": 30,
+      "community": 6,
       "norm_label": "obtenergps()"
     },
     {
@@ -6980,7 +5000,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "lib_geo_haversinem",
-      "community": 30,
+      "community": 6,
       "norm_label": "haversinem()"
     },
     {
@@ -7020,7 +5040,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "ui_alert_alert",
-      "community": 2,
+      "community": 26,
       "norm_label": "alert()"
     },
     {
@@ -8057,7 +6077,7 @@
       "label": "Stack",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L7",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "readme_stack",
       "community": 12,
@@ -8067,7 +6087,7 @@
       "label": "Comandos",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L12",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "readme_comandos",
       "community": 12,
@@ -8077,7 +6097,7 @@
       "label": "Arquitectura (direcci\u00f3n del flujo: app \u2192 features \u2192 shared \u2192 core)",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "readme_arquitectura_direcci\u00f3n_del_flujo_app_features_shared_core",
       "community": 12,
@@ -8087,7 +6107,7 @@
       "label": "Plan de fases",
       "file_type": "document",
       "source_file": "README.md",
-      "source_location": "L31",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "readme_plan_de_fases",
       "community": 12,
@@ -8194,3698 +6214,6 @@
       "confidence_score": 1.0,
       "source": "prettierrc",
       "target": "prettierrc_trailingcomma"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L30",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_abrirmodalcambiarpass"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_admincampanas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_adminusuarios"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L232",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_asignarcampana"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L46",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_cambiarcontrasena"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L71",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_cambiarroleusuario"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L173",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_cargarcampanasadmin"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_cargarpaneladmin"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L16",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_cargarusuariosadmin"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_cerrarmodalcambiarpass"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L136",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_cerrarmodalcrearusuario"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L141",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_crearusuario"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L114",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_eliminarusuario"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L133",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_mostrarmodalcrearusuario"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L184",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_renderasignaciones"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L15",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_rendermicuenta"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L27",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_renderusuarios"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L253",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_showadmintoast"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L91",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin",
-      "target": "js_admin_toggleusuario"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_cargarpaneladmin",
-      "target": "js_admin_cargarcampanasadmin"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_cargarpaneladmin",
-      "target": "js_admin_cargarusuariosadmin"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_cargarpaneladmin",
-      "target": "js_admin_rendermicuenta"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L80",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_cambiarroleusuario",
-      "target": "js_admin_cargarusuariosadmin"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L21",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_cargarusuariosadmin",
-      "target": "js_admin_renderusuarios"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L159",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_crearusuario",
-      "target": "js_admin_cargarusuariosadmin"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L124",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_eliminarusuario",
-      "target": "js_admin_cargarusuariosadmin"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L107",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_toggleusuario",
-      "target": "js_admin_cargarusuariosadmin"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L81",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_cambiarroleusuario",
-      "target": "js_admin_renderasignaciones"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L79",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_cambiarroleusuario",
-      "target": "js_admin_showadmintoast"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L148",
-      "weight": 1.0,
-      "source": "js_admin_cambiarroleusuario",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L108",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_toggleusuario",
-      "target": "js_admin_renderasignaciones"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L161",
-      "weight": 1.0,
-      "source": "js_admin_toggleusuario",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L124",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_eliminarusuario",
-      "target": "js_admin_showadmintoast"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L182",
-      "weight": 1.0,
-      "source": "js_admin_eliminarusuario",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L157",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_crearusuario",
-      "target": "js_admin_cerrarmodalcrearusuario"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L160",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_crearusuario",
-      "target": "js_admin_renderasignaciones"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L158",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_crearusuario",
-      "target": "js_admin_showadmintoast"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L226",
-      "weight": 1.0,
-      "source": "js_admin_crearusuario",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L245",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_asignarcampana",
-      "target": "js_admin_cargarcampanasadmin"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L178",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_cargarcampanasadmin",
-      "target": "js_admin_renderasignaciones"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/admin.js",
-      "source_location": "L243",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_admin_asignarcampana",
-      "target": "js_admin_showadmintoast"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/admin.js",
-      "source_location": "L311",
-      "weight": 1.0,
-      "source": "js_admin_asignarcampana",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L428",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_actualizarmetricaslocales"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L115",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_agregarmarcadores"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_alldata"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L879",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_calcindice"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L630",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_calcularruta"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L651",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_calcularrutacolonia"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L133",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_cargarcandidatos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L50",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_cargardatosiniciales"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L802",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_cargarindice"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L447",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_cargarmetricas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L484",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_cargarvalidacion"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L732",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_descargarreporte"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L526",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_fetchpredecir"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L316",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_filtrar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L323",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_filtrarportipo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L366",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_getcolor"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L204",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_guardartipo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L958",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_iniciarprecargas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L335",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_ira"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L620",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_limpiarruta"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L33",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_map"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_markers"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L105",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_mergedata"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L115",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_mergedataforce"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L151",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_popuphtml"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L576",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_predecirmanual"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L866",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_rendercalculadoraindice"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L399",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_renderleyendazonas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L262",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_renderlista"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L593",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_renderlistaruta"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L172",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_rendermapa"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L272",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_rendermetricaslocales"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L676",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_renderrutaenmapa"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L370",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_renderzonas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L343",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_resaltar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L247",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_revertirtipo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L38",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_rutadata"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L591",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_rutamarkersextra"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L589",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_rutaseleccion"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L746",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_showtab"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L26",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_tipocolor"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_tipoleg"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_tipos_es"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L507",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_togglepredmode"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L609",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_togglepunto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L350",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_togglezonas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L71",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_watchcacheready"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L39",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app",
-      "target": "js_app_zonascsvdata"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L542",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_fetchpredecir",
-      "target": "js_app_tipoleg"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L158",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_popuphtml",
-      "target": "js_app_tipoleg"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L215",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_guardartipo",
-      "target": "js_app_tipocolor"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L250",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_revertirtipo",
-      "target": "js_app_tipocolor"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L58",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_cargardatosiniciales",
-      "target": "js_app_renderlista"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L58",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_cargardatosiniciales",
-      "target": "js_app_rendermapa"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L62",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_cargardatosiniciales",
-      "target": "js_app_watchcacheready"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L79",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_watchcacheready",
-      "target": "js_app_mergedata"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L79",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_watchcacheready",
-      "target": "js_app_mergedataforce"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L111",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_mergedata",
-      "target": "js_app_agregarmarcadores"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L110",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_mergedata",
-      "target": "js_app_renderlista"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L120",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_mergedataforce",
-      "target": "js_app_agregarmarcadores"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L119",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_mergedataforce",
-      "target": "js_app_renderlista"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L116",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_agregarmarcadores",
-      "target": "js_app_rendermapa"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L147",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_cargarcandidatos",
-      "target": "js_app_renderlista"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L148",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_cargarcandidatos",
-      "target": "js_app_rendermapa"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L327",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_filtrarportipo",
-      "target": "js_app_cargarcandidatos"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "js/colonias.js",
-      "source_location": "L234",
-      "weight": 1.0,
-      "source": "js_colonias_oncoloniachange",
-      "target": "js_app_cargarcandidatos"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L251",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_revertirtipo",
-      "target": "js_app_popuphtml"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L320",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_filtrar",
-      "target": "js_app_rendermapa"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L237",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_guardartipo",
-      "target": "js_app_actualizarmetricaslocales"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L238",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_guardartipo",
-      "target": "js_app_calcindice"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L240",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_guardartipo",
-      "target": "js_app_revertirtipo"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/app.js",
-      "source_location": "L268",
-      "weight": 1.0,
-      "source": "js_app_revertirtipo",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L319",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_filtrar",
-      "target": "js_app_renderlista"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L269",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_renderlista",
-      "target": "js_app_rendermetricaslocales"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L358",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_togglezonas",
-      "target": "js_app_renderleyendazonas"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L357",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_togglezonas",
-      "target": "js_app_renderzonas"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L770",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_showtab",
-      "target": "js_app_cargarvalidacion"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L585",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_predecirmanual",
-      "target": "js_app_fetchpredecir"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L627",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_limpiarruta",
-      "target": "js_app_renderlistaruta"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L785",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_showtab",
-      "target": "js_app_renderlistaruta"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L616",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_togglepunto",
-      "target": "js_app_renderlistaruta"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/app.js",
-      "source_location": "L622",
-      "weight": 1.0,
-      "source": "js_app_togglepunto",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L642",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_calcularruta",
-      "target": "js_app_renderrutaenmapa"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/app.js",
-      "source_location": "L640",
-      "weight": 1.0,
-      "source": "js_app_calcularruta",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L666",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_calcularrutacolonia",
-      "target": "js_app_renderrutaenmapa"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L667",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_calcularrutacolonia",
-      "target": "js_app_showtab"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/app.js",
-      "source_location": "L664",
-      "weight": 1.0,
-      "source": "js_app_calcularrutacolonia",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "js/campanas.js",
-      "source_location": "L753",
-      "weight": 1.0,
-      "source": "js_campanas_verrutacampana",
-      "target": "js_app_renderrutaenmapa"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/app.js",
-      "source_location": "L746",
-      "weight": 1.0,
-      "source": "js_app_descargarreporte",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L774",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_showtab",
-      "target": "js_app_cargarindice"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "js/auth.js",
-      "source_location": "L286",
-      "weight": 1.0,
-      "source": "js_auth_applytecnicorestrictions",
-      "target": "js_app_showtab"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "js/campanas.js",
-      "source_location": "L754",
-      "weight": 1.0,
-      "source": "js_campanas_verrutacampana",
-      "target": "js_app_showtab"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "js/reportes.js",
-      "source_location": "L379",
-      "weight": 1.0,
-      "source": "js_reportes_irareporte",
-      "target": "js_app_showtab"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/app.js",
-      "source_location": "L819",
-      "weight": 1.0,
-      "source": "js_app_cargarindice",
-      "target": "components_indicepanel_fmt"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L859",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_cargarindice",
-      "target": "js_app_rendercalculadoraindice"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/app.js",
-      "source_location": "L876",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_app_rendercalculadoraindice",
-      "target": "js_app_calcindice"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/app.js",
-      "source_location": "L937",
-      "weight": 1.0,
-      "source": "js_app_calcindice",
-      "target": "components_indicepanel_fmt"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/auth.js",
-      "source_location": "L257",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_auth",
-      "target": "js_auth_applytecnicorestrictions"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/auth.js",
-      "source_location": "L201",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_auth",
-      "target": "js_auth_bootapp"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/auth.js",
-      "source_location": "L95",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_auth",
-      "target": "js_auth_dologin"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/auth.js",
-      "source_location": "L129",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_auth",
-      "target": "js_auth_dologingoogle"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/auth.js",
-      "source_location": "L295",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_auth",
-      "target": "js_auth_getauthtoken"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/auth.js",
-      "source_location": "L195",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_auth",
-      "target": "js_auth_logout"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/auth.js",
-      "source_location": "L181",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_auth",
-      "target": "js_auth_patchfetch"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/auth.js",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_auth",
-      "target": "js_auth_renderloginscreen"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/auth.js",
-      "source_location": "L124",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_auth",
-      "target": "js_auth_showloginerror"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/auth.js",
-      "source_location": "L86",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_auth",
-      "target": "js_auth_togglepass"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/auth.js",
-      "source_location": "L101",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_auth_dologin",
-      "target": "js_auth_showloginerror"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/auth.js",
-      "source_location": "L144",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_auth_dologingoogle",
-      "target": "js_auth_showloginerror"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/auth.js",
-      "source_location": "L251",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_auth_bootapp",
-      "target": "js_auth_applytecnicorestrictions"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/camera.js",
-      "source_location": "L13",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_camera",
-      "target": "js_camera_abrircamara"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/camera.js",
-      "source_location": "L30",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_camera",
-      "target": "js_camera_abrircamaramodal"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/camera.js",
-      "source_location": "L74",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_camera",
-      "target": "js_camera_cameracancelar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/camera.js",
-      "source_location": "L87",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_camera",
-      "target": "js_camera_cameracapturar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/camera.js",
-      "source_location": "L80",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_camera",
-      "target": "js_camera_cameradetenerstream"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/camera.js",
-      "source_location": "L100",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_camera",
-      "target": "js_camera_camerareintentar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/camera.js",
-      "source_location": "L68",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_camera",
-      "target": "js_camera_camerashowlive"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/camera.js",
-      "source_location": "L104",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_camera",
-      "target": "js_camera_camerausar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/camera.js",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_camera",
-      "target": "js_camera_esmobil"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/camera.js",
-      "source_location": "L14",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_camera_abrircamara",
-      "target": "js_camera_esmobil"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/camera.js",
-      "source_location": "L23",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_camera_abrircamara",
-      "target": "js_camera_abrircamaramodal"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "js/campanas.js",
-      "source_location": "L1096",
-      "weight": 1.0,
-      "source": "js_campanas_vfabrircamara",
-      "target": "js_camera_abrircamara"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "js/campanas.js",
-      "source_location": "L1073",
-      "weight": 1.0,
-      "source": "js_campanas_vfplantillaabrircamara",
-      "target": "js_camera_abrircamara"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "js/reportes.js",
-      "source_location": "L29",
-      "weight": 1.0,
-      "source": "js_reportes_reporteabrircamara",
-      "target": "js_camera_abrircamara"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/camera.js",
-      "source_location": "L56",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_camera_abrircamaramodal",
-      "target": "js_camera_camerashowlive"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/camera.js",
-      "source_location": "L34",
-      "weight": 1.0,
-      "source": "js_camera_abrircamaramodal",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/camera.js",
-      "source_location": "L101",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_camera_camerareintentar",
-      "target": "js_camera_camerashowlive"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/camera.js",
-      "source_location": "L75",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_camera_cameracancelar",
-      "target": "js_camera_cameradetenerstream"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1279",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_abrirmodalplantillas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L863",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_abrirmodalvisita"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1258",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_actualizarbadgegps"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L669",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_actualizarmeta"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1506",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_agregarcampoplantilla"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L626",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_agregarnegocio"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L576",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_buscarnegociosparaagregar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L950",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_cambiarplantillavisita"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_campananegocios"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_cargarcampanas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L831",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_cerrarcampana"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1349",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_cerrareditorplantilla"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L801",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_cerrarmodalcampana"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1286",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_cerrarmodalplantillas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L958",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_cerrarmodalvisita"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L806",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_crearcampana"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L763",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_descargarreportecampana"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L841",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_eliminarcampana"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1558",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_eliminarplantilla"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_epcampos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1431",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_ephandledown"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1455",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_ephandlemove"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1475",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_ephandleup"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1500",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_epquitarcampo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1356",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_epsyncdom"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1491",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_epupdatecampo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L712",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_guardarfechavisita"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1220",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_guardargpsvisita"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L704",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_guardarnotas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1514",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_guardarplantilla"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1142",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_guardarvisita"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1133",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_haversinem"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L985",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_inputparacampo"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1330",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_mostrareditorplantilla"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L792",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_mostrarmodalcrearcampana"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_plantillascache"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L656",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_quitarnegociocampana"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L596",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_renderbusquedaresultados"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L965",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_rendercamposvisita"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L333",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_renderchecklisttecnico"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L171",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_renderdetallecampana"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L192",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_renderdetallecampanatecnico"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1365",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_rendereditorcampos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L40",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_renderlistacampanas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L90",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_renderlistacampanastecnico"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1290",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_renderlistaplantillas"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L931",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_renderselectorplantilla"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L470",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_rendertablanegocioscampana"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L297",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_revertirpendiente"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L317",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_tecfiltro"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L559",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_togglebusquedaagregar"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L690",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_togglecompletado"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L152",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_vercampana"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L720",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_verrutacampana"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1095",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_vfabrircamara"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1104",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_vfabrirgaleria"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1053",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_vfboolchange"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1123",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_vfclearfoto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1110",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_vffixedfotochange"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1087",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_vffotochange"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1072",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_vfplantillaabrircamara"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1081",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_vfplantillaabrirgaleria"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L908",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_vfsetvisitado"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L917",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_vfvisitadochange"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_visitamodal"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L847",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas",
-      "target": "js_campanas_volverlistacampanas"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_cargarcampanas",
-      "target": "js_campanas_renderlistacampanas"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L34",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_cargarcampanas",
-      "target": "js_campanas_renderlistacampanastecnico"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L824",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_crearcampana",
-      "target": "js_campanas_cargarcampanas"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L855",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_volverlistacampanas",
-      "target": "js_campanas_cargarcampanas"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L168",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_vercampana",
-      "target": "js_campanas_renderdetallecampana"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L172",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_renderdetallecampana",
-      "target": "js_campanas_renderdetallecampanatecnico"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L187",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_renderdetallecampana",
-      "target": "js_campanas_rendertablanegocioscampana"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L673",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_actualizarmeta",
-      "target": "js_campanas_renderdetallecampanatecnico"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L291",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_renderdetallecampanatecnico",
-      "target": "js_campanas_renderchecklisttecnico"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L310",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_revertirpendiente",
-      "target": "js_campanas_actualizarmeta"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L316",
-      "weight": 1.0,
-      "source": "js_campanas_revertirpendiente",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L329",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_tecfiltro",
-      "target": "js_campanas_renderchecklisttecnico"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L471",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_rendertablanegocioscampana",
-      "target": "js_campanas_renderchecklisttecnico"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L649",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_agregarnegocio",
-      "target": "js_campanas_rendertablanegocioscampana"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1211",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_guardarvisita",
-      "target": "js_campanas_rendertablanegocioscampana"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L666",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_quitarnegociocampana",
-      "target": "js_campanas_rendertablanegocioscampana"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L568",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_togglebusquedaagregar",
-      "target": "js_campanas_buscarnegociosparaagregar"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L652",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_agregarnegocio",
-      "target": "js_campanas_buscarnegociosparaagregar"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L590",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_buscarnegociosparaagregar",
-      "target": "js_campanas_renderbusquedaresultados"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L650",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_agregarnegocio",
-      "target": "js_campanas_actualizarmeta"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1212",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_guardarvisita",
-      "target": "js_campanas_actualizarmeta"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L701",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_togglecompletado",
-      "target": "js_campanas_actualizarmeta"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L743",
-      "weight": 1.0,
-      "source": "js_campanas_verrutacampana",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L778",
-      "weight": 1.0,
-      "source": "js_campanas_descargarreportecampana",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L823",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_crearcampana",
-      "target": "js_campanas_cerrarmodalcampana"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L838",
-      "weight": 1.0,
-      "source": "js_campanas_crearcampana",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L838",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_cerrarcampana",
-      "target": "js_campanas_volverlistacampanas"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L844",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_eliminarcampana",
-      "target": "js_campanas_volverlistacampanas"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L903",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_abrirmodalvisita",
-      "target": "js_campanas_rendercamposvisita"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L902",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_abrirmodalvisita",
-      "target": "js_campanas_renderselectorplantilla"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L886",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_abrirmodalvisita",
-      "target": "js_campanas_vfsetvisitado"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L914",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_vfsetvisitado",
-      "target": "js_campanas_vfvisitadochange"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L954",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_cambiarplantillavisita",
-      "target": "js_campanas_renderselectorplantilla"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L955",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_cambiarplantillavisita",
-      "target": "js_campanas_rendercamposvisita"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L962",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_cerrarmodalvisita",
-      "target": "js_campanas_vfclearfoto"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1207",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_guardarvisita",
-      "target": "js_campanas_cerrarmodalvisita"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1232",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_guardargpsvisita",
-      "target": "js_campanas_haversinem"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1214",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_guardarvisita",
-      "target": "js_campanas_guardargpsvisita"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1228",
-      "weight": 1.0,
-      "source": "js_campanas_guardarvisita",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1253",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_guardargpsvisita",
-      "target": "js_campanas_actualizarbadgegps"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1283",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_abrirmodalplantillas",
-      "target": "js_campanas_renderlistaplantillas"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1351",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_cerrareditorplantilla",
-      "target": "js_campanas_abrirmodalplantillas"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1563",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_eliminarplantilla",
-      "target": "js_campanas_abrirmodalplantillas"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1333",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_mostrareditorplantilla",
-      "target": "js_campanas_cerrarmodalplantillas"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1345",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_mostrareditorplantilla",
-      "target": "js_campanas_rendereditorcampos"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1552",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_guardarplantilla",
-      "target": "js_campanas_cerrareditorplantilla"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1507",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_agregarcampoplantilla",
-      "target": "js_campanas_epsyncdom"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1433",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_ephandledown",
-      "target": "js_campanas_epsyncdom"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1501",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_epquitarcampo",
-      "target": "js_campanas_epsyncdom"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1492",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_epupdatecampo",
-      "target": "js_campanas_epsyncdom"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1519",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_guardarplantilla",
-      "target": "js_campanas_epsyncdom"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1509",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_agregarcampoplantilla",
-      "target": "js_campanas_rendereditorcampos"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1486",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_ephandleup",
-      "target": "js_campanas_rendereditorcampos"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1503",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_epquitarcampo",
-      "target": "js_campanas_rendereditorcampos"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/campanas.js",
-      "source_location": "L1496",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_campanas_epupdatecampo",
-      "target": "js_campanas_rendereditorcampos"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1528",
-      "weight": 1.0,
-      "source": "js_campanas_guardarplantilla",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/campanas.js",
-      "source_location": "L1578",
-      "weight": 1.0,
-      "source": "js_campanas_eliminarplantilla",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L190",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_buscarcoloniamatch"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L315",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_cargaragebs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L25",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_cargarcolonias"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L44",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_cargarcoloniasconcandidatos"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L243",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_cargarmunicipiosyucatan"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L18",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_colonia_colors"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_coloniasdata"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L227",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_oncoloniachange"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L58",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_poblarselectcolonia"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L328",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_renderagebs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L91",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_rendercoloniasreales"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L72",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_rendermunicipio"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L256",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_rendermunicipiosyucatan"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L158",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_renderzonasfirestore"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L175",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_resaltarcolonia"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L370",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_toggleagebs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L206",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_togglecoloniaslayer"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L288",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_togglemunicipiosyucatan"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias",
-      "target": "js_colonias_zonasdata"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L36",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias_cargarcolonias",
-      "target": "js_colonias_poblarselectcolonia"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias_cargarcolonias",
-      "target": "js_colonias_rendercoloniasreales"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L210",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias_togglecoloniaslayer",
-      "target": "js_colonias_cargarcolonias"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L94",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias_rendercoloniasreales",
-      "target": "js_colonias_renderzonasfirestore"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L232",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias_oncoloniachange",
-      "target": "js_colonias_resaltarcolonia"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L250",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias_cargarmunicipiosyucatan",
-      "target": "js_colonias_rendermunicipiosyucatan"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L293",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias_togglemunicipiosyucatan",
-      "target": "js_colonias_cargarmunicipiosyucatan"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L322",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias_cargaragebs",
-      "target": "js_colonias_renderagebs"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/colonias.js",
-      "source_location": "L375",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_colonias_toggleagebs",
-      "target": "js_colonias_cargaragebs"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L329",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_actualizarstatusreporte"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L192",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_cargarreportes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L371",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_eliminarreporte"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L142",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_enviarreporte"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L312",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_haversinem"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L377",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_irareporte"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L321",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_obtenergps"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L132",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_onmapclickreporte"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L211",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_renderlistareportes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L274",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_renderreportesenmapa"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L11",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_reporte_icons"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_reporteabrircamara"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L37",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_reporteabrirgaleria"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L111",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_reporteautoubicacion"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L54",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_reporteclearfoto"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L43",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_reportefotochange"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_reportemarkers"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L83",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_setreporteubicacion"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L20",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_status_labels"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L65",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes",
-      "target": "js_reportes_togglereportemode"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L174",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes_enviarreporte",
-      "target": "js_reportes_reporteclearfoto"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L137",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes_onmapclickreporte",
-      "target": "js_reportes_setreporteubicacion"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L118",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes_reporteautoubicacion",
-      "target": "js_reportes_setreporteubicacion"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L117",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes_reporteautoubicacion",
-      "target": "js_reportes_obtenergps"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L178",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes_enviarreporte",
-      "target": "js_reportes_cargarreportes"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "legacy/js/reportes.js",
-      "source_location": "L146",
-      "weight": 1.0,
-      "source": "js_reportes_enviarreporte",
-      "target": "ui_alert_alert"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L368",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes_actualizarstatusreporte",
-      "target": "js_reportes_cargarreportes"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L204",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes_cargarreportes",
-      "target": "js_reportes_renderlistareportes"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L205",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes_cargarreportes",
-      "target": "js_reportes_renderreportesenmapa"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L374",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes_eliminarreporte",
-      "target": "js_reportes_cargarreportes"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L342",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes_actualizarstatusreporte",
-      "target": "js_reportes_haversinem"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "js/reportes.js",
-      "source_location": "L336",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "js_reportes_actualizarstatusreporte",
-      "target": "js_reportes_obtenergps"
     },
     {
       "relation": "contains",
@@ -12463,9 +6791,9 @@
       "source_file": "src/app/ErrorBoundary.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_errorboundary",
-      "target": "app_errorboundary_errorboundary",
-      "confidence_score": 1.0
+      "target": "app_errorboundary_errorboundary"
     },
     {
       "relation": "contains",
@@ -12473,9 +6801,9 @@
       "source_file": "src/app/ErrorBoundary.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_errorboundary",
-      "target": "app_errorboundary_state",
-      "confidence_score": 1.0
+      "target": "app_errorboundary_state"
     },
     {
       "relation": "imports_from",
@@ -12484,9 +6812,9 @@
       "source_file": "src/app/main.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_main",
-      "target": "app_errorboundary",
-      "confidence_score": 1.0
+      "target": "app_errorboundary"
     },
     {
       "relation": "method",
@@ -12494,9 +6822,9 @@
       "source_file": "src/app/ErrorBoundary.tsx",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_errorboundary_errorboundary",
-      "target": "app_errorboundary_errorboundary_componentdidcatch",
-      "confidence_score": 1.0
+      "target": "app_errorboundary_errorboundary_componentdidcatch"
     },
     {
       "relation": "method",
@@ -12504,9 +6832,9 @@
       "source_file": "src/app/ErrorBoundary.tsx",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_errorboundary_errorboundary",
-      "target": "app_errorboundary_errorboundary_getderivedstatefromerror",
-      "confidence_score": 1.0
+      "target": "app_errorboundary_errorboundary_getderivedstatefromerror"
     },
     {
       "relation": "method",
@@ -12514,9 +6842,9 @@
       "source_file": "src/app/ErrorBoundary.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_errorboundary_errorboundary",
-      "target": "app_errorboundary_errorboundary_render",
-      "confidence_score": 1.0
+      "target": "app_errorboundary_errorboundary_render"
     },
     {
       "relation": "imports",
@@ -12525,9 +6853,9 @@
       "source_file": "src/app/main.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_main",
-      "target": "app_errorboundary_errorboundary",
-      "confidence_score": 1.0
+      "target": "app_errorboundary_errorboundary"
     },
     {
       "relation": "calls",
@@ -13054,9 +7382,9 @@
       "source_file": "src/core/auth/firebase.ts",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_firebase",
-      "target": "auth_firebase_activarappcheck",
-      "confidence_score": 1.0
+      "target": "auth_firebase_activarappcheck"
     },
     {
       "relation": "contains",
@@ -13119,9 +7447,9 @@
       "source_file": "src/core/auth/firebase.ts",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_firebase_getfirebaseauth",
-      "target": "auth_firebase_activarappcheck",
-      "confidence_score": 1.0
+      "target": "auth_firebase_activarappcheck"
     },
     {
       "relation": "imports",
@@ -23903,5 +18231,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "0d75beb6629cbdddb3e6e14b017af54f11c22090"
+  "built_at_commit": "812f0ce1c861f1a89b8bc1db5207ce808b2c717f"
 }

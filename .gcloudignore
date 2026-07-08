@@ -31,3 +31,10 @@ reporte_geolocalizacion.md
 
 # Branches/entornos dev
 backend/
+
+# Frontend: node_modules y build se regeneran en la etapa web del Docker.
+# El código fuente SÍ debe subirse (lo necesita `pnpm build` en Cloud Build).
+frontend/node_modules/
+frontend/dist/
+frontend/graphify-out/
+frontend/legacy/

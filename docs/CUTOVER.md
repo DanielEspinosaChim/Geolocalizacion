@@ -1,8 +1,10 @@
 # Corte del legacy → frontend nuevo
 
-Guía operativa para reemplazar el frontend legacy (`frontend/legacy/`) por la build de React
-(`frontend/dist/`). **Toca backend y deploy**, por lo que está fuera del alcance de la migración
-del frontend y requiere aprobación explícita antes de ejecutarse.
+> **Estado: aplicado en código en esta rama** (backend repuntado, Dockerfile multi-stage,
+> ignores, `frontend/legacy/` eliminada). Falta **desplegar y validar en producción**.
+> Este documento queda como referencia del cambio y guía de rollback.
+
+Reemplaza el frontend legacy por la build de React (`frontend/dist/`). **Toca backend y deploy**.
 
 ## Contexto actual
 

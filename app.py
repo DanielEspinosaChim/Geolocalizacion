@@ -94,7 +94,7 @@ def require_admin(request: Request) -> dict:
 
 # ── Paths & App ───────────────────────────────────────────────────────────────
 BASE  = Path(__file__).parent
-FRONT = BASE / "frontend" / "legacy"
+FRONT = BASE / "frontend" / "dist"   # build de Vite (ver docs/CUTOVER.md)
 PRED  = BASE / "data/procesado/predicciones_zonas.csv"
 CRUCE = BASE / "data/procesado/cruce_completo.csv"
 COLONIAS_GEOJSON  = BASE / "data/procesado/colonias_merida.geojson"
@@ -172,8 +172,9 @@ async def _auth_barrier(request: Request, call_next):
                 return JSONResponse({"detail": "Token inválido o expirado"}, status_code=401)
     return await call_next(request)
 
-app.mount("/css", StaticFiles(directory=str(FRONT / "css")), name="css")
-app.mount("/js",  StaticFiles(directory=str(FRONT / "js")),  name="js")
+# Assets con hash de Vite. check_dir=False: el dir solo existe tras `pnpm build`
+# (en dev se usa el server de Vite con proxy a /api, no este mount).
+app.mount("/assets", StaticFiles(directory=str(FRONT / "assets"), check_dir=False), name="assets")
 
 
 
@@ -1390,6 +1391,17 @@ async def eliminar_usuario(request: Request, uid: str):
         return {"ok": True}
     except Exception as e:
         raise HTTPException(400, str(e))
+
+
+# ── SPA fallback ──────────────────────────────────────────────────────────────
+# Cualquier ruta de cliente (React Router: /campanas, /admin, …) devuelve el
+# index.html. Se registra al final: las rutas /api, /uploads y el mount /assets
+# ya se resolvieron antes. NO intercepta la API (404 explícito).
+@app.get("/{full_path:path}", include_in_schema=False, response_class=FileResponse)
+def spa_fallback(full_path: str):
+    if full_path.startswith(("api/", "uploads/", "assets/")):
+        raise HTTPException(404, "No encontrado")
+    return FileResponse(str(FRONT / "index.html"))
 
 
 # ══════════════════════════════════════════════════════════════════════════════

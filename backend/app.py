@@ -17,7 +17,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 import uvicorn
@@ -27,7 +27,7 @@ from routers import candidatos, zonas, ruta, prediccion, reportes, visitas, camp
 from auth import require_any, require_admin
 
 ROOT_DIR     = Path(__file__).parent.parent
-FRONTEND_DIR = ROOT_DIR / "frontend" / "legacy"
+FRONTEND_DIR = ROOT_DIR / "frontend" / "dist"   # build de Vite (ver docs/CUTOVER.md)
 UPLOADS_DIR  = ROOT_DIR / "data" / "uploads"
 UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -103,13 +103,21 @@ def me(user=Depends(require_any)):
     return user
 
 # ── Archivos estáticos ────────────────────────────────────────────────────────
-app.mount("/css",     StaticFiles(directory=str(FRONTEND_DIR / "css")),  name="css")
-app.mount("/js",      StaticFiles(directory=str(FRONTEND_DIR / "js")),   name="js")
-app.mount("/uploads", StaticFiles(directory=str(UPLOADS_DIR)),           name="uploads")
+# /assets: build de Vite (check_dir=False → en dev se usa el server de Vite).
+app.mount("/assets",  StaticFiles(directory=str(FRONTEND_DIR / "assets"), check_dir=False), name="assets")
+app.mount("/uploads", StaticFiles(directory=str(UPLOADS_DIR)),            name="uploads")
 
 
 @app.get("/", include_in_schema=False)
 def index():
+    return FileResponse(str(FRONTEND_DIR / "index.html"))
+
+
+# SPA fallback: rutas de cliente (React Router) devuelven index.html.
+@app.get("/{full_path:path}", include_in_schema=False)
+def spa_fallback(full_path: str):
+    if full_path.startswith(("api/", "uploads/", "assets/")):
+        raise HTTPException(404, "No encontrado")
     return FileResponse(str(FRONTEND_DIR / "index.html"))
 
 

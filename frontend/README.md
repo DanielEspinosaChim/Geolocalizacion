@@ -1,8 +1,9 @@
 # GeoFormal — frontend nuevo (React 19 + Screaming Architecture)
 
-Migración strangler del frontend legacy (`frontend/legacy/`), que **sigue sirviéndose en
-producción** hasta alcanzar paridad. No mover ni borrar `legacy/`: el backend (`app.py`)
-monta `frontend/legacy/css`, `frontend/legacy/js` y sirve `frontend/legacy/index.html`.
+Frontend de GeoFormal. El corte del legacy ya está aplicado: el backend sirve `frontend/dist`
+(build de Vite) con mount `/assets` + SPA fallback, y `frontend/legacy/` fue eliminada.
+El `Dockerfile` es multi-stage (etapa `node` construye el frontend). Falta desplegar y validar
+en producción — ver `docs/CUTOVER.md`.
 
 ## Stack
 
