@@ -541,6 +541,11 @@ async function fetchPredecir(lat, lng){
 
   try {
     const r = await fetch(`/api/predecir?lat=${lat}&lng=${lng}`);
+    if (!r.ok) {
+      let msg = `Error del servidor (${r.status})`;
+      try { const e = await r.json(); msg = e.detail || msg; } catch {}
+      throw new Error(msg);
+    }
     const d = await r.json();
     let card = '';
     if(d.status === 'formal'){
@@ -808,77 +813,129 @@ function showTab(tab, btn){
 let _indiceLoaded = false;
 let _indiceBase   = null;  // datos crudos para la calculadora
 
+function _idxSet(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = val;
+}
+
 async function cargarIndice(){
   if(_indiceLoaded) return;
   _indiceLoaded = true;
   try {
     const d = await (window._preloads?.indice || fetch('/api/indice').then(r=>r.json()));
     _indiceBase = d;
-    const fmt = n => n.toLocaleString('es-MX');
+    const fmt = n => Math.round(n).toLocaleString('es-MX');
+    const fmtF = n => Number(n).toLocaleString('es-MX');
 
-    const N1    = fmt(d.datos_entrada.N1_denue);
-    const ngm   = fmt(d.datos_entrada.n_gmaps_negocios);
-    const m     = fmt(d.datos_entrada.m_overlap);
-    const ninf  = fmt(d.datos_entrada.n_inf_observados);
-    const esc0  = d.escenarios[0];
-    const Ninf  = fmt(esc0.N_inf_estimado);
+    // ── Valores de la API ──────────────────────────────────────────────────────
+    const N1       = d.datos_entrada.N1_denue;          // 144,576 DENUE (ancla multiplicador)
+    const m_denue  = d.datos_entrada.m_overlap;          // 8,901 total GMaps+OSM vs DENUE
+    const n_fb     = d.datos_entrada.n_formales_base;    // 3,809 GMaps+OSM vs CANACO
+    const n_fo     = d.datos_entrada.n_formales_otros;   // 4,616 cadenas/tipo/institucion
+    const n_inf    = d.datos_entrada.n_inf_observados;   // 5,966 informales observados
+    const n_real   = d.datos_entrada.n_gmaps_negocios;   // 23,292 total real (GMaps + OSM)
+    const n_csv    = d.datos_entrada.n_gmaps_csv || 29234; // total descargado bruto
 
-    const nGmapsCSV = d.datos_entrada.n_gmaps_csv || 29234;
-    const mTotal   = fmt(nGmapsCSV - d.datos_entrada.n_inf_observados);
-    const mOtros   = d.datos_entrada.n_formales_otros || 0;
-    const mBase    = d.datos_entrada.n_formales_base  || 0;
-    const nGmapsReal = d.datos_entrada.n_gmaps_negocios;  // 23,292 sin excluidos
-    ['idx-N1','idx-N1b','idx-N1c'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=N1; });
-    ['idx-ngmaps','idx-ngmaps2'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=ngm; });
-    document.getElementById('idx-ngmaps-raw').textContent = fmt(nGmapsCSV);
-    // mTotal = solo formales reales (sin excluidos — no son negocios, no cuentan aquí)
-    const mTotalFmt = fmt(d.datos_entrada.n_formales_total);
-    const elMTotal = document.getElementById('idx-m-total'); if(elMTotal) elMTotal.textContent = mTotalFmt;
-    const elMBreak = document.getElementById('idx-m-breakdown');
-    if(elMBreak) elMBreak.textContent = `${m} en DENUE · ${fmt(mBase)} BASE.xlsx · ${fmt(mOtros)} cadena/tipo`;
-    ['idx-m','idx-m2'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=m; });
-    ['idx-ninf-obs','idx-ninf-obs2','idx-ninf-obs3'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=ninf; });
-    // Verificación correcta: formales + informales = 23,292 (universo real, sin excluidos)
-    const elVerif = document.getElementById('idx-verificacion'); if(elVerif) elVerif.textContent = mTotalFmt + ' + ' + ninf + ' = ' + fmt(nGmapsReal) + ' ✓';
-    const elFP  = document.getElementById('idx-formula-p');    if(elFP)  elFP.textContent  = `Fórmula: p̂ = ${m} / ${N1} = ${d.cobertura_gmaps_pct}%`;
-    const elP2  = document.getElementById('idx-p2');           if(elP2)  elP2.textContent  = d.cobertura_gmaps_pct + '%';
-    const elFNI = document.getElementById('idx-formula-ninf'); if(elFNI) elFNI.innerHTML   = `Fórmula: N̂_inf = ${ninf} × (${N1} / ${m}) = ${ninf} × <span id="idx-mult">${d.multiplicador}</span>`;
-    ['idx-Ninf','idx-Ninf2','idx-Ninf3'].forEach(id => { const el=document.getElementById(id); if(el) el.textContent=Ninf; });
-    document.getElementById('idx-p').textContent    = d.cobertura_gmaps_pct + '%';
-    document.getElementById('idx-mult').textContent = d.multiplicador;
-    document.getElementById('idx-I').textContent    = esc0.indice_pct + '%';
-    document.getElementById('idx-central').textContent = d.central_indice_pct + '%';
-    document.getElementById('idx-ic').textContent =
-      d.ic95_indice_inferior.low + '–' + d.ic95_indice_inferior.high + '%';
+    // ── Datos OSM del análisis calculo_final.py (complementan a la API) ───────
+    // Estos valores son los conteos exactos leídos de cruce_completo.csv y BASE.xlsx.
+    // Se verifican porque m_denue = osm.denue + gm_denue (8,901) y
+    // n_fb = osm.canaco + gm_canaco (3,809) — ambos coinciden con la API.
+    const OSM = {
+      n_total:  2556,  // fuente=osm sin excluidos en cruce_completo.csv
+      n_denue:  1010,  // decision_fuente=formal_denue en registros OSM
+      n_canaco:  243,  // decision_fuente=formal_base en registros OSM
+      n_inf:     453,  // decision_fuente=informal en registros OSM
+      overlap:   402,  // negocios en GMaps y OSM a <150m con nombre similar (fuzzy≥80)
+    };
+    const N_DENUE_MERIDA = 56014; // DENUE filtrado a municipio=Mérida (calculo_final.py)
+    const N_CANACO_TOTAL = 11968; // CANACO BASE.xlsx H1+H2 deduplicado (calculo_final.py)
 
-    const rLow  = d.escenarios[0].indice_pct;
-    const rHigh = d.escenarios[2].indice_pct;
-    document.getElementById('idx-rango').textContent = rLow + '%–' + rHigh + '%';
+    // ── PASO 1: Las 4 fuentes ──────────────────────────────────────────────────
+    _idxSet('idx-s1-gmaps-raw', fmtF(n_csv));
+    _idxSet('idx-s1-denue',     fmtF(N1));
+    // OSM (2,556) y CANACO (11,968) se muestran como constantes derivadas en el HTML
 
-    const colores = ['#94a3b8','#60a5fa','#f59e0b','#f87171'];
-    document.getElementById('idx-escenarios').innerHTML = d.escenarios.map((e,i)=>{
+    // ── PASO 2: Limpieza ───────────────────────────────────────────────────────
+    const n_excluidos = n_csv - n_real;   // 29,234 − 23,292 = 5,942
+    _idxSet('idx-s2-total-raw',  fmtF(n_csv));
+    _idxSet('idx-s2-excluidos',  fmtF(Math.max(0, n_excluidos)));
+    _idxSet('idx-s2-total-real', fmtF(n_real));
+
+    // ── PASO 3: Cruces ─────────────────────────────────────────────────────────
+    const gm_denue  = m_denue - OSM.n_denue;        // 8,901 − 1,010 = 7,891
+    const gm_canaco = n_fb   - OSM.n_canaco;        // 3,809 − 243   = 3,566
+    _idxSet('idx-s3-total-ref',    fmtF(n_real));
+    _idxSet('idx-s3-gm-denue',     fmtF(gm_denue));
+    _idxSet('idx-s3-total-denue',  fmtF(m_denue));
+    _idxSet('idx-s3-gm-canaco',    fmtF(gm_canaco));
+    _idxSet('idx-s3-total-canaco', fmtF(n_fb));
+
+    // ── PASO 4: Clasificación ──────────────────────────────────────────────────
+    _idxSet('idx-s4-f-denue',    fmtF(m_denue));
+    _idxSet('idx-s4-f-otros',    fmtF(n_fb + n_fo));
+    _idxSet('idx-s4-informales', fmtF(n_inf));
+
+    // ── PASO 5: Chapman ────────────────────────────────────────────────────────
+    const n1_cr  = n_real - OSM.n_total;   // GMaps solos: 23,292 − 2,556 = 20,736
+    const n2_cr  = OSM.n_total;            // OSM solos:  2,556
+    const m_cr   = OSM.overlap;            // coincidencias: 402
+    const N_hat  = Math.round((n1_cr + 1) * (n2_cr + 1) / (m_cr + 1) - 1);
+    const N_inf_cr  = N_hat - N_DENUE_MERIDA;
+    const rate_cr   = N_inf_cr / N_hat * 100;
+
+    _idxSet('idx-s5-n1',   fmtF(n1_cr));
+    _idxSet('idx-s5-n1b',  fmtF(n1_cr));
+    _idxSet('idx-s5-Nhat', fmtF(N_hat));
+    _idxSet('idx-s5-Nhat2',fmtF(N_hat));
+    _idxSet('idx-s5-Ninf', fmtF(Math.max(0, N_inf_cr)));
+    _idxSet('idx-s5-rate', rate_cr.toFixed(1) + '%');
+
+    // ── PASO 6: Multiplicador ──────────────────────────────────────────────────
+    const p_f_pct = d.cobertura_gmaps_pct;
+    const p_f65   = (p_f_pct * 0.65).toFixed(2);
+    _idxSet('idx-s6-cobertura',   p_f_pct + '%');
+    _idxSet('idx-s6-cobertura65', p_f65 + '%');
+    _idxSet('idx-s6-ninf-obs',    fmtF(n_inf));
+
+    const colores      = ['#94a3b8','#60a5fa','#f59e0b','#f87171'];
+    const labels_alpha = [
+      'Los informales tienen la misma visibilidad digital — escenario optimista',
+      'Los informales tienen 20% menos visibilidad digital',
+      'Los informales tienen 35% menos visibilidad digital — escenario base',
+      'Los informales tienen 50% menos visibilidad digital — escenario conservador',
+    ];
+    const elScen = document.getElementById('idx-s6-scenarios');
+    if (elScen) elScen.innerHTML = d.escenarios.map((e, i) => {
       const w = Math.min(100, e.indice_pct * 1.2);
       return `
-      <div style="background:#070f1f;border:1px solid #0f2040;border-radius:10px;padding:14px 18px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-          <div>
-            <span style="font-size:12px;font-weight:700;color:${colores[i]}">${e.etiqueta}</span>
-            <span style="font-size:11px;color:#334155;margin-left:8px">α = ${e.alpha.toFixed(2)}</span>
+        <div style="background:#070f1f;border:1px solid #0f2040;border-radius:10px;padding:16px 18px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;gap:12px">
+            <div>
+              <span style="font-size:13px;font-weight:700;color:${colores[i]}">${e.etiqueta}</span>
+              <span style="font-size:10px;color:#334155;margin-left:8px">α = ${e.alpha.toFixed(2)}</span>
+              <div style="font-size:11px;color:#475569;margin-top:4px">${labels_alpha[i]}</div>
+            </div>
+            <div style="text-align:right;flex-shrink:0">
+              <div style="font-size:24px;font-weight:800;color:${colores[i]}">${e.indice_pct}%</div>
+              <div style="font-size:10px;color:#334155">${fmtF(e.N_inf_estimado)} informales est.</div>
+            </div>
           </div>
-          <div style="text-align:right">
-            <span style="font-size:18px;font-weight:800;color:${colores[i]}">${e.indice_pct}%</span>
-            <span style="font-size:10px;color:#334155;margin-left:6px">${fmt(e.N_inf_estimado)} negocios inf. estimados</span>
+          <div style="background:#0d1830;border-radius:4px;height:6px;overflow:hidden">
+            <div style="width:${w}%;height:100%;background:${colores[i]};border-radius:4px;transition:width .6s ease"></div>
           </div>
-        </div>
-        <div style="background:#0d1830;border-radius:4px;height:6px;overflow:hidden">
-          <div style="width:${w}%;height:100%;background:${colores[i]};border-radius:4px;transition:width .6s ease"></div>
-        </div>
-      </div>`;
+        </div>`;
     }).join('');
 
-    document.getElementById('idx-refs').innerHTML = d.referencias.map(ref=>
-      `<div>· ${ref}</div>`
-    ).join('');
+    // ── CONCLUSIÓN ─────────────────────────────────────────────────────────────
+    const r_low  = rate_cr.toFixed(1);
+    const r_high = d.escenarios[2].indice_pct;
+    _idxSet('idx-s7-low',     r_low + '%');
+    _idxSet('idx-s7-central', d.central_indice_pct + '%');
+    _idxSet('idx-s7-rango',   r_low + '%–' + r_high + '%');
+
+    // ── Referencias ────────────────────────────────────────────────────────────
+    const elRefs = document.getElementById('idx-s-refs');
+    if (elRefs) elRefs.innerHTML = d.referencias.map(r => `<div>· ${r}</div>`).join('');
 
     _renderCalculadoraIndice();
 

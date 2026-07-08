@@ -170,7 +170,10 @@ async def _auth_barrier(request: Request, call_next):
                 fb_auth.verify_id_token(hdr[7:])
             except Exception:
                 return JSONResponse({"detail": "Token inválido o expirado"}, status_code=401)
-    return await call_next(request)
+    try:
+        return await call_next(request)
+    except Exception:
+        return JSONResponse({"detail": "Error interno del servidor"}, status_code=500)
 
 app.mount("/css", StaticFiles(directory=str(FRONT / "css")), name="css")
 app.mount("/js",  StaticFiles(directory=str(FRONT / "js")),  name="js")
@@ -314,6 +317,32 @@ def _get_candidatos() -> list:
 def _invalidate_cache():
     global _cands_ts
     _cands_ts = 0.0
+
+
+# ── Helpers de coordenadas ────────────────────────────────────────────────────
+def _extract_lat(val):
+    """Convierte cualquier formato de Firestore (float, str, GeoPoint) a float lat, o None."""
+    if val is None:
+        return None
+    if hasattr(val, 'latitude'):   # GeoPoint de Firestore
+        return float(val.latitude)
+    try:
+        f = float(val)
+        return None if math.isnan(f) else f
+    except (TypeError, ValueError):
+        return None
+
+def _extract_lng(val):
+    """Convierte cualquier formato de Firestore (float, str, GeoPoint) a float lng, o None."""
+    if val is None:
+        return None
+    if hasattr(val, 'longitude'):  # GeoPoint de Firestore
+        return float(val.longitude)
+    try:
+        f = float(val)
+        return None if math.isnan(f) else f
+    except (TypeError, ValueError):
+        return None
 
 
 # ── Haversine ─────────────────────────────────────────────────────────────────
@@ -713,39 +742,54 @@ def muestra_validacion(limit: int = 2000):
 
 @app.get("/api/predecir")
 def predecir(lat: float, lng: float):
-    # 1. Buscar candidato cercano en Firestore (radio 300m)
-    cands = _get_candidatos()
-    mejor = None
-    dist_min = 9999.0
-    for c in cands:
-        if c.get("lat") and c.get("lng"):
-            d = _haversine(lat, lng, float(c["lat"]), float(c["lng"]))
+    try:
+        # 1. Buscar candidato cercano en Firestore (radio 300m)
+        cands = _get_candidatos()
+        mejor = None
+        dist_min = 9999.0
+        for c in cands:
+            clat = _extract_lat(c.get("lat"))
+            clng = _extract_lng(c.get("lng"))
+            if clat is None or clng is None:
+                continue
+            d = _haversine(lat, lng, clat, clng)
             if d < dist_min:
                 dist_min = d
                 mejor = c
-    if mejor and dist_min <= 300:
-        return {"status": mejor.get("tipo") or "informal",
-                "nombre": mejor.get("nombre"), "tipos": mejor.get("tipos"),
-                "distancia_m": round(dist_min, 1)}
+        if mejor and dist_min <= 300:
+            return {"status": mejor.get("tipo") or "informal",
+                    "nombre": mejor.get("nombre"), "tipos": mejor.get("tipos"),
+                    "distancia_m": round(dist_min, 1)}
 
-    # 2. Sin candidato cercano: usar predicción ML de la zona más cercana
-    if PRED.exists():
-        import pandas as pd
-        df = pd.read_csv(PRED)
-        if len(df):
-            df["dist"] = df.apply(
-                lambda r: _haversine(lat, lng, r["lat_centro"], r["lon_centro"]), axis=1)
-            closest = df.sort_values("dist").iloc[0]
-            dist_m = round(float(closest["dist"]), 1)
-            return {
-                "status": "zona",
-                "zona_nivel": str(closest.get("nivel", "Medio")),
-                "zona_score": int(closest.get("score_100", 50)),
-                "dist_zona_m": dist_m,
-                "estimado": dist_m > 2000,
-            }
+        # 2. Sin candidato cercano: usar predicción ML de la zona más cercana
+        if PRED.exists():
+            import pandas as pd
+            import math
+            df = pd.read_csv(PRED)
+            if len(df):
+                df["dist"] = df.apply(
+                    lambda r: _haversine(lat, lng, r["lat_centro"], r["lon_centro"]), axis=1)
+                closest = df.sort_values("dist").iloc[0]
+                dist_val = float(closest["dist"])
+                if math.isnan(dist_val):
+                    return {"status": "sin_datos"}
+                dist_m = round(dist_val, 1)
+                score_raw = closest.get("score_100", 50)
+                try:
+                    score = int(float(score_raw)) if not math.isnan(float(score_raw)) else 50
+                except (TypeError, ValueError):
+                    score = 50
+                return {
+                    "status": "zona",
+                    "zona_nivel": str(closest.get("nivel", "Medio")),
+                    "zona_score": score,
+                    "dist_zona_m": dist_m,
+                    "estimado": dist_m > 2000,
+                }
 
-    return {"status": "sin_datos"}
+        return {"status": "sin_datos"}
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc))
 
 
 # ── Ruta OSRM + TSP ───────────────────────────────────────────────────────────
