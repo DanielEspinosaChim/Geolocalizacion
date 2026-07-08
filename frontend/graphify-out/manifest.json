@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1783470262.8890178,
-    "ast_hash": "00b77dd00961589e3837d52d925386ef",
+    "mtime": 1783470721.552556,
+    "ast_hash": "b10f55407233b33f164e6c4cf16f24a9",
     "semantic_hash": ""
   },
   "postcss.config.js": {
@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "src/app/layout/AppShell.tsx": {
-    "mtime": 1783469735.1354134,
-    "ast_hash": "b68d052cefaf11510ad5ee10ff51d832",
+    "mtime": 1783470858.4792213,
+    "ast_hash": "97436516207b0d7e7335c89e9361b2d5",
     "semantic_hash": ""
   },
   "src/app/layout/NavTabs.tsx": {
@@ -105,8 +105,8 @@
     "semantic_hash": ""
   },
   "src/app/router/index.tsx": {
-    "mtime": 1783469750.4424837,
-    "ast_hash": "c850adb95e8fea3658c7619193a70b00",
+    "mtime": 1783470857.0240204,
+    "ast_hash": "5d4cf115bde2b65b330f96c28a14c7b0",
     "semantic_hash": ""
   },
   "src/core/api/http.ts": {
@@ -270,8 +270,8 @@
     "semantic_hash": ""
   },
   "tsconfig.app.json": {
-    "mtime": 1783451047.128366,
-    "ast_hash": "2d605800f15942857ab40210a65b98f3",
+    "mtime": 1783470860.2827725,
+    "ast_hash": "ea97d5e89d91fc563bb13d7153c3b520",
     "semantic_hash": ""
   },
   "tsconfig.json": {
@@ -312,6 +312,86 @@
   "src/shared/README.md": {
     "mtime": 1783451164.3536494,
     "ast_hash": "366042a3ddcf1daae1f447dcec7621a9",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/api/useCandidatos.ts": {
+    "mtime": 1783470739.0032687,
+    "ast_hash": "172861adac21cfb71863a83e1eb0d02f",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/api/useCargaProgresiva.ts": {
+    "mtime": 1783470746.166933,
+    "ast_hash": "95d8586cf8a819951125f5eebe27532a",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/api/useGuardarTipo.ts": {
+    "mtime": 1783470751.7768502,
+    "ast_hash": "5a1c9102b9d3e499928e2c035aef21a4",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/components/CandidatoCard.tsx": {
+    "mtime": 1783470786.1628993,
+    "ast_hash": "461ca818be5e1bade6bcd85703b0e27c",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/components/CandidatosList.tsx": {
+    "mtime": 1783470805.898065,
+    "ast_hash": "dbc73ffc929ebe0cc97e6752fea1ced6",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/components/ClusterLayer.tsx": {
+    "mtime": 1783470922.1918287,
+    "ast_hash": "7161a7d579bdb2c3c402e849a1f84bd0",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/components/EstadoCargaChip.tsx": {
+    "mtime": 1783470830.4633255,
+    "ast_hash": "0045f89a5d065f247770ed29fda31ef1",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/components/FiltrosBar.tsx": {
+    "mtime": 1783470799.3112285,
+    "ast_hash": "0b853f73bb7479208ab18e66d026d8e1",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/components/FlyTo.tsx": {
+    "mtime": 1783470775.2946544,
+    "ast_hash": "37e4d75c3ee176e632133f059ddc0dbd",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/components/MetricasPanel.tsx": {
+    "mtime": 1783470793.2415473,
+    "ast_hash": "c5704b8f793dff1a834ccd03d338f497",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/index.ts": {
+    "mtime": 1783470831.5735915,
+    "ast_hash": "64f04fb95274a09d8a438e26a75c2953",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/model/candidato.ts": {
+    "mtime": 1783470722.957894,
+    "ast_hash": "4bd5134c642c40ced2001dab5747228b",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/model/filtros.ts": {
+    "mtime": 1783470736.4978404,
+    "ast_hash": "eb3aa9f6cd0b3b0a3fb943d92d1a534a",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/model/giros.ts": {
+    "mtime": 1783470732.0331728,
+    "ast_hash": "a9960665bafdb5bb565ab4056c40b032",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/model/modelo.test.ts": {
+    "mtime": 1783470875.3712628,
+    "ast_hash": "02dab49272345de39281bd13c4cfc07b",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/routes/CandidatosPage.tsx": {
+    "mtime": 1783470826.217199,
+    "ast_hash": "0e4c89c111616c095c8ee070d2828c8b",
     "semantic_hash": ""
   }
 }
