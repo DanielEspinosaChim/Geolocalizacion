@@ -24,5 +24,7 @@ export default defineConfig({
   },
   test: {
     environment: 'jsdom',
+    // Necesario para el auto-cleanup de @testing-library/react entre tests
+    globals: true,
   },
 });

@@ -31,7 +31,8 @@ Las fronteras las aplica `eslint.config.js` (eslint-plugin-boundaries): romperla
 ## Plan de fases
 
 0. ✅ Andamiaje + guardarraíles (este scaffold)
-1. `core/auth` + login + router protegido
+1. ✅ `core/auth` + login + router protegido (token fresco por request, logout-on-401,
+   guardias `requireAuth`/`requireRole`, técnico aterriza en /campanas)
 2. Design system `shared/ui`
 3. `candidatos` (mapa + lista)
 4. `reportes` · `rutas` · `colonias-zonas`

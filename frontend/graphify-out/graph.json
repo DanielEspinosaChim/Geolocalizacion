@@ -610,7 +610,7 @@
       "source_location": "L639",
       "_origin": "ast",
       "id": "js_app_calcularruta",
-      "community": 2,
+      "community": 4,
       "norm_label": "calcularruta()"
     },
     {
@@ -620,7 +620,7 @@
       "source_location": "L660",
       "_origin": "ast",
       "id": "js_app_calcularrutacolonia",
-      "community": 2,
+      "community": 4,
       "norm_label": "calcularrutacolonia()"
     },
     {
@@ -630,7 +630,7 @@
       "source_location": "L685",
       "_origin": "ast",
       "id": "js_app_renderrutaenmapa",
-      "community": 2,
+      "community": 4,
       "norm_label": "renderrutaenmapa()"
     },
     {
@@ -640,7 +640,7 @@
       "source_location": "L741",
       "_origin": "ast",
       "id": "js_app_descargarreporte",
-      "community": 2,
+      "community": 4,
       "norm_label": "descargarreporte()"
     },
     {
@@ -1150,7 +1150,7 @@
       "source_location": "L732",
       "_origin": "ast",
       "id": "js_campanas_verrutacampana",
-      "community": 2,
+      "community": 4,
       "norm_label": "verrutacampana()"
     },
     {
@@ -1160,7 +1160,7 @@
       "source_location": "L775",
       "_origin": "ast",
       "id": "js_campanas_descargarreportecampana",
-      "community": 0,
+      "community": 4,
       "norm_label": "descargarreportecampana()"
     },
     {
@@ -2050,7 +2050,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "web_package",
-      "community": 5,
+      "community": 11,
       "norm_label": "package.json"
     },
     {
@@ -2060,7 +2060,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "web_package_name",
-      "community": 5,
+      "community": 11,
       "norm_label": "name"
     },
     {
@@ -2070,7 +2070,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "web_package_private",
-      "community": 5,
+      "community": 11,
       "norm_label": "private"
     },
     {
@@ -2080,7 +2080,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "web_package_version",
-      "community": 5,
+      "community": 11,
       "norm_label": "version"
     },
     {
@@ -2090,7 +2090,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "web_package_type",
-      "community": 5,
+      "community": 11,
       "norm_label": "type"
     },
     {
@@ -2100,7 +2100,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "web_package_packagemanager",
-      "community": 5,
+      "community": 11,
       "norm_label": "packagemanager"
     },
     {
@@ -2110,7 +2110,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "web_package_engines",
-      "community": 5,
+      "community": 11,
       "norm_label": "engines"
     },
     {
@@ -2120,7 +2120,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "web_package_engines_node",
-      "community": 5,
+      "community": 11,
       "norm_label": "node"
     },
     {
@@ -2220,74 +2220,104 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "web_package_dependencies",
-      "community": 5,
+      "community": 11,
       "norm_label": "dependencies"
+    },
+    {
+      "label": "@hookform/resolvers",
+      "file_type": "code",
+      "source_file": "web/package.json",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "web_package_dependencies_hookform_resolvers",
+      "community": 11,
+      "norm_label": "@hookform/resolvers"
     },
     {
       "label": "@tanstack/react-query",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "web_package_dependencies_tanstack_react_query",
-      "community": 5,
+      "community": 11,
       "norm_label": "@tanstack/react-query"
     },
     {
       "label": "axios",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "web_package_dependencies_axios",
-      "community": 5,
+      "community": 11,
       "norm_label": "axios"
+    },
+    {
+      "label": "firebase",
+      "file_type": "code",
+      "source_file": "web/package.json",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "web_package_dependencies_firebase",
+      "community": 11,
+      "norm_label": "firebase"
     },
     {
       "label": "react",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L23",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "web_package_dependencies_react",
-      "community": 5,
+      "community": 11,
       "norm_label": "react"
     },
     {
       "label": "react-dom",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L24",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "web_package_dependencies_react_dom",
-      "community": 5,
+      "community": 11,
       "norm_label": "react-dom"
+    },
+    {
+      "label": "react-hook-form",
+      "file_type": "code",
+      "source_file": "web/package.json",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "web_package_dependencies_react_hook_form",
+      "community": 11,
+      "norm_label": "react-hook-form"
     },
     {
       "label": "react-router",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L25",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "web_package_dependencies_react_router",
-      "community": 5,
+      "community": 11,
       "norm_label": "react-router"
     },
     {
       "label": "zod",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L26",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "web_package_dependencies_zod",
-      "community": 5,
+      "community": 11,
       "norm_label": "zod"
     },
     {
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L28",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "web_package_devdependencies",
       "community": 5,
@@ -2297,7 +2327,7 @@
       "label": "@eslint/js",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L29",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "web_package_devdependencies_eslint_js",
       "community": 5,
@@ -2307,7 +2337,7 @@
       "label": "@testing-library/react",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L30",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "web_package_devdependencies_testing_library_react",
       "community": 5,
@@ -2317,7 +2347,7 @@
       "label": "@types/node",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L31",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "web_package_devdependencies_types_node",
       "community": 5,
@@ -2327,7 +2357,7 @@
       "label": "@types/react",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L32",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "web_package_devdependencies_types_react",
       "community": 5,
@@ -2337,7 +2367,7 @@
       "label": "@types/react-dom",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L33",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "web_package_devdependencies_types_react_dom",
       "community": 5,
@@ -2347,7 +2377,7 @@
       "label": "@vitejs/plugin-react",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L34",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "web_package_devdependencies_vitejs_plugin_react",
       "community": 5,
@@ -2357,7 +2387,7 @@
       "label": "autoprefixer",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L35",
+      "source_location": "L38",
       "_origin": "ast",
       "id": "web_package_devdependencies_autoprefixer",
       "community": 5,
@@ -2367,7 +2397,7 @@
       "label": "eslint",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L36",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "web_package_devdependencies_eslint",
       "community": 5,
@@ -2377,7 +2407,7 @@
       "label": "eslint-import-resolver-typescript",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L37",
+      "source_location": "L40",
       "_origin": "ast",
       "id": "web_package_devdependencies_eslint_import_resolver_typescript",
       "community": 5,
@@ -2387,7 +2417,7 @@
       "label": "eslint-plugin-boundaries",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L38",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "web_package_devdependencies_eslint_plugin_boundaries",
       "community": 5,
@@ -2397,7 +2427,7 @@
       "label": "eslint-plugin-import",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L39",
+      "source_location": "L42",
       "_origin": "ast",
       "id": "web_package_devdependencies_eslint_plugin_import",
       "community": 5,
@@ -2407,7 +2437,7 @@
       "label": "eslint-plugin-jsx-a11y",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L40",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "web_package_devdependencies_eslint_plugin_jsx_a11y",
       "community": 5,
@@ -2417,7 +2447,7 @@
       "label": "eslint-plugin-react-hooks",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L41",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "web_package_devdependencies_eslint_plugin_react_hooks",
       "community": 5,
@@ -2427,7 +2457,7 @@
       "label": "jsdom",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L42",
+      "source_location": "L45",
       "_origin": "ast",
       "id": "web_package_devdependencies_jsdom",
       "community": 5,
@@ -2437,7 +2467,7 @@
       "label": "postcss",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L43",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "web_package_devdependencies_postcss",
       "community": 5,
@@ -2447,7 +2477,7 @@
       "label": "prettier",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L44",
+      "source_location": "L47",
       "_origin": "ast",
       "id": "web_package_devdependencies_prettier",
       "community": 5,
@@ -2457,7 +2487,7 @@
       "label": "tailwindcss",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L45",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "web_package_devdependencies_tailwindcss",
       "community": 5,
@@ -2467,7 +2497,7 @@
       "label": "typescript",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L46",
+      "source_location": "L49",
       "_origin": "ast",
       "id": "web_package_devdependencies_typescript",
       "community": 5,
@@ -2477,7 +2507,7 @@
       "label": "typescript-eslint",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L47",
+      "source_location": "L50",
       "_origin": "ast",
       "id": "web_package_devdependencies_typescript_eslint",
       "community": 5,
@@ -2487,7 +2517,7 @@
       "label": "vite",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L48",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "web_package_devdependencies_vite",
       "community": 5,
@@ -2497,7 +2527,7 @@
       "label": "vitest",
       "file_type": "code",
       "source_file": "web/package.json",
-      "source_location": "L49",
+      "source_location": "L52",
       "_origin": "ast",
       "id": "web_package_devdependencies_vitest",
       "community": 5,
@@ -2512,6 +2542,86 @@
       "id": "web_postcss_config",
       "community": 21,
       "norm_label": "postcss.config.js"
+    },
+    {
+      "label": "AppShell.tsx",
+      "file_type": "code",
+      "source_file": "web/src/app/layout/AppShell.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "layout_appshell",
+      "community": 24,
+      "norm_label": "appshell.tsx"
+    },
+    {
+      "label": "AppShell()",
+      "file_type": "code",
+      "source_file": "web/src/app/layout/AppShell.tsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "layout_appshell_appshell",
+      "community": 24,
+      "norm_label": "appshell()"
+    },
+    {
+      "label": "NavTabs.tsx",
+      "file_type": "code",
+      "source_file": "web/src/app/layout/NavTabs.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "layout_navtabs",
+      "community": 24,
+      "norm_label": "navtabs.tsx"
+    },
+    {
+      "label": "NavItem",
+      "file_type": "code",
+      "source_file": "web/src/app/layout/NavTabs.tsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "layout_navtabs_navitem",
+      "community": 24,
+      "norm_label": "navitem"
+    },
+    {
+      "label": "NAV_ITEMS",
+      "file_type": "code",
+      "source_file": "web/src/app/layout/NavTabs.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "layout_navtabs_nav_items",
+      "community": 24,
+      "norm_label": "nav_items"
+    },
+    {
+      "label": "NavTabs()",
+      "file_type": "code",
+      "source_file": "web/src/app/layout/NavTabs.tsx",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "layout_navtabs_navtabs",
+      "community": 24,
+      "norm_label": "navtabs()"
+    },
+    {
+      "label": "UserMenu.tsx",
+      "file_type": "code",
+      "source_file": "web/src/app/layout/UserMenu.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "layout_usermenu",
+      "community": 24,
+      "norm_label": "usermenu.tsx"
+    },
+    {
+      "label": "UserMenu()",
+      "file_type": "code",
+      "source_file": "web/src/app/layout/UserMenu.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "layout_usermenu_usermenu",
+      "community": 24,
+      "norm_label": "usermenu()"
     },
     {
       "label": "main.tsx",
@@ -2554,44 +2664,154 @@
       "norm_label": "appproviders()"
     },
     {
-      "label": "home.test.tsx",
+      "label": "PlaceholderPage.tsx",
       "file_type": "code",
-      "source_file": "web/src/app/router/home.test.tsx",
+      "source_file": "web/src/app/router/PlaceholderPage.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "router_home_test",
+      "id": "router_placeholderpage",
       "community": 10,
-      "norm_label": "home.test.tsx"
+      "norm_label": "placeholderpage.tsx"
     },
     {
-      "label": "home.tsx",
+      "label": "PlaceholderPageProps",
       "file_type": "code",
-      "source_file": "web/src/app/router/home.tsx",
+      "source_file": "web/src/app/router/PlaceholderPage.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "router_home",
+      "id": "router_placeholderpage_placeholderpageprops",
       "community": 10,
-      "norm_label": "home.tsx"
+      "norm_label": "placeholderpageprops"
     },
     {
-      "label": "FEATURES_PENDIENTES",
+      "label": "PlaceholderPage()",
       "file_type": "code",
-      "source_file": "web/src/app/router/home.tsx",
-      "source_location": "L2",
+      "source_file": "web/src/app/router/PlaceholderPage.tsx",
+      "source_location": "L8",
       "_origin": "ast",
-      "id": "router_home_features_pendientes",
+      "id": "router_placeholderpage_placeholderpage",
       "community": 10,
-      "norm_label": "features_pendientes"
+      "norm_label": "placeholderpage()"
     },
     {
-      "label": "HomePage()",
+      "label": "RouteError.tsx",
       "file_type": "code",
-      "source_file": "web/src/app/router/home.tsx",
-      "source_location": "L10",
+      "source_file": "web/src/app/router/RouteError.tsx",
+      "source_location": "L1",
       "_origin": "ast",
-      "id": "router_home_homepage",
+      "id": "router_routeerror",
       "community": 10,
-      "norm_label": "homepage()"
+      "norm_label": "routeerror.tsx"
+    },
+    {
+      "label": "RouteError()",
+      "file_type": "code",
+      "source_file": "web/src/app/router/RouteError.tsx",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "router_routeerror_routeerror",
+      "community": 10,
+      "norm_label": "routeerror()"
+    },
+    {
+      "label": "guards.test.ts",
+      "file_type": "code",
+      "source_file": "web/src/app/router/guards.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "router_guards_test",
+      "community": 10,
+      "norm_label": "guards.test.ts"
+    },
+    {
+      "label": "{ getSessionUser }",
+      "file_type": "code",
+      "source_file": "web/src/app/router/guards.test.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "router_guards_test_getsessionuser",
+      "community": 10,
+      "norm_label": "{ getsessionuser }"
+    },
+    {
+      "label": "admin",
+      "file_type": "code",
+      "source_file": "web/src/app/router/guards.test.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "router_guards_test_admin",
+      "community": 10,
+      "norm_label": "admin"
+    },
+    {
+      "label": "tecnico",
+      "file_type": "code",
+      "source_file": "web/src/app/router/guards.test.ts",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "router_guards_test_tecnico",
+      "community": 10,
+      "norm_label": "tecnico"
+    },
+    {
+      "label": "expectRedirect()",
+      "file_type": "code",
+      "source_file": "web/src/app/router/guards.test.ts",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "router_guards_test_expectredirect",
+      "community": 10,
+      "norm_label": "expectredirect()"
+    },
+    {
+      "label": "guards.ts",
+      "file_type": "code",
+      "source_file": "web/src/app/router/guards.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "router_guards",
+      "community": 10,
+      "norm_label": "guards.ts"
+    },
+    {
+      "label": "requireAuth()",
+      "file_type": "code",
+      "source_file": "web/src/app/router/guards.ts",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "router_guards_requireauth",
+      "community": 10,
+      "norm_label": "requireauth()"
+    },
+    {
+      "label": "requireRole()",
+      "file_type": "code",
+      "source_file": "web/src/app/router/guards.ts",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "router_guards_requirerole",
+      "community": 10,
+      "norm_label": "requirerole()"
+    },
+    {
+      "label": "redirectIfAuthed()",
+      "file_type": "code",
+      "source_file": "web/src/app/router/guards.ts",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "router_guards_redirectifauthed",
+      "community": 10,
+      "norm_label": "redirectifauthed()"
+    },
+    {
+      "label": "indexLoader()",
+      "file_type": "code",
+      "source_file": "web/src/app/router/guards.ts",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "router_guards_indexloader",
+      "community": 10,
+      "norm_label": "indexloader()"
     },
     {
       "label": "index.tsx",
@@ -2604,10 +2824,20 @@
       "norm_label": "index.tsx"
     },
     {
+      "label": "placeholder()",
+      "file_type": "code",
+      "source_file": "web/src/app/router/index.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "router_index_placeholder",
+      "community": 10,
+      "norm_label": "placeholder()"
+    },
+    {
       "label": "router",
       "file_type": "code",
       "source_file": "web/src/app/router/index.tsx",
-      "source_location": "L7",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "router_index_router",
       "community": 10,
@@ -2627,7 +2857,7 @@
       "label": "ApiError",
       "file_type": "code",
       "source_file": "web/src/core/api/http.ts",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "api_http_apierror",
       "community": 13,
@@ -2637,7 +2867,7 @@
       "label": ".constructor()",
       "file_type": "code",
       "source_file": "web/src/core/api/http.ts",
-      "source_location": "L6",
+      "source_location": "L7",
       "_origin": "ast",
       "id": "api_http_apierror_constructor",
       "community": 13,
@@ -2647,7 +2877,7 @@
       "label": "http",
       "file_type": "code",
       "source_file": "web/src/core/api/http.ts",
-      "source_location": "L16",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "api_http_http",
       "community": 13,
@@ -2664,6 +2894,176 @@
       "norm_label": "index.ts"
     },
     {
+      "label": "firebase.ts",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/firebase.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "auth_firebase",
+      "community": 25,
+      "norm_label": "firebase.ts"
+    },
+    {
+      "label": "getFirebaseAuth()",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/firebase.ts",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "auth_firebase_getfirebaseauth",
+      "community": 25,
+      "norm_label": "getfirebaseauth()"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/index.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "web_src_core_auth_index_ts_auth_index",
+      "community": 25,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "session.ts",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "auth_session",
+      "community": 25,
+      "norm_label": "session.ts"
+    },
+    {
+      "label": "Role",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "auth_session_role",
+      "community": 25,
+      "norm_label": "role"
+    },
+    {
+      "label": "SessionUser",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "auth_session_sessionuser",
+      "community": 25,
+      "norm_label": "sessionuser"
+    },
+    {
+      "label": "SessionSnapshot",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "auth_session_sessionsnapshot",
+      "community": 25,
+      "norm_label": "sessionsnapshot"
+    },
+    {
+      "label": "snapshot",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "auth_session_snapshot",
+      "community": 25,
+      "norm_label": "snapshot"
+    },
+    {
+      "label": "listeners",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "auth_session_listeners",
+      "community": 25,
+      "norm_label": "listeners"
+    },
+    {
+      "label": "toSessionUser()",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "auth_session_tosessionuser",
+      "community": 25,
+      "norm_label": "tosessionuser()"
+    },
+    {
+      "label": "ensureWatcher()",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "auth_session_ensurewatcher",
+      "community": 25,
+      "norm_label": "ensurewatcher()"
+    },
+    {
+      "label": "getSessionUser()",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "auth_session_getsessionuser",
+      "community": 10,
+      "norm_label": "getsessionuser()"
+    },
+    {
+      "label": "getFreshToken()",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "auth_session_getfreshtoken",
+      "community": 25,
+      "norm_label": "getfreshtoken()"
+    },
+    {
+      "label": "subscribeSession()",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "auth_session_subscribesession",
+      "community": 25,
+      "norm_label": "subscribesession()"
+    },
+    {
+      "label": "getSessionSnapshot()",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "auth_session_getsessionsnapshot",
+      "community": 25,
+      "norm_label": "getsessionsnapshot()"
+    },
+    {
+      "label": "signOutUser()",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "auth_session_signoutuser",
+      "community": 25,
+      "norm_label": "signoutuser()"
+    },
+    {
+      "label": "signOutAndRedirect()",
+      "file_type": "code",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L76",
+      "_origin": "ast",
+      "id": "auth_session_signoutandredirect",
+      "community": 25,
+      "norm_label": "signoutandredirect()"
+    },
+    {
       "label": "env.ts",
       "file_type": "code",
       "source_file": "web/src/core/config/env.ts",
@@ -2677,7 +3077,7 @@
       "label": "envSchema",
       "file_type": "code",
       "source_file": "web/src/core/config/env.ts",
-      "source_location": "L7",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "config_env_envschema",
       "community": 14,
@@ -2687,7 +3087,7 @@
       "label": "parsed",
       "file_type": "code",
       "source_file": "web/src/core/config/env.ts",
-      "source_location": "L11",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "config_env_parsed",
       "community": 14,
@@ -2697,7 +3097,7 @@
       "label": "env",
       "file_type": "code",
       "source_file": "web/src/core/config/env.ts",
-      "source_location": "L16",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "config_env_env",
       "community": 14,
@@ -2742,6 +3142,366 @@
       "id": "query_queryclient_queryclient",
       "community": 17,
       "norm_label": "queryclient"
+    },
+    {
+      "label": "sign-in.ts",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "api_sign_in",
+      "community": 25,
+      "norm_label": "sign-in.ts"
+    },
+    {
+      "label": "ERROR_MESSAGES",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "api_sign_in_error_messages",
+      "community": 25,
+      "norm_label": "error_messages"
+    },
+    {
+      "label": "SILENT_CODES",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "api_sign_in_silent_codes",
+      "community": 25,
+      "norm_label": "silent_codes"
+    },
+    {
+      "label": "SignInError",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "api_sign_in_signinerror",
+      "community": 25,
+      "norm_label": "signinerror"
+    },
+    {
+      "label": "translate()",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "api_sign_in_translate",
+      "community": 25,
+      "norm_label": "translate()"
+    },
+    {
+      "label": "signInWithEmail()",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "api_sign_in_signinwithemail",
+      "community": 25,
+      "norm_label": "signinwithemail()"
+    },
+    {
+      "label": "signInWithGoogle()",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L41",
+      "_origin": "ast",
+      "id": "api_sign_in_signinwithgoogle",
+      "community": 25,
+      "norm_label": "signinwithgoogle()"
+    },
+    {
+      "label": "GoogleIcon.tsx",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/components/GoogleIcon.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_googleicon",
+      "community": 24,
+      "norm_label": "googleicon.tsx"
+    },
+    {
+      "label": "GoogleIcon()",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/components/GoogleIcon.tsx",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "components_googleicon_googleicon",
+      "community": 24,
+      "norm_label": "googleicon()"
+    },
+    {
+      "label": "LoginForm.test.tsx",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/components/LoginForm.test.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_loginform_test",
+      "community": 24,
+      "norm_label": "loginform.test.tsx"
+    },
+    {
+      "label": "{ signInWithEmail }",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/components/LoginForm.test.tsx",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "components_loginform_test_signinwithemail",
+      "community": 24,
+      "norm_label": "{ signinwithemail }"
+    },
+    {
+      "label": "renderForm()",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/components/LoginForm.test.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "components_loginform_test_renderform",
+      "community": 24,
+      "norm_label": "renderform()"
+    },
+    {
+      "label": "LoginForm.tsx",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/components/LoginForm.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_loginform",
+      "community": 24,
+      "norm_label": "loginform.tsx"
+    },
+    {
+      "label": "Divider()",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/components/LoginForm.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "components_loginform_divider",
+      "community": 24,
+      "norm_label": "divider()"
+    },
+    {
+      "label": "LoginForm()",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/components/LoginForm.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "components_loginform_loginform",
+      "community": 24,
+      "norm_label": "loginform()"
+    },
+    {
+      "label": "useSession.ts",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/hooks/useSession.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "hooks_usesession",
+      "community": 24,
+      "norm_label": "usesession.ts"
+    },
+    {
+      "label": "useSession()",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/hooks/useSession.ts",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "hooks_usesession_usesession",
+      "community": 24,
+      "norm_label": "usesession()"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/index.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "web_src_features_auth_index_ts_auth_index",
+      "community": 24,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "login.ts",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/model/login.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "model_login",
+      "community": 24,
+      "norm_label": "login.ts"
+    },
+    {
+      "label": "loginSchema",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/model/login.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "model_login_loginschema",
+      "community": 24,
+      "norm_label": "loginschema"
+    },
+    {
+      "label": "LoginInput",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/model/login.ts",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "model_login_logininput",
+      "community": 24,
+      "norm_label": "logininput"
+    },
+    {
+      "label": "LoginPage.tsx",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/routes/LoginPage.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "routes_loginpage",
+      "community": 24,
+      "norm_label": "loginpage.tsx"
+    },
+    {
+      "label": "LoginPage()",
+      "file_type": "code",
+      "source_file": "web/src/features/auth/routes/LoginPage.tsx",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "routes_loginpage_loginpage",
+      "community": 24,
+      "norm_label": "loginpage()"
+    },
+    {
+      "label": "Alert.tsx",
+      "file_type": "code",
+      "source_file": "web/src/shared/ui/Alert.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "ui_alert",
+      "community": 26,
+      "norm_label": "alert.tsx"
+    },
+    {
+      "label": "TONE_CLASSES",
+      "file_type": "code",
+      "source_file": "web/src/shared/ui/Alert.tsx",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "ui_alert_tone_classes",
+      "community": 26,
+      "norm_label": "tone_classes"
+    },
+    {
+      "label": "AlertProps",
+      "file_type": "code",
+      "source_file": "web/src/shared/ui/Alert.tsx",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "ui_alert_alertprops",
+      "community": 26,
+      "norm_label": "alertprops"
+    },
+    {
+      "label": "Alert()",
+      "file_type": "code",
+      "source_file": "web/src/shared/ui/Alert.tsx",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "ui_alert_alert",
+      "community": 4,
+      "norm_label": "alert()"
+    },
+    {
+      "label": "Button.tsx",
+      "file_type": "code",
+      "source_file": "web/src/shared/ui/Button.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "ui_button",
+      "community": 26,
+      "norm_label": "button.tsx"
+    },
+    {
+      "label": "Variant",
+      "file_type": "code",
+      "source_file": "web/src/shared/ui/Button.tsx",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "ui_button_variant",
+      "community": 26,
+      "norm_label": "variant"
+    },
+    {
+      "label": "VARIANT_CLASSES",
+      "file_type": "code",
+      "source_file": "web/src/shared/ui/Button.tsx",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "ui_button_variant_classes",
+      "community": 26,
+      "norm_label": "variant_classes"
+    },
+    {
+      "label": "ButtonProps",
+      "file_type": "code",
+      "source_file": "web/src/shared/ui/Button.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "ui_button_buttonprops",
+      "community": 26,
+      "norm_label": "buttonprops"
+    },
+    {
+      "label": "Button()",
+      "file_type": "code",
+      "source_file": "web/src/shared/ui/Button.tsx",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "ui_button_button",
+      "community": 26,
+      "norm_label": "button()"
+    },
+    {
+      "label": "TextField.tsx",
+      "file_type": "code",
+      "source_file": "web/src/shared/ui/TextField.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "ui_textfield",
+      "community": 26,
+      "norm_label": "textfield.tsx"
+    },
+    {
+      "label": "TextFieldProps",
+      "file_type": "code",
+      "source_file": "web/src/shared/ui/TextField.tsx",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "ui_textfield_textfieldprops",
+      "community": 26,
+      "norm_label": "textfieldprops"
+    },
+    {
+      "label": "TextField",
+      "file_type": "code",
+      "source_file": "web/src/shared/ui/TextField.tsx",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "ui_textfield_textfield",
+      "community": 26,
+      "norm_label": "textfield"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "web/src/shared/ui/index.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "ui_index",
+      "community": 26,
+      "norm_label": "index.ts"
     },
     {
       "label": "tailwind.config.ts",
@@ -3321,9 +4081,9 @@
       "source_file": "legacy/js/admin.js",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "js_admin",
-      "target": "js_admin_abrirmodalcambiarpass",
-      "confidence_score": 1.0
+      "target": "js_admin_abrirmodalcambiarpass"
     },
     {
       "relation": "contains",
@@ -3361,9 +4121,9 @@
       "source_file": "legacy/js/admin.js",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "js_admin",
-      "target": "js_admin_cambiarcontrasena",
-      "confidence_score": 1.0
+      "target": "js_admin_cambiarcontrasena"
     },
     {
       "relation": "contains",
@@ -3411,9 +4171,9 @@
       "source_file": "legacy/js/admin.js",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "js_admin",
-      "target": "js_admin_cerrarmodalcambiarpass",
-      "confidence_score": 1.0
+      "target": "js_admin_cerrarmodalcambiarpass"
     },
     {
       "relation": "contains",
@@ -3471,9 +4231,9 @@
       "source_file": "legacy/js/admin.js",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "js_admin",
-      "target": "js_admin_rendermicuenta",
-      "confidence_score": 1.0
+      "target": "js_admin_rendermicuenta"
     },
     {
       "relation": "contains",
@@ -3534,9 +4294,9 @@
       "source_file": "legacy/js/admin.js",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "js_admin_cargarpaneladmin",
-      "target": "js_admin_rendermicuenta",
-      "confidence_score": 1.0
+      "target": "js_admin_rendermicuenta"
     },
     {
       "relation": "calls",
@@ -3618,6 +4378,17 @@
     {
       "relation": "calls",
       "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L148",
+      "weight": 1.0,
+      "source": "js_admin_cambiarroleusuario",
+      "target": "ui_alert_alert"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "js/admin.js",
       "source_location": "L108",
@@ -3629,6 +4400,17 @@
     {
       "relation": "calls",
       "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L161",
+      "weight": 1.0,
+      "source": "js_admin_toggleusuario",
+      "target": "ui_alert_alert"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "js/admin.js",
       "source_location": "L124",
@@ -3636,6 +4418,17 @@
       "confidence_score": 1.0,
       "source": "js_admin_eliminarusuario",
       "target": "js_admin_showadmintoast"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "js_admin_eliminarusuario",
+      "target": "ui_alert_alert"
     },
     {
       "relation": "calls",
@@ -3673,6 +4466,17 @@
     {
       "relation": "calls",
       "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L226",
+      "weight": 1.0,
+      "source": "js_admin_crearusuario",
+      "target": "ui_alert_alert"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "js/admin.js",
       "source_location": "L245",
@@ -3702,6 +4506,17 @@
       "confidence_score": 1.0,
       "source": "js_admin_asignarcampana",
       "target": "js_admin_showadmintoast"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L311",
+      "weight": 1.0,
+      "source": "js_admin_asignarcampana",
+      "target": "ui_alert_alert"
     },
     {
       "relation": "contains",
@@ -4439,6 +5254,17 @@
     {
       "relation": "calls",
       "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/app.js",
+      "source_location": "L268",
+      "weight": 1.0,
+      "source": "js_app_revertirtipo",
+      "target": "ui_alert_alert"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "js/app.js",
       "source_location": "L319",
@@ -4538,6 +5364,17 @@
     {
       "relation": "calls",
       "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/app.js",
+      "source_location": "L622",
+      "weight": 1.0,
+      "source": "js_app_togglepunto",
+      "target": "ui_alert_alert"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "js/app.js",
       "source_location": "L642",
@@ -4545,6 +5382,17 @@
       "confidence_score": 1.0,
       "source": "js_app_calcularruta",
       "target": "js_app_renderrutaenmapa"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/app.js",
+      "source_location": "L640",
+      "weight": 1.0,
+      "source": "js_app_calcularruta",
+      "target": "ui_alert_alert"
     },
     {
       "relation": "calls",
@@ -4573,11 +5421,33 @@
       "context": "call",
       "confidence": "INFERRED",
       "confidence_score": 0.8,
+      "source_file": "legacy/js/app.js",
+      "source_location": "L664",
+      "weight": 1.0,
+      "source": "js_app_calcularrutacolonia",
+      "target": "ui_alert_alert"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
       "source_file": "js/campanas.js",
       "source_location": "L753",
       "weight": 1.0,
       "source": "js_campanas_verrutacampana",
       "target": "js_app_renderrutaenmapa"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/app.js",
+      "source_location": "L746",
+      "weight": 1.0,
+      "source": "js_app_descargarreporte",
+      "target": "ui_alert_alert"
     },
     {
       "relation": "calls",
@@ -4933,6 +5803,17 @@
       "confidence_score": 1.0,
       "source": "js_camera_abrircamaramodal",
       "target": "js_camera_camerashowlive"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/camera.js",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "js_camera_abrircamaramodal",
+      "target": "ui_alert_alert"
     },
     {
       "relation": "calls",
@@ -5729,6 +6610,17 @@
     {
       "relation": "calls",
       "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/campanas.js",
+      "source_location": "L316",
+      "weight": 1.0,
+      "source": "js_campanas_revertirpendiente",
+      "target": "ui_alert_alert"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "js/campanas.js",
       "source_location": "L329",
@@ -5850,6 +6742,28 @@
     {
       "relation": "calls",
       "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/campanas.js",
+      "source_location": "L743",
+      "weight": 1.0,
+      "source": "js_campanas_verrutacampana",
+      "target": "ui_alert_alert"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/campanas.js",
+      "source_location": "L778",
+      "weight": 1.0,
+      "source": "js_campanas_descargarreportecampana",
+      "target": "ui_alert_alert"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "js/campanas.js",
       "source_location": "L823",
@@ -5857,6 +6771,17 @@
       "confidence_score": 1.0,
       "source": "js_campanas_crearcampana",
       "target": "js_campanas_cerrarmodalcampana"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/campanas.js",
+      "source_location": "L838",
+      "weight": 1.0,
+      "source": "js_campanas_crearcampana",
+      "target": "ui_alert_alert"
     },
     {
       "relation": "calls",
@@ -5989,6 +6914,17 @@
       "confidence_score": 1.0,
       "source": "js_campanas_guardarvisita",
       "target": "js_campanas_guardargpsvisita"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/campanas.js",
+      "source_location": "L1228",
+      "weight": 1.0,
+      "source": "js_campanas_guardarvisita",
+      "target": "ui_alert_alert"
     },
     {
       "relation": "calls",
@@ -6165,6 +7101,28 @@
       "confidence_score": 1.0,
       "source": "js_campanas_epupdatecampo",
       "target": "js_campanas_rendereditorcampos"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/campanas.js",
+      "source_location": "L1528",
+      "weight": 1.0,
+      "source": "js_campanas_guardarplantilla",
+      "target": "ui_alert_alert"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/campanas.js",
+      "source_location": "L1578",
+      "weight": 1.0,
+      "source": "js_campanas_eliminarplantilla",
+      "target": "ui_alert_alert"
     },
     {
       "relation": "contains",
@@ -6713,6 +7671,17 @@
     {
       "relation": "calls",
       "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "legacy/js/reportes.js",
+      "source_location": "L146",
+      "weight": 1.0,
+      "source": "js_reportes_enviarreporte",
+      "target": "ui_alert_alert"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "js/reportes.js",
       "source_location": "L368",
@@ -7010,6 +7979,26 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "web/package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "web_package_dependencies",
+      "target": "web_package_dependencies_firebase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/package.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "web_package_dependencies",
+      "target": "web_package_dependencies_hookform_resolvers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/package.json",
       "source_location": "L23",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -7025,6 +8014,16 @@
       "confidence_score": 1.0,
       "source": "web_package_dependencies",
       "target": "web_package_dependencies_react_dom"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "web_package_dependencies",
+      "target": "web_package_dependencies_react_hook_form",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7269,6 +8268,133 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "web/src/app/layout/AppShell.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "layout_appshell",
+      "target": "layout_appshell_appshell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/layout/AppShell.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "layout_appshell",
+      "target": "layout_navtabs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/layout/AppShell.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "layout_appshell",
+      "target": "layout_navtabs_navtabs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/layout/AppShell.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "layout_appshell",
+      "target": "layout_usermenu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/layout/AppShell.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "layout_appshell",
+      "target": "layout_usermenu_usermenu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/index.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "router_index",
+      "target": "layout_appshell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "web/src/app/layout/AppShell.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "layout_appshell_appshell",
+      "target": "hooks_usesession_usesession"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/index.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "router_index",
+      "target": "layout_appshell_appshell",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/layout/NavTabs.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "layout_navtabs",
+      "target": "layout_navtabs_nav_items",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/layout/NavTabs.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "layout_navtabs",
+      "target": "layout_navtabs_navitem",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/layout/NavTabs.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "layout_navtabs",
+      "target": "layout_navtabs_navtabs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/layout/UserMenu.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "layout_usermenu",
+      "target": "layout_usermenu_usermenu",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "web/src/app/main.tsx",
       "source_location": "L8",
       "weight": 1.0,
@@ -7334,65 +8460,308 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "web/src/app/router/home.test.tsx",
-      "source_location": "L3",
+      "source_file": "web/src/app/router/index.tsx",
+      "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "router_home_test",
-      "target": "router_home"
+      "source": "router_index",
+      "target": "router_placeholderpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/PlaceholderPage.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "router_placeholderpage",
+      "target": "router_placeholderpage_placeholderpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/PlaceholderPage.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "router_placeholderpage",
+      "target": "router_placeholderpage_placeholderpageprops",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "web/src/app/router/home.test.tsx",
-      "source_location": "L3",
+      "source_file": "web/src/app/router/index.tsx",
+      "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "router_home_test",
-      "target": "router_home_homepage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "web/src/app/router/home.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "router_home",
-      "target": "router_home_features_pendientes"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "web/src/app/router/home.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "router_home",
-      "target": "router_home_homepage"
+      "source": "router_index",
+      "target": "router_placeholderpage_placeholderpage",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "web/src/app/router/index.tsx",
-      "source_location": "L2",
+      "source_location": "L6",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "router_index",
-      "target": "router_home"
+      "target": "router_routeerror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/RouteError.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "router_routeerror",
+      "target": "router_routeerror_routeerror",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "web/src/app/router/index.tsx",
-      "source_location": "L2",
+      "source_location": "L6",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "router_index",
-      "target": "router_home_homepage"
+      "target": "router_routeerror_routeerror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/guards.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "router_guards_test",
+      "target": "router_guards",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/guards.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "router_guards_test",
+      "target": "router_guards_indexloader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/guards.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "router_guards_test",
+      "target": "router_guards_requireauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/guards.test.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "router_guards_test",
+      "target": "router_guards_requirerole",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/guards.test.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "router_guards_test",
+      "target": "router_guards_test_admin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/guards.test.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "router_guards_test",
+      "target": "router_guards_test_expectredirect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/guards.test.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "router_guards_test",
+      "target": "router_guards_test_getsessionuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/guards.test.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "router_guards_test",
+      "target": "router_guards_test_tecnico",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/guards.ts",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "router_guards",
+      "target": "router_guards_indexloader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/guards.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "router_guards",
+      "target": "router_guards_redirectifauthed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/guards.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "router_guards",
+      "target": "router_guards_requireauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/guards.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "router_guards",
+      "target": "router_guards_requirerole",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/index.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "router_index",
+      "target": "router_guards",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/guards.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "router_guards_indexloader",
+      "target": "router_guards_requireauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "web/src/app/router/guards.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "router_guards_requireauth",
+      "target": "auth_session_getsessionuser"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/index.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "router_index",
+      "target": "router_guards_requireauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/index.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "router_index",
+      "target": "router_guards_requirerole",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/index.tsx",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "router_index_placeholder",
+      "target": "router_guards_requirerole",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "web/src/app/router/guards.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "router_guards_redirectifauthed",
+      "target": "auth_session_getsessionuser"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/index.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "router_index",
+      "target": "router_guards_redirectifauthed",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/index.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "router_index",
+      "target": "router_guards_indexloader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/app/router/index.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "router_index",
+      "target": "router_index_placeholder",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7466,6 +8835,399 @@
       "confidence_score": 1.0,
       "source": "api_index",
       "target": "api_http_http"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/firebase.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "auth_firebase",
+      "target": "auth_firebase_getfirebaseauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "auth_session",
+      "target": "auth_firebase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "web_src_core_auth_index_ts_auth_index",
+      "target": "auth_firebase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "api_sign_in_signinwithemail",
+      "target": "auth_firebase_getfirebaseauth"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "api_sign_in_signinwithgoogle",
+      "target": "auth_firebase_getfirebaseauth"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "auth_session",
+      "target": "auth_firebase_getfirebaseauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "auth_session_ensurewatcher",
+      "target": "auth_firebase_getfirebaseauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "auth_session_getfreshtoken",
+      "target": "auth_firebase_getfirebaseauth"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "auth_session_signoutuser",
+      "target": "auth_firebase_getfirebaseauth"
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "web_src_core_auth_index_ts_auth_index",
+      "target": "auth_firebase_getfirebaseauth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "web_src_core_auth_index_ts_auth_index",
+      "target": "auth_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "web_src_core_auth_index_ts_auth_index",
+      "target": "auth_session_getfreshtoken",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "web_src_core_auth_index_ts_auth_index",
+      "target": "auth_session_getsessionsnapshot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "web_src_core_auth_index_ts_auth_index",
+      "target": "auth_session_getsessionuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/index.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "web_src_core_auth_index_ts_auth_index",
+      "target": "auth_session_role",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/index.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "web_src_core_auth_index_ts_auth_index",
+      "target": "auth_session_sessionsnapshot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/index.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "web_src_core_auth_index_ts_auth_index",
+      "target": "auth_session_sessionuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "web_src_core_auth_index_ts_auth_index",
+      "target": "auth_session_signoutandredirect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "web_src_core_auth_index_ts_auth_index",
+      "target": "auth_session_signoutuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "web_src_core_auth_index_ts_auth_index",
+      "target": "auth_session_subscribesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "auth_session",
+      "target": "auth_session_ensurewatcher",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "auth_session",
+      "target": "auth_session_getfreshtoken",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L67",
+      "weight": 1.0,
+      "source": "auth_session",
+      "target": "auth_session_getsessionsnapshot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "auth_session",
+      "target": "auth_session_getsessionuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "auth_session",
+      "target": "auth_session_listeners",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "auth_session",
+      "target": "auth_session_role",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "auth_session",
+      "target": "auth_session_sessionsnapshot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "auth_session",
+      "target": "auth_session_sessionuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L76",
+      "weight": 1.0,
+      "source": "auth_session",
+      "target": "auth_session_signoutandredirect",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "auth_session",
+      "target": "auth_session_signoutuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "auth_session",
+      "target": "auth_session_snapshot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "auth_session",
+      "target": "auth_session_subscribesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "auth_session",
+      "target": "auth_session_tosessionuser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "auth_session_getfreshtoken",
+      "target": "auth_session_ensurewatcher",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "auth_session_getsessionuser",
+      "target": "auth_session_ensurewatcher",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "auth_session_subscribesession",
+      "target": "auth_session_ensurewatcher",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/core/auth/session.ts",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "auth_session_signoutandredirect",
+      "target": "auth_session_signoutuser",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7550,6 +9312,510 @@
       "confidence_score": 1.0,
       "source": "query_queryclient",
       "target": "query_queryclient_queryclient"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "api_sign_in",
+      "target": "api_sign_in_error_messages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "api_sign_in",
+      "target": "api_sign_in_signinerror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "api_sign_in",
+      "target": "api_sign_in_signinwithemail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "api_sign_in",
+      "target": "api_sign_in_signinwithgoogle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "api_sign_in",
+      "target": "api_sign_in_silent_codes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "api_sign_in",
+      "target": "api_sign_in_translate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/components/LoginForm.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_loginform",
+      "target": "api_sign_in",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "api_sign_in_signinwithemail",
+      "target": "api_sign_in_translate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/api/sign-in.ts",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "api_sign_in_signinwithgoogle",
+      "target": "api_sign_in_translate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/components/LoginForm.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_loginform",
+      "target": "api_sign_in_signinwithemail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/components/LoginForm.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_loginform",
+      "target": "api_sign_in_signinwithgoogle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/components/GoogleIcon.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_googleicon",
+      "target": "components_googleicon_googleicon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/components/LoginForm.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_loginform",
+      "target": "components_googleicon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/components/LoginForm.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_loginform",
+      "target": "components_googleicon_googleicon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/components/LoginForm.test.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_loginform_test",
+      "target": "components_loginform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/components/LoginForm.test.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_loginform_test",
+      "target": "components_loginform_loginform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/components/LoginForm.test.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "components_loginform_test",
+      "target": "components_loginform_test_renderform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/components/LoginForm.test.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "components_loginform_test",
+      "target": "components_loginform_test_signinwithemail",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/components/LoginForm.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "components_loginform",
+      "target": "components_loginform_divider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/components/LoginForm.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "components_loginform",
+      "target": "components_loginform_loginform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/components/LoginForm.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_loginform",
+      "target": "model_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/components/LoginForm.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_loginform",
+      "target": "model_login_logininput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/components/LoginForm.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_loginform",
+      "target": "model_login_loginschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/routes/LoginPage.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "routes_loginpage",
+      "target": "components_loginform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/routes/LoginPage.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "routes_loginpage",
+      "target": "components_loginform_loginform",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/hooks/useSession.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "hooks_usesession",
+      "target": "hooks_usesession_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "web_src_features_auth_index_ts_auth_index",
+      "target": "hooks_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "web_src_features_auth_index_ts_auth_index",
+      "target": "hooks_usesession_usesession",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "web_src_features_auth_index_ts_auth_index",
+      "target": "routes_loginpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "web_src_features_auth_index_ts_auth_index",
+      "target": "routes_loginpage_loginpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/model/login.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "model_login",
+      "target": "model_login_logininput",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/model/login.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "model_login",
+      "target": "model_login_loginschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/features/auth/routes/LoginPage.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "routes_loginpage",
+      "target": "routes_loginpage_loginpage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/shared/ui/Alert.tsx",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "ui_alert",
+      "target": "ui_alert_alert",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/shared/ui/Alert.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "ui_alert",
+      "target": "ui_alert_alertprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/shared/ui/Alert.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "ui_alert",
+      "target": "ui_alert_tone_classes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/shared/ui/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "ui_index",
+      "target": "ui_alert",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/shared/ui/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "ui_index",
+      "target": "ui_alert_alert",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/shared/ui/Button.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "ui_button",
+      "target": "ui_button_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/shared/ui/Button.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "ui_button",
+      "target": "ui_button_buttonprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/shared/ui/Button.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "ui_button",
+      "target": "ui_button_variant",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/shared/ui/Button.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "ui_button",
+      "target": "ui_button_variant_classes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/shared/ui/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "ui_index",
+      "target": "ui_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/shared/ui/index.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "ui_index",
+      "target": "ui_button_button",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/shared/ui/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "ui_index",
+      "target": "ui_textfield",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/shared/ui/TextField.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "ui_textfield",
+      "target": "ui_textfield_textfield",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/shared/ui/TextField.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "ui_textfield",
+      "target": "ui_textfield_textfieldprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "web/src/shared/ui/index.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "ui_index",
+      "target": "ui_textfield_textfield",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8043,5 +10309,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "48fc3547fef210a8fc2ef59987efe34f895a709e"
+  "built_at_commit": "aad9ddb261077576da98c043711fbde6193e2c8c"
 }

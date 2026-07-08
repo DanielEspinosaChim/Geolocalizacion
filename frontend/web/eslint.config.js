@@ -45,6 +45,11 @@ export default tseslint.config(
     rules: {
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
+      // React Router usa `throw redirect()` (Response) en loaders — patrón oficial
+      '@typescript-eslint/only-throw-error': [
+        'error',
+        { allow: [{ from: 'lib', name: 'Response' }] },
+      ],
       ...jsxA11y.flatConfigs.recommended.rules,
 
       /* ── 1. Fronteras entre capas ──────────────────────────────────── */
