@@ -14,3 +14,32 @@
     @apply bg-bg font-sans text-fg antialiased;
   }
 }
+
+/* ── Clusters de Leaflet con la paleta semántica (paridad con el legacy) ── */
+.marker-cluster-small {
+  background-color: hsl(var(--danger) / 0.5);
+}
+.marker-cluster-small div {
+  background-color: hsl(var(--danger) / 0.8);
+}
+.marker-cluster-medium {
+  background-color: hsl(var(--warning) / 0.5);
+}
+.marker-cluster-medium div {
+  background-color: hsl(var(--warning) / 0.8);
+}
+.marker-cluster-large {
+  background-color: hsl(var(--primary) / 0.5);
+}
+.marker-cluster-large div {
+  background-color: hsl(var(--primary) / 0.8);
+}
+.marker-cluster,
+.marker-cluster div {
+  border-radius: 50%;
+}
+.marker-cluster div {
+  color: #fff;
+  font-family: theme('fontFamily.sans');
+  font-weight: 700;
+}

@@ -8,7 +8,7 @@ export function AppShell() {
   const { user } = useSession();
 
   return (
-    <div className="flex min-h-full flex-col">
+    <div className="flex h-full flex-col">
       <header className="flex h-13 shrink-0 items-center justify-between gap-4 border-b border-border bg-surface px-5 py-2">
         <div>
           <h1 className="font-display text-base font-extrabold tracking-tight">GeoFormal</h1>

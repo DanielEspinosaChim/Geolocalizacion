@@ -26,7 +26,9 @@ export const router = createBrowserRouter([
       {
         index: true,
         loader: indexLoader,
-        element: placeholder('Mapa de candidatos', 'Fase 3', 'El mapa con clusters y filtros se migra en la Fase 3.'),
+        lazy: async () => ({
+          Component: (await import('@features/candidatos')).CandidatosPage,
+        }),
       },
       {
         path: 'predicciones',
