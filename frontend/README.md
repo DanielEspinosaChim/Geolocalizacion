@@ -35,8 +35,9 @@ Las fronteras las aplica `eslint.config.js` (eslint-plugin-boundaries): romperla
    guardias `requireAuth`/`requireRole`, técnico aterriza en /campanas)
 2. ✅ Design system `shared/ui` (Badge, Modal, Tabs, Toast, Table, Skeleton, Spinner,
    SelectField) + `MapCanvas` (wrapper React-Leaflet)
-3. `candidatos` (mapa + lista)
-4. `reportes` · `rutas` · `colonias-zonas`
-5. `campanas` + plantillas
+3. ✅ `candidatos` (mapa + lista + filtros)
+4. ✅ `reportes` · `rutas` · `colonias-zonas`
+5. ✅ `campanas` + plantillas (vista admin/técnico, modal de visita con campos
+   dinámicos, editor de plantillas, cámara reutilizable en `shared/ui`)
 6. `predicciones` + `admin`
 7. Endurecimiento (CSP, App Check, e2e) y corte del legacy

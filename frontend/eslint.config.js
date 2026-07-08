@@ -134,6 +134,15 @@ export default tseslint.config(
     },
   },
 
+  // Componentes JSX: el markup es verboso, así que el límite por función sube a
+  // 90 (el de 60 se mantiene en la lógica .ts). Sigue atrapando god-components.
+  {
+    files: ['src/**/*.tsx'],
+    rules: {
+      'max-lines-per-function': ['warn', { max: 90, skipComments: true }],
+    },
+  },
+
   // Tests: se relajan los límites de tamaño (arrange/act/assert crece rápido)
   {
     files: ['src/**/*.test.{ts,tsx}'],

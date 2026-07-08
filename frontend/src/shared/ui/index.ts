@@ -1,6 +1,8 @@
 export { Alert } from './Alert';
 export { Badge, type BadgeTone } from './Badge';
 export { Button } from './Button';
+export { CameraModal } from './camera/CameraModal';
+export { FotoField } from './camera/FotoField';
 export { MapCanvas, MERIDA_CENTER } from './map/MapCanvas';
 export { Modal } from './Modal';
 export { SelectField } from './SelectField';

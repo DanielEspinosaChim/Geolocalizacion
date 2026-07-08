@@ -24,16 +24,23 @@ export function useCalcularRutaColonia() {
 }
 
 /** Descarga el reporte de visita (HTML) generado por el backend. */
-export async function descargarReporteVisita(placeIds: string[]): Promise<void> {
+export async function descargarReporteVisita(
+  placeIds: string[],
+  campanaId?: string,
+): Promise<void> {
   const { data } = await http.post<Blob>(
     '/reporte-visita',
-    { place_ids: placeIds, fecha_visita: new Date().toISOString().slice(0, 10) },
+    {
+      place_ids: placeIds,
+      fecha_visita: new Date().toISOString().slice(0, 10),
+      ...(campanaId ? { campana_id: campanaId } : {}),
+    },
     { responseType: 'blob' },
   );
   const url = URL.createObjectURL(data);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'reporte_visita.html';
+  a.download = campanaId ? `reporte_${campanaId.slice(0, 8)}.html` : 'reporte_visita.html';
   a.click();
   URL.revokeObjectURL(url);
 }

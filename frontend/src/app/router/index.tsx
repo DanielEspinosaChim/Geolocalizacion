@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'campanas',
-        element: placeholder('Campañas', 'Fase 5', 'Campañas, plantillas y checklist de visita se migran en la Fase 5.'),
+        lazy: async () => ({ Component: (await import('@features/campanas')).CampanasPage }),
       },
       {
         path: 'validacion',
