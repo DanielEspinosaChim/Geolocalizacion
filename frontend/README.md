@@ -1,8 +1,8 @@
 # GeoFormal — frontend nuevo (React 19 + Screaming Architecture)
 
-Migración strangler del frontend legacy (`frontend/index.html` + `frontend/js/`), que **sigue
-sirviéndose en producción** hasta alcanzar paridad. No mover ni borrar el legacy: el backend
-(`app.py`) monta `frontend/css`, `frontend/js` y sirve `frontend/index.html` por ruta fija.
+Migración strangler del frontend legacy (`frontend/legacy/`), que **sigue sirviéndose en
+producción** hasta alcanzar paridad. No mover ni borrar `legacy/`: el backend (`app.py`)
+monta `frontend/legacy/css`, `frontend/legacy/js` y sirve `frontend/legacy/index.html`.
 
 ## Stack
 
@@ -33,7 +33,8 @@ Las fronteras las aplica `eslint.config.js` (eslint-plugin-boundaries): romperla
 0. ✅ Andamiaje + guardarraíles (este scaffold)
 1. ✅ `core/auth` + login + router protegido (token fresco por request, logout-on-401,
    guardias `requireAuth`/`requireRole`, técnico aterriza en /campanas)
-2. Design system `shared/ui`
+2. ✅ Design system `shared/ui` (Badge, Modal, Tabs, Toast, Table, Skeleton, Spinner,
+   SelectField) + `MapCanvas` (wrapper React-Leaflet)
 3. `candidatos` (mapa + lista)
 4. `reportes` · `rutas` · `colonias-zonas`
 5. `campanas` + plantillas

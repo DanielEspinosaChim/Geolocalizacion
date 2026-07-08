@@ -1,17 +1,23 @@
-name: frontend-web CI
+name: frontend CI
 
 on:
   push:
-    paths: ['frontend/web/**']
+    paths:
+      - 'frontend/**'
+      - '!frontend/legacy/**'
+      - '!frontend/graphify-out/**'
   pull_request:
-    paths: ['frontend/web/**']
+    paths:
+      - 'frontend/**'
+      - '!frontend/legacy/**'
+      - '!frontend/graphify-out/**'
 
 jobs:
   ci:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: frontend/web
+        working-directory: frontend
     steps:
       - uses: actions/checkout@v4
 
@@ -23,7 +29,7 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-          cache-dependency-path: frontend/web/pnpm-lock.yaml
+          cache-dependency-path: frontend/pnpm-lock.yaml
 
       - name: Instalar dependencias
         run: pnpm install --frozen-lockfile
