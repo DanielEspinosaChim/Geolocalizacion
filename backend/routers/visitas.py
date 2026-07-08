@@ -11,7 +11,7 @@ from db.database import ROOT
 router = APIRouter()
 
 GMAPS_KEY     = os.environ.get("GOOGLE_MAPS_API_KEY", "")
-TEMPLATE_PATH = ROOT / "frontend" / "templates" / "reporte_visita.html"
+TEMPLATE_PATH = ROOT / "frontend" / "legacy" / "templates" / "reporte_visita.html"
 
 
 # ── Modelo ────────────────────────────────────────────────────────────────────

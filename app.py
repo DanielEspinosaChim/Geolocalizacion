@@ -94,7 +94,7 @@ def require_admin(request: Request) -> dict:
 
 # ── Paths & App ───────────────────────────────────────────────────────────────
 BASE  = Path(__file__).parent
-FRONT = BASE / "frontend"
+FRONT = BASE / "frontend" / "legacy"
 PRED  = BASE / "data/procesado/predicciones_zonas.csv"
 CRUCE = BASE / "data/procesado/cruce_completo.csv"
 COLONIAS_GEOJSON  = BASE / "data/procesado/colonias_merida.geojson"

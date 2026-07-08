@@ -27,7 +27,7 @@ from routers import candidatos, zonas, ruta, prediccion, reportes, visitas, camp
 from auth import require_any, require_admin
 
 ROOT_DIR     = Path(__file__).parent.parent
-FRONTEND_DIR = ROOT_DIR / "frontend"
+FRONTEND_DIR = ROOT_DIR / "frontend" / "legacy"
 UPLOADS_DIR  = ROOT_DIR / "data" / "uploads"
 UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
 

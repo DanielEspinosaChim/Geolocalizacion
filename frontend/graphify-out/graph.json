@@ -6,7 +6,7 @@
     {
       "label": "admin.js",
       "file_type": "code",
-      "source_file": "js/admin.js",
+      "source_file": "legacy/js/admin.js",
       "source_location": "L1",
       "_origin": "ast",
       "id": "js_admin",
@@ -16,7 +16,7 @@
     {
       "label": "_adminUsuarios",
       "file_type": "code",
-      "source_file": "js/admin.js",
+      "source_file": "legacy/js/admin.js",
       "source_location": "L5",
       "_origin": "ast",
       "id": "js_admin_adminusuarios",
@@ -26,7 +26,7 @@
     {
       "label": "_adminCampanas",
       "file_type": "code",
-      "source_file": "js/admin.js",
+      "source_file": "legacy/js/admin.js",
       "source_location": "L6",
       "_origin": "ast",
       "id": "js_admin_admincampanas",
@@ -36,7 +36,7 @@
     {
       "label": "cargarPanelAdmin()",
       "file_type": "code",
-      "source_file": "js/admin.js",
+      "source_file": "legacy/js/admin.js",
       "source_location": "L10",
       "_origin": "ast",
       "id": "js_admin_cargarpaneladmin",
@@ -44,10 +44,50 @@
       "norm_label": "cargarpaneladmin()"
     },
     {
+      "label": "_renderMiCuenta()",
+      "file_type": "code",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "js_admin_rendermicuenta",
+      "community": 4,
+      "norm_label": "_rendermicuenta()"
+    },
+    {
+      "label": "abrirModalCambiarPass()",
+      "file_type": "code",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "js_admin_abrirmodalcambiarpass",
+      "community": 4,
+      "norm_label": "abrirmodalcambiarpass()"
+    },
+    {
+      "label": "cerrarModalCambiarPass()",
+      "file_type": "code",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L38",
+      "_origin": "ast",
+      "id": "js_admin_cerrarmodalcambiarpass",
+      "community": 4,
+      "norm_label": "cerrarmodalcambiarpass()"
+    },
+    {
+      "label": "cambiarContrasena()",
+      "file_type": "code",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "js_admin_cambiarcontrasena",
+      "community": 4,
+      "norm_label": "cambiarcontrasena()"
+    },
+    {
       "label": "cargarUsuariosAdmin()",
       "file_type": "code",
-      "source_file": "js/admin.js",
-      "source_location": "L16",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L80",
       "_origin": "ast",
       "id": "js_admin_cargarusuariosadmin",
       "community": 4,
@@ -56,8 +96,8 @@
     {
       "label": "_renderUsuarios()",
       "file_type": "code",
-      "source_file": "js/admin.js",
-      "source_location": "L27",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L91",
       "_origin": "ast",
       "id": "js_admin_renderusuarios",
       "community": 4,
@@ -66,8 +106,8 @@
     {
       "label": "cambiarRoleUsuario()",
       "file_type": "code",
-      "source_file": "js/admin.js",
-      "source_location": "L71",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L135",
       "_origin": "ast",
       "id": "js_admin_cambiarroleusuario",
       "community": 4,
@@ -76,8 +116,8 @@
     {
       "label": "toggleUsuario()",
       "file_type": "code",
-      "source_file": "js/admin.js",
-      "source_location": "L91",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L155",
       "_origin": "ast",
       "id": "js_admin_toggleusuario",
       "community": 4,
@@ -86,8 +126,8 @@
     {
       "label": "eliminarUsuario()",
       "file_type": "code",
-      "source_file": "js/admin.js",
-      "source_location": "L114",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L178",
       "_origin": "ast",
       "id": "js_admin_eliminarusuario",
       "community": 4,
@@ -96,8 +136,8 @@
     {
       "label": "mostrarModalCrearUsuario()",
       "file_type": "code",
-      "source_file": "js/admin.js",
-      "source_location": "L133",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L197",
       "_origin": "ast",
       "id": "js_admin_mostrarmodalcrearusuario",
       "community": 4,
@@ -106,8 +146,8 @@
     {
       "label": "cerrarModalCrearUsuario()",
       "file_type": "code",
-      "source_file": "js/admin.js",
-      "source_location": "L136",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L200",
       "_origin": "ast",
       "id": "js_admin_cerrarmodalcrearusuario",
       "community": 4,
@@ -116,8 +156,8 @@
     {
       "label": "crearUsuario()",
       "file_type": "code",
-      "source_file": "js/admin.js",
-      "source_location": "L141",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L205",
       "_origin": "ast",
       "id": "js_admin_crearusuario",
       "community": 4,
@@ -126,8 +166,8 @@
     {
       "label": "cargarCampanasAdmin()",
       "file_type": "code",
-      "source_file": "js/admin.js",
-      "source_location": "L173",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L237",
       "_origin": "ast",
       "id": "js_admin_cargarcampanasadmin",
       "community": 4,
@@ -136,8 +176,8 @@
     {
       "label": "_renderAsignaciones()",
       "file_type": "code",
-      "source_file": "js/admin.js",
-      "source_location": "L184",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L248",
       "_origin": "ast",
       "id": "js_admin_renderasignaciones",
       "community": 4,
@@ -146,8 +186,8 @@
     {
       "label": "asignarCampana()",
       "file_type": "code",
-      "source_file": "js/admin.js",
-      "source_location": "L232",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L296",
       "_origin": "ast",
       "id": "js_admin_asignarcampana",
       "community": 4,
@@ -156,8 +196,8 @@
     {
       "label": "_showAdminToast()",
       "file_type": "code",
-      "source_file": "js/admin.js",
-      "source_location": "L253",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L317",
       "_origin": "ast",
       "id": "js_admin_showadmintoast",
       "community": 4,
@@ -166,7 +206,7 @@
     {
       "label": "app.js",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L1",
       "_origin": "ast",
       "id": "js_app",
@@ -176,7 +216,7 @@
     {
       "label": "TIPOS_ES",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L5",
       "_origin": "ast",
       "id": "js_app_tipos_es",
@@ -186,7 +226,7 @@
     {
       "label": "tipoLeg()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L18",
       "_origin": "ast",
       "id": "js_app_tipoleg",
@@ -196,7 +236,7 @@
     {
       "label": "tipoColor()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L26",
       "_origin": "ast",
       "id": "js_app_tipocolor",
@@ -206,7 +246,7 @@
     {
       "label": "map",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L33",
       "_origin": "ast",
       "id": "js_app_map",
@@ -216,7 +256,7 @@
     {
       "label": "allData",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L37",
       "_origin": "ast",
       "id": "js_app_alldata",
@@ -226,7 +266,7 @@
     {
       "label": "markers",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L37",
       "_origin": "ast",
       "id": "js_app_markers",
@@ -236,7 +276,7 @@
     {
       "label": "_rutaData",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L38",
       "_origin": "ast",
       "id": "js_app_rutadata",
@@ -246,7 +286,7 @@
     {
       "label": "_zonasCsvData",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L39",
       "_origin": "ast",
       "id": "js_app_zonascsvdata",
@@ -256,7 +296,7 @@
     {
       "label": "cargarDatosIniciales()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L50",
       "_origin": "ast",
       "id": "js_app_cargardatosiniciales",
@@ -266,7 +306,7 @@
     {
       "label": "_watchCacheReady()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L71",
       "_origin": "ast",
       "id": "js_app_watchcacheready",
@@ -276,7 +316,7 @@
     {
       "label": "_mergeData()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L105",
       "_origin": "ast",
       "id": "js_app_mergedata",
@@ -286,7 +326,7 @@
     {
       "label": "_mergeDataForce()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L115",
       "_origin": "ast",
       "id": "js_app_mergedataforce",
@@ -296,7 +336,7 @@
     {
       "label": "_agregarMarcadores()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L124",
       "_origin": "ast",
       "id": "js_app_agregarmarcadores",
@@ -306,7 +346,7 @@
     {
       "label": "cargarCandidatos()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L142",
       "_origin": "ast",
       "id": "js_app_cargarcandidatos",
@@ -316,7 +356,7 @@
     {
       "label": "popupHtml()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L160",
       "_origin": "ast",
       "id": "js_app_popuphtml",
@@ -326,7 +366,7 @@
     {
       "label": "renderMapa()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L181",
       "_origin": "ast",
       "id": "js_app_rendermapa",
@@ -336,7 +376,7 @@
     {
       "label": "guardarTipo()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L213",
       "_origin": "ast",
       "id": "js_app_guardartipo",
@@ -346,7 +386,7 @@
     {
       "label": "_revertirTipo()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L256",
       "_origin": "ast",
       "id": "js_app_revertirtipo",
@@ -356,7 +396,7 @@
     {
       "label": "renderLista()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L271",
       "_origin": "ast",
       "id": "js_app_renderlista",
@@ -366,7 +406,7 @@
     {
       "label": "_renderMetricasLocales()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L281",
       "_origin": "ast",
       "id": "js_app_rendermetricaslocales",
@@ -376,7 +416,7 @@
     {
       "label": "filtrar()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L325",
       "_origin": "ast",
       "id": "js_app_filtrar",
@@ -386,7 +426,7 @@
     {
       "label": "filtrarPorTipo()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L332",
       "_origin": "ast",
       "id": "js_app_filtrarportipo",
@@ -396,7 +436,7 @@
     {
       "label": "irA()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L344",
       "_origin": "ast",
       "id": "js_app_ira",
@@ -406,7 +446,7 @@
     {
       "label": "resaltar()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L352",
       "_origin": "ast",
       "id": "js_app_resaltar",
@@ -416,7 +456,7 @@
     {
       "label": "toggleZonas()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L359",
       "_origin": "ast",
       "id": "js_app_togglezonas",
@@ -426,7 +466,7 @@
     {
       "label": "getColor()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L375",
       "_origin": "ast",
       "id": "js_app_getcolor",
@@ -436,7 +476,7 @@
     {
       "label": "renderZonas()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L379",
       "_origin": "ast",
       "id": "js_app_renderzonas",
@@ -446,7 +486,7 @@
     {
       "label": "_renderLeyendaZonas()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L408",
       "_origin": "ast",
       "id": "js_app_renderleyendazonas",
@@ -456,7 +496,7 @@
     {
       "label": "_actualizarMetricasLocales()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L437",
       "_origin": "ast",
       "id": "js_app_actualizarmetricaslocales",
@@ -466,7 +506,7 @@
     {
       "label": "cargarMetricas()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L456",
       "_origin": "ast",
       "id": "js_app_cargarmetricas",
@@ -476,7 +516,7 @@
     {
       "label": "cargarValidacion()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L493",
       "_origin": "ast",
       "id": "js_app_cargarvalidacion",
@@ -486,7 +526,7 @@
     {
       "label": "togglePredMode()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L516",
       "_origin": "ast",
       "id": "js_app_togglepredmode",
@@ -496,7 +536,7 @@
     {
       "label": "fetchPredecir()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L535",
       "_origin": "ast",
       "id": "js_app_fetchpredecir",
@@ -506,7 +546,7 @@
     {
       "label": "predecirManual()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L585",
       "_origin": "ast",
       "id": "js_app_predecirmanual",
@@ -516,7 +556,7 @@
     {
       "label": "rutaSeleccion",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L598",
       "_origin": "ast",
       "id": "js_app_rutaseleccion",
@@ -526,7 +566,7 @@
     {
       "label": "rutaMarkersExtra",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L600",
       "_origin": "ast",
       "id": "js_app_rutamarkersextra",
@@ -536,7 +576,7 @@
     {
       "label": "renderListaRuta()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L602",
       "_origin": "ast",
       "id": "js_app_renderlistaruta",
@@ -546,7 +586,7 @@
     {
       "label": "togglePunto()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L618",
       "_origin": "ast",
       "id": "js_app_togglepunto",
@@ -556,7 +596,7 @@
     {
       "label": "limpiarRuta()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L629",
       "_origin": "ast",
       "id": "js_app_limpiarruta",
@@ -566,7 +606,7 @@
     {
       "label": "calcularRuta()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L639",
       "_origin": "ast",
       "id": "js_app_calcularruta",
@@ -576,7 +616,7 @@
     {
       "label": "calcularRutaColonia()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L660",
       "_origin": "ast",
       "id": "js_app_calcularrutacolonia",
@@ -586,7 +626,7 @@
     {
       "label": "renderRutaEnMapa()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L685",
       "_origin": "ast",
       "id": "js_app_renderrutaenmapa",
@@ -596,7 +636,7 @@
     {
       "label": "descargarReporte()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L741",
       "_origin": "ast",
       "id": "js_app_descargarreporte",
@@ -606,7 +646,7 @@
     {
       "label": "showTab()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L755",
       "_origin": "ast",
       "id": "js_app_showtab",
@@ -616,7 +656,7 @@
     {
       "label": "cargarIndice()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L811",
       "_origin": "ast",
       "id": "js_app_cargarindice",
@@ -626,7 +666,7 @@
     {
       "label": "_renderCalculadoraIndice()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L890",
       "_origin": "ast",
       "id": "js_app_rendercalculadoraindice",
@@ -636,7 +676,7 @@
     {
       "label": "_calcIndice()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L903",
       "_origin": "ast",
       "id": "js_app_calcindice",
@@ -646,7 +686,7 @@
     {
       "label": "_iniciarPrecargas()",
       "file_type": "code",
-      "source_file": "js/app.js",
+      "source_file": "legacy/js/app.js",
       "source_location": "L982",
       "_origin": "ast",
       "id": "js_app_iniciarprecargas",
@@ -656,7 +696,7 @@
     {
       "label": "auth.js",
       "file_type": "code",
-      "source_file": "js/auth.js",
+      "source_file": "legacy/js/auth.js",
       "source_location": "L1",
       "_origin": "ast",
       "id": "js_auth",
@@ -666,7 +706,7 @@
     {
       "label": "_renderLoginScreen()",
       "file_type": "code",
-      "source_file": "js/auth.js",
+      "source_file": "legacy/js/auth.js",
       "source_location": "L10",
       "_origin": "ast",
       "id": "js_auth_renderloginscreen",
@@ -676,8 +716,8 @@
     {
       "label": "_togglePass()",
       "file_type": "code",
-      "source_file": "js/auth.js",
-      "source_location": "L86",
+      "source_file": "legacy/js/auth.js",
+      "source_location": "L88",
       "_origin": "ast",
       "id": "js_auth_togglepass",
       "community": 7,
@@ -686,8 +726,8 @@
     {
       "label": "doLogin()",
       "file_type": "code",
-      "source_file": "js/auth.js",
-      "source_location": "L95",
+      "source_file": "legacy/js/auth.js",
+      "source_location": "L97",
       "_origin": "ast",
       "id": "js_auth_dologin",
       "community": 7,
@@ -696,8 +736,8 @@
     {
       "label": "_showLoginError()",
       "file_type": "code",
-      "source_file": "js/auth.js",
-      "source_location": "L124",
+      "source_file": "legacy/js/auth.js",
+      "source_location": "L126",
       "_origin": "ast",
       "id": "js_auth_showloginerror",
       "community": 7,
@@ -706,8 +746,8 @@
     {
       "label": "doLoginGoogle()",
       "file_type": "code",
-      "source_file": "js/auth.js",
-      "source_location": "L129",
+      "source_file": "legacy/js/auth.js",
+      "source_location": "L131",
       "_origin": "ast",
       "id": "js_auth_dologingoogle",
       "community": 7,
@@ -716,8 +756,8 @@
     {
       "label": "_patchFetch()",
       "file_type": "code",
-      "source_file": "js/auth.js",
-      "source_location": "L181",
+      "source_file": "legacy/js/auth.js",
+      "source_location": "L183",
       "_origin": "ast",
       "id": "js_auth_patchfetch",
       "community": 7,
@@ -726,8 +766,8 @@
     {
       "label": "logout()",
       "file_type": "code",
-      "source_file": "js/auth.js",
-      "source_location": "L195",
+      "source_file": "legacy/js/auth.js",
+      "source_location": "L197",
       "_origin": "ast",
       "id": "js_auth_logout",
       "community": 7,
@@ -736,8 +776,8 @@
     {
       "label": "_bootApp()",
       "file_type": "code",
-      "source_file": "js/auth.js",
-      "source_location": "L201",
+      "source_file": "legacy/js/auth.js",
+      "source_location": "L203",
       "_origin": "ast",
       "id": "js_auth_bootapp",
       "community": 7,
@@ -746,8 +786,8 @@
     {
       "label": "_applyTecnicoRestrictions()",
       "file_type": "code",
-      "source_file": "js/auth.js",
-      "source_location": "L261",
+      "source_file": "legacy/js/auth.js",
+      "source_location": "L266",
       "_origin": "ast",
       "id": "js_auth_applytecnicorestrictions",
       "community": 7,
@@ -756,8 +796,8 @@
     {
       "label": "getAuthToken()",
       "file_type": "code",
-      "source_file": "js/auth.js",
-      "source_location": "L304",
+      "source_file": "legacy/js/auth.js",
+      "source_location": "L309",
       "_origin": "ast",
       "id": "js_auth_getauthtoken",
       "community": 7,
@@ -766,7 +806,7 @@
     {
       "label": "camera.js",
       "file_type": "code",
-      "source_file": "js/camera.js",
+      "source_file": "legacy/js/camera.js",
       "source_location": "L1",
       "_origin": "ast",
       "id": "js_camera",
@@ -776,7 +816,7 @@
     {
       "label": "_esMobil()",
       "file_type": "code",
-      "source_file": "js/camera.js",
+      "source_file": "legacy/js/camera.js",
       "source_location": "L5",
       "_origin": "ast",
       "id": "js_camera_esmobil",
@@ -786,7 +826,7 @@
     {
       "label": "_abrirCamara()",
       "file_type": "code",
-      "source_file": "js/camera.js",
+      "source_file": "legacy/js/camera.js",
       "source_location": "L13",
       "_origin": "ast",
       "id": "js_camera_abrircamara",
@@ -796,7 +836,7 @@
     {
       "label": "_abrirCamaraModal()",
       "file_type": "code",
-      "source_file": "js/camera.js",
+      "source_file": "legacy/js/camera.js",
       "source_location": "L30",
       "_origin": "ast",
       "id": "js_camera_abrircamaramodal",
@@ -806,7 +846,7 @@
     {
       "label": "_cameraShowLive()",
       "file_type": "code",
-      "source_file": "js/camera.js",
+      "source_file": "legacy/js/camera.js",
       "source_location": "L68",
       "_origin": "ast",
       "id": "js_camera_camerashowlive",
@@ -816,7 +856,7 @@
     {
       "label": "_cameraCancelar()",
       "file_type": "code",
-      "source_file": "js/camera.js",
+      "source_file": "legacy/js/camera.js",
       "source_location": "L74",
       "_origin": "ast",
       "id": "js_camera_cameracancelar",
@@ -826,7 +866,7 @@
     {
       "label": "_cameraDetenerStream()",
       "file_type": "code",
-      "source_file": "js/camera.js",
+      "source_file": "legacy/js/camera.js",
       "source_location": "L80",
       "_origin": "ast",
       "id": "js_camera_cameradetenerstream",
@@ -836,7 +876,7 @@
     {
       "label": "_cameraCapturar()",
       "file_type": "code",
-      "source_file": "js/camera.js",
+      "source_file": "legacy/js/camera.js",
       "source_location": "L87",
       "_origin": "ast",
       "id": "js_camera_cameracapturar",
@@ -846,7 +886,7 @@
     {
       "label": "_cameraReintentar()",
       "file_type": "code",
-      "source_file": "js/camera.js",
+      "source_file": "legacy/js/camera.js",
       "source_location": "L100",
       "_origin": "ast",
       "id": "js_camera_camerareintentar",
@@ -856,7 +896,7 @@
     {
       "label": "_cameraUsar()",
       "file_type": "code",
-      "source_file": "js/camera.js",
+      "source_file": "legacy/js/camera.js",
       "source_location": "L104",
       "_origin": "ast",
       "id": "js_camera_camerausar",
@@ -866,7 +906,7 @@
     {
       "label": "campanas.js",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1",
       "_origin": "ast",
       "id": "js_campanas",
@@ -876,7 +916,7 @@
     {
       "label": "_campanaNegocios",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L6",
       "_origin": "ast",
       "id": "js_campanas_campananegocios",
@@ -886,7 +926,7 @@
     {
       "label": "_plantillasCache",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L8",
       "_origin": "ast",
       "id": "js_campanas_plantillascache",
@@ -896,7 +936,7 @@
     {
       "label": "_visitaModal",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L9",
       "_origin": "ast",
       "id": "js_campanas_visitamodal",
@@ -906,7 +946,7 @@
     {
       "label": "_epCampos",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L11",
       "_origin": "ast",
       "id": "js_campanas_epcampos",
@@ -916,7 +956,7 @@
     {
       "label": "cargarCampanas()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L18",
       "_origin": "ast",
       "id": "js_campanas_cargarcampanas",
@@ -926,7 +966,7 @@
     {
       "label": "_renderListaCampanas()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L40",
       "_origin": "ast",
       "id": "js_campanas_renderlistacampanas",
@@ -936,7 +976,7 @@
     {
       "label": "_renderListaCampanasTecnico()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L90",
       "_origin": "ast",
       "id": "js_campanas_renderlistacampanastecnico",
@@ -946,7 +986,7 @@
     {
       "label": "verCampana()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L152",
       "_origin": "ast",
       "id": "js_campanas_vercampana",
@@ -956,7 +996,7 @@
     {
       "label": "_renderDetalleCampana()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L171",
       "_origin": "ast",
       "id": "js_campanas_renderdetallecampana",
@@ -966,7 +1006,7 @@
     {
       "label": "_renderDetalleCampanaTecnico()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L192",
       "_origin": "ast",
       "id": "js_campanas_renderdetallecampanatecnico",
@@ -976,7 +1016,7 @@
     {
       "label": "_revertirPendiente()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L300",
       "_origin": "ast",
       "id": "js_campanas_revertirpendiente",
@@ -986,7 +1026,7 @@
     {
       "label": "_tecFiltro()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L320",
       "_origin": "ast",
       "id": "js_campanas_tecfiltro",
@@ -996,7 +1036,7 @@
     {
       "label": "_renderChecklistTecnico()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L336",
       "_origin": "ast",
       "id": "js_campanas_renderchecklisttecnico",
@@ -1006,7 +1046,7 @@
     {
       "label": "_renderTablaNegociosCampana()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L482",
       "_origin": "ast",
       "id": "js_campanas_rendertablanegocioscampana",
@@ -1016,7 +1056,7 @@
     {
       "label": "toggleBusquedaAgregar()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L571",
       "_origin": "ast",
       "id": "js_campanas_togglebusquedaagregar",
@@ -1026,7 +1066,7 @@
     {
       "label": "buscarNegociosParaAgregar()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L588",
       "_origin": "ast",
       "id": "js_campanas_buscarnegociosparaagregar",
@@ -1036,7 +1076,7 @@
     {
       "label": "renderBusquedaResultados()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L608",
       "_origin": "ast",
       "id": "js_campanas_renderbusquedaresultados",
@@ -1046,7 +1086,7 @@
     {
       "label": "agregarNegocio()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L638",
       "_origin": "ast",
       "id": "js_campanas_agregarnegocio",
@@ -1056,7 +1096,7 @@
     {
       "label": "quitarNegocioCampana()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L668",
       "_origin": "ast",
       "id": "js_campanas_quitarnegociocampana",
@@ -1066,7 +1106,7 @@
     {
       "label": "_actualizarMeta()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L681",
       "_origin": "ast",
       "id": "js_campanas_actualizarmeta",
@@ -1076,7 +1116,7 @@
     {
       "label": "toggleCompletado()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L702",
       "_origin": "ast",
       "id": "js_campanas_togglecompletado",
@@ -1086,7 +1126,7 @@
     {
       "label": "guardarNotas()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L716",
       "_origin": "ast",
       "id": "js_campanas_guardarnotas",
@@ -1096,7 +1136,7 @@
     {
       "label": "guardarFechaVisita()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L724",
       "_origin": "ast",
       "id": "js_campanas_guardarfechavisita",
@@ -1106,7 +1146,7 @@
     {
       "label": "verRutaCampana()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L732",
       "_origin": "ast",
       "id": "js_campanas_verrutacampana",
@@ -1116,7 +1156,7 @@
     {
       "label": "descargarReporteCampana()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L775",
       "_origin": "ast",
       "id": "js_campanas_descargarreportecampana",
@@ -1126,7 +1166,7 @@
     {
       "label": "mostrarModalCrearCampana()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L804",
       "_origin": "ast",
       "id": "js_campanas_mostrarmodalcrearcampana",
@@ -1136,7 +1176,7 @@
     {
       "label": "cerrarModalCampana()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L813",
       "_origin": "ast",
       "id": "js_campanas_cerrarmodalcampana",
@@ -1146,7 +1186,7 @@
     {
       "label": "crearCampana()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L818",
       "_origin": "ast",
       "id": "js_campanas_crearcampana",
@@ -1156,7 +1196,7 @@
     {
       "label": "cerrarCampana()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L843",
       "_origin": "ast",
       "id": "js_campanas_cerrarcampana",
@@ -1166,7 +1206,7 @@
     {
       "label": "eliminarCampana()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L853",
       "_origin": "ast",
       "id": "js_campanas_eliminarcampana",
@@ -1176,7 +1216,7 @@
     {
       "label": "volverListaCampanas()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L859",
       "_origin": "ast",
       "id": "js_campanas_volverlistacampanas",
@@ -1186,7 +1226,7 @@
     {
       "label": "abrirModalVisita()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L875",
       "_origin": "ast",
       "id": "js_campanas_abrirmodalvisita",
@@ -1196,7 +1236,7 @@
     {
       "label": "_vfSetVisitado()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L920",
       "_origin": "ast",
       "id": "js_campanas_vfsetvisitado",
@@ -1206,7 +1246,7 @@
     {
       "label": "_vfVisitadoChange()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L929",
       "_origin": "ast",
       "id": "js_campanas_vfvisitadochange",
@@ -1216,7 +1256,7 @@
     {
       "label": "_renderSelectorPlantilla()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L943",
       "_origin": "ast",
       "id": "js_campanas_renderselectorplantilla",
@@ -1226,7 +1266,7 @@
     {
       "label": "_cambiarPlantillaVisita()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L962",
       "_origin": "ast",
       "id": "js_campanas_cambiarplantillavisita",
@@ -1236,7 +1276,7 @@
     {
       "label": "cerrarModalVisita()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L970",
       "_origin": "ast",
       "id": "js_campanas_cerrarmodalvisita",
@@ -1246,7 +1286,7 @@
     {
       "label": "_renderCamposVisita()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L977",
       "_origin": "ast",
       "id": "js_campanas_rendercamposvisita",
@@ -1256,7 +1296,7 @@
     {
       "label": "_inputParaCampo()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L997",
       "_origin": "ast",
       "id": "js_campanas_inputparacampo",
@@ -1266,7 +1306,7 @@
     {
       "label": "_vfBoolChange()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1065",
       "_origin": "ast",
       "id": "js_campanas_vfboolchange",
@@ -1276,7 +1316,7 @@
     {
       "label": "_vfPlantillaAbrirCamara()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1084",
       "_origin": "ast",
       "id": "js_campanas_vfplantillaabrircamara",
@@ -1286,7 +1326,7 @@
     {
       "label": "_vfPlantillaAbrirGaleria()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1093",
       "_origin": "ast",
       "id": "js_campanas_vfplantillaabrirgaleria",
@@ -1296,7 +1336,7 @@
     {
       "label": "_vfFotoChange()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1099",
       "_origin": "ast",
       "id": "js_campanas_vffotochange",
@@ -1306,7 +1346,7 @@
     {
       "label": "_vfAbrirCamara()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1107",
       "_origin": "ast",
       "id": "js_campanas_vfabrircamara",
@@ -1316,7 +1356,7 @@
     {
       "label": "_vfAbrirGaleria()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1116",
       "_origin": "ast",
       "id": "js_campanas_vfabrirgaleria",
@@ -1326,7 +1366,7 @@
     {
       "label": "_vfFixedFotoChange()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1122",
       "_origin": "ast",
       "id": "js_campanas_vffixedfotochange",
@@ -1336,7 +1376,7 @@
     {
       "label": "_vfClearFoto()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1135",
       "_origin": "ast",
       "id": "js_campanas_vfclearfoto",
@@ -1346,7 +1386,7 @@
     {
       "label": "_haversineM()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1145",
       "_origin": "ast",
       "id": "js_campanas_haversinem",
@@ -1356,7 +1396,7 @@
     {
       "label": "guardarVisita()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1154",
       "_origin": "ast",
       "id": "js_campanas_guardarvisita",
@@ -1366,7 +1406,7 @@
     {
       "label": "_guardarGPSVisita()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1232",
       "_origin": "ast",
       "id": "js_campanas_guardargpsvisita",
@@ -1376,7 +1416,7 @@
     {
       "label": "_actualizarBadgeGPS()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1270",
       "_origin": "ast",
       "id": "js_campanas_actualizarbadgegps",
@@ -1386,7 +1426,7 @@
     {
       "label": "abrirModalPlantillas()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1291",
       "_origin": "ast",
       "id": "js_campanas_abrirmodalplantillas",
@@ -1396,7 +1436,7 @@
     {
       "label": "cerrarModalPlantillas()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1298",
       "_origin": "ast",
       "id": "js_campanas_cerrarmodalplantillas",
@@ -1406,7 +1446,7 @@
     {
       "label": "_renderListaPlantillas()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1302",
       "_origin": "ast",
       "id": "js_campanas_renderlistaplantillas",
@@ -1416,7 +1456,7 @@
     {
       "label": "mostrarEditorPlantilla()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1342",
       "_origin": "ast",
       "id": "js_campanas_mostrareditorplantilla",
@@ -1426,7 +1466,7 @@
     {
       "label": "cerrarEditorPlantilla()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1361",
       "_origin": "ast",
       "id": "js_campanas_cerrareditorplantilla",
@@ -1436,7 +1476,7 @@
     {
       "label": "_epSyncDOM()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1368",
       "_origin": "ast",
       "id": "js_campanas_epsyncdom",
@@ -1446,7 +1486,7 @@
     {
       "label": "_renderEditorCampos()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1377",
       "_origin": "ast",
       "id": "js_campanas_rendereditorcampos",
@@ -1456,7 +1496,7 @@
     {
       "label": "_epHandleDown()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1443",
       "_origin": "ast",
       "id": "js_campanas_ephandledown",
@@ -1466,7 +1506,7 @@
     {
       "label": "_epHandleMove()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1467",
       "_origin": "ast",
       "id": "js_campanas_ephandlemove",
@@ -1476,7 +1516,7 @@
     {
       "label": "_epHandleUp()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1487",
       "_origin": "ast",
       "id": "js_campanas_ephandleup",
@@ -1486,7 +1526,7 @@
     {
       "label": "_epUpdateCampo()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1503",
       "_origin": "ast",
       "id": "js_campanas_epupdatecampo",
@@ -1496,7 +1536,7 @@
     {
       "label": "_epQuitarCampo()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1512",
       "_origin": "ast",
       "id": "js_campanas_epquitarcampo",
@@ -1506,7 +1546,7 @@
     {
       "label": "agregarCampoPlantilla()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1518",
       "_origin": "ast",
       "id": "js_campanas_agregarcampoplantilla",
@@ -1516,7 +1556,7 @@
     {
       "label": "guardarPlantilla()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1526",
       "_origin": "ast",
       "id": "js_campanas_guardarplantilla",
@@ -1526,7 +1566,7 @@
     {
       "label": "eliminarPlantilla()",
       "file_type": "code",
-      "source_file": "js/campanas.js",
+      "source_file": "legacy/js/campanas.js",
       "source_location": "L1570",
       "_origin": "ast",
       "id": "js_campanas_eliminarplantilla",
@@ -1536,7 +1576,7 @@
     {
       "label": "colonias.js",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L1",
       "_origin": "ast",
       "id": "js_colonias",
@@ -1546,7 +1586,7 @@
     {
       "label": "coloniasData",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L9",
       "_origin": "ast",
       "id": "js_colonias_coloniasdata",
@@ -1556,7 +1596,7 @@
     {
       "label": "zonasData",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L10",
       "_origin": "ast",
       "id": "js_colonias_zonasdata",
@@ -1566,7 +1606,7 @@
     {
       "label": "COLONIA_COLORS",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L18",
       "_origin": "ast",
       "id": "js_colonias_colonia_colors",
@@ -1576,7 +1616,7 @@
     {
       "label": "cargarColonias()",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L25",
       "_origin": "ast",
       "id": "js_colonias_cargarcolonias",
@@ -1586,7 +1626,7 @@
     {
       "label": "cargarColoniasConCandidatos()",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L44",
       "_origin": "ast",
       "id": "js_colonias_cargarcoloniasconcandidatos",
@@ -1596,7 +1636,7 @@
     {
       "label": "_poblarSelectColonia()",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L58",
       "_origin": "ast",
       "id": "js_colonias_poblarselectcolonia",
@@ -1606,7 +1646,7 @@
     {
       "label": "_renderMunicipio()",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L72",
       "_origin": "ast",
       "id": "js_colonias_rendermunicipio",
@@ -1616,7 +1656,7 @@
     {
       "label": "_renderColoniasReales()",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L91",
       "_origin": "ast",
       "id": "js_colonias_rendercoloniasreales",
@@ -1626,7 +1666,7 @@
     {
       "label": "_renderZonasFirestore()",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L158",
       "_origin": "ast",
       "id": "js_colonias_renderzonasfirestore",
@@ -1636,7 +1676,7 @@
     {
       "label": "_resaltarColonia()",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L175",
       "_origin": "ast",
       "id": "js_colonias_resaltarcolonia",
@@ -1646,7 +1686,7 @@
     {
       "label": "_buscarColoniaMatch()",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L190",
       "_origin": "ast",
       "id": "js_colonias_buscarcoloniamatch",
@@ -1656,7 +1696,7 @@
     {
       "label": "toggleColoniasLayer()",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L206",
       "_origin": "ast",
       "id": "js_colonias_togglecoloniaslayer",
@@ -1666,7 +1706,7 @@
     {
       "label": "onColoniaChange()",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L227",
       "_origin": "ast",
       "id": "js_colonias_oncoloniachange",
@@ -1676,7 +1716,7 @@
     {
       "label": "cargarMunicipiosYucatan()",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L243",
       "_origin": "ast",
       "id": "js_colonias_cargarmunicipiosyucatan",
@@ -1686,7 +1726,7 @@
     {
       "label": "_renderMunicipiosYucatan()",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L256",
       "_origin": "ast",
       "id": "js_colonias_rendermunicipiosyucatan",
@@ -1696,7 +1736,7 @@
     {
       "label": "toggleMunicipiosYucatan()",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L288",
       "_origin": "ast",
       "id": "js_colonias_togglemunicipiosyucatan",
@@ -1706,7 +1746,7 @@
     {
       "label": "cargarAgebs()",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L315",
       "_origin": "ast",
       "id": "js_colonias_cargaragebs",
@@ -1716,7 +1756,7 @@
     {
       "label": "_renderAgebs()",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L328",
       "_origin": "ast",
       "id": "js_colonias_renderagebs",
@@ -1726,7 +1766,7 @@
     {
       "label": "toggleAgebs()",
       "file_type": "code",
-      "source_file": "js/colonias.js",
+      "source_file": "legacy/js/colonias.js",
       "source_location": "L370",
       "_origin": "ast",
       "id": "js_colonias_toggleagebs",
@@ -1736,7 +1776,7 @@
     {
       "label": "reportes.js",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L1",
       "_origin": "ast",
       "id": "js_reportes",
@@ -1746,7 +1786,7 @@
     {
       "label": "reporteMarkers",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L7",
       "_origin": "ast",
       "id": "js_reportes_reportemarkers",
@@ -1756,7 +1796,7 @@
     {
       "label": "REPORTE_ICONS",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L11",
       "_origin": "ast",
       "id": "js_reportes_reporte_icons",
@@ -1766,7 +1806,7 @@
     {
       "label": "STATUS_LABELS",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L20",
       "_origin": "ast",
       "id": "js_reportes_status_labels",
@@ -1776,7 +1816,7 @@
     {
       "label": "_reporteAbrirCamara()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L28",
       "_origin": "ast",
       "id": "js_reportes_reporteabrircamara",
@@ -1786,7 +1826,7 @@
     {
       "label": "_reporteAbrirGaleria()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L37",
       "_origin": "ast",
       "id": "js_reportes_reporteabrirgaleria",
@@ -1796,7 +1836,7 @@
     {
       "label": "_reporteFotoChange()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L43",
       "_origin": "ast",
       "id": "js_reportes_reportefotochange",
@@ -1806,7 +1846,7 @@
     {
       "label": "_reporteClearFoto()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L54",
       "_origin": "ast",
       "id": "js_reportes_reporteclearfoto",
@@ -1816,7 +1856,7 @@
     {
       "label": "toggleReporteMode()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L65",
       "_origin": "ast",
       "id": "js_reportes_togglereportemode",
@@ -1826,7 +1866,7 @@
     {
       "label": "_setReporteUbicacion()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L83",
       "_origin": "ast",
       "id": "js_reportes_setreporteubicacion",
@@ -1836,7 +1876,7 @@
     {
       "label": "_reporteAutoUbicacion()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L111",
       "_origin": "ast",
       "id": "js_reportes_reporteautoubicacion",
@@ -1846,7 +1886,7 @@
     {
       "label": "_onMapClickReporte()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L132",
       "_origin": "ast",
       "id": "js_reportes_onmapclickreporte",
@@ -1856,7 +1896,7 @@
     {
       "label": "enviarReporte()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L142",
       "_origin": "ast",
       "id": "js_reportes_enviarreporte",
@@ -1866,7 +1906,7 @@
     {
       "label": "cargarReportes()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L192",
       "_origin": "ast",
       "id": "js_reportes_cargarreportes",
@@ -1876,7 +1916,7 @@
     {
       "label": "_renderListaReportes()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L211",
       "_origin": "ast",
       "id": "js_reportes_renderlistareportes",
@@ -1886,7 +1926,7 @@
     {
       "label": "_renderReportesEnMapa()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L274",
       "_origin": "ast",
       "id": "js_reportes_renderreportesenmapa",
@@ -1896,7 +1936,7 @@
     {
       "label": "_haversineM()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L312",
       "_origin": "ast",
       "id": "js_reportes_haversinem",
@@ -1906,7 +1946,7 @@
     {
       "label": "_obtenerGPS()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L321",
       "_origin": "ast",
       "id": "js_reportes_obtenergps",
@@ -1916,7 +1956,7 @@
     {
       "label": "actualizarStatusReporte()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L329",
       "_origin": "ast",
       "id": "js_reportes_actualizarstatusreporte",
@@ -1926,7 +1966,7 @@
     {
       "label": "eliminarReporte()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L371",
       "_origin": "ast",
       "id": "js_reportes_eliminarreporte",
@@ -1936,7 +1976,7 @@
     {
       "label": "irAReporte()",
       "file_type": "code",
-      "source_file": "js/reportes.js",
+      "source_file": "legacy/js/reportes.js",
       "source_location": "L377",
       "_origin": "ast",
       "id": "js_reportes_irareporte",
@@ -3278,6 +3318,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "js_admin",
+      "target": "js_admin_abrirmodalcambiarpass",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "js/admin.js",
       "source_location": "L6",
       "weight": 1.0,
@@ -3304,6 +3354,16 @@
       "confidence_score": 1.0,
       "source": "js_admin",
       "target": "js_admin_asignarcampana"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "js_admin",
+      "target": "js_admin_cambiarcontrasena",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3344,6 +3404,16 @@
       "confidence_score": 1.0,
       "source": "js_admin",
       "target": "js_admin_cargarusuariosadmin"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "js_admin",
+      "target": "js_admin_cerrarmodalcambiarpass",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3398,6 +3468,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "js_admin",
+      "target": "js_admin_rendermicuenta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "js/admin.js",
       "source_location": "L27",
       "weight": 1.0,
@@ -3446,6 +3526,17 @@
       "confidence_score": 1.0,
       "source": "js_admin_cargarpaneladmin",
       "target": "js_admin_cargarusuariosadmin"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "legacy/js/admin.js",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "js_admin_cargarpaneladmin",
+      "target": "js_admin_rendermicuenta",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3848,9 +3939,9 @@
       "source_file": "js/app.js",
       "source_location": "L115",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "js_app",
-      "target": "js_app_mergedataforce",
-      "confidence_score": 1.0
+      "target": "js_app_mergedataforce"
     },
     {
       "relation": "contains",
@@ -4187,9 +4278,9 @@
       "source_file": "js/app.js",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "js_app_watchcacheready",
-      "target": "js_app_mergedataforce",
-      "confidence_score": 1.0
+      "target": "js_app_mergedataforce"
     },
     {
       "relation": "calls",
@@ -4220,9 +4311,9 @@
       "source_file": "js/app.js",
       "source_location": "L120",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "js_app_mergedataforce",
-      "target": "js_app_agregarmarcadores",
-      "confidence_score": 1.0
+      "target": "js_app_agregarmarcadores"
     },
     {
       "relation": "calls",
@@ -4231,9 +4322,9 @@
       "source_file": "js/app.js",
       "source_location": "L119",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "js_app_mergedataforce",
-      "target": "js_app_renderlista",
-      "confidence_score": 1.0
+      "target": "js_app_renderlista"
     },
     {
       "relation": "calls",
@@ -6691,9 +6782,9 @@
       "source_file": "web/.prettierrc.json",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_prettierrc",
-      "target": "web_prettierrc_printwidth",
-      "confidence_score": 1.0
+      "target": "web_prettierrc_printwidth"
     },
     {
       "relation": "contains",
@@ -6701,9 +6792,9 @@
       "source_file": "web/.prettierrc.json",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_prettierrc",
-      "target": "web_prettierrc_semi",
-      "confidence_score": 1.0
+      "target": "web_prettierrc_semi"
     },
     {
       "relation": "contains",
@@ -6711,9 +6802,9 @@
       "source_file": "web/.prettierrc.json",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_prettierrc",
-      "target": "web_prettierrc_singlequote",
-      "confidence_score": 1.0
+      "target": "web_prettierrc_singlequote"
     },
     {
       "relation": "contains",
@@ -6721,9 +6812,9 @@
       "source_file": "web/.prettierrc.json",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_prettierrc",
-      "target": "web_prettierrc_trailingcomma",
-      "confidence_score": 1.0
+      "target": "web_prettierrc_trailingcomma"
     },
     {
       "relation": "contains",
@@ -6731,9 +6822,9 @@
       "source_file": "web/package.json",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package",
-      "target": "web_package_dependencies",
-      "confidence_score": 1.0
+      "target": "web_package_dependencies"
     },
     {
       "relation": "contains",
@@ -6741,9 +6832,9 @@
       "source_file": "web/package.json",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package",
-      "target": "web_package_devdependencies",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies"
     },
     {
       "relation": "contains",
@@ -6751,9 +6842,9 @@
       "source_file": "web/package.json",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package",
-      "target": "web_package_engines",
-      "confidence_score": 1.0
+      "target": "web_package_engines"
     },
     {
       "relation": "contains",
@@ -6761,9 +6852,9 @@
       "source_file": "web/package.json",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package",
-      "target": "web_package_name",
-      "confidence_score": 1.0
+      "target": "web_package_name"
     },
     {
       "relation": "contains",
@@ -6771,9 +6862,9 @@
       "source_file": "web/package.json",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package",
-      "target": "web_package_packagemanager",
-      "confidence_score": 1.0
+      "target": "web_package_packagemanager"
     },
     {
       "relation": "contains",
@@ -6781,9 +6872,9 @@
       "source_file": "web/package.json",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package",
-      "target": "web_package_private",
-      "confidence_score": 1.0
+      "target": "web_package_private"
     },
     {
       "relation": "contains",
@@ -6791,9 +6882,9 @@
       "source_file": "web/package.json",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package",
-      "target": "web_package_scripts",
-      "confidence_score": 1.0
+      "target": "web_package_scripts"
     },
     {
       "relation": "contains",
@@ -6801,9 +6892,9 @@
       "source_file": "web/package.json",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package",
-      "target": "web_package_type",
-      "confidence_score": 1.0
+      "target": "web_package_type"
     },
     {
       "relation": "contains",
@@ -6811,9 +6902,9 @@
       "source_file": "web/package.json",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package",
-      "target": "web_package_version",
-      "confidence_score": 1.0
+      "target": "web_package_version"
     },
     {
       "relation": "contains",
@@ -6821,9 +6912,9 @@
       "source_file": "web/package.json",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_engines",
-      "target": "web_package_engines_node",
-      "confidence_score": 1.0
+      "target": "web_package_engines_node"
     },
     {
       "relation": "contains",
@@ -6831,9 +6922,9 @@
       "source_file": "web/package.json",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_scripts",
-      "target": "web_package_scripts_build",
-      "confidence_score": 1.0
+      "target": "web_package_scripts_build"
     },
     {
       "relation": "contains",
@@ -6841,9 +6932,9 @@
       "source_file": "web/package.json",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_scripts",
-      "target": "web_package_scripts_dev",
-      "confidence_score": 1.0
+      "target": "web_package_scripts_dev"
     },
     {
       "relation": "contains",
@@ -6851,9 +6942,9 @@
       "source_file": "web/package.json",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_scripts",
-      "target": "web_package_scripts_format",
-      "confidence_score": 1.0
+      "target": "web_package_scripts_format"
     },
     {
       "relation": "contains",
@@ -6861,9 +6952,9 @@
       "source_file": "web/package.json",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_scripts",
-      "target": "web_package_scripts_lint",
-      "confidence_score": 1.0
+      "target": "web_package_scripts_lint"
     },
     {
       "relation": "contains",
@@ -6871,9 +6962,9 @@
       "source_file": "web/package.json",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_scripts",
-      "target": "web_package_scripts_preview",
-      "confidence_score": 1.0
+      "target": "web_package_scripts_preview"
     },
     {
       "relation": "contains",
@@ -6881,9 +6972,9 @@
       "source_file": "web/package.json",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_scripts",
-      "target": "web_package_scripts_test",
-      "confidence_score": 1.0
+      "target": "web_package_scripts_test"
     },
     {
       "relation": "contains",
@@ -6891,9 +6982,9 @@
       "source_file": "web/package.json",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_scripts",
-      "target": "web_package_scripts_test_watch",
-      "confidence_score": 1.0
+      "target": "web_package_scripts_test_watch"
     },
     {
       "relation": "contains",
@@ -6901,9 +6992,9 @@
       "source_file": "web/package.json",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_scripts",
-      "target": "web_package_scripts_typecheck",
-      "confidence_score": 1.0
+      "target": "web_package_scripts_typecheck"
     },
     {
       "relation": "contains",
@@ -6911,9 +7002,9 @@
       "source_file": "web/package.json",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_dependencies",
-      "target": "web_package_dependencies_axios",
-      "confidence_score": 1.0
+      "target": "web_package_dependencies_axios"
     },
     {
       "relation": "contains",
@@ -6921,9 +7012,9 @@
       "source_file": "web/package.json",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_dependencies",
-      "target": "web_package_dependencies_react",
-      "confidence_score": 1.0
+      "target": "web_package_dependencies_react"
     },
     {
       "relation": "contains",
@@ -6931,9 +7022,9 @@
       "source_file": "web/package.json",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_dependencies",
-      "target": "web_package_dependencies_react_dom",
-      "confidence_score": 1.0
+      "target": "web_package_dependencies_react_dom"
     },
     {
       "relation": "contains",
@@ -6941,9 +7032,9 @@
       "source_file": "web/package.json",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_dependencies",
-      "target": "web_package_dependencies_react_router",
-      "confidence_score": 1.0
+      "target": "web_package_dependencies_react_router"
     },
     {
       "relation": "contains",
@@ -6951,9 +7042,9 @@
       "source_file": "web/package.json",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_dependencies",
-      "target": "web_package_dependencies_tanstack_react_query",
-      "confidence_score": 1.0
+      "target": "web_package_dependencies_tanstack_react_query"
     },
     {
       "relation": "contains",
@@ -6961,9 +7052,9 @@
       "source_file": "web/package.json",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_dependencies",
-      "target": "web_package_dependencies_zod",
-      "confidence_score": 1.0
+      "target": "web_package_dependencies_zod"
     },
     {
       "relation": "contains",
@@ -6971,9 +7062,9 @@
       "source_file": "web/package.json",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_autoprefixer",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_autoprefixer"
     },
     {
       "relation": "contains",
@@ -6981,9 +7072,9 @@
       "source_file": "web/package.json",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_eslint",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_eslint"
     },
     {
       "relation": "contains",
@@ -6991,9 +7082,9 @@
       "source_file": "web/package.json",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_eslint_import_resolver_typescript",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_eslint_import_resolver_typescript"
     },
     {
       "relation": "contains",
@@ -7001,9 +7092,9 @@
       "source_file": "web/package.json",
       "source_location": "L29",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_eslint_js",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_eslint_js"
     },
     {
       "relation": "contains",
@@ -7011,9 +7102,9 @@
       "source_file": "web/package.json",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_eslint_plugin_boundaries",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_eslint_plugin_boundaries"
     },
     {
       "relation": "contains",
@@ -7021,9 +7112,9 @@
       "source_file": "web/package.json",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_eslint_plugin_import",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_eslint_plugin_import"
     },
     {
       "relation": "contains",
@@ -7031,9 +7122,9 @@
       "source_file": "web/package.json",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_eslint_plugin_jsx_a11y",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_eslint_plugin_jsx_a11y"
     },
     {
       "relation": "contains",
@@ -7041,9 +7132,9 @@
       "source_file": "web/package.json",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_eslint_plugin_react_hooks",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_eslint_plugin_react_hooks"
     },
     {
       "relation": "contains",
@@ -7051,9 +7142,9 @@
       "source_file": "web/package.json",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_jsdom",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_jsdom"
     },
     {
       "relation": "contains",
@@ -7061,9 +7152,9 @@
       "source_file": "web/package.json",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_postcss",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_postcss"
     },
     {
       "relation": "contains",
@@ -7071,9 +7162,9 @@
       "source_file": "web/package.json",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_prettier",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_prettier"
     },
     {
       "relation": "contains",
@@ -7081,9 +7172,9 @@
       "source_file": "web/package.json",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_tailwindcss",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_tailwindcss"
     },
     {
       "relation": "contains",
@@ -7091,9 +7182,9 @@
       "source_file": "web/package.json",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_testing_library_react",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_testing_library_react"
     },
     {
       "relation": "contains",
@@ -7101,9 +7192,9 @@
       "source_file": "web/package.json",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_types_node",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_types_node"
     },
     {
       "relation": "contains",
@@ -7111,9 +7202,9 @@
       "source_file": "web/package.json",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_types_react",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_types_react"
     },
     {
       "relation": "contains",
@@ -7121,9 +7212,9 @@
       "source_file": "web/package.json",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_types_react_dom",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_types_react_dom"
     },
     {
       "relation": "contains",
@@ -7131,9 +7222,9 @@
       "source_file": "web/package.json",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_typescript",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_typescript"
     },
     {
       "relation": "contains",
@@ -7141,9 +7232,9 @@
       "source_file": "web/package.json",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_typescript_eslint",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_typescript_eslint"
     },
     {
       "relation": "contains",
@@ -7151,9 +7242,9 @@
       "source_file": "web/package.json",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_vite",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_vite"
     },
     {
       "relation": "contains",
@@ -7161,9 +7252,9 @@
       "source_file": "web/package.json",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_vitejs_plugin_react",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_vitejs_plugin_react"
     },
     {
       "relation": "contains",
@@ -7171,9 +7262,9 @@
       "source_file": "web/package.json",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_package_devdependencies",
-      "target": "web_package_devdependencies_vitest",
-      "confidence_score": 1.0
+      "target": "web_package_devdependencies_vitest"
     },
     {
       "relation": "contains",
@@ -7181,9 +7272,9 @@
       "source_file": "web/src/app/main.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_main",
-      "target": "app_main_rootelement",
-      "confidence_score": 1.0
+      "target": "app_main_rootelement"
     },
     {
       "relation": "imports_from",
@@ -7192,9 +7283,9 @@
       "source_file": "web/src/app/main.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_main",
-      "target": "providers_appproviders",
-      "confidence_score": 1.0
+      "target": "providers_appproviders"
     },
     {
       "relation": "imports",
@@ -7203,9 +7294,9 @@
       "source_file": "web/src/app/main.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_main",
-      "target": "providers_appproviders_appproviders",
-      "confidence_score": 1.0
+      "target": "providers_appproviders_appproviders"
     },
     {
       "relation": "imports_from",
@@ -7214,9 +7305,9 @@
       "source_file": "web/src/app/main.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_main",
-      "target": "router_index",
-      "confidence_score": 1.0
+      "target": "router_index"
     },
     {
       "relation": "imports",
@@ -7225,9 +7316,9 @@
       "source_file": "web/src/app/main.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "app_main",
-      "target": "router_index_router",
-      "confidence_score": 1.0
+      "target": "router_index_router"
     },
     {
       "relation": "contains",
@@ -7235,9 +7326,9 @@
       "source_file": "web/src/app/providers/AppProviders.tsx",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "providers_appproviders",
-      "target": "providers_appproviders_appproviders",
-      "confidence_score": 1.0
+      "target": "providers_appproviders_appproviders"
     },
     {
       "relation": "imports_from",
@@ -7246,9 +7337,9 @@
       "source_file": "web/src/app/router/home.test.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "router_home_test",
-      "target": "router_home",
-      "confidence_score": 1.0
+      "target": "router_home"
     },
     {
       "relation": "imports",
@@ -7257,9 +7348,9 @@
       "source_file": "web/src/app/router/home.test.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "router_home_test",
-      "target": "router_home_homepage",
-      "confidence_score": 1.0
+      "target": "router_home_homepage"
     },
     {
       "relation": "contains",
@@ -7267,9 +7358,9 @@
       "source_file": "web/src/app/router/home.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "router_home",
-      "target": "router_home_features_pendientes",
-      "confidence_score": 1.0
+      "target": "router_home_features_pendientes"
     },
     {
       "relation": "contains",
@@ -7277,9 +7368,9 @@
       "source_file": "web/src/app/router/home.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "router_home",
-      "target": "router_home_homepage",
-      "confidence_score": 1.0
+      "target": "router_home_homepage"
     },
     {
       "relation": "imports_from",
@@ -7288,9 +7379,9 @@
       "source_file": "web/src/app/router/index.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "router_index",
-      "target": "router_home",
-      "confidence_score": 1.0
+      "target": "router_home"
     },
     {
       "relation": "imports",
@@ -7299,9 +7390,9 @@
       "source_file": "web/src/app/router/index.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "router_index",
-      "target": "router_home_homepage",
-      "confidence_score": 1.0
+      "target": "router_home_homepage"
     },
     {
       "relation": "contains",
@@ -7309,9 +7400,9 @@
       "source_file": "web/src/app/router/index.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "router_index",
-      "target": "router_index_router",
-      "confidence_score": 1.0
+      "target": "router_index_router"
     },
     {
       "relation": "contains",
@@ -7319,9 +7410,9 @@
       "source_file": "web/src/core/api/http.ts",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_http",
-      "target": "api_http_apierror",
-      "confidence_score": 1.0
+      "target": "api_http_apierror"
     },
     {
       "relation": "contains",
@@ -7329,9 +7420,9 @@
       "source_file": "web/src/core/api/http.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_http",
-      "target": "api_http_http",
-      "confidence_score": 1.0
+      "target": "api_http_http"
     },
     {
       "relation": "re_exports",
@@ -7340,9 +7431,9 @@
       "source_file": "web/src/core/api/index.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_index",
-      "target": "api_http",
-      "confidence_score": 1.0
+      "target": "api_http"
     },
     {
       "relation": "method",
@@ -7350,9 +7441,9 @@
       "source_file": "web/src/core/api/http.ts",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_http_apierror",
-      "target": "api_http_apierror_constructor",
-      "confidence_score": 1.0
+      "target": "api_http_apierror_constructor"
     },
     {
       "relation": "re_exports",
@@ -7361,9 +7452,9 @@
       "source_file": "web/src/core/api/index.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_index",
-      "target": "api_http_apierror",
-      "confidence_score": 1.0
+      "target": "api_http_apierror"
     },
     {
       "relation": "re_exports",
@@ -7372,9 +7463,9 @@
       "source_file": "web/src/core/api/index.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "api_index",
-      "target": "api_http_http",
-      "confidence_score": 1.0
+      "target": "api_http_http"
     },
     {
       "relation": "contains",
@@ -7382,9 +7473,9 @@
       "source_file": "web/src/core/config/env.ts",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "config_env",
-      "target": "config_env_env",
-      "confidence_score": 1.0
+      "target": "config_env_env"
     },
     {
       "relation": "contains",
@@ -7392,9 +7483,9 @@
       "source_file": "web/src/core/config/env.ts",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "config_env",
-      "target": "config_env_envschema",
-      "confidence_score": 1.0
+      "target": "config_env_envschema"
     },
     {
       "relation": "contains",
@@ -7402,9 +7493,9 @@
       "source_file": "web/src/core/config/env.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "config_env",
-      "target": "config_env_parsed",
-      "confidence_score": 1.0
+      "target": "config_env_parsed"
     },
     {
       "relation": "re_exports",
@@ -7413,9 +7504,9 @@
       "source_file": "web/src/core/config/index.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "config_index",
-      "target": "config_env",
-      "confidence_score": 1.0
+      "target": "config_env"
     },
     {
       "relation": "re_exports",
@@ -7424,9 +7515,9 @@
       "source_file": "web/src/core/config/index.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "config_index",
-      "target": "config_env_env",
-      "confidence_score": 1.0
+      "target": "config_env_env"
     },
     {
       "relation": "re_exports",
@@ -7435,9 +7526,9 @@
       "source_file": "web/src/core/query/index.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "query_index",
-      "target": "query_queryclient",
-      "confidence_score": 1.0
+      "target": "query_queryclient"
     },
     {
       "relation": "re_exports",
@@ -7446,9 +7537,9 @@
       "source_file": "web/src/core/query/index.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "query_index",
-      "target": "query_queryclient_queryclient",
-      "confidence_score": 1.0
+      "target": "query_queryclient_queryclient"
     },
     {
       "relation": "contains",
@@ -7456,9 +7547,9 @@
       "source_file": "web/src/core/query/queryClient.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "query_queryclient",
-      "target": "query_queryclient_queryclient",
-      "confidence_score": 1.0
+      "target": "query_queryclient_queryclient"
     },
     {
       "relation": "contains",
@@ -7466,9 +7557,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app",
-      "target": "web_tsconfig_app_compileroptions",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions"
     },
     {
       "relation": "contains",
@@ -7476,9 +7567,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app",
-      "target": "web_tsconfig_app_include",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_include"
     },
     {
       "relation": "contains",
@@ -7486,9 +7577,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_allowimportingtsextensions",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_allowimportingtsextensions"
     },
     {
       "relation": "contains",
@@ -7496,9 +7587,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_baseurl",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_baseurl"
     },
     {
       "relation": "contains",
@@ -7506,9 +7597,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_jsx",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_jsx"
     },
     {
       "relation": "contains",
@@ -7516,9 +7607,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_lib",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_lib"
     },
     {
       "relation": "contains",
@@ -7526,9 +7617,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_module",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_module"
     },
     {
       "relation": "contains",
@@ -7536,9 +7627,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_moduledetection",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_moduledetection"
     },
     {
       "relation": "contains",
@@ -7546,9 +7637,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_moduleresolution",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_moduleresolution"
     },
     {
       "relation": "contains",
@@ -7556,9 +7647,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_noemit",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_noemit"
     },
     {
       "relation": "contains",
@@ -7566,9 +7657,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_nofallthroughcasesinswitch",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_nofallthroughcasesinswitch"
     },
     {
       "relation": "contains",
@@ -7576,9 +7667,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_nounusedlocals",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_nounusedlocals"
     },
     {
       "relation": "contains",
@@ -7586,9 +7677,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_nounusedparameters",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_nounusedparameters"
     },
     {
       "relation": "contains",
@@ -7596,9 +7687,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_paths",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_paths"
     },
     {
       "relation": "contains",
@@ -7606,9 +7697,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_skiplibcheck",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_skiplibcheck"
     },
     {
       "relation": "contains",
@@ -7616,9 +7707,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_strict",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_strict"
     },
     {
       "relation": "contains",
@@ -7626,9 +7717,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_target",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_target"
     },
     {
       "relation": "contains",
@@ -7636,9 +7727,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_tsbuildinfofile",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_tsbuildinfofile"
     },
     {
       "relation": "contains",
@@ -7646,9 +7737,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_types",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_types"
     },
     {
       "relation": "contains",
@@ -7656,9 +7747,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_usedefineforclassfields",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_usedefineforclassfields"
     },
     {
       "relation": "contains",
@@ -7666,9 +7757,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions",
-      "target": "web_tsconfig_app_compileroptions_verbatimmodulesyntax",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_compileroptions_verbatimmodulesyntax"
     },
     {
       "relation": "contains",
@@ -7676,9 +7767,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions_paths",
-      "target": "web_tsconfig_app_paths_app",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_paths_app"
     },
     {
       "relation": "contains",
@@ -7686,9 +7777,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions_paths",
-      "target": "web_tsconfig_app_paths_core",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_paths_core"
     },
     {
       "relation": "contains",
@@ -7696,9 +7787,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions_paths",
-      "target": "web_tsconfig_app_paths_features",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_paths_features"
     },
     {
       "relation": "contains",
@@ -7706,9 +7797,9 @@
       "source_file": "web/tsconfig.app.json",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_app_compileroptions_paths",
-      "target": "web_tsconfig_app_paths_shared",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_app_paths_shared"
     },
     {
       "relation": "contains",
@@ -7716,9 +7807,9 @@
       "source_file": "web/tsconfig.json",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig",
-      "target": "web_tsconfig_files",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_files"
     },
     {
       "relation": "contains",
@@ -7726,9 +7817,9 @@
       "source_file": "web/tsconfig.json",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig",
-      "target": "web_tsconfig_references",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_references"
     },
     {
       "relation": "contains",
@@ -7736,9 +7827,9 @@
       "source_file": "web/tsconfig.node.json",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_node",
-      "target": "web_tsconfig_node_compileroptions",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_node_compileroptions"
     },
     {
       "relation": "contains",
@@ -7746,9 +7837,9 @@
       "source_file": "web/tsconfig.node.json",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_node",
-      "target": "web_tsconfig_node_include",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_node_include"
     },
     {
       "relation": "contains",
@@ -7756,9 +7847,9 @@
       "source_file": "web/tsconfig.node.json",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_node_compileroptions",
-      "target": "web_tsconfig_node_compileroptions_lib",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_node_compileroptions_lib"
     },
     {
       "relation": "contains",
@@ -7766,9 +7857,9 @@
       "source_file": "web/tsconfig.node.json",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_node_compileroptions",
-      "target": "web_tsconfig_node_compileroptions_module",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_node_compileroptions_module"
     },
     {
       "relation": "contains",
@@ -7776,9 +7867,9 @@
       "source_file": "web/tsconfig.node.json",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_node_compileroptions",
-      "target": "web_tsconfig_node_compileroptions_moduledetection",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_node_compileroptions_moduledetection"
     },
     {
       "relation": "contains",
@@ -7786,9 +7877,9 @@
       "source_file": "web/tsconfig.node.json",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_node_compileroptions",
-      "target": "web_tsconfig_node_compileroptions_moduleresolution",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_node_compileroptions_moduleresolution"
     },
     {
       "relation": "contains",
@@ -7796,9 +7887,9 @@
       "source_file": "web/tsconfig.node.json",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_node_compileroptions",
-      "target": "web_tsconfig_node_compileroptions_noemit",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_node_compileroptions_noemit"
     },
     {
       "relation": "contains",
@@ -7806,9 +7897,9 @@
       "source_file": "web/tsconfig.node.json",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_node_compileroptions",
-      "target": "web_tsconfig_node_compileroptions_skiplibcheck",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_node_compileroptions_skiplibcheck"
     },
     {
       "relation": "contains",
@@ -7816,9 +7907,9 @@
       "source_file": "web/tsconfig.node.json",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_node_compileroptions",
-      "target": "web_tsconfig_node_compileroptions_strict",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_node_compileroptions_strict"
     },
     {
       "relation": "contains",
@@ -7826,9 +7917,9 @@
       "source_file": "web/tsconfig.node.json",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_node_compileroptions",
-      "target": "web_tsconfig_node_compileroptions_target",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_node_compileroptions_target"
     },
     {
       "relation": "contains",
@@ -7836,9 +7927,9 @@
       "source_file": "web/tsconfig.node.json",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_node_compileroptions",
-      "target": "web_tsconfig_node_compileroptions_tsbuildinfofile",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_node_compileroptions_tsbuildinfofile"
     },
     {
       "relation": "contains",
@@ -7846,9 +7937,9 @@
       "source_file": "web/tsconfig.node.json",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_node_compileroptions",
-      "target": "web_tsconfig_node_compileroptions_types",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_node_compileroptions_types"
     },
     {
       "relation": "contains",
@@ -7856,9 +7947,9 @@
       "source_file": "web/tsconfig.node.json",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_tsconfig_node_compileroptions",
-      "target": "web_tsconfig_node_compileroptions_verbatimmodulesyntax",
-      "confidence_score": 1.0
+      "target": "web_tsconfig_node_compileroptions_verbatimmodulesyntax"
     },
     {
       "relation": "contains",
@@ -7866,9 +7957,9 @@
       "source_file": "web/README.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_readme",
-      "target": "web_readme_geoformal_frontend_nuevo_react_19_screaming_architecture",
-      "confidence_score": 1.0
+      "target": "web_readme_geoformal_frontend_nuevo_react_19_screaming_architecture"
     },
     {
       "relation": "contains",
@@ -7876,9 +7967,9 @@
       "source_file": "web/README.md",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_readme_geoformal_frontend_nuevo_react_19_screaming_architecture",
-      "target": "web_readme_arquitectura_direcci\u00f3n_del_flujo_app_features_shared_core",
-      "confidence_score": 1.0
+      "target": "web_readme_arquitectura_direcci\u00f3n_del_flujo_app_features_shared_core"
     },
     {
       "relation": "contains",
@@ -7886,9 +7977,9 @@
       "source_file": "web/README.md",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_readme_geoformal_frontend_nuevo_react_19_screaming_architecture",
-      "target": "web_readme_comandos",
-      "confidence_score": 1.0
+      "target": "web_readme_comandos"
     },
     {
       "relation": "contains",
@@ -7896,9 +7987,9 @@
       "source_file": "web/README.md",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_readme_geoformal_frontend_nuevo_react_19_screaming_architecture",
-      "target": "web_readme_plan_de_fases",
-      "confidence_score": 1.0
+      "target": "web_readme_plan_de_fases"
     },
     {
       "relation": "contains",
@@ -7906,9 +7997,9 @@
       "source_file": "web/README.md",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "web_readme_geoformal_frontend_nuevo_react_19_screaming_architecture",
-      "target": "web_readme_stack",
-      "confidence_score": 1.0
+      "target": "web_readme_stack"
     },
     {
       "relation": "contains",
@@ -7916,9 +8007,9 @@
       "source_file": "web/src/features/README.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "features_readme",
-      "target": "features_readme_features_el_grito_del_dominio",
-      "confidence_score": 1.0
+      "target": "features_readme_features_el_grito_del_dominio"
     },
     {
       "relation": "contains",
@@ -7926,9 +8017,9 @@
       "source_file": "web/src/features/README.md",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "features_readme_features_el_grito_del_dominio",
-      "target": "features_readme_anatom\u00eda_de_una_feature",
-      "confidence_score": 1.0
+      "target": "features_readme_anatom\u00eda_de_una_feature"
     },
     {
       "relation": "contains",
@@ -7936,9 +8027,9 @@
       "source_file": "web/src/features/README.md",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "features_readme_features_el_grito_del_dominio",
-      "target": "features_readme_reglas_las_aplica_eslint_config_js",
-      "confidence_score": 1.0
+      "target": "features_readme_reglas_las_aplica_eslint_config_js"
     },
     {
       "relation": "contains",
@@ -7946,11 +8037,11 @@
       "source_file": "web/src/shared/README.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "shared_readme",
-      "target": "shared_readme_shared_reutilizable_y_agn\u00f3stico_al_dominio",
-      "confidence_score": 1.0
+      "target": "shared_readme_shared_reutilizable_y_agn\u00f3stico_al_dominio"
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6b9e00d2522ba20fbd4084dc291b8b82d675ca36"
+  "built_at_commit": "48fc3547fef210a8fc2ef59987efe34f895a709e"
 }

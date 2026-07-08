@@ -1,16 +1,16 @@
 # Graph Report - frontend  (2026-07-07)
 
 ## Corpus Check
-- 30 files · ~19,643 words
+- 30 files · ~20,072 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 327 nodes · 452 edges · 24 communities (20 shown, 4 thin omitted)
+- 331 nodes · 457 edges · 24 communities (20 shown, 4 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 8 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6b9e00d2`
+- Built from commit: `48fc3547`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -50,15 +50,15 @@
 
 ## Surprising Connections (you probably didn't know these)
 - `onColoniaChange()` --calls--> `cargarCandidatos()`  [INFERRED]
-  js/colonias.js → js/app.js
+  legacy/js/colonias.js → legacy/js/app.js
 - `_applyTecnicoRestrictions()` --calls--> `showTab()`  [INFERRED]
-  js/auth.js → js/app.js
+  legacy/js/auth.js → legacy/js/app.js
 - `irAReporte()` --calls--> `showTab()`  [INFERRED]
-  js/reportes.js → js/app.js
+  legacy/js/reportes.js → legacy/js/app.js
 - `_vfAbrirCamara()` --calls--> `_abrirCamara()`  [INFERRED]
-  js/campanas.js → js/camera.js
+  legacy/js/campanas.js → legacy/js/camera.js
 - `_vfPlantillaAbrirCamara()` --calls--> `_abrirCamara()`  [INFERRED]
-  js/campanas.js → js/camera.js
+  legacy/js/campanas.js → legacy/js/camera.js
 
 ## Import Cycles
 - None detected.
@@ -82,8 +82,8 @@ Cohesion: 0.17
 Nodes (15): actualizarStatusReporte(), cargarReportes(), eliminarReporte(), enviarReporte(), _haversineM(), _obtenerGPS(), _onMapClickReporte(), _renderListaReportes() (+7 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.27
-Nodes (14): _adminCampanas, _adminUsuarios, asignarCampana(), cambiarRoleUsuario(), cargarCampanasAdmin(), cargarPanelAdmin(), cargarUsuariosAdmin(), cerrarModalCrearUsuario() (+6 more)
+Cohesion: 0.19
+Nodes (15): _adminCampanas, _adminUsuarios, asignarCampana(), cambiarRoleUsuario(), cargarCampanasAdmin(), cargarPanelAdmin(), cargarUsuariosAdmin(), cerrarModalCrearUsuario() (+7 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.05
@@ -138,11 +138,11 @@ Nodes (3): Anatomía de una feature, features/ — el "grito" del dominio, Regla
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `showTab()` connect `Community 2` to `Community 7`?**
-  _High betweenness centrality (0.123) - this node is a cross-community bridge._
+  _High betweenness centrality (0.120) - this node is a cross-community bridge._
 - **Why does `verRutaCampana()` connect `Community 2` to `Community 0`?**
-  _High betweenness centrality (0.121) - this node is a cross-community bridge._
+  _High betweenness centrality (0.118) - this node is a cross-community bridge._
 - **Why does `cargarCandidatos()` connect `Community 2` to `Community 1`?**
-  _High betweenness centrality (0.059) - this node is a cross-community bridge._
+  _High betweenness centrality (0.058) - this node is a cross-community bridge._
 - **Are the 3 inferred relationships involving `showTab()` (e.g. with `_applyTecnicoRestrictions()` and `verRutaCampana()`) actually correct?**
   _`showTab()` has 3 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `_adminUsuarios`, `_adminCampanas`, `TIPOS_ES` to the rest of the system?**
