@@ -1,3 +1,12 @@
 export { Alert } from './Alert';
+export { Badge, type BadgeTone } from './Badge';
 export { Button } from './Button';
+export { MapCanvas, MERIDA_CENTER } from './map/MapCanvas';
+export { Modal } from './Modal';
+export { SelectField } from './SelectField';
+export { Skeleton } from './Skeleton';
+export { Spinner } from './Spinner';
+export { Table, TBody, Td, Th, THead, Tr } from './Table';
+export { Tabs, TabsContent, TabsList, TabsTrigger } from './Tabs';
 export { TextField } from './TextField';
+export { toast, Toaster } from './Toaster';
