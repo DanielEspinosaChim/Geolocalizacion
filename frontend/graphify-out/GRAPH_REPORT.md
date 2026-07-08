@@ -1,16 +1,16 @@
 # Graph Report - frontend  (2026-07-07)
 
 ## Corpus Check
-- 159 files · ~41,384 words
+- 160 files · ~41,792 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 808 nodes · 1481 edges · 35 communities (31 shown, 4 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 46 edges (avg confidence: 0.8)
+- 815 nodes · 1491 edges · 40 communities (36 shown, 4 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 47 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `fd63855f`
+- Built from commit: `0d75beb6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -45,6 +45,11 @@
 - [[_COMMUNITY_Community 31|Community 31]]
 - [[_COMMUNITY_Community 32|Community 32]]
 - [[_COMMUNITY_Community 33|Community 33]]
+- [[_COMMUNITY_Community 34|Community 34]]
+- [[_COMMUNITY_Community 36|Community 36]]
+- [[_COMMUNITY_Community 37|Community 37]]
+- [[_COMMUNITY_Community 38|Community 38]]
+- [[_COMMUNITY_Community 39|Community 39]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `Alert()` - 21 edges
@@ -52,28 +57,28 @@
 3. `Candidato` - 19 edges
 4. `NegocioCampana` - 16 edges
 5. `compilerOptions` - 12 edges
-6. `tipoDe()` - 10 edges
-7. `scripts` - 9 edges
-8. `getFirebaseAuth()` - 9 edges
+6. `getFirebaseAuth()` - 10 edges
+7. `tipoDe()` - 10 edges
+8. `scripts` - 9 edges
 9. `showTab()` - 8 edges
 10. `Campo` - 8 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `cambiarRoleUsuario()` --calls--> `Alert()`  [INFERRED]
-  legacy/js/admin.js → src/shared/ui/Alert.tsx
-- `toggleUsuario()` --calls--> `Alert()`  [INFERRED]
-  legacy/js/admin.js → src/shared/ui/Alert.tsx
-- `eliminarUsuario()` --calls--> `Alert()`  [INFERRED]
-  legacy/js/admin.js → src/shared/ui/Alert.tsx
-- `crearUsuario()` --calls--> `Alert()`  [INFERRED]
-  legacy/js/admin.js → src/shared/ui/Alert.tsx
-- `asignarCampana()` --calls--> `Alert()`  [INFERRED]
-  legacy/js/admin.js → src/shared/ui/Alert.tsx
+- `descargarReporte()` --calls--> `Alert()`  [INFERRED]
+  legacy/js/app.js → src/shared/ui/Alert.tsx
+- `_abrirCamaraModal()` --calls--> `Alert()`  [INFERRED]
+  legacy/js/camera.js → src/shared/ui/Alert.tsx
+- `_revertirPendiente()` --calls--> `Alert()`  [INFERRED]
+  legacy/js/campanas.js → src/shared/ui/Alert.tsx
+- `descargarReporteCampana()` --calls--> `Alert()`  [INFERRED]
+  legacy/js/campanas.js → src/shared/ui/Alert.tsx
+- `crearCampana()` --calls--> `Alert()`  [INFERRED]
+  legacy/js/campanas.js → src/shared/ui/Alert.tsx
 
 ## Import Cycles
 - None detected.
 
-## Communities (35 total, 4 thin omitted)
+## Communities (40 total, 4 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.06
@@ -84,16 +89,16 @@ Cohesion: 0.15
 Nodes (16): cargarAgebs(), cargarColonias(), cargarMunicipiosYucatan(), COLONIA_COLORS, coloniasData, onColoniaChange(), _poblarSelectColonia(), _renderAgebs() (+8 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.07
-Nodes (48): Escenario(), fmt(), _actualizarMetricasLocales(), _agregarMarcadores(), allData, _calcIndice(), calcularRuta(), calcularRutaColonia() (+40 more)
+Cohesion: 0.05
+Nodes (62): Escenario(), fmt(), _adminCampanas, _adminUsuarios, asignarCampana(), cambiarRoleUsuario(), cargarCampanasAdmin(), cargarPanelAdmin() (+54 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.09
-Nodes (25): _abrirCamara(), _abrirCamaraModal(), _cameraCancelar(), _cameraDetenerStream(), _cameraReintentar(), _cameraShowLive(), _esMobil(), _vfAbrirCamara() (+17 more)
+Nodes (26): _abrirCamara(), _abrirCamaraModal(), _cameraCancelar(), _cameraDetenerStream(), _cameraReintentar(), _cameraShowLive(), _esMobil(), _vfAbrirCamara() (+18 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.19
-Nodes (15): _adminCampanas, _adminUsuarios, asignarCampana(), cambiarRoleUsuario(), cargarCampanasAdmin(), cargarPanelAdmin(), cargarUsuariosAdmin(), cerrarModalCrearUsuario() (+7 more)
+Cohesion: 0.18
+Nodes (11): ERROR_MESSAGES, SignInError, signInWithEmail(), signInWithGoogle(), SILENT_CODES, translate(), GoogleIcon(), LoginForm() (+3 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.08
@@ -101,7 +106,7 @@ Nodes (25): devDependencies, autoprefixer, eslint, eslint-import-resolver-typesc
 
 ### Community 6 - "Community 6"
 Cohesion: 0.11
-Nodes (28): GuardarVisitaInput, useGuardarVisita(), PlantillaInput, usePlantillaMutations(), usePlantillas(), CampoEditor(), CampoEditorProps, CampoVisita() (+20 more)
+Nodes (27): GuardarVisitaInput, useGuardarVisita(), PlantillaInput, usePlantillaMutations(), usePlantillas(), CampoEditor(), CampoEditorProps, CampoVisita() (+19 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.24
@@ -112,12 +117,12 @@ Cohesion: 0.07
 Nodes (26): compilerOptions, allowImportingTsExtensions, baseUrl, esModuleInterop, jsx, lib, module, moduleDetection (+18 more)
 
 ### Community 9 - "Community 9"
-Cohesion: 0.06
-Nodes (32): dependencies, axios, firebase, @hookform/resolvers, leaflet, leaflet.markercluster, @radix-ui/react-dialog, @radix-ui/react-tabs (+24 more)
+Cohesion: 0.12
+Nodes (16): dependencies, axios, firebase, @hookform/resolvers, leaflet, leaflet.markercluster, @radix-ui/react-dialog, @radix-ui/react-tabs (+8 more)
 
 ### Community 10 - "Community 10"
-Cohesion: 0.10
-Nodes (18): rootElement, useSession(), AppShell(), NAV_ITEMS, NavItem, NavTabs(), UserMenu(), AppProviders() (+10 more)
+Cohesion: 0.27
+Nodes (8): indexLoader(), redirectIfAuthed(), requireAuth(), requireRole(), admin, { getSessionUser }, tecnico, RouteError()
 
 ### Community 11 - "Community 11"
 Cohesion: 0.14
@@ -144,8 +149,8 @@ Cohesion: 0.09
 Nodes (31): reverseGeocode(), NuevoReporte, reportesKeys, useActualizarReporte(), useCrearReporte(), useEliminarReporte(), useReportes(), FlyTo() (+23 more)
 
 ### Community 25 - "Community 25"
-Cohesion: 0.10
-Nodes (25): ERROR_MESSAGES, SignInError, signInWithEmail(), signInWithGoogle(), SILENT_CODES, translate(), getFirebaseAuth(), changePassword() (+17 more)
+Cohesion: 0.23
+Nodes (15): activarAppCheck(), getFirebaseAuth(), changePassword(), ensureWatcher(), getFreshToken(), getSessionSnapshot(), getSessionUser(), listeners (+7 more)
 
 ### Community 26 - "Community 26"
 Cohesion: 0.06
@@ -168,8 +173,8 @@ Cohesion: 0.32
 Nodes (7): capturarGPS(), capturarVerificacion(), GPS_ERRORES, GpsError, haversineM(), obtenerGPS(), PosicionGPS
 
 ### Community 31 - "Community 31"
-Cohesion: 0.08
-Nodes (42): campanasKeys, useCampana(), NuevaCampana, useCampanaMutations(), Opciones, useCampanas(), usePatchNegocio(), AgregarNegocios() (+34 more)
+Cohesion: 0.07
+Nodes (43): campanasKeys, useCampana(), NuevaCampana, useCampanaMutations(), Opciones, useCampanas(), usePatchNegocio(), AgregarNegocios() (+35 more)
 
 ### Community 32 - "Community 32"
 Cohesion: 0.12
@@ -179,8 +184,28 @@ Nodes (20): useAsignarCampana(), ERRORES, useCambiarPassword(), useUsuarioMutati
 Cohesion: 0.11
 Nodes (20): useIndice(), useMuestraValidacion(), usePredecir(), IndicePanel(), PrediccionResultado(), PredictLayer(), PredictLayerProps, ESCENARIO_COLORS (+12 more)
 
+### Community 34 - "Community 34"
+Cohesion: 0.20
+Nodes (6): ErrorBoundary, State, rootElement, renderForm(), AppProviders(), router
+
+### Community 36 - "Community 36"
+Cohesion: 0.22
+Nodes (9): scripts, build, dev, format, lint, preview, test, test:watch (+1 more)
+
+### Community 37 - "Community 37"
+Cohesion: 0.25
+Nodes (7): engines, node, name, packageManager, private, type, version
+
+### Community 38 - "Community 38"
+Cohesion: 0.38
+Nodes (4): NAV_ITEMS, NavItem, NavTabs(), UserMenu()
+
+### Community 39 - "Community 39"
+Cohesion: 0.47
+Nodes (3): useSession(), AppShell(), LoginPage()
+
 ## Knowledge Gaps
-- **200 isolated node(s):** `singleQuote`, `semi`, `printWidth`, `trailingComma`, `_adminUsuarios` (+195 more)
+- **201 isolated node(s):** `singleQuote`, `semi`, `printWidth`, `trailingComma`, `_adminUsuarios` (+196 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -190,13 +215,13 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `giroLabel()` connect `Community 27` to `Community 33`?**
   _High betweenness centrality (0.339) - this node is a cross-community bridge._
 - **Why does `PrediccionResultado()` connect `Community 33` to `Community 27`?**
-  _High betweenness centrality (0.338) - this node is a cross-community bridge._
+  _High betweenness centrality (0.339) - this node is a cross-community bridge._
 - **Why does `useCandidatos()` connect `Community 27` to `Community 29`, `Community 31`?**
-  _High betweenness centrality (0.335) - this node is a cross-community bridge._
+  _High betweenness centrality (0.337) - this node is a cross-community bridge._
 - **Are the 19 inferred relationships involving `Alert()` (e.g. with `asignarCampana()` and `cambiarRoleUsuario()`) actually correct?**
   _`Alert()` has 19 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `singleQuote`, `semi`, `printWidth` to the rest of the system?**
-  _200 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _201 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05734767025089606 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
