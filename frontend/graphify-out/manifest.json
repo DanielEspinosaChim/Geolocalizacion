@@ -45,8 +45,8 @@
     "semantic_hash": ""
   },
   "eslint.config.js": {
-    "mtime": 1783471570.5342531,
-    "ast_hash": "c6d69780fe167feef20be67054a012bb",
+    "mtime": 1783472752.7084,
+    "ast_hash": "9fba2d377ca0dc55b7faf5fc9b2dedb2",
     "semantic_hash": ""
   },
   "package.json": {
@@ -105,8 +105,8 @@
     "semantic_hash": ""
   },
   "src/app/router/index.tsx": {
-    "mtime": 1783471408.5592227,
-    "ast_hash": "085203103b03d307825d08b84bdb3328",
+    "mtime": 1783472623.0720973,
+    "ast_hash": "ff9c9d915caf36da994e5944725dacfb",
     "semantic_hash": ""
   },
   "src/core/api/http.ts": {
@@ -250,8 +250,8 @@
     "semantic_hash": ""
   },
   "src/shared/ui/index.ts": {
-    "mtime": 1783470362.781259,
-    "ast_hash": "17c46a7f371c7696ea75503af122a9cd",
+    "mtime": 1783472352.9468637,
+    "ast_hash": "20bf62ce48e6e3c6079b6dcb1b9e55d8",
     "semantic_hash": ""
   },
   "src/shared/ui/map/MapCanvas.tsx": {
@@ -290,8 +290,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1783470386.5805926,
-    "ast_hash": "31c7c285a484c583312016ddd19fb205",
+    "mtime": 1783472634.2275,
+    "ast_hash": "fcaea32c89e6000eb08413044f7e1945",
     "semantic_hash": ""
   },
   "index.html": {
@@ -505,8 +505,8 @@
     "semantic_hash": ""
   },
   "src/features/rutas/api/useRuta.ts": {
-    "mtime": 1783471244.8359768,
-    "ast_hash": "18c0465ce319e70a411100768538f3bd",
+    "mtime": 1783472584.3782067,
+    "ast_hash": "9f5fe5e46c0bccce65177991c31c80cd",
     "semantic_hash": ""
   },
   "src/features/rutas/components/RutaInfo.tsx": {
@@ -525,8 +525,8 @@
     "semantic_hash": ""
   },
   "src/features/rutas/index.ts": {
-    "mtime": 1783471279.5002792,
-    "ast_hash": "085026ef0a2558967608b0061f51cac1",
+    "mtime": 1783472586.5369656,
+    "ast_hash": "fb32ac6cfddecb24520d2a9e1758486e",
     "semantic_hash": ""
   },
   "src/features/rutas/model/ruta.test.ts": {
@@ -547,6 +547,156 @@
   "src/shared/lib/geo.ts": {
     "mtime": 1783471161.6180117,
     "ast_hash": "50b11e6eea328452fcb0193f8f5a33c8",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/api/keys.ts": {
+    "mtime": 1783472271.3205664,
+    "ast_hash": "d4aaad80326d489020b3ae9e0409cc9e",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/api/useCampana.ts": {
+    "mtime": 1783472278.4513948,
+    "ast_hash": "cc87ef94a65e45bec584e75bbd39889e",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/api/useCampanaMutations.ts": {
+    "mtime": 1783472286.4296079,
+    "ast_hash": "ded3a5a2e74b61b19befc9e2eaf5e950",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/api/useCampanas.ts": {
+    "mtime": 1783472275.3468778,
+    "ast_hash": "37a175092a04bc86cc42b81b6d241a92",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/api/useGuardarVisita.ts": {
+    "mtime": 1783472717.5856128,
+    "ast_hash": "f7d2ed9e6dd978fa0f235698ca2318b5",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/api/useNegocioMutations.ts": {
+    "mtime": 1783472290.1946354,
+    "ast_hash": "4347c4a7454a05d1d233b15701b8079f",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/api/usePlantillas.ts": {
+    "mtime": 1783472312.3384547,
+    "ast_hash": "f422970471432b409b63d3d7f59c49dd",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/AgregarNegocios.tsx": {
+    "mtime": 1783472719.0075054,
+    "ast_hash": "70134956c652f61a30c4003bd60c74bb",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/CampanaCard.tsx": {
+    "mtime": 1783472369.659127,
+    "ast_hash": "b023d30e065b8fae7c3b928e1f5af384",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/CampanaDetalle.tsx": {
+    "mtime": 1783472616.6512816,
+    "ast_hash": "29ed8e1f23fa24f23c3434dd5b42420e",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/CampanasList.tsx": {
+    "mtime": 1783472387.7800145,
+    "ast_hash": "9852809ad687f58d482af12dce1326f4",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/CampoEditor.tsx": {
+    "mtime": 1783472727.5359137,
+    "ast_hash": "3d496bf15bb9d1c1ae46f13d65e52c98",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/CampoVisita.tsx": {
+    "mtime": 1783472499.9139774,
+    "ast_hash": "9bc3e0bb015154d77d1e810f4b1147e9",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/ChecklistItem.tsx": {
+    "mtime": 1783472869.9050517,
+    "ast_hash": "ce92d3dfd6da8c8bed33c020396f9ac0",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/ChecklistTecnico.tsx": {
+    "mtime": 1783472475.2487023,
+    "ast_hash": "7ca23d1d9c686f3abd12451c73687dab",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/CrearCampanaModal.tsx": {
+    "mtime": 1783472377.6502266,
+    "ast_hash": "9296d27470fee72a194c186e3fdedfe3",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/EditorPlantilla.tsx": {
+    "mtime": 1783472558.489771,
+    "ast_hash": "5e5be071d16e31b6594242e71a4af0ad",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/NegociosTabla.tsx": {
+    "mtime": 1783472434.1939106,
+    "ast_hash": "8943761821bfaeacc2ca6479dfc09825",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/PlantillasModal.tsx": {
+    "mtime": 1783472566.5996928,
+    "ast_hash": "bb8aa96156061b611e76382a79f3bd0b",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/ProgresoHero.tsx": {
+    "mtime": 1783472441.218096,
+    "ast_hash": "a4ef28f56437bf8d99d85e64b4a9fd61",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/RutaCampanaModal.tsx": {
+    "mtime": 1783472599.142329,
+    "ast_hash": "57b8522c0f7cd3232e5c4b1a9fc7f0fd",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/VisitaModal.tsx": {
+    "mtime": 1783472516.8197575,
+    "ast_hash": "763568977d27e5286fa26a2ba502bd3d",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/index.ts": {
+    "mtime": 1783472621.330353,
+    "ast_hash": "33c74ba5ad0842dd1394b09431a51377",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/model/campana.test.ts": {
+    "mtime": 1783472263.594022,
+    "ast_hash": "7d8001729209e85b2ab488877fa3af33",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/model/campana.ts": {
+    "mtime": 1783472248.3429217,
+    "ast_hash": "339c2e78fe801158e53af5988b855c1d",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/model/plantilla.ts": {
+    "mtime": 1783472256.583768,
+    "ast_hash": "a66b3952c7cc044e0a1e331b971e2c0d",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/routes/CampanasPage.tsx": {
+    "mtime": 1783472620.1352732,
+    "ast_hash": "02bdc8411ad7be993ab1f4c56ff64e55",
+    "semantic_hash": ""
+  },
+  "src/shared/lib/device.ts": {
+    "mtime": 1783472326.0478146,
+    "ast_hash": "898d4962669547da3373722ed25c7d24",
+    "semantic_hash": ""
+  },
+  "src/shared/ui/camera/CameraModal.tsx": {
+    "mtime": 1783472882.4168422,
+    "ast_hash": "fabcc75d5c930adac90fdbc0812b45db",
+    "semantic_hash": ""
+  },
+  "src/shared/ui/camera/FotoField.tsx": {
+    "mtime": 1783472351.0647357,
+    "ast_hash": "884b7730b392000c0aa584c8ce8aea47",
     "semantic_hash": ""
   }
 }

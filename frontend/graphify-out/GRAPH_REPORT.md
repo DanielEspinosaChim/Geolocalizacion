@@ -1,16 +1,16 @@
 # Graph Report - frontend  (2026-07-07)
 
 ## Corpus Check
-- 107 files · ~31,930 words
+- 137 files · ~38,302 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 629 nodes · 1077 edges · 31 communities (27 shown, 4 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 36 edges (avg confidence: 0.8)
+- 743 nodes · 1347 edges · 36 communities (32 shown, 4 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 41 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9502a13e`
+- Built from commit: `8905a1c2`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -42,18 +42,22 @@
 - [[_COMMUNITY_Community 28|Community 28]]
 - [[_COMMUNITY_Community 29|Community 29]]
 - [[_COMMUNITY_Community 30|Community 30]]
+- [[_COMMUNITY_Community 31|Community 31]]
+- [[_COMMUNITY_Community 32|Community 32]]
+- [[_COMMUNITY_Community 33|Community 33]]
+- [[_COMMUNITY_Community 34|Community 34]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `Alert()` - 21 edges
 2. `compilerOptions` - 21 edges
 3. `Candidato` - 19 edges
-4. `compilerOptions` - 12 edges
-5. `tipoDe()` - 10 edges
-6. `scripts` - 9 edges
-7. `showTab()` - 8 edges
-8. `getFirebaseAuth()` - 8 edges
-9. `Tipo` - 8 edges
-10. `cargarUsuariosAdmin()` - 7 edges
+4. `NegocioCampana` - 16 edges
+5. `compilerOptions` - 12 edges
+6. `tipoDe()` - 10 edges
+7. `scripts` - 9 edges
+8. `showTab()` - 8 edges
+9. `getFirebaseAuth()` - 8 edges
+10. `Campo` - 8 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `cambiarRoleUsuario()` --calls--> `Alert()`  [INFERRED]
@@ -70,7 +74,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (31 total, 4 thin omitted)
+## Communities (36 total, 4 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.06
@@ -85,8 +89,8 @@ Cohesion: 0.07
 Nodes (46): _actualizarMetricasLocales(), _agregarMarcadores(), allData, _calcIndice(), calcularRuta(), calcularRutaColonia(), cargarCandidatos(), cargarDatosIniciales() (+38 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.17
-Nodes (15): actualizarStatusReporte(), cargarReportes(), eliminarReporte(), enviarReporte(), _haversineM(), _obtenerGPS(), _onMapClickReporte(), _renderListaReportes() (+7 more)
+Cohesion: 0.09
+Nodes (25): _abrirCamara(), _abrirCamaraModal(), _cameraCancelar(), _cameraDetenerStream(), _cameraReintentar(), _cameraShowLive(), _esMobil(), _vfAbrirCamara() (+17 more)
 
 ### Community 4 - "Community 4"
 Cohesion: 0.19
@@ -97,8 +101,8 @@ Cohesion: 0.08
 Nodes (25): devDependencies, autoprefixer, eslint, eslint-import-resolver-typescript, @eslint/js, eslint-plugin-boundaries, eslint-plugin-import, eslint-plugin-jsx-a11y (+17 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.22
-Nodes (10): _abrirCamara(), _abrirCamaraModal(), _cameraCancelar(), _cameraDetenerStream(), _cameraReintentar(), _cameraShowLive(), _esMobil(), _vfAbrirCamara() (+2 more)
+Cohesion: 0.15
+Nodes (19): PlantillaInput, usePlantillaMutations(), CampoEditor(), CampoEditorProps, EditorPlantilla(), EditorPlantillaProps, EstadoEditor, PlantillasModal() (+11 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.24
@@ -145,8 +149,8 @@ Cohesion: 0.10
 Nodes (24): ERROR_MESSAGES, SignInError, signInWithEmail(), signInWithGoogle(), SILENT_CODES, translate(), getFirebaseAuth(), ensureWatcher() (+16 more)
 
 ### Community 26 - "Community 26"
-Cohesion: 0.07
-Nodes (34): MapCanvas(), MapCanvasProps, MERIDA_CENTER, AlertProps, TONE_CLASSES, Badge(), BadgeProps, BadgeTone (+26 more)
+Cohesion: 0.06
+Nodes (39): CAMERA_ERRORS, CameraModal(), CameraModalProps, FotoField(), FotoFieldProps, MapCanvas(), MapCanvasProps, MERIDA_CENTER (+31 more)
 
 ### Community 27 - "Community 27"
 Cohesion: 0.08
@@ -157,31 +161,47 @@ Cohesion: 0.12
 Nodes (21): useColonias(), useGeoJsonLayer(), AgebProps, AgebsLayer(), CapaId, CAPAS, CapasToggles(), CapasTogglesProps (+13 more)
 
 ### Community 29 - "Community 29"
-Cohesion: 0.18
+Cohesion: 0.22
 Nodes (12): descargarReporteVisita(), useCalcularRuta(), useCalcularRutaColonia(), RutaInfo(), RutaLayer(), RutaLista(), RutaListaProps, formatearTiempo() (+4 more)
 
 ### Community 30 - "Community 30"
-Cohesion: 0.33
-Nodes (6): capturarVerificacion(), GPS_ERRORES, GpsError, haversineM(), obtenerGPS(), PosicionGPS
+Cohesion: 0.32
+Nodes (7): capturarGPS(), capturarVerificacion(), GPS_ERRORES, GpsError, haversineM(), obtenerGPS(), PosicionGPS
+
+### Community 31 - "Community 31"
+Cohesion: 0.15
+Nodes (17): Opciones, useCampanas(), CampanaCard(), CampanaCardProps, CampanasList(), CampanasListProps, ProgresoHero(), Campana (+9 more)
+
+### Community 32 - "Community 32"
+Cohesion: 0.17
+Nodes (16): usePatchNegocio(), AgregarNegocios(), AgregarNegociosProps, CampanaDetalleProps, ChecklistItem(), ChecklistItemProps, lineaMeta(), navUrls() (+8 more)
+
+### Community 33 - "Community 33"
+Cohesion: 0.21
+Nodes (10): GuardarVisitaInput, useGuardarVisita(), usePlantillas(), CampoVisita(), CampoVisitaProps, CAMPOS_FIJOS, VisitaModal(), VisitaModalProps (+2 more)
+
+### Community 34 - "Community 34"
+Cohesion: 0.23
+Nodes (8): campanasKeys, useCampana(), NuevaCampana, useCampanaMutations(), CampanaDetalle(), CrearCampanaModal(), CrearCampanaModalProps, detalleCampanaSchema
 
 ## Knowledge Gaps
-- **176 isolated node(s):** `singleQuote`, `semi`, `printWidth`, `trailingComma`, `_adminUsuarios` (+171 more)
+- **192 isolated node(s):** `singleQuote`, `semi`, `printWidth`, `trailingComma`, `_adminUsuarios` (+187 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Alert()` connect `Community 2` to `Community 0`, `Community 3`, `Community 4`, `Community 6`, `Community 26`?**
-  _High betweenness centrality (0.085) - this node is a cross-community bridge._
-- **Why does `showTab()` connect `Community 2` to `Community 7`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
-- **Why does `verRutaCampana()` connect `Community 2` to `Community 0`?**
-  _High betweenness centrality (0.027) - this node is a cross-community bridge._
+- **Why does `useCandidatos()` connect `Community 27` to `Community 32`, `Community 29`?**
+  _High betweenness centrality (0.091) - this node is a cross-community bridge._
+- **Why does `AgregarNegocios()` connect `Community 32` to `Community 34`, `Community 27`?**
+  _High betweenness centrality (0.083) - this node is a cross-community bridge._
+- **Why does `useSession()` connect `Community 10` to `Community 31`?**
+  _High betweenness centrality (0.071) - this node is a cross-community bridge._
 - **Are the 19 inferred relationships involving `Alert()` (e.g. with `asignarCampana()` and `cambiarRoleUsuario()`) actually correct?**
   _`Alert()` has 19 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `singleQuote`, `semi`, `printWidth` to the rest of the system?**
-  _176 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _192 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.05734767025089606 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
