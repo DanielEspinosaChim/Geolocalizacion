@@ -39,5 +39,6 @@ Las fronteras las aplica `eslint.config.js` (eslint-plugin-boundaries): romperla
 4. ✅ `reportes` · `rutas` · `colonias-zonas`
 5. ✅ `campanas` + plantillas (vista admin/técnico, modal de visita con campos
    dinámicos, editor de plantillas, cámara reutilizable en `shared/ui`)
-6. `predicciones` + `admin`
+6. ✅ `predicciones` (predicción por clic + índice + validación) + `admin`
+   (usuarios, asignaciones, mi cuenta + cambio de contraseña)
 7. Endurecimiento (CSP, App Check, e2e) y corte del legacy

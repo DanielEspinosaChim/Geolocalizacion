@@ -2,14 +2,7 @@ import { createBrowserRouter } from 'react-router';
 import { LoginPage } from '@features/auth';
 import { AppShell } from '../layout/AppShell';
 import { indexLoader, redirectIfAuthed, requireAuth, requireRole } from './guards';
-import { PlaceholderPage } from './PlaceholderPage';
 import { RouteError } from './RouteError';
-
-/* Placeholders: cada uno se reemplaza por `lazy: () => import('@features/<x>')`
-   en su fase del plan de migración. */
-const placeholder = (title: string, fase: string, descripcion: string) => (
-  <PlaceholderPage title={title} fase={fase} descripcion={descripcion} />
-);
 
 export const router = createBrowserRouter([
   {
@@ -32,7 +25,8 @@ export const router = createBrowserRouter([
       },
       {
         path: 'predicciones',
-        element: placeholder('Predicción', 'Fase 6', 'Zonas de predicción y calculadora de índice llegan en la Fase 6.'),
+        loader: requireRole('admin'),
+        lazy: async () => ({ Component: (await import('@features/predicciones')).PrediccionesPage }),
       },
       {
         path: 'rutas',
@@ -48,12 +42,13 @@ export const router = createBrowserRouter([
       },
       {
         path: 'validacion',
-        element: placeholder('Validación', 'Fase 6', 'La muestra de validación del modelo llega en la Fase 6.'),
+        loader: requireRole('admin'),
+        lazy: async () => ({ Component: (await import('@features/predicciones')).ValidacionPage }),
       },
       {
         path: 'admin',
         loader: requireRole('admin'), // ◀── solo admin (el backend re-valida igual)
-        element: placeholder('Administración', 'Fase 6', 'Gestión de usuarios y asignación de campañas llega en la Fase 6.'),
+        lazy: async () => ({ Component: (await import('@features/admin')).AdminPage }),
       },
     ],
   },

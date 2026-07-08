@@ -1,5 +1,6 @@
 export { getFirebaseAuth } from './firebase';
 export {
+  changePassword,
   getFreshToken,
   getSessionSnapshot,
   getSessionUser,

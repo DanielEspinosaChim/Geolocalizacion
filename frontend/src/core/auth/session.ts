@@ -1,4 +1,12 @@
-import { getIdTokenResult, onAuthStateChanged, signOut, type User } from 'firebase/auth';
+import {
+  EmailAuthProvider,
+  getIdTokenResult,
+  onAuthStateChanged,
+  reauthenticateWithCredential,
+  signOut,
+  updatePassword,
+  type User,
+} from 'firebase/auth';
 import { getFirebaseAuth } from './firebase';
 
 export type Role = 'admin' | 'tecnico';
@@ -70,6 +78,15 @@ export function getSessionSnapshot(): SessionSnapshot {
 
 export async function signOutUser(): Promise<void> {
   await signOut(getFirebaseAuth());
+}
+
+/** Cambia la contraseña del usuario actual, reautenticando con la actual. */
+export async function changePassword(actual: string, nueva: string): Promise<void> {
+  const user = getFirebaseAuth().currentUser;
+  if (!user?.email) throw new Error('No hay sesión activa');
+  const credential = EmailAuthProvider.credential(user.email, actual);
+  await reauthenticateWithCredential(user, credential);
+  await updatePassword(user, nueva);
 }
 
 /** Usado por el interceptor HTTP ante 401/403: sesión inválida → login. */
