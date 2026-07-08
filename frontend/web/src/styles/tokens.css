@@ -1,0 +1,51 @@
+/* ════════════════════════════════════════════════════════════════════
+   Design tokens — ÚNICA fuente de verdad de color/forma.
+   Valores HSL sin hsl() para que Tailwind componga alpha (<alpha-value>).
+   Tema por defecto: oscuro (identidad visual actual de GeoFormal).
+   ════════════════════════════════════════════════════════════════════ */
+:root {
+  /* superficies */
+  --bg: 222 63% 7%; /* ≈ #070f1f */
+  --surface: 221 57% 12%; /* ≈ #0d1830 */
+  --surface-raised: 221 52% 16%;
+  --border: 221 54% 22%; /* ≈ #1a2d56 */
+
+  /* texto */
+  --fg: 213 100% 93%; /* ≈ #dde9ff */
+  --fg-muted: 215 25% 65%; /* ≈ #94a3b8 */
+  --fg-subtle: 216 51% 47%; /* ≈ #3b6ab5 */
+
+  /* marca */
+  --primary: 217 91% 60%; /* ≈ #3b82f6 */
+  --primary-strong: 221 83% 53%; /* ≈ #2563eb */
+  --primary-fg: 0 0% 100%;
+
+  /* semánticos (estado de formalización, alertas) */
+  --success: 142 71% 45%; /* ≈ #22c55e — formal */
+  --warning: 25 95% 53%; /* ≈ #f97316 — en proceso */
+  --danger: 0 72% 51%; /* ≈ #dc2626 — informal */
+
+  /* forma */
+  --radius-card: 14px;
+  --radius-control: 10px;
+}
+
+/* Tema claro: solo se reescriben tokens, ninguna clase cambia. */
+[data-theme='light'] {
+  --bg: 210 40% 98%;
+  --surface: 0 0% 100%;
+  --surface-raised: 210 40% 96%;
+  --border: 214 32% 87%;
+
+  --fg: 222 47% 11%;
+  --fg-muted: 215 16% 43%;
+  --fg-subtle: 215 20% 55%;
+
+  --primary: 221 83% 53%;
+  --primary-strong: 224 76% 48%;
+  --primary-fg: 0 0% 100%;
+
+  --success: 142 72% 35%;
+  --warning: 25 90% 43%;
+  --danger: 0 72% 45%;
+}

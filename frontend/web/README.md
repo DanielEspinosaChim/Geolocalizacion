@@ -1,0 +1,40 @@
+# GeoFormal — frontend nuevo (React 19 + Screaming Architecture)
+
+Migración strangler del frontend legacy (`frontend/index.html` + `frontend/js/`), que **sigue
+sirviéndose en producción** hasta alcanzar paridad. No mover ni borrar el legacy: el backend
+(`app.py`) monta `frontend/css`, `frontend/js` y sirve `frontend/index.html` por ruta fija.
+
+## Stack
+
+React 19 · TypeScript estricto · Vite 6 · React Router v7 (loaders como guardias) ·
+TanStack Query v5 · Axios centralizado (`@core/api`) · Tailwind v3 con design tokens · pnpm.
+
+## Comandos
+
+```bash
+pnpm dev        # http://localhost:5173 — proxy /api → backend (VITE_API_PROXY)
+pnpm typecheck  # tsc -b
+pnpm lint       # ESLint con fronteras de arquitectura
+pnpm test       # vitest
+pnpm build      # tsc -b && vite build
+```
+
+## Arquitectura (dirección del flujo: app → features → shared → core)
+
+- `src/app/` composition root: providers, router. Sin lógica de negocio.
+- `src/features/` el dominio (ver `src/features/README.md`).
+- `src/shared/` UI/hooks/lib agnósticos al dominio.
+- `src/core/` infraestructura: `api` (Axios + interceptores), `auth`, `query`, `config`.
+
+Las fronteras las aplica `eslint.config.js` (eslint-plugin-boundaries): romperlas es error de lint.
+
+## Plan de fases
+
+0. ✅ Andamiaje + guardarraíles (este scaffold)
+1. `core/auth` + login + router protegido
+2. Design system `shared/ui`
+3. `candidatos` (mapa + lista)
+4. `reportes` · `rutas` · `colonias-zonas`
+5. `campanas` + plantillas
+6. `predicciones` + `admin`
+7. Endurecimiento (CSP, App Check, e2e) y corte del legacy
