@@ -4,16 +4,25 @@ import { GIROS_ES, GIROS_GENERICOS } from './giros';
 export interface Filtros {
   q: string;
   tipo: Tipo | null;
+  /** Nombre de colonia en MAYÚSCULAS (id del select) o null = todas. */
+  colonia: string | null;
 }
 
-export const SIN_FILTROS: Filtros = { q: '', tipo: null };
+export const SIN_FILTROS: Filtros = { q: '', tipo: null, colonia: null };
 
-export function filtrarCandidatos(data: Candidato[], { q, tipo }: Filtros): Candidato[] {
+/** Misma regla que el backend: colonia_nombre || colonia_denue, en mayúsculas. */
+export function coloniaDe(c: Pick<Candidato, 'colonia_nombre' | 'colonia_denue'>): string {
+  return (c.colonia_nombre ?? c.colonia_denue ?? '').toUpperCase();
+}
+
+export function filtrarCandidatos(data: Candidato[], { q, tipo, colonia }: Filtros): Candidato[] {
   const texto = q.trim().toLowerCase();
-  if (!texto && !tipo) return data;
+  if (!texto && !tipo && !colonia) return data;
   return data.filter(
     (c) =>
-      (!texto || c.nombre.toLowerCase().includes(texto)) && (!tipo || tipoDe(c) === tipo),
+      (!texto || c.nombre.toLowerCase().includes(texto)) &&
+      (!tipo || tipoDe(c) === tipo) &&
+      (!colonia || coloniaDe(c) === colonia),
   );
 }
 

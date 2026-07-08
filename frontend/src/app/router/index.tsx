@@ -36,11 +36,11 @@ export const router = createBrowserRouter([
       },
       {
         path: 'rutas',
-        element: placeholder('Ruta', 'Fase 4', 'La optimización de recorridos se migra en la Fase 4.'),
+        lazy: async () => ({ Component: (await import('@features/rutas')).RutasPage }),
       },
       {
         path: 'reportes',
-        element: placeholder('Reportes', 'Fase 4', 'Reportes de visita con GPS y foto llegan en la Fase 4.'),
+        lazy: async () => ({ Component: (await import('@features/reportes')).ReportesPage }),
       },
       {
         path: 'campanas',

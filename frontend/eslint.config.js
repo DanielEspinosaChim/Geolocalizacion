@@ -59,10 +59,8 @@ export default tseslint.config(
           default: 'disallow',
           rules: [
             { from: ['app'], allow: ['app', 'feature', 'shared', 'core'] },
-            {
-              from: ['feature'],
-              allow: ['shared', 'core', ['feature', { name: '${from.name}' }]],
-            },
+            // feature→feature permitido SOLO vía su index.ts (lo exige entry-point)
+            { from: ['feature'], allow: ['shared', 'core', 'feature'] },
             { from: ['shared'], allow: ['shared', 'core'] },
             { from: ['core'], allow: ['core'] },
           ],

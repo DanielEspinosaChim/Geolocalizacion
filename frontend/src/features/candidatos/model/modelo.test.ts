@@ -31,10 +31,10 @@ describe('giroLabel', () => {
 
 describe('filtrarCandidatos', () => {
   it('filtra por texto y tipo combinados', () => {
-    expect(filtrarCandidatos(datos, { q: 'taller', tipo: null })).toHaveLength(1);
-    expect(filtrarCandidatos(datos, { q: '', tipo: 'informal' })[0].place_id).toBe('a');
-    expect(filtrarCandidatos(datos, { q: 'farmacia', tipo: 'formal' })).toHaveLength(1);
-    expect(filtrarCandidatos(datos, { q: '', tipo: null })).toBe(datos); // sin copia inútil
+    expect(filtrarCandidatos(datos, { q: 'taller', tipo: null, colonia: null })).toHaveLength(1);
+    expect(filtrarCandidatos(datos, { q: '', tipo: 'informal', colonia: null })[0].place_id).toBe('a');
+    expect(filtrarCandidatos(datos, { q: 'farmacia', tipo: 'formal', colonia: null })).toHaveLength(1);
+    expect(filtrarCandidatos(datos, { q: '', tipo: null, colonia: null })).toBe(datos); // sin copia inútil
   });
 });
 
