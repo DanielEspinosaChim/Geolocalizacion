@@ -22,6 +22,20 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    // Separa dependencias pesadas en chunks propios: mejor caché y menor
+    // bloqueo del hilo principal (Lighthouse). Cada feature ya va lazy aparte.
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router'],
+          'vendor-firebase': ['firebase/app', 'firebase/auth'],
+          'vendor-map': ['leaflet', 'react-leaflet', 'leaflet.markercluster'],
+          'vendor-query': ['@tanstack/react-query', 'axios', 'zod'],
+        },
+      },
+    },
+  },
   test: {
     environment: 'jsdom',
     // Necesario para el auto-cleanup de @testing-library/react entre tests

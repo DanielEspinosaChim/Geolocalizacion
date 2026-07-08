@@ -15,6 +15,9 @@ const envSchema = z.object({
   VITE_FIREBASE_STORAGE_BUCKET: z.string().default('canaco-info.firebasestorage.app'),
   VITE_FIREBASE_MESSAGING_SENDER_ID: z.string().default('1065227431213'),
   VITE_FIREBASE_APP_ID: z.string().default('1:1065227431213:web:1ecbb5c2f197461ed9f7a4'),
+
+  // App Check (opcional): si se define, se activa reCAPTCHA v3. Ver docs/PENDIENTES.md
+  VITE_RECAPTCHA_SITE_KEY: z.string().optional(),
 });
 
 const parsed = envSchema.safeParse(import.meta.env);
@@ -24,6 +27,7 @@ if (!parsed.success) {
 
 export const env = {
   API_BASE_URL: parsed.data.VITE_API_BASE_URL,
+  RECAPTCHA_SITE_KEY: parsed.data.VITE_RECAPTCHA_SITE_KEY,
   FIREBASE: {
     apiKey: parsed.data.VITE_FIREBASE_API_KEY,
     authDomain: parsed.data.VITE_FIREBASE_AUTH_DOMAIN,

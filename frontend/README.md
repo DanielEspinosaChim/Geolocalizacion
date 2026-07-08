@@ -41,4 +41,5 @@ Las fronteras las aplica `eslint.config.js` (eslint-plugin-boundaries): romperla
    dinámicos, editor de plantillas, cámara reutilizable en `shared/ui`)
 6. ✅ `predicciones` (predicción por clic + índice + validación) + `admin`
    (usuarios, asignaciones, mi cuenta + cambio de contraseña)
-7. Endurecimiento (CSP, App Check, e2e) y corte del legacy
+7. 🚧 Endurecimiento (CSP, App Check, manualChunks, ErrorBoundary — hecho) y
+   **corte del legacy** (pendiente, requiere backend/deploy → `docs/CUTOVER.md`)

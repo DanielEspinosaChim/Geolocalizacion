@@ -3,6 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+      CSP de defensa en profundidad. Lo ideal es servirla como cabecera HTTP
+      desde el backend (ver docs/CUTOVER.md); este <meta> es el fallback que
+      controla el frontend. Orígenes: Firebase Auth, tiles OSM, Nominatim, OSRM
+      y Google Cloud Storage (fotos). VALIDAR en navegador antes del corte.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        script-src 'self' https://apis.google.com https://www.gstatic.com https://www.google.com;
+        style-src 'self' 'unsafe-inline';
+        img-src 'self' data: blob: https://*.tile.openstreetmap.org https://*.googleapis.com https://*.gstatic.com https://storage.googleapis.com;
+        font-src 'self' data:;
+        connect-src 'self' https://*.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firebasestorage.googleapis.com https://nominatim.openstreetmap.org https://router.project-osrm.org;
+        frame-src 'self' https://canaco-info.firebaseapp.com https://accounts.google.com https://apis.google.com;
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+      "
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <title>GeoFormal — Mérida, Yucatán</title>
   </head>
   <body>
