@@ -47,6 +47,19 @@
   --z-overlay: 40;
   --z-modal: 50;
   --z-toast: 60;
+
+  /* ── scrollbar ──────────────────────────────────────────────────────────
+     Excepción deliberada a la convención del archivo: aquí guardamos colores
+     ya resueltos, no tripletas HSL. Las pseudo-clases ::-webkit-scrollbar-*
+     no se benefician del truco de <alpha-value> de Tailwind (nunca pasan por
+     una utilidad), y así cualquier contenedor puede redefinir el color con
+     una sola declaración. Ver `.scrollbar-*` en index.css. */
+  --scrollbar-size: 12px;
+  /* Grosor visible del pulgar = --scrollbar-size − 2 × --scrollbar-inset. */
+  --scrollbar-inset: 3px;
+  --scrollbar-track-color: transparent;
+  --scrollbar-thumb-color: hsl(var(--fg-subtle) / 0.35);
+  --scrollbar-thumb-color-hover: hsl(var(--fg-subtle) / 0.65);
 }
 
 /* Tema claro: solo se reescriben tokens, ninguna clase cambia. */
@@ -67,4 +80,8 @@
   --success: 142 72% 35%;
   --warning: 25 90% 43%;
   --danger: 0 72% 45%;
+
+  /* Sobre fondo claro el pulgar necesita más opacidad para leerse igual. */
+  --scrollbar-thumb-color: hsl(var(--fg-subtle) / 0.45);
+  --scrollbar-thumb-color-hover: hsl(var(--fg-subtle) / 0.75);
 }

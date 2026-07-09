@@ -104,7 +104,7 @@ export function SearchCombobox<T>({
       {resultados.length ? (
         <ul
           aria-label={aria['aria-label']}
-          className="absolute left-0 right-0 top-full z-panel mt-1 max-h-72 overflow-y-auto rounded-card border border-border bg-surface shadow-overlay"
+          className="scrollbar-slim absolute left-0 right-0 top-full z-panel mt-1 max-h-72 overflow-y-auto rounded-card border border-border bg-surface shadow-overlay"
         >
           {resultados.map((item, i) => (
             <li key={getKey(item)}>

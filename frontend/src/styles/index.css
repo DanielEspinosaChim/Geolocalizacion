@@ -13,6 +13,80 @@
   body {
     @apply bg-bg font-sans text-fg antialiased;
   }
+
+  /* ── Scrollbar del sistema de diseño ─────────────────────────────────────
+     Firefox: `scrollbar-width` y `scrollbar-color` se heredan, así que basta
+     declararlos en :root y todo contenedor los recibe. WebKit/Blink no heredan
+     las pseudo-clases, pero el selector sin sujeto aplica a cualquier contenedor
+     con scroll. Entre los dos se cubren todos los navegadores.
+
+     Para cambiar la apariencia en un contenedor concreto NO se reescriben estas
+     reglas: se redefine el token. Ver las clases `.scrollbar-*` de abajo. */
+  :root {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+  }
+
+  ::-webkit-scrollbar {
+    width: var(--scrollbar-size);
+    height: var(--scrollbar-size);
+  }
+
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
+    background: var(--scrollbar-track-color);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-color);
+    border-radius: 9999px;
+    /* El borde transparente recorta el fondo (background-clip) y deja aire a los
+       lados: adelgaza el pulgar sin reducir su área de arrastre. */
+    border: var(--scrollbar-inset) solid transparent;
+    background-clip: padding-box;
+    transition: background-color var(--duration-fast) var(--ease-out);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-thumb-color-hover);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    ::-webkit-scrollbar-thumb {
+      transition: none;
+    }
+  }
+}
+
+@layer components {
+  /* Variantes del scrollbar: se ponen en el contenedor que scrollea y funcionan
+     redefiniendo tokens, no duplicando las reglas de @layer base. */
+
+  /* Oculta la barra sin perder el scroll (carruseles, tiras de chips). */
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Más discreta, para paneles densos donde la barra compite con el contenido. */
+  .scrollbar-slim {
+    --scrollbar-size: 8px;
+    --scrollbar-inset: 2px;
+  }
+
+  /* Sobre superficies de bajo contraste (overlays del mapa). */
+  .scrollbar-contrast {
+    --scrollbar-thumb-color: hsl(var(--fg-muted) / 0.5);
+    --scrollbar-thumb-color-hover: hsl(var(--fg-muted) / 0.8);
+  }
+
+  /* Reserva el hueco de la barra siempre: el contenido no salta cuando una lista
+     pasa de caber a no caber. */
+  .scrollbar-stable {
+    scrollbar-gutter: stable;
+  }
 }
 
 /* ── Clusters de Leaflet con la paleta semántica (paridad con el legacy) ── */

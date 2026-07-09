@@ -1,6 +1,7 @@
 import { forwardRef, useId, type SelectHTMLAttributes } from 'react';
 
 interface SelectFieldProps extends SelectHTMLAttributes<HTMLSelectElement> {
+  /** Vacío = sin rótulo visible; en ese caso hay que pasar `aria-label`. */
   label: string;
   error?: string;
 }
@@ -14,9 +15,14 @@ export const SelectField = forwardRef<HTMLSelectElement, SelectFieldProps>(funct
   const errorId = `${id}-error`;
   return (
     <div className="grid gap-1.5">
-      <label htmlFor={id} className="text-[11px] font-bold uppercase tracking-wider text-fg-subtle">
-        {label}
-      </label>
+      {/* Un <label> vacío es peor que ninguno: el lector de pantalla anuncia un
+          rótulo en blanco. Si el contexto ya nombra el campo (el título de la
+          sección), se omite y el nombre accesible llega por `aria-label`. */}
+      {label ? (
+        <label htmlFor={id} className="text-xs2 font-bold uppercase tracking-wider text-fg-subtle">
+          {label}
+        </label>
+      ) : null}
       <select
         ref={ref}
         id={id}

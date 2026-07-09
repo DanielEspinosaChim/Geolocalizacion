@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { Badge } from './Badge';
 import { Modal } from './Modal';
+import { PanelSection } from './PanelSection';
 import { Table, TBody, Td, Th, THead, Tr } from './Table';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './Tabs';
 
@@ -80,5 +81,84 @@ describe('Table', () => {
     expect(screen.getByRole('table')).toBeDefined();
     expect(screen.getByRole('columnheader', { name: 'Negocio' })).toBeDefined();
     expect(screen.getByRole('cell', { name: 'Panadería La Flor' })).toBeDefined();
+  });
+});
+
+/** El div de contenido, localizado por el `aria-controls` del botón de plegado. */
+function contenidoDe(boton: HTMLElement): HTMLElement {
+  const id = boton.getAttribute('aria-controls');
+  const el = id ? document.getElementById(id) : null;
+  if (!el) throw new Error('El botón de plegado no apunta a ningún contenido');
+  return el;
+}
+
+describe('PanelSection', () => {
+  it('sin `collapsible` no ofrece control de plegado', () => {
+    render(
+      <PanelSection title="Candidatos">
+        <p>Contenido</p>
+      </PanelSection>,
+    );
+    expect(screen.queryByRole('button')).toBeNull();
+    expect(screen.getByText('Contenido')).toBeTruthy();
+  });
+
+  it('pliega y despliega el contenido al pulsar el título', () => {
+    render(
+      <PanelSection title="Tipos de negocio" collapsible>
+        <p>Contenido</p>
+      </PanelSection>,
+    );
+    const boton = screen.getByRole('button', { name: /tipos de negocio/i });
+    const contenido = contenidoDe(boton);
+
+    expect(boton.getAttribute('aria-expanded')).toBe('true');
+    expect(contenido.className).not.toContain('hidden');
+
+    fireEvent.click(boton);
+    expect(boton.getAttribute('aria-expanded')).toBe('false');
+    // La utilidad `grid` de Tailwind ganaría al atributo `hidden`, por eso el
+    // componente alterna la clase. Si esto falla, el panel nunca se cierra.
+    expect(contenido.className).toBe('hidden');
+
+    fireEvent.click(boton);
+    expect(boton.getAttribute('aria-expanded')).toBe('true');
+    expect(contenido.className).not.toContain('hidden');
+  });
+
+  it('respeta defaultOpen={false}', () => {
+    render(
+      <PanelSection title="Tipos de negocio" collapsible defaultOpen={false}>
+        <p>Contenido</p>
+      </PanelSection>,
+    );
+    const boton = screen.getByRole('button');
+    expect(boton.getAttribute('aria-expanded')).toBe('false');
+    expect(contenidoDe(boton).className).toBe('hidden');
+  });
+
+  it('el slot `action` no queda anidado dentro del botón que pliega', () => {
+    render(
+      <PanelSection title="Candidatos" collapsible action={<button type="button">Limpiar</button>}>
+        <p>Contenido</p>
+      </PanelSection>,
+    );
+    const plegar = screen.getByRole('button', { name: /candidatos/i });
+    const limpiar = screen.getByRole('button', { name: 'Limpiar' });
+    expect(plegar.contains(limpiar)).toBe(false);
+  });
+
+  it('una sección plegable con `grow` no reclama el espacio flexible al cerrarse', () => {
+    render(
+      <PanelSection title="Resultado" collapsible grow>
+        <p>Contenido</p>
+      </PanelSection>,
+    );
+    const boton = screen.getByRole('button');
+    const seccion = boton.closest('section');
+    expect(seccion?.className).toContain('flex-1');
+
+    fireEvent.click(boton);
+    expect(seccion?.className).not.toContain('flex-1');
   });
 });

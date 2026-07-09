@@ -22,7 +22,7 @@ export function ReportesPage() {
 
   return (
     <div className="flex h-full">
-      <aside className="flex w-full flex-col overflow-y-auto border-r border-border bg-surface md:w-96">
+      <aside className="scrollbar-slim flex w-full flex-col overflow-y-auto border-r border-border bg-surface md:w-96">
         <Historial
           reportes={reportes}
           isPending={isPending}
@@ -107,7 +107,7 @@ function Historial({
         />
       ) : (
         /* -mx-3 sangra los items al borde del panel; el separador queda a todo lo ancho. */
-        <div className="-mx-3 max-h-[26rem] overflow-y-auto border-t border-border">
+        <div className="scrollbar-slim -mx-3 max-h-[26rem] overflow-y-auto border-t border-border">
           {reportes.map((r) => (
             <ReporteItem key={r.id} reporte={r} onIr={onIr} />
           ))}

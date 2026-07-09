@@ -37,7 +37,7 @@ export function RutasPage() {
 
   return (
     <div className="flex h-full">
-      <aside className="flex w-full flex-col overflow-y-auto border-r border-border bg-surface md:w-96">
+      <aside className="scrollbar-slim flex w-full flex-col overflow-y-auto border-r border-border bg-surface md:w-96">
         <RutaPorColonia
           calculando={calculando}
           onCalcular={(colonia, limite) => calcularColonia.mutate({ colonia, limite })}

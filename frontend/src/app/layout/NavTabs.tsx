@@ -21,7 +21,7 @@ const NAV_ITEMS: NavItem[] = [
 
 export function NavTabs({ role }: { role: Role }) {
   return (
-    <nav aria-label="Secciones" className="flex gap-1 overflow-x-auto px-3">
+    <nav aria-label="Secciones" className="scrollbar-none flex gap-1 overflow-x-auto px-3">
       {NAV_ITEMS.filter((item) => item.roles.includes(role)).map((item) => (
         <NavLink
           key={item.to}

@@ -21,7 +21,7 @@ export function PrediccionPanel({
   resultado,
 }: PrediccionPanelProps) {
   return (
-    <aside className="flex w-full flex-col overflow-y-auto border-r border-border bg-surface md:w-96">
+    <aside className="scrollbar-slim flex w-full flex-col overflow-y-auto border-r border-border bg-surface md:w-96">
       <PanelSection title="Clic en el mapa">
         <Button full variant={modo ? 'secondary' : 'primary'} aria-pressed={modo} onClick={onToggleModo}>
           {modo ? (

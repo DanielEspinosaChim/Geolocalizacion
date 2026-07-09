@@ -25,8 +25,8 @@
     "semantic_hash": ""
   },
   "src/app/layout/NavTabs.tsx": {
-    "mtime": 1783619047.8761384,
-    "ast_hash": "4f47d575f0500662368355ece22a52e3",
+    "mtime": 1783620681.0258927,
+    "ast_hash": "5bcac30ff2598fe448f3ef9412683cb7",
     "semantic_hash": ""
   },
   "src/app/layout/UserMenu.tsx": {
@@ -170,8 +170,8 @@
     "semantic_hash": ""
   },
   "src/shared/ui/SelectField.tsx": {
-    "mtime": 1783619048.1340804,
-    "ast_hash": "cfa4c036ddfdd897c6bcea2b0b04240e",
+    "mtime": 1783621392.2017183,
+    "ast_hash": "d902ddbab5d0c0688bbc62fa6580f728",
     "semantic_hash": ""
   },
   "src/shared/ui/Skeleton.tsx": {
@@ -215,8 +215,8 @@
     "semantic_hash": ""
   },
   "src/shared/ui/ui.test.tsx": {
-    "mtime": 1783619048.2776735,
-    "ast_hash": "d8405a252267eef8edf05b08557261a0",
+    "mtime": 1783621587.4762788,
+    "ast_hash": "c9caf68e231a74b6c2e5006de31ab8c3",
     "semantic_hash": ""
   },
   "tailwind.config.ts": {
@@ -304,14 +304,9 @@
     "ast_hash": "889ca261e9380a6bc1872e3d167f70c7",
     "semantic_hash": ""
   },
-  "src/features/candidatos/components/FiltrosBar.tsx": {
-    "mtime": 1783619047.9970129,
-    "ast_hash": "8f5a200c36a1e0b87d5135110a6b1583",
-    "semantic_hash": ""
-  },
   "src/features/candidatos/components/MetricasPanel.tsx": {
-    "mtime": 1783619047.9985204,
-    "ast_hash": "deb5a2a134fc84e164d38f874e141019",
+    "mtime": 1783621317.5862129,
+    "ast_hash": "0757bb80ff22a0257ed4f1f6acdb759b",
     "semantic_hash": ""
   },
   "src/features/candidatos/index.ts": {
@@ -350,8 +345,8 @@
     "semantic_hash": ""
   },
   "src/features/candidatos/components/PanelLateral.tsx": {
-    "mtime": 1783619048.000543,
-    "ast_hash": "72f76f6559cad41e1b5e7ec0c4ac2cfe",
+    "mtime": 1783621357.3818538,
+    "ast_hash": "2ef2b72de42d6ac72fb54c2cf78fc95d",
     "semantic_hash": ""
   },
   "src/features/colonias-zonas/api/useColonias.ts": {
@@ -370,8 +365,8 @@
     "semantic_hash": ""
   },
   "src/features/colonias-zonas/components/ColoniaSelect.tsx": {
-    "mtime": 1783619048.0228882,
-    "ast_hash": "a85b01d981b929070a362f8aabc21039",
+    "mtime": 1783621425.26173,
+    "ast_hash": "451f2715f852a1601863da456232ab18",
     "semantic_hash": ""
   },
   "src/features/colonias-zonas/components/ColoniasLayer.tsx": {
@@ -445,8 +440,8 @@
     "semantic_hash": ""
   },
   "src/features/reportes/routes/ReportesPage.tsx": {
-    "mtime": 1783619048.0744333,
-    "ast_hash": "e74354c025c8e9e00781aef11195a659",
+    "mtime": 1783620715.3941343,
+    "ast_hash": "00fb12b72b35d959bdb97084ee83f855",
     "semantic_hash": ""
   },
   "src/features/rutas/api/useRuta.ts": {
@@ -485,8 +480,8 @@
     "semantic_hash": ""
   },
   "src/features/rutas/routes/RutasPage.tsx": {
-    "mtime": 1783619048.0922415,
-    "ast_hash": "8d20af001797d61cd71ec9e467e8b04b",
+    "mtime": 1783620696.0031097,
+    "ast_hash": "114e632c718be9bb83f5889ec2a392ff",
     "semantic_hash": ""
   },
   "src/shared/lib/geo.ts": {
@@ -865,18 +860,18 @@
     "semantic_hash": ""
   },
   "src/features/predicciones/components/PrediccionPanel.tsx": {
-    "mtime": 1783619048.0385041,
-    "ast_hash": "8244c99c15dacd4ee9fb732ebaacf832",
+    "mtime": 1783620695.9600961,
+    "ast_hash": "bd6002d06b4c0e91c41b62884ec80c38",
     "semantic_hash": ""
   },
   "src/shared/ui/PanelSection.tsx": {
-    "mtime": 1783619048.1267197,
-    "ast_hash": "78a8dfaadd53b5e328ffdbce852a2109",
+    "mtime": 1783621292.7980835,
+    "ast_hash": "8d1a4a673a44ea41c5b9d614227ea049",
     "semantic_hash": ""
   },
   "src/shared/ui/SearchCombobox.tsx": {
-    "mtime": 1783619048.1318753,
-    "ast_hash": "9152a993096a880a30b77c166057d787",
+    "mtime": 1783620701.755607,
+    "ast_hash": "c0b3772e629c8ddbef50fca399b11462",
     "semantic_hash": ""
   },
   "src/shared/ui/TextareaField.tsx": {
@@ -922,6 +917,11 @@
   "src/features/indice/routes/IndicePage.tsx": {
     "mtime": 1783619048.048998,
     "ast_hash": "8b629f3d793cc3a530727515c8640bdf",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/components/FiltroEstado.tsx": {
+    "mtime": 1783621326.7518137,
+    "ast_hash": "29573720b6b8f6fae225b16b9ac3547e",
     "semantic_hash": ""
   }
 }
