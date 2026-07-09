@@ -53,27 +53,40 @@ export function ChecklistItem({ campanaId, negocio: n, onRegistrar }: ChecklistI
           </a>
         ) : null}
       </div>
-      <div className="flex gap-1.5 pl-5">
-        <a href={urls.maps} target="_blank" rel="noreferrer" className="flex items-center gap-1 rounded-control border border-border px-2.5 py-1.5 text-xs2 font-semibold text-primary">
-          <MapPin className="h-3.5 w-3.5" aria-hidden="true" /> Maps
-        </a>
-        {/* eslint-disable-next-line no-restricted-syntax -- cian de marca de Waze, color de tercero (no es token de tema) */}
-        <a href={urls.waze} target="_blank" rel="noreferrer" className="flex items-center gap-1 rounded-control border border-border px-2.5 py-1.5 text-xs2 font-semibold text-[#33ccff]">
-          <Car className="h-3.5 w-3.5" aria-hidden="true" /> Waze
-        </a>
+      <div className="flex flex-col gap-1.5 pl-5">
+        <div className="flex items-center gap-1.5">
+          <div className="flex shrink-0 items-center overflow-hidden rounded-control border border-border">
+            <a href={urls.maps} target="_blank" rel="noreferrer" className="flex items-center gap-1 border-r border-border px-2.5 py-1.5 text-xs2 font-semibold text-primary transition-colors hover:bg-primary/10">
+              <MapPin className="h-3.5 w-3.5" aria-hidden="true" /> Maps
+            </a>
+            {/* eslint-disable-next-line no-restricted-syntax -- cian de marca de Waze, color de tercero (no es token de tema) */}
+            <a href={urls.waze} target="_blank" rel="noreferrer" className="flex items-center gap-1 px-2.5 py-1.5 text-xs2 font-semibold text-[#33ccff] transition-colors hover:bg-[#33ccff]/10">
+              <Car className="h-3.5 w-3.5" aria-hidden="true" /> Waze
+            </a>
+          </div>
+
+          {!visitado ? (
+            <Button size="sm" onClick={() => onRegistrar(n)} className="flex-1">
+              <Pencil className="h-4 w-4" aria-hidden="true" /> Registrar visita
+            </Button>
+          ) : null}
+        </div>
+
         {visitado ? (
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => patch.mutate({ negocioId: n.negocio_id, updates: { completado: false, fecha_visita: '' } })}
-            className="text-danger"
-          >
-            <Undo2 className="h-4 w-4" aria-hidden="true" /> Pendiente
-          </Button>
+          <div className="flex gap-1.5">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => patch.mutate({ negocioId: n.negocio_id, updates: { completado: false, fecha_visita: '' } })}
+              className="flex-1 border-danger/30 text-danger hover:bg-danger/10"
+            >
+              <Undo2 className="h-4 w-4" aria-hidden="true" /> Pendiente
+            </Button>
+            <Button variant="outline" size="sm" onClick={() => onRegistrar(n)} className="flex-1">
+              <Pencil className="h-4 w-4" aria-hidden="true" /> Editar
+            </Button>
+          </div>
         ) : null}
-        <Button size="sm" onClick={() => onRegistrar(n)} className="flex-1">
-          <Pencil className="h-4 w-4" aria-hidden="true" /> {visitado ? 'Editar' : 'Registrar visita'}
-        </Button>
       </div>
     </div>
   );
