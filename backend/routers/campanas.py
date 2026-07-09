@@ -1,258 +1,315 @@
-from fastapi import APIRouter, HTTPException, Query, Depends, Request
-from pydantic import BaseModel, Field
-from typing import List, Optional
+import json
 from datetime import datetime
-import requests as _req
-import db.firestore as fs
-from db.database import nearest_neighbor_tsp
-from auth import require_any, require_admin
+from typing import Optional
+
+from fastapi import APIRouter, HTTPException, Body, Form, UploadFile, File
+from firebase_admin import auth as fb_auth
+
+from backend.core.cache import get_candidatos
+from backend.core.config import UPLOADS_DIR, GCS_BUCKET
+from backend.core.firebase import fdb, gcs_client, firebase_ok
 
 router = APIRouter()
 
-
-# ── Modelos ───────────────────────────────────────────────────────────────────
-
-class CampanaCreate(BaseModel):
-    nombre:      str            = Field(..., description="Nombre descriptivo de la campaña (ej: 'Centro Mayo 2026')")
-    descripcion: Optional[str]  = Field(None, description="Descripción del objetivo de la campaña")
-    colonia:     Optional[str]  = Field(None, description="Nombre de la colonia objetivo")
-    fecha_inicio: Optional[str] = Field(None, description="Fecha de inicio (YYYY-MM-DD)")
-    fecha_fin:    Optional[str] = Field(None, description="Fecha de cierre (YYYY-MM-DD)")
-
-class CampanaOut(BaseModel):
-    id:           int
-    nombre:       str
-    descripcion:  Optional[str]
-    colonia:      Optional[str]
-    fecha_inicio: Optional[str]
-    fecha_fin:    Optional[str]
-    status:       str
-    created_at:   str
-    total_negocios:   Optional[int] = Field(None, description="Total de negocios asignados a esta campaña")
-    total_completados: Optional[int] = Field(None, description="Negocios ya visitados/completados")
-    asignado_a:      Optional[str]  = Field(None, description="UID del técnico asignado")
-    asignado_nombre: Optional[str]  = Field(None, description="Nombre del técnico asignado")
-
-class NegociosCampanaBody(BaseModel):
-    negocio_ids:    List[str] = Field(..., description="Lista de place_ids de los negocios a agregar a la campaña")
-    checklist_json: Optional[str] = Field(
-        None,
-        description='JSON con los ítems del checklist para cada visita. Ej: ["Verificar nombre", "Tomar foto fachada", "Entregar volante"]',
-    )
-
-class ActualizarNegocioBody(BaseModel):
-    completado:  Optional[bool] = Field(None, description="true = visita completada, false = pendiente")
-    notas:       Optional[str]  = Field(None, description="Observaciones del inspector durante la visita")
-    fecha_visita: Optional[str] = Field(None, description="Fecha real de visita (YYYY-MM-DD)")
-    checklist_json: Optional[str] = Field(None, description="JSON actualizado con el estado del checklist")
+_CAMPOS_DEFAULT = [
+    {"key": "resultado",      "label": "Resultado",                     "tipo": "opciones",
+     "opciones": ["Contactado", "No encontrado", "Rechazó"], "requerido": True},
+    {"key": "tiene_internet", "label": "¿Tiene internet?",             "tipo": "bool"},
+    {"key": "tiene_local",    "label": "¿Tiene local fijo?",           "tipo": "bool"},
+    {"key": "num_empleados",  "label": "No. empleados",                 "tipo": "numero"},
+    {"key": "tiene_rfc",      "label": "¿Tiene RFC?",                  "tipo": "bool"},
+    {"key": "interesado",     "label": "¿Interesado en formalizarse?", "tipo": "opciones",
+     "opciones": ["Sí", "Tal vez", "No"]},
+    {"key": "telefono",       "label": "Teléfono de contacto",         "tipo": "texto"},
+    {"key": "notas",          "label": "Notas",                        "tipo": "textarea"},
+    {"key": "foto",           "label": "Foto del negocio",             "tipo": "foto"},
+]
 
 
-# ── Helpers ───────────────────────────────────────────────────────────────────
+# ── Campañas ──────────────────────────────────────────────────────────────────
 
-def _enrich_campana(row: dict) -> dict:
-    negs = fs.get_campana_negocios(row["id"])
-    row["total_negocios"]    = len(negs)
-    row["total_completados"] = sum(1 for n in negs if n.get("completado"))
-    return row
-
-
-# ── Endpoints ─────────────────────────────────────────────────────────────────
-
-@router.post(
-    "/api/campanas",
-    response_model=CampanaOut,
-    summary="Crear una nueva campaña de visitas",
-    description="""
-Una **campaña** es un conjunto organizado de visitas de campo a negocios informales,
-con fechas definidas, una colonia objetivo y un checklist de actividades por visita.
-
-**Flujo típico:**
-1. Crear la campaña con nombre, colonia y fechas
-2. Agregar los negocios a visitar con `POST /api/campanas/{id}/negocios`
-3. Los inspectores salen a campo y actualizan cada negocio con `PATCH /api/campanas/{id}/negocios/{negocio_id}`
-4. Ver el progreso con `GET /api/campanas/{id}`
-5. Descargar el reporte final con `POST /api/reporte-visita`
-""",
-    status_code=201,
-)
-def crear_campana(body: CampanaCreate):
-    now  = datetime.utcnow().isoformat()
-    data = {
-        "nombre": body.nombre, "descripcion": body.descripcion,
-        "colonia": body.colonia, "fecha_inicio": body.fecha_inicio,
-        "fecha_fin": body.fecha_fin, "status": "activa", "created_at": now,
-    }
-    row = fs.create_campana(data)
-    row["total_negocios"] = 0
-    row["total_completados"] = 0
-    return row
+@router.get("/api/campanas")
+def get_campanas(status: Optional[str] = None):
+    if fdb is None:
+        raise HTTPException(503, "Firestore no disponible")
+    try:
+        docs   = list(fdb.collection("campanas").stream())
+        result = []
+        for doc in docs:
+            c = {**doc.to_dict(), "id": doc.id}
+            if status and c.get("status") != status:
+                continue
+            nds = list(fdb.collection("campanas").document(doc.id)
+                          .collection("negocios").stream())
+            c["total_negocios"]    = len(nds)
+            c["total_completados"] = sum(1 for nd in nds if nd.to_dict().get("completado"))
+            result.append(c)
+        result.sort(key=lambda x: x.get("created_at", ""), reverse=True)
+        return result
+    except Exception as e:
+        raise HTTPException(500, str(e))
 
 
-@router.get(
-    "/api/campanas",
-    response_model=List[CampanaOut],
-    summary="Listar campañas",
-    description="""
-Retorna todas las campañas con su progreso (negocios totales vs completados).
-
-**Filtro `status`:** `activa` | `cerrada` | `cancelada`
-
-Cada campaña incluye:
-- `total_negocios`: cuántos negocios tiene asignados
-- `total_completados`: cuántos ya fueron visitados
-
-Úsalo para mostrar la barra de progreso en la lista de campañas.
-""",
-)
-def listar_campanas(status: Optional[str] = Query(None), user=Depends(require_any)):
-    # Admin ve todo; tecnico solo ve las que le asignaron (o sin asignar)
-    uid = None if user["role"] == "admin" else user["uid"]
-    return fs.list_campanas(status=status, uid=uid)
+@router.post("/api/campanas")
+def crear_campana(body: dict = Body(...)):
+    if fdb is None:
+        raise HTTPException(503, "Firestore no disponible")
+    try:
+        _, doc_ref = fdb.collection("campanas").add({
+            "nombre":       body.get("nombre"),
+            "descripcion":  body.get("descripcion"),
+            "colonia":      body.get("colonia"),
+            "fecha_inicio": body.get("fecha_inicio"),
+            "fecha_fin":    body.get("fecha_fin"),
+            "status":       "activa",
+            "created_at":   datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        })
+        return {"ok": True, "id": doc_ref.id}
+    except Exception as e:
+        raise HTTPException(500, str(e))
 
 
-@router.get(
-    "/api/campanas/{campana_id}",
-    summary="Detalle de campaña con negocios, checklist y ruta",
-    description="""
-Retorna el detalle completo de una campaña incluyendo:
-- Datos de la campaña (nombre, colonia, fechas, status, progreso)
-- Lista de negocios asignados con su estado de checklist
-- **Ruta optimizada** calculada automáticamente para todos los negocios pendientes
+@router.get("/api/campanas/{campana_id}")
+def get_campana(campana_id: str):
+    if fdb is None:
+        raise HTTPException(503, "Firestore no disponible")
+    try:
+        doc = fdb.collection("campanas").document(campana_id).get()
+        if not doc.exists:
+            raise HTTPException(404, "Campaña no encontrada")
+        campana  = {**doc.to_dict(), "id": doc.id}
+        nds      = list(fdb.collection("campanas").document(campana_id)
+                           .collection("negocios").stream())
+        negocios = []
+        for nd in nds:
+            d       = nd.to_dict()
+            real_id = d.get("negocio_id") or nd.id.replace("__", "/")
+            negocios.append({**d, "cn_id": real_id, "negocio_id": real_id,
+                             "nombre": d.get("nombre", real_id),
+                             "tipo":   d.get("tipo", "informal"),
+                             "tipos":  d.get("tipos", "")})
+        campana["total_negocios"]    = len(negocios)
+        campana["total_completados"] = sum(1 for n in negocios if n.get("completado"))
+        return {"campana": campana, "negocios": negocios, "ruta": None}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(500, str(e))
 
-La ruta se genera usando el mismo algoritmo TSP + OSRM que `POST /api/ruta`.
-Si todos los negocios ya están completados, `ruta` será `null`.
 
-**Usado por:** la vista de detalle de campaña en el frontend para mostrar
-el mapa de ruta y el checklist por negocio.
-""",
-    responses={404: {"description": "Campaña no encontrada"}},
-)
-def detalle_campana(campana_id: int):
-    campana = fs.get_campana(campana_id)
-    if not campana:
-        raise HTTPException(status_code=404, detail=f"No existe campaña con id={campana_id}")
+@router.post("/api/campanas/{campana_id}/negocios")
+def agregar_negocios_campana(campana_id: str, body: dict = Body(...)):
+    if fdb is None:
+        raise HTTPException(503, "Firestore no disponible")
+    negocio_ids = body.get("negocio_ids", [])
+    cand_map    = {c["place_id"]: c for c in get_candidatos() if c.get("place_id")}
+    try:
+        col              = fdb.collection("campanas").document(campana_id).collection("negocios")
+        added = duplicados = 0
+        for nid in negocio_ids:
+            safe_id = nid.replace("/", "__")
+            ref     = col.document(safe_id)
+            if ref.get().exists:
+                duplicados += 1
+                continue
+            cand = cand_map.get(nid, {})
+            ref.set({
+                "negocio_id":  nid,
+                "completado":  False,
+                "notas":       "",
+                "fecha_visita": "",
+                "checklist_json": "[]",
+                "nombre":   cand.get("nombre", nid),
+                "tipo":     cand.get("tipo", "informal"),
+                "tipos":    cand.get("tipos", ""),
+                "lat":      cand.get("lat"),
+                "lng":      cand.get("lng"),
+                "colonia":  cand.get("colonia_nombre") or cand.get("colonia_denue") or "",
+                "direccion": cand.get("direccion") or cand.get("address") or "",
+            })
+            added += 1
+        return {"ok": True, "insertados": added, "duplicados_ignorados": duplicados}
+    except Exception as e:
+        raise HTTPException(500, str(e))
 
-    negocios = fs.get_campana_negocios(campana_id)
-    campana["total_negocios"]    = len(negocios)
-    campana["total_completados"] = sum(1 for n in negocios if n.get("completado"))
 
-    # Normalizar campo cn_id
-    for n in negocios:
-        n.setdefault("cn_id", n.get("id"))
+@router.patch("/api/campanas/{campana_id}/negocios/{negocio_id:path}")
+def actualizar_negocio_campana(campana_id: str, negocio_id: str, body: dict = Body(...)):
+    if fdb is None:
+        raise HTTPException(503, "Firestore no disponible")
+    try:
+        safe_id = negocio_id.replace("/", "__")
+        # Normalizar completado a bool (el frontend a veces envía 1/0)
+        if "completado" in body:
+            body["completado"] = bool(body["completado"])
+        fdb.collection("campanas").document(campana_id) \
+           .collection("negocios").document(safe_id).update(body)
+        return {"ok": True}
+    except Exception as e:
+        raise HTTPException(500, str(e))
 
-    # Calcular ruta solo para negocios pendientes con coordenadas
-    pendientes = [n for n in negocios if not n["completado"] and n["lat"] and n["lng"]]
-    ruta = None
-    if len(pendientes) >= 2:
-        puntos    = [{"place_id": n["negocio_id"], "nombre": n["nombre"] or "?",
-                      "lat": n["lat"], "lng": n["lng"], "tipos": n["tipos"] or ""} for n in pendientes]
-        ordenados = nearest_neighbor_tsp(puntos)
-        coords    = ";".join(f"{p['lng']},{p['lat']}" for p in ordenados)
-        url       = f"http://router.project-osrm.org/route/v1/driving/{coords}?overview=full&geometries=geojson"
+
+@router.patch("/api/campanas/{campana_id}/status")
+def actualizar_status_campana(campana_id: str, body: dict = Body(...)):
+    if fdb is None:
+        raise HTTPException(503, "Firestore no disponible")
+    try:
+        fdb.collection("campanas").document(campana_id).update({"status": body.get("status")})
+        return {"ok": True}
+    except Exception as e:
+        raise HTTPException(500, str(e))
+
+
+@router.patch("/api/campanas/{campana_id}/asignar")
+def asignar_campana(campana_id: str, body: dict = Body(...)):
+    """Asigna (o desasigna) un técnico a una campaña."""
+    if fdb is None:
+        raise HTTPException(503, "Firestore no disponible")
+    try:
+        uid         = body.get("asignado_a")  # None o uid del técnico
+        update_data: dict = {"asignado_a": uid}
+        # Intentar obtener nombre del técnico desde Firebase Auth
+        if uid and firebase_ok:
+            try:
+                u = fb_auth.get_user(uid)
+                update_data["asignado_nombre"] = u.display_name or u.email or uid
+            except Exception:
+                update_data["asignado_nombre"] = uid
+        else:
+            update_data["asignado_nombre"] = None
+        fdb.collection("campanas").document(campana_id).update(update_data)
+        return {"ok": True, "asignado_a": uid,
+                "asignado_nombre": update_data.get("asignado_nombre")}
+    except Exception as e:
+        raise HTTPException(500, str(e))
+
+
+@router.delete("/api/campanas/{campana_id}")
+def eliminar_campana(campana_id: str):
+    if fdb is None:
+        raise HTTPException(503, "Firestore no disponible")
+    try:
+        col = fdb.collection("campanas").document(campana_id).collection("negocios")
+        for nd in col.stream():
+            nd.reference.delete()
+        fdb.collection("campanas").document(campana_id).delete()
+        return {"ok": True}
+    except Exception as e:
+        raise HTTPException(500, str(e))
+
+
+# ── Plantillas de visita ──────────────────────────────────────────────────────
+
+@router.get("/api/plantillas")
+def get_plantillas():
+    if fdb is None:
+        raise HTTPException(503, "Firestore no disponible")
+    try:
+        docs   = list(fdb.collection("plantillas_visita").stream())
+        result = [{**doc.to_dict(), "id": doc.id} for doc in docs]
+        if not result:
+            _, ref = fdb.collection("plantillas_visita").add({
+                "nombre":      "Visita estándar",
+                "descripcion": "Campos básicos para registro de visita",
+                "campos":      _CAMPOS_DEFAULT,
+                "es_default":  True,
+                "created_at":  datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            })
+            result = [{"id": ref.id, "nombre": "Visita estándar", "es_default": True,
+                       "descripcion": "Campos básicos para registro de visita",
+                       "campos": _CAMPOS_DEFAULT}]
+        return result
+    except Exception as e:
+        raise HTTPException(500, str(e))
+
+
+@router.post("/api/plantillas")
+def crear_plantilla(body: dict = Body(...)):
+    if fdb is None:
+        raise HTTPException(503, "Firestore no disponible")
+    try:
+        _, ref = fdb.collection("plantillas_visita").add({
+            "nombre":      body.get("nombre", "Nueva plantilla"),
+            "descripcion": body.get("descripcion", ""),
+            "campos":      body.get("campos", []),
+            "es_default":  False,
+            "created_at":  datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        })
+        return {"ok": True, "id": ref.id}
+    except Exception as e:
+        raise HTTPException(500, str(e))
+
+
+@router.put("/api/plantillas/{plantilla_id}")
+def actualizar_plantilla(plantilla_id: str, body: dict = Body(...)):
+    if fdb is None:
+        raise HTTPException(503, "Firestore no disponible")
+    try:
+        upd = {k: body[k] for k in ("nombre", "descripcion", "campos") if k in body}
+        fdb.collection("plantillas_visita").document(plantilla_id).update(upd)
+        return {"ok": True}
+    except Exception as e:
+        raise HTTPException(500, str(e))
+
+
+@router.delete("/api/plantillas/{plantilla_id}")
+def eliminar_plantilla(plantilla_id: str):
+    if fdb is None:
+        raise HTTPException(503, "Firestore no disponible")
+    try:
+        doc = fdb.collection("plantillas_visita").document(plantilla_id).get()
+        if doc.exists and doc.to_dict().get("es_default"):
+            raise HTTPException(400, "No puedes eliminar la plantilla por defecto")
+        fdb.collection("plantillas_visita").document(plantilla_id).delete()
+        return {"ok": True}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(500, str(e))
+
+
+@router.post("/api/campanas/{campana_id}/negocios/{negocio_id:path}/visita")
+async def guardar_visita_negocio(
+    campana_id:   str,
+    negocio_id:   str,
+    foto:         Optional[UploadFile] = File(None),
+    datos_json:   str                  = Form("{}"),
+    plantilla_id: str                  = Form(""),
+    completado:   str                  = Form("true"),
+):
+    if fdb is None:
+        raise HTTPException(503, "Firestore no disponible")
+    try:
+        datos = json.loads(datos_json)
+    except Exception:
+        datos = {}
+
+    foto_url = None
+    if foto and foto.filename:
+        data_bytes = await foto.read()
+        fname      = f"visita_{campana_id[:8]}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.jpg"
         try:
-            resp = _req.get(url, timeout=20)
-            data = resp.json()
-            if data.get("code") == "Ok":
-                rt = data["routes"][0]
-                ruta = {
-                    "geometry":            rt["geometry"],
-                    "distancia_km":        round(rt["distance"] / 1000, 2),
-                    "tiempo_min":          int(rt["duration"] / 60),
-                    "waypoints_ordenados": ordenados,
-                }
-        except Exception:
-            pass
+            blob = gcs_client.bucket(GCS_BUCKET).blob(fname)
+            blob.upload_from_string(data_bytes, content_type=foto.content_type or "image/jpeg")
+            foto_url = f"/uploads/{fname}"
+            print(f"  [Storage] Visita subida a GCS: {fname}")
+        except Exception as e:
+            print(f"  [Storage] Visita upload fallido: {e}")
+            dest = UPLOADS_DIR / fname
+            dest.write_bytes(data_bytes)
+            foto_url = f"/uploads/{fname}"
 
-    return {"campana": campana, "negocios": negocios, "ruta": ruta}
-
-
-@router.post(
-    "/api/campanas/{campana_id}/negocios",
-    summary="Agregar negocios a una campaña",
-    description="""
-Asigna una lista de negocios candidatos a la campaña para ser visitados.
-
-**`negocio_ids`**: lista de `place_id` de Google Maps (obtenlos de `GET /api/candidatos`).
-
-**`checklist_json`** (opcional): JSON con los pasos a seguir en cada visita.
-Se aplica igual a todos los negocios agregados en este llamado.
-Ejemplo:
-```json
-["Verificar nombre del negocio", "Fotografiar fachada", "Entregar volante informativo", "Registrar respuesta del dueño"]
-```
-
-Los negocios duplicados (ya en la campaña) se ignoran silenciosamente.
-""",
-    responses={404: {"description": "Campaña no encontrada"}},
-)
-def agregar_negocios(campana_id: int, body: NegociosCampanaBody):
-    if not fs.get_campana(campana_id):
-        raise HTTPException(status_code=404, detail=f"No existe campaña con id={campana_id}")
-    insertados = fs.add_negocios_to_campana(campana_id, body.negocio_ids, body.checklist_json)
-    return {"ok": True, "campana_id": campana_id, "insertados": insertados, "duplicados_ignorados": len(body.negocio_ids) - insertados}
-
-
-@router.patch(
-    "/api/campanas/{campana_id}/negocios/{negocio_id}",
-    summary="Actualizar visita / checklist de un negocio en la campaña",
-    description="""
-Actualiza el estado de la visita a un negocio específico dentro de la campaña.
-Solo se actualizan los campos que envíes en el body (los demás quedan igual).
-
-**Campos disponibles:**
-- `completado`: `1` = visita realizada, `0` = pendiente
-- `notas`: observaciones del inspector (ej: "dueño ausente, volver mañana")
-- `fecha_visita`: fecha en que se realizó la visita (`YYYY-MM-DD`)
-- `checklist_json`: JSON actualizado con los ítems del checklist marcados
-
-**Caso de uso:** el inspector visita el negocio en campo, marca los ítems
-del checklist como completados y agrega notas, todo desde la app móvil.
-""",
-    responses={404: {"description": "No se encontró ese negocio en esa campaña"}},
-)
-def actualizar_negocio_campana(campana_id: int, negocio_id: str, body: ActualizarNegocioBody):
-    campos = {k: v for k, v in body.model_dump().items() if v is not None}
-    updated = fs.update_negocio_campana(campana_id, negocio_id, campos)
-    if updated is None:
-        raise HTTPException(status_code=404, detail=f"Negocio '{negocio_id}' no está en la campaña {campana_id}")
-    return updated
-
-
-@router.patch(
-    "/api/campanas/{campana_id}/status",
-    summary="Cambiar el estado de una campaña",
-    description="""
-Cambia el estado general de la campaña.
-
-**Estados posibles:** `activa` | `cerrada` | `cancelada`
-
-Una campaña `cerrada` indica que las visitas fueron completadas.
-Una campaña `cancelada` fue suspendida antes de completarse.
-""",
-    responses={404: {"description": "Campaña no encontrada"}},
-)
-def actualizar_status_campana(campana_id: int, body: dict):
-    status_validos = ("activa", "cerrada", "cancelada")
-    nuevo_status   = body.get("status", "")
-    if nuevo_status not in status_validos:
-        raise HTTPException(status_code=400, detail=f"status inválido. Usa: {', '.join(status_validos)}")
-    ok = fs.update_campana_status(campana_id, nuevo_status)
-    if not ok:
-        raise HTTPException(status_code=404, detail=f"No existe campaña con id={campana_id}")
-    return {"ok": True, "campana_id": campana_id, "status": nuevo_status}
-
-
-@router.delete(
-    "/api/campanas/{campana_id}",
-    summary="Eliminar una campaña",
-    description="""
-Elimina permanentemente una campaña y todos sus registros de negocios/checklist.
-Esta acción no se puede deshacer.
-""",
-    responses={404: {"description": "Campaña no encontrada"}},
-)
-def eliminar_campana(campana_id: int):
-    ok = fs.delete_campana(campana_id)
-    if not ok:
-        raise HTTPException(status_code=404, detail=f"No existe campaña con id={campana_id}")
-    return {"ok": True, "eliminada": campana_id}
+    safe_id = negocio_id.replace("/", "__")
+    upd = {
+        "completado":   completado.lower() not in ("false", "0", ""),
+        "fecha_visita": datetime.now().strftime("%Y-%m-%d"),
+        "visita_datos": datos,
+        "notas":        datos.get("notas", ""),
+    }
+    if foto_url:
+        upd["foto_visita_url"] = foto_url
+    if plantilla_id:
+        upd["plantilla_id"] = plantilla_id
+    fdb.collection("campanas").document(campana_id) \
+       .collection("negocios").document(safe_id).update(upd)
+    return {"ok": True, "foto_url": foto_url}

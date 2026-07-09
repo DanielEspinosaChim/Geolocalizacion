@@ -1,206 +1,97 @@
-from fastapi import APIRouter, HTTPException, Body
-from pydantic import BaseModel, Field
-from typing import Optional, List
-from datetime import datetime
-import pandas as pd
-import db.firestore as fs
-from db.database import ROOT
+import threading
+from collections import Counter
+from typing import Optional
+
+from fastapi import APIRouter, HTTPException, Body, Request, Response
+
+from backend.core import cache
+from backend.core.config import SLIM_FIELDS
+from backend.core.firebase import fdb
 
 router = APIRouter()
 
-CRUCE_CSV = ROOT / "data" / "procesado" / "cruce_completo.csv"
 
-# ── Modelos de respuesta ──────────────────────────────────────────────────────
-
-class Candidato(BaseModel):
-    place_id: str = Field(..., description="ID único del negocio en Google Maps")
-    nombre: str = Field(..., description="Nombre del negocio tal como aparece en Google Maps")
-    lat: float = Field(..., description="Latitud geográfica")
-    lng: float = Field(..., description="Longitud geográfica")
-    tipos: Optional[str] = Field(None, description="Categorías del negocio separadas por coma (ej: 'restaurant,food')")
-    tipo: Optional[str] = Field("informal", description="Estado de formalización: 'informal' | 'en_proceso' | 'formal'")
-    colonia_id: Optional[int] = Field(None, description="ID de la colonia a la que pertenece (FK tabla colonias)")
-    fecha_actualizacion: Optional[str] = Field(None, description="Última vez que se actualizó el tipo (ISO timestamp)")
-
-class MetricasResponse(BaseModel):
-    total: int = Field(..., description="Total de negocios analizados en el cruce GMaps vs DENUE")
-    formales: int = Field(..., description="Negocios con match confirmado en el padrón DENUE")
-    informales: int = Field(..., description="Negocios sin match en DENUE — candidatos a formalización")
-    pct_informal: float = Field(..., description="Porcentaje de negocios sin registro (%)")
-    score_prom: float = Field(..., description="Score promedio de similitud de nombre en los matches (0–100)")
-    dist_prom_m: float = Field(..., description="Distancia promedio en metros entre el punto de GMaps y el registro en DENUE")
-    top_tipos: List = Field(..., description="Top 8 tipos de negocios informales detectados [[tipo, cantidad], ...]")
-
-class ActualizarTipoBody(BaseModel):
-    tipo: str = Field(
-        ...,
-        description="Nuevo estado de formalización del negocio",
-        examples=["informal", "en_proceso", "formal"],
-    )
-
-class ActualizarTipoResponse(BaseModel):
-    ok: bool
-    place_id: str
-    tipo: str
-    fecha_actualizacion: str
-
-
-# ── Endpoints ─────────────────────────────────────────────────────────────────
-
-@router.get("/api/cache-status", summary="Estado del cache de candidatos")
+@router.get("/api/cache-status")
 def cache_status():
-    """Devuelve el estado del cache en memoria — sin leer Firestore."""
-    return fs.get_cache_status()
-
-
-@router.get(
-    "/api/candidatos",
-    response_model=List[Candidato],
-    summary="Listar candidatos informales",
-    description="""
-Retorna la lista de negocios que aparecen en Google Maps pero **no tienen match
-en el DENUE** (padrón oficial del INEGI), es decir, candidatos a ser negocios informales.
-
-**Filtros disponibles:**
-- `tipo`: filtra por estado de formalización (`informal`, `en_proceso`, `formal`)
-- `colonia_id`: filtra por colonia (obtén los IDs con `GET /api/colonias`)
-- `limit`: máximo de registros a retornar (default 2000)
-
-**Caso de uso principal:** el mapa los consume para pintar los marcadores de colores.
-""",
-)
-def get_candidatos(
-    limit: int = 2000,
-    tipo: Optional[str] = None,
-    colonia_id: Optional[int] = None,
-):
-    if tipo and tipo not in ("informal", "en_proceso", "formal"):
-        raise HTTPException(status_code=400, detail="tipo debe ser: informal, en_proceso o formal")
-    return fs.get_candidatos(tipo=tipo, colonia_id=colonia_id, limit=limit)
-
-
-@router.get(
-    "/api/metricas",
-    response_model=MetricasResponse,
-    summary="Métricas generales del cruce DENUE vs Google Maps",
-    description="""
-Retorna un resumen estadístico del cruce entre los negocios de Google Maps y el
-padrón oficial DENUE (INEGI).
-
-**Qué significa cada campo:**
-- `total`: todos los negocios evaluados
-- `formales`: los que sí están registrados en el DENUE (match por proximidad + nombre similar)
-- `informales`: los que **no** tienen match → candidatos a formalización
-- `pct_informal`: qué porcentaje del total son candidatos informales
-- `score_prom`: qué tan buenos son los matches encontrados (100 = nombre idéntico)
-- `dist_prom_m`: qué tan cerca están el punto de GMaps y el registro DENUE
-- `top_tipos`: los tipos de negocio más frecuentes entre los informales
-
-**Usado por:** el panel lateral del mapa para mostrar el resumen general.
-""",
-)
-def get_metricas():
-    if not CRUCE_CSV.exists():
-        raise HTTPException(status_code=404, detail="No se encontró cruce_completo.csv — corre primero: python cruce.py")
-
-    df         = pd.read_csv(CRUCE_CSV)
-    total      = len(df)
-    formales   = int(df["match_denue"].sum())
-    informales = total - formales
-    df_match   = df[df["match_denue"] == True]
-    score_prom = round(df_match["fuzzy_score"].mean(), 1) if len(df_match) else 0
-    df_dist    = df_match[df_match["distancia_m"] < 9999]
-    dist_prom  = round(df_dist["distancia_m"].mean(), 1) if len(df_dist) else 0
-
-    df_inf       = df[df["es_informal"] == True]
-    tipos_counts: dict = {}
-    for tipos in df_inf["tipos"].dropna():
-        for t in str(tipos).split(","):
-            t = t.strip()
-            if t and t not in ("point_of_interest", "establishment", "service"):
-                tipos_counts[t] = tipos_counts.get(t, 0) + 1
-    top_tipos = sorted(tipos_counts.items(), key=lambda x: -x[1])[:8]
-
+    """Devuelve el estado de carga del cache de candidatos."""
     return {
-        "total": total, "formales": formales, "informales": informales,
-        "pct_informal": round(informales / total * 100, 1) if total else 0,
-        "score_prom": score_prom, "dist_prom_m": dist_prom,
-        "top_tipos": top_tipos,
+        "status":  cache._cache_progress,
+        "count":   len(cache._cands_cache),
+        "ready":   cache._cache_progress.startswith("ready"),
+        "loading": cache._cache_loading,
     }
 
 
-@router.get(
-    "/api/muestra-validacion",
-    summary="Muestra de matches y no-matches para validación manual",
-    description="""
-Retorna dos listas para que un supervisor pueda validar visualmente que el cruce
-entre Google Maps y el DENUE está funcionando bien.
+@router.get("/api/candidatos")
+def get_candidatos(request: Request, limit: int = 0,
+                   colonia: Optional[str] = None, tipo: Optional[str] = None):
+    """Devuelve candidatos.
+    - Sin filtros: respuesta pre-comprimida (O(1) CPU, ~380 KB con gzip).
+    - Con filtros: filtra el cache en memoria y proyecta campos slim.
+    """
+    cache.get_candidatos()  # dispara carga en bg si es necesario
 
-**`matches`** — los 15 mejores matches encontrados:
-- `nombre`: nombre en Google Maps
-- `nombre_denue`: nombre en el padrón DENUE
-- `fuzzy_score`: similitud del nombre (0–100). Un match se considera válido con ≥72
-- `distancia_m`: distancia en metros entre ambos puntos
+    if not colonia and not tipo and limit == 0:
+        accept = request.headers.get("Accept-Encoding", "")
+        with cache._slim_json_lock:
+            if "gzip" in accept and cache._slim_json_gz:
+                return Response(
+                    content=cache._slim_json_gz,
+                    media_type="application/json",
+                    headers={"Content-Encoding": "gzip"},
+                )
+            return Response(content=cache._slim_json, media_type="application/json")
 
-**`no_matches`** — 15 candidatos informales para revisión:
-- Son negocios que aparecen en GMaps pero no encontramos ningún registro en DENUE a 50 metros con nombre similar
-- Se recomienda buscar 3 o 4 de estos en Google para confirmar manualmente que efectivamente no están registrados
+    # Ruta filtrada
+    cands      = cache.get_candidatos()
+    colonia_up = colonia.upper() if colonia else None
+    result     = []
+    for c in cands:
+        if not c.get("es_informal"):
+            continue
+        if colonia_up:
+            nombre_real = (c.get("colonia_nombre") or c.get("colonia_denue") or "").upper()
+            if nombre_real != colonia_up:
+                continue
+        if tipo and c.get("tipo", "informal") != tipo:
+            continue
+        result.append({f: c[f] for f in SLIM_FIELDS if f in c})
+        if limit > 0 and len(result) >= limit:
+            break
+    return result
 
-**Usado por:** la pestaña "Validación" del mapa.
-""",
-)
-def muestra_validacion():
-    if not CRUCE_CSV.exists():
-        raise HTTPException(status_code=404, detail="No se encontró cruce_completo.csv — corre primero: python cruce.py")
 
-    df = pd.read_csv(CRUCE_CSV)
-    matches = (
-        df[df["match_denue"] == True]
-        [["nombre", "nombre_denue", "fuzzy_score", "distancia_m"]]
-        .sort_values("fuzzy_score", ascending=False)
-        .head(15).to_dict(orient="records")
+@router.patch("/api/candidatos/{place_id:path}/tipo")
+def guardar_tipo(place_id: str, body: dict = Body(...)):
+    tipo = body.get("tipo")
+    if not tipo:
+        raise HTTPException(400, "tipo requerido")
+    if fdb is None:
+        raise HTTPException(503, "Firestore no disponible")
+    fdb.collection("candidatos").document(place_id.replace("/", "__")).update({"tipo": tipo})
+    # Mutar el cache en memoria directamente
+    with cache._cache_lock:
+        snap = list(cache._cands_cache)
+    for c in snap:
+        if c.get("place_id") == place_id:
+            c["tipo"] = tipo
+            break
+    with cache._cache_lock:
+        cache._cands_cache[:] = snap
+    threading.Thread(target=cache.rebuild_slim_json, args=(snap,), daemon=True).start()
+    return {"ok": True}
+
+
+@router.get("/api/colonias")
+def get_colonias():
+    """Devuelve nombres reales de colonia OSM con conteo de candidatos informales."""
+    cands  = cache.get_candidatos()
+    counts = Counter(
+        (c.get("colonia_nombre") or c.get("colonia_denue") or "").strip().upper()
+        for c in cands if c.get("es_informal")
     )
-    no_matches = (
-        df[df["es_informal"] == True]
-        [["nombre", "tipos", "lat", "lng"]]
-        .head(15).to_dict(orient="records")
-    )
-    return {"matches": matches, "no_matches": no_matches}
-
-
-@router.patch(
-    "/api/candidatos/{place_id}/tipo",
-    response_model=ActualizarTipoResponse,
-    summary="Actualizar el tipo de formalización de un negocio",
-    description="""
-Permite a un inspector o supervisor marcar manualmente el estado de formalización
-de un negocio candidato.
-
-**Estados posibles:**
-- `informal` — no está registrado ante el gobierno (estado inicial por defecto)
-- `en_proceso` — ya inició su trámite de formalización
-- `formal` — se confirmó que está debidamente registrado
-
-El cambio se refleja inmediatamente en el mapa (el marcador cambia de color)
-y queda guardado en la base de datos con la fecha y hora de la actualización.
-
-**`place_id`** es el ID de Google Maps del negocio. Lo puedes obtener del listado
-en `GET /api/candidatos`.
-""",
-    responses={
-        400: {"description": "Tipo inválido — debe ser informal, en_proceso o formal"},
-        404: {"description": "No se encontró ningún negocio con ese place_id"},
-    },
-)
-def actualizar_tipo(place_id: str, body: ActualizarTipoBody):
-    if body.tipo not in ("informal", "en_proceso", "formal"):
-        raise HTTPException(status_code=400, detail="tipo debe ser: informal, en_proceso o formal")
-
-    now = datetime.utcnow().isoformat()
-    ok  = fs.update_candidato_tipo(place_id, body.tipo, now)
-    if not ok:
-        raise HTTPException(status_code=404, detail=f"No se encontró el negocio con place_id: {place_id}")
-
-    fs.update_candidato_tipo_local(place_id, body.tipo, now)  # sincroniza cache sin releer Firestore
-
-    return {"ok": True, "place_id": place_id, "tipo": body.tipo, "fecha_actualizacion": now}
+    return [
+        {"id": nombre, "nombre": nombre.title(), "count": cnt}
+        for nombre, cnt in sorted(counts.items())
+        if nombre
+    ]
