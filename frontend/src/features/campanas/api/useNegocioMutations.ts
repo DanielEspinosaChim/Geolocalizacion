@@ -1,6 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { http } from '@core/api';
-import { toast } from '@shared/ui';
+import { apiClient } from '@shared/api';
 import { campanasKeys } from './keys';
 
 /** Parche parcial sobre un negocio de campaña (completado, notas, fecha, gps…). */
@@ -14,10 +13,12 @@ export function usePatchNegocio(campanaId: string) {
       negocioId: string;
       updates: Record<string, unknown>;
     }) => {
-      await http.patch(`/campanas/${campanaId}/negocios/${encodeURIComponent(negocioId)}`, updates);
+      await apiClient.patch(
+        `/campanas/${campanaId}/negocios/${encodeURIComponent(negocioId)}`,
+        updates,
+      );
     },
-    onSuccess: () =>
-      queryClient.invalidateQueries({ queryKey: campanasKeys.detail(campanaId) }),
-    onError: (e) => toast.error(e.message || 'Error al actualizar el negocio'),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: campanasKeys.detail(campanaId) }),
+    meta: { errorMessage: 'Error al actualizar el negocio' },
   });
 }

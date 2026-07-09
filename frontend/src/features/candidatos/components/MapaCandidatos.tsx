@@ -1,9 +1,10 @@
-import { MapCanvas } from '@shared/ui';
+import { FlyTo, MapCanvas } from '@shared/ui';
 import {
   AgebsLayer,
   CapasToggles,
   ColoniasLayer,
   MunicipiosLayer,
+  ProbabilidadLayer,
   type CapaId,
 } from '@features/colonias-zonas';
 import type { CacheStatus } from '../api/useCargaProgresiva';
@@ -11,7 +12,7 @@ import type { Candidato } from '../model/candidato';
 import { CandidatoCard } from './CandidatoCard';
 import { ClusterLayer } from './ClusterLayer';
 import { EstadoCargaChip } from './EstadoCargaChip';
-import { FlyTo } from './FlyTo';
+import { Simbologia } from './Simbologia';
 
 interface MapaCandidatosProps {
   visible: boolean;
@@ -32,6 +33,7 @@ export function MapaCandidatos(props: MapaCandidatosProps) {
   return (
     <div className={`relative flex-1 md:block ${visible ? 'block' : 'hidden'}`}>
       <MapCanvas>
+        {props.capas.has('probabilidad') ? <ProbabilidadLayer /> : null}
         <ClusterLayer candidatos={filtrados} onSelect={onSelect} />
         {props.capas.has('colonias') ? (
           <ColoniasLayer seleccionada={props.coloniaSeleccionada} onSelect={props.onColoniaPoligono} />
@@ -54,7 +56,9 @@ export function MapaCandidatos(props: MapaCandidatosProps) {
             onClose={() => onSelect(null)}
           />
         </div>
-      ) : null}
+      ) : (
+        <Simbologia mostrarProbabilidad={props.capas.has('probabilidad')} />
+      )}
     </div>
   );
 }

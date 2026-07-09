@@ -17,6 +17,7 @@ const button = cva(
       variant: {
         primary: 'bg-primary-strong text-primary-fg shadow-lg shadow-primary/25 hover:bg-primary',
         secondary: 'border border-border bg-surface-raised text-fg hover:border-fg-subtle',
+        outline: 'border border-border bg-transparent text-fg hover:bg-surface-raised',
         ghost: 'text-fg-muted hover:text-fg',
         danger: 'bg-danger text-white hover:bg-danger/90',
       },

@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { http } from '@core/api';
+import { apiClient } from '@shared/api';
 import { haversineM, obtenerGPS } from '@shared/lib/geo';
 import { toast } from '@shared/ui';
 import type { NegocioCampana } from '../model/campana';
@@ -31,11 +31,11 @@ export function useGuardarVisita(campanaId: string) {
       fd.append('plantilla_id', input.plantillaId);
       fd.append('completado', String(input.visitado));
       if (input.foto) fd.append('foto', input.foto);
-      await http.post(`${base}/visita`, fd);
+      await apiClient.postForm(`${base}/visita`, fd);
 
       const patch: Record<string, unknown> = { completado: input.visitado, notas: input.notas };
       if (input.fotoBorrada && !input.foto) patch.foto_visita_url = '';
-      await http.patch(base, patch);
+      await apiClient.patch(base, patch);
       return { base, negocio: input.negocio };
     },
     onSuccess: ({ base, negocio }) => {
@@ -45,7 +45,7 @@ export function useGuardarVisita(campanaId: string) {
         void queryClient.invalidateQueries({ queryKey: campanasKeys.detail(campanaId) });
       });
     },
-    onError: (e) => toast.error(e.message || 'Error al guardar la visita'),
+    meta: { errorMessage: 'Error al guardar la visita' },
   });
 }
 
@@ -62,7 +62,7 @@ async function capturarGPS(base: string, negocio: NegocioCampana, onDone: () => 
       const dist = haversineM(negocio.lat, negocio.lng, pos.lat, pos.lng);
       if (dist < 10_000) gps.visita_distancia = dist;
     }
-    await http.patch(base, gps);
+    await apiClient.patch(base, gps);
     onDone();
   } catch {
     /* GPS denegado o no disponible — la visita ya se guardó igual */

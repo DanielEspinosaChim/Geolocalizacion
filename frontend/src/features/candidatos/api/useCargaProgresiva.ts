@@ -1,7 +1,7 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useEffect, useRef } from 'react';
 import { z } from 'zod';
-import { http } from '@core/api';
+import { apiClient } from '@shared/api';
 import type { Candidato } from '../model/candidato';
 import { candidatosKeys } from './useCandidatos';
 
@@ -21,7 +21,7 @@ export function useCargaProgresiva(): CacheStatus | undefined {
   const { data: status } = useQuery({
     queryKey: candidatosKeys.cacheStatus,
     queryFn: async ({ signal }) => {
-      const { data } = await http.get<unknown>('/cache-status', { signal });
+      const data = await apiClient.get<unknown>('/cache-status', { signal });
       return cacheStatusSchema.parse(data);
     },
     refetchInterval: (query) => (query.state.data?.ready ? false : 1500),

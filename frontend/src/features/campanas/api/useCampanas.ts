@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { http } from '@core/api';
+import { apiClient } from '@shared/api';
 import { campanaListSchema, type StatusCampana } from '../model/campana';
 import { campanasKeys } from './keys';
 
@@ -13,7 +13,7 @@ export function useCampanas({ status, asignadoA }: Opciones) {
   return useQuery({
     queryKey: campanasKeys.list(status),
     queryFn: async ({ signal }) => {
-      const { data } = await http.get<unknown>('/campanas', {
+      const data = await apiClient.get<unknown>('/campanas', {
         signal,
         params: status ? { status } : undefined,
       });

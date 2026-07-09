@@ -18,12 +18,6 @@ export const rutaSchema = z.object({
 });
 export type RutaCalculada = z.infer<typeof rutaSchema>;
 
-export function formatearTiempo(tiempoMin: number): string {
-  const horas = Math.floor(tiempoMin / 60);
-  const mins = Math.round(tiempoMin % 60);
-  return horas > 0 ? `${horas}h ${mins} min` : `${tiempoMin} min`;
-}
-
 /** Toggle de selección con tope de MAX_PUNTOS_RUTA. Devuelve el mismo Set si no cabe. */
 export function togglePunto(seleccion: ReadonlySet<string>, placeId: string): Set<string> {
   const nueva = new Set(seleccion);

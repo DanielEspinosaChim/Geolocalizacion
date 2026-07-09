@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { EmptyState, MapCanvas, SelectField, Spinner } from '@shared/ui';
+import { EmptyState, FlyTo, MapCanvas, SelectField, Spinner } from '@shared/ui';
 import { reverseGeocode } from '../api/reverseGeocode';
 import { useReportes } from '../api/useReportes';
-import { FlyTo } from '../components/FlyToReporte';
 import { ReporteForm, type Ubicacion } from '../components/ReporteForm';
 import { ReporteItem } from '../components/ReporteItem';
 import { ReportesLayer, UbicacionPicker, UbicacionTemporal } from '../components/ReportesLayer';
@@ -43,7 +42,7 @@ export function ReportesPage() {
           <ReportesLayer reportes={reportes} onSelect={setFoco} />
           <UbicacionPicker activo={modoMapa} onPick={(lat, lng) => void onPick(lat, lng)} />
           {ubicacion ? <UbicacionTemporal lat={ubicacion.lat} lng={ubicacion.lng} /> : null}
-          {foco?.lat != null && foco.lng != null ? <FlyTo lat={foco.lat} lng={foco.lng} /> : null}
+          {foco?.lat != null && foco.lng != null ? <FlyTo lat={foco.lat} lng={foco.lng} zoom={17} /> : null}
         </MapCanvas>
         {modoMapa ? (
           <div className="absolute left-1/2 top-3 z-[1000] -translate-x-1/2 rounded-full bg-warning px-3 py-1 text-[11px] font-bold text-white shadow-lg">

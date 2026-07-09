@@ -23,7 +23,7 @@ from fastapi.responses import FileResponse
 import uvicorn
 
 from db.migrations import run_migrations
-from routers import candidatos, zonas, ruta, prediccion, reportes, visitas, campanas, admin
+from routers import candidatos, zonas, geo, ruta, prediccion, reportes, visitas, campanas, admin
 from auth import require_any, require_admin
 
 ROOT_DIR     = Path(__file__).parent.parent
@@ -90,6 +90,7 @@ python scripts/importar_colonias.py  # carga colonias de OSM (solo una vez)
 # Lectura: cualquier usuario autenticado
 app.include_router(candidatos.router, tags=["Candidatos"],  dependencies=[Depends(require_any)])
 app.include_router(zonas.router,      tags=["Zonas"],       dependencies=[Depends(require_any)])
+app.include_router(geo.router,        tags=["Geo"],         dependencies=[Depends(require_any)])
 app.include_router(ruta.router,       tags=["Ruta"],        dependencies=[Depends(require_any)])
 app.include_router(prediccion.router, tags=["Predicción"],  dependencies=[Depends(require_any)])
 app.include_router(reportes.router,   tags=["Reportes"],    dependencies=[Depends(require_any)])

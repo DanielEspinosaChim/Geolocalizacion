@@ -17,5 +17,7 @@ export function useCambiarPassword() {
         throw new Error(ERRORES[code] ?? (e as Error).message);
       }
     },
+    // El modal muestra el error en un <Alert> local; no dispares también el toast global.
+    meta: { skipGlobalError: true },
   });
 }

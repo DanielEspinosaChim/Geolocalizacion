@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { formatearTiempo, MAX_PUNTOS_RUTA, togglePunto } from './ruta';
+import { formatearTiempo } from '@shared/lib/format';
+import { MAX_PUNTOS_RUTA, togglePunto } from './ruta';
 
 describe('togglePunto', () => {
   it('agrega, quita y respeta el tope de 20', () => {

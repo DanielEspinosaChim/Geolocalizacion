@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { ApiError, http } from '@core/api';
+import { ApiError } from '@core/api';
+import { apiClient } from '@shared/api';
 import { toast } from '@shared/ui';
 import type { Candidato, Tipo } from '../model/candidato';
 import { candidatosKeys } from './useCandidatos';
@@ -14,7 +15,7 @@ export function useGuardarTipo() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async ({ placeId, tipo }: GuardarTipoInput) => {
-      const { data } = await http.patch<{ ok?: boolean }>(
+      const data = await apiClient.patch<{ ok?: boolean }>(
         `/candidatos/${encodeURIComponent(placeId)}/tipo`,
         { tipo },
       );

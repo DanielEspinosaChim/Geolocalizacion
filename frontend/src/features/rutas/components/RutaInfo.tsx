@@ -1,8 +1,9 @@
 import { Clock, FileText, MapPin, Ruler } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@shared/ui';
+import { formatearTiempo } from '@shared/lib/format';
 import { descargarReporteVisita } from '../api/useRuta';
-import { formatearTiempo, type RutaCalculada } from '../model/ruta';
+import type { RutaCalculada } from '../model/ruta';
 
 /** Resumen de la ruta calculada: stats, orden de visita y descarga de reporte. */
 export function RutaInfo({ ruta }: { ruta: RutaCalculada }) {

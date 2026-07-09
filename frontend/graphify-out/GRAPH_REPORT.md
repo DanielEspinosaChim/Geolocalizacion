@@ -1,16 +1,16 @@
 # Graph Report - frontend  (2026-07-08)
 
 ## Corpus Check
-- 162 files · ~26,517 words
+- 169 files · ~27,824 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 654 nodes · 1210 edges · 36 communities (30 shown, 6 thin omitted)
-- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 22 edges (avg confidence: 0.8)
+- 677 nodes · 1252 edges · 35 communities (31 shown, 4 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 26 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `91f6dfde`
+- Built from commit: `c5e4314d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -45,7 +45,6 @@
 - [[_COMMUNITY_Community 31|Community 31]]
 - [[_COMMUNITY_Community 32|Community 32]]
 - [[_COMMUNITY_Community 33|Community 33]]
-- [[_COMMUNITY_Community 34|Community 34]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 21 edges
@@ -60,49 +59,49 @@
 10. `campanasKeys` - 7 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `signInWithEmail()` --calls--> `getFirebaseAuth()`  [INFERRED]
-  src/features/auth/api/sign-in.ts → src/core/auth/firebase.ts
-- `signInWithGoogle()` --calls--> `getFirebaseAuth()`  [INFERRED]
-  src/features/auth/api/sign-in.ts → src/core/auth/firebase.ts
+- `requireAuth()` --calls--> `getSessionUser()`  [INFERRED]
+  src/app/router/guards.ts → src/core/auth/session.ts
+- `redirectIfAuthed()` --calls--> `getSessionUser()`  [INFERRED]
+  src/app/router/guards.ts → src/core/auth/session.ts
+- `CambiarPasswordModal()` --calls--> `Register`  [INFERRED]
+  src/features/admin/components/CambiarPasswordModal.tsx → src/core/query/queryClient.ts
 - `UsuariosList()` --calls--> `useConfirm()`  [INFERRED]
   src/features/admin/components/UsuariosList.tsx → src/shared/ui/ConfirmDialog.tsx
 - `AdminPage()` --calls--> `useCampanas()`  [INFERRED]
   src/features/admin/routes/AdminPage.tsx → src/features/campanas/api/useCampanas.ts
-- `AdminPage()` --calls--> `useSession()`  [INFERRED]
-  src/features/admin/routes/AdminPage.tsx → src/features/auth/hooks/useSession.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (36 total, 6 thin omitted)
+## Communities (35 total, 4 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.32
 Nodes (7): capturarGPS(), capturarVerificacion(), GPS_ERRORES, GpsError, haversineM(), obtenerGPS(), PosicionGPS
 
 ### Community 1 - "Community 1"
-Cohesion: 0.14
-Nodes (11): CAMERA_ERRORS, CameraModal(), CameraModalProps, FotoField(), FotoFieldProps, Button, ButtonProps, IconButton (+3 more)
+Cohesion: 0.17
+Nodes (9): CAMERA_ERRORS, CameraModal(), CameraModalProps, FotoField(), FotoFieldProps, Button, ButtonProps, IconButton (+1 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.20
-Nodes (13): Column, DataTable(), DataTableProps, EmptyState(), EmptyStateProps, Skeleton(), SkeletonProps, Table() (+5 more)
+Cohesion: 0.26
+Nodes (11): Column, DataTable(), DataTableProps, Skeleton(), SkeletonProps, Table(), TBody(), Td() (+3 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.22
-Nodes (8): ConfirmContext, ConfirmFn, ConfirmOptions, ConfirmProvider(), useConfirm(), Modal(), ModalProps, WIDTH_CLASSES
+Cohesion: 0.19
+Nodes (9): Alert(), AlertProps, TONE_CLASSES, EmptyState(), EmptyStateProps, QueryBoundary(), QueryBoundaryProps, Spinner() (+1 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.10
-Nodes (18): ERROR_MESSAGES, SignInError, signInWithEmail(), signInWithGoogle(), SILENT_CODES, translate(), GoogleIcon(), LoginForm() (+10 more)
+Cohesion: 0.12
+Nodes (24): ERROR_MESSAGES, SignInError, signInWithEmail(), signInWithGoogle(), SILENT_CODES, translate(), activarAppCheck(), getFirebaseAuth() (+16 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.05
-Nodes (43): devDependencies, autoprefixer, eslint, eslint-import-resolver-typescript, @eslint/js, eslint-plugin-boundaries, eslint-plugin-import, eslint-plugin-jsx-a11y (+35 more)
+Cohesion: 0.07
+Nodes (27): devDependencies, autoprefixer, eslint, eslint-import-resolver-typescript, @eslint/js, eslint-plugin-boundaries, eslint-plugin-import, eslint-plugin-jsx-a11y (+19 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.14
-Nodes (21): PlantillaInput, usePlantillaMutations(), usePlantillas(), CampoEditor(), CampoEditorProps, CampoVisita(), CampoVisitaProps, EditorPlantilla() (+13 more)
+Cohesion: 0.13
+Nodes (22): PlantillaInput, usePlantillaMutations(), usePlantillas(), CampoEditor(), CampoEditorProps, CampoVisita(), CampoVisitaProps, EditorPlantilla() (+14 more)
 
 ### Community 7 - "Community 7"
 Cohesion: 0.40
@@ -113,12 +112,12 @@ Cohesion: 0.07
 Nodes (26): compilerOptions, allowImportingTsExtensions, baseUrl, esModuleInterop, jsx, lib, module, moduleDetection (+18 more)
 
 ### Community 9 - "Community 9"
-Cohesion: 0.11
-Nodes (19): dependencies, axios, class-variance-authority, firebase, @hookform/resolvers, leaflet, leaflet.markercluster, lucide-react (+11 more)
+Cohesion: 0.06
+Nodes (35): dependencies, axios, class-variance-authority, firebase, @hookform/resolvers, leaflet, leaflet.markercluster, lucide-react (+27 more)
 
 ### Community 10 - "Community 10"
-Cohesion: 0.50
-Nodes (3): Alert(), AlertProps, TONE_CLASSES
+Cohesion: 0.25
+Nodes (7): ConfirmContext, ConfirmFn, ConfirmOptions, ConfirmProvider(), Modal(), ModalProps, WIDTH_CLASSES
 
 ### Community 11 - "Community 11"
 Cohesion: 0.14
@@ -140,29 +139,33 @@ Nodes (5): plugins, printWidth, semi, singleQuote, trailingComma
 Cohesion: 0.50
 Nodes (3): Anatomía de una feature, features/ — el "grito" del dominio, Reglas (las aplica `eslint.config.js`)
 
+### Community 17 - "Community 17"
+Cohesion: 0.47
+Nodes (3): apiClient, Method, RequestOptions
+
 ### Community 24 - "Community 24"
-Cohesion: 0.09
-Nodes (32): reverseGeocode(), NuevoReporte, reportesKeys, useActualizarReporte(), useCrearReporte(), useEliminarReporte(), useReportes(), FlyTo() (+24 more)
+Cohesion: 0.10
+Nodes (31): reverseGeocode(), NuevoReporte, reportesKeys, useActualizarReporte(), useCrearReporte(), useEliminarReporte(), useReportes(), ReporteForm() (+23 more)
 
 ### Community 25 - "Community 25"
-Cohesion: 0.08
-Nodes (29): ErrorBoundary, State, rootElement, activarAppCheck(), getFirebaseAuth(), changePassword(), ensureWatcher(), getFreshToken() (+21 more)
+Cohesion: 0.06
+Nodes (25): ErrorBoundary, State, rootElement, LoginForm(), renderForm(), { signInWithEmail }, useSession(), AppShell() (+17 more)
 
 ### Community 26 - "Community 26"
-Cohesion: 0.12
-Nodes (15): MapCanvas(), MapCanvasProps, MERIDA_CENTER, Card, CardProps, Checkbox(), ModalFooter(), SearchInput() (+7 more)
+Cohesion: 0.10
+Nodes (19): MapCanvas(), MapCanvasProps, MERIDA_CENTER, Card, CardProps, Checkbox(), Chip, ChipProps (+11 more)
 
 ### Community 27 - "Community 27"
 Cohesion: 0.08
-Nodes (49): candidatosKeys, useCandidatos(), CacheStatus, cacheStatusSchema, useCargaProgresiva(), GuardarTipoInput, useGuardarTipo(), CandidatoCard() (+41 more)
+Nodes (48): candidatosKeys, useCandidatos(), CacheStatus, cacheStatusSchema, useCargaProgresiva(), GuardarTipoInput, useGuardarTipo(), CandidatoCard() (+40 more)
 
 ### Community 28 - "Community 28"
-Cohesion: 0.12
-Nodes (21): useColonias(), useGeoJsonLayer(), AgebProps, AgebsLayer(), CapaId, CAPAS, CapasToggles(), CapasTogglesProps (+13 more)
+Cohesion: 0.09
+Nodes (28): useColonias(), useGeoJsonLayer(), useZonas(), AgebProps, AgebsLayer(), CapaId, CAPAS, CapasToggles() (+20 more)
 
 ### Community 29 - "Community 29"
-Cohesion: 0.22
-Nodes (12): descargarReporteVisita(), useCalcularRuta(), useCalcularRutaColonia(), RutaInfo(), RutaLayer(), RutaLista(), RutaListaProps, formatearTiempo() (+4 more)
+Cohesion: 0.17
+Nodes (14): descargarReporteVisita(), useCalcularRuta(), useCalcularRutaColonia(), Escenario(), RutaInfo(), RutaLayer(), RutaLista(), RutaListaProps (+6 more)
 
 ### Community 31 - "Community 31"
 Cohesion: 0.06
@@ -173,28 +176,28 @@ Cohesion: 0.12
 Nodes (20): useAsignarCampana(), ERRORES, useCambiarPassword(), useUsuarioMutations(), useUsuarios(), usuariosKey, AsignacionesList(), AsignacionesListProps (+12 more)
 
 ### Community 33 - "Community 33"
-Cohesion: 0.10
-Nodes (22): useIndice(), useMuestraValidacion(), usePredecir(), Escenario(), fmt(), IndicePanel(), TONE_TEXT, PredictLayer() (+14 more)
+Cohesion: 0.11
+Nodes (21): useIndice(), useMuestraValidacion(), usePredecir(), IndicePanel(), PrediccionResultado(), TONE_TEXT, PredictLayer(), PredictLayerProps (+13 more)
 
 ## Knowledge Gaps
-- **195 isolated node(s):** `singleQuote`, `semi`, `printWidth`, `trailingComma`, `plugins` (+190 more)
+- **200 isolated node(s):** `singleQuote`, `semi`, `printWidth`, `trailingComma`, `plugins` (+195 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `useConfirm()` connect `Community 3` to `Community 24`, `Community 32`, `Community 26`, `Community 31`?**
-  _High betweenness centrality (0.279) - this node is a cross-community bridge._
+- **Why does `useConfirm()` connect `Community 31` to `Community 24`, `Community 26`, `Community 32`, `Community 10`?**
+  _High betweenness centrality (0.282) - this node is a cross-community bridge._
 - **Why does `useCandidatos()` connect `Community 27` to `Community 29`, `Community 31`?**
-  _High betweenness centrality (0.240) - this node is a cross-community bridge._
+  _High betweenness centrality (0.242) - this node is a cross-community bridge._
 - **Why does `AgregarNegocios()` connect `Community 31` to `Community 27`?**
-  _High betweenness centrality (0.226) - this node is a cross-community bridge._
+  _High betweenness centrality (0.230) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `semi`, `printWidth` to the rest of the system?**
-  _195 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.14035087719298245 - nodes in this community are weakly interconnected._
+  _200 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 4` be split into smaller, more focused modules?**
-  _Cohesion score 0.09655172413793103 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11742424242424243 - nodes in this community are weakly interconnected._
 - **Should `Community 5` be split into smaller, more focused modules?**
-  _Cohesion score 0.045454545454545456 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
+- **Should `Community 6` be split into smaller, more focused modules?**
+  _Cohesion score 0.13118279569892474 - nodes in this community are weakly interconnected._

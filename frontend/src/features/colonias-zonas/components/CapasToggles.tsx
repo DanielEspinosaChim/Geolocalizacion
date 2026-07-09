@@ -1,11 +1,12 @@
-import { BarChart3, Home, Map, type LucideIcon } from 'lucide-react';
+import { BarChart3, Flame, Home, Map, type LucideIcon } from 'lucide-react';
 
-export type CapaId = 'colonias' | 'agebs' | 'municipios';
+export type CapaId = 'probabilidad' | 'colonias' | 'municipios' | 'agebs';
 
 const CAPAS: { id: CapaId; label: string; Icon: LucideIcon }[] = [
+  { id: 'probabilidad', label: 'Probabilidad', Icon: Flame },
   { id: 'colonias', label: 'Colonias', Icon: Home },
-  { id: 'agebs', label: 'AGEBs', Icon: BarChart3 },
   { id: 'municipios', label: 'Municipios', Icon: Map },
+  { id: 'agebs', label: 'AGEBs', Icon: BarChart3 },
 ];
 
 interface CapasTogglesProps {

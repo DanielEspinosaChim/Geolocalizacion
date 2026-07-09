@@ -1,13 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import type { GeoJsonObject } from 'geojson';
-import { http } from '@core/api';
+import { apiClient } from '@shared/api';
 import { coloniaListSchema } from '../model/colonia';
 
 export function useColonias() {
   return useQuery({
     queryKey: ['colonias'],
     queryFn: async ({ signal }) => {
-      const { data } = await http.get<unknown>('/colonias', { signal });
+      const data = await apiClient.get<unknown>('/colonias', { signal });
       return coloniaListSchema.parse(data);
     },
     staleTime: Infinity, // catálogo estable durante la sesión
@@ -18,10 +18,7 @@ export function useColonias() {
 export function useGeoJsonLayer(nombre: string, url: string) {
   return useQuery({
     queryKey: ['geojson', nombre],
-    queryFn: async ({ signal }) => {
-      const { data } = await http.get<GeoJsonObject>(url, { signal });
-      return data;
-    },
+    queryFn: ({ signal }) => apiClient.get<GeoJsonObject>(url, { signal }),
     staleTime: Infinity,
   });
 }

@@ -1,32 +1,34 @@
 import { BarChart3 } from 'lucide-react';
-import { Card, Spinner } from '@shared/ui';
+import { formatNumero } from '@shared/lib/format';
+import { Card, QueryBoundary, Spinner } from '@shared/ui';
 import { useIndice } from '../api/usePredicciones';
 import { ESCENARIO_COLORS, type Indice } from '../model/indice';
 
-const fmt = (n: number) => n.toLocaleString('es-MX');
-
 /** Panel del índice de informalidad (estimador de razón / multiplier method). */
 export function IndicePanel() {
-  const { data, isPending } = useIndice();
-  if (isPending || !data) {
-    return (
-      <div className="flex justify-center p-6">
-        <Spinner label="Cargando índice…" />
-      </div>
-    );
-  }
-
+  const query = useIndice();
   return (
-    <div className="grid gap-4">
-      <ResumenIndice indice={data} />
-      <div className="grid gap-2">
-        <h3 className="text-[11px] font-bold uppercase tracking-wider text-fg-subtle">Escenarios</h3>
-        {data.escenarios.map((e, i) => (
-          <Escenario key={e.etiqueta} escenario={e} color={ESCENARIO_COLORS[i] ?? '#94a3b8'} />
-        ))}
-      </div>
-      <Metodo indice={data} />
-    </div>
+    <QueryBoundary
+      query={query}
+      loading={
+        <div className="flex justify-center p-6">
+          <Spinner label="Cargando índice…" />
+        </div>
+      }
+    >
+      {(data) => (
+        <div className="grid gap-4">
+          <ResumenIndice indice={data} />
+          <div className="grid gap-2">
+            <h3 className="text-[11px] font-bold uppercase tracking-wider text-fg-subtle">Escenarios</h3>
+            {data.escenarios.map((e, i) => (
+              <Escenario key={e.etiqueta} escenario={e} color={ESCENARIO_COLORS[i] ?? '#94a3b8'} />
+            ))}
+          </div>
+          <Metodo indice={data} />
+        </div>
+      )}
+    </QueryBoundary>
   );
 }
 
@@ -65,7 +67,7 @@ function Escenario({
         <span className="text-sm font-extrabold" style={{ color }}>
           {escenario.indice_pct}%{' '}
           <span className="text-[10px] font-normal text-fg-subtle">
-            {fmt(escenario.N_inf_estimado)} inf. est.
+            {formatNumero(escenario.N_inf_estimado)} inf. est.
           </span>
         </span>
       </div>

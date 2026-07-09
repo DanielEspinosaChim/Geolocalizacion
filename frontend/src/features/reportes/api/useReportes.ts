@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { http } from '@core/api';
+import { apiClient } from '@shared/api';
 import { toast } from '@shared/ui';
 import { reporteListSchema, type StatusReporte, type TipoReporte } from '../model/reporte';
 
@@ -12,7 +12,7 @@ export function useReportes(status: StatusReporte | null) {
   return useQuery({
     queryKey: reportesKeys.list(status),
     queryFn: async ({ signal }) => {
-      const { data } = await http.get<unknown>('/reportes', {
+      const data = await apiClient.get<unknown>('/reportes', {
         signal,
         params: { limit: 200, ...(status ? { status } : {}) },
       });
@@ -42,13 +42,13 @@ export function useCrearReporte() {
       fd.append('descripcion', r.descripcion);
       fd.append('direccion', r.direccion);
       if (r.foto) fd.append('foto', r.foto);
-      await http.post('/reportes', fd); // multipart: axios pone el boundary solo
+      await apiClient.postForm('/reportes', fd);
     },
     onSuccess: () => {
-      toast.success('Reporte enviado ✓');
+      toast.success('Reporte enviado');
       void queryClient.invalidateQueries({ queryKey: reportesKeys.all });
     },
-    onError: (e) => toast.error(e.message || 'Error al enviar el reporte'),
+    meta: { errorMessage: 'Error al enviar el reporte' },
   });
 }
 
@@ -57,10 +57,10 @@ export function useActualizarReporte() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async ({ id, updates }: { id: string; updates: Record<string, unknown> }) => {
-      await http.patch(`/reportes/${encodeURIComponent(id)}`, updates);
+      await apiClient.patch(`/reportes/${encodeURIComponent(id)}`, updates);
     },
     onSuccess: () => void queryClient.invalidateQueries({ queryKey: reportesKeys.all }),
-    onError: (e) => toast.error(e.message || 'Error al actualizar'),
+    meta: { errorMessage: 'Error al actualizar' },
   });
 }
 
@@ -68,9 +68,9 @@ export function useEliminarReporte() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (id: string) => {
-      await http.delete(`/reportes/${encodeURIComponent(id)}`);
+      await apiClient.delete(`/reportes/${encodeURIComponent(id)}`);
     },
     onSuccess: () => void queryClient.invalidateQueries({ queryKey: reportesKeys.all }),
-    onError: (e) => toast.error(e.message || 'Error al eliminar'),
+    meta: { errorMessage: 'Error al eliminar' },
   });
 }

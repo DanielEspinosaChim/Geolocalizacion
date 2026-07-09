@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { http } from '@core/api';
+import { apiClient } from '@shared/api';
 import { toast } from '@shared/ui';
 import { campanasKeys } from './keys';
 
@@ -17,46 +17,40 @@ export function useCampanaMutations(campanaId: string | null) {
   const refetchAll = () => queryClient.invalidateQueries({ queryKey: campanasKeys.all });
 
   const crear = useMutation({
-    mutationFn: async (body: NuevaCampana) => {
-      const { data } = await http.post<{ id: string }>('/campanas', body);
-      return data;
-    },
+    mutationFn: (body: NuevaCampana) => apiClient.post<{ id: string }>('/campanas', body),
     onSuccess: () => {
       toast.success('Campaña creada');
       void refetchAll();
     },
-    onError: (e) => toast.error(e.message || 'Error al crear la campaña'),
+    meta: { errorMessage: 'Error al crear la campaña' },
   });
 
   const cambiarStatus = useMutation({
     mutationFn: async (status: 'cerrada' | 'cancelada' | 'activa') => {
-      await http.patch(`/campanas/${campanaId}/status`, { status });
+      await apiClient.patch(`/campanas/${campanaId}/status`, { status });
     },
     onSuccess: refetchAll,
-    onError: (e) => toast.error(e.message || 'Error al cambiar el estado'),
+    meta: { errorMessage: 'Error al cambiar el estado' },
   });
 
   const eliminar = useMutation({
     mutationFn: async () => {
-      await http.delete(`/campanas/${campanaId}`);
+      await apiClient.delete(`/campanas/${campanaId}`);
     },
     onSuccess: () => {
       toast.success('Campaña eliminada');
       void refetchAll();
     },
-    onError: (e) => toast.error(e.message || 'Error al eliminar'),
+    meta: { errorMessage: 'Error al eliminar' },
   });
 
   const agregarNegocio = useMutation({
-    mutationFn: async (placeId: string) => {
-      const { data } = await http.post<{ insertados: number }>(
-        `/campanas/${campanaId}/negocios`,
-        { negocio_ids: [placeId] },
-      );
-      return data;
-    },
+    mutationFn: (placeId: string) =>
+      apiClient.post<{ insertados: number }>(`/campanas/${campanaId}/negocios`, {
+        negocio_ids: [placeId],
+      }),
     onSuccess: refetchAll,
-    onError: (e) => toast.error(e.message || 'Error al agregar el negocio'),
+    meta: { errorMessage: 'Error al agregar el negocio' },
   });
 
   return { crear, cambiarStatus, eliminar, agregarNegocio };

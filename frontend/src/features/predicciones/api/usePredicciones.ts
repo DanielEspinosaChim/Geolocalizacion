@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
-import { http } from '@core/api';
+import { apiClient } from '@shared/api';
 import { indiceSchema } from '../model/indice';
 import { prediccionSchema } from '../model/prediccion';
 import { validacionSchema } from '../model/validacion';
@@ -8,9 +8,10 @@ import { validacionSchema } from '../model/validacion';
 export function usePredecir() {
   return useMutation({
     mutationFn: async ({ lat, lng }: { lat: number; lng: number }) => {
-      const { data } = await http.get<unknown>('/predecir', { params: { lat, lng } });
+      const data = await apiClient.get<unknown>('/predecir', { params: { lat, lng } });
       return prediccionSchema.parse(data);
     },
+    meta: { errorMessage: 'No se pudo predecir en ese punto' },
   });
 }
 
@@ -18,7 +19,7 @@ export function useIndice() {
   return useQuery({
     queryKey: ['indice'],
     queryFn: async ({ signal }) => {
-      const { data } = await http.get<unknown>('/indice', { signal });
+      const data = await apiClient.get<unknown>('/indice', { signal });
       return indiceSchema.parse(data);
     },
     staleTime: 5 * 60_000,
@@ -29,7 +30,7 @@ export function useMuestraValidacion() {
   return useQuery({
     queryKey: ['muestra-validacion'],
     queryFn: async ({ signal }) => {
-      const { data } = await http.get<unknown>('/muestra-validacion', { signal });
+      const data = await apiClient.get<unknown>('/muestra-validacion', { signal });
       return validacionSchema.parse(data);
     },
     staleTime: 5 * 60_000,
