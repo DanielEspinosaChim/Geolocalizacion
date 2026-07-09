@@ -1,6 +1,5 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { apiClient } from '@shared/api';
-import { indiceSchema } from '../model/indice';
 import { prediccionSchema } from '../model/prediccion';
 import { validacionSchema } from '../model/validacion';
 
@@ -12,17 +11,6 @@ export function usePredecir() {
       return prediccionSchema.parse(data);
     },
     meta: { errorMessage: 'No se pudo predecir en ese punto' },
-  });
-}
-
-export function useIndice() {
-  return useQuery({
-    queryKey: ['indice'],
-    queryFn: async ({ signal }) => {
-      const data = await apiClient.get<unknown>('/indice', { signal });
-      return indiceSchema.parse(data);
-    },
-    staleTime: 5 * 60_000,
   });
 }
 

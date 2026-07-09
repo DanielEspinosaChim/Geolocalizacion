@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
       {
         path: 'indice',
         loader: requireRole('admin'),
-        lazy: async () => ({ Component: (await import('@features/predicciones')).IndicePage }),
+        lazy: async () => ({ Component: (await import('@features/indice')).IndicePage }),
       },
       {
         path: 'admin',

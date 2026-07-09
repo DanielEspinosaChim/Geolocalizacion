@@ -1,9 +1,10 @@
 import { BarChart3 } from 'lucide-react';
 import { formatNumero } from '@shared/lib/format';
 import { Card, QueryBoundary, Spinner } from '@shared/ui';
-import { useIndice } from '../api/usePredicciones';
+import { useIndice } from '../api/useIndice';
 import { ESCENARIO_COLORS, type Indice } from '../model/indice';
 import { IndiceCalculadora } from './IndiceCalculadora';
+import { ComoSeEstima, ConjuntosDeDatos } from './IndiceMetodologia';
 
 /** Vista del índice de informalidad (estimador de razón / multiplier method). */
 export function IndicePanel() {
@@ -20,6 +21,8 @@ export function IndicePanel() {
       {(data) => (
         <div className="mx-auto grid max-w-4xl gap-6 pb-8">
           <Encabezado indice={data} />
+          <ConjuntosDeDatos indice={data} />
+          <ComoSeEstima indice={data} />
           <Resultado indice={data} />
           <ValidacionInegi indice={data} />
           <Sensibilidad indice={data} />
@@ -32,20 +35,14 @@ export function IndicePanel() {
 }
 
 function Encabezado({ indice }: { indice: Indice }) {
-  const { N1_denue, m_overlap, n_inf_observados } = indice.datos_entrada;
   return (
     <header className="grid gap-2">
       <p className="text-2xs font-bold uppercase tracking-widest text-primary">
         Metodología · {indice.metodo}
       </p>
-      <h1 className="font-display text-2xl font-extrabold text-fg">Índice de Informalidad</h1>
-      <p className="text-sm leading-relaxed text-fg-muted">
-        Mérida, Yucatán. Google Maps captó {formatNumero(m_overlap)} de los{' '}
-        {formatNumero(N1_denue)} negocios formales del DENUE, es decir, solo ve el{' '}
-        <b className="text-fg">{indice.cobertura_gmaps_pct}%</b> de la realidad formal. Si los{' '}
-        {formatNumero(n_inf_observados)} informales detectados son también esa fracción del total,
-        el universo real se obtiene multiplicándolos por{' '}
-        <b className="text-fg">×{indice.multiplicador}</b>.
+      <h1 className="font-display text-3xl font-extrabold text-fg">Índice de Informalidad</h1>
+      <p className="text-sm text-fg-muted">
+        Mérida, Yucatán · Estimación estadística basada en dos registros con solapamiento conocido
       </p>
     </header>
   );

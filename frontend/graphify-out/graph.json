@@ -80,7 +80,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "package",
-      "community": 9,
+      "community": 37,
       "norm_label": "package.json"
     },
     {
@@ -90,7 +90,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "package_name",
-      "community": 9,
+      "community": 37,
       "norm_label": "name"
     },
     {
@@ -100,7 +100,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "package_private",
-      "community": 9,
+      "community": 37,
       "norm_label": "private"
     },
     {
@@ -110,7 +110,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "package_version",
-      "community": 9,
+      "community": 37,
       "norm_label": "version"
     },
     {
@@ -120,7 +120,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "package_type",
-      "community": 9,
+      "community": 37,
       "norm_label": "type"
     },
     {
@@ -130,7 +130,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "package_packagemanager",
-      "community": 9,
+      "community": 37,
       "norm_label": "packagemanager"
     },
     {
@@ -140,7 +140,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "package_engines",
-      "community": 9,
+      "community": 37,
       "norm_label": "engines"
     },
     {
@@ -150,7 +150,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "package_engines_node",
-      "community": 9,
+      "community": 37,
       "norm_label": "node"
     },
     {
@@ -160,7 +160,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "package_scripts",
-      "community": 9,
+      "community": 36,
       "norm_label": "scripts"
     },
     {
@@ -170,7 +170,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "package_scripts_dev",
-      "community": 9,
+      "community": 36,
       "norm_label": "dev"
     },
     {
@@ -180,7 +180,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "package_scripts_build",
-      "community": 9,
+      "community": 36,
       "norm_label": "build"
     },
     {
@@ -190,7 +190,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "package_scripts_preview",
-      "community": 9,
+      "community": 36,
       "norm_label": "preview"
     },
     {
@@ -200,7 +200,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "package_scripts_typecheck",
-      "community": 9,
+      "community": 36,
       "norm_label": "typecheck"
     },
     {
@@ -210,7 +210,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "package_scripts_lint",
-      "community": 9,
+      "community": 36,
       "norm_label": "lint"
     },
     {
@@ -220,7 +220,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "package_scripts_format",
-      "community": 9,
+      "community": 36,
       "norm_label": "format"
     },
     {
@@ -230,7 +230,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "package_scripts_test",
-      "community": 9,
+      "community": 36,
       "norm_label": "test"
     },
     {
@@ -240,7 +240,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "package_scripts_test_watch",
-      "community": 9,
+      "community": 36,
       "norm_label": "test:watch"
     },
     {
@@ -720,7 +720,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_errorboundary",
-      "community": 25,
+      "community": 4,
       "norm_label": "errorboundary.tsx"
     },
     {
@@ -730,7 +730,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "app_errorboundary_state",
-      "community": 25,
+      "community": 4,
       "norm_label": "state"
     },
     {
@@ -740,7 +740,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "app_errorboundary_errorboundary",
-      "community": 25,
+      "community": 4,
       "norm_label": "errorboundary"
     },
     {
@@ -750,7 +750,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "app_errorboundary_errorboundary_getderivedstatefromerror",
-      "community": 25,
+      "community": 4,
       "norm_label": ".getderivedstatefromerror()"
     },
     {
@@ -760,7 +760,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "app_errorboundary_errorboundary_componentdidcatch",
-      "community": 25,
+      "community": 4,
       "norm_label": ".componentdidcatch()"
     },
     {
@@ -770,7 +770,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "app_errorboundary_errorboundary_render",
-      "community": 25,
+      "community": 4,
       "norm_label": ".render()"
     },
     {
@@ -860,7 +860,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_main",
-      "community": 25,
+      "community": 4,
       "norm_label": "main.tsx"
     },
     {
@@ -870,7 +870,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "app_main_rootelement",
-      "community": 25,
+      "community": 4,
       "norm_label": "rootelement"
     },
     {
@@ -880,7 +880,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "providers_appproviders",
-      "community": 25,
+      "community": 4,
       "norm_label": "appproviders.tsx"
     },
     {
@@ -890,7 +890,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "providers_appproviders_appproviders",
-      "community": 25,
+      "community": 4,
       "norm_label": "appproviders()"
     },
     {
@@ -900,7 +900,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "router_routeerror",
-      "community": 25,
+      "community": 4,
       "norm_label": "routeerror.tsx"
     },
     {
@@ -910,7 +910,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "router_routeerror_routeerror",
-      "community": 25,
+      "community": 4,
       "norm_label": "routeerror()"
     },
     {
@@ -920,7 +920,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "router_guards_test",
-      "community": 25,
+      "community": 4,
       "norm_label": "guards.test.ts"
     },
     {
@@ -930,7 +930,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "router_guards_test_getsessionuser",
-      "community": 25,
+      "community": 4,
       "norm_label": "{ getsessionuser }"
     },
     {
@@ -940,7 +940,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "router_guards_test_admin",
-      "community": 25,
+      "community": 4,
       "norm_label": "admin"
     },
     {
@@ -950,7 +950,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "router_guards_test_tecnico",
-      "community": 25,
+      "community": 4,
       "norm_label": "tecnico"
     },
     {
@@ -960,7 +960,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "router_guards_test_expectredirect",
-      "community": 25,
+      "community": 4,
       "norm_label": "expectredirect()"
     },
     {
@@ -970,7 +970,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "router_guards",
-      "community": 25,
+      "community": 4,
       "norm_label": "guards.ts"
     },
     {
@@ -980,7 +980,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "router_guards_requireauth",
-      "community": 25,
+      "community": 4,
       "norm_label": "requireauth()"
     },
     {
@@ -990,7 +990,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "router_guards_requirerole",
-      "community": 25,
+      "community": 4,
       "norm_label": "requirerole()"
     },
     {
@@ -1000,7 +1000,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "router_guards_redirectifauthed",
-      "community": 25,
+      "community": 4,
       "norm_label": "redirectifauthed()"
     },
     {
@@ -1010,7 +1010,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "router_guards_indexloader",
-      "community": 25,
+      "community": 4,
       "norm_label": "indexloader()"
     },
     {
@@ -1020,7 +1020,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "router_index",
-      "community": 25,
+      "community": 4,
       "norm_label": "index.tsx"
     },
     {
@@ -1030,7 +1030,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "router_index_router",
-      "community": 25,
+      "community": 4,
       "norm_label": "router"
     },
     {
@@ -1710,7 +1710,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "api_sign_in",
-      "community": 4,
+      "community": 25,
       "norm_label": "sign-in.ts"
     },
     {
@@ -1720,7 +1720,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "api_sign_in_error_messages",
-      "community": 4,
+      "community": 25,
       "norm_label": "error_messages"
     },
     {
@@ -1730,7 +1730,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "api_sign_in_silent_codes",
-      "community": 4,
+      "community": 25,
       "norm_label": "silent_codes"
     },
     {
@@ -1740,7 +1740,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "api_sign_in_signinerror",
-      "community": 4,
+      "community": 25,
       "norm_label": "signinerror"
     },
     {
@@ -1750,7 +1750,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "api_sign_in_translate",
-      "community": 4,
+      "community": 25,
       "norm_label": "translate()"
     },
     {
@@ -1760,7 +1760,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "api_sign_in_signinwithemail",
-      "community": 4,
+      "community": 25,
       "norm_label": "signinwithemail()"
     },
     {
@@ -1770,7 +1770,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "api_sign_in_signinwithgoogle",
-      "community": 4,
+      "community": 25,
       "norm_label": "signinwithgoogle()"
     },
     {
@@ -1780,7 +1780,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_googleicon",
-      "community": 4,
+      "community": 25,
       "norm_label": "googleicon.tsx"
     },
     {
@@ -1790,7 +1790,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "components_googleicon_googleicon",
-      "community": 4,
+      "community": 25,
       "norm_label": "googleicon()"
     },
     {
@@ -1820,7 +1820,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "components_loginform_test_renderform",
-      "community": 25,
+      "community": 4,
       "norm_label": "renderform()"
     },
     {
@@ -1830,7 +1830,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_loginform",
-      "community": 4,
+      "community": 25,
       "norm_label": "loginform.tsx"
     },
     {
@@ -1840,7 +1840,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "components_loginform_divider",
-      "community": 4,
+      "community": 25,
       "norm_label": "divider()"
     },
     {
@@ -1890,7 +1890,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "model_login",
-      "community": 4,
+      "community": 25,
       "norm_label": "login.ts"
     },
     {
@@ -1900,7 +1900,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "model_login_loginschema",
-      "community": 4,
+      "community": 25,
       "norm_label": "loginschema"
     },
     {
@@ -1910,7 +1910,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "model_login_logininput",
-      "community": 4,
+      "community": 25,
       "norm_label": "logininput"
     },
     {
@@ -2630,7 +2630,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "components_visitamodal_visitamodalprops",
-      "community": 31,
+      "community": 6,
       "norm_label": "visitamodalprops"
     },
     {
@@ -2740,7 +2740,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "model_campana_campanalistschema",
-      "community": 6,
+      "community": 31,
       "norm_label": "campanalistschema"
     },
     {
@@ -4204,6 +4204,356 @@
       "norm_label": "colorzona()"
     },
     {
+      "label": "useIndice.ts",
+      "file_type": "code",
+      "source_file": "src/features/indice/api/useIndice.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "api_useindice",
+      "community": 33,
+      "norm_label": "useindice.ts"
+    },
+    {
+      "label": "indiceKeys",
+      "file_type": "code",
+      "source_file": "src/features/indice/api/useIndice.ts",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "api_useindice_indicekeys",
+      "community": 33,
+      "norm_label": "indicekeys"
+    },
+    {
+      "label": "useIndice()",
+      "file_type": "code",
+      "source_file": "src/features/indice/api/useIndice.ts",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "api_useindice_useindice",
+      "community": 33,
+      "norm_label": "useindice()"
+    },
+    {
+      "label": "IndiceCalculadora.tsx",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndiceCalculadora.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_indicecalculadora",
+      "community": 33,
+      "norm_label": "indicecalculadora.tsx"
+    },
+    {
+      "label": "IndiceCalculadora()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndiceCalculadora.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "components_indicecalculadora_indicecalculadora",
+      "community": 33,
+      "norm_label": "indicecalculadora()"
+    },
+    {
+      "label": "pctDe()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndiceCalculadora.tsx",
+      "source_location": "L86",
+      "_origin": "ast",
+      "id": "components_indicecalculadora_pctde",
+      "community": 33,
+      "norm_label": "pctde()"
+    },
+    {
+      "label": "Barra()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndiceCalculadora.tsx",
+      "source_location": "L91",
+      "_origin": "ast",
+      "id": "components_indicecalculadora_barra",
+      "community": 33,
+      "norm_label": "barra()"
+    },
+    {
+      "label": "Conteo()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndiceCalculadora.tsx",
+      "source_location": "L116",
+      "_origin": "ast",
+      "id": "components_indicecalculadora_conteo",
+      "community": 33,
+      "norm_label": "conteo()"
+    },
+    {
+      "label": "IndiceMetodologia.tsx",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndiceMetodologia.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_indicemetodologia",
+      "community": 33,
+      "norm_label": "indicemetodologia.tsx"
+    },
+    {
+      "label": "ConjuntosDeDatos()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndiceMetodologia.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "components_indicemetodologia_conjuntosdedatos",
+      "community": 33,
+      "norm_label": "conjuntosdedatos()"
+    },
+    {
+      "label": "Fuente()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndiceMetodologia.tsx",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "components_indicemetodologia_fuente",
+      "community": 33,
+      "norm_label": "fuente()"
+    },
+    {
+      "label": "Reparto()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndiceMetodologia.tsx",
+      "source_location": "L110",
+      "_origin": "ast",
+      "id": "components_indicemetodologia_reparto",
+      "community": 33,
+      "norm_label": "reparto()"
+    },
+    {
+      "label": "ComoSeEstima()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndiceMetodologia.tsx",
+      "source_location": "L136",
+      "_origin": "ast",
+      "id": "components_indicemetodologia_comoseestima",
+      "community": 33,
+      "norm_label": "comoseestima()"
+    },
+    {
+      "label": "Paso()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndiceMetodologia.tsx",
+      "source_location": "L183",
+      "_origin": "ast",
+      "id": "components_indicemetodologia_paso",
+      "community": 33,
+      "norm_label": "paso()"
+    },
+    {
+      "label": "Formula()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndiceMetodologia.tsx",
+      "source_location": "L202",
+      "_origin": "ast",
+      "id": "components_indicemetodologia_formula",
+      "community": 33,
+      "norm_label": "formula()"
+    },
+    {
+      "label": "IndicePanel.tsx",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndicePanel.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_indicepanel",
+      "community": 33,
+      "norm_label": "indicepanel.tsx"
+    },
+    {
+      "label": "IndicePanel()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndicePanel.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "components_indicepanel_indicepanel",
+      "community": 33,
+      "norm_label": "indicepanel()"
+    },
+    {
+      "label": "Encabezado()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndicePanel.tsx",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "components_indicepanel_encabezado",
+      "community": 33,
+      "norm_label": "encabezado()"
+    },
+    {
+      "label": "Resultado()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndicePanel.tsx",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "components_indicepanel_resultado",
+      "community": 33,
+      "norm_label": "resultado()"
+    },
+    {
+      "label": "ValidacionInegi()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndicePanel.tsx",
+      "source_location": "L76",
+      "_origin": "ast",
+      "id": "components_indicepanel_validacioninegi",
+      "community": 33,
+      "norm_label": "validacioninegi()"
+    },
+    {
+      "label": "Sensibilidad()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndicePanel.tsx",
+      "source_location": "L102",
+      "_origin": "ast",
+      "id": "components_indicepanel_sensibilidad",
+      "community": 33,
+      "norm_label": "sensibilidad()"
+    },
+    {
+      "label": "Escenario()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndicePanel.tsx",
+      "source_location": "L124",
+      "_origin": "ast",
+      "id": "components_indicepanel_escenario",
+      "community": 33,
+      "norm_label": "escenario()"
+    },
+    {
+      "label": "Referencias()",
+      "file_type": "code",
+      "source_file": "src/features/indice/components/IndicePanel.tsx",
+      "source_location": "L155",
+      "_origin": "ast",
+      "id": "components_indicepanel_referencias",
+      "community": 33,
+      "norm_label": "referencias()"
+    },
+    {
+      "label": "index.ts",
+      "file_type": "code",
+      "source_file": "src/features/indice/index.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "indice_index",
+      "community": 33,
+      "norm_label": "index.ts"
+    },
+    {
+      "label": "indice.test.ts",
+      "file_type": "code",
+      "source_file": "src/features/indice/model/indice.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "model_indice_test",
+      "community": 33,
+      "norm_label": "indice.test.ts"
+    },
+    {
+      "label": "indiceReal()",
+      "file_type": "code",
+      "source_file": "src/features/indice/model/indice.test.ts",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "model_indice_test_indicereal",
+      "community": 33,
+      "norm_label": "indicereal()"
+    },
+    {
+      "label": "indice.ts",
+      "file_type": "code",
+      "source_file": "src/features/indice/model/indice.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "model_indice",
+      "community": 33,
+      "norm_label": "indice.ts"
+    },
+    {
+      "label": "escenarioSchema",
+      "file_type": "code",
+      "source_file": "src/features/indice/model/indice.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "model_indice_escenarioschema",
+      "community": 33,
+      "norm_label": "escenarioschema"
+    },
+    {
+      "label": "indiceSchema",
+      "file_type": "code",
+      "source_file": "src/features/indice/model/indice.ts",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "model_indice_indiceschema",
+      "community": 33,
+      "norm_label": "indiceschema"
+    },
+    {
+      "label": "Indice",
+      "file_type": "code",
+      "source_file": "src/features/indice/model/indice.ts",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "model_indice_indice",
+      "community": 33,
+      "norm_label": "indice"
+    },
+    {
+      "label": "ESCENARIO_COLORS",
+      "file_type": "code",
+      "source_file": "src/features/indice/model/indice.ts",
+      "source_location": "L35",
+      "_origin": "ast",
+      "id": "model_indice_escenario_colors",
+      "community": 33,
+      "norm_label": "escenario_colors"
+    },
+    {
+      "label": "IndiceRecalculado",
+      "file_type": "code",
+      "source_file": "src/features/indice/model/indice.ts",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "model_indice_indicerecalculado",
+      "community": 33,
+      "norm_label": "indicerecalculado"
+    },
+    {
+      "label": "recalcularIndice()",
+      "file_type": "code",
+      "source_file": "src/features/indice/model/indice.ts",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "model_indice_recalcularindice",
+      "community": 33,
+      "norm_label": "recalcularindice()"
+    },
+    {
+      "label": "IndicePage.tsx",
+      "file_type": "code",
+      "source_file": "src/features/indice/routes/IndicePage.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "routes_indicepage",
+      "community": 33,
+      "norm_label": "indicepage.tsx"
+    },
+    {
+      "label": "IndicePage()",
+      "file_type": "code",
+      "source_file": "src/features/indice/routes/IndicePage.tsx",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "routes_indicepage_indicepage",
+      "community": 33,
+      "norm_label": "indicepage()"
+    },
+    {
       "label": "usePredicciones.ts",
       "file_type": "code",
       "source_file": "src/features/predicciones/api/usePredicciones.ts",
@@ -4217,161 +4567,21 @@
       "label": "usePredecir()",
       "file_type": "code",
       "source_file": "src/features/predicciones/api/usePredicciones.ts",
-      "source_location": "L8",
+      "source_location": "L7",
       "_origin": "ast",
       "id": "api_usepredicciones_usepredecir",
       "community": 33,
       "norm_label": "usepredecir()"
     },
     {
-      "label": "useIndice()",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/api/usePredicciones.ts",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "api_usepredicciones_useindice",
-      "community": 33,
-      "norm_label": "useindice()"
-    },
-    {
       "label": "useMuestraValidacion()",
       "file_type": "code",
       "source_file": "src/features/predicciones/api/usePredicciones.ts",
-      "source_location": "L29",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "api_usepredicciones_usemuestravalidacion",
       "community": 33,
       "norm_label": "usemuestravalidacion()"
-    },
-    {
-      "label": "IndiceCalculadora.tsx",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/components/IndiceCalculadora.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "components_indicecalculadora",
-      "community": 33,
-      "norm_label": "indicecalculadora.tsx"
-    },
-    {
-      "label": "IndiceCalculadora()",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/components/IndiceCalculadora.tsx",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "components_indicecalculadora_indicecalculadora",
-      "community": 33,
-      "norm_label": "indicecalculadora()"
-    },
-    {
-      "label": "pctDe()",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/components/IndiceCalculadora.tsx",
-      "source_location": "L86",
-      "_origin": "ast",
-      "id": "components_indicecalculadora_pctde",
-      "community": 33,
-      "norm_label": "pctde()"
-    },
-    {
-      "label": "Barra()",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/components/IndiceCalculadora.tsx",
-      "source_location": "L91",
-      "_origin": "ast",
-      "id": "components_indicecalculadora_barra",
-      "community": 33,
-      "norm_label": "barra()"
-    },
-    {
-      "label": "Conteo()",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/components/IndiceCalculadora.tsx",
-      "source_location": "L116",
-      "_origin": "ast",
-      "id": "components_indicecalculadora_conteo",
-      "community": 33,
-      "norm_label": "conteo()"
-    },
-    {
-      "label": "IndicePanel.tsx",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/components/IndicePanel.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "components_indicepanel",
-      "community": 33,
-      "norm_label": "indicepanel.tsx"
-    },
-    {
-      "label": "IndicePanel()",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/components/IndicePanel.tsx",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "components_indicepanel_indicepanel",
-      "community": 33,
-      "norm_label": "indicepanel()"
-    },
-    {
-      "label": "Encabezado()",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/components/IndicePanel.tsx",
-      "source_location": "L34",
-      "_origin": "ast",
-      "id": "components_indicepanel_encabezado",
-      "community": 33,
-      "norm_label": "encabezado()"
-    },
-    {
-      "label": "Resultado()",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/components/IndicePanel.tsx",
-      "source_location": "L54",
-      "_origin": "ast",
-      "id": "components_indicepanel_resultado",
-      "community": 33,
-      "norm_label": "resultado()"
-    },
-    {
-      "label": "ValidacionInegi()",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/components/IndicePanel.tsx",
-      "source_location": "L79",
-      "_origin": "ast",
-      "id": "components_indicepanel_validacioninegi",
-      "community": 33,
-      "norm_label": "validacioninegi()"
-    },
-    {
-      "label": "Sensibilidad()",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/components/IndicePanel.tsx",
-      "source_location": "L105",
-      "_origin": "ast",
-      "id": "components_indicepanel_sensibilidad",
-      "community": 33,
-      "norm_label": "sensibilidad()"
-    },
-    {
-      "label": "Escenario()",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/components/IndicePanel.tsx",
-      "source_location": "L127",
-      "_origin": "ast",
-      "id": "components_indicepanel_escenario",
-      "community": 33,
-      "norm_label": "escenario()"
-    },
-    {
-      "label": "Referencias()",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/components/IndicePanel.tsx",
-      "source_location": "L158",
-      "_origin": "ast",
-      "id": "components_indicepanel_referencias",
-      "community": 33,
-      "norm_label": "referencias()"
     },
     {
       "label": "PrediccionPanel.tsx",
@@ -4484,76 +4694,6 @@
       "norm_label": "index.ts"
     },
     {
-      "label": "indice.ts",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/model/indice.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "model_indice",
-      "community": 33,
-      "norm_label": "indice.ts"
-    },
-    {
-      "label": "escenarioSchema",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/model/indice.ts",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "model_indice_escenarioschema",
-      "community": 33,
-      "norm_label": "escenarioschema"
-    },
-    {
-      "label": "indiceSchema",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/model/indice.ts",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "model_indice_indiceschema",
-      "community": 33,
-      "norm_label": "indiceschema"
-    },
-    {
-      "label": "Indice",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/model/indice.ts",
-      "source_location": "L28",
-      "_origin": "ast",
-      "id": "model_indice_indice",
-      "community": 33,
-      "norm_label": "indice"
-    },
-    {
-      "label": "ESCENARIO_COLORS",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/model/indice.ts",
-      "source_location": "L31",
-      "_origin": "ast",
-      "id": "model_indice_escenario_colors",
-      "community": 33,
-      "norm_label": "escenario_colors"
-    },
-    {
-      "label": "IndiceRecalculado",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/model/indice.ts",
-      "source_location": "L33",
-      "_origin": "ast",
-      "id": "model_indice_indicerecalculado",
-      "community": 33,
-      "norm_label": "indicerecalculado"
-    },
-    {
-      "label": "recalcularIndice()",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/model/indice.ts",
-      "source_location": "L53",
-      "_origin": "ast",
-      "id": "model_indice_recalcularindice",
-      "community": 33,
-      "norm_label": "recalcularindice()"
-    },
-    {
       "label": "prediccion.test.ts",
       "file_type": "code",
       "source_file": "src/features/predicciones/model/prediccion.test.ts",
@@ -4652,26 +4792,6 @@
       "id": "model_validacion_validacion",
       "community": 33,
       "norm_label": "validacion"
-    },
-    {
-      "label": "IndicePage.tsx",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/routes/IndicePage.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "routes_indicepage",
-      "community": 33,
-      "norm_label": "indicepage.tsx"
-    },
-    {
-      "label": "IndicePage()",
-      "file_type": "code",
-      "source_file": "src/features/predicciones/routes/IndicePage.tsx",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "routes_indicepage_indicepage",
-      "community": 33,
-      "norm_label": "indicepage()"
     },
     {
       "label": "PrediccionesPage.tsx",
@@ -5490,7 +5610,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_format",
-      "community": 33,
+      "community": 29,
       "norm_label": "format.ts"
     },
     {
@@ -5510,7 +5630,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "lib_format_formateartiempo",
-      "community": 33,
+      "community": 29,
       "norm_label": "formateartiempo()"
     },
     {
@@ -16133,186 +16253,110 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/api/usePredicciones.ts",
-      "source_location": "L17",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "api_usepredicciones",
-      "target": "api_usepredicciones_useindice"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/api/usePredicciones.ts",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "api_usepredicciones",
-      "target": "api_usepredicciones_usemuestravalidacion"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/api/usePredicciones.ts",
-      "source_location": "L8",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "api_usepredicciones",
-      "target": "api_usepredicciones_usepredecir"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/api/usePredicciones.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "api_usepredicciones",
-      "target": "model_indice"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/api/usePredicciones.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "api_usepredicciones",
-      "target": "model_indice_indiceschema"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/api/usePredicciones.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "api_usepredicciones",
-      "target": "model_prediccion"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/api/usePredicciones.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "api_usepredicciones",
-      "target": "model_prediccion_prediccionschema"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/api/usePredicciones.ts",
+      "source_file": "src/features/indice/api/useIndice.ts",
       "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "api_usepredicciones",
-      "target": "model_validacion_validacionschema"
+      "source": "api_useindice",
+      "target": "api_useindice_indicekeys",
+      "confidence_score": 1.0
     },
     {
-      "relation": "imports_from",
-      "context": "import",
+      "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/components/IndicePanel.tsx",
-      "source_location": "L2",
+      "source_file": "src/features/indice/api/useIndice.ts",
+      "source_location": "L14",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_indicepanel",
-      "target": "api_usepredicciones"
+      "source": "api_useindice",
+      "target": "api_useindice_useindice",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/routes/PrediccionesPage.tsx",
+      "source_file": "src/features/indice/api/useIndice.ts",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "routes_prediccionespage",
-      "target": "api_usepredicciones"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/routes/ValidacionPage.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "routes_validacionpage",
-      "target": "api_usepredicciones"
+      "source": "api_useindice",
+      "target": "model_indice",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/routes/PrediccionesPage.tsx",
+      "source_file": "src/features/indice/api/useIndice.ts",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "routes_prediccionespage",
-      "target": "api_usepredicciones_usepredecir"
+      "source": "api_useindice",
+      "target": "model_indice_indiceschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/components/IndicePanel.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_indicepanel",
+      "target": "api_useindice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/index.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "indice_index",
+      "target": "api_useindice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/index.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "indice_index",
+      "target": "api_useindice_indicekeys",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/components/IndicePanel.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_indicepanel",
+      "target": "api_useindice_useindice",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "src/features/predicciones/routes/PrediccionesPage.tsx",
+      "source_file": "src/features/indice/components/IndicePanel.tsx",
       "source_location": "L11",
       "weight": 1.0,
-      "source": "routes_prediccionespage_prediccionespage",
-      "target": "api_usepredicciones_usepredecir"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/components/IndicePanel.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_indicepanel",
-      "target": "api_usepredicciones_useindice"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/features/predicciones/components/IndicePanel.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
       "source": "components_indicepanel_indicepanel",
-      "target": "api_usepredicciones_useindice"
+      "target": "api_useindice_useindice"
     },
     {
-      "relation": "imports",
-      "context": "import",
+      "relation": "re_exports",
+      "context": "re-export",
       "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/routes/ValidacionPage.tsx",
-      "source_location": "L3",
+      "source_file": "src/features/indice/index.ts",
+      "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "routes_validacionpage",
-      "target": "api_usepredicciones_usemuestravalidacion"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/features/predicciones/routes/ValidacionPage.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "routes_validacionpage_validacionpage",
-      "target": "api_usepredicciones_usemuestravalidacion"
+      "source": "indice_index",
+      "target": "api_useindice_useindice",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -16445,6 +16489,132 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/components/IndiceMetodologia.tsx",
+      "source_location": "L136",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_indicemetodologia",
+      "target": "components_indicemetodologia_comoseestima"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/components/IndiceMetodologia.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_indicemetodologia",
+      "target": "components_indicemetodologia_conjuntosdedatos"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/components/IndiceMetodologia.tsx",
+      "source_location": "L202",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_indicemetodologia",
+      "target": "components_indicemetodologia_formula"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/components/IndiceMetodologia.tsx",
+      "source_location": "L77",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_indicemetodologia",
+      "target": "components_indicemetodologia_fuente"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/components/IndiceMetodologia.tsx",
+      "source_location": "L183",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_indicemetodologia",
+      "target": "components_indicemetodologia_paso"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/components/IndiceMetodologia.tsx",
+      "source_location": "L110",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_indicemetodologia",
+      "target": "components_indicemetodologia_reparto"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/components/IndiceMetodologia.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_indicemetodologia",
+      "target": "model_indice"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/components/IndiceMetodologia.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_indicemetodologia",
+      "target": "model_indice_indice"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/components/IndicePanel.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_indicepanel",
+      "target": "components_indicemetodologia"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/components/IndicePanel.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_indicepanel",
+      "target": "components_indicemetodologia_conjuntosdedatos"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/components/IndicePanel.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_indicepanel",
+      "target": "components_indicemetodologia_comoseestima"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/components/IndicePanel.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "components_indicepanel",
+      "target": "api_usepredicciones"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "src/features/predicciones/components/IndicePanel.tsx",
       "source_location": "L34",
       "weight": 1.0,
@@ -16546,6 +16716,17 @@
       "target": "model_indice_indice"
     },
     {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "indice_index",
+      "target": "components_indicepanel",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -16566,6 +16747,17 @@
       "confidence_score": 1.0,
       "source": "routes_prediccionespage",
       "target": "components_indicepanel"
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/index.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "indice_index",
+      "target": "components_indicepanel_indicepanel",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -16610,6 +16802,381 @@
       "weight": 1.0,
       "source": "components_indicepanel_escenario",
       "target": "lib_format_formatnumero"
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "indice_index",
+      "target": "model_indice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "indice_index",
+      "target": "model_indice_indice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "indice_index",
+      "target": "model_indice_indicerecalculado",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/index.ts",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "indice_index",
+      "target": "model_indice_recalcularindice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "indice_index",
+      "target": "routes_indicepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "indice_index",
+      "target": "routes_indicepage_indicepage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/model/indice.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "model_indice_test",
+      "target": "model_indice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/model/indice.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "model_indice_test",
+      "target": "model_indice_indice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/model/indice.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "model_indice_test",
+      "target": "model_indice_indiceschema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/model/indice.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "model_indice_test",
+      "target": "model_indice_recalcularindice",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/indice/model/indice.test.ts",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "model_indice_test",
+      "target": "model_indice_test_indicereal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/api/usePredicciones.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "api_usepredicciones",
+      "target": "model_indice"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/model/indice.ts",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "model_indice",
+      "target": "model_indice_escenario_colors"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/model/indice.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "model_indice",
+      "target": "model_indice_escenarioschema"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/model/indice.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "model_indice",
+      "target": "model_indice_indice"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/model/indice.ts",
+      "source_location": "L33",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "model_indice",
+      "target": "model_indice_indicerecalculado"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/model/indice.ts",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "model_indice",
+      "target": "model_indice_indiceschema"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/model/indice.ts",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "model_indice",
+      "target": "model_indice_recalcularindice"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/model/prediccion.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "model_prediccion_test",
+      "target": "model_indice"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/api/usePredicciones.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "api_usepredicciones",
+      "target": "model_indice_indiceschema"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/model/prediccion.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "model_prediccion_test",
+      "target": "model_indice_indiceschema"
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "predicciones_index",
+      "target": "routes_indicepage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/routes/IndicePage.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routes_indicepage",
+      "target": "routes_indicepage_indicepage"
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/index.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "predicciones_index",
+      "target": "routes_indicepage_indicepage"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/api/usePredicciones.ts",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "api_usepredicciones",
+      "target": "api_usepredicciones_usemuestravalidacion"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/api/usePredicciones.ts",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "api_usepredicciones",
+      "target": "api_usepredicciones_usepredecir"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/api/usePredicciones.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "api_usepredicciones",
+      "target": "model_prediccion"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/api/usePredicciones.ts",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "api_usepredicciones",
+      "target": "model_prediccion_prediccionschema"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/api/usePredicciones.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "api_usepredicciones",
+      "target": "model_validacion_validacionschema"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/routes/PrediccionesPage.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routes_prediccionespage",
+      "target": "api_usepredicciones"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/routes/ValidacionPage.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routes_validacionpage",
+      "target": "api_usepredicciones"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/routes/PrediccionesPage.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routes_prediccionespage",
+      "target": "api_usepredicciones_usepredecir"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/features/predicciones/routes/PrediccionesPage.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "routes_prediccionespage_prediccionespage",
+      "target": "api_usepredicciones_usepredecir"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/predicciones/routes/ValidacionPage.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "routes_validacionpage",
+      "target": "api_usepredicciones_usemuestravalidacion"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/features/predicciones/routes/ValidacionPage.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "routes_validacionpage_validacionpage",
+      "target": "api_usepredicciones_usemuestravalidacion"
     },
     {
       "relation": "contains",
@@ -16844,28 +17411,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "predicciones_index",
-      "target": "routes_indicepage"
-    },
-    {
-      "relation": "re_exports",
-      "context": "re-export",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/index.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "predicciones_index",
-      "target": "routes_indicepage_indicepage"
-    },
-    {
-      "relation": "re_exports",
-      "context": "export",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/index.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "predicciones_index",
       "target": "routes_prediccionespage"
     },
     {
@@ -16900,88 +17445,6 @@
       "confidence_score": 1.0,
       "source": "predicciones_index",
       "target": "routes_validacionpage_validacionpage"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/model/indice.ts",
-      "source_location": "L31",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "model_indice",
-      "target": "model_indice_escenario_colors"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/model/indice.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "model_indice",
-      "target": "model_indice_escenarioschema"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/model/indice.ts",
-      "source_location": "L28",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "model_indice",
-      "target": "model_indice_indice"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/model/indice.ts",
-      "source_location": "L33",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "model_indice",
-      "target": "model_indice_indicerecalculado"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/model/indice.ts",
-      "source_location": "L10",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "model_indice",
-      "target": "model_indice_indiceschema"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/model/indice.ts",
-      "source_location": "L53",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "model_indice",
-      "target": "model_indice_recalcularindice"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/model/prediccion.test.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "model_prediccion_test",
-      "target": "model_indice"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/model/prediccion.test.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "model_prediccion_test",
-      "target": "model_indice_indiceschema"
     },
     {
       "relation": "imports_from",
@@ -17085,16 +17548,6 @@
       "confidence_score": 1.0,
       "source": "src_features_predicciones_model_validacion_ts_model_validacion",
       "target": "model_validacion_validacionschema"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/predicciones/routes/IndicePage.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "routes_indicepage",
-      "target": "routes_indicepage_indicepage"
     },
     {
       "relation": "contains",
@@ -18682,9 +19135,9 @@
       "source_file": "src/features/rutas/routes/RutasPage.tsx",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_rutaspage",
-      "target": "routes_rutaspage_rutaporcolonia",
-      "confidence_score": 1.0
+      "target": "routes_rutaspage_rutaporcolonia"
     },
     {
       "relation": "contains",
@@ -21474,5 +21927,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "12a5ad18ce8b7967b77d373b3289221598d49b96"
+  "built_at_commit": "399edd28b309723606e3467a97cdc65fb8ddf37e"
 }

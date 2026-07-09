@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest';
-import { indiceSchema } from './indice';
 import { prediccionSchema } from './prediccion';
 import { validacionSchema } from './validacion';
 
@@ -15,20 +14,5 @@ describe('validacionSchema', () => {
     const v = validacionSchema.parse({});
     expect(v.matches).toEqual([]);
     expect(v.no_matches).toEqual([]);
-  });
-});
-
-describe('indiceSchema', () => {
-  it('parsea la estructura estadística mínima', () => {
-    const i = indiceSchema.parse({
-      datos_entrada: {},
-      cobertura_gmaps_pct: 60,
-      multiplicador: 2.4,
-      central_indice_pct: 55,
-      ic95_indice_inferior: { low: 50, high: 60 },
-      escenarios: [{ etiqueta: 'Conservador', alpha: 0.8, indice_pct: 50, N_inf_estimado: 1000 }],
-    });
-    expect(i.escenarios).toHaveLength(1);
-    expect(i.datos_entrada.N1_denue).toBe(0);
   });
 });

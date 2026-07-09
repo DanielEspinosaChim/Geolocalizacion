@@ -12,6 +12,10 @@ export const indiceSchema = z.object({
     N1_denue: z.number().catch(0),
     m_overlap: z.number().catch(0),
     n_formales_total: z.number().catch(0),
+    /** Formales por cadena / tipo de GMaps / institución. */
+    n_formales_otros: z.number().catch(0),
+    /** Formales confirmados contra BASE.xlsx (RFC + licencias municipales). */
+    n_formales_base: z.number().catch(0),
     n_inf_observados: z.number().catch(0),
     n_gmaps_negocios: z.number().catch(0),
     n_gmaps_csv: z.number().catch(0),
