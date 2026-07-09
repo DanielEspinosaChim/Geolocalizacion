@@ -15,7 +15,7 @@ from urllib.parse import quote
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, HTTPException, Form, UploadFile, File, Body, Request
-from fastapi.responses import FileResponse, Response, JSONResponse
+from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 import uvicorn
 
@@ -94,7 +94,7 @@ def require_admin(request: Request) -> dict:
 
 # ── Paths & App ───────────────────────────────────────────────────────────────
 BASE  = Path(__file__).parent
-FRONT = BASE / "frontend" / "dist"   # build de Vite (ver docs/CUTOVER.md)
+FRONT = BASE / "frontend"
 PRED  = BASE / "data/procesado/predicciones_zonas.csv"
 CRUCE = BASE / "data/procesado/cruce_completo.csv"
 COLONIAS_GEOJSON  = BASE / "data/procesado/colonias_merida.geojson"
@@ -153,29 +153,8 @@ async def _lifespan(app: FastAPI):
 
 
 app = FastAPI(title="GeoFormal", lifespan=_lifespan)
-
-# ── Barrera de autenticación ──────────────────────────────────────────────────
-# Todos los endpoints /api/ requieren token Firebase válido.
-# Excepción: /api/cache-status (usado antes del login para mostrar progreso).
-_API_PUBLIC = {"/api/cache-status"}
-
-@app.middleware("http")
-async def _auth_barrier(request: Request, call_next):
-    if request.url.path.startswith("/api/") and request.url.path not in _API_PUBLIC:
-        if _firebase_ok:
-            hdr = request.headers.get("Authorization", "")
-            if not hdr.startswith("Bearer "):
-                return JSONResponse({"detail": "No autenticado"}, status_code=401)
-            try:
-                fb_auth.verify_id_token(hdr[7:])
-            except Exception:
-                return JSONResponse({"detail": "Token inválido o expirado"}, status_code=401)
-    return await call_next(request)
-
-# Assets con hash de Vite. check_dir=False: el dir solo existe tras `pnpm build`
-# (en dev se usa el server de Vite con proxy a /api, no este mount).
-app.mount("/assets", StaticFiles(directory=str(FRONT / "assets"), check_dir=False), name="assets")
-
+app.mount("/css", StaticFiles(directory=str(FRONT / "css")), name="css")
+app.mount("/js",  StaticFiles(directory=str(FRONT / "js")),  name="js")
 
 
 @app.get("/uploads/{filename:path}")
@@ -473,9 +452,8 @@ def get_municipio_geojson():
     return _municipio_geojson_cache
 
 @app.post("/api/admin/reload-colonias")
-def reload_colonias(request: Request):
+def reload_colonias():
     """Fuerza recarga del GeoJSON de colonias desde disco (sin reiniciar servidor)."""
-    require_admin(request)
     global _colonias_geojson_cache, _municipio_geojson_cache
     _colonias_geojson_cache  = _load_geojson(COLONIAS_GEOJSON)
     _municipio_geojson_cache = _load_geojson(MUNICIPIO_GEOJSON)
@@ -1329,7 +1307,6 @@ async def guardar_visita_negocio(
 
 @app.get("/api/admin/usuarios")
 def get_usuarios(request: Request):
-    require_admin(request)
     if not _firebase_ok:
         return []
     try:
@@ -1349,8 +1326,7 @@ def get_usuarios(request: Request):
 
 
 @app.post("/api/admin/usuarios")
-async def crear_usuario(request: Request, body: dict = Body(...)):
-    require_admin(request)
+async def crear_usuario(body: dict = Body(...)):
     if not _firebase_ok:
         raise HTTPException(503, "Firebase no configurado")
     try:
@@ -1364,8 +1340,7 @@ async def crear_usuario(request: Request, body: dict = Body(...)):
 
 
 @app.patch("/api/admin/usuarios/{uid}")
-async def actualizar_usuario(request: Request, uid: str, body: dict = Body(...)):
-    require_admin(request)
+async def actualizar_usuario(uid: str, body: dict = Body(...)):
     if not _firebase_ok:
         raise HTTPException(503, "Firebase no configurado")
     try:
@@ -1382,8 +1357,7 @@ async def actualizar_usuario(request: Request, uid: str, body: dict = Body(...))
 
 
 @app.delete("/api/admin/usuarios/{uid}")
-async def eliminar_usuario(request: Request, uid: str):
-    require_admin(request)
+async def eliminar_usuario(uid: str):
     if not _firebase_ok:
         raise HTTPException(503, "Firebase no configurado")
     try:
@@ -1392,36 +1366,6 @@ async def eliminar_usuario(request: Request, uid: str):
     except Exception as e:
         raise HTTPException(400, str(e))
 
-
-# ── SPA fallback ──────────────────────────────────────────────────────────────
-# Cualquier ruta de cliente (React Router: /campanas, /admin, …) devuelve el
-# index.html. Se registra al final: las rutas /api, /uploads y el mount /assets
-# ya se resolvieron antes. NO intercepta la API (404 explícito).
-@app.get("/{full_path:path}", include_in_schema=False, response_class=FileResponse)
-def spa_fallback(full_path: str):
-    if full_path.startswith(("api/", "uploads/", "assets/")):
-        raise HTTPException(404, "No encontrado")
-    return FileResponse(str(FRONT / "index.html"))
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# OpenAPI schema con candados en Swagger — se genera DESPUÉS de registrar rutas
-from fastapi.openapi.utils import get_openapi
-
-def _build_secure_schema():
-    schema = get_openapi(title="GeoFormal", version="0.1.0", routes=app.routes)
-    schema.setdefault("components", {})["securitySchemes"] = {
-        "BearerAuth": {"type": "http", "scheme": "bearer", "bearerFormat": "JWT (Firebase)"}
-    }
-    _sin_auth = {"/", "/uploads/{filename:path}", "/api/cache-status"}
-    for path, methods in schema.get("paths", {}).items():
-        if path not in _sin_auth:
-            for op in methods.values():
-                if isinstance(op, dict):
-                    op["security"] = [{"BearerAuth": []}]
-    return schema
-
-app.openapi_schema = _build_secure_schema()
 
 # ══════════════════════════════════════════════════════════════════════════════
 if __name__ == "__main__":
