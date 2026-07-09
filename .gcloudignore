@@ -11,6 +11,7 @@ data/procesado/negocios.db
 data/procesado/modelo_randomforest.pkl
 data/procesado/modelo_xgboost.pkl
 data/procesado/candidatos_informales.csv
+data/procesado/cruce_completo.csv
 data/procesado/candidatos_con_colonia.csv
 data/procesado/features_zonas.csv
 
@@ -31,10 +32,3 @@ reporte_geolocalizacion.md
 
 # Branches/entornos dev
 backend/
-
-# Frontend: node_modules y build se regeneran en la etapa web del Docker.
-# El código fuente SÍ debe subirse (lo necesita `pnpm build` en Cloud Build).
-frontend/node_modules/
-frontend/dist/
-frontend/graphify-out/
-frontend/legacy/
