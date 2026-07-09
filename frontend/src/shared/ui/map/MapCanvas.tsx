@@ -14,6 +14,13 @@ interface MapCanvasProps extends PropsWithChildren {
 /**
  * Lienzo base del mapa (OSM, mismos tiles que el legacy). Las features añaden
  * sus capas como children (markers, geojson, clusters…).
+ *
+ * `isolate` es imprescindible. Leaflet apila sus paneles y controles con
+ * z-index de 400 a 800 y, sin un contexto de apilamiento propio, esos valores
+ * compiten en la raíz del documento: cualquier overlay nuestro (el desplegable
+ * del Combobox vive en un portal con z-index 50) se dibujaría por debajo del
+ * mapa y sus clics irían a parar al mapa. Con `isolate` la escala interna de
+ * Leaflet queda contenida y el mapa ocupa el `z-map` de nuestros tokens.
  */
 export function MapCanvas({
   center = MERIDA_CENTER,
@@ -22,7 +29,7 @@ export function MapCanvas({
   children,
 }: MapCanvasProps) {
   return (
-    <MapContainer center={center} zoom={zoom} className={`h-full w-full ${className}`}>
+    <MapContainer center={center} zoom={zoom} className={`isolate z-map h-full w-full ${className}`}>
       <TileLayer
         attribution="© OpenStreetMap"
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

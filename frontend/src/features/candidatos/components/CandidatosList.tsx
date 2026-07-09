@@ -8,24 +8,31 @@ interface CandidatosListProps {
   data: Candidato[];
   selectedId: string | null;
   onSelect: (candidato: Candidato) => void;
+  className?: string;
 }
 
-export function CandidatosList({ data, selectedId, onSelect }: CandidatosListProps) {
+/** Filas de candidatos. No scrollea por su cuenta: lo hace el panel que la contiene. */
+export function CandidatosList({ data, selectedId, onSelect, className = '' }: CandidatosListProps) {
   const visibles = data.slice(0, MAX_VISIBLES);
   return (
-    <div className="min-h-0 flex-1 overflow-y-auto">
+    <div className={className}>
       {visibles.map((c) => (
         <button
           key={c.place_id}
           type="button"
           onClick={() => onSelect(c)}
+          title={c.nombre}
           style={{ borderLeftColor: TIPO_COLORS[tipoDe(c)] }}
           className={`block w-full border-b border-l-[3px] border-b-border px-3 py-2 text-left transition-colors hover:bg-surface-raised ${
             c.place_id === selectedId ? 'bg-surface-raised' : ''
           }`}
         >
-          <div className="truncate text-[13px] font-semibold">{c.nombre}</div>
-          <div className="truncate text-[11px] text-fg-muted">{giroLabel(c.tipos)}</div>
+          {/* Dos líneas antes de recortar: en 384px de panel, truncar a una sola
+              dejaba ilegibles los nombres largos. El `title` da el completo. */}
+          <div className="line-clamp-2 break-words text-[13px] font-semibold leading-snug">
+            {c.nombre}
+          </div>
+          <div className="truncate text-xs2 text-fg-muted">{giroLabel(c.tipos)}</div>
         </button>
       ))}
       {data.length > MAX_VISIBLES ? (

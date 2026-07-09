@@ -11,7 +11,9 @@ import { Spinner } from './Spinner';
  * className: son `size`/`variant`.
  */
 const button = cva(
-  'inline-flex items-center justify-center gap-2 rounded-control font-bold transition-colors duration-fast disabled:cursor-not-allowed disabled:opacity-60',
+  // `transition` en vez de `transition-colors`: así el hundido al pulsar también
+  // interpola. Un 2 % de escala se siente en el dedo y no marea a nadie.
+  'inline-flex items-center justify-center gap-2 rounded-control font-bold transition duration-fast ease-out active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60 disabled:active:scale-100',
   {
     variants: {
       variant: {

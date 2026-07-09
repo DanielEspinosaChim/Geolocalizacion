@@ -43,9 +43,13 @@ consola de Firebase o infraestructura queda `[ ]`.
       `EditorPlantilla` conservando accesibilidad.
 - [ ] 🟩 **Warnings `act(...)` en `LoginForm.test`.** Envolver la interacción async en
       `await waitFor(...)` para silenciarlos (no afectan el resultado del test).
-- [ ] 🟩 **Recalculadora local del índice.** El legacy recalculaba el índice en vivo con los
-      negocios marcados formal/en_proceso (`_calcIndice`). El panel nuevo muestra los datos del
-      backend; si se quiere el recálculo interactivo, añadirlo en `IndicePanel`.
+- [x] 🟩 ~~**Recalculadora local del índice.**~~ Hecho: `features/indice/components/IndiceCalculadora.tsx`
+      recalcula el estimador con los negocios marcados formal/en_proceso, contra el escenario α=1.0.
+- [ ] 🟧 **`SelectField` quedó sin consumidores** tras migrar los 8 selects a `Combobox`.
+      Antes de borrarlo hay que **probar el `Combobox` en un móvil real**: el `<select>` nativo
+      abre el selector del sistema operativo, que se maneja mejor con el pulgar que un listbox
+      propio, y Reportes/Campañas se usan en campo desde el teléfono. Si el `Combobox` aguanta,
+      eliminar `shared/ui/SelectField.tsx`; si no, conservarlo para los formularios de campo.
 - [ ] 🟩 **Tema claro.** Los tokens ya soportan `[data-theme="light"]`; falta el toggle en el
       `AppShell` y persistir la preferencia.
 - [ ] 🟩 **CI**: cachear `~/.pnpm-store` y publicar artefacto de build; añadir el job de e2e

@@ -40,19 +40,11 @@ export function PanelLateral({
         visible ? 'flex' : 'hidden'
       }`}
     >
-      <PanelSection
-        title="Candidatos"
-        collapsible
-        action={
-          <span className="text-2xs tabular-nums text-fg-subtle">
-            {formatNumero(metricas.total)}
-          </span>
-        }
-      >
+      <PanelSection title="Candidatos" collapsible>
         <MetricasPanel metricas={metricas} />
       </PanelSection>
 
-      <PanelSection title="Tipos de negocio" collapsible defaultOpen={false}>
+      <PanelSection title="Tipos de negocio" collapsible>
         <TiposNegocio metricas={metricas} />
       </PanelSection>
 
@@ -68,7 +60,20 @@ export function PanelLateral({
         <FiltroEstado valor={filtros.tipo} onChange={(tipo) => onFiltros({ ...filtros, tipo })} />
       </PanelSection>
 
-      <PanelSection title="Buscar negocio" collapsible>
+      {/* La lista vive dentro de esta sección: es el resultado de la búsqueda,
+          así que plegar el buscador también esconde los negocios. Sin `grow`:
+          el panel es el único contenedor con scroll y el título no se va con él. */}
+      <PanelSection
+        title="Buscar negocio"
+        collapsible
+        action={
+          isPending ? null : (
+            <span className="text-2xs tabular-nums text-fg-subtle">
+              {formatNumero(filtrados.length)}
+            </span>
+          )
+        }
+      >
         <SearchInput
           value={filtros.q}
           onChange={(q) => onFiltros({ ...filtros, q })}
@@ -76,15 +81,20 @@ export function PanelLateral({
           placeholder="Nombre del negocio…"
           aria-label="Buscar negocio por nombre"
         />
+        {isPending ? (
+          <div className="flex justify-center p-6">
+            <Spinner label="Cargando candidatos…" />
+          </div>
+        ) : (
+          /* -mx-3 sangra las filas hasta el borde del panel, como en Reportes. */
+          <CandidatosList
+            className="-mx-3 -mb-3"
+            data={filtrados}
+            selectedId={seleccionadoId}
+            onSelect={onSelect}
+          />
+        )}
       </PanelSection>
-
-      {isPending ? (
-        <div className="flex flex-1 items-center justify-center p-6">
-          <Spinner label="Cargando candidatos…" />
-        </div>
-      ) : (
-        <CandidatosList data={filtrados} selectedId={seleccionadoId} onSelect={onSelect} />
-      )}
     </aside>
   );
 }

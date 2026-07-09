@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { candidatoListSchema, tipoDe, type Candidato } from './candidato';
 import { calcularMetricas, filtrarCandidatos } from './filtros';
-import { giroLabel } from './giros';
+import { giroEs, giroLabel } from './giros';
 
 const base = { lat: 21, lng: -89.6, colonia_nombre: null, colonia_denue: null };
 const datos: Candidato[] = [
@@ -27,6 +27,22 @@ describe('giroLabel', () => {
     expect(giroLabel('point_of_interest,establishment')).toBe('Negocio');
     expect(giroLabel(null)).toBe('Negocio');
   });
+
+  it('traduce las categorías que antes se colaban crudas', () => {
+    expect(giroLabel('food_store')).toBe('Abarrotes');
+    expect(giroLabel('health')).toBe('Salud');
+    expect(giroLabel('hair_care')).toBe('Peluquería');
+  });
+
+  it('ignora `service` cuando hay una categoría útil detrás', () => {
+    expect(giroLabel('service,car_repair')).toBe('Taller mecánico');
+  });
+
+  it('nunca deja escapar un identificador con guiones bajos', () => {
+    expect(giroLabel('sports_activity_location')).toBe('Centro deportivo');
+    expect(giroLabel('categoria_inventada_de_google')).toBe('Categoria inventada de google');
+    expect(giroEs('otra_cosa_rara')).toBe('Otra cosa rara');
+  });
 });
 
 describe('filtrarCandidatos', () => {
@@ -46,5 +62,15 @@ describe('calcularMetricas', () => {
     const giros = m.topGiros.map(([g]) => g);
     expect(giros).toContain('Panadería');
     expect(giros).not.toContain('Farmacia'); // formal excluido
+    expect(giros.every((g) => !g.includes('_'))).toBe(true); // nada crudo del backend
+  });
+
+  it('suma en una sola fila los giros que comparten etiqueta', () => {
+    const gimnasios: Candidato[] = [
+      { ...base, place_id: 'g1', nombre: 'Uno', tipos: 'gym', tipo: null },
+      { ...base, place_id: 'g2', nombre: 'Dos', tipos: 'fitness_center', tipo: null },
+    ];
+    // `gym` y `fitness_center` son ambos "Gimnasio": una fila con 2, no dos con 1.
+    expect(calcularMetricas(gimnasios).topGiros).toEqual([['Gimnasio', 2]]);
   });
 });

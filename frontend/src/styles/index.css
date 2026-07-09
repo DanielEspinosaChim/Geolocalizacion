@@ -51,9 +51,23 @@
     background-color: var(--scrollbar-thumb-color-hover);
   }
 
+  /* ── Movimiento reducido ─────────────────────────────────────────────────
+     Quien lo pide en su sistema operativo suele hacerlo por vértigo o náuseas,
+     no por preferencia estética. Se anula TODO: transiciones, animaciones y el
+     scroll suave. `!important` porque las utilidades de Tailwind y las clases
+     de tailwindcss-animate se declaran después en la cascada.
+
+     No se usa `animation: none`: cortar una animación a medias puede dejar el
+     elemento en un estado invisible (un `fade-in` que nunca llega a opacidad 1).
+     Con una duración ínfima el estado final sí se aplica. */
   @media (prefers-reduced-motion: reduce) {
-    ::-webkit-scrollbar-thumb {
-      transition: none;
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
     }
   }
 }
@@ -87,6 +101,50 @@
   .scrollbar-stable {
     scrollbar-gutter: stable;
   }
+}
+
+/* ── Globo de Leaflet como superficie del tema (ver shared/ui/map/MapPopup) ──
+   El envoltorio se vuelve transparente: quien pinta el fondo, el borde y el
+   radio es la <Card> que va dentro. Solo la cola necesita el color, porque no
+   forma parte del contenido React. */
+.popup-tarjeta .leaflet-popup-content-wrapper {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: var(--radius-card);
+  /* Leaflet fija `color: #333` aquí; sobre la superficie oscura del tema el
+     texto quedaba casi ilegible. */
+  color: hsl(var(--fg));
+}
+.popup-tarjeta .leaflet-popup-content {
+  margin: 0;
+  width: auto !important;
+}
+/* `.leaflet-container a` pinta todo enlace de azul (#0078A8). Dentro de la
+   tarjeta los enlaces son botones y toman su color de las clases del tema. */
+.popup-tarjeta a {
+  color: inherit;
+}
+.popup-tarjeta .leaflet-popup-tip {
+  background: hsl(var(--surface));
+  border: 1px solid hsl(var(--border));
+  box-shadow: none;
+}
+.popup-tarjeta .leaflet-popup-close-button {
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  font-size: 18px;
+  line-height: 20px;
+  border-radius: 9999px;
+  color: hsl(var(--fg-muted));
+  transition: color var(--duration-fast) var(--ease-out);
+}
+.popup-tarjeta .leaflet-popup-close-button:hover {
+  color: hsl(var(--fg));
+  background: hsl(var(--surface-raised));
 }
 
 /* ── Clusters de Leaflet con la paleta semántica (paridad con el legacy) ── */

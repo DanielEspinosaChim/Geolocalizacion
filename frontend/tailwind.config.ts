@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import animate from 'tailwindcss-animate';
 
 /**
  * Tailwind lee los design tokens de src/styles/tokens.css (variables HSL).
@@ -61,5 +62,6 @@ export default {
       },
     },
   },
-  plugins: [],
+  // Genera clases (`animate-in`, `fade-in-0`, `zoom-in-95`…); no añade JS al bundle.
+  plugins: [animate],
 } satisfies Config;

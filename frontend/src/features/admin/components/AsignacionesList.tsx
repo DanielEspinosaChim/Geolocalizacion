@@ -1,4 +1,4 @@
-import { Badge, EmptyState, SelectField } from '@shared/ui';
+import { Badge, Combobox, EmptyState } from '@shared/ui';
 import { progresoDe, type Campana } from '@features/campanas';
 import { useAsignarCampana } from '../api/useAsignarCampana';
 import type { Usuario } from '../model/usuario';
@@ -29,19 +29,16 @@ export function AsignacionesList({ campanas, usuarios }: AsignacionesListProps) 
                   {c.colonia ?? 'Sin colonia'} · {hecho}/{total} ({pct}%)
                 </div>
               </div>
-              <SelectField
-                label=""
-                value={c.asignado_a ?? ''}
-                onChange={(e) => asignar.mutate({ campanaId: c.id, uid: e.target.value || null })}
-                className="py-1 text-xs"
-              >
-                <option value="">Sin asignar</option>
-                {tecnicos.map((t) => (
-                  <option key={t.uid} value={t.uid}>
-                    {t.nombre || t.email}
-                  </option>
-                ))}
-              </SelectField>
+              <div className="w-44 shrink-0">
+                <Combobox
+                  size="sm"
+                  aria-label={`Técnico asignado a ${c.nombre}`}
+                  placeholder="Sin asignar"
+                  options={tecnicos.map((t) => ({ value: t.uid, label: t.nombre || t.email }))}
+                  value={c.asignado_a ?? null}
+                  onChange={(uid) => asignar.mutate({ campanaId: c.id, uid })}
+                />
+              </div>
             </div>
             {c.asignado_nombre ? (
               <Badge tone="info">Asignada a: {c.asignado_nombre}</Badge>

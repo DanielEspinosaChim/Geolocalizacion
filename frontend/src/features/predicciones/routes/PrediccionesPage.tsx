@@ -29,7 +29,7 @@ export function PrediccionesPage() {
           <PredictLayer activo={modo} punto={punto} onPredict={onPredict} />
         </MapCanvas>
         {modo ? (
-          <div className="absolute left-1/2 top-3 z-[1000] -translate-x-1/2 rounded-full bg-warning px-3 py-1 text-xs2 font-bold text-white shadow-overlay">
+          <div className="absolute left-1/2 top-3 z-panel -translate-x-1/2 rounded-full bg-warning px-3 py-1 text-xs2 font-bold text-white shadow-overlay">
             Haz clic en el mapa para predecir en ese punto
           </div>
         ) : null}

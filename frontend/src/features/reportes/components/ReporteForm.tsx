@@ -1,7 +1,7 @@
 import { LocateFixed, MapPin, Send, X } from 'lucide-react';
 import { useState } from 'react';
 import { obtenerGPS } from '@shared/lib/geo';
-import { Button, FotoField, SelectField, TextField, TextareaField, toast } from '@shared/ui';
+import { Button, Combobox, FotoField, TextField, TextareaField, toast } from '@shared/ui';
 import { reverseGeocode } from '../api/reverseGeocode';
 import { useCrearReporte } from '../api/useReportes';
 import { REPORTE_META, TIPOS_REPORTE, type TipoReporte } from '../model/reporte';
@@ -50,17 +50,18 @@ export function ReporteForm({
 
   return (
     <form onSubmit={enviar} className="grid gap-3">
-      <SelectField
+      <Combobox
         label="Tipo de problema"
+        // El tipo es obligatorio: sin fila de "limpiar", el desplegable solo
+        // ofrece valores válidos y `tipo` nunca puede quedar en null.
+        clearable={false}
+        options={TIPOS_REPORTE.map((t) => ({
+          value: t,
+          label: `${REPORTE_META[t].emoji} ${REPORTE_META[t].label}`,
+        }))}
         value={tipo}
-        onChange={(e) => setTipo(e.target.value as TipoReporte)}
-      >
-        {TIPOS_REPORTE.map((t) => (
-          <option key={t} value={t}>
-            {REPORTE_META[t].emoji} {REPORTE_META[t].label}
-          </option>
-        ))}
-      </SelectField>
+        onChange={(t) => t && setTipo(t as TipoReporte)}
+      />
 
       <TextareaField
         label="Descripción"

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ClipboardList, Plus } from 'lucide-react';
-import { Button, EmptyState, SelectField, Spinner } from '@shared/ui';
+import { Button, Combobox, EmptyState, Spinner } from '@shared/ui';
 import { useCampanas } from '../api/useCampanas';
 import { STATUS_CAMPANA, STATUS_META, type StatusCampana } from '../model/campana';
 import { CampanaCard } from './CampanaCard';
@@ -33,19 +33,15 @@ export function CampanasList({ esTecnico, uid, onAbrir }: CampanasListProps) {
         </div>
         {!esTecnico ? (
           <div className="flex items-center gap-2">
-            <SelectField
-              label=""
-              value={status ?? ''}
-              onChange={(e) => setStatus((e.target.value || null) as StatusCampana | null)}
-              className="py-1.5"
-            >
-              <option value="">Todas</option>
-              {STATUS_CAMPANA.map((s) => (
-                <option key={s} value={s}>
-                  {STATUS_META[s].label}
-                </option>
-              ))}
-            </SelectField>
+            <div className="w-40 shrink-0">
+              <Combobox
+                aria-label="Filtrar campañas por estado"
+                placeholder="Todas"
+                options={STATUS_CAMPANA.map((s) => ({ value: s, label: STATUS_META[s].label }))}
+                value={status}
+                onChange={(s) => setStatus(s as StatusCampana | null)}
+              />
+            </div>
             <Button onClick={() => setCrearAbierto(true)} className="whitespace-nowrap">
               <Plus className="h-4 w-4" aria-hidden="true" /> Nueva campaña
             </Button>

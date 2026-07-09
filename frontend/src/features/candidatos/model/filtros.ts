@@ -1,5 +1,5 @@
 import { tipoDe, type Candidato, type Tipo } from './candidato';
-import { GIROS_ES, GIROS_GENERICOS } from './giros';
+import { giroEs, GIROS_GENERICOS } from './giros';
 
 export interface Filtros {
   q: string;
@@ -43,18 +43,19 @@ export function calcularMetricas(data: Candidato[]): Metricas {
   const informales = total - formales - enProceso;
   const pctInformales = total > 0 ? Math.round((informales / total) * 1000) / 10 : 0;
 
+  // Se agrupa por la etiqueta ya traducida, no por la clave: `gym` y
+  // `fitness_center` son ambos "Gimnasio" y deben sumar en la misma fila.
   const conteo = new Map<string, number>();
   for (const c of data) {
     if (tipoDe(c) === 'formal') continue;
     for (const crudo of (c.tipos ?? '').split(',')) {
       const giro = crudo.trim();
-      if (!GIROS_GENERICOS.has(giro)) conteo.set(giro, (conteo.get(giro) ?? 0) + 1);
+      if (GIROS_GENERICOS.has(giro)) continue;
+      const etiqueta = giroEs(giro);
+      conteo.set(etiqueta, (conteo.get(etiqueta) ?? 0) + 1);
     }
   }
-  const topGiros = [...conteo.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 8)
-    .map(([giro, n]): [string, number] => [GIROS_ES[giro] ?? giro, n]);
+  const topGiros = [...conteo.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8);
 
   return { total, formales, enProceso, informales, pctInformales, topGiros };
 }

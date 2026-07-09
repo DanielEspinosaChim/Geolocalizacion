@@ -1,4 +1,5 @@
-import { SelectField } from '@shared/ui';
+import { useMemo } from 'react';
+import { Combobox, type ComboboxOption } from '@shared/ui';
 import { useColonias } from '../api/useColonias';
 
 interface ColoniaSelectProps {
@@ -8,22 +9,26 @@ interface ColoniaSelectProps {
   label?: string;
 }
 
-/** Select de colonias con conteo de candidatos (reemplaza .select-colonia). */
+/**
+ * Selector de colonia con filtro por texto. Son más de 700 y el `<select>`
+ * nativo obligaba a recorrerlas a mano.
+ */
 export function ColoniaSelect({ value, onChange, label = 'Colonia' }: ColoniaSelectProps) {
   const { data: colonias = [] } = useColonias();
+
+  const opciones = useMemo<ComboboxOption[]>(
+    () => colonias.map((c) => ({ value: c.id, label: c.nombre, hint: String(c.count) })),
+    [colonias],
+  );
+
   return (
-    <SelectField
+    <Combobox
+      options={opciones}
+      value={value}
+      onChange={onChange}
       label={label}
       aria-label={label ? undefined : 'Filtrar por colonia'}
-      value={value ?? ''}
-      onChange={(e) => onChange(e.target.value || null)}
-    >
-      <option value="">Todas las colonias</option>
-      {colonias.map((c) => (
-        <option key={c.id} value={c.id}>
-          {c.nombre} ({c.count})
-        </option>
-      ))}
-    </SelectField>
+      placeholder="Todas las colonias"
+    />
   );
 }

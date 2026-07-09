@@ -1,27 +1,31 @@
 import { Car, MapPin } from 'lucide-react';
 import { useState } from 'react';
-import { Badge, Button, Card, SelectField } from '@shared/ui';
+import { Badge, Button, Card, Combobox } from '@shared/ui';
 import { useGuardarTipo } from '../api/useGuardarTipo';
 import { TIPO_LABELS, TIPO_TONES, TIPOS, tipoDe, type Candidato, type Tipo } from '../model/candidato';
 import { giroLabel } from '../model/giros';
+import { PuntoTipo } from './PuntoTipo';
 
 interface CandidatoCardProps {
   candidato: Candidato;
-  onClose: () => void;
 }
 
-/** Detalle al hacer click en un marcador (reemplaza el popupHtml del legacy). */
-export function CandidatoCard({ candidato, onClose }: CandidatoCardProps) {
+/**
+ * Detalle del negocio (reemplaza el popupHtml del legacy). Va dentro de un
+ * `MapPopup`, que ya aporta el cierre; por eso no trae botón propio.
+ */
+export function CandidatoCard({ candidato }: CandidatoCardProps) {
   const [tipo, setTipo] = useState<Tipo>(tipoDe(candidato));
   const guardar = useGuardarTipo();
   const gmapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${candidato.lat},${candidato.lng}`;
   const wazeUrl = `https://waze.com/ul?ll=${candidato.lat},${candidato.lng}&navigate=yes`;
 
   return (
-    <Card as="section" className="w-72 p-4 shadow-2xl">
-      <header className="flex items-start justify-between gap-2">
+    <Card as="section" className="w-72 p-4 shadow-overlay">
+      {/* pr-6: deja sitio a la ✕ del globo, que Leaflet fija en la esquina. */}
+      <header className="flex items-start justify-between gap-2 pr-6">
         <div>
-          <h3 className="text-sm font-bold leading-tight">{candidato.nombre}</h3>
+          <h3 className="text-sm font-bold leading-tight text-fg">{candidato.nombre}</h3>
           <p className="mt-0.5 text-xs text-fg-muted">
             {giroLabel(candidato.tipos)}
             {candidato.colonia_nombre ? ` · ${candidato.colonia_nombre}` : ''}
@@ -31,13 +35,17 @@ export function CandidatoCard({ candidato, onClose }: CandidatoCardProps) {
       </header>
       <div className="mt-3 flex items-end gap-2">
         <div className="flex-1">
-          <SelectField label="Formalización" value={tipo} onChange={(e) => setTipo(e.target.value as Tipo)}>
-            {TIPOS.map((t) => (
-              <option key={t} value={t}>
-                {TIPO_LABELS[t]}
-              </option>
-            ))}
-          </SelectField>
+          <Combobox
+            label="Formalización"
+            clearable={false}
+            options={TIPOS.map((t) => ({
+              value: t,
+              label: TIPO_LABELS[t],
+              icon: <PuntoTipo tipo={t} />,
+            }))}
+            value={tipo}
+            onChange={(t) => t && setTipo(t as Tipo)}
+          />
         </div>
         <Button
           disabled={guardar.isPending || tipo === tipoDe(candidato)}
@@ -54,9 +62,6 @@ export function CandidatoCard({ candidato, onClose }: CandidatoCardProps) {
           <Car className="h-4 w-4" aria-hidden="true" /> Waze
         </a>
       </div>
-      <Button variant="ghost" size="sm" full onClick={onClose} className="mt-2">
-        Cerrar
-      </Button>
     </Card>
   );
 }

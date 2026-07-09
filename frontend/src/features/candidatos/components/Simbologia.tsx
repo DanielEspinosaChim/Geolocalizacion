@@ -9,7 +9,7 @@ interface SimbologiaProps {
 /** Leyenda del mapa: colores de los marcadores (+ escala de probabilidad). */
 export function Simbologia({ mostrarProbabilidad }: SimbologiaProps) {
   return (
-    <div className="absolute bottom-4 left-4 z-[1000] grid gap-1.5 rounded-card border border-border bg-surface/90 p-3 text-xs2 backdrop-blur">
+    <div className="absolute bottom-4 left-4 z-panel grid gap-1.5 rounded-card border border-border bg-surface/90 p-3 text-xs2 backdrop-blur">
       <span className="font-bold uppercase tracking-wider text-fg-subtle">Simbología</span>
       {TIPOS.map((t) => (
         <span key={t} className="flex items-center gap-2">

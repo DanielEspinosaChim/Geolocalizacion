@@ -2,17 +2,17 @@ import { Trash2 } from 'lucide-react';
 import type { Role } from '@core/auth';
 import {
   Button,
+  Combobox,
   DataTable,
   EmptyState,
   IconButton,
-  SelectField,
   toast,
   useConfirm,
   type Column,
 } from '@shared/ui';
 import type { Campana } from '@features/campanas';
 import { useUsuarioMutations, useUsuarios } from '../api/useUsuarios';
-import type { Usuario } from '../model/usuario';
+import { ROLES, type Usuario } from '../model/usuario';
 
 interface UsuariosListProps {
   campanas: Campana[];
@@ -50,15 +50,16 @@ export function UsuariosList({ campanas }: UsuariosListProps) {
       key: 'rol',
       header: 'Rol',
       cell: (u) => (
-        <SelectField
-          label=""
-          value={u.role}
-          onChange={(e) => cambiarRole.mutate({ uid: u.uid, role: e.target.value as Role })}
-          className="py-1 text-xs"
-        >
-          <option value="tecnico">Técnico</option>
-          <option value="admin">Admin</option>
-        </SelectField>
+        <div className="w-32">
+          <Combobox
+            size="sm"
+            aria-label={`Rol de ${u.email}`}
+            clearable={false}
+            options={ROLES}
+            value={u.role}
+            onChange={(r) => r && cambiarRole.mutate({ uid: u.uid, role: r as Role })}
+          />
+        </div>
       ),
     },
     {

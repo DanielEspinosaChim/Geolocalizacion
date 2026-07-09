@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { EmptyState, FlyTo, MapCanvas, PanelSection, SelectField, Spinner } from '@shared/ui';
+import { Combobox, EmptyState, FlyTo, MapCanvas, PanelSection, Spinner } from '@shared/ui';
 import { reverseGeocode } from '../api/reverseGeocode';
 import { useReportes } from '../api/useReportes';
 import { ReporteForm, type Ubicacion } from '../components/ReporteForm';
@@ -50,7 +50,7 @@ export function ReportesPage() {
           ) : null}
         </MapCanvas>
         {modoMapa ? (
-          <div className="absolute left-1/2 top-3 z-[1000] -translate-x-1/2 rounded-full bg-warning px-3 py-1 text-xs2 font-bold text-white shadow-overlay">
+          <div className="absolute left-1/2 top-3 z-panel -translate-x-1/2 rounded-full bg-warning px-3 py-1 text-xs2 font-bold text-white shadow-overlay">
             Haz clic en el mapa para ubicar el reporte
           </div>
         ) : null}
@@ -81,19 +81,13 @@ function Historial({
         )
       }
     >
-      <SelectField
-        label=""
+      <Combobox
         aria-label="Filtrar reportes por estado"
-        value={filtroStatus ?? ''}
-        onChange={(e) => onFiltroStatus((e.target.value || null) as StatusReporte | null)}
-      >
-        <option value="">Todos los estados</option>
-        {STATUS_REPORTE.map((s) => (
-          <option key={s} value={s}>
-            {STATUS_META[s].label}
-          </option>
-        ))}
-      </SelectField>
+        placeholder="Todos los estados"
+        options={STATUS_REPORTE.map((s) => ({ value: s, label: STATUS_META[s].label }))}
+        value={filtroStatus}
+        onChange={(s) => onFiltroStatus(s as StatusReporte | null)}
+      />
 
       {isPending ? (
         <div className="flex justify-center py-6">

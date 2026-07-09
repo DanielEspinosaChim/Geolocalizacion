@@ -11,6 +11,12 @@ export const usuarioSchema = z.object({
 export const usuarioListSchema = z.array(usuarioSchema);
 export type Usuario = z.infer<typeof usuarioSchema>;
 
+/** Roles seleccionables. Única fuente: el alta de usuario y la tabla la comparten. */
+export const ROLES: readonly { value: Role; label: string }[] = [
+  { value: 'tecnico', label: 'Técnico' },
+  { value: 'admin', label: 'Admin' },
+];
+
 export interface NuevoUsuario {
   email: string;
   password: string;

@@ -93,6 +93,16 @@ function contenidoDe(boton: HTMLElement): HTMLElement {
 }
 
 describe('PanelSection', () => {
+  it('conserva la marca de acento aunque sea plegable', () => {
+    const { container } = render(
+      <PanelSection title="Candidatos" collapsible>
+        <p>Contenido</p>
+      </PanelSection>,
+    );
+    // El chevron se suma al título; no sustituye a la barrita de acento.
+    expect(container.querySelector('header .bg-primary')).not.toBeNull();
+  });
+
   it('sin `collapsible` no ofrece control de plegado', () => {
     render(
       <PanelSection title="Candidatos">
@@ -135,6 +145,24 @@ describe('PanelSection', () => {
     const boton = screen.getByRole('button');
     expect(boton.getAttribute('aria-expanded')).toBe('false');
     expect(contenidoDe(boton).className).toBe('hidden');
+  });
+
+  it('pliega todo su contenido, no solo el primer hijo', () => {
+    render(
+      <PanelSection title="Buscar negocio" collapsible>
+        <input aria-label="Buscar" />
+        <ul>
+          <li>Un negocio</li>
+        </ul>
+      </PanelSection>,
+    );
+    const boton = screen.getByRole('button', { name: /buscar negocio/i });
+    const contenido = contenidoDe(boton);
+    expect(contenido.contains(screen.getByRole('textbox'))).toBe(true);
+    expect(contenido.contains(screen.getByText('Un negocio'))).toBe(true);
+
+    fireEvent.click(boton);
+    expect(contenido.className).toBe('hidden');
   });
 
   it('el slot `action` no queda anidado dentro del botón que pliega', () => {

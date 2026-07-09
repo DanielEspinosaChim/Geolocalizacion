@@ -1,5 +1,5 @@
 import { Check, X } from 'lucide-react';
-import { SelectField, TextField } from '@shared/ui';
+import { Combobox, TextField } from '@shared/ui';
 import type { Campo, ValorCampo } from '../model/plantilla';
 
 interface CampoVisitaProps {
@@ -15,14 +15,15 @@ export function CampoVisita({ campo, valor, onChange }: CampoVisitaProps) {
   switch (campo.tipo) {
     case 'opciones':
       return (
-        <SelectField label={label} value={String(valor ?? '')} onChange={(e) => onChange(e.target.value)}>
-          <option value="">— Seleccionar —</option>
-          {(campo.opciones ?? []).map((o) => (
-            <option key={o} value={o}>
-              {o}
-            </option>
-          ))}
-        </SelectField>
+        <Combobox
+          label={label}
+          placeholder="— Seleccionar —"
+          options={(campo.opciones ?? []).map((o) => ({ value: o, label: o }))}
+          value={valor == null || valor === '' ? null : String(valor)}
+          // Limpiar la opción guarda cadena vacía: es como la plantilla
+          // representa "sin responder" en `visita_datos`.
+          onChange={(o) => onChange(o ?? '')}
+        />
       );
     case 'bool':
       return <BoolField label={label} valor={valor === true} onChange={onChange} />;

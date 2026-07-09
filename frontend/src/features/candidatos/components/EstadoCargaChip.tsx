@@ -18,7 +18,7 @@ export function EstadoCargaChip({ cargados, estado }: EstadoCargaChipProps) {
 
   return (
     <div
-      className={`absolute bottom-4 right-3 z-[1000] rounded-full px-3 py-1 text-xs2 font-bold text-white shadow-overlay ${
+      className={`absolute bottom-4 right-3 z-panel rounded-full px-3 py-1 text-xs2 font-bold text-white shadow-overlay ${
         listo ? 'bg-success' : 'bg-warning'
       }`}
       role="status"
