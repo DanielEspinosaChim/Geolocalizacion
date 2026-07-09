@@ -1,15 +1,10 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { useEffect, useRef } from 'react';
-import { z } from 'zod';
 import { apiClient } from '@shared/api';
 import type { Candidato } from '../model/candidato';
+import { cacheStatusSchema, type CacheStatus } from '../model/metricas';
 import { candidatosKeys } from './useCandidatos';
 
-const cacheStatusSchema = z.object({
-  ready: z.boolean().catch(false),
-  count: z.number().catch(0),
-});
-export type CacheStatus = z.infer<typeof cacheStatusSchema>;
 
 /**
  * Carga progresiva (reemplaza _watchCacheReady del legacy): sondea

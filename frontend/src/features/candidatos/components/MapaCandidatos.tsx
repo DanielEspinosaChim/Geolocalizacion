@@ -1,4 +1,4 @@
-import { FlyTo, MapCanvas } from '@shared/ui';
+import { FlyTo, MapCanvas, SearchCombobox } from '@shared/ui';
 import {
   AgebsLayer,
   CapasToggles,
@@ -7,8 +7,10 @@ import {
   ProbabilidadLayer,
   type CapaId,
 } from '@features/colonias-zonas';
-import type { CacheStatus } from '../api/useCargaProgresiva';
 import type { Candidato } from '../model/candidato';
+import type { CacheStatus } from '../model/metricas';
+import { coloniaDe } from '../model/filtros';
+import { giroLabel } from '../model/giros';
 import { CandidatoCard } from './CandidatoCard';
 import { ClusterLayer } from './ClusterLayer';
 import { EstadoCargaChip } from './EstadoCargaChip';
@@ -27,7 +29,7 @@ interface MapaCandidatosProps {
   onSelect: (c: Candidato | null) => void;
 }
 
-/** Mapa con clusters, capas geográficas opcionales y card de detalle. */
+/** Mapa con clusters, buscador, capas geográficas opcionales y card de detalle. */
 export function MapaCandidatos(props: MapaCandidatosProps) {
   const { visible, filtrados, seleccionado, onSelect } = props;
   return (
@@ -44,9 +46,23 @@ export function MapaCandidatos(props: MapaCandidatosProps) {
           <FlyTo lat={seleccionado.lat} lng={seleccionado.lng} />
         ) : null}
       </MapCanvas>
-      <div className="absolute left-3 top-3 z-[1000]">
+      {/* left-14: deja libre la columna de controles de zoom de Leaflet. */}
+      <div className="absolute left-14 top-3 z-[1000] w-72 max-w-[calc(100%-9rem)]">
+        <SearchCombobox
+          items={filtrados}
+          getKey={(c) => c.place_id}
+          getLabel={(c) => c.nombre}
+          getHint={(c) => [giroLabel(c.tipos), coloniaDe(c)].filter(Boolean).join(' · ') || undefined}
+          onSelect={onSelect}
+          placeholder="Buscar negocio…"
+          aria-label="Buscar negocio por nombre"
+        />
+      </div>
+
+      <div className="absolute right-3 top-3 z-[1000]">
         <CapasToggles activas={props.capas} onToggle={props.onToggleCapa} />
       </div>
+
       <EstadoCargaChip cargados={props.totalCargados} estado={props.estado} />
       {seleccionado ? (
         <div className="absolute bottom-4 left-4 z-[1000]">

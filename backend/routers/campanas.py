@@ -20,7 +20,7 @@ class CampanaCreate(BaseModel):
     fecha_fin:    Optional[str] = Field(None, description="Fecha de cierre (YYYY-MM-DD)")
 
 class CampanaOut(BaseModel):
-    id:           int
+    id:           str
     nombre:       str
     descripcion:  Optional[str]
     colonia:      Optional[str]
@@ -127,7 +127,7 @@ el mapa de ruta y el checklist por negocio.
 """,
     responses={404: {"description": "Campaña no encontrada"}},
 )
-def detalle_campana(campana_id: int):
+def detalle_campana(campana_id: str):
     campana = fs.get_campana(campana_id)
     if not campana:
         raise HTTPException(status_code=404, detail=f"No existe campaña con id={campana_id}")
@@ -185,7 +185,7 @@ Los negocios duplicados (ya en la campaña) se ignoran silenciosamente.
 """,
     responses={404: {"description": "Campaña no encontrada"}},
 )
-def agregar_negocios(campana_id: int, body: NegociosCampanaBody):
+def agregar_negocios(campana_id: str, body: NegociosCampanaBody):
     if not fs.get_campana(campana_id):
         raise HTTPException(status_code=404, detail=f"No existe campaña con id={campana_id}")
     insertados = fs.add_negocios_to_campana(campana_id, body.negocio_ids, body.checklist_json)
@@ -210,7 +210,7 @@ del checklist como completados y agrega notas, todo desde la app móvil.
 """,
     responses={404: {"description": "No se encontró ese negocio en esa campaña"}},
 )
-def actualizar_negocio_campana(campana_id: int, negocio_id: str, body: ActualizarNegocioBody):
+def actualizar_negocio_campana(campana_id: str, negocio_id: str, body: ActualizarNegocioBody):
     campos = {k: v for k, v in body.model_dump().items() if v is not None}
     updated = fs.update_negocio_campana(campana_id, negocio_id, campos)
     if updated is None:
@@ -231,7 +231,7 @@ Una campaña `cancelada` fue suspendida antes de completarse.
 """,
     responses={404: {"description": "Campaña no encontrada"}},
 )
-def actualizar_status_campana(campana_id: int, body: dict):
+def actualizar_status_campana(campana_id: str, body: dict):
     status_validos = ("activa", "cerrada", "cancelada")
     nuevo_status   = body.get("status", "")
     if nuevo_status not in status_validos:
@@ -251,7 +251,7 @@ Esta acción no se puede deshacer.
 """,
     responses={404: {"description": "Campaña no encontrada"}},
 )
-def eliminar_campana(campana_id: int):
+def eliminar_campana(campana_id: str):
     ok = fs.delete_campana(campana_id)
     if not ok:
         raise HTTPException(status_code=404, detail=f"No existe campaña con id={campana_id}")

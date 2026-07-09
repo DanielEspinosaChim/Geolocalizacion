@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { EmptyState, FlyTo, MapCanvas, SelectField, Spinner } from '@shared/ui';
+import { EmptyState, FlyTo, MapCanvas, PanelSection, SelectField, Spinner } from '@shared/ui';
 import { reverseGeocode } from '../api/reverseGeocode';
 import { useReportes } from '../api/useReportes';
 import { ReporteForm, type Ubicacion } from '../components/ReporteForm';
@@ -23,29 +23,34 @@ export function ReportesPage() {
   return (
     <div className="flex h-full">
       <aside className="flex w-full flex-col overflow-y-auto border-r border-border bg-surface md:w-96">
-        <ReporteForm
-          ubicacion={ubicacion}
-          onUbicacion={setUbicacion}
-          modoMapa={modoMapa}
-          onToggleModoMapa={() => setModoMapa((m) => !m)}
-        />
-        <ListaReportes
+        <Historial
           reportes={reportes}
           isPending={isPending}
           filtroStatus={filtroStatus}
           onFiltroStatus={setFiltroStatus}
           onIr={setFoco}
         />
+        <PanelSection title="Nuevo reporte ciudadano">
+          <ReporteForm
+            ubicacion={ubicacion}
+            onUbicacion={setUbicacion}
+            modoMapa={modoMapa}
+            onToggleModoMapa={() => setModoMapa((m) => !m)}
+          />
+        </PanelSection>
       </aside>
+
       <div className="relative hidden flex-1 md:block">
         <MapCanvas>
           <ReportesLayer reportes={reportes} onSelect={setFoco} />
           <UbicacionPicker activo={modoMapa} onPick={(lat, lng) => void onPick(lat, lng)} />
           {ubicacion ? <UbicacionTemporal lat={ubicacion.lat} lng={ubicacion.lng} /> : null}
-          {foco?.lat != null && foco.lng != null ? <FlyTo lat={foco.lat} lng={foco.lng} zoom={17} /> : null}
+          {foco?.lat != null && foco.lng != null ? (
+            <FlyTo lat={foco.lat} lng={foco.lng} zoom={17} />
+          ) : null}
         </MapCanvas>
         {modoMapa ? (
-          <div className="absolute left-1/2 top-3 z-[1000] -translate-x-1/2 rounded-full bg-warning px-3 py-1 text-[11px] font-bold text-white shadow-lg">
+          <div className="absolute left-1/2 top-3 z-[1000] -translate-x-1/2 rounded-full bg-warning px-3 py-1 text-xs2 font-bold text-white shadow-overlay">
             Haz clic en el mapa para ubicar el reporte
           </div>
         ) : null}
@@ -54,7 +59,7 @@ export function ReportesPage() {
   );
 }
 
-function ListaReportes({
+function Historial({
   reportes,
   isPending,
   filtroStatus,
@@ -68,30 +73,46 @@ function ListaReportes({
   onIr: (r: Reporte) => void;
 }) {
   return (
-    <>
-      <div className="border-b border-border p-3">
-        <SelectField
-          label="Filtrar por estado"
-          value={filtroStatus ?? ''}
-          onChange={(e) => onFiltroStatus((e.target.value || null) as StatusReporte | null)}
-        >
-          <option value="">Todos</option>
-          {STATUS_REPORTE.map((s) => (
-            <option key={s} value={s}>
-              {STATUS_META[s].label}
-            </option>
-          ))}
-        </SelectField>
-      </div>
+    <PanelSection
+      title="Historial de reportes"
+      action={
+        isPending ? null : (
+          <span className="text-2xs tabular-nums text-fg-subtle">{reportes.length}</span>
+        )
+      }
+    >
+      <SelectField
+        label=""
+        aria-label="Filtrar reportes por estado"
+        value={filtroStatus ?? ''}
+        onChange={(e) => onFiltroStatus((e.target.value || null) as StatusReporte | null)}
+      >
+        <option value="">Todos los estados</option>
+        {STATUS_REPORTE.map((s) => (
+          <option key={s} value={s}>
+            {STATUS_META[s].label}
+          </option>
+        ))}
+      </SelectField>
+
       {isPending ? (
-        <div className="flex justify-center p-6">
+        <div className="flex justify-center py-6">
           <Spinner label="Cargando reportes…" />
         </div>
       ) : reportes.length === 0 ? (
-        <EmptyState title="No hay reportes registrados." className="p-4" />
+        <EmptyState
+          title="No hay reportes registrados."
+          hint="Crea el primero con el formulario de abajo."
+          className="py-6"
+        />
       ) : (
-        reportes.map((r) => <ReporteItem key={r.id} reporte={r} onIr={onIr} />)
+        /* -mx-3 sangra los items al borde del panel; el separador queda a todo lo ancho. */
+        <div className="-mx-3 max-h-[26rem] overflow-y-auto border-t border-border">
+          {reportes.map((r) => (
+            <ReporteItem key={r.id} reporte={r} onIr={onIr} />
+          ))}
+        </div>
       )}
-    </>
+    </PanelSection>
   );
 }

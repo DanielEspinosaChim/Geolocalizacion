@@ -27,9 +27,10 @@ class RutaBody(BaseModel):
     )
 
 class RutaColoniaBody(BaseModel):
-    colonia_id: int = Field(
+    colonia: str = Field(
         ...,
-        description="ID de la colonia. Obtén los IDs con GET /api/colonias.",
+        description="Nombre de la colonia en MAYÚSCULAS, tal como viene en el campo `id` de GET /api/colonias.",
+        examples=["CENTRO"],
     )
     limite: int = Field(
         20,
@@ -136,7 +137,7 @@ Genera automáticamente una ruta de visita para los negocios **informales** de
 una colonia específica, sin necesidad de seleccionarlos uno a uno.
 
 **Flujo:**
-1. Busca todos los candidatos con `tipo = 'informal'` y `colonia_id` igual al solicitado
+1. Busca todos los candidatos con `tipo = 'informal'` cuya colonia coincida con la solicitada
 2. Toma los primeros N según el parámetro `limite`
 3. Aplica el mismo algoritmo TSP + OSRM que `POST /api/ruta`
 
@@ -144,24 +145,25 @@ una colonia específica, sin necesidad de seleccionarlos uno a uno.
 En lugar de seleccionar negocios manualmente, usa este endpoint para generar
 la ruta completa de todos los informales de esa colonia en un solo paso.
 
-**Nota:** requiere haber cargado las colonias primero con:
-```bash
-python scripts/importar_colonias.py
-```
+La colonia se compara por nombre (`colonia_nombre`, o `colonia_denue` si falta),
+igual que `GET /api/colonias`.
 """,
     responses={
         400: {"description": "La colonia no tiene suficientes candidatos informales (mínimo 2)"},
-        404: {"description": "No se encontraron negocios con colonia_id en la base de datos"},
     },
 )
 def ruta_por_colonia(body: RutaColoniaBody):
-    rows = fs.get_candidatos(tipo="informal", colonia_id=body.colonia_id, limit=body.limite)
+    objetivo = body.colonia.strip().upper()
+    rows = [
+        c for c in fs.get_candidatos(tipo="informal", limit=1_000_000)
+        if (c.get("colonia_nombre") or c.get("colonia_denue") or "").strip().upper() == objetivo
+    ][: body.limite]
     puntos = [{"place_id": r["place_id"], "nombre": r.get("nombre",""), "lat": r["lat"], "lng": r["lng"], "tipos": r.get("tipos","")} for r in rows if r.get("lat") and r.get("lng")]
 
     if len(puntos) < 2:
         raise HTTPException(
             status_code=400,
-            detail=f"La colonia con id={body.colonia_id} no tiene suficientes candidatos informales (mínimo 2).",
+            detail=f"La colonia «{body.colonia}» no tiene suficientes candidatos informales (mínimo 2).",
         )
 
     ordenados = nearest_neighbor_tsp(puntos)

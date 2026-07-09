@@ -20,7 +20,7 @@ STATUS_VALIDOS = ("pendiente", "en_proceso", "resuelto")
 # ── Modelos ───────────────────────────────────────────────────────────────────
 
 class ReporteOut(BaseModel):
-    id: int
+    id: str
     tipo: str = Field(..., description="Categoría del problema reportado")
     descripcion: Optional[str] = Field(None, description="Descripción libre del problema")
     lat: float = Field(..., description="Latitud donde ocurre el problema")
@@ -29,9 +29,22 @@ class ReporteOut(BaseModel):
     fecha: str = Field(..., description="Fecha y hora del reporte (ISO)")
     status: str = Field(..., description="Estado: pendiente | en_proceso | resuelto")
     foto_url: Optional[str] = Field(None, description="URL relativa de la foto adjunta (si se subió)")
+    # Prueba de presencia: dónde estaba el técnico cuando marcó el reporte como resuelto.
+    verificado_lat: Optional[float] = Field(None, description="Latitud del técnico al resolver")
+    verificado_lng: Optional[float] = Field(None, description="Longitud del técnico al resolver")
+    verificado_precision: Optional[float] = Field(None, description="Precisión del GPS en metros")
+    verificado_distancia: Optional[float] = Field(None, description="Metros entre el técnico y el punto reportado")
+    verificado_fecha: Optional[str] = Field(None, description="Momento de la verificación (ISO)")
 
 class ActualizarStatusBody(BaseModel):
     status: str = Field(..., description="Nuevo estado: pendiente | en_proceso | resuelto")
+    # Se envían junto con status='resuelto'. Sin ellos el reporte se cierra sin evidencia
+    # de que el técnico estuvo en el lugar.
+    verificado_lat: Optional[float] = None
+    verificado_lng: Optional[float] = None
+    verificado_precision: Optional[float] = None
+    verificado_distancia: Optional[float] = None
+    verificado_fecha: Optional[str] = None
 
 
 # ── Endpoints ─────────────────────────────────────────────────────────────────
@@ -137,13 +150,15 @@ primero actualiza a `en_proceso`, luego a `resuelto` una vez reparado.
         400: {"description": "Status inválido"},
     },
 )
-def actualizar_status(reporte_id: int, body: ActualizarStatusBody):
+def actualizar_status(reporte_id: str, body: ActualizarStatusBody):
     if body.status not in STATUS_VALIDOS:
         raise HTTPException(status_code=400, detail=f"status inválido. Usa: {', '.join(STATUS_VALIDOS)}")
-    ref = fs.col("reportes").document(str(reporte_id))
+    ref = fs.col("reportes").document(reporte_id)
     if not ref.get().exists:
         raise HTTPException(status_code=404, detail=f"No existe reporte con id={reporte_id}")
-    ref.update({"status": body.status})
+    # exclude_none: un PATCH que solo cambia el status no debe borrar una
+    # verificación GPS ya guardada.
+    ref.update(body.model_dump(exclude_none=True))
     return fs.doc_to_dict(ref.get())
 
 
@@ -153,8 +168,8 @@ def actualizar_status(reporte_id: int, body: ActualizarStatusBody):
     description="Elimina permanentemente un reporte ciudadano por su ID.",
     responses={404: {"description": "No existe un reporte con ese ID"}},
 )
-def eliminar_reporte(reporte_id: int):
-    ref = fs.col("reportes").document(str(reporte_id))
+def eliminar_reporte(reporte_id: str):
+    ref = fs.col("reportes").document(reporte_id)
     if not ref.get().exists:
         raise HTTPException(status_code=404, detail=f"No existe reporte con id={reporte_id}")
     ref.delete()

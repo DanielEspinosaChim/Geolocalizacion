@@ -1,4 +1,4 @@
-import { http } from '@core/api';
+import { ApiError, http } from '@core/api';
 
 /**
  * Fachada tipada sobre el cliente HTTP autenticado de `@core/api` (axios).
@@ -15,6 +15,15 @@ export interface RequestOptions {
   headers?: Record<string, string>;
 }
 
+export class NotModifiedError extends Error {
+  constructor() {
+    super('Not Modified');
+    this.name = 'NotModifiedError';
+  }
+}
+
+const etagCache = new Map<string, string>();
+
 type Method = 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE';
 
 async function request<T>(
@@ -23,16 +32,38 @@ async function request<T>(
   data?: unknown,
   options?: RequestOptions,
 ): Promise<T> {
-  // axios detecta FormData y pone multipart/form-data con boundary por sí solo.
-  const res = await http.request<T>({
-    method,
-    url: path,
-    data,
-    params: options?.params,
-    signal: options?.signal,
-    headers: options?.headers,
-  });
-  return res.data;
+  const isGet = method === 'GET';
+  const reqHeaders = { ...options?.headers };
+
+  // 1. Inyectar ETag guardado para esta ruta
+  if (isGet && etagCache.has(path)) {
+    reqHeaders['If-None-Match'] = etagCache.get(path)!;
+  }
+
+  try {
+    const res = await http.request<T>({
+      method,
+      url: path,
+      data,
+      params: options?.params,
+      signal: options?.signal,
+      headers: reqHeaders,
+    });
+
+    // 2. Guardar ETag si el servidor lo envía
+    const etag: unknown = res.headers?.etag;
+    if (isGet && typeof etag === 'string') {
+      etagCache.set(path, etag);
+    }
+
+    return res.data;
+  } catch (error) {
+    // 3. Atrapar 304 Not Modified normalizado por @core/api/http.ts (ApiError)
+    if (error instanceof ApiError && error.status === 304) {
+      throw new NotModifiedError();
+    }
+    throw error;
+  }
 }
 
 export const apiClient = {

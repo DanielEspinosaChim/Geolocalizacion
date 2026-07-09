@@ -28,7 +28,17 @@ def col(name: str):
 
 
 def doc_to_dict(snap) -> dict:
+    """
+    Documento + su id.
+
+    El id de un documento vive en `snap.id`, no en el cuerpo: descartarlo dejaba
+    a las campañas sin `id` (revientan al enriquecerlas) y a los reportes con un
+    `id` incoherente — los migrados guardan un entero en el cuerpo, los creados
+    por Firestore no guardan nada. `snap.id` siempre existe y siempre es texto,
+    así que es la única fuente de verdad; sobreescribe cualquier `id` del cuerpo.
+    """
     d = snap.to_dict() or {}
+    d["id"] = snap.id
     return d
 
 
@@ -172,39 +182,36 @@ def list_campanas(status=None, uid=None):
         rows = [r for r in rows if r.get("asignado_a") == uid or not r.get("asignado_a")]
     # Enriquecer con contadores
     for c in rows:
-        snaps = col("campanas").document(str(c["id"])).collection("negocios").stream()
+        snaps = col("campanas").document(c["id"]).collection("negocios").stream()
         negs  = [doc_to_dict(s) for s in snaps]
         c["total_negocios"]    = len(negs)
         c["total_completados"] = sum(1 for n in negs if n.get("completado"))
     return sorted(rows, key=lambda x: x.get("created_at", ""), reverse=True)
 
 
-def get_campana(campana_id: int) -> dict | None:
-    snap = col("campanas").document(str(campana_id)).get()
+def get_campana(campana_id: str) -> dict | None:
+    snap = col("campanas").document(campana_id).get()
     return doc_to_dict(snap) if snap.exists else None
 
 
 def create_campana(data: dict) -> dict:
-    db    = get_db()
-    # Auto-incrementar id
-    snaps = col("campanas").stream()
-    ids   = [int(doc_to_dict(s)["id"]) for s in snaps if "id" in doc_to_dict(s)]
-    new_id = (max(ids) + 1) if ids else 1
-    data["id"] = new_id
-    col("campanas").document(str(new_id)).set(data)
-    return data
+    # Auto-id de Firestore. El autoincremento anterior recorría toda la colección
+    # y colisionaba con los documentos migrados, que ya usan ids autogenerados.
+    ref = col("campanas").document()
+    ref.set(data)
+    return {**data, "id": ref.id}
 
 
-def update_campana_status(campana_id: int, status: str) -> bool:
-    ref = col("campanas").document(str(campana_id))
+def update_campana_status(campana_id: str, status: str) -> bool:
+    ref = col("campanas").document(campana_id)
     if not ref.get().exists:
         return False
     ref.update({"status": status})
     return True
 
 
-def delete_campana(campana_id: int) -> bool:
-    ref = col("campanas").document(str(campana_id))
+def delete_campana(campana_id: str) -> bool:
+    ref = col("campanas").document(campana_id)
     if not ref.get().exists:
         return False
     # Borrar subcolección negocios
@@ -216,8 +223,8 @@ def delete_campana(campana_id: int) -> bool:
 
 # ── Campana Negocios ──────────────────────────────────────────────────────────
 
-def get_campana_negocios(campana_id: int) -> list:
-    snaps = col("campanas").document(str(campana_id)).collection("negocios").stream()
+def get_campana_negocios(campana_id: str) -> list:
+    snaps = col("campanas").document(campana_id).collection("negocios").stream()
     rows  = [doc_to_dict(s) for s in snaps]
     # Enriquecer con datos del candidato
     for n in rows:
@@ -237,26 +244,31 @@ def get_campana_negocios(campana_id: int) -> list:
     return rows
 
 
-def add_negocios_to_campana(campana_id: int, negocio_ids: list, checklist_json=None) -> int:
-    ref     = col("campanas").document(str(campana_id)).collection("negocios")
+def _doc_id_negocio(negocio_id: str) -> str:
+    """El place_id puede traer '/', que Firestore interpreta como separador de ruta."""
+    return negocio_id.replace("/", "__")
+
+
+def add_negocios_to_campana(campana_id: str, negocio_ids: list, checklist_json=None) -> int:
+    # El negocio_id es la clave natural dentro de la campaña (no se repite), así que
+    # se usa como id del documento: evita recorrer la subcolección para inventar un
+    # entero — que además fallaba al hacer int() sobre ids como 'osm_node_1013…'.
+    ref        = col("campanas").document(campana_id).collection("negocios")
     existentes = {doc_to_dict(s).get("negocio_id") for s in ref.stream()}
     insertados = 0
     for nid in negocio_ids:
         if nid not in existentes:
-            snaps = list(ref.stream())
-            ids   = [int(doc_to_dict(s).get("id", 0)) for s in snaps]
-            new_id = (max(ids) + 1) if ids else 1
-            ref.document(str(new_id)).set({
-                "id": new_id, "campana_id": campana_id,
+            ref.document(_doc_id_negocio(nid)).set({
+                "campana_id": campana_id,
                 "negocio_id": nid, "checklist_json": checklist_json,
-                "completado": 0, "notas": None, "fecha_visita": None,
+                "completado": False, "notas": None, "fecha_visita": None,
             })
             insertados += 1
     return insertados
 
 
-def update_negocio_campana(campana_id: int, negocio_id: str, campos: dict) -> dict | None:
-    ref   = col("campanas").document(str(campana_id)).collection("negocios")
+def update_negocio_campana(campana_id: str, negocio_id: str, campos: dict) -> dict | None:
+    ref   = col("campanas").document(campana_id).collection("negocios")
     snaps = [s for s in ref.stream() if doc_to_dict(s).get("negocio_id") == negocio_id]
     if not snaps:
         return None
@@ -265,8 +277,8 @@ def update_negocio_campana(campana_id: int, negocio_id: str, campos: dict) -> di
     return doc_to_dict(snap.reference.get())
 
 
-def get_negocio_campana(campana_id: int, negocio_id: str) -> dict | None:
-    ref   = col("campanas").document(str(campana_id)).collection("negocios")
+def get_negocio_campana(campana_id: str, negocio_id: str) -> dict | None:
+    ref   = col("campanas").document(campana_id).collection("negocios")
     snaps = [s for s in ref.stream() if doc_to_dict(s).get("negocio_id") == negocio_id]
     return doc_to_dict(snaps[0]) if snaps else None
 
@@ -284,9 +296,8 @@ def list_reportes(status=None, tipo=None, limit=200):
 
 
 def create_reporte(data: dict) -> dict:
-    snaps  = col("reportes").stream()
-    ids    = [int(doc_to_dict(s).get("id", 0)) for s in snaps]
-    new_id = (max(ids) + 1) if ids else 1
-    data["id"] = new_id
-    col("reportes").document(str(new_id)).set(data)
-    return data
+    # Auto-id de Firestore: el autoincremento anterior hacía int() sobre el id de
+    # cada documento y ya hay reportes con id autogenerado (no numérico).
+    ref = col("reportes").document()
+    ref.set(data)
+    return {**data, "id": ref.id}

@@ -12,6 +12,8 @@ export const candidatoSchema = z.object({
   /** CSV de categorías de Google (ej. "restaurant,food") — no confundir con `tipo`. */
   tipos: z.string().nullish(),
   tipo: z.enum(TIPOS).nullish().catch(null),
+  fecha_actualizacion: z.string().nullish(),
+  /** La colonia viaja por nombre, no por id — ver `coloniaDe()` en model/filtros.ts. */
   colonia_nombre: z.string().nullish(),
   colonia_denue: z.string().nullish(),
 });

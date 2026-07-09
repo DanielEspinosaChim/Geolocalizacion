@@ -14,10 +14,14 @@ interface CapasTogglesProps {
   onToggle: (capa: CapaId) => void;
 }
 
-/** Botones para prender/apagar capas geográficas (overlay sobre el mapa). */
+/**
+ * Botones para prender/apagar capas geográficas. Se apilan en columna y el
+ * consumidor los ancla a la derecha del mapa: en fila y a la izquierda tapaban
+ * los controles de zoom de Leaflet.
+ */
 export function CapasToggles({ activas, onToggle }: CapasTogglesProps) {
   return (
-    <div className="flex gap-1.5">
+    <div className="flex flex-col items-stretch gap-1.5" role="group" aria-label="Capas del mapa">
       {CAPAS.map(({ id, label, Icon }) => {
         const activa = activas.has(id);
         return (
@@ -26,13 +30,14 @@ export function CapasToggles({ activas, onToggle }: CapasTogglesProps) {
             type="button"
             aria-pressed={activa}
             onClick={() => onToggle(id)}
-            className={`flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs2 font-bold shadow-lg transition-colors ${
+            className={`flex items-center gap-2 rounded-control border px-3 py-1.5 text-xs2 font-bold shadow-overlay transition-colors ${
               activa
                 ? 'border-primary bg-primary/20 text-primary'
                 : 'border-border bg-surface text-fg-muted hover:text-fg'
             }`}
           >
-            <Icon className="h-3.5 w-3.5" aria-hidden="true" /> {label}
+            <Icon className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+            <span className="whitespace-nowrap">{label}</span>
           </button>
         );
       })}

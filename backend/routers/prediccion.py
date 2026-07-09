@@ -141,3 +141,99 @@ def predecir(
         "tipos":       str(mejor["tipos"]),
         "distancia_m": round(mejor_dist, 1),
     }
+
+
+# ── Índice de informalidad ────────────────────────────────────────────────────
+
+# Anclas del último cruce ejecutado (cruce.py + BASE.xlsx). Son constantes del
+# método, no datos vivos: el estimador de razón necesita el overlap conocido
+# entre ambos registros, y ese overlap solo cambia al re-correr el cruce.
+_N1_DENUE          = 144_576  # formales registrados en DENUE Mérida (universo ancla)
+_M_OVERLAP         = 8_901    # GM ∩ DENUE (decision_fuente=formal_denue)
+_N_FORMALES_OTROS  = 4_616    # formal_cadena + formal_tipo_gmaps + formal_institucion
+_N_FORMALES_BASE   = 3_809    # formal_base: match contra BASE.xlsx (RFC + licencias)
+_N_INF_OBSERVADOS  = 5_966    # es_informal=True tras cruzar con BASE.xlsx
+_N_GMAPS_NEGOCIOS  = 23_292   # negocios reales en GMaps (sin parques/escuelas/iglesias)
+_N_GMAPS_CSV       = 29_234   # filas crudas del CSV descargado
+
+_ESCENARIOS = [
+    (1.00, "Límite inferior"),
+    (0.80, "Conservador"),
+    (0.65, "Estimación central"),
+    (0.50, "Límite superior"),
+]
+
+
+@router.get(
+    "/api/indice",
+    summary="Índice de informalidad (estimador de razón / multiplier method)",
+    description="""
+Estima qué proporción de los establecimientos de Mérida son informales, usando el
+**Estimador de Razón** (Multiplier Method) sobre dos registros con solapamiento conocido:
+Google Maps (incompleto, sesgado) y DENUE (completo, solo formales).
+
+**Los tres pasos:**
+1. Medir el "lente" de Google Maps: `p̂ = m / N1` — qué fracción de los formales del
+   DENUE alcanzó a capturar Google Maps.
+2. Escalar los informales observados al universo real: `N̂_inf = n_inf_obs / (α · p̂)`.
+3. Índice: `I = N̂_inf / (N1 + N̂_inf)`.
+
+**El parámetro α** corrige el sesgo de visibilidad: un negocio informal aparece menos
+en Google Maps que uno formal (sin reseñas, sin fotos, sin ficha). α=1.0 asume igual
+visibilidad (por eso da el *límite inferior*); α=0.65 es el valor central de la literatura.
+
+**Usado por:** la vista Índice.
+""",
+)
+def get_indice():
+    import math
+
+    n_formales_total = _M_OVERLAP + _N_FORMALES_OTROS + _N_FORMALES_BASE
+
+    p_formal      = _M_OVERLAP / _N1_DENUE   # cobertura de GMaps sobre los formales
+    multiplicador = _N1_DENUE / _M_OVERLAP
+
+    escenarios = []
+    for alpha, etiqueta in _ESCENARIOS:
+        p_inf = alpha * p_formal
+        n_inf = _N_INF_OBSERVADOS / p_inf
+        escenarios.append({
+            "alpha":          alpha,
+            "etiqueta":       etiqueta,
+            "N_inf_estimado": round(n_inf),
+            "indice_pct":     round(n_inf / (_N1_DENUE + n_inf) * 100, 1),
+        })
+
+    # IC 95% del límite inferior por método delta sobre la varianza de p̂.
+    var_p   = p_formal * (1 - p_formal) / _N1_DENUE
+    se_n    = (_N_INF_OBSERVADOS / p_formal**2) * math.sqrt(var_p)
+    ci_low  = max(0.0, _N_INF_OBSERVADOS * multiplicador - 1.96 * se_n)
+    ci_high = _N_INF_OBSERVADOS * multiplicador + 1.96 * se_n
+
+    return {
+        "datos_entrada": {
+            "N1_denue":         _N1_DENUE,
+            "m_overlap":        _M_OVERLAP,
+            "n_formales_total": n_formales_total,
+            "n_formales_otros": _N_FORMALES_OTROS,
+            "n_formales_base":  _N_FORMALES_BASE,
+            "n_inf_observados": _N_INF_OBSERVADOS,
+            "n_gmaps_negocios": _N_GMAPS_NEGOCIOS,
+            "n_gmaps_csv":      _N_GMAPS_CSV,
+        },
+        "cobertura_gmaps_pct": round(p_formal * 100, 2),
+        "multiplicador":       round(multiplicador, 2),
+        "escenarios":          escenarios,
+        "ic95_indice_inferior": {
+            "low":  round(ci_low  / (_N1_DENUE + ci_low)  * 100, 1),
+            "high": round(ci_high / (_N1_DENUE + ci_high) * 100, 1),
+        },
+        "central_indice_pct": escenarios[2]["indice_pct"],
+        "referencia_inegi":   "57–60% informalidad laboral Yucatán (INEGI 2023)",
+        "metodo":             "Estimador de Razón / Multiplier Method",
+        "referencias": [
+            "UNAIDS (2010) Guidelines on Estimating the Size of Populations Most at Risk",
+            "Thompson (2002) Sampling — Ratio Estimation",
+            "CEPAL (2018) Medición de la economía informal",
+        ],
+    }

@@ -25,8 +25,8 @@
     "semantic_hash": ""
   },
   "src/app/layout/NavTabs.tsx": {
-    "mtime": 1783571440.829445,
-    "ast_hash": "dc3e35f70f6f208915091a8d11e26c60",
+    "mtime": 1783617541.3220897,
+    "ast_hash": "4f47d575f0500662368355ece22a52e3",
     "semantic_hash": ""
   },
   "src/app/layout/UserMenu.tsx": {
@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "src/app/router/index.tsx": {
-    "mtime": 1783571440.8406627,
-    "ast_hash": "a0c12588522a1859735a639f6b1f5207",
+    "mtime": 1783617528.129846,
+    "ast_hash": "0ddfabcc476d88777cc4513f009b1b7e",
     "semantic_hash": ""
   },
   "src/core/api/http.ts": {
@@ -205,8 +205,8 @@
     "semantic_hash": ""
   },
   "src/shared/ui/index.ts": {
-    "mtime": 1783575605.8185973,
-    "ast_hash": "756747a20d3a82b85a876bb5cb2d290f",
+    "mtime": 1783617576.0395472,
+    "ast_hash": "6fbbc80cc0ee44284ab5c4a4e9f2b161",
     "semantic_hash": ""
   },
   "src/shared/ui/map/MapCanvas.tsx": {
@@ -270,18 +270,18 @@
     "semantic_hash": ""
   },
   "src/features/candidatos/api/useCandidatos.ts": {
-    "mtime": 1783575190.7805886,
-    "ast_hash": "5a8a8e9074d3096e52901501ad55a363",
+    "mtime": 1783577783.7237775,
+    "ast_hash": "ca7f340175e14028d6a2cb1a90d3f3bd",
     "semantic_hash": ""
   },
   "src/features/candidatos/api/useCargaProgresiva.ts": {
-    "mtime": 1783575195.2990842,
-    "ast_hash": "3ea0558717cae31016f39573d97a3c73",
+    "mtime": 1783577862.4922924,
+    "ast_hash": "d7acee9c3b030ecc5c3d52f5e3ab170f",
     "semantic_hash": ""
   },
   "src/features/candidatos/api/useGuardarTipo.ts": {
-    "mtime": 1783575144.8066332,
-    "ast_hash": "32955be70bf556f4f0ae60ca9ac1dbec",
+    "mtime": 1783577910.0573123,
+    "ast_hash": "dd597890138c15bdb78eb3f13413158e",
     "semantic_hash": ""
   },
   "src/features/candidatos/components/CandidatoCard.tsx": {
@@ -300,8 +300,8 @@
     "semantic_hash": ""
   },
   "src/features/candidatos/components/EstadoCargaChip.tsx": {
-    "mtime": 1783571440.9397376,
-    "ast_hash": "f346625f8fdc9aabc931d7bc71ed3e7e",
+    "mtime": 1783617707.17611,
+    "ast_hash": "889ca261e9380a6bc1872e3d167f70c7",
     "semantic_hash": ""
   },
   "src/features/candidatos/components/FiltrosBar.tsx": {
@@ -315,13 +315,13 @@
     "semantic_hash": ""
   },
   "src/features/candidatos/index.ts": {
-    "mtime": 1783571440.9494114,
-    "ast_hash": "611a1bf044f29df7849fd843b52fe46f",
+    "mtime": 1783577926.0779965,
+    "ast_hash": "41713bf65a2aeacf4975e3d01326aa14",
     "semantic_hash": ""
   },
   "src/features/candidatos/model/candidato.ts": {
-    "mtime": 1783571440.953682,
-    "ast_hash": "cbf0c3fdc5a648fe20c78e3c68a29634",
+    "mtime": 1783616761.5012248,
+    "ast_hash": "2859128f011007d3f48575b759b1dc10",
     "semantic_hash": ""
   },
   "src/features/candidatos/model/filtros.ts": {
@@ -345,8 +345,8 @@
     "semantic_hash": ""
   },
   "src/features/candidatos/components/MapaCandidatos.tsx": {
-    "mtime": 1783575617.827716,
-    "ast_hash": "fbf61cc28bd683621b15555e397cc328",
+    "mtime": 1783617714.3427508,
+    "ast_hash": "c90d053a4ec28df0206d79c94059d81a",
     "semantic_hash": ""
   },
   "src/features/candidatos/components/PanelLateral.tsx": {
@@ -365,8 +365,8 @@
     "semantic_hash": ""
   },
   "src/features/colonias-zonas/components/CapasToggles.tsx": {
-    "mtime": 1783572782.0087063,
-    "ast_hash": "1223f5a40c466d69bb440f077d6e5240",
+    "mtime": 1783616823.8398023,
+    "ast_hash": "f549ec368b33d879ace42ca087bf9ee1",
     "semantic_hash": ""
   },
   "src/features/colonias-zonas/components/ColoniaSelect.tsx": {
@@ -410,8 +410,8 @@
     "semantic_hash": ""
   },
   "src/features/reportes/components/ReporteForm.tsx": {
-    "mtime": 1783571441.0108585,
-    "ast_hash": "a96cd0ab16bec197d919bb2d3169d5af",
+    "mtime": 1783617616.1518154,
+    "ast_hash": "ae1f3231931e1c09b1963794f5647e51",
     "semantic_hash": ""
   },
   "src/features/reportes/components/ReporteItem.tsx": {
@@ -440,13 +440,13 @@
     "semantic_hash": ""
   },
   "src/features/reportes/model/reporte.ts": {
-    "mtime": 1783571441.018303,
+    "mtime": 1783618637.8596058,
     "ast_hash": "249d591d7e80fb326ad7a7a296fbcd95",
     "semantic_hash": ""
   },
   "src/features/reportes/routes/ReportesPage.tsx": {
-    "mtime": 1783575623.5587366,
-    "ast_hash": "f17c3cafa2f5117ec0edd9b468733a42",
+    "mtime": 1783617655.5160546,
+    "ast_hash": "180875480920d13641493c1182574723",
     "semantic_hash": ""
   },
   "src/features/rutas/api/useRuta.ts": {
@@ -485,8 +485,8 @@
     "semantic_hash": ""
   },
   "src/features/rutas/routes/RutasPage.tsx": {
-    "mtime": 1783571441.0350735,
-    "ast_hash": "07bcc72b6dbe398f500ca4737f04847b",
+    "mtime": 1783618701.9751396,
+    "ast_hash": "8cc2189db898d12e0ed13093ab50cc18",
     "semantic_hash": ""
   },
   "src/shared/lib/geo.ts": {
@@ -615,7 +615,7 @@
     "semantic_hash": ""
   },
   "src/features/campanas/model/campana.ts": {
-    "mtime": 1783571440.9273536,
+    "mtime": 1783618637.8585994,
     "ast_hash": "51e298c76be96ebd9a5e9caf7efd5b43",
     "semantic_hash": ""
   },
@@ -710,8 +710,8 @@
     "semantic_hash": ""
   },
   "src/features/predicciones/components/IndicePanel.tsx": {
-    "mtime": 1783575717.482712,
-    "ast_hash": "aa02ad6fded7045ccd47f48b1ce1ff2c",
+    "mtime": 1783617500.544196,
+    "ast_hash": "d38e93f50c11438fc8172aa85fa284c5",
     "semantic_hash": ""
   },
   "src/features/predicciones/components/PrediccionResultado.tsx": {
@@ -725,13 +725,13 @@
     "semantic_hash": ""
   },
   "src/features/predicciones/index.ts": {
-    "mtime": 1783571440.9952936,
-    "ast_hash": "97adbd1373ee0cfae9fd17b8020d5a90",
+    "mtime": 1783617515.2722874,
+    "ast_hash": "fc868e5224755478c453756677973b72",
     "semantic_hash": ""
   },
   "src/features/predicciones/model/indice.ts": {
-    "mtime": 1783571440.9952936,
-    "ast_hash": "e07dc7f9f38b66571f2ba7e42b4dcde7",
+    "mtime": 1783617425.3260212,
+    "ast_hash": "bd29658346aba91b60b46c4e847c0aaa",
     "semantic_hash": ""
   },
   "src/features/predicciones/model/prediccion.test.ts": {
@@ -750,8 +750,8 @@
     "semantic_hash": ""
   },
   "src/features/predicciones/routes/PrediccionesPage.tsx": {
-    "mtime": 1783571441.0015209,
-    "ast_hash": "e6cd5429cc5b0c3b21d29663af33d07a",
+    "mtime": 1783616955.7481644,
+    "ast_hash": "9371ed6905d8e2a0f1add521666431ca",
     "semantic_hash": ""
   },
   "src/features/predicciones/routes/ValidacionPage.tsx": {
@@ -830,13 +830,13 @@
     "semantic_hash": ""
   },
   "src/shared/api/apiClient.ts": {
-    "mtime": 1783574729.341884,
-    "ast_hash": "ca3d3dacfd14b102d28e62126d85d5de",
+    "mtime": 1783617881.8370748,
+    "ast_hash": "ca8d050fea14c369a006acfdbc0773e6",
     "semantic_hash": ""
   },
   "src/shared/api/index.ts": {
-    "mtime": 1783574730.44761,
-    "ast_hash": "65a54b0ee225ca8caad2f289ff563e0f",
+    "mtime": 1783577848.7539966,
+    "ast_hash": "79a2bd74417705077ac344d2761c12b4",
     "semantic_hash": ""
   },
   "src/shared/lib/format.ts": {
@@ -852,6 +852,56 @@
   "src/shared/ui/map/FlyTo.tsx": {
     "mtime": 1783575521.9563646,
     "ast_hash": "8890b8b747b374a80ba93f48d8216488",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/api/useMetricas.ts": {
+    "mtime": 1783577875.7565646,
+    "ast_hash": "f0efafae1f077af78274120a09c1addb",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/api/useMuestraValidacion.ts": {
+    "mtime": 1783577885.4910724,
+    "ast_hash": "93e361bf325d2a753e606c7e3d01cb51",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/model/metricas.ts": {
+    "mtime": 1783577755.6004064,
+    "ast_hash": "54e42386552ce3061183df126644a153",
+    "semantic_hash": ""
+  },
+  "src/features/candidatos/model/validacion.ts": {
+    "mtime": 1783577763.9728463,
+    "ast_hash": "2888199f736633cf6b6818915dfef1bd",
+    "semantic_hash": ""
+  },
+  "src/features/predicciones/components/IndiceCalculadora.tsx": {
+    "mtime": 1783617445.1655498,
+    "ast_hash": "586b3aee167cdec02c42ee8fd1c7c0f9",
+    "semantic_hash": ""
+  },
+  "src/features/predicciones/components/PrediccionPanel.tsx": {
+    "mtime": 1783616936.7458751,
+    "ast_hash": "5b63c67733b76be6bdd8e88d568c41e9",
+    "semantic_hash": ""
+  },
+  "src/features/predicciones/routes/IndicePage.tsx": {
+    "mtime": 1783617505.521742,
+    "ast_hash": "a33ec87530f6bb52b2ea16f837c15f19",
+    "semantic_hash": ""
+  },
+  "src/shared/ui/PanelSection.tsx": {
+    "mtime": 1783616915.6719503,
+    "ast_hash": "97c99b954de976d9cae2f24b42629e03",
+    "semantic_hash": ""
+  },
+  "src/shared/ui/SearchCombobox.tsx": {
+    "mtime": 1783617866.378644,
+    "ast_hash": "cc426c7679de5c016a5db5606caa59bd",
+    "semantic_hash": ""
+  },
+  "src/shared/ui/TextareaField.tsx": {
+    "mtime": 1783617571.5358574,
+    "ast_hash": "4398a2677cdbf06ad2864475c06e6c77",
     "semantic_hash": ""
   }
 }

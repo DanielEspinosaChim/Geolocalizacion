@@ -1,11 +1,14 @@
-import type { CacheStatus } from '../api/useCargaProgresiva';
+import type { CacheStatus } from '../model/metricas';
 
 interface EstadoCargaChipProps {
   cargados: number;
   estado: CacheStatus | undefined;
 }
 
-/** Chip de progreso sobre el mapa (reemplaza el badge del header legacy). */
+/**
+ * Chip de progreso sobre el mapa (reemplaza el badge del header legacy).
+ * Va abajo a la derecha: arriba a la derecha están los toggles de capas.
+ */
 export function EstadoCargaChip({ cargados, estado }: EstadoCargaChipProps) {
   const listo = estado?.ready ?? false;
   const enServidor = estado?.count ?? 0;
@@ -15,7 +18,7 @@ export function EstadoCargaChip({ cargados, estado }: EstadoCargaChipProps) {
 
   return (
     <div
-      className={`absolute right-3 top-3 z-[1000] rounded-full px-3 py-1 text-[11px] font-bold text-white shadow-lg ${
+      className={`absolute bottom-4 right-3 z-[1000] rounded-full px-3 py-1 text-xs2 font-bold text-white shadow-overlay ${
         listo ? 'bg-success' : 'bg-warning'
       }`}
       role="status"

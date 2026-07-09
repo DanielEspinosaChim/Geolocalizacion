@@ -46,6 +46,11 @@ export const router = createBrowserRouter([
         lazy: async () => ({ Component: (await import('@features/predicciones')).ValidacionPage }),
       },
       {
+        path: 'indice',
+        loader: requireRole('admin'),
+        lazy: async () => ({ Component: (await import('@features/predicciones')).IndicePage }),
+      },
+      {
         path: 'admin',
         loader: requireRole('admin'), // ◀── solo admin (el backend re-valida igual)
         lazy: async () => ({ Component: (await import('@features/admin')).AdminPage }),

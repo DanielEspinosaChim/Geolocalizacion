@@ -1,1 +1,1 @@
-export { apiClient, type RequestOptions } from './apiClient';
+export { apiClient, NotModifiedError, type RequestOptions } from './apiClient';

@@ -1,6 +1,6 @@
 import { Car, Route } from 'lucide-react';
 import { useState } from 'react';
-import { Button, MapCanvas, SearchInput, toast } from '@shared/ui';
+import { Button, MapCanvas, PanelSection, SearchInput, TextField, toast } from '@shared/ui';
 import { useCandidatos } from '@features/candidatos';
 import { ColoniaSelect } from '@features/colonias-zonas';
 import { useCalcularRuta, useCalcularRutaColonia } from '../api/useRuta';
@@ -27,27 +27,60 @@ export function RutasPage() {
     setSeleccion(nueva);
   }
 
+  function calcularManual() {
+    if (seleccion.size < 2) {
+      toast.error('Selecciona al menos 2 puntos.');
+      return;
+    }
+    calcular.mutate([...seleccion]);
+  }
+
   return (
     <div className="flex h-full">
-      <aside className="flex w-full flex-col border-r border-border bg-surface md:w-96">
-        <RutaControles
-          q={q}
-          onQ={setQ}
-          seleccionCount={seleccion.size}
-          onLimpiar={() => setSeleccion(new Set())}
+      <aside className="flex w-full flex-col overflow-y-auto border-r border-border bg-surface md:w-96">
+        <RutaPorColonia
           calculando={calculando}
-          onCalcular={() => {
-            if (seleccion.size < 2) {
-              toast.error('Selecciona al menos 2 puntos.');
-              return;
-            }
-            calcular.mutate([...seleccion]);
-          }}
-          onCalcularColonia={(colonia) => calcularColonia.mutate({ colonia, limite: 20 })}
+          onCalcular={(colonia, limite) => calcularColonia.mutate({ colonia, limite })}
         />
-        <RutaLista candidatos={candidatos} q={q} seleccion={seleccion} onToggle={toggle} />
+
+        <PanelSection
+          title="Selección manual"
+          action={
+            <span className="flex items-center gap-2">
+              <span className="text-2xs tabular-nums text-fg-muted">
+                {seleccion.size} seleccionados
+              </span>
+              <Button variant="ghost" size="sm" onClick={() => setSeleccion(new Set())}>
+                Limpiar
+              </Button>
+            </span>
+          }
+        >
+          <Button full loading={calculando} onClick={calcularManual}>
+            {calculando ? null : <Route className="h-4 w-4" aria-hidden="true" />} Calcular mejor
+            ruta
+          </Button>
+          <p className="text-2xs text-fg-subtle">
+            Máx. {MAX_PUNTOS_RUTA} puntos · TSP + OSRM · en auto
+          </p>
+        </PanelSection>
+
         {ruta ? <RutaInfo ruta={ruta} /> : null}
+
+        <div className="flex min-h-0 flex-1 flex-col">
+          <div className="sticky top-0 z-panel border-b border-border bg-surface p-3">
+            <SearchInput
+              value={q}
+              onChange={setQ}
+              debounceMs={200}
+              placeholder="Buscar candidato por nombre…"
+              aria-label="Buscar negocio para la ruta"
+            />
+          </div>
+          <RutaLista candidatos={candidatos} q={q} seleccion={seleccion} onToggle={toggle} />
+        </div>
       </aside>
+
       <div className="relative hidden flex-1 md:block">
         <MapCanvas>{ruta ? <RutaLayer ruta={ruta} /> : null}</MapCanvas>
       </div>
@@ -55,58 +88,51 @@ export function RutasPage() {
   );
 }
 
-function RutaControles({
-  q,
-  onQ,
-  seleccionCount,
-  onLimpiar,
+/** Ruta automática con todos los informales de una colonia, hasta `limite` paradas. */
+function RutaPorColonia({
   calculando,
   onCalcular,
-  onCalcularColonia,
 }: {
-  q: string;
-  onQ: (q: string) => void;
-  seleccionCount: number;
-  onLimpiar: () => void;
   calculando: boolean;
-  onCalcular: () => void;
-  onCalcularColonia: (colonia: string) => void;
+  onCalcular: (colonia: string, limite: number) => void;
 }) {
   const [colonia, setColonia] = useState<string | null>(null);
+  const [limite, setLimite] = useState('20');
+
+  function generar() {
+    if (!colonia) {
+      toast.error('Selecciona una colonia.');
+      return;
+    }
+    const n = Number(limite);
+    if (!Number.isInteger(n) || n < 2 || n > 50) {
+      toast.error('El límite debe ser un número entre 2 y 50.');
+      return;
+    }
+    onCalcular(colonia, n);
+  }
+
   return (
-    <div className="grid gap-2 border-b border-border p-3">
-      <SearchInput
-        value={q}
-        onChange={onQ}
-        debounceMs={200}
-        placeholder="Buscar negocio…"
-        aria-label="Buscar negocio para la ruta"
-      />
-      <div className="flex items-center justify-between gap-2">
-        <span className="text-xs font-bold text-fg-muted">{seleccionCount} seleccionados</span>
-        <Button variant="ghost" size="sm" onClick={onLimpiar}>
-          Limpiar
-        </Button>
+    <PanelSection title="Ruta por colonia">
+      <div className="flex items-end gap-2">
+        <div className="min-w-0 flex-1">
+          <ColoniaSelect value={colonia} onChange={setColonia} label="Colonia" />
+        </div>
+        <div className="w-20 shrink-0">
+          <TextField
+            label="Límite"
+            type="number"
+            min={2}
+            max={50}
+            value={limite}
+            onChange={(e) => setLimite(e.target.value)}
+            className="px-2 text-center"
+          />
+        </div>
       </div>
-      <Button disabled={calculando} onClick={onCalcular}>
-        <Route className="h-4 w-4" aria-hidden="true" /> {calculando ? 'Calculando…' : 'Calcular mejor ruta'}
+      <Button full variant="secondary" loading={calculando} onClick={generar}>
+        {calculando ? null : <Car className="h-4 w-4" aria-hidden="true" />} Generar ruta de colonia
       </Button>
-      <div className="grid gap-2 rounded-control border border-border bg-surface-raised p-2">
-        <ColoniaSelect value={colonia} onChange={setColonia} label="Ruta por colonia" />
-        <Button
-          variant="secondary"
-          disabled={calculando}
-          onClick={() => {
-            if (!colonia) {
-              toast.error('Selecciona una colonia.');
-              return;
-            }
-            onCalcularColonia(colonia);
-          }}
-        >
-          <Car className="h-4 w-4" aria-hidden="true" /> Generar ruta de colonia
-        </Button>
-      </div>
-    </div>
+    </PanelSection>
   );
 }

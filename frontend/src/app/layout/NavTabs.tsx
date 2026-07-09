@@ -15,6 +15,7 @@ const NAV_ITEMS: NavItem[] = [
   { to: '/reportes', label: 'Reportes', roles: ['admin', 'tecnico'] },
   { to: '/campanas', label: 'Campañas', roles: ['admin', 'tecnico'] },
   { to: '/validacion', label: 'Validación', roles: ['admin'] },
+  { to: '/indice', label: 'Índice', roles: ['admin'] },
   { to: '/admin', label: 'Admin', roles: ['admin'] },
 ];
 

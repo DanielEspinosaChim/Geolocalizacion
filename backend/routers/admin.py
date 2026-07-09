@@ -116,9 +116,9 @@ def toggle_usuario(uid: str, body: dict, user=Depends(require_admin)):
 # ── Asignaciones de campañas ──────────────────────────────────────────────────
 
 @router.patch("/api/admin/campanas/{campana_id}/asignar")
-def asignar_campana(campana_id: int, body: AsignarCampanaBody, user=Depends(require_admin)):
+def asignar_campana(campana_id: str, body: AsignarCampanaBody, user=Depends(require_admin)):
     """Asigna una campaña a un técnico."""
-    ref = col("campanas").document(str(campana_id))
+    ref = col("campanas").document(campana_id)
     if not ref.get().exists:
         raise HTTPException(status_code=404, detail="Campaña no encontrada")
     # Obtener nombre del técnico
@@ -129,9 +129,9 @@ def asignar_campana(campana_id: int, body: AsignarCampanaBody, user=Depends(requ
 
 
 @router.delete("/api/admin/campanas/{campana_id}/asignar")
-def desasignar_campana(campana_id: int, user=Depends(require_admin)):
+def desasignar_campana(campana_id: str, user=Depends(require_admin)):
     """Quita la asignación de una campaña."""
-    ref = col("campanas").document(str(campana_id))
+    ref = col("campanas").document(campana_id)
     if not ref.get().exists:
         raise HTTPException(status_code=404, detail="Campaña no encontrada")
     ref.update({"asignado_a": None, "asignado_nombre": None})

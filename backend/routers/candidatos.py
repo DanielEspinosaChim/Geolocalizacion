@@ -19,8 +19,12 @@ class Candidato(BaseModel):
     lng: float = Field(..., description="Longitud geográfica")
     tipos: Optional[str] = Field(None, description="Categorías del negocio separadas por coma (ej: 'restaurant,food')")
     tipo: Optional[str] = Field("informal", description="Estado de formalización: 'informal' | 'en_proceso' | 'formal'")
-    colonia_id: Optional[int] = Field(None, description="ID de la colonia a la que pertenece (FK tabla colonias)")
     fecha_actualizacion: Optional[str] = Field(None, description="Última vez que se actualizó el tipo (ISO timestamp)")
+    # La colonia viaja como texto: es la clave con la que el frontend filtra y con la
+    # que se pide una ruta (ver GET /api/colonias). Sin declararlos aquí, el
+    # response_model los borraba de la respuesta y el filtro por colonia quedaba muerto.
+    colonia_nombre: Optional[str] = Field(None, description="Colonia según OpenStreetMap (preferida)")
+    colonia_denue: Optional[str] = Field(None, description="Colonia según DENUE (respaldo si falta la de OSM)")
 
 class MetricasResponse(BaseModel):
     total: int = Field(..., description="Total de negocios analizados en el cruce GMaps vs DENUE")
@@ -63,8 +67,11 @@ en el DENUE** (padrón oficial del INEGI), es decir, candidatos a ser negocios i
 
 **Filtros disponibles:**
 - `tipo`: filtra por estado de formalización (`informal`, `en_proceso`, `formal`)
-- `colonia_id`: filtra por colonia (obtén los IDs con `GET /api/colonias`)
 - `limit`: máximo de registros a retornar (default 2000)
+
+Cada candidato trae su colonia como texto (`colonia_nombre`, o `colonia_denue` si
+falta la primera). El filtrado por colonia se hace en el cliente contra ese nombre;
+el catálogo con los conteos está en `GET /api/colonias`.
 
 **Caso de uso principal:** el mapa los consume para pintar los marcadores de colores.
 """,
@@ -72,11 +79,10 @@ en el DENUE** (padrón oficial del INEGI), es decir, candidatos a ser negocios i
 def get_candidatos(
     limit: int = 2000,
     tipo: Optional[str] = None,
-    colonia_id: Optional[int] = None,
 ):
     if tipo and tipo not in ("informal", "en_proceso", "formal"):
         raise HTTPException(status_code=400, detail="tipo debe ser: informal, en_proceso o formal")
-    return fs.get_candidatos(tipo=tipo, colonia_id=colonia_id, limit=limit)
+    return fs.get_candidatos(tipo=tipo, limit=limit)
 
 
 @router.get(

@@ -1,10 +1,8 @@
-import { MousePointerClick, X } from 'lucide-react';
 import { useState } from 'react';
-import { Button, Card, MapCanvas, Spinner, Tabs, TabsContent, TabsList, TabsTrigger } from '@shared/ui';
+import { MapCanvas } from '@shared/ui';
 import { usePredecir } from '../api/usePredicciones';
-import { IndicePanel } from '../components/IndicePanel';
+import { PrediccionPanel } from '../components/PrediccionPanel';
 import { PredictLayer } from '../components/PredictLayer';
-import { PrediccionResultado } from '../components/PrediccionResultado';
 
 export function PrediccionesPage() {
   const [modo, setModo] = useState(false);
@@ -18,43 +16,24 @@ export function PrediccionesPage() {
   }
 
   return (
-    <Tabs defaultValue="mapa" className="flex h-full flex-col">
-      <TabsList className="px-3">
-        <TabsTrigger value="mapa">Predicción por clic</TabsTrigger>
-        <TabsTrigger value="indice">Índice de informalidad</TabsTrigger>
-      </TabsList>
-
-      <TabsContent value="mapa" className="relative min-h-0 flex-1 pt-0">
+    <div className="flex h-full">
+      <PrediccionPanel
+        modo={modo}
+        onToggleModo={() => setModo((m) => !m)}
+        onPredecir={onPredict}
+        cargando={predecir.isPending}
+        resultado={predecir.data}
+      />
+      <div className="relative hidden flex-1 md:block">
         <MapCanvas>
           <PredictLayer activo={modo} punto={punto} onPredict={onPredict} />
         </MapCanvas>
-        <div className="absolute left-3 top-3 z-[1000]">
-          <Button aria-pressed={modo} onClick={() => setModo((m) => !m)}>
-            {modo ? (
-              <>
-                <X className="h-4 w-4" aria-hidden="true" /> Cancelar
-              </>
-            ) : (
-              <>
-                <MousePointerClick className="h-4 w-4" aria-hidden="true" /> Predecir por clic
-              </>
-            )}
-          </Button>
-        </div>
-        <div className="absolute bottom-4 left-4 z-[1000] w-64">
-          {predecir.isPending ? (
-            <Card className="flex justify-center p-4">
-              <Spinner label="Analizando…" />
-            </Card>
-          ) : predecir.data ? (
-            <PrediccionResultado prediccion={predecir.data} />
-          ) : null}
-        </div>
-      </TabsContent>
-
-      <TabsContent value="indice" className="min-h-0 flex-1 overflow-y-auto p-4">
-        <IndicePanel />
-      </TabsContent>
-    </Tabs>
+        {modo ? (
+          <div className="absolute left-1/2 top-3 z-[1000] -translate-x-1/2 rounded-full bg-warning px-3 py-1 text-xs2 font-bold text-white shadow-overlay">
+            Haz clic en el mapa para predecir en ese punto
+          </div>
+        ) : null}
+      </div>
+    </div>
   );
 }

@@ -1,6 +1,7 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
-from typing import Optional, List
+from typing import List
+from collections import Counter
 import pandas as pd
 import db.firestore as fs
 from db.database import ROOT
@@ -21,9 +22,9 @@ class Zona(BaseModel):
     nivel: str = Field(..., description="Nivel de riesgo: 'Bajo' | 'Medio' | 'Alto' | 'Muy Alto'")
 
 class Colonia(BaseModel):
-    id: int = Field(..., description="ID único de la colonia en la base de datos")
-    nombre: str = Field(..., description="Nombre de la colonia según OpenStreetMap")
-    geometry: str = Field(..., description="Geometría del polígono de la colonia en formato GeoJSON string")
+    id: str = Field(..., description="Nombre de la colonia en MAYÚSCULAS — es la clave con la que se filtran los candidatos")
+    nombre: str = Field(..., description="Nombre de la colonia capitalizado, para mostrar")
+    count: int = Field(..., description="Cuántos candidatos informales hay en esa colonia")
 
 
 # ── Endpoints ─────────────────────────────────────────────────────────────────
@@ -68,22 +69,32 @@ def get_zonas():
 @router.get(
     "/api/colonias",
     response_model=List[Colonia],
-    summary="Colonias de Mérida con sus polígonos geográficos",
+    summary="Catálogo de colonias con conteo de candidatos informales",
     description="""
-Retorna la lista de colonias de Mérida junto con su geometría GeoJSON para
-dibujarlas como polígonos sobre el mapa Leaflet.
+Retorna el catálogo de colonias derivado de los propios candidatos, ordenado
+alfabéticamente y con el conteo de informales en cada una.
 
-**Nota:** Esta lista estará **vacía** hasta que corras el script de importación:
-```bash
-python scripts/importar_colonias.py
-```
-Ese script descarga los polígonos de colonias desde OpenStreetMap y los guarda
-en la base de datos. Solo necesitas correrlo una vez.
+**Importante — la colonia se identifica por nombre, no por un id numérico.**
+Los candidatos traen la colonia como texto (`colonia_nombre` o, si falta,
+`colonia_denue`); no existe una tabla de colonias con claves foráneas. Por eso
+`id` es el nombre en MAYÚSCULAS: es exactamente la cadena contra la que el
+frontend compara para filtrar, y la que espera `POST /api/ruta-colonia`.
 
-**Usado por:** el select de filtro por colonia en el mapa y la sección de
-ruta automática por colonia.
+Los polígonos para dibujar en el mapa son otra cosa y viven en
+`GET /api/colonias-geojson`.
+
+**Usado por:** el select de filtro por colonia en el mapa y la ruta automática
+por colonia.
 """,
 )
-def get_colonias(con_candidatos: bool = Query(False, description="Si es true, retorna solo colonias que tienen candidatos informales")):
-    rows = fs.get_colonias(con_candidatos=con_candidatos)
-    return [{"id": r["id"], "nombre": r["nombre"], "geometry": r.get("geometry_geojson", "")} for r in rows]
+def get_colonias():
+    counts = Counter(
+        (c.get("colonia_nombre") or c.get("colonia_denue") or "").strip().upper()
+        for c in fs.get_candidatos(limit=1_000_000)
+        if (c.get("tipo") or "informal") == "informal"
+    )
+    counts.pop("", None)
+    return [
+        {"id": nombre, "nombre": nombre.title(), "count": cnt}
+        for nombre, cnt in sorted(counts.items())
+    ]
