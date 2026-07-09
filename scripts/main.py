@@ -15,7 +15,7 @@ Pasos automáticos:
 import os
 import sys
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.config import DATA_PROC, MAPAS_DIR
 from src.descargar_datos import descargar_denue_yucatan, filtrar_merida, limpiar_denue

@@ -150,7 +150,7 @@ def reporte_visita(body: dict = Body(...)):
         if pid not in id_set:
             continue
         vd         = visita_data.get(pid, {})
-        completado = vd.get("completado") or bool(vd.get("fecha_visita"))
+        completado = bool(vd.get("completado", False))
         notas_raw  = (vd.get("notas") or "").strip()
         fecha_vis  = vd.get("fecha_visita") or ""
         tipo_label = TIPO_LABEL.get(c.get("tipo", "informal"), "🔴 Informal")

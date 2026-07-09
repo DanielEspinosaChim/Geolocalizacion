@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════════════════════════
-   campanas.js — Campañas de visita
+   campanas-lista.js — Lista, detalle y gestión de campañas
    ══════════════════════════════════════════════════════════════════════════ */
 
 let campanaActualId = null;
@@ -63,15 +63,16 @@ function _renderListaCampanas(campanas) {
     const pct = total ? Math.round((hecho / total) * 100) : 0;
     const stColor = ST_COLOR[c.status] || "#475569";
     const stLabel = ST_LABEL[c.status] || c.status;
+    const cerrada = c.status === "cerrada" || c.status === "cancelada";
     return `
     <div class="campana-card" onclick="verCampana('${c.id}')"
-         style="border-left-color:${stColor}">
+         style="border-left-color:${stColor};${cerrada ? 'opacity:.5;filter:grayscale(.4)' : ''}">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
         <span class="stat-label" style="margin:0">${stLabel}</span>
         <span style="font-size:13px;font-weight:800;color:${pct === 100 ? '#4ade80' : '#3b6ab5'};
                      font-family:'Plus Jakarta Sans','Inter',sans-serif">${pct}%</span>
       </div>
-      <div style="font-size:14px;font-weight:700;color:#f1f5f9;margin-bottom:6px;
+      <div style="font-size:14px;font-weight:700;color:${cerrada ? '#64748b' : '#f1f5f9'};margin-bottom:6px;
                   overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.nombre}</div>
       ${c.colonia ? `<div style="font-size:11px;color:#475569;margin-bottom:3px">🏘️ ${c.colonia}</div>` : ""}
       ${c.fecha_inicio ? `<div style="font-size:10px;color:#334155;margin-bottom:8px">📅 ${c.fecha_inicio}${c.fecha_fin ? " → " + c.fecha_fin : ""}</div>` : ""}
@@ -80,7 +81,7 @@ function _renderListaCampanas(campanas) {
         <span>${hecho} / ${total} negocios</span>
       </div>
       <div class="progress-bar">
-        <div class="progress-fill" style="width:${pct}%;background:${pct === 100 ? '#22c55e' : '#2563eb'}"></div>
+        <div class="progress-fill" style="width:${pct}%;background:${pct === 100 ? '#22c55e' : (cerrada ? '#334155' : '#2563eb')}"></div>
       </div>
     </div>`;
   });
@@ -176,6 +177,24 @@ function _renderDetalleCampana(d) {
   const hecho = campana.total_completados || 0;
   const pct = total ? Math.round((hecho / total) * 100) : 0;
   const stLabel = { activa: "Activa", cerrada: "Finalizada", cancelada: "Cancelada" }[campana.status] || campana.status;
+
+  // Botón Finalizar ↔ Reactivar según el estado actual
+  const btnFin = document.getElementById("btn-finalizar-campana");
+  if (btnFin) {
+    if (campana.status === "cerrada") {
+      btnFin.textContent = "▶ Reactivar campaña";
+      btnFin.onclick = reactivarCampana;
+      btnFin.style.background = "rgba(34,197,94,.12)";
+      btnFin.style.color = "#4ade80";
+      btnFin.style.borderColor = "#166534";
+    } else {
+      btnFin.textContent = "✅ Finalizar campaña";
+      btnFin.onclick = cerrarCampana;
+      btnFin.style.background = "";
+      btnFin.style.color = "";
+      btnFin.style.borderColor = "";
+    }
+  }
 
   document.getElementById("campana-detail-title").textContent = campana.nombre;
   document.getElementById("campana-detail-meta").innerHTML =
@@ -372,10 +391,6 @@ function _renderChecklistTecnico(negocios) {
       ? `<div style="font-size:10px;color:#334155;font-weight:700;text-transform:uppercase;
                      letter-spacing:.6px;padding:8px 16px 4px;background:#070f1f;
                      border-top:2px solid #0f1929">✓ Ya visitados</div>` : "";
-
-    const meta = visitado
-      ? [n.fecha_visita || "", n.notas ? `"${n.notas.slice(0, 40)}${n.notas.length > 40 ? '…' : ''}"` : ""].filter(Boolean).join(" · ")
-      : [n.tipo || "informal", n.colonia || ""].filter(Boolean).join(" · ");
 
     const mapsUrl = (n.lat && n.lng)
       ? `https://www.google.com/maps/search/?api=1&query=${n.lat},${n.lng}`
@@ -667,7 +682,6 @@ async function agregarNegocio(placeId, rowEl) {
 
 async function quitarNegocioCampana(negocioId) {
   if (!campanaActualId) return;
-  const safe = negocioId.replace(/\//g, "__");
   await fetch(`/api/campanas/${campanaActualId}/negocios/${negocioId}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
@@ -732,10 +746,8 @@ async function guardarFechaVisita(negocioId, fecha) {
 async function verRutaCampana() {
   if (!campanaActualId || !_campanaNegocios.length) return;
 
-  // En modo técnico: solo incluir pendientes para que la ruta se actualice conforme avanza
-  const fuente = window._tecnicoMode
-    ? _campanaNegocios.filter(n => !n.completado)
-    : _campanaNegocios;
+  // Solo pendientes — excluir negocios ya visitados
+  const fuente = _campanaNegocios.filter(n => !n.completado);
 
   const ids = fuente.map(n => n.negocio_id);
 
@@ -745,15 +757,19 @@ async function verRutaCampana() {
       : "La campaña necesita al menos 2 negocios para calcular una ruta.");
     return;
   }
+
+  // Marcar contexto de campaña para que el popup de ruta sepa que puede abrir el modal de visita
+  window._rutaCampanaId = campanaActualId;
+
   const btn = document.getElementById("btn-ver-ruta-campana");
-  if (btn) { btn.disabled = true; btn.textContent = "Calculando…"; }
+  if (btn) { btn.disabled = true; btn.textContent = "⏳ Calculando ruta…"; }
   try {
     const resp = await fetch("/api/ruta", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         place_ids: ids,
-        negocios_hint: fuente.map(n => ({ negocio_id: n.negocio_id, nombre: n.nombre, lat: n.lat, lng: n.lng })),
+        negocios_hint: fuente.map(n => ({ negocio_id: n.negocio_id, place_id: n.negocio_id, nombre: n.nombre, lat: n.lat, lng: n.lng, tipo: n.tipo || "informal" })),
       }),
     });
     const d = await resp.json();
@@ -762,6 +778,7 @@ async function verRutaCampana() {
       console.warn("[ruta] Negocios sin coords descartados:", JSON.stringify(d.descartados, null, 2));
     }
     if (typeof renderRutaEnMapa === "function") {
+      window._rutaEsCampana = true;
       renderRutaEnMapa(d);
       showTab("ruta");
     }
@@ -801,13 +818,17 @@ async function descargarReporteCampana() {
 
 // ── Modal: crear campaña ──────────────────────────────────────────────────────
 
-function mostrarModalCrearCampana() {
+async function mostrarModalCrearCampana() {
   document.getElementById("modal-campana").style.display = "flex";
   const sel = document.getElementById("campana-colonia-input");
-  if (sel && typeof coloniasData !== "undefined" && coloniasData.length) {
-    sel.innerHTML = '<option value="">Sin colonia específica</option>' +
-      coloniasData.map(c => `<option value="${c.nombre}">${c.nombre}</option>`).join("");
-  }
+  if (!sel) return;
+
+  const colonias = window._preloads?.colonias
+    ? await window._preloads.colonias.catch(() => [])
+    : await fetch("/api/colonias").then(r => r.json()).catch(() => []);
+
+  sel.innerHTML = '<option value="">Sin colonia específica</option>' +
+    colonias.map(c => `<option value="${c.nombre}">${c.nombre}</option>`).join("");
 }
 
 function cerrarModalCampana() {
@@ -818,13 +839,19 @@ function cerrarModalCampana() {
 async function crearCampana(e) {
   e.preventDefault();
   const btn = e.target.querySelector("button[type=submit]");
+  const fecha_inicio = document.getElementById("campana-fecha-inicio").value;
+  const fecha_fin = document.getElementById("campana-fecha-fin").value;
+  if (fecha_inicio && fecha_fin && fecha_fin < fecha_inicio) {
+    alert("La fecha de fin no puede ser anterior a la fecha de inicio.");
+    return;
+  }
   if (btn) { btn.disabled = true; btn.textContent = "Creando…"; }
   const body = {
     nombre: document.getElementById("campana-nombre").value,
     descripcion: document.getElementById("campana-desc").value,
     colonia: document.getElementById("campana-colonia-input").value,
-    fecha_inicio: document.getElementById("campana-fecha-inicio").value,
-    fecha_fin: document.getElementById("campana-fecha-fin").value,
+    fecha_inicio,
+    fecha_fin,
   };
   const resp = await fetch("/api/campanas", {
     method: "POST",
@@ -841,11 +868,21 @@ async function crearCampana(e) {
 }
 
 async function cerrarCampana() {
-  if (!confirm("¿Marcar esta campaña como cerrada?")) return;
+  if (!confirm("¿Marcar esta campaña como finalizada?")) return;
   await fetch(`/api/campanas/${campanaActualId}/status`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ status: "cerrada" }),
+  });
+  volverListaCampanas();
+}
+
+async function reactivarCampana() {
+  if (!confirm("¿Reactivar esta campaña?")) return;
+  await fetch(`/api/campanas/${campanaActualId}/status`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ status: "activa" }),
   });
   volverListaCampanas();
 }
@@ -865,716 +902,4 @@ function volverListaCampanas() {
   document.getElementById("campanas-detail-view").style.display = "none";
   document.getElementById("campanas-lista-view").style.display = "flex";
   cargarCampanas();
-}
-
-
-// ══════════════════════════════════════════════════════════════════════════════
-// MODAL DE VISITA
-// ══════════════════════════════════════════════════════════════════════════════
-
-async function abrirModalVisita(negocioId, nombre) {
-  _visitaModal = { negocioId, nombre };
-  _vfFotoCleared = false;
-  document.getElementById("modal-visita-negocio").textContent = nombre;
-
-  // Cargar plantillas si no están en caché
-  if (!_plantillasCache.length) {
-    const r = await fetch("/api/plantillas");
-    _plantillasCache = await r.json();
-  }
-
-  // Pre-cargar datos de visita existentes
-  const negocioData = _campanaNegocios.find(n => n.negocio_id === negocioId) || {};
-  const datosExist = negocioData.visita_datos || {};
-  // Usar la plantilla que usó la última visita, o la default
-  const lastPid = negocioData.plantilla_id;
-  const plantilla = (lastPid && _plantillasCache.find(p => p.id === lastPid))
-    || _plantillasCache.find(p => p.es_default)
-    || _plantillasCache[0]
-    || { campos: [], id: null };
-  _visitaModal.plantillaId = plantilla.id;
-
-  // Pre-llenar campos fijos: visitado, notas y foto existente
-  _vfSetVisitado(!!negocioData.completado);
-  const notasEl = document.getElementById("vf-fixed-notas");
-  if (notasEl) notasEl.value = negocioData.notas || "";
-  const fotoPrev = document.getElementById("vf-fixed-foto-prev");
-  const fotoInp  = document.getElementById("vf-fixed-foto");
-  const fotoWrap = document.getElementById("vf-fixed-foto-wrap");
-  if (fotoInp) fotoInp.value = "";
-  if (negocioData.foto_visita_url && fotoPrev && fotoWrap) {
-    fotoPrev.src = negocioData.foto_visita_url;
-    fotoPrev.onclick = () => window.open(negocioData.foto_visita_url);
-    fotoWrap.style.display = "inline-flex";
-  } else {
-    if (fotoPrev) fotoPrev.src = "";
-    if (fotoWrap) fotoWrap.style.display = "none";
-  }
-
-  _renderSelectorPlantilla(plantilla.id);
-  _renderCamposVisita(plantilla.campos, datosExist);
-  document.getElementById("modal-visita").style.display = "flex";
-}
-
-// Aplica el estilo visual al toggle visitado/pendiente
-function _vfSetVisitado(visitado) {
-  const siInp = document.querySelector('input[name="vf-visitado"][value="true"]');
-  const noInp = document.querySelector('input[name="vf-visitado"][value="false"]');
-  if (!siInp || !noInp) return;
-  siInp.checked = visitado;
-  noInp.checked = !visitado;
-  _vfVisitadoChange();
-}
-
-function _vfVisitadoChange() {
-  const siInp = document.querySelector('input[name="vf-visitado"][value="true"]');
-  const siLbl = document.getElementById("vf-visitado-si-lbl");
-  const noLbl = document.getElementById("vf-visitado-no-lbl");
-  if (!siInp || !siLbl || !noLbl) return;
-  const v = siInp.checked;
-  siLbl.style.borderColor = v ? "#22c55e" : "#1e293b";
-  siLbl.style.background = v ? "rgba(34,197,94,.1)" : "transparent";
-  siLbl.style.color = v ? "#4ade80" : "#475569";
-  noLbl.style.borderColor = !v ? "#64748b" : "#1e293b";
-  noLbl.style.background = !v ? "rgba(100,116,139,.1)" : "transparent";
-  noLbl.style.color = !v ? "#94a3b8" : "#475569";
-}
-
-function _renderSelectorPlantilla(activoId) {
-  const el = document.getElementById("modal-visita-plantilla-sel");
-  if (!el || _plantillasCache.length <= 1) {
-    if (el) el.style.display = "none";
-    return;
-  }
-  el.style.display = "flex";
-  el.innerHTML = _plantillasCache.map(p => {
-    const active = p.id === activoId;
-    return `<button onclick="_cambiarPlantillaVisita('${p.id}')"
-      style="padding:4px 12px;border-radius:20px;font-size:10px;font-weight:600;
-             cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap;
-             ${active ? 'background:#2563eb;color:#fff;border:none'
-        : 'background:transparent;color:#64748b;border:1px solid #1e293b'}">
-      ${p.nombre}
-    </button>`;
-  }).join("");
-}
-
-function _cambiarPlantillaVisita(plantillaId) {
-  const plantilla = _plantillasCache.find(p => p.id === plantillaId) || { campos: [] };
-  _visitaModal.plantillaId = plantillaId;
-  const negocioData = _campanaNegocios.find(n => n.negocio_id === _visitaModal.negocioId) || {};
-  _renderSelectorPlantilla(plantillaId);
-  _renderCamposVisita(plantilla.campos, negocioData.visita_datos || {});
-}
-
-function cerrarModalVisita() {
-  document.getElementById("modal-visita").style.display = "none";
-  _visitaModal = { negocioId: null, nombre: null };
-  _vfFotoCleared = false;
-  _vfClearFoto();
-}
-
-function _renderCamposVisita(campos, datosExist) {
-  const el = document.getElementById("modal-visita-campos");
-  // Excluir "notas" porque ya existe el campo fijo en el modal
-  const camposFiltrados = campos.filter(c => c.key !== "notas");
-  if (!camposFiltrados.length) {
-    el.innerHTML = "";
-    return;
-  }
-  el.innerHTML = camposFiltrados.map(c => {
-    const val = datosExist[c.key];
-    return `<div style="margin-bottom:14px">
-      <div style="font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;
-                  letter-spacing:.06em;margin-bottom:6px">
-        ${c.label}${c.requerido ? ' <span style="color:#f87171;text-transform:none;font-weight:400">*</span>' : ""}
-      </div>
-      ${_inputParaCampo(c, val)}
-    </div>`;
-  }).join("");
-}
-
-function _inputParaCampo(c, val) {
-  const id = `vf-${c.key}`;
-  switch (c.tipo) {
-    case "opciones": {
-      const opts = (c.opciones || []).map(o =>
-        `<option value="${o}" ${val === o ? "selected" : ""}>${o}</option>`).join("");
-      return `<select id="${id}" class="filtro-input" style="margin:0">${`<option value="">— Seleccionar —</option>${opts}`
-        }</select>`;
-    }
-    case "bool": {
-      const isTrue = val === true || val === "true" || val === "Sí";
-      const isFalse = val === false || val === "false" || val === "No";
-      return `<div style="display:flex;gap:6px">
-        ${["true", "false"].map((v, vi) => {
-        const label = v === "true" ? "Sí" : "No";
-        const active = v === "true" ? isTrue : isFalse;
-        const col = v === "true" ? "#22c55e" : "#f87171";
-        return `<label style="flex:1;display:flex;align-items:center;justify-content:center;
-            gap:6px;cursor:pointer;border-radius:8px;padding:8px;font-size:12px;font-weight:600;
-            border:1.5px solid ${active ? col : '#1e293b'};
-            background:${active ? col + '18' : 'transparent'};
-            color:${active ? col : '#475569'};transition:all .15s">
-            <input type="radio" name="${id}" value="${v}" ${active ? "checked" : ""}
-                   style="display:none" onchange="_vfBoolChange('${id}')">
-            <span style="font-size:15px">${v === "true" ? "✓" : "✗"}</span> ${label}
-          </label>`;
-      }).join("")}
-      </div>`;
-    }
-    case "numero":
-      return `<input id="${id}" type="number" class="filtro-input" style="margin:0"
-               value="${val !== undefined && val !== null ? val : ""}" min="0"/>`;
-    case "textarea":
-      return `<textarea id="${id}" class="filtro-input"
-               style="margin:0;height:80px;resize:vertical">${val || ""}</textarea>`;
-    case "foto": {
-      const preview = val
-        ? `<img id="${id}-prev" src="${val}" onclick="window.open('${val}')"
-               style="height:56px;width:56px;object-fit:cover;border-radius:6px;
-                      margin-right:8px;cursor:pointer;display:inline-block;vertical-align:middle"/>`
-        : `<img id="${id}-prev" style="display:none;height:56px;width:56px;
-               object-fit:cover;border-radius:6px;margin-right:8px;vertical-align:middle"/>`;
-      return `<div style="display:flex;align-items:center">
-        ${preview}
-        <input id="${id}" type="file" accept="image/*" style="display:none"
-               onchange="_vfFotoChange('${id}')"/>
-        <div style="flex:1;display:flex;gap:5px">
-          <button type="button" onclick="_vfPlantillaAbrirCamara('${id}')"
-                  style="flex:1;padding:7px 4px;border-radius:7px;border:1px solid #1e3a5f;
-                         background:#0a1e38;color:#60a5fa;font-size:11px;font-weight:600;
-                         cursor:pointer;font-family:'Inter',sans-serif">
-            📷 Cámara
-          </button>
-          <button type="button" onclick="_vfPlantillaAbrirGaleria('${id}')"
-                  style="flex:1;padding:7px 4px;border-radius:7px;border:1px dashed #334155;
-                         background:transparent;color:#94a3b8;font-size:11px;font-weight:600;
-                         cursor:pointer;font-family:'Inter',sans-serif">
-            🖼 Galería
-          </button>
-        </div>
-      </div>`;
-    }
-    default:
-      return `<input id="${id}" type="text" class="filtro-input" style="margin:0"
-               value="${val || ""}"/>`;
-  }
-}
-
-function _vfBoolChange(groupId) {
-  // Re-style the sibling labels when a radio changes
-  document.querySelectorAll(`input[name="${groupId}"]`).forEach(inp => {
-    const lbl = inp.closest("label");
-    if (!lbl) return;
-    const isTrue = inp.value === "true";
-    const col = isTrue ? "#22c55e" : "#f87171";
-    if (inp.checked) {
-      lbl.style.borderColor = col;
-      lbl.style.background = col + "18";
-      lbl.style.color = col;
-    } else {
-      lbl.style.borderColor = "#1e293b";
-      lbl.style.background = "transparent";
-      lbl.style.color = "#475569";
-    }
-  });
-}
-
-function _vfPlantillaAbrirCamara(id) {
-  _abrirCamara(id, file => {
-    const dt = new DataTransfer();
-    dt.items.add(file);
-    document.getElementById(id).files = dt.files;
-    _vfFotoChange(id);
-  });
-}
-
-function _vfPlantillaAbrirGaleria(id) {
-  const inp = document.getElementById(id);
-  inp.removeAttribute('capture');
-  inp.click();
-}
-
-function _vfFotoChange(id) {
-  const input = document.getElementById(id);
-  const prev = document.getElementById(`${id}-prev`);
-  if (!input || !input.files || !input.files[0] || !prev) return;
-  prev.src = URL.createObjectURL(input.files[0]);
-  prev.style.display = "inline-block";
-}
-
-function _vfAbrirCamara() {
-  _abrirCamara('vf-fixed-foto', file => {
-    const dt = new DataTransfer();
-    dt.items.add(file);
-    document.getElementById('vf-fixed-foto').files = dt.files;
-    _vfFixedFotoChange();
-  });
-}
-
-function _vfAbrirGaleria() {
-  const inp = document.getElementById('vf-fixed-foto');
-  inp.removeAttribute('capture');
-  inp.click();
-}
-
-function _vfFixedFotoChange() {
-  const input = document.getElementById('vf-fixed-foto');
-  const prev  = document.getElementById('vf-fixed-foto-prev');
-  const wrap  = document.getElementById('vf-fixed-foto-wrap');
-  if (!input || !input.files[0] || !prev) return;
-  const url = URL.createObjectURL(input.files[0]);
-  prev.src = url;
-  prev.onclick = () => window.open(url);
-  if (wrap) wrap.style.display = 'inline-flex';
-}
-
-let _vfFotoCleared = false;
-
-function _vfClearFoto() {
-  const inp  = document.getElementById('vf-fixed-foto');
-  const prev = document.getElementById('vf-fixed-foto-prev');
-  const wrap = document.getElementById('vf-fixed-foto-wrap');
-  if (inp)  { inp.value = ''; }
-  if (prev) { prev.src = ''; }
-  if (wrap) { wrap.style.display = 'none'; }
-  _vfFotoCleared = true;
-}
-
-function _haversineM(lat1, lng1, lat2, lng2) {
-  const R = 6371000;
-  const dLat = (lat2 - lat1) * Math.PI / 180;
-  const dLng = (lng2 - lng1) * Math.PI / 180;
-  const a = Math.sin(dLat / 2) ** 2
-    + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * Math.sin(dLng / 2) ** 2;
-  return Math.round(R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
-}
-
-async function guardarVisita() {
-  if (!_visitaModal.negocioId || !campanaActualId) return;
-
-  const btn = document.getElementById("btn-guardar-visita");
-  if (btn) { btn.disabled = true; btn.textContent = "Guardando…"; }
-
-  // Obtener la plantilla seleccionada en el modal
-  const plantilla = (_visitaModal.plantillaId && _plantillasCache.find(p => p.id === _visitaModal.plantillaId))
-    || _plantillasCache[0] || { campos: [] };
-  const datos = {};
-  let fotoFile = null;
-
-  for (const c of plantilla.campos) {
-    const id = `vf-${c.key}`;
-    if (c.tipo === "foto") {
-      const input = document.getElementById(id);
-      if (input && input.files && input.files[0]) fotoFile = input.files[0];
-    } else if (c.tipo === "bool") {
-      const checked = document.querySelector(`input[name="${id}"]:checked`);
-      if (checked) datos[c.key] = checked.value === "true";
-    } else if (c.tipo === "numero") {
-      const el = document.getElementById(id);
-      if (el && el.value !== "") datos[c.key] = Number(el.value);
-    } else {
-      const el = document.getElementById(id);
-      if (el && el.value) datos[c.key] = el.value;
-    }
-  }
-
-  // Leer campos fijos
-  const visitadoInp = document.querySelector('input[name="vf-visitado"]:checked');
-  const visitado = visitadoInp ? visitadoInp.value === "true" : false;
-  const notasEl = document.getElementById("vf-fixed-notas");
-  const notas = notasEl ? notasEl.value.trim() : "";
-
-  // Foto fija del modal (tiene prioridad sobre la de plantilla)
-  const fixedFotoInput = document.getElementById('vf-fixed-foto');
-  if (fixedFotoInput && fixedFotoInput.files[0]) fotoFile = fixedFotoInput.files[0];
-
-  const negId  = _visitaModal.negocioId;
-  const negData = _campanaNegocios.find(n => n.negocio_id === negId);
-  const base   = `/api/campanas/${campanaActualId}/negocios/${negId}`;
-
-  const fd = new FormData();
-  fd.append("datos_json", JSON.stringify(datos));
-  fd.append("plantilla_id", _visitaModal.plantillaId || "");
-  fd.append("completado", visitado ? "true" : "false");
-  if (fotoFile) fd.append("foto", fotoFile);
-
-  // Guardar visita (datos de plantilla + foto)
-  const resp = await fetch(`${base}/visita`, { method: "POST", body: fd });
-
-  // Forzar completado y notas via PATCH (garantiza el valor correcto)
-  const patchBody = { completado: visitado, ...(notas ? { notas } : {}) };
-  // Si el usuario borró la foto activamente (X) y no subió una nueva, limpiarla
-  if (_vfFotoCleared && !fotoFile) patchBody.foto_visita_url = "";
-  await fetch(base, {
-    method: "PATCH",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(patchBody),
-  });
-
-  if (btn) { btn.disabled = false; btn.textContent = "Guardar visita"; }
-
-  if (resp.ok) {
-    cerrarModalVisita();
-    const r = await fetch(`/api/campanas/${campanaActualId}`);
-    const d = await r.json();
-    _campanaNegocios = d.negocios || [];
-    _renderTablaNegociosCampana(_campanaNegocios);
-    _actualizarMeta(d.campana);
-    // GPS en background — no bloquea el cierre del modal
-    _guardarGPSVisita(base, negData);
-  } else {
-    alert("Error al guardar la visita.");
-  }
-}
-
-async function _guardarGPSVisita(base, negData) {
-  try {
-    const pos = await new Promise((resolve, reject) =>
-      navigator.geolocation.getCurrentPosition(resolve, reject,
-        { enableHighAccuracy: true, timeout: 8000, maximumAge: 0 })
-    );
-    const gps = {
-      visita_lat:       pos.coords.latitude,
-      visita_lng:       pos.coords.longitude,
-      visita_precision: Math.round(pos.coords.accuracy),
-    };
-    if (negData && negData.lat && negData.lng) {
-      const dist = _haversineM(negData.lat, negData.lng, pos.coords.latitude, pos.coords.longitude);
-      if (dist < 10000) gps.visita_distancia = dist;
-    }
-    try {
-      const geo = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&format=json`
-      ).then(r => r.json());
-      gps.visita_direccion = (geo.display_name || "").split(",").slice(0, 3).join(",").trim();
-    } catch { gps.visita_direccion = `${pos.coords.latitude.toFixed(5)}, ${pos.coords.longitude.toFixed(5)}`; }
-
-    await fetch(base, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(gps),
-    });
-    // Actualizar tarjeta en el DOM directamente (el modal ya está cerrado)
-    const negId = base.split("/negocios/")[1];
-    const neg = _campanaNegocios.find(n => n.negocio_id === negId);
-    if (neg) {
-      Object.assign(neg, gps);
-      const row = document.getElementById(`cn-row-${negId}`);
-      if (row) _actualizarBadgeGPS(row, gps);
-    }
-  } catch { /* GPS no disponible o denegado — sin problema */ }
-}
-
-function _actualizarBadgeGPS(row, gps) {
-  let badge = row.querySelector('.gps-badge');
-  if (!badge) {
-    badge = document.createElement('div');
-    badge.className = 'gps-badge';
-    const notasEl = row.querySelector('[style*="color:#475569"]');
-    if (notasEl) notasEl.after(badge);
-    else row.querySelector('[style*="flex:1"]')?.append(badge);
-  }
-  const d = gps.visita_distancia;
-  const c = d != null ? (d <= 100 ? '#22c55e' : d <= 300 ? '#f59e0b' : '#ef4444') : '#64748b';
-  const distTxt = d != null ? ` · a ${d} m` : '';
-  badge.style.cssText = `font-size:9px;color:${c};margin-top:3px;font-weight:600;line-height:1.4`;
-  badge.textContent = `📍 ${gps.visita_direccion || ''}${distTxt}`;
-}
-
-
-// ══════════════════════════════════════════════════════════════════════════════
-// GESTIÓN DE PLANTILLAS
-// ══════════════════════════════════════════════════════════════════════════════
-
-async function abrirModalPlantillas() {
-  document.getElementById("modal-plantillas").style.display = "flex";
-  const r = await fetch("/api/plantillas");
-  _plantillasCache = await r.json();
-  _renderListaPlantillas(_plantillasCache);
-}
-
-function cerrarModalPlantillas() {
-  document.getElementById("modal-plantillas").style.display = "none";
-}
-
-function _renderListaPlantillas(plantillas) {
-  const el = document.getElementById("modal-plantillas-lista");
-  if (!plantillas.length) {
-    el.innerHTML = `<div style="color:#475569;font-size:12px;padding:16px;text-align:center">
-      No hay plantillas.</div>`;
-    return;
-  }
-  el.innerHTML = plantillas.map(p => `
-    <div style="background:linear-gradient(135deg,#0c1a30,#080f1e);
-                border:1px solid #1a2d4a;border-radius:8px;padding:10px 12px;
-                margin-bottom:6px;box-shadow:0 2px 8px rgba(0,0,0,.3)">
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
-        <div style="min-width:0">
-          <div style="font-size:12px;font-weight:700;color:#e2e8f0;
-                      display:flex;align-items:center;gap:6px">
-            ${p.nombre}
-            ${p.es_default ? `<span style="font-size:9px;font-weight:600;color:#60a5fa;
-              background:rgba(37,99,235,.18);padding:1px 6px;border-radius:10px;
-              border:1px solid rgba(37,99,235,.3)">default</span>` : ""}
-          </div>
-          <div style="font-size:10px;color:#2d4a6e;margin-top:3px">
-            ${(p.campos || []).length} campos${p.descripcion ? ` · ${p.descripcion}` : ""}
-          </div>
-        </div>
-        <div style="display:flex;gap:5px;flex-shrink:0">
-          <button onclick="mostrarEditorPlantilla('${p.id}')"
-                  style="padding:4px 10px;border-radius:6px;border:1px solid #1f3460;
-                         background:transparent;color:#3d5a8a;font-size:10px;
-                         cursor:pointer;font-weight:600;font-family:'Inter',sans-serif">
-            Editar
-          </button>
-          ${!p.es_default ? `<button onclick="eliminarPlantilla('${p.id}')"
-                  style="width:26px;height:26px;border-radius:6px;border:1px solid #2d1515;
-                         background:transparent;color:#7f1d1d;font-size:12px;
-                         cursor:pointer;line-height:1">🗑</button>` : ""}
-        </div>
-      </div>
-    </div>`).join("");
-}
-
-async function mostrarEditorPlantilla(id) {
-  _plantillaEditorId = id;
-  document.getElementById("ep-titulo").textContent = id ? "Editar plantilla" : "Nueva plantilla";
-  cerrarModalPlantillas();
-
-  if (id) {
-    const p = _plantillasCache.find(x => x.id === id) || {};
-    document.getElementById("ep-nombre").value = p.nombre || "";
-    document.getElementById("ep-desc").value = p.descripcion || "";
-    _epCampos = JSON.parse(JSON.stringify(p.campos || []));
-  } else {
-    document.getElementById("ep-nombre").value = "";
-    document.getElementById("ep-desc").value = "";
-    _epCampos = [];
-  }
-  _renderEditorCampos();
-  document.getElementById("modal-editor-plantilla").style.display = "flex";
-}
-
-function cerrarEditorPlantilla() {
-  document.getElementById("modal-editor-plantilla").style.display = "none";
-  abrirModalPlantillas();
-}
-
-// ── Sync + render ─────────────────────────────────────────────────────────────
-
-function _epSyncDOM() {
-  _epCampos.forEach((c, i) => {
-    const lbl = document.querySelector(`[data-ep-label="${i}"]`);
-    if (lbl) c.label = lbl.value;
-    const ops = document.querySelector(`[data-ep-opciones="${i}"]`);
-    if (ops) c.opciones = ops.value.split(",").map(x => x.trim()).filter(Boolean);
-  });
-}
-
-function _renderEditorCampos() {
-  const cnt = document.getElementById("ep-campos-count");
-  if (cnt) cnt.textContent = `${_epCampos.length} campo${_epCampos.length !== 1 ? "s" : ""}`;
-  const el = document.getElementById("ep-campos-lista");
-  if (!_epCampos.length) {
-    el.innerHTML = `<div style="color:#334155;font-size:13px;padding:20px;text-align:center;
-      border:1px dashed #1e293b;border-radius:8px">Sin campos aún</div>`;
-    return;
-  }
-  const TIPOS = [
-    { k: "texto", label: "Texto" },
-    { k: "textarea", label: "Párrafo" },
-    { k: "numero", label: "Número" },
-    { k: "bool", label: "Sí/No" },
-    { k: "opciones", label: "Lista" },
-    { k: "foto", label: "Foto" },
-  ];
-  el.innerHTML = _epCampos.map((c, i) => `
-    <div data-ep-card="${i}"
-         style="background:linear-gradient(135deg,#0c1a30 0%,#080f1e 100%);
-                border:1px solid #1a2d4a;border-radius:10px;
-                padding:10px 12px;margin-bottom:6px;user-select:none;
-                box-shadow:0 2px 8px rgba(0,0,0,.3)">
-      <div style="display:flex;align-items:center;gap:7px">
-        <span onpointerdown="_epHandleDown(event,${i})"
-              style="cursor:grab;color:#1f3460;font-size:16px;letter-spacing:-.5px;
-                     flex-shrink:0;padding:0 3px;touch-action:none;
-                     transition:color .15s" title="Arrastra para reordenar">⠿⠿</span>
-        <input value="${(c.label || "").replace(/"/g, '&quot;')}"
-               placeholder="Nombre del campo…"
-               class="filtro-input" data-ep-label="${i}"
-               style="flex:1;margin:0;font-size:13px;padding:7px 10px;
-                      background:#060d1a;border-color:#1a2d4a"/>
-        <button onclick="_epQuitarCampo(${i})"
-                style="width:26px;height:26px;border-radius:5px;border:1px solid #2d1515;
-                       background:transparent;color:#7f1d1d;font-size:13px;
-                       cursor:pointer;line-height:1;flex-shrink:0;
-                       transition:color .15s,border-color .15s"
-                onmouseover="this.style.color='#f87171';this.style.borderColor='#7f1d1d'"
-                onmouseout="this.style.color='#7f1d1d';this.style.borderColor='#2d1515'">✕</button>
-      </div>
-      <div style="display:flex;gap:4px;margin-top:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:1px">
-        ${TIPOS.map(t => {
-    const a = c.tipo === t.k;
-    return `<button onclick="_epUpdateCampo(${i},'tipo','${t.k}')"
-            style="flex-shrink:0;padding:4px 11px;border-radius:20px;font-size:11px;
-                   font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;
-                   transition:all .12s;
-                   ${a ? 'background:linear-gradient(135deg,#1d4ed8,#1e40af);color:#fff;border:1px solid #1d4ed8;box-shadow:0 1px 6px rgba(29,78,216,.4)'
-        : 'background:transparent;color:#2d4a6e;border:1px solid #1a2d4a'
-      }">${t.label}</button>`;
-  }).join("")}
-      </div>
-      ${c.tipo === "opciones" ? `
-      <input value="${(c.opciones || []).join(", ").replace(/"/g, '&quot;')}"
-             placeholder="Opción A, Opción B, Opción C…"
-             class="filtro-input" data-ep-opciones="${i}"
-             style="margin:7px 0 0;font-size:12px;padding:6px 10px;
-                    color:#64748b;background:#060d1a;border-color:#1a2d4a"/>` : ""}
-    </div>`).join("");
-}
-
-// ── Pointer drag-and-drop ─────────────────────────────────────────────────────
-
-let _epDragState = null;
-
-function _epHandleDown(e, idx) {
-  e.preventDefault();
-  _epSyncDOM();
-
-  const lista = document.getElementById("ep-campos-lista");
-  const card = lista?.querySelector(`[data-ep-card="${idx}"]`);
-  if (!card) return;
-
-  const rect = card.getBoundingClientRect();
-  const ghost = card.cloneNode(true);
-  Object.assign(ghost.style, {
-    position: "fixed", left: rect.left + "px", top: rect.top + "px",
-    width: rect.width + "px", zIndex: "10000", pointerEvents: "none",
-    opacity: "0.9", background: "#1a2d56", border: "1.5px solid #3b82f6",
-    borderRadius: "7px", boxShadow: "0 8px 28px rgba(0,0,0,.6)", transition: "none",
-  });
-  document.body.appendChild(ghost);
-  card.style.opacity = "0.2";
-
-  _epDragState = { idx, toIdx: idx, startY: e.clientY, ghostTop: rect.top, ghost, card };
-  document.addEventListener("pointermove", _epHandleMove, { passive: false });
-  document.addEventListener("pointerup", _epHandleUp, { once: true });
-}
-
-function _epHandleMove(e) {
-  if (!_epDragState) return;
-  e.preventDefault();
-  const { ghost, ghostTop, startY } = _epDragState;
-  ghost.style.top = (ghostTop + e.clientY - startY) + "px";
-
-  const lista = document.getElementById("ep-campos-lista");
-  if (!lista) return;
-  const cards = Array.from(lista.querySelectorAll("[data-ep-card]"));
-  let toIdx = _epCampos.length - 1;
-  for (let i = 0; i < cards.length; i++) {
-    const r = cards[i].getBoundingClientRect();
-    if (e.clientY < r.top + r.height / 2) { toIdx = i; break; }
-  }
-  cards.forEach((c, i) => {
-    c.style.borderTopColor = (i === toIdx && toIdx !== _epDragState.idx) ? "#3b82f6" : "#1a2640";
-  });
-  _epDragState.toIdx = toIdx;
-}
-
-function _epHandleUp() {
-  if (!_epDragState) return;
-  document.removeEventListener("pointermove", _epHandleMove);
-  const { idx, toIdx, ghost, card } = _epDragState;
-  _epDragState = null;
-  ghost.remove();
-  if (card) card.style.opacity = "";
-  if (toIdx !== idx) {
-    const moved = _epCampos.splice(idx, 1)[0];
-    _epCampos.splice(toIdx, 0, moved);
-  }
-  _renderEditorCampos();
-}
-
-// ── Field mutations ───────────────────────────────────────────────────────────
-
-function _epUpdateCampo(idx, key, val) {
-  _epSyncDOM();
-  _epCampos[idx][key] = val;
-  if (key === "tipo") {
-    if (val !== "opciones") delete _epCampos[idx].opciones;
-    _renderEditorCampos();
-  }
-}
-
-function _epQuitarCampo(idx) {
-  _epSyncDOM();
-  _epCampos.splice(idx, 1);
-  _renderEditorCampos();
-}
-
-function agregarCampoPlantilla() {
-  _epSyncDOM();
-  _epCampos.push({ key: `c_${Date.now()}`, label: "", tipo: "texto" });
-  _renderEditorCampos();
-  const lista = document.getElementById("ep-campos-lista");
-  lista?.lastElementChild?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-}
-
-async function guardarPlantilla() {
-  const nombre = document.getElementById("ep-nombre").value.trim();
-  if (!nombre) { alert("El nombre es requerido."); return; }
-
-  // Sync any un-saved label/opciones from DOM inputs
-  _epSyncDOM();
-
-  // Sync labels → keys (slug)
-  const campos = _epCampos
-    .filter(c => c.label)
-    .map(c => ({
-      ...c,
-      key: c.key || c.label.toLowerCase().replace(/\s+/g, "_").replace(/[^a-z0-9_]/g, ""),
-    }));
-
-  const body = {
-    nombre,
-    descripcion: document.getElementById("ep-desc").value.trim(),
-    campos,
-  };
-
-  let resp;
-  if (_plantillaEditorId) {
-    resp = await fetch(`/api/plantillas/${_plantillaEditorId}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-  } else {
-    resp = await fetch("/api/plantillas", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-  }
-
-  if (resp.ok) {
-    _plantillasCache = [];  // invalidar caché
-    cerrarEditorPlantilla();
-  } else {
-    alert("Error al guardar la plantilla.");
-  }
-}
-
-async function eliminarPlantilla(id) {
-  if (!confirm("¿Eliminar esta plantilla?")) return;
-  const resp = await fetch(`/api/plantillas/${id}`, { method: "DELETE" });
-  if (resp.ok) {
-    _plantillasCache = [];
-    await abrirModalPlantillas();
-  } else {
-    const d = await resp.json().catch(() => ({}));
-    alert(d.detail || "No se puede eliminar.");
-  }
 }

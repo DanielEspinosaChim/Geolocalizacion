@@ -664,32 +664,50 @@
         <div style="font-size:20px;font-weight:800;color:#dde9ff;margin-bottom:10px">Limpieza: qué se descartó y por qué</div>
         <p style="font-size:13px;color:#64748b;margin:0 0 20px;line-height:1.7">No todo lo que aparece en las plataformas digitales es un negocio comercial. Antes de analizar, retiramos cualquier lugar que no puede ser informal — el análisis solo considera establecimientos que <em>podrían</em> operar sin registro.</p>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px">
-          <div style="background:#070f1f;border-radius:10px;padding:16px;border:1px solid #0f2040;text-align:center">
-            <div style="font-size:11px;color:#64748b;text-transform:uppercase;font-weight:600;margin-bottom:8px">Total descargados</div>
-            <div style="font-size:26px;font-weight:800;color:#dde9ff" id="idx-s2-total-raw">—</div>
-            <div style="font-size:11px;color:#475569;margin-top:4px">Google Maps + OpenStreetMap</div>
+        <!-- Google Maps: limpieza -->
+        <div style="background:#070f1f;border:1px solid #f59e0b22;border-radius:12px;padding:18px;margin-bottom:14px">
+          <div style="font-size:11px;color:#f59e0b;font-weight:700;text-transform:uppercase;margin-bottom:12px">🗺️ Google Maps — requirió limpieza</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px">
+            <div style="text-align:center">
+              <div style="font-size:22px;font-weight:800;color:#dde9ff" id="idx-s2-total-raw">—</div>
+              <div style="font-size:10px;color:#475569;margin-top:3px">descargados</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-size:22px;font-weight:800;color:#f87171" id="idx-s2-excluidos">5,942</div>
+              <div style="font-size:10px;color:#475569;margin-top:3px">excluidos</div>
+            </div>
+            <div style="text-align:center">
+              <div style="font-size:22px;font-weight:800;color:#22c55e" id="idx-s2-total-real">—</div>
+              <div style="font-size:10px;color:#475569;margin-top:3px">negocios reales</div>
+            </div>
           </div>
-          <div style="background:#070f1f;border-radius:10px;padding:16px;border:1px solid #f8717122;text-align:center">
-            <div style="font-size:11px;color:#f87171;text-transform:uppercase;font-weight:600;margin-bottom:8px">Excluidos</div>
-            <div style="font-size:26px;font-weight:800;color:#f87171" id="idx-s2-excluidos">5,942</div>
-            <div style="font-size:11px;color:#475569;margin-top:4px">no son establecimientos comerciales</div>
-          </div>
-          <div style="background:#070f1f;border-radius:10px;padding:16px;border:1px solid #22c55e22;text-align:center">
-            <div style="font-size:11px;color:#22c55e;text-transform:uppercase;font-weight:600;margin-bottom:8px">Analizados</div>
-            <div style="font-size:26px;font-weight:800;color:#22c55e" id="idx-s2-total-real">—</div>
-            <div style="font-size:11px;color:#475569;margin-top:4px">negocios reales bajo análisis</div>
+          <div style="font-size:11px;color:#64748b;margin-bottom:10px">Google Maps mezcla negocios con lugares que <strong>por definición no pueden ser informales</strong>. Se eliminaron los 5,942 que caen en alguna de estas categorías:</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">
+            <div style="background:#0a1428;border-radius:6px;padding:8px 12px;font-size:11px;color:#94a3b8;border:1px solid #0f2040">⛪ Iglesias y templos</div>
+            <div style="background:#0a1428;border-radius:6px;padding:8px 12px;font-size:11px;color:#94a3b8;border:1px solid #0f2040">🏫 Escuelas y universidades</div>
+            <div style="background:#0a1428;border-radius:6px;padding:8px 12px;font-size:11px;color:#94a3b8;border:1px solid #0f2040">🌳 Parques y plazas</div>
+            <div style="background:#0a1428;border-radius:6px;padding:8px 12px;font-size:11px;color:#94a3b8;border:1px solid #0f2040">🏥 Hospitales públicos</div>
+            <div style="background:#0a1428;border-radius:6px;padding:8px 12px;font-size:11px;color:#94a3b8;border:1px solid #0f2040">🏛️ Oficinas de gobierno</div>
+            <div style="background:#0a1428;border-radius:6px;padding:8px 12px;font-size:11px;color:#94a3b8;border:1px solid #0f2040">🏠 Residencias</div>
           </div>
         </div>
 
-        <div style="font-size:12px;font-weight:700;color:#334155;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px">Tipos de lugares excluidos del análisis</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
-          <div style="background:#070f1f;border-radius:8px;padding:10px 14px;font-size:12px;color:#94a3b8;border:1px solid #0f2040">⛪ Iglesias y templos</div>
-          <div style="background:#070f1f;border-radius:8px;padding:10px 14px;font-size:12px;color:#94a3b8;border:1px solid #0f2040">🏫 Escuelas y universidades</div>
-          <div style="background:#070f1f;border-radius:8px;padding:10px 14px;font-size:12px;color:#94a3b8;border:1px solid #0f2040">🌳 Parques y plazas públicas</div>
-          <div style="background:#070f1f;border-radius:8px;padding:10px 14px;font-size:12px;color:#94a3b8;border:1px solid #0f2040">🏥 Hospitales y clínicas públicas</div>
-          <div style="background:#070f1f;border-radius:8px;padding:10px 14px;font-size:12px;color:#94a3b8;border:1px solid #0f2040">🏛️ Oficinas de gobierno</div>
-          <div style="background:#070f1f;border-radius:8px;padding:10px 14px;font-size:12px;color:#94a3b8;border:1px solid #0f2040">🏠 Residencias y conjuntos habitacionales</div>
+        <!-- OSM: sin limpieza -->
+        <div style="background:#070f1f;border:1px solid #8b5cf622;border-radius:12px;padding:18px;margin-bottom:14px">
+          <div style="font-size:11px;color:#8b5cf6;font-weight:700;text-transform:uppercase;margin-bottom:10px">🌍 OpenStreetMap — sin exclusiones</div>
+          <div style="font-size:12px;color:#64748b;line-height:1.7;margin-bottom:10px">
+            OpenStreetMap lo construyen voluntarios que <strong style="color:#94a3b8">mapean únicamente negocios</strong> — no agregan parques, iglesias ni escuelas. Por eso sus 2,556 registros pasan directamente al análisis sin necesitar limpieza.
+          </div>
+          <div style="font-size:11px;color:#475569;background:#0a1428;border-radius:8px;padding:10px 14px;border:1px solid #0f2040">
+            ❓ <strong style="color:#8b5cf6">¿Por qué se usa si tiene solo 2,556 negocios?</strong> Su función es exclusiva del Paso 5: el método Captura-Recaptura necesita <em>dos fuentes independientes</em> para estimar el universo total. OSM es esa segunda fuente. Sin él, el método no funciona.
+          </div>
+        </div>
+
+        <!-- Resultado combinado -->
+        <div style="background:#070f1f;border:1px solid #22c55e22;border-radius:10px;padding:14px 18px;font-size:12px;color:#94a3b8;line-height:1.8;text-align:center">
+          <strong style="color:#22c55e;font-size:14px" id="idx-s2-total-real2">23,292</strong> negocios reales bajo análisis
+          <span style="color:#334155;margin:0 12px">·</span>
+          <span style="color:#475569"><span id="idx-s2-total-real3">20,736</span> de Google Maps + <span id="idx-s2-osm-raw">2,556</span> de OpenStreetMap</span>
         </div>
       </div>
 
@@ -764,7 +782,11 @@
           <div style="background:#070f1f;border-radius:10px;padding:18px;border:1px solid #22c55e22;text-align:center">
             <div style="font-size:11px;color:#22c55e;text-transform:uppercase;font-weight:700;margin-bottom:8px">Formales CANACO + cadenas</div>
             <div style="font-size:30px;font-weight:800;color:#22c55e" id="idx-s4-f-otros">—</div>
-            <div style="font-size:11px;color:#475569;margin-top:6px">licencias municipales y cadenas conocidas</div>
+            <div style="font-size:11px;color:#475569;margin-top:6px">identificados formales por directorio o nombre</div>
+            <div style="font-size:10px;color:#334155;margin-top:8px;border-top:1px solid #0f2040;padding-top:8px;text-align:left;line-height:1.7">
+              <strong style="color:#475569"><span id="idx-s4-canaco">3,809</span> vía CANACO</strong> — su nombre coincide con el directorio de la Cámara de Comercio de Mérida (RFC + licencia municipal verificada).<br>
+              <strong style="color:#475569"><span id="idx-s4-cadenas">4,616</span> vía nombre reconocido</strong> — no aparecen en DENUE ni CANACO pero su nombre es de cadena nacional formal: OXXO, Walmart, Telcel, McDonald's, etc. Por definición tienen RFC.
+            </div>
           </div>
           <div style="background:#070f1f;border-radius:10px;padding:18px;border:1px solid #f8717122;text-align:center">
             <div style="font-size:11px;color:#f87171;text-transform:uppercase;font-weight:700;margin-bottom:8px">Candidatos informales</div>
@@ -773,8 +795,12 @@
           </div>
         </div>
 
+        <div style="background:#070f1f;border-radius:10px;padding:14px 18px;border:1px solid #22c55e22;font-size:12px;color:#94a3b8;line-height:2;margin-bottom:10px">
+          ✅ <strong style="color:#22c55e">Verificación:</strong>
+          <span id="idx-s4-f-denue2">8,901</span> (DENUE) + <span id="idx-s4-f-otros2">8,425</span> (CANACO + cadenas) + <span id="idx-s4-informales2">5,966</span> (informales) = <strong style="color:#dde9ff" id="idx-s4-total">23,292</strong> analizados ✓
+        </div>
         <div style="background:#070f1f;border-radius:10px;padding:14px 18px;border:1px solid #f59e0b22;font-size:12px;color:#94a3b8;line-height:1.8">
-          ⚠️ <strong style="color:#f59e0b">Sesgo de captura:</strong> Google Maps y OpenStreetMap no ven <em>todos</em> los negocios de Mérida. Los negocios informales tienen aún menos presencia digital (sin dirección registrada, sin reseñas, sin fotos). Los pasos 5 y 6 corrigen este sesgo con dos métodos independientes.
+          ⚠️ <strong style="color:#f59e0b">Importante:</strong> los 5,966 "candidatos informales" son los que <em>aparecen en Google Maps o OpenStreetMap</em> pero <em>no coinciden</em> con ningún registro oficial. Es la base visible. Los Pasos 5 y 6 estiman cuántos informales hay en total — incluyendo los que no tienen presencia digital.
         </div>
       </div>
 
@@ -782,24 +808,35 @@
       <div style="background:#0d1830;border:1px solid #1a2d56;border-radius:16px;padding:28px;margin-bottom:20px">
         <div style="font-size:10px;font-weight:700;color:#8b5cf6;text-transform:uppercase;letter-spacing:2px;margin-bottom:4px">Paso 5 de 6 · Método 1</div>
         <div style="font-size:20px;font-weight:800;color:#dde9ff;margin-bottom:10px">Captura-Recaptura: ¿cuántos negocios existen en total?</div>
-        <p style="font-size:13px;color:#64748b;margin:0 0 20px;line-height:1.7">Este método — originalmente diseñado para estimar poblaciones de animales salvajes y luego adoptado en epidemiología — calcula el universo total usando el solapamiento entre dos fuentes independientes. <strong style="color:#94a3b8">No requiere ningún supuesto</strong> sobre la visibilidad de los negocios informales. Solo usa los conteos y el cruce entre Google Maps y OpenStreetMap.</p>
+        <p style="font-size:13px;color:#64748b;margin:0 0 10px;line-height:1.7">Este método — originalmente diseñado para estimar poblaciones de animales salvajes y luego adoptado en epidemiología — calcula el universo total usando el solapamiento entre dos fuentes independientes. <strong style="color:#94a3b8">No requiere ningún supuesto</strong> sobre la visibilidad de los negocios informales. Solo usa los conteos y el cruce entre Google Maps y OpenStreetMap.</p>
+        <div style="font-size:12px;color:#64748b;margin:0 0 20px;line-height:1.8;background:#070f1f;border:1px solid #0f2040;border-radius:8px;padding:12px 16px">
+          ℹ️ <strong style="color:#60a5fa">¿Por qué 20,736 y no 23,292?</strong><br>
+          El Paso 2 limpió Google Maps de 26,678 a 20,736 (se eliminaron 5,942 lugares que no son negocios). OSM venía limpio con sus 2,556. Juntos dan 23,292, pero el método Captura-Recaptura <strong style="color:#94a3b8">prohíbe sumarlos</strong>: necesita las dos fuentes por separado para que el solapamiento entre ellas — los 402 negocios que aparecen en ambas — revele qué tan completa es cada fuente.<br><br>
+          Si se suman a 23,292 antes de aplicar la fórmula, se pierde la información del cruce y el estimador no puede funcionar.
+        </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px">
           <div style="background:#070f1f;border-radius:10px;padding:16px;border:1px solid #f59e0b22;text-align:center">
-            <div style="font-size:11px;color:#f59e0b;font-weight:700;text-transform:uppercase;margin-bottom:8px">Google Maps capturó</div>
+            <div style="font-size:11px;color:#f59e0b;font-weight:700;text-transform:uppercase;margin-bottom:8px">Google Maps · n₁</div>
             <div style="font-size:28px;font-weight:800;color:#dde9ff" id="idx-s5-n1">—</div>
-            <div style="font-size:11px;color:#475569;margin-top:4px">negocios (n₁)</div>
+            <div style="font-size:11px;color:#475569;margin-top:4px">negocios limpios de Mérida</div>
           </div>
           <div style="background:#070f1f;border-radius:10px;padding:16px;border:1px solid #8b5cf622;text-align:center">
-            <div style="font-size:11px;color:#8b5cf6;font-weight:700;text-transform:uppercase;margin-bottom:8px">OpenStreetMap capturó</div>
+            <div style="font-size:11px;color:#8b5cf6;font-weight:700;text-transform:uppercase;margin-bottom:8px">OpenStreetMap · n₂</div>
             <div style="font-size:28px;font-weight:800;color:#dde9ff" id="idx-s5-n2">2,556</div>
-            <div style="font-size:11px;color:#475569;margin-top:4px">negocios (n₂)</div>
+            <div style="font-size:11px;color:#475569;margin-top:4px">negocios de Mérida</div>
           </div>
-          <div style="background:#070f1f;border-radius:10px;padding:16px;border:1px solid #f8717122;text-align:center">
-            <div style="font-size:11px;color:#f87171;font-weight:700;text-transform:uppercase;margin-bottom:8px">En ambas fuentes</div>
+          <div style="background:#070f1f;border-radius:10px;padding:16px;border:1px solid #22c55e22;text-align:center">
+            <div style="font-size:11px;color:#22c55e;font-weight:700;text-transform:uppercase;margin-bottom:8px">En ambas · m</div>
             <div style="font-size:28px;font-weight:800;color:#dde9ff" id="idx-s5-m">402</div>
-            <div style="font-size:11px;color:#475569;margin-top:4px">coincidencia exacta (m)</div>
+            <div style="font-size:11px;color:#475569;margin-top:4px">negocios en <em>ambas</em> fuentes</div>
           </div>
+        </div>
+
+        <!-- Explicación del 402 -->
+        <div style="font-size:12px;color:#64748b;margin:0 0 14px;line-height:1.8;background:#070f1f;border:1px solid #0f2040;border-radius:8px;padding:12px 16px">
+          <strong style="color:#22c55e">¿Qué hace el 402 en la fórmula?</strong> Es el calibrador, no un valor que se suma ni se resta. Si GMaps capturara el 100% del universo, los 2,556 negocios de OSM ya estarían todos en GMaps. Que solo 402 de 2,556 coincidan (15.7%) revela que GMaps cubre el ~15.7% del universo real de Mérida. La fórmula invierte esa proporción para estimar cuántos negocios deben existir en total.<br>
+          <span style="color:#334155">Los 402 siguen en el conteo de GMaps (son parte de los 20,736) y también en el de OSM (son parte de los 2,556). No se eliminan ni se mueven — su función es solo medir la cobertura.</span>
         </div>
 
         <div style="background:#070f1f;border:1px solid #8b5cf633;border-radius:12px;padding:20px;margin-bottom:14px">
@@ -809,17 +846,23 @@
             N̂ = (<span id="idx-s5-n1b">—</span> + 1) × (<span id="idx-s5-n2b">2,556</span> + 1) / (<span id="idx-s5-mb">402</span> + 1) − 1<br>
             <strong style="color:#8b5cf6;font-size:14px">N̂ = <span id="idx-s5-Nhat">—</span> negocios totales estimados en Mérida</strong>
           </div>
+          <div style="font-size:11px;color:#334155;margin-top:10px">
+            ¿Por qué el resultado es de <em>Mérida</em>? Porque Google Maps y OSM se descargaron dentro del bounding box del municipio de Mérida — toda la muestra es local. El estimador hereda esa cobertura geográfica.
+          </div>
         </div>
 
         <div style="background:#070f1f;border:1px solid #0f2040;border-radius:12px;padding:20px">
           <div style="font-size:11px;color:#64748b;font-weight:700;text-transform:uppercase;margin-bottom:14px">Deducción del índice de informalidad</div>
-          <div style="font-size:13px;color:#94a3b8;line-height:2.2">
+          <div style="font-size:13px;color:#94a3b8;line-height:2.4">
             Total estimado de negocios en Mérida: <strong style="color:#8b5cf6" id="idx-s5-Nhat2">—</strong><br>
-            Menos formales registrados en DENUE Mérida: <strong style="color:#3b82f6">− <span id="idx-s5-denue">56,014</span></strong><br>
+            Menos formales registrados en DENUE Mérida¹: <strong style="color:#3b82f6">− <span id="idx-s5-denue">56,014</span></strong><br>
             Informales estimados: <strong style="color:#f87171" id="idx-s5-Ninf">—</strong><br>
             <strong style="font-size:15px">Índice Chapman: <span style="color:#8b5cf6" id="idx-s5-rate">—</span></strong>
           </div>
-          <div style="margin-top:12px;font-size:11px;color:#334155;line-height:1.6">Este es el resultado más conservador — no asume nada sobre la brecha de visibilidad entre formales e informales.</div>
+          <div style="margin-top:14px;font-size:11px;color:#334155;line-height:1.7;border-top:1px solid #0f2040;padding-top:12px">
+            ¹ El DENUE de INEGI tiene <strong style="color:#475569">144,576</strong> registros para <em>todo Yucatán</em>. Filtrado al municipio de Mérida quedan <strong style="color:#3b82f6">56,014</strong> establecimientos formales. Se usa el de Mérida porque el Chapman también es de Mérida — comparar con Yucatán completo inflaría artificialmente los informales.<br><br>
+            Este es el resultado más conservador — no asume nada sobre la brecha de visibilidad entre formales e informales.
+          </div>
         </div>
       </div>
 
@@ -851,10 +894,10 @@
             <div style="font-size:44px;font-weight:800;color:#8b5cf6;font-family:'Plus Jakarta Sans',sans-serif" id="idx-s7-low">—</div>
             <div style="font-size:12px;color:#64748b;margin-top:8px">Sin supuestos · Chapman</div>
           </div>
-          <div style="text-align:center;padding:24px;background:#070f1f33;border-radius:12px;border:1px solid #f8717133">
-            <div style="font-size:12px;color:#64748b;text-transform:uppercase;font-weight:600;margin-bottom:8px">Estimación central · α = 0.65</div>
-            <div style="font-size:44px;font-weight:800;color:#f87171;font-family:'Plus Jakarta Sans',sans-serif" id="idx-s7-central">—</div>
-            <div style="font-size:12px;color:#64748b;margin-top:8px">Multiplicador · escenario base</div>
+          <div style="text-align:center;padding:24px;background:#070f1f33;border-radius:12px;border:1px solid #dc262633">
+            <div style="font-size:12px;color:#64748b;text-transform:uppercase;font-weight:600;margin-bottom:8px">Límite superior · α = 0.40</div>
+            <div style="font-size:44px;font-weight:800;color:#dc2626;font-family:'Plus Jakarta Sans',sans-serif" id="idx-s7-central">—</div>
+            <div style="font-size:12px;color:#64748b;margin-top:8px">Multiplicador · escenario realista</div>
           </div>
         </div>
 
@@ -1081,7 +1124,9 @@
 <script src="/js/app.js?v=3"></script>
 <script src="/js/colonias.js?v=3"></script>
 <script src="/js/reportes.js?v=3"></script>
-<script src="/js/campanas.js?v=3"></script>
+<script src="/js/campanas-lista.js?v=4"></script>
+<script src="/js/campanas-visita.js?v=4"></script>
+<script src="/js/campanas-plantillas.js?v=4"></script>
 <script src="/js/admin.js?v=3"></script>
 <script>
 // Extender showTab para manejar tabs nuevas (reportes, campañas)

@@ -54,6 +54,10 @@ def get_campanas(status: Optional[str] = None):
 def crear_campana(body: dict = Body(...)):
     if fdb is None:
         raise HTTPException(503, "Firestore no disponible")
+    fecha_inicio = body.get("fecha_inicio")
+    fecha_fin    = body.get("fecha_fin")
+    if fecha_inicio and fecha_fin and fecha_fin < fecha_inicio:
+        raise HTTPException(400, "La fecha de fin no puede ser anterior a la fecha de inicio")
     try:
         _, doc_ref = fdb.collection("campanas").add({
             "nombre":       body.get("nombre"),
@@ -139,11 +143,16 @@ def actualizar_negocio_campana(campana_id: str, negocio_id: str, body: dict = Bo
         raise HTTPException(503, "Firestore no disponible")
     try:
         safe_id = negocio_id.replace("/", "__")
+        ref = fdb.collection("campanas").document(campana_id) \
+                 .collection("negocios").document(safe_id)
+        # Quitar negocio de la campaña
+        if body.get("_quitar"):
+            ref.delete()
+            return {"ok": True}
         # Normalizar completado a bool (el frontend a veces envía 1/0)
         if "completado" in body:
             body["completado"] = bool(body["completado"])
-        fdb.collection("campanas").document(campana_id) \
-           .collection("negocios").document(safe_id).update(body)
+        ref.update(body)
         return {"ok": True}
     except Exception as e:
         raise HTTPException(500, str(e))
