@@ -1,3 +1,4 @@
+import { Calendar, MapPin } from 'lucide-react';
 import { Badge } from '@shared/ui';
 import { progresoDe, STATUS_META, type Campana } from '../model/campana';
 
@@ -23,14 +24,18 @@ export function CampanaCard({ campana, onClick }: CampanaCardProps) {
         </span>
       </div>
       <div className="truncate font-display font-bold">{campana.nombre}</div>
-      {campana.colonia ? <div className="text-xs text-fg-subtle">🏘️ {campana.colonia}</div> : null}
+      {campana.colonia ? (
+        <div className="flex items-center gap-1 text-xs text-fg-subtle">
+          <MapPin className="h-3 w-3" aria-hidden="true" /> {campana.colonia}
+        </div>
+      ) : null}
       {campana.fecha_inicio ? (
-        <div className="text-[10px] text-fg-subtle">
-          📅 {campana.fecha_inicio}
+        <div className="flex items-center gap-1 text-2xs text-fg-subtle">
+          <Calendar className="h-3 w-3" aria-hidden="true" /> {campana.fecha_inicio}
           {campana.fecha_fin ? ` → ${campana.fecha_fin}` : ''}
         </div>
       ) : null}
-      <div className="text-[11px] text-fg-muted">
+      <div className="text-xs2 text-fg-muted">
         {hecho} / {total} negocios
       </div>
       <div className="h-1.5 overflow-hidden rounded-full bg-bg">

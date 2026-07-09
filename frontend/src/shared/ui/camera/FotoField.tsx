@@ -1,6 +1,8 @@
+import { Camera, Image as ImageIcon, X } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { esMovil } from '@shared/lib/device';
 import { Button } from '../Button';
+import { IconButton } from '../IconButton';
 import { CameraModal } from './CameraModal';
 
 interface FotoFieldProps {
@@ -59,16 +61,14 @@ export function FotoField({ valorInicial = null, onChange }: FotoFieldProps) {
         <img src={preview} alt="Foto de la visita" className="h-14 w-14 rounded-control object-cover" />
       ) : null}
       <div className="flex flex-1 gap-1.5">
-        <Button type="button" variant="secondary" onClick={abrirCamara} className="flex-1 text-xs">
-          📷 Cámara
+        <Button type="button" variant="secondary" size="sm" onClick={abrirCamara} className="flex-1">
+          <Camera className="h-4 w-4" aria-hidden="true" /> Cámara
         </Button>
-        <Button type="button" variant="secondary" onClick={abrirGaleria} className="flex-1 text-xs">
-          🖼 Galería
+        <Button type="button" variant="secondary" size="sm" onClick={abrirGaleria} className="flex-1">
+          <ImageIcon className="h-4 w-4" aria-hidden="true" /> Galería
         </Button>
         {preview ? (
-          <Button type="button" variant="ghost" onClick={borrar} className="px-2 text-xs text-danger">
-            ✕
-          </Button>
+          <IconButton type="button" variant="danger" size="sm" icon={X} label="Quitar foto" onClick={borrar} />
         ) : null}
       </div>
       <CameraModal open={camaraAbierta} onClose={() => setCamaraAbierta(false)} onCapture={usarArchivo} />

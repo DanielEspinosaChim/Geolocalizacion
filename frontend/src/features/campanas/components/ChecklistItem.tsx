@@ -1,3 +1,4 @@
+import { Car, MapPin, Pencil, Undo2 } from 'lucide-react';
 import { Button } from '@shared/ui';
 import { usePatchNegocio } from '../api/useNegocioMutations';
 import type { NegocioCampana } from '../model/campana';
@@ -53,23 +54,25 @@ export function ChecklistItem({ campanaId, negocio: n, onRegistrar }: ChecklistI
         ) : null}
       </div>
       <div className="flex gap-1.5 pl-5">
-        <a href={urls.maps} target="_blank" rel="noreferrer" className="rounded-control border border-border px-2.5 py-1.5 text-[11px] font-semibold text-primary">
-          📍 Maps
+        <a href={urls.maps} target="_blank" rel="noreferrer" className="flex items-center gap-1 rounded-control border border-border px-2.5 py-1.5 text-xs2 font-semibold text-primary">
+          <MapPin className="h-3.5 w-3.5" aria-hidden="true" /> Maps
         </a>
-        <a href={urls.waze} target="_blank" rel="noreferrer" className="rounded-control border border-border px-2.5 py-1.5 text-[11px] font-semibold text-[#33ccff]">
-          🚗 Waze
+        {/* eslint-disable-next-line no-restricted-syntax -- cian de marca de Waze, color de tercero (no es token de tema) */}
+        <a href={urls.waze} target="_blank" rel="noreferrer" className="flex items-center gap-1 rounded-control border border-border px-2.5 py-1.5 text-xs2 font-semibold text-[#33ccff]">
+          <Car className="h-3.5 w-3.5" aria-hidden="true" /> Waze
         </a>
         {visitado ? (
           <Button
             variant="ghost"
+            size="sm"
             onClick={() => patch.mutate({ negocioId: n.negocio_id, updates: { completado: false, fecha_visita: '' } })}
-            className="px-2 py-1 text-[11px] text-danger"
+            className="text-danger"
           >
-            ↩ Pendiente
+            <Undo2 className="h-4 w-4" aria-hidden="true" /> Pendiente
           </Button>
         ) : null}
-        <Button onClick={() => onRegistrar(n)} className="flex-1 py-1.5 text-[11px]">
-          📝 {visitado ? 'Editar' : 'Registrar visita'}
+        <Button size="sm" onClick={() => onRegistrar(n)} className="flex-1">
+          <Pencil className="h-4 w-4" aria-hidden="true" /> {visitado ? 'Editar' : 'Registrar visita'}
         </Button>
       </div>
     </div>

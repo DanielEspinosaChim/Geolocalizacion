@@ -1,7 +1,8 @@
+import { Car, Route } from 'lucide-react';
 import { useState } from 'react';
+import { Button, MapCanvas, SearchInput, toast } from '@shared/ui';
 import { useCandidatos } from '@features/candidatos';
 import { ColoniaSelect } from '@features/colonias-zonas';
-import { Button, MapCanvas, toast } from '@shared/ui';
 import { useCalcularRuta, useCalcularRutaColonia } from '../api/useRuta';
 import { RutaInfo } from '../components/RutaInfo';
 import { RutaLayer } from '../components/RutaLayer';
@@ -74,22 +75,21 @@ function RutaControles({
   const [colonia, setColonia] = useState<string | null>(null);
   return (
     <div className="grid gap-2 border-b border-border p-3">
-      <input
-        type="search"
+      <SearchInput
         value={q}
-        onChange={(e) => onQ(e.target.value)}
+        onChange={onQ}
+        debounceMs={200}
         placeholder="Buscar negocio…"
         aria-label="Buscar negocio para la ruta"
-        className="w-full rounded-control border border-border bg-bg px-3 py-2 text-sm outline-none focus:border-primary"
       />
       <div className="flex items-center justify-between gap-2">
         <span className="text-xs font-bold text-fg-muted">{seleccionCount} seleccionados</span>
-        <Button variant="ghost" onClick={onLimpiar} className="px-2 py-1 text-xs">
+        <Button variant="ghost" size="sm" onClick={onLimpiar}>
           Limpiar
         </Button>
       </div>
       <Button disabled={calculando} onClick={onCalcular}>
-        {calculando ? 'Calculando…' : '🗺️ Calcular mejor ruta'}
+        <Route className="h-4 w-4" aria-hidden="true" /> {calculando ? 'Calculando…' : 'Calcular mejor ruta'}
       </Button>
       <div className="grid gap-2 rounded-control border border-border bg-surface-raised p-2">
         <ColoniaSelect value={colonia} onChange={setColonia} label="Ruta por colonia" />
@@ -104,7 +104,7 @@ function RutaControles({
             onCalcularColonia(colonia);
           }}
         >
-          🚗 Generar ruta de colonia
+          <Car className="h-4 w-4" aria-hidden="true" /> Generar ruta de colonia
         </Button>
       </div>
     </div>

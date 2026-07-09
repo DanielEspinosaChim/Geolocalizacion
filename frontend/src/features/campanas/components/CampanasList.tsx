@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Button, SelectField, Spinner } from '@shared/ui';
+import { ClipboardList, Plus } from 'lucide-react';
+import { Button, EmptyState, SelectField, Spinner } from '@shared/ui';
 import { useCampanas } from '../api/useCampanas';
 import { STATUS_CAMPANA, STATUS_META, type StatusCampana } from '../model/campana';
 import { CampanaCard } from './CampanaCard';
@@ -46,7 +47,7 @@ export function CampanasList({ esTecnico, uid, onAbrir }: CampanasListProps) {
               ))}
             </SelectField>
             <Button onClick={() => setCrearAbierto(true)} className="whitespace-nowrap">
-              + Nueva campaña
+              <Plus className="h-4 w-4" aria-hidden="true" /> Nueva campaña
             </Button>
           </div>
         ) : null}
@@ -57,10 +58,11 @@ export function CampanasList({ esTecnico, uid, onAbrir }: CampanasListProps) {
           <Spinner label="Cargando campañas…" />
         </div>
       ) : campanas.length === 0 ? (
-        <div className="flex flex-1 flex-col items-center justify-center gap-2 text-center text-fg-muted">
-          <span className="text-4xl opacity-40">📋</span>
-          <p>{esTecnico ? 'No tienes campañas asignadas aún.' : 'No hay campañas aún.'}</p>
-        </div>
+        <EmptyState
+          className="flex-1 justify-center"
+          icon={<ClipboardList className="h-10 w-10 opacity-40" aria-hidden="true" />}
+          title={esTecnico ? 'No tienes campañas asignadas aún.' : 'No hay campañas aún.'}
+        />
       ) : (
         <div className="grid gap-3 overflow-y-auto sm:grid-cols-2 lg:grid-cols-3">
           {campanas.map((c) => (

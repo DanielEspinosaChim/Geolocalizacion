@@ -1,3 +1,4 @@
+import { Check } from 'lucide-react';
 import { giroLabel, type Candidato } from '@features/candidatos';
 
 const MAX_VISIBLES = 300; // paridad con el legacy
@@ -31,11 +32,11 @@ export function RutaLista({ candidatos, q, seleccion, onToggle }: RutaListaProps
             }`}
           >
             <span
-              className={`flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded border text-[10px] font-bold ${
+              className={`flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded border ${
                 activo ? 'border-primary bg-primary text-primary-fg' : 'border-border'
               }`}
             >
-              {activo ? '✓' : ''}
+              {activo ? <Check className="h-3 w-3" aria-hidden="true" /> : null}
             </span>
             <span className="min-w-0">
               <span className="block truncate text-[13px] font-semibold">{c.nombre}</span>

@@ -1,4 +1,7 @@
 import axios, { AxiosError } from 'axios';
+// sonner (externo) en vez de @shared/ui: core no puede importar la capa shared
+// (fronteras ESLint). El <Toaster> montado en AppProviders recibe estos toasts.
+import { toast } from 'sonner';
 import { getFreshToken, signOutAndRedirect } from '@core/auth';
 import { env } from '@core/config';
 
@@ -27,14 +30,23 @@ http.interceptors.request.use(async (config) => {
   return config;
 });
 
-// Response: normaliza el error y cierra sesión ante 401/403 (logout-on-401).
+// Response: normaliza el error y distingue 401 de 403.
+//   401 = sesión inválida/expirada → logout + /login.
+//   403 = sesión válida pero sin permiso para ESE recurso → conserva sesión,
+//         avisa y devuelve al inicio (un técnico no debe perder su sesión por
+//         tocar un endpoint de admin). El guard de ruta lo mantiene en su zona.
 http.interceptors.response.use(
   (res) => res,
   async (error: AxiosError<{ detail?: string; message?: string }>) => {
     const status = error.response?.status;
-    if (status === 401 || status === 403) await signOutAndRedirect();
     const message =
       error.response?.data?.detail ?? error.response?.data?.message ?? error.message;
+    if (status === 401) {
+      await signOutAndRedirect();
+    } else if (status === 403) {
+      toast.error('No tienes permiso para esta acción.');
+      if (window.location.pathname !== '/') window.location.assign('/');
+    }
     return Promise.reject(new ApiError(status, message));
   },
 );

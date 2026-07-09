@@ -1,3 +1,4 @@
+import { Check } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { Button, FotoField, Modal, Spinner } from '@shared/ui';
 import { useGuardarVisita } from '../api/useGuardarVisita';
@@ -95,8 +96,8 @@ export function VisitaModal({ campanaId, negocio, onClose }: VisitaModalProps) {
             />
           </div>
 
-          <Button disabled={guardar.isPending} onClick={submit}>
-            {guardar.isPending ? 'Guardando…' : 'Guardar visita'}
+          <Button loading={guardar.isPending} onClick={submit}>
+            Guardar visita
           </Button>
         </div>
       )}
@@ -108,19 +109,19 @@ function VisitadoToggle({ visitado, onChange }: { visitado: boolean; onChange: (
   return (
     <div className="flex gap-1.5">
       {[
-        { v: true, txt: '✓ Visitado', on: 'border-success bg-success/10 text-success' },
-        { v: false, txt: 'Pendiente', on: 'border-fg-muted bg-fg-muted/10 text-fg' },
-      ].map(({ v, txt, on }) => (
+        { v: true, txt: 'Visitado', mostrarCheck: true, on: 'border-success bg-success/10 text-success' },
+        { v: false, txt: 'Pendiente', mostrarCheck: false, on: 'border-fg-muted bg-fg-muted/10 text-fg' },
+      ].map(({ v, txt, mostrarCheck, on }) => (
         <button
           key={String(v)}
           type="button"
           aria-pressed={visitado === v}
           onClick={() => onChange(v)}
-          className={`flex-1 rounded-control border py-2 text-sm font-bold transition-colors ${
+          className={`flex flex-1 items-center justify-center gap-1 rounded-control border py-2 text-sm font-bold transition-colors ${
             visitado === v ? on : 'border-border text-fg-muted'
           }`}
         >
-          {txt}
+          {mostrarCheck ? <Check className="h-4 w-4" aria-hidden="true" /> : null} {txt}
         </button>
       ))}
     </div>

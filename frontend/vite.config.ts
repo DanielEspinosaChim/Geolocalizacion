@@ -14,7 +14,14 @@ export default defineConfig({
     },
   },
   server: {
+    // Puerto fijo del frontend en dev (requisito del proyecto). strictPort hace
+    // que Vite falle ruidosamente si 8765 está ocupado, en vez de saltar en
+    // silencio a otro puerto (por eso antes terminaba en 5174).
+    port: 5174,
+    strictPort: true,
     // En dev, /api se reenvía al backend FastAPI (mismo origen en prod).
+    // El backend también usa 8765 por defecto: en dev arráncalo con PORT=8080
+    // (ver frontend/README.md) para que coincida con este target y no colisione.
     proxy: {
       '/api': {
         target: process.env.VITE_API_PROXY ?? 'http://localhost:8080',

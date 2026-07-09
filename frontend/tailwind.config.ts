@@ -34,9 +34,30 @@ export default {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
       },
+      fontSize: {
+        '2xs': 'var(--text-2xs)',
+        xs2: 'var(--text-xs2)',
+      },
       borderRadius: {
         card: 'var(--radius-card)',
         control: 'var(--radius-control)',
+      },
+      boxShadow: {
+        card: 'var(--shadow-card)',
+        overlay: 'var(--shadow-overlay)',
+      },
+      transitionTimingFunction: {
+        out: 'var(--ease-out)',
+      },
+      transitionDuration: {
+        fast: 'var(--duration-fast)',
+      },
+      zIndex: {
+        map: 'var(--z-map)',
+        panel: 'var(--z-panel)',
+        overlay: 'var(--z-overlay)',
+        modal: 'var(--z-modal)',
+        toast: 'var(--z-toast)',
       },
     },
   },

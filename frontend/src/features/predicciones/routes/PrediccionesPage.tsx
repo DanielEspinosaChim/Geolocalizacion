@@ -1,5 +1,6 @@
+import { MousePointerClick, X } from 'lucide-react';
 import { useState } from 'react';
-import { Button, MapCanvas, Spinner, Tabs, TabsContent, TabsList, TabsTrigger } from '@shared/ui';
+import { Button, Card, MapCanvas, Spinner, Tabs, TabsContent, TabsList, TabsTrigger } from '@shared/ui';
 import { usePredecir } from '../api/usePredicciones';
 import { IndicePanel } from '../components/IndicePanel';
 import { PredictLayer } from '../components/PredictLayer';
@@ -29,14 +30,22 @@ export function PrediccionesPage() {
         </MapCanvas>
         <div className="absolute left-3 top-3 z-[1000]">
           <Button aria-pressed={modo} onClick={() => setModo((m) => !m)}>
-            {modo ? '🔴 Cancelar' : '🖱️ Predecir por clic'}
+            {modo ? (
+              <>
+                <X className="h-4 w-4" aria-hidden="true" /> Cancelar
+              </>
+            ) : (
+              <>
+                <MousePointerClick className="h-4 w-4" aria-hidden="true" /> Predecir por clic
+              </>
+            )}
           </Button>
         </div>
         <div className="absolute bottom-4 left-4 z-[1000] w-64">
           {predecir.isPending ? (
-            <div className="flex justify-center rounded-card border border-border bg-surface p-4">
+            <Card className="flex justify-center p-4">
               <Spinner label="Analizando…" />
-            </div>
+            </Card>
           ) : predecir.data ? (
             <PrediccionResultado prediccion={predecir.data} />
           ) : null}

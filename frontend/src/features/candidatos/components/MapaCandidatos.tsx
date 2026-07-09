@@ -1,3 +1,4 @@
+import { MapCanvas } from '@shared/ui';
 import {
   AgebsLayer,
   CapasToggles,
@@ -5,7 +6,6 @@ import {
   MunicipiosLayer,
   type CapaId,
 } from '@features/colonias-zonas';
-import { MapCanvas } from '@shared/ui';
 import type { CacheStatus } from '../api/useCargaProgresiva';
 import type { Candidato } from '../model/candidato';
 import { CandidatoCard } from './CandidatoCard';

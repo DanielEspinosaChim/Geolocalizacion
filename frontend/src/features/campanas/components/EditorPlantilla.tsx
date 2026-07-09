@@ -1,5 +1,6 @@
+import { Plus } from 'lucide-react';
 import { useState } from 'react';
-import { Button, Modal, TextField, toast } from '@shared/ui';
+import { Button, Modal, ModalFooter, TextField, toast } from '@shared/ui';
 import { usePlantillaMutations } from '../api/usePlantillas';
 import { slugify, type Campo, type Plantilla } from '../model/plantilla';
 import { CampoEditor } from './CampoEditor';
@@ -55,8 +56,8 @@ export function EditorPlantilla({ plantilla, onClose }: EditorPlantillaProps) {
           <span className="text-[11px] font-bold uppercase tracking-wider text-fg-subtle">
             {campos.length} campo{campos.length === 1 ? '' : 's'}
           </span>
-          <Button variant="secondary" onClick={agregar} className="text-xs">
-            + Añadir campo
+          <Button variant="secondary" size="sm" onClick={agregar}>
+            <Plus className="h-4 w-4" aria-hidden="true" /> Añadir campo
           </Button>
         </div>
 
@@ -79,9 +80,14 @@ export function EditorPlantilla({ plantilla, onClose }: EditorPlantillaProps) {
           ) : null}
         </div>
 
-        <Button disabled={guardar.isPending} onClick={submit}>
-          {guardar.isPending ? 'Guardando…' : 'Guardar plantilla'}
-        </Button>
+        <ModalFooter>
+          <Button variant="secondary" onClick={onClose}>
+            Cancelar
+          </Button>
+          <Button loading={guardar.isPending} onClick={submit}>
+            Guardar plantilla
+          </Button>
+        </ModalFooter>
       </div>
     </Modal>
   );

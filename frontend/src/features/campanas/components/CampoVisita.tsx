@@ -1,3 +1,4 @@
+import { Check, X } from 'lucide-react';
 import { SelectField, TextField } from '@shared/ui';
 import type { Campo, ValorCampo } from '../model/plantilla';
 
@@ -57,19 +58,19 @@ function BoolField({ label, valor, onChange }: { label: string; valor: boolean; 
       <span className="text-[11px] font-bold uppercase tracking-wider text-fg-subtle">{label}</span>
       <div className="flex gap-1.5">
         {[
-          { v: true, txt: '✓ Sí', on: 'border-success bg-success/15 text-success' },
-          { v: false, txt: '✗ No', on: 'border-danger bg-danger/15 text-danger' },
-        ].map(({ v, txt, on }) => (
+          { v: true, txt: 'Sí', Icon: Check, on: 'border-success bg-success/15 text-success' },
+          { v: false, txt: 'No', Icon: X, on: 'border-danger bg-danger/15 text-danger' },
+        ].map(({ v, txt, Icon, on }) => (
           <button
             key={String(v)}
             type="button"
             aria-pressed={valor === v}
             onClick={() => onChange(v)}
-            className={`flex-1 rounded-control border py-2 text-sm font-semibold transition-colors ${
+            className={`flex flex-1 items-center justify-center gap-1 rounded-control border py-2 text-sm font-semibold transition-colors ${
               valor === v ? on : 'border-border text-fg-muted'
             }`}
           >
-            {txt}
+            <Icon className="h-4 w-4" aria-hidden="true" /> {txt}
           </button>
         ))}
       </div>

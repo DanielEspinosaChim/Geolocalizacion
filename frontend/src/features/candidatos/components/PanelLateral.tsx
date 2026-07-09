@@ -1,5 +1,5 @@
-import { ColoniaSelect } from '@features/colonias-zonas';
 import { Spinner } from '@shared/ui';
+import { ColoniaSelect } from '@features/colonias-zonas';
 import type { Candidato } from '../model/candidato';
 import type { Filtros } from '../model/filtros';
 import { CandidatosList } from './CandidatosList';

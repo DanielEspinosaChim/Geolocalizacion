@@ -1,3 +1,4 @@
+import { BarChart3, CheckCircle2, CircleDot, CircleHelp } from 'lucide-react';
 import { z } from 'zod';
 
 /** Respuesta de /api/predecir — unión por `status`. */
@@ -14,9 +15,9 @@ export const prediccionSchema = z.object({
 export type Prediccion = z.infer<typeof prediccionSchema>;
 
 export const PREDICCION_META = {
-  formal: { icon: '✅', label: 'Registrado en DENUE', tone: 'success' },
-  en_proceso: { icon: '🟠', label: 'En proceso', tone: 'warning' },
-  informal: { icon: '🔴', label: 'Candidato Informal', tone: 'danger' },
-  zona: { icon: '📊', label: 'Zona analizada', tone: 'info' },
-  sin_datos: { icon: '❓', label: 'Sin datos disponibles', tone: 'neutral' },
+  formal: { Icon: CheckCircle2, label: 'Registrado en DENUE', tone: 'success' },
+  en_proceso: { Icon: CircleDot, label: 'En proceso', tone: 'warning' },
+  informal: { Icon: CircleDot, label: 'Candidato Informal', tone: 'danger' },
+  zona: { Icon: BarChart3, label: 'Zona analizada', tone: 'info' },
+  sin_datos: { Icon: CircleHelp, label: 'Sin datos disponibles', tone: 'neutral' },
 } as const;

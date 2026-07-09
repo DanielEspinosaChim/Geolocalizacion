@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Alert, Button, Modal, TextField } from '@shared/ui';
+import { Alert, Button, Modal, ModalFooter, TextField } from '@shared/ui';
 import { useCambiarPassword } from '../api/useCambiarPassword';
 import { passwordSchema, type PasswordInput } from '../model/usuario';
 
@@ -36,9 +36,14 @@ export function CambiarPasswordModal({ open, onClose }: { open: boolean; onClose
         <TextField label="Contraseña actual" type="password" autoComplete="current-password" error={errors.actual?.message} {...register('actual')} />
         <TextField label="Nueva contraseña" type="password" autoComplete="new-password" error={errors.nueva?.message} {...register('nueva')} />
         <TextField label="Confirmar nueva" type="password" autoComplete="new-password" error={errors.confirmar?.message} {...register('confirmar')} />
-        <Button type="submit" disabled={cambiar.isPending}>
-          {cambiar.isPending ? 'Guardando…' : 'Actualizar contraseña'}
-        </Button>
+        <ModalFooter>
+          <Button type="button" variant="secondary" onClick={onClose}>
+            Cancelar
+          </Button>
+          <Button type="submit" loading={cambiar.isPending}>
+            Actualizar contraseña
+          </Button>
+        </ModalFooter>
       </form>
     </Modal>
   );

@@ -1,4 +1,5 @@
 import * as Dialog from '@radix-ui/react-dialog';
+import { X } from 'lucide-react';
 import type { PropsWithChildren } from 'react';
 
 const WIDTH_CLASSES = { sm: 'max-w-sm', md: 'max-w-lg', lg: 'max-w-2xl' } as const;
@@ -36,9 +37,7 @@ export function Modal({ open, onClose, title, description, width = 'md', childre
               aria-label="Cerrar"
               className="rounded-control p-1 text-fg-muted transition-colors hover:bg-surface-raised hover:text-fg"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <path d="M18 6 6 18M6 6l12 12" />
-              </svg>
+              <X className="h-4 w-4" aria-hidden="true" />
             </Dialog.Close>
           </header>
           <div className="mt-4">{children}</div>

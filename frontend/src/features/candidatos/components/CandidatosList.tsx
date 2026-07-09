@@ -1,3 +1,4 @@
+import { EmptyState } from '@shared/ui';
 import { TIPO_COLORS, tipoDe, type Candidato } from '../model/candidato';
 import { giroLabel } from '../model/giros';
 
@@ -33,9 +34,7 @@ export function CandidatosList({ data, selectedId, onSelect }: CandidatosListPro
           afina la búsqueda para ver el resto (el mapa los muestra todos).
         </p>
       ) : null}
-      {data.length === 0 ? (
-        <p className="p-6 text-center text-sm text-fg-muted">Sin resultados con estos filtros.</p>
-      ) : null}
+      {data.length === 0 ? <EmptyState title="Sin resultados con estos filtros." /> : null}
     </div>
   );
 }

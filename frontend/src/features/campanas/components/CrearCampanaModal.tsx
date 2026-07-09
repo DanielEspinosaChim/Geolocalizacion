@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import { Button, Modal, ModalFooter, TextField } from '@shared/ui';
 import { ColoniaSelect } from '@features/colonias-zonas';
-import { Button, Modal, TextField } from '@shared/ui';
 import { useCampanaMutations } from '../api/useCampanaMutations';
 
 interface CrearCampanaModalProps {
@@ -47,9 +47,14 @@ export function CrearCampanaModal({ open, onClose }: CrearCampanaModalProps) {
           <TextField label="Inicio" type="date" value={fechaInicio} onChange={(e) => setFechaInicio(e.target.value)} />
           <TextField label="Fin" type="date" value={fechaFin} onChange={(e) => setFechaFin(e.target.value)} />
         </div>
-        <Button type="submit" disabled={!nombre || crear.isPending}>
-          {crear.isPending ? 'Creando…' : 'Crear campaña'}
-        </Button>
+        <ModalFooter>
+          <Button type="button" variant="secondary" onClick={onClose}>
+            Cancelar
+          </Button>
+          <Button type="submit" loading={crear.isPending} disabled={!nombre}>
+            Crear campaña
+          </Button>
+        </ModalFooter>
       </form>
     </Modal>
   );

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { Role } from '@core/auth';
-import { Button, Modal, SelectField, TextField } from '@shared/ui';
+import { Button, Modal, ModalFooter, SelectField, TextField } from '@shared/ui';
 import { useUsuarioMutations } from '../api/useUsuarios';
 
 export function CrearUsuarioModal({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -36,9 +36,14 @@ export function CrearUsuarioModal({ open, onClose }: { open: boolean; onClose: (
           <option value="tecnico">Técnico</option>
           <option value="admin">Admin</option>
         </SelectField>
-        <Button type="submit" disabled={!email || !password || crear.isPending}>
-          {crear.isPending ? 'Creando…' : 'Crear usuario'}
-        </Button>
+        <ModalFooter>
+          <Button type="button" variant="secondary" onClick={onClose}>
+            Cancelar
+          </Button>
+          <Button type="submit" loading={crear.isPending} disabled={!email || !password}>
+            Crear usuario
+          </Button>
+        </ModalFooter>
       </form>
     </Modal>
   );

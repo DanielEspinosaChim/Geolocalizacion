@@ -1,3 +1,4 @@
+import { Camera } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { Modal } from '../Modal';
 import { Button } from '../Button';
@@ -114,7 +115,7 @@ function Controles({
   if (!tomada) {
     return (
       <Button full onClick={onCapturar}>
-        📷 Capturar
+        <Camera className="h-4 w-4" aria-hidden="true" /> Capturar
       </Button>
     );
   }

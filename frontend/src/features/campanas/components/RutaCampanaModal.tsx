@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { RutaInfo, RutaLayer, useCalcularRuta } from '@features/rutas';
 import { MapCanvas, Modal, Spinner } from '@shared/ui';
+import { RutaInfo, RutaLayer, useCalcularRuta } from '@features/rutas';
 import type { NegocioCampana } from '../model/campana';
 
 interface RutaCampanaModalProps {

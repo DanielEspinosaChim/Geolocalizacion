@@ -13,12 +13,30 @@ TanStack Query v5 · Axios centralizado (`@core/api`) · Tailwind v3 con design 
 ## Comandos
 
 ```bash
-pnpm dev        # http://localhost:5173 — proxy /api → backend (VITE_API_PROXY)
+pnpm dev        # http://localhost:8765 (puerto fijo, strictPort) — proxy /api → backend
 pnpm typecheck  # tsc -b
 pnpm lint       # ESLint con fronteras de arquitectura
 pnpm test       # vitest
 pnpm build      # tsc -b && vite build
+pnpm format     # prettier + orden de clases Tailwind
 ```
+
+### Arranque en desarrollo (puertos)
+
+El frontend corre en **8765** (`strictPort`: falla si está ocupado, no salta de puerto).
+El backend FastAPI usa **8765 por defecto también**, así que en dev hay que separarlos:
+
+```bash
+# terminal 1 — backend en 8080 (coincide con el proxy por defecto de Vite)
+cd backend && PORT=8080 python app.py
+
+# terminal 2 — frontend en 8765
+cd frontend && pnpm dev
+```
+
+El proxy `/api` de Vite apunta a `http://localhost:8080` (sobreescribible con
+`VITE_API_PROXY`). En producción no hay conflicto: el backend en 8765 sirve el `dist`
+compilado y no interviene Vite.
 
 ## Arquitectura (dirección del flujo: app → features → shared → core)
 

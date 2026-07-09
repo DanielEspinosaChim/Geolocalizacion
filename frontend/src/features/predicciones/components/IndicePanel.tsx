@@ -1,4 +1,5 @@
-import { Spinner } from '@shared/ui';
+import { BarChart3 } from 'lucide-react';
+import { Card, Spinner } from '@shared/ui';
 import { useIndice } from '../api/usePredicciones';
 import { ESCENARIO_COLORS, type Indice } from '../model/indice';
 
@@ -39,10 +40,10 @@ function ResumenIndice({ indice }: { indice: Indice }) {
   return (
     <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
       {stats.map(([label, valor]) => (
-        <div key={label} className="rounded-card border border-border bg-surface-raised p-3 text-center">
+        <Card raised key={label} className="p-3 text-center">
           <div className="text-[10px] uppercase tracking-wide text-fg-subtle">{label}</div>
           <div className="text-lg font-extrabold tabular-nums text-primary">{valor}</div>
-        </div>
+        </Card>
       ))}
     </div>
   );
@@ -56,7 +57,7 @@ function Escenario({
   color: string;
 }) {
   return (
-    <div className="rounded-card border border-border bg-surface-raised p-3">
+    <Card raised className="p-3">
       <div className="mb-2 flex items-center justify-between">
         <span className="text-xs font-bold" style={{ color }}>
           {escenario.etiqueta} <span className="font-normal text-fg-subtle">α = {escenario.alpha.toFixed(2)}</span>
@@ -71,20 +72,24 @@ function Escenario({
       <div className="h-1.5 overflow-hidden rounded-full bg-bg">
         <div className="h-full rounded-full" style={{ width: `${Math.min(100, escenario.indice_pct * 1.2)}%`, background: color }} />
       </div>
-    </div>
+    </Card>
   );
 }
 
 function Metodo({ indice }: { indice: Indice }) {
   return (
-    <div className="grid gap-1 rounded-card border border-border bg-surface-raised p-3 text-[11px] text-fg-muted">
+    <Card raised className="grid gap-1 p-3 text-[11px] text-fg-muted">
       <div>
         <b className="text-fg">Método:</b> {indice.metodo}
       </div>
-      {indice.referencia_inegi ? <div>📊 {indice.referencia_inegi}</div> : null}
+      {indice.referencia_inegi ? (
+        <div className="flex items-center gap-1">
+          <BarChart3 className="h-3 w-3" aria-hidden="true" /> {indice.referencia_inegi}
+        </div>
+      ) : null}
       {indice.referencias.map((ref) => (
         <div key={ref}>· {ref}</div>
       ))}
-    </div>
+    </Card>
   );
 }

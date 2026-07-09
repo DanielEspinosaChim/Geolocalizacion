@@ -1,18 +1,28 @@
+import { useConfirm, type ConfirmOptions } from '@shared/ui';
 import { haversineM, obtenerGPS } from '@shared/lib/geo';
 import { useActualizarReporte } from '../api/useReportes';
 import { siguienteStatus, type Reporte } from '../model/reporte';
 
+type ConfirmFn = (options: ConfirmOptions) => Promise<boolean>;
 type Verificacion = Record<string, unknown> | 'cancelado';
 
 /** Captura la posición del técnico y arma los campos verificado_* (o cancela). */
-async function capturarVerificacion(lat: number, lng: number): Promise<Verificacion> {
+async function capturarVerificacion(
+  lat: number,
+  lng: number,
+  confirm: ConfirmFn,
+): Promise<Verificacion> {
   try {
     const pos = await obtenerGPS();
     const distancia = haversineM(lat, lng, pos.lat, pos.lng);
-    const lejos =
-      distancia > 300 &&
-      !window.confirm(`Estás a ${distancia} m del reporte.\n¿Confirmas que estás en el lugar correcto?`);
-    if (lejos) return 'cancelado';
+    if (distancia > 300) {
+      const ok = await confirm({
+        title: 'Estás lejos del reporte',
+        description: `Estás a ${distancia} m del reporte. ¿Confirmas que estás en el lugar correcto?`,
+        confirmLabel: 'Sí, estoy aquí',
+      });
+      if (!ok) return 'cancelado';
+    }
     return {
       verificado_lat: pos.lat,
       verificado_lng: pos.lng,
@@ -22,7 +32,12 @@ async function capturarVerificacion(lat: number, lng: number): Promise<Verificac
     };
   } catch (e) {
     const razon = e instanceof Error ? e.message : 'No se pudo obtener tu ubicación';
-    const continuar = window.confirm(`${razon}.\n\n¿Marcar como resuelto sin verificar tu posición?`);
+    const continuar = await confirm({
+      title: 'Sin ubicación',
+      description: `${razon}. ¿Marcar como resuelto sin verificar tu posición?`,
+      confirmLabel: 'Marcar sin verificar',
+      tone: 'danger',
+    });
     return continuar ? {} : 'cancelado';
   }
 }
@@ -33,6 +48,7 @@ async function capturarVerificacion(lat: number, lng: number): Promise<Verificac
  */
 export function useResolverConGPS() {
   const actualizar = useActualizarReporte();
+  const confirm = useConfirm();
 
   async function avanzar(reporte: Reporte) {
     const nuevo = siguienteStatus(reporte.status);
@@ -40,7 +56,7 @@ export function useResolverConGPS() {
 
     let updates: Record<string, unknown> = { status: nuevo };
     if (nuevo === 'resuelto' && reporte.lat != null && reporte.lng != null) {
-      const verificacion = await capturarVerificacion(reporte.lat, reporte.lng);
+      const verificacion = await capturarVerificacion(reporte.lat, reporte.lng, confirm);
       if (verificacion === 'cancelado') return;
       updates = { ...updates, ...verificacion };
     }

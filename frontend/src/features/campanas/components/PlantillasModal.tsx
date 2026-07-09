@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Badge, Button, Modal, Spinner } from '@shared/ui';
+import { Trash2 } from 'lucide-react';
+import { Badge, Button, Card, IconButton, Modal, Spinner } from '@shared/ui';
 import { usePlantillaMutations, usePlantillas } from '../api/usePlantillas';
 import type { Plantilla } from '../model/plantilla';
 import { EditorPlantilla } from './EditorPlantilla';
@@ -23,7 +24,7 @@ export function PlantillasModal({ open, onClose }: { open: boolean; onClose: () 
           <Spinner label="Cargando plantillas…" />
         ) : (
           plantillas.map((p) => (
-            <div key={p.id} className="flex items-center justify-between gap-2 rounded-card border border-border bg-surface-raised p-3">
+            <Card raised key={p.id} className="flex items-center justify-between gap-2 p-3">
               <div className="min-w-0">
                 <div className="flex items-center gap-2 text-sm font-bold">
                   <span className="truncate">{p.nombre}</span>
@@ -34,16 +35,14 @@ export function PlantillasModal({ open, onClose }: { open: boolean; onClose: () 
                 </div>
               </div>
               <div className="flex shrink-0 gap-1.5">
-                <Button variant="secondary" onClick={() => setEditor({ plantilla: p })} className="px-3 py-1 text-xs">
+                <Button variant="secondary" size="sm" onClick={() => setEditor({ plantilla: p })}>
                   Editar
                 </Button>
                 {!p.es_default ? (
-                  <Button variant="ghost" onClick={() => eliminar.mutate(p.id)} className="px-2 py-1 text-xs text-danger" aria-label="Eliminar plantilla">
-                    🗑
-                  </Button>
+                  <IconButton variant="danger" size="sm" icon={Trash2} label="Eliminar plantilla" onClick={() => eliminar.mutate(p.id)} />
                 ) : null}
               </div>
-            </div>
+            </Card>
           ))
         )}
         <Button onClick={() => setEditor({ plantilla: null })}>+ Nueva plantilla</Button>

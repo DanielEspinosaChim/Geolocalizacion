@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapCanvas, SelectField, Spinner } from '@shared/ui';
+import { EmptyState, MapCanvas, SelectField, Spinner } from '@shared/ui';
 import { reverseGeocode } from '../api/reverseGeocode';
 import { useReportes } from '../api/useReportes';
 import { FlyTo } from '../components/FlyToReporte';
@@ -89,7 +89,7 @@ function ListaReportes({
           <Spinner label="Cargando reportes…" />
         </div>
       ) : reportes.length === 0 ? (
-        <p className="p-4 text-center text-xs text-fg-muted">No hay reportes registrados.</p>
+        <EmptyState title="No hay reportes registrados." className="p-4" />
       ) : (
         reportes.map((r) => <ReporteItem key={r.id} reporte={r} onIr={onIr} />)
       )}

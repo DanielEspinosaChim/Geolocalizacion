@@ -1,5 +1,5 @@
-import { giroLabel } from '@features/candidatos';
 import { Badge, Spinner, TBody, Table, Td, Th, THead, Tr } from '@shared/ui';
+import { giroLabel } from '@features/candidatos';
 import { useMuestraValidacion } from '../api/usePredicciones';
 
 export function ValidacionPage() {

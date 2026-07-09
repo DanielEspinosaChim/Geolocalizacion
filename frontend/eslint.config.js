@@ -12,6 +12,7 @@ import js from '@eslint/js';
 import boundaries from 'eslint-plugin-boundaries';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
+import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import tseslint from 'typescript-eslint';
 
@@ -31,9 +32,11 @@ export default tseslint.config(
       boundaries,
       import: importPlugin,
       'jsx-a11y': jsxA11y,
+      react,
       'react-hooks': reactHooks,
     },
     settings: {
+      react: { version: 'detect' },
       'import/resolver': { typescript: { project: './tsconfig.app.json' } },
       'boundaries/elements': [
         { type: 'app', pattern: 'src/app' },
@@ -78,7 +81,7 @@ export default tseslint.config(
         },
       ],
 
-      /* ── 2. Nada de rutas largas / imports profundos ───────────────── */
+      /* ── 2. Imports: sin rutas profundas, orden por capas ──────────── */
       'no-restricted-imports': [
         'error',
         {
@@ -97,19 +100,39 @@ export default tseslint.config(
         },
       ],
       'import/no-duplicates': 'error',
+      'import/order': [
+        'warn',
+        {
+          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+          pathGroups: [
+            { pattern: '@core/**', group: 'internal', position: 'before' },
+            { pattern: '@shared/**', group: 'internal' },
+            { pattern: '@features/**', group: 'internal', position: 'after' },
+          ],
+          pathGroupsExcludedImportTypes: ['builtin'],
+          'newlines-between': 'never',
+        },
+      ],
 
       /* ── 3. Límites de tamaño y profundidad (anti-espagueti) ───────── */
-      'max-lines': ['warn', { max: 250, skipBlankLines: true, skipComments: true }],
-      'max-lines-per-function': ['warn', { max: 60, skipComments: true }],
+      // Ahora en error (el proyecto ya cumple): evita regresión a god-components.
+      'max-lines': ['error', { max: 250, skipBlankLines: true, skipComments: true }],
+      'max-lines-per-function': ['error', { max: 60, skipComments: true }],
       'max-depth': ['error', 3],
-      complexity: ['warn', 12],
-      'max-params': ['warn', 4],
+      complexity: ['error', 12],
+      'max-params': ['error', 4],
       'max-nested-callbacks': ['error', 3],
+      // Callback/JSX hell: limita el anidamiento de elementos JSX.
+      'react/jsx-max-depth': ['error', { max: 7 }],
+      'react/jsx-no-useless-fragment': 'warn',
 
       /* ── 4. Higiene de seguridad ───────────────────────────────────── */
       'no-restricted-globals': [
         'error',
         { name: 'fetch', message: 'Usa http de @core/api (interceptores + auth).' },
+        { name: 'confirm', message: 'Usa useConfirm() de @shared/ui.' },
+        { name: 'alert', message: 'Usa toast de @shared/ui.' },
+        { name: 'prompt', message: 'Usa un Modal con TextField de @shared/ui.' },
       ],
       'no-restricted-properties': [
         'error',
@@ -117,6 +140,16 @@ export default tseslint.config(
           object: 'window',
           property: 'fetch',
           message: 'Prohibido monkey-patch de fetch. Usa el cliente @core/api.',
+        },
+        {
+          object: 'window',
+          property: 'confirm',
+          message: 'Usa useConfirm() de @shared/ui.',
+        },
+        {
+          object: 'window',
+          property: 'alert',
+          message: 'Usa toast de @shared/ui.',
         },
         {
           object: 'localStorage',
@@ -130,6 +163,10 @@ export default tseslint.config(
           selector: "JSXAttribute[name.name='dangerouslySetInnerHTML']",
           message: 'dangerouslySetInnerHTML prohibido: superficie XSS. Usa JSX.',
         },
+        {
+          selector: 'Literal[value=/(?:bg|text|border)-\\[#/]',
+          message: 'Color arbitrario en clase: usa los tokens del tema (tokens.css).',
+        },
       ],
     },
   },
@@ -139,7 +176,7 @@ export default tseslint.config(
   {
     files: ['src/**/*.tsx'],
     rules: {
-      'max-lines-per-function': ['warn', { max: 90, skipComments: true }],
+      'max-lines-per-function': ['error', { max: 90, skipComments: true }],
     },
   },
 

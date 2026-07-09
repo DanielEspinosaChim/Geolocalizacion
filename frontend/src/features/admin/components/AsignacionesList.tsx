@@ -1,5 +1,5 @@
+import { Badge, EmptyState, SelectField } from '@shared/ui';
 import { progresoDe, type Campana } from '@features/campanas';
-import { Badge, SelectField } from '@shared/ui';
 import { useAsignarCampana } from '../api/useAsignarCampana';
 import type { Usuario } from '../model/usuario';
 
@@ -13,7 +13,7 @@ export function AsignacionesList({ campanas, usuarios }: AsignacionesListProps) 
   const tecnicos = usuarios.filter((u) => u.role === 'tecnico' && !u.disabled);
 
   if (campanas.length === 0) {
-    return <p className="p-4 text-center text-xs text-fg-muted">No hay campañas. Créalas en la pestaña Campañas.</p>;
+    return <EmptyState title="No hay campañas." hint="Créalas en la pestaña Campañas." className="p-4" />;
   }
 
   return (

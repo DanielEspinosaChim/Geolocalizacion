@@ -1,3 +1,4 @@
+import { Check, LocateFixed, MapPin, Send, X } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { obtenerGPS } from '@shared/lib/geo';
 import { Button, SelectField, TextField } from '@shared/ui';
@@ -64,7 +65,7 @@ export function ReporteForm({ ubicacion, onUbicacion, modoMapa, onToggleModoMapa
       />
       <FotoPicker foto={foto} onFoto={setFoto} inputRef={fotoInput} />
       <Button type="submit" disabled={!ubicacion || crear.isPending}>
-        {crear.isPending ? 'Enviando…' : '📤 Enviar reporte'}
+        <Send className="h-4 w-4" aria-hidden="true" /> {crear.isPending ? 'Enviando…' : 'Enviar reporte'}
       </Button>
     </form>
   );
@@ -86,19 +87,28 @@ function UbicacionControls({ ubicacion, onUbicacion, modoMapa, onToggleModoMapa 
   return (
     <>
       <div className="grid grid-cols-2 gap-2">
-        <Button type="button" variant="secondary" disabled={buscandoGPS} onClick={() => void usarGPS()} className="text-xs">
-          {buscandoGPS ? 'Buscando…' : '🛰️ Mi ubicación'}
+        <Button type="button" variant="secondary" size="sm" disabled={buscandoGPS} onClick={() => void usarGPS()}>
+          <LocateFixed className="h-4 w-4" aria-hidden="true" /> {buscandoGPS ? 'Buscando…' : 'Mi ubicación'}
         </Button>
-        <Button type="button" variant="secondary" aria-pressed={modoMapa} onClick={onToggleModoMapa} className="text-xs">
-          {modoMapa ? '🔴 Cancelar clic' : '📍 Clic en mapa'}
+        <Button type="button" variant="secondary" size="sm" aria-pressed={modoMapa} onClick={onToggleModoMapa}>
+          {modoMapa ? (
+            <>
+              <X className="h-4 w-4" aria-hidden="true" /> Cancelar clic
+            </>
+          ) : (
+            <>
+              <MapPin className="h-4 w-4" aria-hidden="true" /> Clic en mapa
+            </>
+          )}
         </Button>
       </div>
       {ubicacion ? (
-        <p className="rounded-control border border-success/30 bg-success/10 px-2.5 py-1.5 text-[11px] text-success">
-          ✓ {ubicacion.direccion || `${ubicacion.lat.toFixed(5)}, ${ubicacion.lng.toFixed(5)}`}
+        <p className="flex items-center gap-1 rounded-control border border-success/30 bg-success/10 px-2.5 py-1.5 text-xs2 text-success">
+          <Check className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />{' '}
+          {ubicacion.direccion || `${ubicacion.lat.toFixed(5)}, ${ubicacion.lng.toFixed(5)}`}
         </p>
       ) : (
-        <p className="text-[11px] text-fg-subtle">Ubica el problema con GPS o clic en el mapa.</p>
+        <p className="text-xs2 text-fg-subtle">Ubica el problema con GPS o clic en el mapa.</p>
       )}
     </>
   );

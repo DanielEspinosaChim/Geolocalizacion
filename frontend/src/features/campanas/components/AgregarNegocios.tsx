@@ -1,6 +1,7 @@
+import { Plus, X } from 'lucide-react';
 import { useMemo, useState } from 'react';
+import { Button, Card, EmptyState, IconButton, SearchInput } from '@shared/ui';
 import { giroLabel, useCandidatos } from '@features/candidatos';
-import { Button } from '@shared/ui';
 import { useCampanaMutations } from '../api/useCampanaMutations';
 import type { NegocioCampana } from '../model/campana';
 
@@ -29,26 +30,25 @@ export function AgregarNegocios({ campanaId, yaEnCampana }: AgregarNegociosProps
 
   if (!abierto) {
     return (
-      <Button onClick={() => setAbierto(true)} className="w-full">
-        + Agregar negocio
+      <Button onClick={() => setAbierto(true)} full>
+        <Plus className="h-4 w-4" aria-hidden="true" /> Agregar negocio
       </Button>
     );
   }
 
   return (
-    <div className="grid gap-2 rounded-card border border-border bg-surface-raised p-3">
-      <div className="flex gap-2">
-        <input
-          type="search"
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder="Buscar negocio…"
-          aria-label="Buscar negocio para agregar"
-          className="flex-1 rounded-control border border-border bg-bg px-3 py-2 text-sm outline-none focus:border-primary"
-        />
-        <Button variant="secondary" onClick={() => setAbierto(false)}>
-          ✕
-        </Button>
+    <Card raised className="grid gap-2 p-3">
+      <div className="flex items-center gap-2">
+        <div className="flex-1">
+          <SearchInput
+            value={q}
+            onChange={setQ}
+            debounceMs={200}
+            placeholder="Buscar negocio…"
+            aria-label="Buscar negocio para agregar"
+          />
+        </div>
+        <IconButton variant="ghost" icon={X} label="Cerrar" onClick={() => setAbierto(false)} />
       </div>
       <div className="max-h-64 overflow-y-auto">
         {resultados.map((c) => {
@@ -73,10 +73,8 @@ export function AgregarNegocios({ campanaId, yaEnCampana }: AgregarNegociosProps
             </button>
           );
         })}
-        {resultados.length === 0 ? (
-          <p className="p-3 text-center text-xs text-fg-muted">Sin resultados.</p>
-        ) : null}
+        {resultados.length === 0 ? <EmptyState title="Sin resultados." className="p-3" /> : null}
       </div>
-    </div>
+    </Card>
   );
 }

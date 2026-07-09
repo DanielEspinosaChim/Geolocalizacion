@@ -1,4 +1,5 @@
-import { Badge, Button } from '@shared/ui';
+import { Check, MapPin, Play, Trash2 } from 'lucide-react';
+import { Badge, Button, IconButton, useConfirm } from '@shared/ui';
 import { useEliminarReporte } from '../api/useReportes';
 import { useResolverConGPS } from '../hooks/useResolverConGPS';
 import { REPORTE_META, STATUS_META, toneVerificacion, type Reporte } from '../model/reporte';
@@ -15,6 +16,7 @@ export function ReporteItem({ reporte: r, onIr }: ReporteItemProps) {
   const status = STATUS_META[r.status];
   const { avanzar, isPending } = useResolverConGPS();
   const eliminar = useEliminarReporte();
+  const confirm = useConfirm();
 
   return (
     <article className="grid gap-1.5 border-b border-border p-3">
@@ -32,31 +34,41 @@ export function ReporteItem({ reporte: r, onIr }: ReporteItemProps) {
         </a>
       ) : null}
       {r.status === 'resuelto' && r.verificado_distancia != null ? (
-        <p className={`text-[11px] font-semibold ${TONE_TEXT[toneVerificacion(r.verificado_distancia)]}`}>
-          📍 Verificado a {r.verificado_distancia} m
+        <p className={`flex items-center gap-1 text-xs2 font-semibold ${TONE_TEXT[toneVerificacion(r.verificado_distancia)]}`}>
+          <MapPin className="h-3 w-3 shrink-0" aria-hidden="true" /> Verificado a {r.verificado_distancia} m
           {r.verificado_fecha ? ` · ${r.verificado_fecha.slice(0, 10)}` : ''}
         </p>
       ) : null}
       <div className="flex gap-1.5">
         {r.status !== 'resuelto' ? (
-          <Button variant="secondary" disabled={isPending} onClick={() => void avanzar(r)} className="flex-1 px-2 py-1 text-[11px]">
-            {r.status === 'pendiente' ? '▶ En proceso' : '✓ Resolver'}
+          <Button variant="secondary" size="sm" disabled={isPending} onClick={() => void avanzar(r)} className="flex-1">
+            {r.status === 'pendiente' ? (
+              <>
+                <Play className="h-4 w-4" aria-hidden="true" /> En proceso
+              </>
+            ) : (
+              <>
+                <Check className="h-4 w-4" aria-hidden="true" /> Resolver
+              </>
+            )}
           </Button>
         ) : null}
-        <Button variant="ghost" onClick={() => onIr(r)} className="px-2 py-1 text-[11px]" aria-label="Ver en el mapa">
-          📍
-        </Button>
-        <Button
-          variant="ghost"
+        <IconButton variant="ghost" size="sm" icon={MapPin} label="Ver en el mapa" onClick={() => onIr(r)} />
+        <IconButton
+          variant="danger"
+          size="sm"
+          icon={Trash2}
+          label="Eliminar reporte"
           disabled={eliminar.isPending}
-          onClick={() => {
-            if (window.confirm('¿Eliminar este reporte?')) eliminar.mutate(r.id);
-          }}
-          className="px-2 py-1 text-[11px] text-danger"
-          aria-label="Eliminar reporte"
-        >
-          🗑
-        </Button>
+          onClick={() =>
+            void confirm({
+              title: 'Eliminar reporte',
+              description: 'Se eliminará este reporte.',
+              tone: 'danger',
+              confirmLabel: 'Eliminar',
+            }).then((ok) => ok && eliminar.mutate(r.id))
+          }
+        />
       </div>
     </article>
   );

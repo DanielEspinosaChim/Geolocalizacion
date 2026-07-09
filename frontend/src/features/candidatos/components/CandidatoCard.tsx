@@ -1,5 +1,6 @@
+import { Car, MapPin } from 'lucide-react';
 import { useState } from 'react';
-import { Badge, Button, SelectField } from '@shared/ui';
+import { Badge, Button, Card, SelectField } from '@shared/ui';
 import { useGuardarTipo } from '../api/useGuardarTipo';
 import { TIPO_LABELS, TIPO_TONES, TIPOS, tipoDe, type Candidato, type Tipo } from '../model/candidato';
 import { giroLabel } from '../model/giros';
@@ -17,7 +18,7 @@ export function CandidatoCard({ candidato, onClose }: CandidatoCardProps) {
   const wazeUrl = `https://waze.com/ul?ll=${candidato.lat},${candidato.lng}&navigate=yes`;
 
   return (
-    <section className="w-72 rounded-card border border-border bg-surface p-4 shadow-2xl">
+    <Card as="section" className="w-72 p-4 shadow-2xl">
       <header className="flex items-start justify-between gap-2">
         <div>
           <h3 className="text-sm font-bold leading-tight">{candidato.nombre}</h3>
@@ -41,22 +42,21 @@ export function CandidatoCard({ candidato, onClose }: CandidatoCardProps) {
         <Button
           disabled={guardar.isPending || tipo === tipoDe(candidato)}
           onClick={() => guardar.mutate({ placeId: candidato.place_id, tipo })}
-          className="px-3 py-2.5"
         >
           {guardar.isPending ? 'Guardando…' : 'Guardar'}
         </Button>
       </div>
       <div className="mt-3 grid grid-cols-2 gap-2 text-center text-xs font-semibold">
-        <a href={gmapsUrl} target="_blank" rel="noreferrer" className="rounded-control border border-border py-2 text-fg-muted transition-colors hover:text-fg">
-          📍 Google Maps
+        <a href={gmapsUrl} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-1 rounded-control border border-border py-2 text-fg-muted transition-colors hover:text-fg">
+          <MapPin className="h-4 w-4" aria-hidden="true" /> Google Maps
         </a>
-        <a href={wazeUrl} target="_blank" rel="noreferrer" className="rounded-control border border-border py-2 text-fg-muted transition-colors hover:text-fg">
-          🚗 Waze
+        <a href={wazeUrl} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-1 rounded-control border border-border py-2 text-fg-muted transition-colors hover:text-fg">
+          <Car className="h-4 w-4" aria-hidden="true" /> Waze
         </a>
       </div>
-      <Button variant="ghost" full onClick={onClose} className="mt-2 py-1.5 text-xs">
+      <Button variant="ghost" size="sm" full onClick={onClose} className="mt-2">
         Cerrar
       </Button>
-    </section>
+    </Card>
   );
 }
