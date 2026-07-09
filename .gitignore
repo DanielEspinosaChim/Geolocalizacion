@@ -21,6 +21,7 @@ Thumbs.db
 # Logs
 *.log
 server.log
+server_dev.log
 server_err.log
 firebase-debug.log
 
