@@ -31,8 +31,10 @@ export function VisitaModal({ campanaId, negocio, onClose }: VisitaModalProps) {
   );
   const [visitado, setVisitado] = useState(negocio.completado);
   const [notas, setNotas] = useState(negocio.notas ?? '');
-  const [foto, setFoto] = useState<File | null>(null);
-  const [fotoBorrada, setFotoBorrada] = useState(false);
+  const [fotoLocal, setFotoLocal] = useState<File | null>(null);
+  const [fotoNegocio, setFotoNegocio] = useState<File | null>(null);
+  const [fotoLocalBorrada, setFotoLocalBorrada] = useState(false);
+  const [fotoNegocioBorrada, setFotoNegocioBorrada] = useState(false);
 
   const camposDinamicos = (plantilla?.campos ?? []).filter((c) => !CAMPOS_FIJOS.has(c.key));
 
@@ -42,7 +44,17 @@ export function VisitaModal({ campanaId, negocio, onClose }: VisitaModalProps) {
 
   function submit() {
     guardar.mutate(
-      { negocio, datos, plantillaId: plantilla?.id ?? '', visitado, notas, foto, fotoBorrada },
+      {
+        negocio,
+        datos,
+        plantillaId: plantilla?.id ?? '',
+        visitado,
+        notas,
+        fotoLocal,
+        fotoNegocio,
+        fotoLocalBorrada,
+        fotoNegocioBorrada,
+      },
       { onSuccess: onClose },
     );
   }
@@ -53,22 +65,11 @@ export function VisitaModal({ campanaId, negocio, onClose }: VisitaModalProps) {
         <Spinner label="Cargando plantilla…" />
       ) : (
         <div className="grid gap-4">
-          {plantillas.length > 1 ? (
-            <div className="flex flex-wrap gap-1.5">
-              {plantillas.map((p) => (
-                <button
-                  key={p.id}
-                  type="button"
-                  onClick={() => setPlantillaId(p.id)}
-                  className={`rounded-full px-3 py-1 text-xs2 font-semibold ${
-                    p.id === plantilla?.id ? 'bg-primary-strong text-primary-fg' : 'border border-border text-fg-muted'
-                  }`}
-                >
-                  {p.nombre}
-                </button>
-              ))}
-            </div>
-          ) : null}
+          <SelectorPlantilla
+            plantillas={plantillas}
+            activa={plantilla?.id}
+            onElegir={setPlantillaId}
+          />
 
           <VisitadoToggle visitado={visitado} onChange={setVisitado} />
 
@@ -78,16 +79,24 @@ export function VisitaModal({ campanaId, negocio, onClose }: VisitaModalProps) {
 
           <TextareaField label="Notas" value={notas} onChange={(e) => setNotas(e.target.value)} />
 
-          <div className="grid gap-1.5">
-            <span className="text-xs2 font-bold uppercase tracking-wider text-fg-subtle">Foto</span>
-            <FotoField
-              valorInicial={negocio.foto_visita_url}
-              onChange={(f, borrada) => {
-                setFoto(f);
-                setFotoBorrada(borrada);
-              }}
-            />
-          </div>
+          <FotoCampo
+            label="Foto del local"
+            valorInicial={negocio.foto_local_url}
+            onChange={(f, borrada) => {
+              setFotoLocal(f);
+              setFotoLocalBorrada(borrada);
+            }}
+          />
+          <FotoCampo
+            label="Foto del negocio"
+            // La primera visita guardaba una sola foto en foto_visita_url; se
+            // muestra aquí para no perder la de las visitas antiguas.
+            valorInicial={negocio.foto_negocio_url ?? negocio.foto_visita_url}
+            onChange={(f, borrada) => {
+              setFotoNegocio(f);
+              setFotoNegocioBorrada(borrada);
+            }}
+          />
 
           <Button loading={guardar.isPending} onClick={submit}>
             Guardar visita
@@ -115,6 +124,53 @@ function VisitadoToggle({ visitado, onChange }: { visitado: boolean; onChange: (
           }`}
         >
           {mostrarCheck ? <Check className="h-4 w-4" aria-hidden="true" /> : null} {txt}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+/** Etiqueta + selector de foto (cámara/galería), para el local y el negocio. */
+function FotoCampo({
+  label,
+  valorInicial,
+  onChange,
+}: {
+  label: string;
+  valorInicial?: string | null;
+  onChange: (foto: File | null, borrada: boolean) => void;
+}) {
+  return (
+    <div className="grid gap-1.5">
+      <span className="text-xs2 font-bold uppercase tracking-wider text-fg-subtle">{label}</span>
+      <FotoField valorInicial={valorInicial} onChange={onChange} />
+    </div>
+  );
+}
+
+/** Píldoras para elegir plantilla; se oculta si solo hay una. */
+function SelectorPlantilla({
+  plantillas,
+  activa,
+  onElegir,
+}: {
+  plantillas: { id: string; nombre: string }[];
+  activa: string | undefined;
+  onElegir: (id: string) => void;
+}) {
+  if (plantillas.length <= 1) return null;
+  return (
+    <div className="flex flex-wrap gap-1.5">
+      {plantillas.map((p) => (
+        <button
+          key={p.id}
+          type="button"
+          onClick={() => onElegir(p.id)}
+          className={`rounded-full px-3 py-1 text-xs2 font-semibold ${
+            p.id === activa ? 'bg-primary-strong text-primary-fg' : 'border border-border text-fg-muted'
+          }`}
+        >
+          {p.nombre}
         </button>
       ))}
     </div>

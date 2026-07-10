@@ -1,4 +1,5 @@
 export { Alert } from './Alert';
+export { Avatar } from './Avatar';
 export { Badge, type BadgeTone } from './Badge';
 export { Button } from './Button';
 export { CameraModal } from './camera/CameraModal';
@@ -19,6 +20,7 @@ export { Modal } from './Modal';
 export { ModalFooter } from './ModalFooter';
 export { Page } from './Page';
 export { PageHeader } from './PageHeader';
+export { PasswordField } from './PasswordField';
 export { PanelSection } from './PanelSection';
 export { PortalContainerContext, usePortalContainer } from './PortalContainer';
 export { QueryBoundary } from './QueryBoundary';

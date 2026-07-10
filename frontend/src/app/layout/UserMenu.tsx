@@ -1,6 +1,7 @@
+import { LogOut } from 'lucide-react';
 import { useNavigate } from 'react-router';
 import { signOutUser, type SessionUser } from '@core/auth';
-import { Badge, Button } from '@shared/ui';
+import { Avatar, Badge, IconButton } from '@shared/ui';
 
 export function UserMenu({ user }: { user: SessionUser }) {
   const navigate = useNavigate();
@@ -12,14 +13,19 @@ export function UserMenu({ user }: { user: SessionUser }) {
   }
 
   return (
-    <div className="flex items-center gap-3">
-      <div className="text-right">
-        <div className="text-xs font-semibold">{user.email}</div>
+    <div className="flex items-center gap-2.5">
+      <Avatar nombre={user.email ?? '?'} size="sm" />
+      {/* El correo se oculta en móvil; el avatar y el rol bastan ahí. */}
+      <div className="hidden text-right sm:block">
+        <div className="max-w-[16rem] truncate text-xs font-semibold">{user.email}</div>
         <Badge tone={isAdmin ? 'success' : 'warning'}>{isAdmin ? 'Admin' : 'Técnico'}</Badge>
       </div>
-      <Button variant="secondary" onClick={() => void handleLogout()} className="px-3 py-1.5 text-xs">
-        Salir
-      </Button>
+      <IconButton
+        variant="ghost"
+        icon={LogOut}
+        label="Cerrar sesión"
+        onClick={() => void handleLogout()}
+      />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Alert, Button, Modal, ModalFooter, TextField } from '@shared/ui';
+import { Alert, Button, Modal, ModalFooter, PasswordField } from '@shared/ui';
 import { useCambiarPassword } from '../api/useCambiarPassword';
 import { passwordSchema, type PasswordInput } from '../model/usuario';
 
@@ -33,9 +33,9 @@ export function CambiarPasswordModal({ open, onClose }: { open: boolean; onClose
     <Modal open={open} onClose={onClose} title="Cambiar contraseña" width="sm">
       <form onSubmit={(e) => void handleSubmit(submit)(e)} className="grid gap-3">
         {error ? <Alert>{error}</Alert> : null}
-        <TextField label="Contraseña actual" type="password" autoComplete="current-password" error={errors.actual?.message} {...register('actual')} />
-        <TextField label="Nueva contraseña" type="password" autoComplete="new-password" error={errors.nueva?.message} {...register('nueva')} />
-        <TextField label="Confirmar nueva" type="password" autoComplete="new-password" error={errors.confirmar?.message} {...register('confirmar')} />
+        <PasswordField label="Contraseña actual" autoComplete="current-password" error={errors.actual?.message} {...register('actual')} />
+        <PasswordField label="Nueva contraseña" autoComplete="new-password" error={errors.nueva?.message} {...register('nueva')} />
+        <PasswordField label="Confirmar nueva" autoComplete="new-password" error={errors.confirmar?.message} {...register('confirmar')} />
         <ModalFooter>
           <Button type="button" variant="secondary" onClick={onClose}>
             Cancelar

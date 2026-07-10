@@ -12,12 +12,14 @@ export interface GuardarVisitaInput {
   plantillaId: string;
   visitado: boolean;
   notas: string;
-  foto: File | null;
-  fotoBorrada: boolean;
+  fotoLocal: File | null;
+  fotoNegocio: File | null;
+  fotoLocalBorrada: boolean;
+  fotoNegocioBorrada: boolean;
 }
 
 /**
- * Guarda una visita: sube datos+foto (multipart), fuerza completado/notas por
+ * Guarda una visita: sube datos + fotos (multipart), fuerza completado/notas por
  * PATCH y captura la ubicación GPS en segundo plano (paridad con el legacy).
  */
 export function useGuardarVisita(campanaId: string) {
@@ -30,11 +32,14 @@ export function useGuardarVisita(campanaId: string) {
       fd.append('datos_json', JSON.stringify(input.datos));
       fd.append('plantilla_id', input.plantillaId);
       fd.append('completado', String(input.visitado));
-      if (input.foto) fd.append('foto', input.foto);
+      if (input.fotoLocal) fd.append('foto_local', input.fotoLocal);
+      if (input.fotoNegocio) fd.append('foto_negocio', input.fotoNegocio);
       await apiClient.postForm(`${base}/visita`, fd);
 
       const patch: Record<string, unknown> = { completado: input.visitado, notas: input.notas };
-      if (input.fotoBorrada && !input.foto) patch.foto_visita_url = '';
+      // Borrar una foto = enviar cadena vacía, solo si no se subió una nueva.
+      if (input.fotoLocalBorrada && !input.fotoLocal) patch.foto_local_url = '';
+      if (input.fotoNegocioBorrada && !input.fotoNegocio) patch.foto_negocio_url = '';
       await apiClient.patch(base, patch);
       return { base, negocio: input.negocio };
     },

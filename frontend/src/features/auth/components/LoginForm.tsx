@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
-import { Alert, Button, TextField } from '@shared/ui';
+import { Alert, Button, PasswordField, TextField } from '@shared/ui';
 import { signInWithEmail, signInWithGoogle } from '../api/sign-in';
 import { loginSchema, type LoginInput } from '../model/login';
 import { GoogleIcon } from './GoogleIcon';
@@ -51,9 +51,8 @@ export function LoginForm() {
         error={errors.email?.message}
         {...register('email')}
       />
-      <TextField
+      <PasswordField
         label="Contraseña"
-        type="password"
         placeholder="••••••••"
         autoComplete="current-password"
         error={errors.password?.message}

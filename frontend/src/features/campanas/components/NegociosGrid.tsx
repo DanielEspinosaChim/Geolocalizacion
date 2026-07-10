@@ -88,15 +88,7 @@ function NegocioCard({
             </div>
           ) : null}
         </div>
-        {n.foto_visita_url ? (
-          <a href={n.foto_visita_url} target="_blank" rel="noreferrer" className="shrink-0">
-            <img
-              src={n.foto_visita_url}
-              alt={`Foto de la visita a ${n.nombre}`}
-              className="h-12 w-12 rounded-control border border-border object-cover text-2xs text-fg-subtle"
-            />
-          </a>
-        ) : null}
+        <MiniaturaVisita negocio={n} />
       </div>
 
       <div className="flex items-center gap-2 border-t border-border pt-3">
@@ -121,5 +113,20 @@ function NegocioCard({
         />
       </div>
     </Card>
+  );
+}
+
+/** Miniatura de la foto de la visita: negocio, o la única foto de visitas viejas. */
+function MiniaturaVisita({ negocio: n }: { negocio: NegocioCampana }) {
+  const url = n.foto_negocio_url ?? n.foto_visita_url ?? n.foto_local_url;
+  if (!url) return null;
+  return (
+    <a href={url} target="_blank" rel="noreferrer" className="shrink-0">
+      <img
+        src={url}
+        alt={`Foto de la visita a ${n.nombre}`}
+        className="h-12 w-12 rounded-control border border-border object-cover text-2xs text-fg-subtle"
+      />
+    </a>
   );
 }

@@ -35,7 +35,8 @@ export function useUsuarioMutations() {
 
   const cambiarRole = useMutation({
     mutationFn: async ({ uid, role }: { uid: string; role: Role }) => {
-      await apiClient.patch(`/admin/usuarios/${uid}`, { role });
+      // El backend expone la ruta con sufijo `/role`; sin él respondía 405.
+      await apiClient.patch(`/admin/usuarios/${uid}/role`, { role });
     },
     onSuccess: () => {
       toast.success('Rol actualizado — aplica en el próximo inicio de sesión');
@@ -46,7 +47,7 @@ export function useUsuarioMutations() {
 
   const toggle = useMutation({
     mutationFn: async ({ uid, disabled }: { uid: string; disabled: boolean }) => {
-      await apiClient.patch(`/admin/usuarios/${uid}`, { disabled });
+      await apiClient.patch(`/admin/usuarios/${uid}/disable`, { disabled });
     },
     onSuccess: invalidar,
     meta: { errorMessage: 'No se pudo actualizar' },

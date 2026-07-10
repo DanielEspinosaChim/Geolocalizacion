@@ -34,6 +34,7 @@ export function ChecklistItem({ campanaId, negocio: n, onRegistrar }: ChecklistI
   const patch = usePatchNegocio(campanaId);
   const visitado = n.completado;
   const urls = navUrls(n);
+  const fotoUrl = n.foto_negocio_url ?? n.foto_visita_url ?? null;
 
   return (
     <div className={`grid gap-2 border-b border-border px-4 py-3 ${visitado ? 'bg-surface/50' : ''}`}>
@@ -47,9 +48,13 @@ export function ChecklistItem({ campanaId, negocio: n, onRegistrar }: ChecklistI
           </div>
           <div className="truncate text-xs2 text-fg-muted">{lineaMeta(n)}</div>
         </div>
-        {visitado && n.foto_visita_url ? (
-          <a href={n.foto_visita_url} target="_blank" rel="noreferrer">
-            <img src={n.foto_visita_url} alt="Foto de la visita" className="h-10 w-10 rounded-control object-cover" />
+        {visitado && fotoUrl ? (
+          <a href={fotoUrl} target="_blank" rel="noreferrer" className="shrink-0">
+            <img
+              src={fotoUrl}
+              alt={`Foto de la visita a ${n.nombre}`}
+              className="h-10 w-10 rounded-control border border-border object-cover"
+            />
           </a>
         ) : null}
       </div>

@@ -1,13 +1,31 @@
-from fastapi import APIRouter, HTTPException, Query, Depends, Request
+from fastapi import APIRouter, HTTPException, Query, Depends, Request, Form, File, UploadFile
 from pydantic import BaseModel, Field
 from typing import List, Optional
 from datetime import datetime
+from pathlib import Path
+import json
+import uuid
 import requests as _req
 import db.firestore as fs
-from db.database import nearest_neighbor_tsp
+from db.database import nearest_neighbor_tsp, ROOT
 from auth import require_any, require_admin
 
 router = APIRouter()
+
+UPLOADS_DIR = ROOT / "data" / "uploads"
+UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
+
+
+async def _guardar_foto(foto: Optional[UploadFile]) -> Optional[str]:
+    """Guarda una foto de visita en uploads y devuelve su URL relativa."""
+    if not foto or not foto.filename:
+        return None
+    contenido = await foto.read()
+    if len(contenido) > 5 * 1024 * 1024:
+        raise HTTPException(status_code=400, detail="La foto no puede superar 5 MB")
+    nombre = f"visita_{uuid.uuid4().hex}{Path(foto.filename).suffix.lower() or '.jpg'}"
+    (UPLOADS_DIR / nombre).write_bytes(contenido)
+    return f"/uploads/{nombre}"
 
 
 # ── Modelos ───────────────────────────────────────────────────────────────────
@@ -45,6 +63,16 @@ class ActualizarNegocioBody(BaseModel):
     notas:       Optional[str]  = Field(None, description="Observaciones del inspector durante la visita")
     fecha_visita: Optional[str] = Field(None, description="Fecha real de visita (YYYY-MM-DD)")
     checklist_json: Optional[str] = Field(None, description="JSON actualizado con el estado del checklist")
+    # Verificación GPS del técnico (la app las manda por PATCH tras guardar).
+    # Sin declararlas aquí, el PATCH las descartaba y la ubicación se perdía.
+    visita_lat: Optional[float] = None
+    visita_lng: Optional[float] = None
+    visita_precision: Optional[float] = None
+    visita_distancia: Optional[float] = None
+    visita_direccion: Optional[str] = None
+    # Permite limpiar una foto ya guardada enviando cadena vacía.
+    foto_local_url: Optional[str] = None
+    foto_negocio_url: Optional[str] = None
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -212,6 +240,52 @@ del checklist como completados y agrega notas, todo desde la app móvil.
 )
 def actualizar_negocio_campana(campana_id: str, negocio_id: str, body: ActualizarNegocioBody):
     campos = {k: v for k, v in body.model_dump().items() if v is not None}
+    updated = fs.update_negocio_campana(campana_id, negocio_id, campos)
+    if updated is None:
+        raise HTTPException(status_code=404, detail=f"Negocio '{negocio_id}' no está en la campaña {campana_id}")
+    return updated
+
+
+@router.post(
+    "/api/campanas/{campana_id}/negocios/{negocio_id}/visita",
+    summary="Registrar la visita a un negocio (datos del formulario + fotos)",
+    description="""
+Guarda el formulario de visita de un negocio: los datos de la plantilla, el
+estado (visitado/pendiente) y hasta dos fotos (del local y del negocio).
+
+Se envía como `multipart/form-data` porque incluye archivos. Los campos van en
+`datos_json` (JSON con las respuestas de la plantilla) y las fotos en
+`foto_local` / `foto_negocio`.
+""",
+    responses={404: {"description": "No se encontró ese negocio en esa campaña"}},
+)
+async def registrar_visita(
+    campana_id: str,
+    negocio_id: str,
+    datos_json:   str = Form("{}", description="Respuestas de la plantilla (JSON)"),
+    plantilla_id: str = Form("",   description="Id de la plantilla usada"),
+    completado:  bool = Form(False, description="true = visita completada"),
+    foto_local:   Optional[UploadFile] = File(None, description="Foto del local / fachada"),
+    foto_negocio: Optional[UploadFile] = File(None, description="Foto del interior / negocio"),
+):
+    try:
+        datos = json.loads(datos_json) if datos_json else {}
+    except json.JSONDecodeError:
+        raise HTTPException(status_code=400, detail="datos_json no es JSON válido")
+
+    campos: dict = {
+        "visita_datos": datos,
+        "plantilla_id": plantilla_id,
+        "completado":   completado,
+        "fecha_visita": datetime.utcnow().strftime("%Y-%m-%d"),
+    }
+    url_local   = await _guardar_foto(foto_local)
+    url_negocio = await _guardar_foto(foto_negocio)
+    if url_local:
+        campos["foto_local_url"] = url_local
+    if url_negocio:
+        campos["foto_negocio_url"] = url_negocio
+
     updated = fs.update_negocio_campana(campana_id, negocio_id, campos)
     if updated is None:
         raise HTTPException(status_code=404, detail=f"Negocio '{negocio_id}' no está en la campaña {campana_id}")

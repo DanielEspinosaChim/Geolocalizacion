@@ -44,6 +44,10 @@ export const negocioSchema = z.object({
   direccion: z.string().nullish(),
   visita_datos: z.record(z.string(), z.unknown()).nullish(),
   plantilla_id: z.string().nullish(),
+  /** Foto de la fachada y foto del interior/negocio. */
+  foto_local_url: z.string().nullish(),
+  foto_negocio_url: z.string().nullish(),
+  /** Compat: visitas viejas guardaban una sola foto aquí. */
   foto_visita_url: z.string().nullish(),
   visita_lat: z.number().nullish(),
   visita_lng: z.number().nullish(),

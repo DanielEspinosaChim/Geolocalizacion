@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { Role } from '@core/auth';
-import { Button, Combobox, Modal, ModalFooter, TextField } from '@shared/ui';
+import { Button, Combobox, Modal, ModalFooter, PasswordField, TextField } from '@shared/ui';
 import { useUsuarioMutations } from '../api/useUsuarios';
 import { ROLES } from '../model/usuario';
 
@@ -32,7 +32,7 @@ export function CrearUsuarioModal({ open, onClose }: { open: boolean; onClose: (
       <form onSubmit={submit} className="grid gap-3">
         <TextField label="Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
         <TextField label="Correo" type="email" autoComplete="off" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <TextField label="Contraseña" type="password" autoComplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <PasswordField label="Contraseña" autoComplete="new-password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         <Combobox
           label="Rol"
           clearable={false}
