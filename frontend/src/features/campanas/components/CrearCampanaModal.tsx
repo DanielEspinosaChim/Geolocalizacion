@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Modal, ModalFooter, TextField } from '@shared/ui';
+import { Button, DateField, Modal, ModalFooter, TextField, TextareaField } from '@shared/ui';
 import { ColoniaSelect } from '@features/colonias-zonas';
 import { useCampanaMutations } from '../api/useCampanaMutations';
 
@@ -37,15 +37,25 @@ export function CrearCampanaModal({ open, onClose }: CrearCampanaModalProps) {
     <Modal open={open} onClose={onClose} title="Nueva campaña">
       <form onSubmit={enviar} className="grid gap-3">
         <TextField label="Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} required />
-        <TextField
+        <TextareaField
           label="Descripción"
+          rows={2}
           value={descripcion}
           onChange={(e) => setDescripcion(e.target.value)}
         />
         <ColoniaSelect value={colonia} onChange={setColonia} label="Colonia (opcional)" />
         <div className="grid grid-cols-2 gap-3">
-          <TextField label="Inicio" type="date" value={fechaInicio} onChange={(e) => setFechaInicio(e.target.value)} />
-          <TextField label="Fin" type="date" value={fechaFin} onChange={(e) => setFechaFin(e.target.value)} />
+          <DateField
+            label="Inicio"
+            value={fechaInicio}
+            onChange={(e) => setFechaInicio(e.target.value)}
+          />
+          <DateField
+            label="Fin"
+            min={fechaInicio || undefined}
+            value={fechaFin}
+            onChange={(e) => setFechaFin(e.target.value)}
+          />
         </div>
         <ModalFooter>
           <Button type="button" variant="secondary" onClick={onClose}>

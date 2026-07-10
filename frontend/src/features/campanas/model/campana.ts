@@ -72,3 +72,8 @@ export function progresoDe(c: Pick<Campana, 'total_negocios' | 'total_completado
   const pct = total > 0 ? Math.round((hecho / total) * 100) : 0;
   return { total, hecho, pendientes: total - hecho, pct, completa: pct === 100 && total > 0 };
 }
+
+/** Semáforo de la distancia de verificación GPS (≤100 ok, ≤300 dudoso, >300 lejos). */
+export function toneVerificacion(distanciaM: number): 'success' | 'warning' | 'danger' {
+  return distanciaM <= 100 ? 'success' : distanciaM <= 300 ? 'warning' : 'danger';
+}

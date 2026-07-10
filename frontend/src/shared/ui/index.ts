@@ -20,6 +20,7 @@ export { ModalFooter } from './ModalFooter';
 export { Page } from './Page';
 export { PageHeader } from './PageHeader';
 export { PanelSection } from './PanelSection';
+export { PortalContainerContext, usePortalContainer } from './PortalContainer';
 export { QueryBoundary } from './QueryBoundary';
 export { SearchInput } from './SearchInput';
 export { SelectField } from './SelectField';

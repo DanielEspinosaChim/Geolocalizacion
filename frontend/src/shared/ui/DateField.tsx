@@ -37,6 +37,17 @@ export const DateField = forwardRef<HTMLInputElement, DateFieldProps>(function D
         ref={ref}
         id={id}
         type="date"
+        // Clic en cualquier parte del campo abre el calendario, no solo el
+        // iconito. Sin esto, pulsar sobre el texto no hace nada y parece roto.
+        // El try/catch cubre navegadores que bloquean showPicker fuera de un
+        // gesto del usuario o que no lo implementan.
+        onClick={(e) => {
+          try {
+            e.currentTarget.showPicker();
+          } catch {
+            /* el navegador lo rechazó; el clic normal sigue funcionando */
+          }
+        }}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}
         className={`w-full rounded-control border bg-bg text-fg outline-none transition-colors focus:border-primary [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-60 [&::-webkit-calendar-picker-indicator]:invert hover:[&::-webkit-calendar-picker-indicator]:opacity-100 [[data-theme=light]_&::-webkit-calendar-picker-indicator]:invert-0 ${

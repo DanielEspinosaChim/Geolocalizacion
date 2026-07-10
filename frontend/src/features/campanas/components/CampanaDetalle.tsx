@@ -7,7 +7,7 @@ import { useCampanaMutations } from '../api/useCampanaMutations';
 import { progresoDe, STATUS_META, type NegocioCampana } from '../model/campana';
 import { AgregarNegocios } from './AgregarNegocios';
 import { ChecklistTecnico } from './ChecklistTecnico';
-import { NegociosTabla } from './NegociosTabla';
+import { NegociosGrid } from './NegociosGrid';
 import { PlantillasModal } from './PlantillasModal';
 import { ProgresoHero } from './ProgresoHero';
 import { RutaCampanaModal } from './RutaCampanaModal';
@@ -95,7 +95,7 @@ export function CampanaDetalle({ campanaId, esTecnico, onVolver }: CampanaDetall
         {esTecnico ? (
           <ChecklistTecnico campanaId={campanaId} negocios={negocios} onRegistrar={setVisita} />
         ) : (
-          <NegociosTabla campanaId={campanaId} negocios={negocios} onRegistrar={setVisita} />
+          <NegociosGrid campanaId={campanaId} negocios={negocios} onRegistrar={setVisita} />
         )}
       </div>
 

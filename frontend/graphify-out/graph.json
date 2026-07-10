@@ -730,7 +730,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_errorboundary",
-      "community": 40,
+      "community": 4,
       "norm_label": "errorboundary.tsx"
     },
     {
@@ -740,7 +740,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "app_errorboundary_state",
-      "community": 40,
+      "community": 4,
       "norm_label": "state"
     },
     {
@@ -750,7 +750,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "app_errorboundary_errorboundary",
-      "community": 40,
+      "community": 4,
       "norm_label": "errorboundary"
     },
     {
@@ -760,7 +760,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "app_errorboundary_errorboundary_getderivedstatefromerror",
-      "community": 40,
+      "community": 4,
       "norm_label": ".getderivedstatefromerror()"
     },
     {
@@ -770,7 +770,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "app_errorboundary_errorboundary_componentdidcatch",
-      "community": 40,
+      "community": 4,
       "norm_label": ".componentdidcatch()"
     },
     {
@@ -780,7 +780,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "app_errorboundary_errorboundary_render",
-      "community": 39,
+      "community": 4,
       "norm_label": ".render()"
     },
     {
@@ -790,7 +790,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "layout_appshell",
-      "community": 44,
+      "community": 4,
       "norm_label": "appshell.tsx"
     },
     {
@@ -800,7 +800,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "layout_appshell_appshell",
-      "community": 42,
+      "community": 38,
       "norm_label": "appshell()"
     },
     {
@@ -810,7 +810,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "layout_navtabs",
-      "community": 44,
+      "community": 4,
       "norm_label": "navtabs.tsx"
     },
     {
@@ -820,7 +820,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "layout_navtabs_navitem",
-      "community": 44,
+      "community": 4,
       "norm_label": "navitem"
     },
     {
@@ -830,7 +830,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "layout_navtabs_nav_items",
-      "community": 44,
+      "community": 4,
       "norm_label": "nav_items"
     },
     {
@@ -840,7 +840,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "layout_navtabs_navtabs",
-      "community": 44,
+      "community": 4,
       "norm_label": "navtabs()"
     },
     {
@@ -850,7 +850,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "layout_usermenu",
-      "community": 44,
+      "community": 4,
       "norm_label": "usermenu.tsx"
     },
     {
@@ -860,7 +860,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "layout_usermenu_usermenu",
-      "community": 44,
+      "community": 4,
       "norm_label": "usermenu()"
     },
     {
@@ -870,7 +870,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_main",
-      "community": 40,
+      "community": 4,
       "norm_label": "main.tsx"
     },
     {
@@ -880,7 +880,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "app_main_rootelement",
-      "community": 40,
+      "community": 4,
       "norm_label": "rootelement"
     },
     {
@@ -890,7 +890,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "providers_appproviders",
-      "community": 40,
+      "community": 4,
       "norm_label": "appproviders.tsx"
     },
     {
@@ -900,7 +900,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "providers_appproviders_appproviders",
-      "community": 40,
+      "community": 4,
       "norm_label": "appproviders()"
     },
     {
@@ -1040,7 +1040,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "router_index_router",
-      "community": 40,
+      "community": 4,
       "norm_label": "router"
     },
     {
@@ -1380,7 +1380,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "query_index",
-      "community": 39,
+      "community": 38,
       "norm_label": "index.ts"
     },
     {
@@ -1390,7 +1390,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "query_queryclient",
-      "community": 39,
+      "community": 38,
       "norm_label": "queryclient.ts"
     },
     {
@@ -1400,7 +1400,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "query_queryclient_register",
-      "community": 39,
+      "community": 38,
       "norm_label": "register"
     },
     {
@@ -1410,7 +1410,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "query_queryclient_mensajedeerror",
-      "community": 39,
+      "community": 38,
       "norm_label": "mensajedeerror()"
     },
     {
@@ -1420,7 +1420,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "query_queryclient_queryclient",
-      "community": 39,
+      "community": 38,
       "norm_label": "queryclient"
     },
     {
@@ -1860,7 +1860,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_loginform_test",
-      "community": 39,
+      "community": 38,
       "norm_label": "loginform.test.tsx"
     },
     {
@@ -1870,7 +1870,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "components_loginform_test_signinwithemail",
-      "community": 39,
+      "community": 38,
       "norm_label": "{ signinwithemail }"
     },
     {
@@ -1880,7 +1880,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "components_loginform_test_renderform",
-      "community": 39,
+      "community": 4,
       "norm_label": "renderform()"
     },
     {
@@ -1910,7 +1910,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "components_loginform_loginform",
-      "community": 39,
+      "community": 38,
       "norm_label": "loginform()"
     },
     {
@@ -1920,7 +1920,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "hooks_usecierreporinactividad",
-      "community": 42,
+      "community": 38,
       "norm_label": "usecierreporinactividad.ts"
     },
     {
@@ -1930,7 +1930,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "hooks_usecierreporinactividad_usecierreporinactividad",
-      "community": 42,
+      "community": 38,
       "norm_label": "usecierreporinactividad()"
     },
     {
@@ -1940,7 +1940,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "hooks_usesession",
-      "community": 42,
+      "community": 38,
       "norm_label": "usesession.ts"
     },
     {
@@ -1950,7 +1950,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "hooks_usesession_usesession",
-      "community": 42,
+      "community": 38,
       "norm_label": "usesession()"
     },
     {
@@ -1960,7 +1960,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_features_auth_index_ts_auth_index",
-      "community": 42,
+      "community": 38,
       "norm_label": "index.ts"
     },
     {
@@ -2000,7 +2000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routes_loginpage",
-      "community": 42,
+      "community": 38,
       "norm_label": "loginpage.tsx"
     },
     {
@@ -2010,7 +2010,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "routes_loginpage_loginpage",
-      "community": 42,
+      "community": 38,
       "norm_label": "loginpage()"
     },
     {
@@ -2584,44 +2584,84 @@
       "norm_label": "editorplantilla()"
     },
     {
-      "label": "NegociosTabla.tsx",
+      "label": "NegociosGrid.test.tsx",
       "file_type": "code",
-      "source_file": "src/features/campanas/components/NegociosTabla.tsx",
+      "source_file": "src/features/campanas/components/NegociosGrid.test.tsx",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "components_negociostabla",
+      "id": "components_negociosgrid_test",
       "community": 31,
-      "norm_label": "negociostabla.tsx"
+      "norm_label": "negociosgrid.test.tsx"
     },
     {
-      "label": "NegociosTablaProps",
+      "label": "negocio()",
       "file_type": "code",
-      "source_file": "src/features/campanas/components/NegociosTabla.tsx",
-      "source_location": "L15",
+      "source_file": "src/features/campanas/components/NegociosGrid.test.tsx",
+      "source_location": "L11",
       "_origin": "ast",
-      "id": "components_negociostabla_negociostablaprops",
+      "id": "components_negociosgrid_test_negocio",
       "community": 31,
-      "norm_label": "negociostablaprops"
+      "norm_label": "negocio()"
     },
     {
-      "label": "NegociosTabla()",
+      "label": "renderGrid()",
       "file_type": "code",
-      "source_file": "src/features/campanas/components/NegociosTabla.tsx",
-      "source_location": "L22",
+      "source_file": "src/features/campanas/components/NegociosGrid.test.tsx",
+      "source_location": "L35",
       "_origin": "ast",
-      "id": "components_negociostabla_negociostabla",
-      "community": 31,
-      "norm_label": "negociostabla()"
+      "id": "components_negociosgrid_test_rendergrid",
+      "community": 4,
+      "norm_label": "rendergrid()"
     },
     {
-      "label": "NegocioCelda()",
+      "label": "NegociosGrid.tsx",
       "file_type": "code",
-      "source_file": "src/features/campanas/components/NegociosTabla.tsx",
-      "source_location": "L92",
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L1",
       "_origin": "ast",
-      "id": "components_negociostabla_negociocelda",
+      "id": "components_negociosgrid",
       "community": 31,
-      "norm_label": "negociocelda()"
+      "norm_label": "negociosgrid.tsx"
+    },
+    {
+      "label": "NegociosGridProps",
+      "file_type": "code",
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "components_negociosgrid_negociosgridprops",
+      "community": 31,
+      "norm_label": "negociosgridprops"
+    },
+    {
+      "label": "NegociosGrid()",
+      "file_type": "code",
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "components_negociosgrid_negociosgrid",
+      "community": 31,
+      "norm_label": "negociosgrid()"
+    },
+    {
+      "label": "TONE_TEXT",
+      "file_type": "code",
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "components_negociosgrid_tone_text",
+      "community": 31,
+      "norm_label": "tone_text"
+    },
+    {
+      "label": "NegocioCard()",
+      "file_type": "code",
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "components_negociosgrid_negociocard",
+      "community": 31,
+      "norm_label": "negociocard()"
     },
     {
       "label": "PlantillasModal.tsx",
@@ -2720,7 +2760,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "components_visitamodal_visitamodalprops",
-      "community": 31,
+      "community": 6,
       "norm_label": "visitamodalprops"
     },
     {
@@ -2770,7 +2810,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "model_campana_test",
-      "community": 6,
+      "community": 31,
       "norm_label": "campana.test.ts"
     },
     {
@@ -2902,6 +2942,16 @@
       "id": "model_campana_progresode",
       "community": 31,
       "norm_label": "progresode()"
+    },
+    {
+      "label": "toneVerificacion()",
+      "file_type": "code",
+      "source_file": "src/features/campanas/model/campana.ts",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "model_campana_toneverificacion",
+      "community": 31,
+      "norm_label": "toneverificacion()"
     },
     {
       "label": "plantilla.ts",
@@ -3510,7 +3560,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "components_panellateral_test_renderpanel",
-      "community": 39,
+      "community": 4,
       "norm_label": "renderpanel()"
     },
     {
@@ -6200,7 +6250,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "ui_button_button",
-      "community": 1,
+      "community": 3,
       "norm_label": "button"
     },
     {
@@ -6307,7 +6357,7 @@
       "label": "COLONIAS",
       "file_type": "code",
       "source_file": "src/shared/ui/Combobox.test.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "ui_combobox_test_colonias",
       "community": 34,
@@ -6317,7 +6367,7 @@
       "label": "MUCHAS",
       "file_type": "code",
       "source_file": "src/shared/ui/Combobox.test.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "_origin": "ast",
       "id": "ui_combobox_test_muchas",
       "community": 34,
@@ -6327,7 +6377,7 @@
       "label": "abrir()",
       "file_type": "code",
       "source_file": "src/shared/ui/Combobox.test.tsx",
-      "source_location": "L17",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "ui_combobox_test_abrir",
       "community": 34,
@@ -6347,7 +6397,7 @@
       "label": "ComboboxOption",
       "file_type": "code",
       "source_file": "src/shared/ui/Combobox.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "ui_combobox_comboboxoption",
       "community": 34,
@@ -6357,7 +6407,7 @@
       "label": "ComboboxProps",
       "file_type": "code",
       "source_file": "src/shared/ui/Combobox.tsx",
-      "source_location": "L16",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "ui_combobox_comboboxprops",
       "community": 34,
@@ -6367,7 +6417,7 @@
       "label": "TAMANOS",
       "file_type": "code",
       "source_file": "src/shared/ui/Combobox.tsx",
-      "source_location": "L38",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "ui_combobox_tamanos",
       "community": 34,
@@ -6377,17 +6427,27 @@
       "label": "usaFiltro()",
       "file_type": "code",
       "source_file": "src/shared/ui/Combobox.tsx",
-      "source_location": "L47",
+      "source_location": "L48",
       "_origin": "ast",
       "id": "ui_combobox_usafiltro",
       "community": 34,
       "norm_label": "usafiltro()"
     },
     {
+      "label": "contenidoDelCampo()",
+      "file_type": "code",
+      "source_file": "src/shared/ui/Combobox.tsx",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "ui_combobox_contenidodelcampo",
+      "community": 34,
+      "norm_label": "contenidodelcampo()"
+    },
+    {
       "label": "useCombobox()",
       "file_type": "code",
       "source_file": "src/shared/ui/Combobox.tsx",
-      "source_location": "L59",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "ui_combobox_usecombobox",
       "community": 34,
@@ -6397,7 +6457,7 @@
       "label": "Combobox()",
       "file_type": "code",
       "source_file": "src/shared/ui/Combobox.tsx",
-      "source_location": "L119",
+      "source_location": "L129",
       "_origin": "ast",
       "id": "ui_combobox_combobox",
       "community": 34,
@@ -6407,7 +6467,7 @@
       "label": "DisparadorProps",
       "file_type": "code",
       "source_file": "src/shared/ui/Combobox.tsx",
-      "source_location": "L185",
+      "source_location": "L199",
       "_origin": "ast",
       "id": "ui_combobox_disparadorprops",
       "community": 34,
@@ -6417,7 +6477,7 @@
       "label": "Disparador()",
       "file_type": "code",
       "source_file": "src/shared/ui/Combobox.tsx",
-      "source_location": "L201",
+      "source_location": "L215",
       "_origin": "ast",
       "id": "ui_combobox_disparador",
       "community": 34,
@@ -6480,7 +6540,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_confirmdialog",
-      "community": 1,
+      "community": 46,
       "norm_label": "confirmdialog.tsx"
     },
     {
@@ -6490,7 +6550,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "ui_confirmdialog_confirmoptions",
-      "community": 1,
+      "community": 46,
       "norm_label": "confirmoptions"
     },
     {
@@ -6500,7 +6560,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "ui_confirmdialog_confirmfn",
-      "community": 1,
+      "community": 46,
       "norm_label": "confirmfn"
     },
     {
@@ -6510,7 +6570,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "ui_confirmdialog_confirmcontext",
-      "community": 1,
+      "community": 46,
       "norm_label": "confirmcontext"
     },
     {
@@ -6530,7 +6590,7 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "ui_confirmdialog_confirmprovider",
-      "community": 1,
+      "community": 46,
       "norm_label": "confirmprovider()"
     },
     {
@@ -6690,37 +6750,37 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_modal",
-      "community": 1,
+      "community": 46,
       "norm_label": "modal.tsx"
     },
     {
       "label": "WIDTH_CLASSES",
       "file_type": "code",
       "source_file": "src/shared/ui/Modal.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "ui_modal_width_classes",
-      "community": 1,
+      "community": 46,
       "norm_label": "width_classes"
     },
     {
       "label": "ModalProps",
       "file_type": "code",
       "source_file": "src/shared/ui/Modal.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "ui_modal_modalprops",
-      "community": 1,
+      "community": 46,
       "norm_label": "modalprops"
     },
     {
       "label": "Modal()",
       "file_type": "code",
       "source_file": "src/shared/ui/Modal.tsx",
-      "source_location": "L23",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "ui_modal_modal",
-      "community": 1,
+      "community": 46,
       "norm_label": "modal()"
     },
     {
@@ -6894,6 +6954,36 @@
       "norm_label": "titulo()"
     },
     {
+      "label": "PortalContainer.ts",
+      "file_type": "code",
+      "source_file": "src/shared/ui/PortalContainer.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "ui_portalcontainer",
+      "community": 46,
+      "norm_label": "portalcontainer.ts"
+    },
+    {
+      "label": "PortalContainerContext",
+      "file_type": "code",
+      "source_file": "src/shared/ui/PortalContainer.ts",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "ui_portalcontainer_portalcontainercontext",
+      "community": 46,
+      "norm_label": "portalcontainercontext"
+    },
+    {
+      "label": "usePortalContainer()",
+      "file_type": "code",
+      "source_file": "src/shared/ui/PortalContainer.ts",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "ui_portalcontainer_useportalcontainer",
+      "community": 34,
+      "norm_label": "useportalcontainer()"
+    },
+    {
       "label": "QueryBoundary.tsx",
       "file_type": "code",
       "source_file": "src/shared/ui/QueryBoundary.tsx",
@@ -6960,7 +7050,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_selectfield",
-      "community": 26,
+      "community": 37,
       "norm_label": "selectfield.tsx"
     },
     {
@@ -6970,7 +7060,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "ui_selectfield_selectfieldprops",
-      "community": 26,
+      "community": 37,
       "norm_label": "selectfieldprops"
     },
     {
@@ -6980,7 +7070,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "ui_selectfield_selectfield",
-      "community": 26,
+      "community": 37,
       "norm_label": "selectfield"
     },
     {
@@ -8916,6 +9006,17 @@
       "source_location": "L14",
       "weight": 1.0,
       "source": "components_loginform_test_renderform",
+      "target": "app_errorboundary_errorboundary_render"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/features/campanas/components/NegociosGrid.test.tsx",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "components_negociosgrid_test_rendergrid",
       "target": "app_errorboundary_errorboundary_render"
     },
     {
@@ -11866,12 +11967,12 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/features/campanas/components/NegociosTabla.tsx",
-      "source_location": "L2",
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_negociostabla",
-      "target": "api_usenegociomutations"
+      "source": "components_negociosgrid",
+      "target": "api_usenegociomutations",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -11899,22 +12000,22 @@
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/features/campanas/components/NegociosTabla.tsx",
-      "source_location": "L2",
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_negociostabla",
-      "target": "api_usenegociomutations_usepatchnegocio"
+      "source": "components_negociosgrid",
+      "target": "api_usenegociomutations_usepatchnegocio",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "src/features/campanas/components/NegociosTabla.tsx",
-      "source_location": "L13",
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L55",
       "weight": 1.0,
-      "source": "components_negociostabla_negociostabla",
+      "source": "components_negociosgrid_negociocard",
       "target": "api_usenegociomutations_usepatchnegocio"
     },
     {
@@ -12138,9 +12239,9 @@
       "source_file": "src/features/campanas/components/AgregarNegocios.tsx",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_agregarnegocios",
-      "target": "components_agregarnegocios_fila",
-      "confidence_score": 1.0
+      "target": "components_agregarnegocios_fila"
     },
     {
       "relation": "imports_from",
@@ -12384,22 +12485,22 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/features/campanas/components/CampanaDetalle.tsx",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "components_campanadetalle",
-      "target": "components_negociostabla"
+      "target": "components_negociosgrid",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/features/campanas/components/CampanaDetalle.tsx",
-      "source_location": "L9",
+      "source_location": "L10",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "components_campanadetalle",
-      "target": "components_negociostabla_negociostabla"
+      "target": "components_negociosgrid_negociosgrid",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -13197,67 +13298,163 @@
       "target": "components_editorplantilla_editorplantilla"
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/campanas/components/NegociosTabla.tsx",
-      "source_location": "L84",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_negociostabla",
-      "target": "components_negociostabla_negociocelda"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/campanas/components/NegociosTabla.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_negociostabla",
-      "target": "components_negociostabla_negociostabla"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/campanas/components/NegociosTabla.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_negociostabla",
-      "target": "components_negociostabla_negociostablaprops"
-    },
-    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/features/campanas/components/NegociosTabla.tsx",
-      "source_location": "L3",
+      "source_file": "src/features/campanas/components/NegociosGrid.test.tsx",
+      "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_negociostabla",
-      "target": "model_campana"
+      "source": "components_negociosgrid_test",
+      "target": "components_negociosgrid",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "src/features/campanas/components/NegociosTabla.tsx",
-      "source_location": "L3",
+      "source_file": "src/features/campanas/components/NegociosGrid.test.tsx",
+      "source_location": "L5",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_negociostabla",
-      "target": "model_campana_negociocampana"
+      "source": "components_negociosgrid_test",
+      "target": "components_negociosgrid_negociosgrid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/NegociosGrid.test.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "components_negociosgrid_test",
+      "target": "components_negociosgrid_test_negocio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/NegociosGrid.test.tsx",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "components_negociosgrid_test",
+      "target": "components_negociosgrid_test_rendergrid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/NegociosGrid.test.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_negociosgrid_test",
+      "target": "model_campana",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/NegociosGrid.test.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_negociosgrid_test",
+      "target": "model_campana_negociocampana",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "components_negociosgrid",
+      "target": "components_negociosgrid_negociocard",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "components_negociosgrid",
+      "target": "components_negociosgrid_negociosgrid",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_negociosgrid",
+      "target": "components_negociosgrid_negociosgridprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "components_negociosgrid",
+      "target": "components_negociosgrid_tone_text",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_negociosgrid",
+      "target": "model_campana",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "components_negociosgrid",
+      "target": "model_campana_negociocampana",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_negociosgrid",
+      "target": "model_campana_toneverificacion",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",
       "context": "field",
       "confidence": "EXTRACTED",
-      "source_file": "src/features/campanas/components/NegociosTabla.tsx",
-      "source_location": "L7",
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L9",
       "weight": 1.0,
+      "source": "components_negociosgrid_negociosgridprops",
+      "target": "model_campana_negociocampana",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source": "components_negociostabla_negociostablaprops",
-      "target": "model_campana_negociocampana"
+      "source_file": "src/features/campanas/components/NegociosGrid.tsx",
+      "source_location": "L81",
+      "weight": 1.0,
+      "source": "components_negociosgrid_negociocard",
+      "target": "model_campana_toneverificacion"
     },
     {
       "relation": "contains",
@@ -13776,6 +13973,16 @@
       "confidence_score": 1.0,
       "source": "model_campana",
       "target": "model_campana_statuscampana"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/model/campana.ts",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "model_campana",
+      "target": "model_campana_toneverificacion",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -22064,6 +22271,28 @@
       "target": "ui_combobox_test_muchas"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/ui/Combobox.test.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_combobox_test",
+      "target": "ui_modal"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/ui/Combobox.test.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_combobox_test",
+      "target": "ui_modal_modal"
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/shared/ui/Combobox.tsx",
@@ -22092,6 +22321,16 @@
       "confidence_score": 1.0,
       "source": "ui_combobox",
       "target": "ui_combobox_comboboxprops"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/ui/Combobox.tsx",
+      "source_location": "L53",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_combobox",
+      "target": "ui_combobox_contenidodelcampo"
     },
     {
       "relation": "contains",
@@ -22164,6 +22403,28 @@
       "confidence_score": 1.0,
       "source": "ui_combobox",
       "target": "ui_comboboxdesplegable_comboboxdesplegable"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/ui/Combobox.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_combobox",
+      "target": "ui_portalcontainer"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/ui/Combobox.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_combobox",
+      "target": "ui_portalcontainer_useportalcontainer"
     },
     {
       "relation": "imports_from",
@@ -22247,11 +22508,33 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/shared/ui/Combobox.tsx",
+      "source_location": "L146",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_combobox_combobox",
+      "target": "ui_combobox_contenidodelcampo"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/ui/Combobox.tsx",
       "source_location": "L100",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "ui_combobox_combobox",
       "target": "ui_combobox_usecombobox"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/shared/ui/Combobox.tsx",
+      "source_location": "L145",
+      "weight": 1.0,
+      "source": "ui_combobox_combobox",
+      "target": "ui_portalcontainer_useportalcontainer"
     },
     {
       "relation": "calls",
@@ -22655,9 +22938,9 @@
       "source_file": "src/shared/ui/DateField.test.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_datefield_test",
-      "target": "ui_datefield",
-      "confidence_score": 1.0
+      "target": "ui_datefield"
     },
     {
       "relation": "imports",
@@ -22666,9 +22949,9 @@
       "source_file": "src/shared/ui/DateField.test.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_datefield_test",
-      "target": "ui_datefield_datefield",
-      "confidence_score": 1.0
+      "target": "ui_datefield_datefield"
     },
     {
       "relation": "contains",
@@ -22676,9 +22959,9 @@
       "source_file": "src/shared/ui/DateField.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_datefield",
-      "target": "ui_datefield_datefield",
-      "confidence_score": 1.0
+      "target": "ui_datefield_datefield"
     },
     {
       "relation": "contains",
@@ -22686,9 +22969,9 @@
       "source_file": "src/shared/ui/DateField.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_datefield",
-      "target": "ui_datefield_datefieldprops",
-      "confidence_score": 1.0
+      "target": "ui_datefield_datefieldprops"
     },
     {
       "relation": "contains",
@@ -22696,9 +22979,9 @@
       "source_file": "src/shared/ui/DateField.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_datefield",
-      "target": "ui_datefield_tamanos",
-      "confidence_score": 1.0
+      "target": "ui_datefield_tamanos"
     },
     {
       "relation": "re_exports",
@@ -22707,9 +22990,9 @@
       "source_file": "src/shared/ui/index.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_index",
-      "target": "ui_datefield",
-      "confidence_score": 1.0
+      "target": "ui_datefield"
     },
     {
       "relation": "re_exports",
@@ -22718,9 +23001,9 @@
       "source_file": "src/shared/ui/index.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_index",
-      "target": "ui_datefield_datefield",
-      "confidence_score": 1.0
+      "target": "ui_datefield_datefield"
     },
     {
       "relation": "contains",
@@ -22901,6 +23184,28 @@
       "confidence_score": 1.0,
       "source": "ui_modal",
       "target": "ui_modal_width_classes"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/ui/Modal.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_modal",
+      "target": "ui_portalcontainer"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/ui/Modal.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_modal",
+      "target": "ui_portalcontainer_portalcontainercontext"
     },
     {
       "relation": "imports_from",
@@ -23209,6 +23514,59 @@
       "confidence_score": 1.0,
       "source": "ui_ui_test",
       "target": "ui_panelsection_panelsection"
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/ui/index.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_index",
+      "target": "ui_portalcontainer"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/ui/PortalContainer.ts",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_portalcontainer",
+      "target": "ui_portalcontainer_portalcontainercontext"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/ui/PortalContainer.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_portalcontainer",
+      "target": "ui_portalcontainer_useportalcontainer"
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/ui/index.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_index",
+      "target": "ui_portalcontainer_portalcontainercontext"
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "src/shared/ui/index.ts",
+      "source_location": "L23",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_index",
+      "target": "ui_portalcontainer_useportalcontainer"
     },
     {
       "relation": "re_exports",
@@ -24830,5 +25188,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c715aaff3a9e3efcb52d22ab0790aee3981adb0b"
+  "built_at_commit": "9b7b7314b69c2c0507de012295df216e238ed270"
 }

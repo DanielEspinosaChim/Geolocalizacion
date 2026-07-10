@@ -165,8 +165,8 @@
     "semantic_hash": ""
   },
   "src/shared/ui/Modal.tsx": {
-    "mtime": 1783626748.808496,
-    "ast_hash": "92d0365c085d7de3068a6abbe56422e5",
+    "mtime": 1783644282.4351537,
+    "ast_hash": "ff8b63ee9c6f6399b2770c8600461c7b",
     "semantic_hash": ""
   },
   "src/shared/ui/SelectField.tsx": {
@@ -205,8 +205,8 @@
     "semantic_hash": ""
   },
   "src/shared/ui/index.ts": {
-    "mtime": 1783643737.1223104,
-    "ast_hash": "2b3716b2a6414237bc1f0724eefe0a4e",
+    "mtime": 1783644293.2218268,
+    "ast_hash": "d43672128fd6874138a3e62db72a765b",
     "semantic_hash": ""
   },
   "src/shared/ui/map/MapCanvas.tsx": {
@@ -535,8 +535,8 @@
     "semantic_hash": ""
   },
   "src/features/campanas/components/CampanaDetalle.tsx": {
-    "mtime": 1783621886.2212172,
-    "ast_hash": "a2c6551378968199f616c41a43147101",
+    "mtime": 1783646223.190161,
+    "ast_hash": "02258554d6b59dfae74d28ca9a6bea45",
     "semantic_hash": ""
   },
   "src/features/campanas/components/CampanasList.tsx": {
@@ -565,18 +565,13 @@
     "semantic_hash": ""
   },
   "src/features/campanas/components/CrearCampanaModal.tsx": {
-    "mtime": 1783621886.2260547,
-    "ast_hash": "95c359e9fa32fcf1e181e813293b28ad",
+    "mtime": 1783644333.953864,
+    "ast_hash": "1d0c6f1fb68d90e2af0e389f86dd8895",
     "semantic_hash": ""
   },
   "src/features/campanas/components/EditorPlantilla.tsx": {
     "mtime": 1783643896.9492633,
     "ast_hash": "c775260342bbf5983a3f0144706e068a",
-    "semantic_hash": ""
-  },
-  "src/features/campanas/components/NegociosTabla.tsx": {
-    "mtime": 1783643814.7594285,
-    "ast_hash": "774d560bd219173ae30514e73c129af5",
     "semantic_hash": ""
   },
   "src/features/campanas/components/PlantillasModal.tsx": {
@@ -610,8 +605,8 @@
     "semantic_hash": ""
   },
   "src/features/campanas/model/campana.ts": {
-    "mtime": 1783621886.2352061,
-    "ast_hash": "51e298c76be96ebd9a5e9caf7efd5b43",
+    "mtime": 1783646209.503101,
+    "ast_hash": "044cf04ef756efeb18881bdc6130a66d",
     "semantic_hash": ""
   },
   "src/features/campanas/model/plantilla.ts": {
@@ -925,13 +920,13 @@
     "semantic_hash": ""
   },
   "src/shared/ui/Combobox.test.tsx": {
-    "mtime": 1783628222.810282,
-    "ast_hash": "1dfefa599309e45e8c28ef546eb565d9",
+    "mtime": 1783644441.4485958,
+    "ast_hash": "ceaa9cd48e8b34240e781d98efe5fa23",
     "semantic_hash": ""
   },
   "src/shared/ui/Combobox.tsx": {
-    "mtime": 1783628160.4494104,
-    "ast_hash": "2108cb9f5d04d07059b931ef7e8c3cb8",
+    "mtime": 1783644366.7414045,
+    "ast_hash": "3864d29754d26443712c52ef6e3e5efd",
     "semantic_hash": ""
   },
   "src/shared/ui/ComboboxDesplegable.tsx": {
@@ -1040,8 +1035,23 @@
     "semantic_hash": ""
   },
   "src/shared/ui/DateField.tsx": {
-    "mtime": 1783643724.2798154,
-    "ast_hash": "3c5849ac85ee42bc99557d3a4a7ef083",
+    "mtime": 1783645929.2587032,
+    "ast_hash": "9b1470d6c37d13bff9b1a38cefab62bd",
+    "semantic_hash": ""
+  },
+  "src/shared/ui/PortalContainer.ts": {
+    "mtime": 1783644256.090999,
+    "ast_hash": "7a4a9a1e50db2e27e216887ec62ee82e",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/NegociosGrid.test.tsx": {
+    "mtime": 1783646303.343938,
+    "ast_hash": "f2634f21405b43ead4480dfaae206285",
+    "semantic_hash": ""
+  },
+  "src/features/campanas/components/NegociosGrid.tsx": {
+    "mtime": 1783646188.6063657,
+    "ast_hash": "8332de8d6ebf09667f936feebd56f6fe",
     "semantic_hash": ""
   }
 }

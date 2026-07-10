@@ -2,6 +2,7 @@ import { ChevronDown } from 'lucide-react';
 import { useId, useMemo, useRef, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { ComboboxDesplegable } from './ComboboxDesplegable';
+import { usePortalContainer } from './PortalContainer';
 import { useAnclaFlotante } from './useAnclaFlotante';
 
 export interface ComboboxOption {
@@ -46,6 +47,15 @@ const FILA_VACIA = -1;
 /** Con pocas opciones el filtro estorba más de lo que ayuda. */
 function usaFiltro(searchable: boolean | undefined, total: number): boolean {
   return searchable ?? total > 8;
+}
+
+/** Qué mostrar en el campo cerrado: la opción elegida, o el placeholder. */
+function contenidoDelCampo(seleccionada: ComboboxOption | undefined, placeholder: string) {
+  return {
+    texto: seleccionada?.label ?? placeholder,
+    icono: seleccionada?.icon,
+    vacio: !seleccionada,
+  };
 }
 
 /**
@@ -132,7 +142,11 @@ export function Combobox({
   const id = useId();
   const listaId = `${id}-lista`;
   const ancla = useAnclaFlotante(c.disparador, c.abierto);
-  const seleccionada = options.find((o) => o.value === value);
+  const contenedor = usePortalContainer();
+  const campo = contenidoDelCampo(
+    options.find((o) => o.value === value),
+    placeholder,
+  );
 
   return (
     <div className="grid gap-1.5">
@@ -148,15 +162,15 @@ export function Combobox({
         listaId={listaId}
         abierto={c.abierto}
         disabled={disabled}
-        texto={seleccionada?.label ?? placeholder}
-        icono={seleccionada?.icon}
-        vacio={!seleccionada}
+        texto={campo.texto}
+        icono={campo.icono}
+        vacio={campo.vacio}
         ariaLabel={aria['aria-label']}
         size={size}
         onClick={c.alternar}
       />
 
-      {c.abierto && ancla
+      {c.abierto && ancla && contenedor
         ? createPortal(
             <ComboboxDesplegable
               id={listaId}
@@ -175,7 +189,7 @@ export function Combobox({
               onKeyDown={c.onKeyDown}
               disparador={c.disparador}
             />,
-            document.body,
+            contenedor,
           )
         : null}
     </div>

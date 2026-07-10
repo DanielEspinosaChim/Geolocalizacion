@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { Combobox, type ComboboxOption } from './Combobox';
+import { Modal } from './Modal';
 
 const COLONIAS: ComboboxOption[] = [
   { value: 'CENTRO', label: 'Centro', hint: '120' },
@@ -148,6 +149,30 @@ describe('Combobox', () => {
     abrir();
     // Abierto: uno en el campo y otro en la fila de la lista.
     expect(screen.getAllByTestId('punto')).toHaveLength(2);
+  });
+
+  it('dentro de un Modal, el desplegable aterriza en el diálogo y no en el body', () => {
+    render(
+      <Modal open onClose={vi.fn()} title="Nueva campaña">
+        <Combobox options={COLONIAS} value={null} onChange={vi.fn()} />
+      </Modal>,
+    );
+    abrir();
+
+    // Radix pone `pointer-events: none` en el <body> mientras el diálogo está
+    // abierto: un portal al body se vería, pero no recibiría clics ni foco.
+    const lista = screen.getByRole('listbox');
+    expect(lista.closest('[role="dialog"]')).not.toBeNull();
+    expect(lista.parentElement).not.toBe(document.body);
+  });
+
+  it('fuera de un Modal sigue portaleando al body', () => {
+    render(<Combobox options={COLONIAS} value={null} onChange={vi.fn()} />);
+    abrir();
+    const lista = screen.getByRole('listbox');
+    expect(lista.closest('[role="dialog"]')).toBeNull();
+    // El panel flotante cuelga directamente del body, fuera del árbol del campo.
+    expect(lista.parentElement!.parentElement).toBe(document.body);
   });
 
   it('un clic fuera cierra el desplegable', () => {
