@@ -80,7 +80,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "package",
-      "community": 5,
+      "community": 39,
       "norm_label": "package.json"
     },
     {
@@ -90,7 +90,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "package_name",
-      "community": 5,
+      "community": 39,
       "norm_label": "name"
     },
     {
@@ -100,7 +100,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "package_private",
-      "community": 5,
+      "community": 39,
       "norm_label": "private"
     },
     {
@@ -110,7 +110,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "package_version",
-      "community": 5,
+      "community": 39,
       "norm_label": "version"
     },
     {
@@ -120,7 +120,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "package_type",
-      "community": 5,
+      "community": 39,
       "norm_label": "type"
     },
     {
@@ -130,7 +130,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "package_packagemanager",
-      "community": 5,
+      "community": 39,
       "norm_label": "packagemanager"
     },
     {
@@ -140,7 +140,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "package_engines",
-      "community": 5,
+      "community": 39,
       "norm_label": "engines"
     },
     {
@@ -150,7 +150,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "package_engines_node",
-      "community": 5,
+      "community": 39,
       "norm_label": "node"
     },
     {
@@ -160,7 +160,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "package_scripts",
-      "community": 5,
+      "community": 37,
       "norm_label": "scripts"
     },
     {
@@ -170,7 +170,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "package_scripts_dev",
-      "community": 5,
+      "community": 37,
       "norm_label": "dev"
     },
     {
@@ -180,7 +180,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "package_scripts_build",
-      "community": 5,
+      "community": 37,
       "norm_label": "build"
     },
     {
@@ -190,7 +190,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "package_scripts_preview",
-      "community": 5,
+      "community": 37,
       "norm_label": "preview"
     },
     {
@@ -200,7 +200,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "package_scripts_typecheck",
-      "community": 5,
+      "community": 37,
       "norm_label": "typecheck"
     },
     {
@@ -210,7 +210,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "package_scripts_lint",
-      "community": 5,
+      "community": 37,
       "norm_label": "lint"
     },
     {
@@ -220,7 +220,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "package_scripts_format",
-      "community": 5,
+      "community": 37,
       "norm_label": "format"
     },
     {
@@ -230,7 +230,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "package_scripts_test",
-      "community": 5,
+      "community": 37,
       "norm_label": "test"
     },
     {
@@ -240,7 +240,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "package_scripts_test_watch",
-      "community": 5,
+      "community": 37,
       "norm_label": "test:watch"
     },
     {
@@ -780,7 +780,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "app_errorboundary_errorboundary_render",
-      "community": 4,
+      "community": 38,
       "norm_label": ".render()"
     },
     {
@@ -1880,7 +1880,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "components_loginform_test_renderform",
-      "community": 4,
+      "community": 38,
       "norm_label": "renderform()"
     },
     {
@@ -2250,7 +2250,7 @@
       "source_location": "L73",
       "_origin": "ast",
       "id": "components_agregarnegocios_fila",
-      "community": 31,
+      "community": 27,
       "norm_label": "fila()"
     },
     {
@@ -2284,6 +2284,46 @@
       "norm_label": "campanacard()"
     },
     {
+      "label": "CampanaDetalle.test.tsx",
+      "file_type": "code",
+      "source_file": "src/features/campanas/components/CampanaDetalle.test.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_campanadetalle_test",
+      "community": 31,
+      "norm_label": "campanadetalle.test.tsx"
+    },
+    {
+      "label": "negocio()",
+      "file_type": "code",
+      "source_file": "src/features/campanas/components/CampanaDetalle.test.tsx",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "components_campanadetalle_test_negocio",
+      "community": 31,
+      "norm_label": "negocio()"
+    },
+    {
+      "label": "EspiaRuta()",
+      "file_type": "code",
+      "source_file": "src/features/campanas/components/CampanaDetalle.test.tsx",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "components_campanadetalle_test_espiaruta",
+      "community": 31,
+      "norm_label": "espiaruta()"
+    },
+    {
+      "label": "renderDetalle()",
+      "file_type": "code",
+      "source_file": "src/features/campanas/components/CampanaDetalle.test.tsx",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "components_campanadetalle_test_renderdetalle",
+      "community": 38,
+      "norm_label": "renderdetalle()"
+    },
+    {
       "label": "CampanaDetalle.tsx",
       "file_type": "code",
       "source_file": "src/features/campanas/components/CampanaDetalle.tsx",
@@ -2297,7 +2337,7 @@
       "label": "CampanaDetalleProps",
       "file_type": "code",
       "source_file": "src/features/campanas/components/CampanaDetalle.tsx",
-      "source_location": "L16",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "components_campanadetalle_campanadetalleprops",
       "community": 31,
@@ -2307,21 +2347,31 @@
       "label": "CampanaDetalle()",
       "file_type": "code",
       "source_file": "src/features/campanas/components/CampanaDetalle.tsx",
-      "source_location": "L22",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "components_campanadetalle_campanadetalle",
       "community": 31,
       "norm_label": "campanadetalle()"
     },
     {
-      "label": "AdminBar()",
+      "label": "CabeceraProps",
       "file_type": "code",
       "source_file": "src/features/campanas/components/CampanaDetalle.tsx",
-      "source_location": "L111",
+      "source_location": "L104",
       "_origin": "ast",
-      "id": "components_campanadetalle_adminbar",
+      "id": "components_campanadetalle_cabeceraprops",
       "community": 31,
-      "norm_label": "adminbar()"
+      "norm_label": "cabeceraprops"
+    },
+    {
+      "label": "Cabecera()",
+      "file_type": "code",
+      "source_file": "src/features/campanas/components/CampanaDetalle.tsx",
+      "source_location": "L115",
+      "_origin": "ast",
+      "id": "components_campanadetalle_cabecera",
+      "community": 31,
+      "norm_label": "cabecera()"
     },
     {
       "label": "CampanasList.tsx",
@@ -2610,7 +2660,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "components_negociosgrid_test_rendergrid",
-      "community": 4,
+      "community": 31,
       "norm_label": "rendergrid()"
     },
     {
@@ -2714,36 +2764,6 @@
       "norm_label": "progresohero()"
     },
     {
-      "label": "RutaCampanaModal.tsx",
-      "file_type": "code",
-      "source_file": "src/features/campanas/components/RutaCampanaModal.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "components_rutacampanamodal",
-      "community": 31,
-      "norm_label": "rutacampanamodal.tsx"
-    },
-    {
-      "label": "RutaCampanaModalProps",
-      "file_type": "code",
-      "source_file": "src/features/campanas/components/RutaCampanaModal.tsx",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "components_rutacampanamodal_rutacampanamodalprops",
-      "community": 31,
-      "norm_label": "rutacampanamodalprops"
-    },
-    {
-      "label": "RutaCampanaModal()",
-      "file_type": "code",
-      "source_file": "src/features/campanas/components/RutaCampanaModal.tsx",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "components_rutacampanamodal_rutacampanamodal",
-      "community": 31,
-      "norm_label": "rutacampanamodal()"
-    },
-    {
       "label": "VisitaModal.tsx",
       "file_type": "code",
       "source_file": "src/features/campanas/components/VisitaModal.tsx",
@@ -2760,7 +2780,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "components_visitamodal_visitamodalprops",
-      "community": 6,
+      "community": 31,
       "norm_label": "visitamodalprops"
     },
     {
@@ -2810,7 +2830,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "model_campana_test",
-      "community": 31,
+      "community": 6,
       "norm_label": "campana.test.ts"
     },
     {
@@ -2870,7 +2890,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "model_campana_campanalistschema",
-      "community": 31,
+      "community": 6,
       "norm_label": "campanalistschema"
     },
     {
@@ -3100,7 +3120,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "routes_campanaspage_campanaspage",
-      "community": 31,
+      "community": 38,
       "norm_label": "campanaspage()"
     },
     {
@@ -3520,7 +3540,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "components_metricaspanel_metricaspanel",
-      "community": 27,
+      "community": 33,
       "norm_label": "metricaspanel()"
     },
     {
@@ -3560,7 +3580,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "components_panellateral_test_renderpanel",
-      "community": 4,
+      "community": 38,
       "norm_label": "renderpanel()"
     },
     {
@@ -5917,7 +5937,7 @@
       "label": "RutasPage()",
       "file_type": "code",
       "source_file": "src/features/rutas/routes/RutasPage.tsx",
-      "source_location": "L19",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "routes_rutaspage_rutaspage",
       "community": 29,
@@ -5927,7 +5947,7 @@
       "label": "RutaPorColonia()",
       "file_type": "code",
       "source_file": "src/features/rutas/routes/RutasPage.tsx",
-      "source_location": "L110",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "routes_rutaspage_rutaporcolonia",
       "community": 28,
@@ -5937,11 +5957,21 @@
       "label": "SeleccionManual()",
       "file_type": "code",
       "source_file": "src/features/rutas/routes/RutasPage.tsx",
-      "source_location": "L178",
+      "source_location": "L173",
       "_origin": "ast",
       "id": "routes_rutaspage_seleccionmanual",
       "community": 29,
       "norm_label": "seleccionmanual()"
+    },
+    {
+      "label": "BuscadorNegocios()",
+      "file_type": "code",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L207",
+      "_origin": "ast",
+      "id": "routes_rutaspage_buscadornegocios",
+      "community": 33,
+      "norm_label": "buscadornegocios()"
     },
     {
       "label": "apiClient.ts",
@@ -6250,7 +6280,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "ui_button_button",
-      "community": 3,
+      "community": 1,
       "norm_label": "button"
     },
     {
@@ -7050,7 +7080,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_selectfield",
-      "community": 37,
+      "community": 26,
       "norm_label": "selectfield.tsx"
     },
     {
@@ -7060,7 +7090,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "ui_selectfield_selectfieldprops",
-      "community": 37,
+      "community": 26,
       "norm_label": "selectfieldprops"
     },
     {
@@ -7070,7 +7100,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "ui_selectfield_selectfield",
-      "community": 37,
+      "community": 26,
       "norm_label": "selectfield"
     },
     {
@@ -8996,6 +9026,17 @@
       "confidence_score": 1.0,
       "source": "app_main",
       "target": "app_errorboundary_errorboundary"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/features/campanas/components/CampanaDetalle.test.tsx",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "components_campanadetalle_test_renderdetalle",
+      "target": "app_errorboundary_errorboundary_render"
     },
     {
       "relation": "calls",
@@ -11423,6 +11464,17 @@
       "target": "api_keys"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/CampanaDetalle.test.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_campanadetalle_test",
+      "target": "api_keys",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -11487,6 +11539,17 @@
       "confidence_score": 1.0,
       "source": "api_useplantillas",
       "target": "api_keys_campanaskeys"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/CampanaDetalle.test.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "components_campanadetalle_test",
+      "target": "api_keys_campanaskeys",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -11970,9 +12033,9 @@
       "source_file": "src/features/campanas/components/NegociosGrid.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_negociosgrid",
-      "target": "api_usenegociomutations",
-      "confidence_score": 1.0
+      "target": "api_usenegociomutations"
     },
     {
       "relation": "imports",
@@ -12003,9 +12066,9 @@
       "source_file": "src/features/campanas/components/NegociosGrid.tsx",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_negociosgrid",
-      "target": "api_usenegociomutations_usepatchnegocio",
-      "confidence_score": 1.0
+      "target": "api_usenegociomutations_usepatchnegocio"
     },
     {
       "relation": "calls",
@@ -12429,14 +12492,109 @@
       "target": "components_campanacard_campanacard"
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/CampanaDetalle.test.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_campanadetalle_test",
+      "target": "components_campanadetalle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/CampanaDetalle.test.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_campanadetalle_test",
+      "target": "components_campanadetalle_campanadetalle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/CampanaDetalle.test.tsx",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "components_campanadetalle_test",
+      "target": "components_campanadetalle_test_espiaruta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/CampanaDetalle.test.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "components_campanadetalle_test",
+      "target": "components_campanadetalle_test_negocio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/CampanaDetalle.test.tsx",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "components_campanadetalle_test",
+      "target": "components_campanadetalle_test_renderdetalle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/CampanaDetalle.test.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_campanadetalle_test",
+      "target": "model_campana",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/CampanaDetalle.test.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_campanadetalle_test",
+      "target": "model_campana_detallecampana",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/CampanaDetalle.test.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "components_campanadetalle_test",
+      "target": "model_campana_negociocampana",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/features/campanas/components/CampanaDetalle.tsx",
-      "source_location": "L106",
+      "source_location": "L115",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "components_campanadetalle",
-      "target": "components_campanadetalle_adminbar"
+      "target": "components_campanadetalle_cabecera",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/CampanaDetalle.tsx",
+      "source_location": "L104",
+      "weight": 1.0,
+      "source": "components_campanadetalle",
+      "target": "components_campanadetalle_cabeceraprops",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -12487,9 +12645,9 @@
       "source_file": "src/features/campanas/components/CampanaDetalle.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_campanadetalle",
-      "target": "components_negociosgrid",
-      "confidence_score": 1.0
+      "target": "components_negociosgrid"
     },
     {
       "relation": "imports",
@@ -12498,9 +12656,9 @@
       "source_file": "src/features/campanas/components/CampanaDetalle.tsx",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_campanadetalle",
-      "target": "components_negociosgrid_negociosgrid",
-      "confidence_score": 1.0
+      "target": "components_negociosgrid_negociosgrid"
     },
     {
       "relation": "imports_from",
@@ -12551,28 +12709,6 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "src/features/campanas/components/CampanaDetalle.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_campanadetalle",
-      "target": "components_rutacampanamodal"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/campanas/components/CampanaDetalle.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_campanadetalle",
-      "target": "components_rutacampanamodal_rutacampanamodal"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/campanas/components/CampanaDetalle.tsx",
       "source_location": "L13",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -12600,6 +12736,17 @@
       "confidence_score": 1.0,
       "source": "components_campanadetalle",
       "target": "model_campana"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/campanas/components/CampanaDetalle.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_campanadetalle",
+      "target": "model_campana_campana",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -12677,6 +12824,17 @@
       "confidence_score": 1.0,
       "source": "routes_campanaspage",
       "target": "components_campanadetalle_campanadetalle"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/features/campanas/components/CampanaDetalle.tsx",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "components_campanadetalle_cabecera",
+      "target": "model_campana_progresode"
     },
     {
       "relation": "contains",
@@ -13304,9 +13462,9 @@
       "source_file": "src/features/campanas/components/NegociosGrid.test.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_negociosgrid_test",
-      "target": "components_negociosgrid",
-      "confidence_score": 1.0
+      "target": "components_negociosgrid"
     },
     {
       "relation": "imports",
@@ -13315,9 +13473,9 @@
       "source_file": "src/features/campanas/components/NegociosGrid.test.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_negociosgrid_test",
-      "target": "components_negociosgrid_negociosgrid",
-      "confidence_score": 1.0
+      "target": "components_negociosgrid_negociosgrid"
     },
     {
       "relation": "contains",
@@ -13325,9 +13483,9 @@
       "source_file": "src/features/campanas/components/NegociosGrid.test.tsx",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_negociosgrid_test",
-      "target": "components_negociosgrid_test_negocio",
-      "confidence_score": 1.0
+      "target": "components_negociosgrid_test_negocio"
     },
     {
       "relation": "contains",
@@ -13335,9 +13493,9 @@
       "source_file": "src/features/campanas/components/NegociosGrid.test.tsx",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_negociosgrid_test",
-      "target": "components_negociosgrid_test_rendergrid",
-      "confidence_score": 1.0
+      "target": "components_negociosgrid_test_rendergrid"
     },
     {
       "relation": "imports_from",
@@ -13346,9 +13504,9 @@
       "source_file": "src/features/campanas/components/NegociosGrid.test.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_negociosgrid_test",
-      "target": "model_campana",
-      "confidence_score": 1.0
+      "target": "model_campana"
     },
     {
       "relation": "imports",
@@ -13357,9 +13515,9 @@
       "source_file": "src/features/campanas/components/NegociosGrid.test.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_negociosgrid_test",
-      "target": "model_campana_negociocampana",
-      "confidence_score": 1.0
+      "target": "model_campana_negociocampana"
     },
     {
       "relation": "contains",
@@ -13367,9 +13525,9 @@
       "source_file": "src/features/campanas/components/NegociosGrid.tsx",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_negociosgrid",
-      "target": "components_negociosgrid_negociocard",
-      "confidence_score": 1.0
+      "target": "components_negociosgrid_negociocard"
     },
     {
       "relation": "contains",
@@ -13377,9 +13535,9 @@
       "source_file": "src/features/campanas/components/NegociosGrid.tsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_negociosgrid",
-      "target": "components_negociosgrid_negociosgrid",
-      "confidence_score": 1.0
+      "target": "components_negociosgrid_negociosgrid"
     },
     {
       "relation": "contains",
@@ -13387,9 +13545,9 @@
       "source_file": "src/features/campanas/components/NegociosGrid.tsx",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_negociosgrid",
-      "target": "components_negociosgrid_negociosgridprops",
-      "confidence_score": 1.0
+      "target": "components_negociosgrid_negociosgridprops"
     },
     {
       "relation": "contains",
@@ -13397,9 +13555,9 @@
       "source_file": "src/features/campanas/components/NegociosGrid.tsx",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_negociosgrid",
-      "target": "components_negociosgrid_tone_text",
-      "confidence_score": 1.0
+      "target": "components_negociosgrid_tone_text"
     },
     {
       "relation": "imports_from",
@@ -13408,9 +13566,9 @@
       "source_file": "src/features/campanas/components/NegociosGrid.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_negociosgrid",
-      "target": "model_campana",
-      "confidence_score": 1.0
+      "target": "model_campana"
     },
     {
       "relation": "imports",
@@ -13419,9 +13577,9 @@
       "source_file": "src/features/campanas/components/NegociosGrid.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_negociosgrid",
-      "target": "model_campana_negociocampana",
-      "confidence_score": 1.0
+      "target": "model_campana_negociocampana"
     },
     {
       "relation": "imports",
@@ -13430,9 +13588,9 @@
       "source_file": "src/features/campanas/components/NegociosGrid.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_negociosgrid",
-      "target": "model_campana_toneverificacion",
-      "confidence_score": 1.0
+      "target": "model_campana_toneverificacion"
     },
     {
       "relation": "references",
@@ -13441,9 +13599,9 @@
       "source_file": "src/features/campanas/components/NegociosGrid.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_negociosgrid_negociosgridprops",
-      "target": "model_campana_negociocampana",
-      "confidence_score": 1.0
+      "target": "model_campana_negociocampana"
     },
     {
       "relation": "calls",
@@ -13529,70 +13687,6 @@
       "confidence_score": 1.0,
       "source": "components_progresohero",
       "target": "model_campana_progreso"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/campanas/components/RutaCampanaModal.tsx",
-      "source_location": "L12",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_rutacampanamodal",
-      "target": "components_rutacampanamodal_rutacampanamodal"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/campanas/components/RutaCampanaModal.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_rutacampanamodal",
-      "target": "components_rutacampanamodal_rutacampanamodalprops"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/campanas/components/RutaCampanaModal.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_rutacampanamodal",
-      "target": "model_campana"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/campanas/components/RutaCampanaModal.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_rutacampanamodal",
-      "target": "model_campana_negociocampana"
-    },
-    {
-      "relation": "references",
-      "context": "field",
-      "confidence": "EXTRACTED",
-      "source_file": "src/features/campanas/components/RutaCampanaModal.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "components_rutacampanamodal_rutacampanamodalprops",
-      "target": "model_campana_negociocampana"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
-      "source_file": "src/features/campanas/components/RutaCampanaModal.tsx",
-      "source_location": "L13",
-      "weight": 1.0,
-      "source": "components_rutacampanamodal_rutacampanamodal",
-      "target": "api_useruta_usecalcularruta"
     },
     {
       "relation": "contains",
@@ -13980,9 +14074,9 @@
       "source_file": "src/features/campanas/model/campana.ts",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "model_campana",
-      "target": "model_campana_toneverificacion",
-      "confidence_score": 1.0
+      "target": "model_campana_toneverificacion"
     },
     {
       "relation": "contains",
@@ -21539,6 +21633,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L207",
+      "weight": 1.0,
+      "source": "routes_rutaspage",
+      "target": "routes_rutaspage_buscadornegocios",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
       "source_location": "L92",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -21574,6 +21678,17 @@
       "source_location": "L70",
       "weight": 1.0,
       "source": "routes_rutaspage_rutaspage",
+      "target": "lib_format_formatnumero"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/features/rutas/routes/RutasPage.tsx",
+      "source_location": "L226",
+      "weight": 1.0,
+      "source": "routes_rutaspage_buscadornegocios",
       "target": "lib_format_formatnumero"
     },
     {
@@ -25188,5 +25303,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9b7b7314b69c2c0507de012295df216e238ed270"
+  "built_at_commit": "0c35ab38c023301d2a9a7b0afafc23e6ca2e0a5d"
 }

@@ -1,8 +1,9 @@
 import { Car, Route } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router';
 import { formatNumero } from '@shared/lib/format';
 import { Button, MapCanvas, PanelSection, SearchInput, TextField, toast } from '@shared/ui';
-import { CapaCandidatos, Simbologia, useCandidatos } from '@features/candidatos';
+import { CapaCandidatos, Simbologia, useCandidatos, type Candidato } from '@features/candidatos';
 import {
   CapasLayers,
   CapasToggles,
@@ -17,14 +18,28 @@ import { RutaLista } from '../components/RutaLista';
 import { MAX_PUNTOS_RUTA, MIN_PARADAS_RUTA as MIN_PARADAS, togglePunto } from '../model/ruta';
 
 export function RutasPage() {
+  // "Ver ruta" en una campaña navega aquí con los negocios en el state.
+  const location = useLocation();
+  const rutaCampana = (location.state as { rutaCampana?: string[] } | null)?.rutaCampana;
+
   const { data: candidatos = [] } = useCandidatos();
   const [q, setQ] = useState('');
-  const [seleccion, setSeleccion] = useState<ReadonlySet<string>>(new Set());
+  const [seleccion, setSeleccion] = useState<ReadonlySet<string>>(() => new Set(rutaCampana ?? []));
   const calcular = useCalcularRuta();
   const calcularColonia = useCalcularRutaColonia();
   const capas = useCapas();
   const ruta = calcularColonia.data ?? calcular.data;
   const calculando = calcular.isPending || calcularColonia.isPending;
+
+  // Al llegar desde una campaña, traza su ruta de una vez. La ref evita
+  // recalcular en cada render mientras el state de navegación siga presente.
+  const yaTrazada = useRef(false);
+  useEffect(() => {
+    if (rutaCampana && rutaCampana.length >= MIN_PARADAS && !yaTrazada.current) {
+      yaTrazada.current = true;
+      calcular.mutate(rutaCampana);
+    }
+  }, [rutaCampana, calcular]);
 
   function toggle(placeId: string) {
     const nueva = togglePunto(seleccion, placeId);
@@ -60,34 +75,14 @@ export function RutasPage() {
 
         {ruta ? <RutaInfo ruta={ruta} /> : null}
 
-        {/* La lista va dentro de la sección del buscador y no scrollea aparte:
-            el panel entero es el único contenedor con scroll. */}
-        <PanelSection
-          title="Buscar negocio"
-          collapsible
-          action={
-            <span className="text-2xs tabular-nums text-fg-subtle">
-              {formatNumero(candidatos.length)}
-            </span>
-          }
-          sticky={
-            <SearchInput
-              value={q}
-              onChange={setQ}
-              debounceMs={200}
-              placeholder="Buscar candidato por nombre…"
-              aria-label="Buscar negocio para la ruta"
-            />
-          }
-        >
-          <RutaLista
-            className="-mx-3 -mb-3"
-            candidatos={candidatos}
-            q={q}
-            seleccion={seleccion}
-            onToggle={toggle}
-          />
-        </PanelSection>
+        <BuscadorNegocios
+          total={candidatos.length}
+          q={q}
+          onQ={setQ}
+          candidatos={candidatos}
+          seleccion={seleccion}
+          onToggle={toggle}
+        />
       </aside>
 
       <div className="relative hidden flex-1 md:block">
@@ -204,6 +199,48 @@ function SeleccionManual({
       <p className="text-2xs text-fg-subtle">
         Máx. {MAX_PUNTOS_RUTA} puntos · TSP + OSRM · en auto
       </p>
+    </PanelSection>
+  );
+}
+
+/** Buscador + lista seleccionable. La lista no scrollea aparte: lo hace el panel. */
+function BuscadorNegocios({
+  total,
+  q,
+  onQ,
+  candidatos,
+  seleccion,
+  onToggle,
+}: {
+  total: number;
+  q: string;
+  onQ: (q: string) => void;
+  candidatos: Candidato[];
+  seleccion: ReadonlySet<string>;
+  onToggle: (placeId: string) => void;
+}) {
+  return (
+    <PanelSection
+      title="Buscar negocio"
+      collapsible
+      action={<span className="text-2xs tabular-nums text-fg-subtle">{formatNumero(total)}</span>}
+      sticky={
+        <SearchInput
+          value={q}
+          onChange={onQ}
+          debounceMs={200}
+          placeholder="Buscar candidato por nombre…"
+          aria-label="Buscar negocio para la ruta"
+        />
+      }
+    >
+      <RutaLista
+        className="-mx-3 -mb-3"
+        candidatos={candidatos}
+        q={q}
+        seleccion={seleccion}
+        onToggle={onToggle}
+      />
     </PanelSection>
   );
 }

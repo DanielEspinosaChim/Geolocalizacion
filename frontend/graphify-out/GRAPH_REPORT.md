@@ -1,16 +1,16 @@
 # Graph Report - frontend  (2026-07-09)
 
 ## Corpus Check
-- 209 files · ~41,344 words
+- 209 files · ~41,759 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 824 nodes · 1596 edges · 42 communities (35 shown, 7 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 43 edges (avg confidence: 0.8)
+- 827 nodes · 1604 edges · 43 communities (37 shown, 6 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 44 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9b7b7314`
+- Built from commit: `0c35ab38`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -49,6 +49,7 @@
 - [[_COMMUNITY_Community 36|Community 36]]
 - [[_COMMUNITY_Community 37|Community 37]]
 - [[_COMMUNITY_Community 38|Community 38]]
+- [[_COMMUNITY_Community 39|Community 39]]
 - [[_COMMUNITY_Community 43|Community 43]]
 - [[_COMMUNITY_Community 46|Community 46]]
 - [[_COMMUNITY_Community 47|Community 47]]
@@ -56,7 +57,7 @@
 ## God Nodes (most connected - your core abstractions)
 1. `Candidato` - 23 edges
 2. `compilerOptions` - 21 edges
-3. `NegocioCampana` - 17 edges
+3. `NegocioCampana` - 16 edges
 4. `compilerOptions` - 12 edges
 5. `getFirebaseAuth()` - 10 edges
 6. `Tipo` - 10 edges
@@ -66,8 +67,6 @@
 10. `CapaId` - 9 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Fila()` --calls--> `giroLabel()`  [INFERRED]
-  src/features/campanas/components/AgregarNegocios.tsx → src/features/candidatos/model/giros.ts
 - `requireAuth()` --calls--> `getSessionUser()`  [INFERRED]
   src/app/router/guards.ts → src/core/auth/session.ts
 - `redirectIfAuthed()` --calls--> `getSessionUser()`  [INFERRED]
@@ -76,11 +75,13 @@
   src/features/auth/api/sign-in.ts → src/core/auth/firebase.ts
 - `signInWithGoogle()` --calls--> `getFirebaseAuth()`  [INFERRED]
   src/features/auth/api/sign-in.ts → src/core/auth/firebase.ts
+- `CambiarPasswordModal()` --calls--> `Register`  [INFERRED]
+  src/features/admin/components/CambiarPasswordModal.tsx → src/core/query/queryClient.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (42 total, 7 thin omitted)
+## Communities (43 total, 6 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.32
@@ -88,23 +89,23 @@ Nodes (7): capturarGPS(), capturarVerificacion(), GPS_ERRORES, GpsError, haversi
 
 ### Community 1 - "Community 1"
 Cohesion: 0.18
-Nodes (7): CAMERA_ERRORS, CameraModal(), CameraModalProps, FotoField(), FotoFieldProps, IconButton, IconButtonProps
+Nodes (8): CAMERA_ERRORS, CameraModal(), CameraModalProps, FotoField(), FotoFieldProps, Button, IconButton, IconButtonProps
 
 ### Community 2 - "Community 2"
 Cohesion: 0.23
 Nodes (11): Column, DataTable(), DataTableProps, Skeleton(), SkeletonProps, Table(), TBody(), Td() (+3 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.17
-Nodes (11): Alert(), AlertProps, TONE_CLASSES, Button, ButtonProps, EmptyState(), EmptyStateProps, QueryBoundary() (+3 more)
+Cohesion: 0.18
+Nodes (10): Alert(), AlertProps, TONE_CLASSES, ButtonProps, EmptyState(), EmptyStateProps, QueryBoundary(), QueryBoundaryProps (+2 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.08
-Nodes (20): ErrorBoundary, State, rootElement, renderForm(), renderGrid(), renderPanel(), NAV_ITEMS, NavItem (+12 more)
+Cohesion: 0.10
+Nodes (17): ErrorBoundary, State, rootElement, NAV_ITEMS, NavItem, NavTabs(), UserMenu(), AppProviders() (+9 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.04
-Nodes (44): devDependencies, autoprefixer, eslint, eslint-import-resolver-typescript, @eslint/js, eslint-plugin-boundaries, eslint-plugin-import, eslint-plugin-jsx-a11y (+36 more)
+Cohesion: 0.07
+Nodes (28): devDependencies, autoprefixer, eslint, eslint-import-resolver-typescript, @eslint/js, eslint-plugin-boundaries, eslint-plugin-import, eslint-plugin-jsx-a11y (+20 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.11
@@ -155,8 +156,8 @@ Cohesion: 0.18
 Nodes (17): activarAppCheck(), getFirebaseAuth(), EVENTOS, vigilarInactividad(), changePassword(), ensureWatcher(), getFreshToken(), getSessionSnapshot() (+9 more)
 
 ### Community 26 - "Community 26"
-Cohesion: 0.09
-Nodes (21): FlyTo(), FlyToProps, MapCanvas(), MapCanvasProps, MERIDA_CENTER, MapPopup(), MapPopupProps, Card (+13 more)
+Cohesion: 0.08
+Nodes (23): FlyTo(), FlyToProps, MapCanvas(), MapCanvasProps, MERIDA_CENTER, MapPopup(), MapPopupProps, Card (+15 more)
 
 ### Community 27 - "Community 27"
 Cohesion: 0.06
@@ -172,7 +173,7 @@ Nodes (14): descargarReporteVisita(), useCalcularRuta(), useCalcularRutaColonia(
 
 ### Community 31 - "Community 31"
 Cohesion: 0.07
-Nodes (46): campanasKeys, useCampana(), NuevaCampana, useCampanaMutations(), Opciones, useCampanas(), usePatchNegocio(), AgregarNegocios() (+38 more)
+Nodes (45): campanasKeys, useCampana(), NuevaCampana, useCampanaMutations(), Opciones, useCampanas(), usePatchNegocio(), AgregarNegocios() (+37 more)
 
 ### Community 32 - "Community 32"
 Cohesion: 0.12
@@ -180,7 +181,7 @@ Nodes (21): useAsignarCampana(), ERRORES, useCambiarPassword(), useUsuarioMutati
 
 ### Community 33 - "Community 33"
 Cohesion: 0.06
-Nodes (35): indiceKeys, useIndice(), useMuestraValidacion(), usePredecir(), Conteo(), IndiceCalculadora(), pctDe(), ComoSeEstima() (+27 more)
+Nodes (37): indiceKeys, useIndice(), useMuestraValidacion(), usePredecir(), Conteo(), IndiceCalculadora(), pctDe(), ComoSeEstima() (+29 more)
 
 ### Community 34 - "Community 34"
 Cohesion: 0.13
@@ -190,9 +191,17 @@ Nodes (16): Combobox(), ComboboxOption, ComboboxProps, contenidoDelCampo(), Disp
 Cohesion: 0.40
 Nodes (4): Badge(), BadgeProps, BadgeTone, TONE_CLASSES
 
+### Community 37 - "Community 37"
+Cohesion: 0.22
+Nodes (9): scripts, build, dev, format, lint, preview, test, test:watch (+1 more)
+
 ### Community 38 - "Community 38"
-Cohesion: 0.10
-Nodes (17): ERROR_MESSAGES, SignInError, signInWithEmail(), signInWithGoogle(), SILENT_CODES, translate(), GoogleIcon(), LoginForm() (+9 more)
+Cohesion: 0.08
+Nodes (21): ERROR_MESSAGES, SignInError, signInWithEmail(), signInWithGoogle(), SILENT_CODES, translate(), renderDetalle(), GoogleIcon() (+13 more)
+
+### Community 39 - "Community 39"
+Cohesion: 0.25
+Nodes (7): engines, node, name, packageManager, private, type, version
 
 ### Community 43 - "Community 43"
 Cohesion: 0.40
@@ -205,7 +214,7 @@ Nodes (8): ConfirmContext, ConfirmFn, ConfirmOptions, ConfirmProvider(), Modal()
 ## Knowledge Gaps
 - **220 isolated node(s):** `singleQuote`, `semi`, `printWidth`, `trailingComma`, `plugins` (+215 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -213,14 +222,14 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `useConfirm()` connect `Community 24` to `Community 32`, `Community 26`, `Community 46`, `Community 31`?**
   _High betweenness centrality (0.319) - this node is a cross-community bridge._
 - **Why does `CampanaDetalle()` connect `Community 31` to `Community 24`?**
-  _High betweenness centrality (0.243) - this node is a cross-community bridge._
+  _High betweenness centrality (0.248) - this node is a cross-community bridge._
 - **Why does `useCandidatos()` connect `Community 27` to `Community 33`, `Community 29`, `Community 31`?**
-  _High betweenness centrality (0.212) - this node is a cross-community bridge._
+  _High betweenness centrality (0.241) - this node is a cross-community bridge._
 - **What connects `singleQuote`, `semi`, `printWidth` to the rest of the system?**
   _220 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 4` be split into smaller, more focused modules?**
-  _Cohesion score 0.08377896613190731 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09885057471264368 - nodes in this community are weakly interconnected._
 - **Should `Community 5` be split into smaller, more focused modules?**
-  _Cohesion score 0.044444444444444446 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07142857142857142 - nodes in this community are weakly interconnected._
 - **Should `Community 6` be split into smaller, more focused modules?**
-  _Cohesion score 0.10661268556005399 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1064102564102564 - nodes in this community are weakly interconnected._

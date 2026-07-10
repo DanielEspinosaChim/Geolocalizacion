@@ -1,16 +1,21 @@
+import { ArrowLeft, FileText, LayoutTemplate, Route } from 'lucide-react';
 import { useState } from 'react';
-import { ArrowLeft, FileText, LayoutTemplate, MapPin } from 'lucide-react';
-import { Badge, Button, IconButton, Spinner, useConfirm } from '@shared/ui';
+import { useNavigate } from 'react-router';
+import { Badge, Button, Page, Spinner, toast, useConfirm } from '@shared/ui';
 import { descargarReporteVisita } from '@features/rutas';
 import { useCampana } from '../api/useCampana';
 import { useCampanaMutations } from '../api/useCampanaMutations';
-import { progresoDe, STATUS_META, type NegocioCampana } from '../model/campana';
+import {
+  MIN_PARADAS_CAMPANA,
+  progresoDe,
+  STATUS_META,
+  type Campana,
+  type NegocioCampana,
+} from '../model/campana';
 import { AgregarNegocios } from './AgregarNegocios';
 import { ChecklistTecnico } from './ChecklistTecnico';
 import { NegociosGrid } from './NegociosGrid';
 import { PlantillasModal } from './PlantillasModal';
-import { ProgresoHero } from './ProgresoHero';
-import { RutaCampanaModal } from './RutaCampanaModal';
 import { VisitaModal } from './VisitaModal';
 
 interface CampanaDetalleProps {
@@ -20,11 +25,11 @@ interface CampanaDetalleProps {
 }
 
 export function CampanaDetalle({ campanaId, esTecnico, onVolver }: CampanaDetalleProps) {
+  const navigate = useNavigate();
   const { data, isPending } = useCampana(campanaId);
   const { cambiarStatus, eliminar } = useCampanaMutations(campanaId);
   const confirm = useConfirm();
   const [visita, setVisita] = useState<NegocioCampana | null>(null);
-  const [rutaAbierta, setRutaAbierta] = useState(false);
   const [plantillasAbierto, setPlantillasAbierto] = useState(false);
 
   if (isPending || !data) {
@@ -36,105 +41,131 @@ export function CampanaDetalle({ campanaId, esTecnico, onVolver }: CampanaDetall
   }
 
   const { campana, negocios } = data;
-  const progreso = progresoDe(campana);
-  const meta = STATUS_META[campana.status];
+
+  /** Lleva a la vista de Rutas con los negocios de la campaña ya seleccionados. */
+  function verRuta() {
+    const ids = negocios.filter((n) => n.lat != null && n.lng != null).map((n) => n.negocio_id);
+    if (ids.length < MIN_PARADAS_CAMPANA) {
+      toast.error(`Se necesitan al menos ${MIN_PARADAS_CAMPANA} negocios con ubicación para la ruta.`);
+      return;
+    }
+    void navigate('/rutas', { state: { rutaCampana: ids } });
+  }
+
+  async function finalizar() {
+    const ok = await confirm({
+      title: 'Finalizar campaña',
+      description: '¿Marcar esta campaña como finalizada?',
+      confirmLabel: 'Finalizar',
+    });
+    if (ok) cambiarStatus.mutate('cerrada', { onSuccess: onVolver });
+  }
+
+  async function borrar() {
+    const ok = await confirm({
+      title: 'Eliminar campaña',
+      description: 'Se eliminará permanentemente. Esta acción no se puede deshacer.',
+      tone: 'danger',
+      confirmLabel: 'Eliminar',
+    });
+    if (ok) eliminar.mutate(undefined, { onSuccess: onVolver });
+  }
 
   return (
-    <div className="flex h-full flex-col">
-      <header className="grid gap-3 border-b border-border p-4">
-        <div className="flex items-center gap-2">
-          <IconButton variant="ghost" size="sm" icon={ArrowLeft} label="Volver a campañas" onClick={onVolver} />
-          <h2 className="flex-1 truncate font-display text-lg font-extrabold">{campana.nombre}</h2>
-          <Badge tone={meta.tone}>{meta.label}</Badge>
-        </div>
+    <Page width="wide" className="grid gap-4">
+      <Cabecera
+        campana={campana}
+        esTecnico={esTecnico}
+        onVolver={onVolver}
+        onVerRuta={verRuta}
+        onReporte={() => void descargarReporteVisita(negocios.map((n) => n.negocio_id), campanaId)}
+        onPlantillas={() => setPlantillasAbierto(true)}
+        onFinalizar={() => void finalizar()}
+        onEliminar={() => void borrar()}
+      />
 
-        {esTecnico ? (
-          <>
-            <ProgresoHero progreso={progreso} colonia={campana.colonia} />
-            <div className="flex gap-2">
-              <Button onClick={() => setRutaAbierta(true)} className="flex-1">
-                <MapPin className="h-4 w-4" aria-hidden="true" /> Definir ruta
-              </Button>
-              <Button
-                variant="secondary"
-                onClick={() => void descargarReporteVisita(negocios.map((n) => n.negocio_id), campanaId)}
-              >
-                <FileText className="h-4 w-4" aria-hidden="true" /> Reporte
-              </Button>
-            </div>
-          </>
-        ) : (
-          <AdminBar
-            progreso={progreso}
-            onPlantillas={() => setPlantillasAbierto(true)}
-            onCerrar={() =>
-              void confirm({
-                title: 'Finalizar campaña',
-                description: '¿Marcar esta campaña como finalizada?',
-                confirmLabel: 'Finalizar',
-              }).then((ok) => ok && cambiarStatus.mutate('cerrada', { onSuccess: onVolver }))
-            }
-            onEliminar={() =>
-              void confirm({
-                title: 'Eliminar campaña',
-                description: 'Se eliminará permanentemente. Esta acción no se puede deshacer.',
-                tone: 'danger',
-                confirmLabel: 'Eliminar',
-              }).then((ok) => ok && eliminar.mutate(undefined, { onSuccess: onVolver }))
-            }
-          />
-        )}
-      </header>
+      {/* En su propia fila: cerrado es un botón, abierto un panel a todo el ancho. */}
+      {!esTecnico ? <AgregarNegocios campanaId={campanaId} yaEnCampana={negocios} /> : null}
 
-      <div className="min-h-0 flex-1 overflow-y-auto p-4">
-        {!esTecnico ? (
-          <div className="mb-3">
-            <AgregarNegocios campanaId={campanaId} yaEnCampana={negocios} />
-          </div>
-        ) : null}
-        {esTecnico ? (
-          <ChecklistTecnico campanaId={campanaId} negocios={negocios} onRegistrar={setVisita} />
-        ) : (
-          <NegociosGrid campanaId={campanaId} negocios={negocios} onRegistrar={setVisita} />
-        )}
-      </div>
+      {esTecnico ? (
+        <ChecklistTecnico campanaId={campanaId} negocios={negocios} onRegistrar={setVisita} />
+      ) : (
+        <NegociosGrid campanaId={campanaId} negocios={negocios} onRegistrar={setVisita} />
+      )}
 
       {visita ? (
         <VisitaModal campanaId={campanaId} negocio={visita} onClose={() => setVisita(null)} />
       ) : null}
-      {rutaAbierta ? <RutaCampanaModal negocios={negocios} onClose={() => setRutaAbierta(false)} /> : null}
       <PlantillasModal open={plantillasAbierto} onClose={() => setPlantillasAbierto(false)} />
-    </div>
+    </Page>
   );
 }
 
-function AdminBar({
-  progreso,
-  onPlantillas,
-  onCerrar,
-  onEliminar,
-}: {
-  progreso: ReturnType<typeof progresoDe>;
+interface CabeceraProps {
+  campana: Campana;
+  esTecnico: boolean;
+  onVolver: () => void;
+  onVerRuta: () => void;
+  onReporte: () => void;
   onPlantillas: () => void;
-  onCerrar: () => void;
+  onFinalizar: () => void;
   onEliminar: () => void;
-}) {
+}
+
+function Cabecera({
+  campana,
+  esTecnico,
+  onVolver,
+  onVerRuta,
+  onReporte,
+  onPlantillas,
+  onFinalizar,
+  onEliminar,
+}: CabeceraProps) {
+  const progreso = progresoDe(campana);
+  const meta = STATUS_META[campana.status];
+
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <span className="text-sm">
-        <b className="text-primary">{progreso.pct}%</b> completado ({progreso.hecho} / {progreso.total})
-      </span>
-      <div className="ml-auto flex gap-2">
-        <Button variant="secondary" size="sm" onClick={onPlantillas}>
-          <LayoutTemplate className="h-4 w-4" aria-hidden="true" /> Plantillas
+    <header className="grid gap-3">
+      <div className="flex items-center gap-3">
+        <Button variant="ghost" size="sm" onClick={onVolver}>
+          <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Campañas
         </Button>
-        <Button variant="secondary" size="sm" onClick={onCerrar}>
-          Finalizar
-        </Button>
-        <Button variant="danger" size="sm" onClick={onEliminar}>
-          Eliminar
-        </Button>
+        <div className="ml-auto flex gap-2">
+          <Button variant="ghost" size="sm" onClick={onFinalizar}>
+            Finalizar
+          </Button>
+          {!esTecnico ? (
+            <Button variant="danger" size="sm" onClick={onEliminar}>
+              Eliminar
+            </Button>
+          ) : null}
+        </div>
       </div>
-    </div>
+
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+        <h1 className="font-display text-2xl font-extrabold text-fg">{campana.nombre}</h1>
+        <Badge tone={meta.tone}>{meta.label}</Badge>
+        <span className="text-xs2 text-fg-muted">
+          {campana.colonia ? `${campana.colonia} · ` : ''}
+          <b className="text-primary">{progreso.pct}%</b> completado ({progreso.hecho}/
+          {progreso.total})
+        </span>
+      </div>
+
+      <div className="flex flex-wrap items-center gap-2">
+        <Button variant="secondary" size="sm" onClick={onVerRuta}>
+          <Route className="h-4 w-4" aria-hidden="true" /> Ver ruta
+        </Button>
+        <Button variant="secondary" size="sm" onClick={onReporte}>
+          <FileText className="h-4 w-4" aria-hidden="true" /> Exportar reporte
+        </Button>
+        {!esTecnico ? (
+          <Button variant="secondary" size="sm" onClick={onPlantillas}>
+            <LayoutTemplate className="h-4 w-4" aria-hidden="true" /> Plantillas
+          </Button>
+        ) : null}
+      </div>
+    </header>
   );
 }

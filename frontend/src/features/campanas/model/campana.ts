@@ -77,3 +77,6 @@ export function progresoDe(c: Pick<Campana, 'total_negocios' | 'total_completado
 export function toneVerificacion(distanciaM: number): 'success' | 'warning' | 'danger' {
   return distanciaM <= 100 ? 'success' : distanciaM <= 300 ? 'warning' : 'danger';
 }
+
+/** Una ruta necesita al menos dos paradas (lo valida también el backend). */
+export const MIN_PARADAS_CAMPANA = 2;
