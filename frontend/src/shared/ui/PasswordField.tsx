@@ -31,7 +31,10 @@ export const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
             type={visible ? 'text' : 'password'}
             aria-invalid={error ? true : undefined}
             aria-describedby={error ? errorId : undefined}
-            className={`w-full rounded-control border bg-bg px-3.5 py-2.5 pr-10 text-sm text-fg outline-none transition-colors placeholder:text-fg-subtle/60 focus:border-primary ${error ? 'border-danger' : 'border-border'} ${className}`}
+            // `sin-ojo-nativo` esconde el ojo que Edge y Chrome pintan por su
+            // cuenta encima del nuestro: dos ojos superpuestos parpadeaban al
+            // pasar el ratón, porque el del navegador aparece y desaparece solo.
+            className={`sin-ojo-nativo w-full rounded-control border bg-bg px-3.5 py-2.5 pr-10 text-sm text-fg outline-none transition-colors placeholder:text-fg-subtle/60 focus:border-primary ${error ? 'border-danger' : 'border-border'} ${className}`}
             {...rest}
           />
           <button
@@ -41,7 +44,8 @@ export const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
             aria-label={visible ? 'Ocultar contraseña' : 'Mostrar contraseña'}
             aria-pressed={visible}
             onClick={() => setVisible((v) => !v)}
-            className="absolute right-1 top-1/2 -translate-y-1/2 rounded-control p-1.5 text-fg-subtle transition-colors hover:text-fg"
+            // Color fijo, sin hover: el ojo se ve igual siempre.
+            className="absolute right-1 top-1/2 -translate-y-1/2 rounded-control p-1.5 text-fg-muted"
           >
             <Icono className="h-4 w-4" aria-hidden="true" />
           </button>

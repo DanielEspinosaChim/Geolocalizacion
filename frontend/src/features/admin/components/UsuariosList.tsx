@@ -1,4 +1,5 @@
-import { Trash2 } from 'lucide-react';
+import { Filter, Trash2 } from 'lucide-react';
+import { useMemo, useState } from 'react';
 import type { Role } from '@core/auth';
 import {
   Button,
@@ -18,10 +19,19 @@ interface UsuariosListProps {
   campanas: Campana[];
 }
 
+/** Opciones del filtro de rol de la cabecera de la tabla. */
+const FILTRO_ROLES = [{ value: 'todos', label: 'Todos' }, ...ROLES];
+
 export function UsuariosList({ campanas }: UsuariosListProps) {
   const { data: usuarios = [], isPending } = useUsuarios();
   const { cambiarRole, toggle, eliminar } = useUsuarioMutations();
   const confirm = useConfirm();
+  const [filtroRole, setFiltroRole] = useState<string>('todos');
+
+  const filtrados = useMemo(
+    () => (filtroRole === 'todos' ? usuarios : usuarios.filter((u) => u.role === filtroRole)),
+    [usuarios, filtroRole],
+  );
 
   /** Bloquea deshabilitar/eliminar si el usuario tiene campañas (paridad legacy). */
   function intentar(uid: string, accion: () => void) {
@@ -84,12 +94,34 @@ export function UsuariosList({ campanas }: UsuariosListProps) {
   return (
     <DataTable
       columns={columns}
-      rows={usuarios}
+      rows={filtrados}
       rowKey={(u) => u.uid}
       loading={isPending}
       rowClassName={(u) => (u.disabled ? 'opacity-40' : '')}
       empty={<EmptyState title="Sin usuarios." className="p-4" />}
+      searchable={(u) => `${u.nombre} ${u.email}`}
+      searchPlaceholder="Buscar por nombre o correo…"
+      toolbar={<FiltroRole value={filtroRole} onChange={setFiltroRole} />}
+      pageSize={10}
+      itemLabel="usuarios"
     />
+  );
+}
+
+function FiltroRole({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+  return (
+    <div className="flex items-center gap-2">
+      <Filter className="h-4 w-4 shrink-0 text-fg-subtle" aria-hidden="true" />
+      <div className="w-36">
+        <Combobox
+          aria-label="Filtrar por rol"
+          clearable={false}
+          options={FILTRO_ROLES}
+          value={value}
+          onChange={(v) => onChange(v ?? 'todos')}
+        />
+      </div>
+    </div>
   );
 }
 

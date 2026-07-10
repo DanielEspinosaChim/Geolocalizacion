@@ -1,8 +1,8 @@
 import { Plus } from 'lucide-react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Button, Modal, ModalFooter, TextField, toast } from '@shared/ui';
 import { usePlantillaMutations } from '../api/usePlantillas';
-import { slugify, type Campo, type Plantilla } from '../model/plantilla';
+import { nuevaKeyCampo, slugify, type Campo, type Plantilla } from '../model/plantilla';
 import { CampoEditor } from './CampoEditor';
 
 interface EditorPlantillaProps {
@@ -18,10 +18,22 @@ function moverEnArray<T>(arr: T[], from: number, dir: -1 | 1): T[] {
   return copia;
 }
 
+/** Saca el elemento de `from` y lo inserta en `to` (arrastrar y soltar). */
+function reubicar<T>(arr: T[], from: number, to: number): T[] {
+  if (from === to || to < 0 || to >= arr.length) return arr;
+  const copia = [...arr];
+  const [movido] = copia.splice(from, 1);
+  if (movido === undefined) return arr;
+  copia.splice(to, 0, movido);
+  return copia;
+}
+
 export function EditorPlantilla({ plantilla, onClose }: EditorPlantillaProps) {
   const [nombre, setNombre] = useState(plantilla?.nombre ?? '');
   const [descripcion, setDescripcion] = useState(plantilla?.descripcion ?? '');
   const [campos, setCampos] = useState<Campo[]>(plantilla?.campos ?? []);
+  const [arrastrado, setArrastrado] = useState<number | null>(null);
+  const origen = useRef<number | null>(null);
   const { guardar } = usePlantillaMutations();
 
   function actualizar(i: number, patch: Partial<Campo>) {
@@ -29,7 +41,16 @@ export function EditorPlantilla({ plantilla, onClose }: EditorPlantillaProps) {
   }
 
   function agregar() {
-    setCampos((prev) => [...prev, { key: `c_${Date.now()}`, label: '', tipo: 'texto' }]);
+    setCampos((prev) => [...prev, { key: nuevaKeyCampo(), label: '', tipo: 'texto' }]);
+  }
+
+  /** Al pasar por encima de otra tarjeta, se reordena en vivo. */
+  function alEntrar(i: number) {
+    if (origen.current === null || origen.current === i) return;
+    const desde = origen.current;
+    setCampos((prev) => reubicar(prev, desde, i));
+    origen.current = i;
+    setArrastrado(i);
   }
 
   function submit() {
@@ -41,7 +62,17 @@ export function EditorPlantilla({ plantilla, onClose }: EditorPlantillaProps) {
       .filter((c) => c.label.trim())
       .map((c) => ({ ...c, key: c.key || slugify(c.label) }));
     guardar.mutate(
-      { id: plantilla?.id ?? null, body: { nombre: nombre.trim(), descripcion: descripcion.trim(), campos: limpios } },
+      {
+        id: plantilla?.id ?? null,
+        body: {
+          nombre: nombre.trim(),
+          descripcion: descripcion.trim(),
+          campos: limpios,
+          // Sin esto, editar la plantilla estándar le quitaba su `es_default` y
+          // el modal de visita dejaba de preseleccionarla.
+          es_default: plantilla?.es_default ?? false,
+        },
+      },
       { onSuccess: onClose },
     );
   }
@@ -61,24 +92,22 @@ export function EditorPlantilla({ plantilla, onClose }: EditorPlantillaProps) {
           </Button>
         </div>
 
-        <div className="grid max-h-80 gap-2 overflow-y-auto">
-          {campos.map((campo, i) => (
-            <CampoEditor
-              key={campo.key}
-              campo={campo}
-              esPrimero={i === 0}
-              esUltimo={i === campos.length - 1}
-              onChange={(patch) => actualizar(i, patch)}
-              onMover={(dir) => setCampos((prev) => moverEnArray(prev, i, dir))}
-              onQuitar={() => setCampos((prev) => prev.filter((_, j) => j !== i))}
-            />
-          ))}
-          {campos.length === 0 ? (
-            <p className="rounded-card border border-dashed border-border p-5 text-center text-sm text-fg-subtle">
-              Sin campos aún
-            </p>
-          ) : null}
-        </div>
+        <ListaCampos
+          campos={campos}
+          arrastrado={arrastrado}
+          onActualizar={actualizar}
+          onMover={(i, dir) => setCampos((prev) => moverEnArray(prev, i, dir))}
+          onQuitar={(i) => setCampos((prev) => prev.filter((_, j) => j !== i))}
+          onDragStart={(i) => {
+            origen.current = i;
+            setArrastrado(i);
+          }}
+          onDragEnter={alEntrar}
+          onDragEnd={() => {
+            origen.current = null;
+            setArrastrado(null);
+          }}
+        />
 
         <ModalFooter>
           <Button variant="secondary" onClick={onClose}>
@@ -90,5 +119,53 @@ export function EditorPlantilla({ plantilla, onClose }: EditorPlantillaProps) {
         </ModalFooter>
       </div>
     </Modal>
+  );
+}
+
+/** Las tarjetas de campos, reordenables arrastrando o con las flechas. */
+function ListaCampos({
+  campos,
+  arrastrado,
+  onActualizar,
+  onMover,
+  onQuitar,
+  onDragStart,
+  onDragEnter,
+  onDragEnd,
+}: {
+  campos: Campo[];
+  arrastrado: number | null;
+  onActualizar: (i: number, patch: Partial<Campo>) => void;
+  onMover: (i: number, dir: -1 | 1) => void;
+  onQuitar: (i: number) => void;
+  onDragStart: (i: number) => void;
+  onDragEnter: (i: number) => void;
+  onDragEnd: () => void;
+}) {
+  if (campos.length === 0) {
+    return (
+      <p className="rounded-card border border-dashed border-border p-5 text-center text-sm text-fg-subtle">
+        Sin campos aún
+      </p>
+    );
+  }
+  return (
+    <div className="scrollbar-slim grid max-h-80 gap-2 overflow-y-auto">
+      {campos.map((campo, i) => (
+        <CampoEditor
+          key={campo.key}
+          campo={campo}
+          esPrimero={i === 0}
+          esUltimo={i === campos.length - 1}
+          arrastrando={arrastrado === i}
+          onChange={(patch) => onActualizar(i, patch)}
+          onMover={(dir) => onMover(i, dir)}
+          onQuitar={() => onQuitar(i)}
+          onDragStart={() => onDragStart(i)}
+          onDragEnter={() => onDragEnter(i)}
+          onDragEnd={onDragEnd}
+        />
+      ))}
+    </div>
   );
 }

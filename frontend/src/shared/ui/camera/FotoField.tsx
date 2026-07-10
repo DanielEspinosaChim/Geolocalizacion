@@ -46,7 +46,11 @@ export function FotoField({ valorInicial = null, onChange }: FotoFieldProps) {
   }
 
   return (
-    <div className="flex items-center gap-2">
+    <div
+      className={`flex items-center gap-3 rounded-card border p-2.5 transition-colors ${
+        preview ? 'border-border bg-surface-raised' : 'border-dashed border-border bg-bg'
+      }`}
+    >
       <input
         ref={inputRef}
         type="file"
@@ -57,20 +61,36 @@ export function FotoField({ valorInicial = null, onChange }: FotoFieldProps) {
           if (foto) usarArchivo(foto);
         }}
       />
+
       {preview ? (
-        <img src={preview} alt="Foto de la visita" className="h-14 w-14 rounded-control object-cover" />
-      ) : null}
-      <div className="flex flex-1 gap-1.5">
-        <Button type="button" variant="secondary" size="sm" onClick={abrirCamara} className="flex-1">
-          <Camera className="h-4 w-4" aria-hidden="true" /> Cámara
-        </Button>
-        <Button type="button" variant="secondary" size="sm" onClick={abrirGaleria} className="flex-1">
-          <ImageIcon className="h-4 w-4" aria-hidden="true" /> Galería
-        </Button>
-        {preview ? (
-          <IconButton type="button" variant="danger" size="sm" icon={X} label="Quitar foto" onClick={borrar} />
-        ) : null}
+        <img
+          src={preview}
+          alt="Foto de la visita"
+          className="h-16 w-16 shrink-0 rounded-control border border-border object-cover"
+        />
+      ) : (
+        <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-control bg-surface-raised">
+          <ImageIcon className="h-6 w-6 text-fg-subtle" aria-hidden="true" />
+        </div>
+      )}
+
+      <div className="flex min-w-0 flex-1 flex-col gap-1.5">
+        <span className="text-2xs text-fg-subtle">
+          {preview ? 'Foto lista. Puedes reemplazarla.' : 'Aún sin foto.'}
+        </span>
+        <div className="flex gap-1.5">
+          <Button type="button" variant="secondary" size="sm" onClick={abrirCamara} className="flex-1">
+            <Camera className="h-4 w-4" aria-hidden="true" /> Cámara
+          </Button>
+          <Button type="button" variant="secondary" size="sm" onClick={abrirGaleria} className="flex-1">
+            <ImageIcon className="h-4 w-4" aria-hidden="true" /> Galería
+          </Button>
+          {preview ? (
+            <IconButton type="button" variant="danger" size="sm" icon={X} label="Quitar foto" onClick={borrar} />
+          ) : null}
+        </div>
       </div>
+
       <CameraModal open={camaraAbierta} onClose={() => setCamaraAbierta(false)} onCapture={usarArchivo} />
     </div>
   );

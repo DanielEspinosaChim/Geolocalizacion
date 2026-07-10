@@ -22,6 +22,7 @@ export { Page } from './Page';
 export { PageHeader } from './PageHeader';
 export { PasswordField } from './PasswordField';
 export { PanelSection } from './PanelSection';
+export { Pagination } from './Pagination';
 export { PortalContainerContext, usePortalContainer } from './PortalContainer';
 export { QueryBoundary } from './QueryBoundary';
 export { SearchInput } from './SearchInput';

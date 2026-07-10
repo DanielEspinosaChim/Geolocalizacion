@@ -19,6 +19,8 @@ export interface PlantillaInput {
   nombre: string;
   descripcion: string;
   campos: Campo[];
+  /** Se reenvía al editar: el backend lo sobrescribe con lo que reciba. */
+  es_default?: boolean;
 }
 
 export function usePlantillaMutations() {

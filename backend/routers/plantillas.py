@@ -28,7 +28,10 @@ _CAMPOS_DEFAULT = [
      "opciones": ["Sí", "Tal vez", "No"]},
     {"key": "telefono",       "label": "Teléfono de contacto",          "tipo": "texto"},
     {"key": "notas",          "label": "Notas",                         "tipo": "textarea"},
-    {"key": "foto",           "label": "Foto del negocio",              "tipo": "foto"},
+    # Las dos fotos son campos de la plantilla para que el editor pueda
+    # reordenarlas y renombrarlas como cualquier otro campo.
+    {"key": "foto_local",     "label": "Foto del local",                "tipo": "foto"},
+    {"key": "foto_negocio",   "label": "Foto del negocio",              "tipo": "foto"},
 ]
 
 _PLANTILLA_DEFAULT = {

@@ -175,3 +175,14 @@
   font-family: theme('fontFamily.sans');
   font-weight: 700;
 }
+
+/*
+ * Edge y Chrome pintan su propio ojo (y su equis de limpiar) dentro de los
+ * campos de contraseña. Se solapaba con el de PasswordField y, como el nativo
+ * solo se muestra mientras el campo tiene contenido o foco, parecía que el
+ * nuestro desaparecía al pasar el ratón. Solo hay un ojo: el nuestro.
+ */
+.sin-ojo-nativo::-ms-reveal,
+.sin-ojo-nativo::-ms-clear {
+  display: none;
+}

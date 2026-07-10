@@ -35,12 +35,29 @@ export type Plantilla = z.infer<typeof plantillaSchema>;
 export type ValorCampo = string | number | boolean;
 export type DatosVisita = Record<string, ValorCampo>;
 
-/** Deriva una key estable a partir del label (slug), como el editor legacy. */
+/**
+ * Deriva una key estable a partir del label (slug), como el editor legacy.
+ *
+ * Normaliza los acentos antes de filtrar: sin esto, "Teléfono" acababa en
+ * "telfono" porque la «é» se descartaba entera en vez de volverse «e».
+ */
 export function slugify(label: string): string {
   return label
+    .normalize('NFD') // separa la letra de su tilde
+    .replace(/\p{Diacritic}/gu, '')
     .toLowerCase()
     .replace(/\s+/g, '_')
     .replace(/[^a-z0-9_]/g, '');
+}
+
+/**
+ * Id único para un campo nuevo del editor.
+ *
+ * Antes se usaba `c_${Date.now()}`: dos campos añadidos dentro del mismo
+ * milisegundo compartían la `key` de React y uno de ellos no se pintaba.
+ */
+export function nuevaKeyCampo(): string {
+  return `c_${crypto.randomUUID()}`;
 }
 
 /** Elige la plantilla a usar: la última usada en el negocio, la default, o la primera. */

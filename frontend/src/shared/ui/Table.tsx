@@ -1,9 +1,14 @@
 import type { HTMLAttributes, TdHTMLAttributes, ThHTMLAttributes } from 'react';
 
+interface TableProps extends HTMLAttributes<HTMLTableElement> {
+  /** Borde y radio propios. Se apagan cuando la tabla ya vive dentro de una tarjeta. */
+  framed?: boolean;
+}
+
 /** Tabla semántica; el contenedor hace el scroll horizontal, nunca la página. */
-export function Table({ className = '', children, ...rest }: HTMLAttributes<HTMLTableElement>) {
+export function Table({ className = '', framed = true, children, ...rest }: TableProps) {
   return (
-    <div className="overflow-x-auto rounded-card border border-border">
+    <div className={`overflow-x-auto ${framed ? 'rounded-card border border-border' : ''}`}>
       <table {...rest} className={`w-full border-collapse text-sm ${className}`}>
         {children}
       </table>

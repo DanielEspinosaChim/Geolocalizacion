@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from 'class-variance-authority';
-import type { PropsWithChildren } from 'react';
+import type { HTMLAttributes, PropsWithChildren } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 /**
@@ -14,11 +14,19 @@ const card = cva('rounded-card border border-border', {
   defaultVariants: { raised: false },
 });
 
-interface CardProps extends PropsWithChildren, VariantProps<typeof card> {
+interface CardProps
+  extends PropsWithChildren,
+    VariantProps<typeof card>,
+    // Deja pasar atributos del DOM (draggable, onDragStart, title…) al elemento.
+    Omit<HTMLAttributes<HTMLElement>, 'color'> {
   as?: 'div' | 'section';
   className?: string;
 }
 
-export function Card({ as: Tag = 'div', raised, className, children }: CardProps) {
-  return <Tag className={twMerge(card({ raised }), className)}>{children}</Tag>;
+export function Card({ as: Tag = 'div', raised, className, children, ...rest }: CardProps) {
+  return (
+    <Tag {...rest} className={twMerge(card({ raised }), className)}>
+      {children}
+    </Tag>
+  );
 }
