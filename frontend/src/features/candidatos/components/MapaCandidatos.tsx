@@ -1,12 +1,5 @@
 import { FlyTo, MapCanvas, MapPopup } from '@shared/ui';
-import {
-  AgebsLayer,
-  CapasToggles,
-  ColoniasLayer,
-  MunicipiosLayer,
-  ProbabilidadLayer,
-  type CapaId,
-} from '@features/colonias-zonas';
+import { CapasLayers, CapasToggles, type Capas } from '@features/colonias-zonas';
 import type { Candidato } from '../model/candidato';
 import type { CacheStatus } from '../model/metricas';
 import { CandidatoCard } from './CandidatoCard';
@@ -19,27 +12,25 @@ interface MapaCandidatosProps {
   filtrados: Candidato[];
   totalCargados: number;
   estado: CacheStatus | undefined;
-  capas: ReadonlySet<CapaId>;
-  onToggleCapa: (c: CapaId) => void;
+  capas: Capas;
   coloniaSeleccionada: string | null;
   onColoniaPoligono: (nombreUpper: string) => void;
   seleccionado: Candidato | null;
   onSelect: (c: Candidato | null) => void;
 }
 
-/** Mapa con clusters, capas geográficas opcionales y card de detalle. */
+/** Mapa con clusters, capas geográficas opcionales y globo de detalle. */
 export function MapaCandidatos(props: MapaCandidatosProps) {
-  const { visible, filtrados, seleccionado, onSelect } = props;
+  const { visible, filtrados, seleccionado, onSelect, capas } = props;
   return (
     <div className={`relative flex-1 md:block ${visible ? 'block' : 'hidden'}`}>
       <MapCanvas>
-        {props.capas.has('probabilidad') ? <ProbabilidadLayer /> : null}
         <ClusterLayer candidatos={filtrados} onSelect={onSelect} />
-        {props.capas.has('colonias') ? (
-          <ColoniasLayer seleccionada={props.coloniaSeleccionada} onSelect={props.onColoniaPoligono} />
-        ) : null}
-        {props.capas.has('agebs') ? <AgebsLayer /> : null}
-        {props.capas.has('municipios') ? <MunicipiosLayer /> : null}
+        <CapasLayers
+          activas={capas.activas}
+          coloniaSeleccionada={props.coloniaSeleccionada}
+          onColoniaPoligono={props.onColoniaPoligono}
+        />
         {seleccionado?.lat != null && seleccionado.lng != null ? (
           <>
             {/* FlyTo sigue haciendo falta: al elegir desde la lista, el negocio
@@ -58,11 +49,11 @@ export function MapaCandidatos(props: MapaCandidatosProps) {
       </MapCanvas>
 
       <div className="absolute right-3 top-3 z-panel">
-        <CapasToggles activas={props.capas} onToggle={props.onToggleCapa} />
+        <CapasToggles activas={capas.activas} onToggle={capas.alternar} />
       </div>
 
       <EstadoCargaChip cargados={props.totalCargados} estado={props.estado} />
-      <Simbologia mostrarProbabilidad={props.capas.has('probabilidad')} />
+      <Simbologia capas={capas.activas} />
     </div>
   );
 }

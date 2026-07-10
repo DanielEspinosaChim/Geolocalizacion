@@ -1,17 +1,24 @@
+import { History } from 'lucide-react';
 import { useState } from 'react';
-import { Combobox, EmptyState, FlyTo, MapCanvas, PanelSection, Spinner } from '@shared/ui';
+import { Link } from 'react-router';
+import { FlyTo, MapCanvas, PanelSection } from '@shared/ui';
 import { reverseGeocode } from '../api/reverseGeocode';
 import { useReportes } from '../api/useReportes';
 import { ReporteForm, type Ubicacion } from '../components/ReporteForm';
 import { ReporteItem } from '../components/ReporteItem';
 import { ReportesLayer, UbicacionPicker, UbicacionTemporal } from '../components/ReportesLayer';
-import { STATUS_META, STATUS_REPORTE, type Reporte, type StatusReporte } from '../model/reporte';
+import type { Reporte } from '../model/reporte';
 
+/**
+ * Alta de reportes. El historial completo vive en `/reportes/historial`: aquí
+ * solo se muestra el que acabas de crear, para que el panel no se acumule.
+ */
 export function ReportesPage() {
-  const [filtroStatus, setFiltroStatus] = useState<StatusReporte | null>(null);
-  const { data: reportes = [], isPending } = useReportes(filtroStatus);
+  // Sin filtro: los marcadores del mapa deben mostrar todos los reportes.
+  const { data: reportes = [] } = useReportes(null);
   const [ubicacion, setUbicacion] = useState<Ubicacion | null>(null);
   const [modoMapa, setModoMapa] = useState(false);
+  const [creado, setCreado] = useState<Reporte | null>(null);
   const [foco, setFoco] = useState<Reporte | null>(null);
 
   async function onPick(lat: number, lng: number) {
@@ -23,20 +30,34 @@ export function ReportesPage() {
   return (
     <div className="flex h-full">
       <aside className="scrollbar-slim flex w-full flex-col overflow-y-auto border-r border-border bg-surface md:w-96">
-        <Historial
-          reportes={reportes}
-          isPending={isPending}
-          filtroStatus={filtroStatus}
-          onFiltroStatus={setFiltroStatus}
-          onIr={setFoco}
-        />
         <PanelSection title="Nuevo reporte ciudadano">
           <ReporteForm
             ubicacion={ubicacion}
             onUbicacion={setUbicacion}
             modoMapa={modoMapa}
             onToggleModoMapa={() => setModoMapa((m) => !m)}
+            onCreado={(r) => {
+              setCreado(r);
+              setFoco(r);
+            }}
           />
+        </PanelSection>
+
+        {creado ? (
+          <PanelSection title="Reporte enviado">
+            <div className="-mx-3">
+              <ReporteItem reporte={creado} onIr={setFoco} />
+            </div>
+          </PanelSection>
+        ) : null}
+
+        <PanelSection title="Reportes anteriores">
+          <Link
+            to="/reportes/historial"
+            className="flex items-center justify-center gap-2 rounded-control border border-border py-2 text-xs font-bold text-fg-muted transition duration-fast ease-out hover:bg-surface-raised hover:text-fg"
+          >
+            <History className="h-4 w-4" aria-hidden="true" /> Ver historial ({reportes.length})
+          </Link>
         </PanelSection>
       </aside>
 
@@ -56,57 +77,5 @@ export function ReportesPage() {
         ) : null}
       </div>
     </div>
-  );
-}
-
-function Historial({
-  reportes,
-  isPending,
-  filtroStatus,
-  onFiltroStatus,
-  onIr,
-}: {
-  reportes: Reporte[];
-  isPending: boolean;
-  filtroStatus: StatusReporte | null;
-  onFiltroStatus: (s: StatusReporte | null) => void;
-  onIr: (r: Reporte) => void;
-}) {
-  return (
-    <PanelSection
-      title="Historial de reportes"
-      action={
-        isPending ? null : (
-          <span className="text-2xs tabular-nums text-fg-subtle">{reportes.length}</span>
-        )
-      }
-    >
-      <Combobox
-        aria-label="Filtrar reportes por estado"
-        placeholder="Todos los estados"
-        options={STATUS_REPORTE.map((s) => ({ value: s, label: STATUS_META[s].label }))}
-        value={filtroStatus}
-        onChange={(s) => onFiltroStatus(s as StatusReporte | null)}
-      />
-
-      {isPending ? (
-        <div className="flex justify-center py-6">
-          <Spinner label="Cargando reportes…" />
-        </div>
-      ) : reportes.length === 0 ? (
-        <EmptyState
-          title="No hay reportes registrados."
-          hint="Crea el primero con el formulario de abajo."
-          className="py-6"
-        />
-      ) : (
-        /* -mx-3 sangra los items al borde del panel; el separador queda a todo lo ancho. */
-        <div className="scrollbar-slim -mx-3 max-h-[26rem] overflow-y-auto border-t border-border">
-          {reportes.map((r) => (
-            <ReporteItem key={r.id} reporte={r} onIr={onIr} />
-          ))}
-        </div>
-      )}
-    </PanelSection>
   );
 }

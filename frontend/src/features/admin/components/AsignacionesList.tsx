@@ -25,7 +25,7 @@ export function AsignacionesList({ campanas, usuarios }: AsignacionesListProps) 
             <div className="flex items-center gap-3">
               <div className="min-w-0 flex-1">
                 <div className="truncate text-sm font-bold">{c.nombre}</div>
-                <div className="text-[11px] text-fg-muted">
+                <div className="text-xs2 text-fg-muted">
                   {c.colonia ?? 'Sin colonia'} · {hecho}/{total} ({pct}%)
                 </div>
               </div>

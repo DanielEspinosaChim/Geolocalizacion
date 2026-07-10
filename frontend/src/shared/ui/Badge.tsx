@@ -19,7 +19,7 @@ interface BadgeProps extends PropsWithChildren {
 export function Badge({ tone = 'neutral', className = '', children }: BadgeProps) {
   return (
     <span
-      className={`inline-block whitespace-nowrap rounded-full border px-2 py-px text-[10px] font-bold ${TONE_CLASSES[tone]} ${className}`}
+      className={`inline-block whitespace-nowrap rounded-full border px-2 py-px text-2xs font-bold ${TONE_CLASSES[tone]} ${className}`}
     >
       {children}
     </span>

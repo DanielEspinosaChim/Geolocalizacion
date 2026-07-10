@@ -27,6 +27,12 @@ export default defineConfig({
         target: process.env.VITE_API_PROXY ?? 'http://localhost:8080',
         changeOrigin: true,
       },
+      // Las fotos de reportes y visitas se guardan aquí y el backend las sirve
+      // con StaticFiles. Sin este proxy, en dev toda imagen subida sale rota.
+      '/uploads': {
+        target: process.env.VITE_API_PROXY ?? 'http://localhost:8080',
+        changeOrigin: true,
+      },
     },
   },
   build: {

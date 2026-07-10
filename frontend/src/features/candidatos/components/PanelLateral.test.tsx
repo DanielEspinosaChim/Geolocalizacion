@@ -51,16 +51,15 @@ describe('PanelLateral', () => {
 
   it('plegar "Buscar negocio" oculta el input y también la lista de negocios', () => {
     renderPanel();
-    const buscador = screen.getByRole('searchbox');
-    const negocio = screen.getByText('YULINEY');
-    expect(estaOculto(buscador)).toBe(false);
-    expect(estaOculto(negocio)).toBe(false);
+    expect(estaOculto(screen.getByRole('searchbox'))).toBe(false);
+    expect(estaOculto(screen.getByText('YULINEY'))).toBe(false);
 
     fireEvent.click(screen.getByRole('button', { name: /buscar negocio/i }));
 
-    // La lista es el resultado de la búsqueda: se pliega con ella, no aparte.
-    expect(estaOculto(buscador)).toBe(true);
-    expect(estaOculto(negocio)).toBe(true);
+    // El buscador va en el slot `sticky`, que no se renderiza al plegar; la
+    // lista es el resultado de la búsqueda y se pliega con ella, no aparte.
+    expect(screen.queryByRole('searchbox')).toBeNull();
+    expect(estaOculto(screen.getByText('YULINEY'))).toBe(true);
   });
 
   it('plegar una sección no afecta a las demás', () => {

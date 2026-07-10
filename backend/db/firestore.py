@@ -123,7 +123,12 @@ def get_candidatos(tipo=None, colonia_id=None, limit=2000):
         result = list(_cand_cache)
 
     if tipo:
-        result = [c for c in result if c.get("tipo") == tipo]
+        # `tipo` solo se escribe cuando alguien clasifica el negocio a mano; los
+        # 5.958 sin tocar lo tienen ausente y son, por definición, informales.
+        # Comparar contra `None` los excluía a todos de `tipo="informal"` y
+        # dejaba a `/api/ruta-colonia` sin puntos. Misma regla que `tipoDe()`
+        # en el frontend y que el conteo de `/api/colonias`.
+        result = [c for c in result if (c.get("tipo") or "informal") == tipo]
     if colonia_id:
         result = [c for c in result if c.get("colonia_id") == int(colonia_id)]
     return result[:limit]

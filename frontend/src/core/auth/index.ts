@@ -1,3 +1,4 @@
+export { INACTIVIDAD_MS, MINUTOS_INACTIVIDAD, vigilarInactividad } from './inactividad';
 export { getFirebaseAuth } from './firebase';
 export {
   changePassword,

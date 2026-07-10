@@ -1,5 +1,14 @@
 import { MapPin, Pencil, Store, Trash2 } from 'lucide-react';
-import { Badge, Button, Checkbox, DataTable, EmptyState, IconButton, type Column } from '@shared/ui';
+import {
+  Badge,
+  Button,
+  Checkbox,
+  DataTable,
+  DateField,
+  EmptyState,
+  IconButton,
+  type Column,
+} from '@shared/ui';
 import { usePatchNegocio } from '../api/useNegocioMutations';
 import type { NegocioCampana } from '../model/campana';
 
@@ -33,14 +42,13 @@ export function NegociosTabla({ campanaId, negocios, onRegistrar }: NegociosTabl
       key: 'fecha',
       header: 'Fecha',
       cell: (n) => (
-        <input
-          type="date"
+        <DateField
+          size="sm"
           value={n.fecha_visita ?? ''}
           onChange={(e) =>
             patch.mutate({ negocioId: n.negocio_id, updates: { fecha_visita: e.target.value } })
           }
-          className="rounded-control border border-border bg-bg px-2 py-1 text-xs2"
-          aria-label="Fecha de visita"
+          aria-label={`Fecha de visita de ${n.nombre}`}
         />
       ),
     },
@@ -96,11 +104,13 @@ function NegocioCelda({ negocio: n }: { negocio: NegocioCampana }) {
         ) : null}
       </div>
       {n.foto_visita_url ? (
-        <a href={n.foto_visita_url} target="_blank" rel="noreferrer">
+        <a href={n.foto_visita_url} target="_blank" rel="noreferrer" className="shrink-0">
+          {/* Tamaño fijo y `shrink-0`: si la imagen no carga, su texto alternativo
+              no debe estirar la celda y descuadrar la tabla entera. */}
           <img
             src={n.foto_visita_url}
-            alt="Foto de la visita"
-            className="h-12 w-12 rounded-control object-cover"
+            alt={`Foto de la visita a ${n.nombre}`}
+            className="h-12 w-12 overflow-hidden rounded-control border border-border object-cover text-2xs text-fg-subtle"
           />
         </a>
       ) : null}

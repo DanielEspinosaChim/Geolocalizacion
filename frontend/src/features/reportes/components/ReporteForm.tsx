@@ -4,7 +4,7 @@ import { obtenerGPS } from '@shared/lib/geo';
 import { Button, Combobox, FotoField, TextField, TextareaField, toast } from '@shared/ui';
 import { reverseGeocode } from '../api/reverseGeocode';
 import { useCrearReporte } from '../api/useReportes';
-import { REPORTE_META, TIPOS_REPORTE, type TipoReporte } from '../model/reporte';
+import { REPORTE_META, TIPOS_REPORTE, type Reporte, type TipoReporte } from '../model/reporte';
 
 export interface Ubicacion {
   lat: number;
@@ -17,6 +17,8 @@ interface ReporteFormProps {
   onUbicacion: (u: Ubicacion | null) => void;
   modoMapa: boolean;
   onToggleModoMapa: () => void;
+  /** Recibe el reporte ya guardado, con su id y su foto. */
+  onCreado?: (reporte: Reporte) => void;
 }
 
 export function ReporteForm({
@@ -24,6 +26,7 @@ export function ReporteForm({
   onUbicacion,
   modoMapa,
   onToggleModoMapa,
+  onCreado,
 }: ReporteFormProps) {
   const [tipo, setTipo] = useState<TipoReporte>('bache');
   const [descripcion, setDescripcion] = useState('');
@@ -38,11 +41,12 @@ export function ReporteForm({
     crear.mutate(
       { tipo, descripcion, foto, ...ubicacion },
       {
-        onSuccess: () => {
+        onSuccess: (reporte) => {
           setDescripcion('');
           setFoto(null);
           setFotoKey((k) => k + 1);
           onUbicacion(null);
+          onCreado?.(reporte);
         },
       },
     );

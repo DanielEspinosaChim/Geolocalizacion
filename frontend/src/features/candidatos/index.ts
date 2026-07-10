@@ -1,6 +1,8 @@
 export { CandidatosPage } from './routes/CandidatosPage';
 
-/* API pública para otras features (rutas consume el mismo dataset). */
+/* API pública para otras features (rutas y predicción pintan el mismo mapa). */
+export { CapaCandidatos } from './components/CapaCandidatos';
+export { Simbologia } from './components/Simbologia';
 export { useCandidatos, candidatosKeys } from './api/useCandidatos';
 export { useCargaProgresiva } from './api/useCargaProgresiva';
 export { useMetricas } from './api/useMetricas';

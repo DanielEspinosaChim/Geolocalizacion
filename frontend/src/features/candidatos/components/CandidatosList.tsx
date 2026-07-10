@@ -36,7 +36,7 @@ export function CandidatosList({ data, selectedId, onSelect, className = '' }: C
         </button>
       ))}
       {data.length > MAX_VISIBLES ? (
-        <p className="p-3 text-center text-[11px] text-fg-subtle">
+        <p className="p-3 text-center text-xs2 text-fg-subtle">
           Mostrando {MAX_VISIBLES.toLocaleString('es-MX')} de {data.length.toLocaleString('es-MX')} —
           afina la búsqueda para ver el resto (el mapa los muestra todos).
         </p>

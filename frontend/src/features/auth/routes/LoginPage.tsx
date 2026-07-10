@@ -16,7 +16,7 @@ export function LoginPage() {
           </p>
         </header>
         <LoginForm />
-        <p className="mt-6 text-center text-[11px] font-medium text-fg-subtle/70">
+        <p className="mt-6 text-center text-xs2 font-medium text-fg-subtle/70">
           Municipio de Mérida, Yucatán · Uso interno
         </p>
       </Card>

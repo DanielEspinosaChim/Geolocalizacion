@@ -165,6 +165,29 @@ describe('PanelSection', () => {
     expect(contenido.className).toBe('hidden');
   });
 
+  it('el slot `sticky` viaja con el encabezado, no con el contenido', () => {
+    render(
+      <PanelSection title="Buscar negocio" collapsible sticky={<input aria-label="Buscar" />}>
+        <p>Contenido</p>
+      </PanelSection>,
+    );
+    const boton = screen.getByRole('button', { name: /buscar negocio/i });
+    const buscador = screen.getByRole('textbox');
+    // Si estuviera en el contenido, el encabezado pegajoso lo taparía al scrollar.
+    expect(contenidoDe(boton).contains(buscador)).toBe(false);
+    expect(buscador.closest('.sticky')).not.toBeNull();
+  });
+
+  it('el slot `sticky` se esconde al plegar la sección', () => {
+    render(
+      <PanelSection title="Buscar negocio" collapsible sticky={<input aria-label="Buscar" />}>
+        <p>Contenido</p>
+      </PanelSection>,
+    );
+    fireEvent.click(screen.getByRole('button', { name: /buscar negocio/i }));
+    expect(screen.queryByRole('textbox')).toBeNull();
+  });
+
   it('el slot `action` no queda anidado dentro del botón que pliega', () => {
     render(
       <PanelSection title="Candidatos" collapsible action={<button type="button">Limpiar</button>}>

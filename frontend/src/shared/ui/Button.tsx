@@ -7,7 +7,7 @@ import { Spinner } from './Spinner';
  * Variantes con CVA: `variant`, `size`, `full` y `loading` son props tipadas.
  * El `className` externo se fusiona con twMerge, así un override puntual de
  * layout (mt-2, flex-1) no colisiona con las clases base. Los hacks de tamaño
- * (`px-2 py-1 text-[11px]`) y de tono (`ghost + text-danger`) ya no van en
+ * (padding y tipografía a mano) y de tono (`ghost + text-danger`) ya no van en
  * className: son `size`/`variant`.
  */
 const button = cva(

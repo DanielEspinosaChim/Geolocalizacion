@@ -26,8 +26,8 @@ export function ReporteItem({ reporte: r, onIr }: ReporteItemProps) {
         </span>
         <Badge tone={status.tone}>{status.label}</Badge>
       </header>
-      <p className="truncate text-[11px] text-fg-muted">{r.descripcion || r.direccion || 'Sin descripción'}</p>
-      <p className="text-[10px] text-fg-subtle">{(r.fecha ?? '').slice(0, 10)}</p>
+      <p className="truncate text-xs2 text-fg-muted">{r.descripcion || r.direccion || 'Sin descripción'}</p>
+      <p className="text-2xs text-fg-subtle">{(r.fecha ?? '').slice(0, 10)}</p>
       {r.foto_url ? (
         <a href={r.foto_url} target="_blank" rel="noreferrer">
           <img src={r.foto_url} alt={`Foto del reporte de ${meta.label}`} className="max-h-36 w-full rounded-control object-cover" />

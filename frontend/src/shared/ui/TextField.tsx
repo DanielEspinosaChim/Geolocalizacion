@@ -16,7 +16,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
     <div className="grid gap-1.5">
       <label
         htmlFor={id}
-        className="text-[11px] font-bold uppercase tracking-wider text-fg-subtle"
+        className="text-xs2 font-bold uppercase tracking-wider text-fg-subtle"
       >
         {label}
       </label>

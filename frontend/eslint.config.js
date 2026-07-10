@@ -54,6 +54,17 @@ export default tseslint.config(
         { allow: [{ from: 'lib', name: 'Response' }] },
       ],
       ...jsxA11y.flatConfigs.recommended.rules,
+      // El plugin no puede mirar dentro de nuestros componentes: sin esto no
+      // reconoce que <Checkbox> renderiza un <input> y marca como inválido un
+      // <label> que lo envuelve (asociación implícita, perfectamente correcta).
+      'jsx-a11y/label-has-associated-control': [
+        'error',
+        {
+          controlComponents: ['Checkbox', 'TextField', 'TextareaField', 'SelectField'],
+          // El texto de la etiqueta puede vivir un par de <span> más abajo.
+          depth: 4,
+        },
+      ],
 
       /* ── 1. Fronteras entre capas ──────────────────────────────────── */
       'boundaries/element-types': [

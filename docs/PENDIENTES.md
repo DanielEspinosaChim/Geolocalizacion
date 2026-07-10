@@ -50,6 +50,15 @@ consola de Firebase o infraestructura queda `[ ]`.
       abre el selector del sistema operativo, que se maneja mejor con el pulgar que un listbox
       propio, y Reportes/Campañas se usan en campo desde el teléfono. Si el `Combobox` aguanta,
       eliminar `shared/ui/SelectField.tsx`; si no, conservarlo para los formularios de campo.
+- [ ] 🟥 **La auditoría afirma que «el token nunca toca `localStorage`» y no es exacto.**
+      `core/auth/firebase.ts` nunca llama a `setPersistence`, así que el SDK usa su persistencia
+      por defecto (`indexedDBLocalPersistence`): el **refresh token se guarda en el navegador** y
+      la sesión sobrevive a cerrar la pestaña y el navegador. El ID token sí vive en memoria y
+      `getFreshToken()` lo renueva, que es lo que la auditoría describía. La regla de ESLint
+      prohíbe *nuestro* `localStorage.setItem`, no el del SDK. Decidir la persistencia a
+      conciencia: `browserSessionPersistence` cierra la sesión al cerrar la pestaña, pero obliga
+      a los técnicos a re-loguearse en campo. Ver `useCierrePorInactividad`, que ya cubre el caso
+      del equipo desatendido con la app abierta.
 - [ ] 🟩 **Tema claro.** Los tokens ya soportan `[data-theme="light"]`; falta el toggle en el
       `AppShell` y persistir la preferencia.
 - [ ] 🟩 **CI**: cachear `~/.pnpm-store` y publicar artefacto de build; añadir el job de e2e

@@ -1,6 +1,6 @@
 import { Check } from 'lucide-react';
 import { useMemo, useState } from 'react';
-import { Button, FotoField, Modal, Spinner } from '@shared/ui';
+import { Button, FotoField, Modal, Spinner, TextareaField } from '@shared/ui';
 import { useGuardarVisita } from '../api/useGuardarVisita';
 import { usePlantillas } from '../api/usePlantillas';
 import type { NegocioCampana } from '../model/campana';
@@ -60,7 +60,7 @@ export function VisitaModal({ campanaId, negocio, onClose }: VisitaModalProps) {
                   key={p.id}
                   type="button"
                   onClick={() => setPlantillaId(p.id)}
-                  className={`rounded-full px-3 py-1 text-[11px] font-semibold ${
+                  className={`rounded-full px-3 py-1 text-xs2 font-semibold ${
                     p.id === plantilla?.id ? 'bg-primary-strong text-primary-fg' : 'border border-border text-fg-muted'
                   }`}
                 >
@@ -76,17 +76,10 @@ export function VisitaModal({ campanaId, negocio, onClose }: VisitaModalProps) {
             <CampoVisita key={campo.key} campo={campo} valor={datos[campo.key]} onChange={(v) => setCampo(campo.key, v)} />
           ))}
 
-          <label className="grid gap-1.5">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-fg-subtle">Notas</span>
-            <textarea
-              value={notas}
-              onChange={(e) => setNotas(e.target.value)}
-              className="h-20 resize-y rounded-control border border-border bg-bg px-3 py-2 text-sm outline-none focus:border-primary"
-            />
-          </label>
+          <TextareaField label="Notas" value={notas} onChange={(e) => setNotas(e.target.value)} />
 
           <div className="grid gap-1.5">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-fg-subtle">Foto</span>
+            <span className="text-xs2 font-bold uppercase tracking-wider text-fg-subtle">Foto</span>
             <FotoField
               valorInicial={negocio.foto_visita_url}
               onChange={(f, borrada) => {

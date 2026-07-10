@@ -1,5 +1,17 @@
 import { formatNumero } from '@shared/lib/format';
-import { Badge, QueryBoundary, Spinner, TBody, Table, Td, Th, THead, Tr } from '@shared/ui';
+import {
+  Badge,
+  Page,
+  PageHeader,
+  QueryBoundary,
+  Spinner,
+  TBody,
+  Table,
+  Td,
+  Th,
+  THead,
+  Tr,
+} from '@shared/ui';
 import { giroLabel } from '@features/candidatos';
 import { useMuestraValidacion } from '../api/usePredicciones';
 
@@ -15,8 +27,14 @@ export function ValidacionPage() {
       }
     >
       {(data) => (
-        <div className="grid gap-6 overflow-y-auto p-4 lg:grid-cols-2">
-          <section className="grid gap-2">
+        <Page width="wide" className="grid gap-8">
+          <PageHeader
+            eyebrow="Control de calidad"
+            title="Validación del cruce"
+            description="Muestra de negocios de Google Maps contrastados contra el padrón DENUE, para comprobar a mano que el emparejamiento funciona"
+          />
+
+          <section className="grid min-w-0 gap-2">
             <h2 className="font-display font-bold">
               Coincidencias con DENUE{' '}
               <span className="text-xs font-normal text-fg-muted">
@@ -47,7 +65,7 @@ export function ValidacionPage() {
             </Table>
           </section>
 
-          <section className="grid gap-2">
+          <section className="grid min-w-0 gap-2">
             <h2 className="font-display font-bold">
               Sin coincidencia (candidatos informales){' '}
               <span className="text-xs font-normal text-fg-muted">
@@ -75,7 +93,7 @@ export function ValidacionPage() {
               </TBody>
             </Table>
           </section>
-        </div>
+        </Page>
       )}
     </QueryBoundary>
   );

@@ -1,6 +1,6 @@
 import { BarChart3 } from 'lucide-react';
 import { formatNumero } from '@shared/lib/format';
-import { Card, QueryBoundary, Spinner } from '@shared/ui';
+import { Card, PageHeader, QueryBoundary, Spinner } from '@shared/ui';
 import { useIndice } from '../api/useIndice';
 import { ESCENARIO_COLORS, type Indice } from '../model/indice';
 import { IndiceCalculadora } from './IndiceCalculadora';
@@ -19,7 +19,7 @@ export function IndicePanel() {
       }
     >
       {(data) => (
-        <div className="mx-auto grid max-w-4xl gap-6 pb-8">
+        <div className="grid gap-6">
           <Encabezado indice={data} />
           <ConjuntosDeDatos indice={data} />
           <ComoSeEstima indice={data} />
@@ -36,15 +36,11 @@ export function IndicePanel() {
 
 function Encabezado({ indice }: { indice: Indice }) {
   return (
-    <header className="grid gap-2">
-      <p className="text-2xs font-bold uppercase tracking-widest text-primary">
-        Metodología · {indice.metodo}
-      </p>
-      <h1 className="font-display text-3xl font-extrabold text-fg">Índice de Informalidad</h1>
-      <p className="text-sm text-fg-muted">
-        Mérida, Yucatán · Estimación estadística basada en dos registros con solapamiento conocido
-      </p>
-    </header>
+    <PageHeader
+      eyebrow={`Metodología · ${indice.metodo}`}
+      title="Índice de Informalidad"
+      description="Mérida, Yucatán · Estimación estadística basada en dos registros con solapamiento conocido"
+    />
   );
 }
 

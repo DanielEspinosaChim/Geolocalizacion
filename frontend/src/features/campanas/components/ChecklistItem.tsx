@@ -45,7 +45,7 @@ export function ChecklistItem({ campanaId, negocio: n, onRegistrar }: ChecklistI
           <div className={`truncate text-sm font-bold ${visitado ? 'text-fg-muted line-through' : ''}`}>
             {n.nombre}
           </div>
-          <div className="truncate text-[11px] text-fg-muted">{lineaMeta(n)}</div>
+          <div className="truncate text-xs2 text-fg-muted">{lineaMeta(n)}</div>
         </div>
         {visitado && n.foto_visita_url ? (
           <a href={n.foto_visita_url} target="_blank" rel="noreferrer">

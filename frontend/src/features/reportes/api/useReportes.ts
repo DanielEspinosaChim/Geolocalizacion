@@ -1,7 +1,12 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { apiClient } from '@shared/api';
 import { toast } from '@shared/ui';
-import { reporteListSchema, type StatusReporte, type TipoReporte } from '../model/reporte';
+import {
+  reporteListSchema,
+  reporteSchema,
+  type StatusReporte,
+  type TipoReporte,
+} from '../model/reporte';
 
 export const reportesKeys = {
   all: ['reportes'] as const,
@@ -31,6 +36,7 @@ export interface NuevoReporte {
   foto: File | null;
 }
 
+/** Devuelve el reporte creado: la vista lo muestra sin volver a pedir la lista. */
 export function useCrearReporte() {
   const queryClient = useQueryClient();
   return useMutation({
@@ -42,7 +48,8 @@ export function useCrearReporte() {
       fd.append('descripcion', r.descripcion);
       fd.append('direccion', r.direccion);
       if (r.foto) fd.append('foto', r.foto);
-      await apiClient.postForm('/reportes', fd);
+      const data = await apiClient.postForm<unknown>('/reportes', fd);
+      return reporteSchema.parse(data);
     },
     onSuccess: () => {
       toast.success('Reporte enviado');

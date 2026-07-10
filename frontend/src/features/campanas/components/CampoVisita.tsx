@@ -1,5 +1,5 @@
 import { Check, X } from 'lucide-react';
-import { Combobox, TextField } from '@shared/ui';
+import { Combobox, TextField, TextareaField } from '@shared/ui';
 import type { Campo, ValorCampo } from '../model/plantilla';
 
 interface CampoVisitaProps {
@@ -39,14 +39,11 @@ export function CampoVisita({ campo, valor, onChange }: CampoVisitaProps) {
       );
     case 'textarea':
       return (
-        <label className="grid gap-1.5">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-fg-subtle">{label}</span>
-          <textarea
-            value={String(valor ?? '')}
-            onChange={(e) => onChange(e.target.value)}
-            className="h-20 resize-y rounded-control border border-border bg-bg px-3 py-2 text-sm outline-none focus:border-primary"
-          />
-        </label>
+        <TextareaField
+          label={label}
+          value={String(valor ?? '')}
+          onChange={(e) => onChange(e.target.value)}
+        />
       );
     default:
       return <TextField label={label} value={String(valor ?? '')} onChange={(e) => onChange(e.target.value)} />;
@@ -56,7 +53,7 @@ export function CampoVisita({ campo, valor, onChange }: CampoVisitaProps) {
 function BoolField({ label, valor, onChange }: { label: string; valor: boolean; onChange: (v: boolean) => void }) {
   return (
     <div className="grid gap-1.5">
-      <span className="text-[11px] font-bold uppercase tracking-wider text-fg-subtle">{label}</span>
+      <span className="text-xs2 font-bold uppercase tracking-wider text-fg-subtle">{label}</span>
       <div className="flex gap-1.5">
         {[
           { v: true, txt: 'Sí', Icon: Check, on: 'border-success bg-success/15 text-success' },

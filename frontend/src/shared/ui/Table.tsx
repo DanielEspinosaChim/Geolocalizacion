@@ -32,7 +32,7 @@ export function Th({ className = '', ...rest }: ThHTMLAttributes<HTMLTableCellEl
   return (
     <th
       {...rest}
-      className={`px-3.5 py-2.5 text-left text-[11px] font-bold uppercase tracking-wider text-fg-subtle ${className}`}
+      className={`px-3.5 py-2.5 text-left text-xs2 font-bold uppercase tracking-wider text-fg-subtle ${className}`}
     />
   );
 }

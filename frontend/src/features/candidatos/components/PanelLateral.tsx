@@ -73,14 +73,16 @@ export function PanelLateral({
             </span>
           )
         }
+        sticky={
+          <SearchInput
+            value={filtros.q}
+            onChange={(q) => onFiltros({ ...filtros, q })}
+            debounceMs={200}
+            placeholder="Nombre del negocio…"
+            aria-label="Buscar negocio por nombre"
+          />
+        }
       >
-        <SearchInput
-          value={filtros.q}
-          onChange={(q) => onFiltros({ ...filtros, q })}
-          debounceMs={200}
-          placeholder="Nombre del negocio…"
-          aria-label="Buscar negocio por nombre"
-        />
         {isPending ? (
           <div className="flex justify-center p-6">
             <Spinner label="Cargando candidatos…" />

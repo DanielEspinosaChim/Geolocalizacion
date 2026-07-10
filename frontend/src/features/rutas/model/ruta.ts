@@ -2,6 +2,9 @@ import { z } from 'zod';
 
 export const MAX_PUNTOS_RUTA = 20;
 
+/** Una ruta sin al menos dos paradas no es una ruta (lo valida también el backend). */
+export const MIN_PARADAS_RUTA = 2;
+
 export const rutaSchema = z.object({
   geometry: z.unknown(), // GeoJSON de la línea (lo pinta Leaflet tal cual)
   waypoints_ordenados: z.array(

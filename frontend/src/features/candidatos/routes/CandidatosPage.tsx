@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { buscarColoniaMatch, useColonias, type CapaId } from '@features/colonias-zonas';
+import { buscarColoniaMatch, useCapas, useColonias } from '@features/colonias-zonas';
 import { useCandidatos } from '../api/useCandidatos';
 import { useCargaProgresiva } from '../api/useCargaProgresiva';
 import { MapaCandidatos } from '../components/MapaCandidatos';
@@ -13,19 +13,10 @@ export function CandidatosPage() {
   const estado = useCargaProgresiva();
   const [filtros, setFiltros] = useState<Filtros>(SIN_FILTROS);
   const [vista, setVista] = useState<'lista' | 'mapa'>('mapa');
-  const [capas, setCapas] = useState<ReadonlySet<CapaId>>(new Set());
+  const capas = useCapas();
   const [seleccionado, setSeleccionado] = useState<Candidato | null>(null);
 
   const filtrados = useMemo(() => filtrarCandidatos(candidatos, filtros), [candidatos, filtros]);
-
-  function toggleCapa(capa: CapaId) {
-    setCapas((prev) => {
-      const s = new Set(prev);
-      if (s.has(capa)) s.delete(capa);
-      else s.add(capa);
-      return s;
-    });
-  }
 
   /** Click en un polígono de colonia → filtra candidatos (match fuzzy del legacy). */
   function onColoniaPoligono(nombreUpper: string) {
@@ -52,7 +43,6 @@ export function CandidatosPage() {
           totalCargados={candidatos.length}
           estado={estado}
           capas={capas}
-          onToggleCapa={toggleCapa}
           coloniaSeleccionada={filtros.colonia}
           onColoniaPoligono={onColoniaPoligono}
           seleccionado={seleccionado}

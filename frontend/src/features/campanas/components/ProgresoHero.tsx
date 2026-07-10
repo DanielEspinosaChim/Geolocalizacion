@@ -9,7 +9,7 @@ export function ProgresoHero({ progreso, colonia }: { progreso: Progreso; coloni
         <PartyPopper className="h-8 w-8 shrink-0 text-success" aria-hidden="true" />
         <div>
           <div className="font-display text-sm font-extrabold text-success">¡Campaña completada!</div>
-          <div className="text-[11px] text-success/80">{progreso.total} negocios visitados · 100%</div>
+          <div className="text-xs2 text-success/80">{progreso.total} negocios visitados · 100%</div>
         </div>
       </div>
     );

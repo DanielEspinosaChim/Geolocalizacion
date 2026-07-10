@@ -41,14 +41,14 @@ export function RutaInfo({ ruta }: { ruta: RutaCalculada }) {
         <FileText className="h-4 w-4" aria-hidden="true" />{' '}
         {descargando ? 'Generando…' : 'Descargar reporte de visita'}
       </Button>
-      <p className="text-[10px] text-fg-subtle">Ruta optimizada · En auto · Sin tráfico en tiempo real</p>
+      <p className="text-2xs text-fg-subtle">Ruta optimizada · En auto · Sin tráfico en tiempo real</p>
       <div className="max-h-44 overflow-y-auto">
-        <div className="mb-1 text-[10px] font-bold uppercase tracking-wider text-fg-subtle">
+        <div className="mb-1 text-2xs font-bold uppercase tracking-wider text-fg-subtle">
           Orden de visita
         </div>
         {ruta.waypoints_ordenados.map((p, i) => (
           <div key={`${p.place_id ?? i}`} className="flex items-center gap-2 py-0.5 text-xs">
-            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-strong text-[10px] font-bold text-primary-fg">
+            <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-strong text-2xs font-bold text-primary-fg">
               {i + 1}
             </span>
             <span className="truncate">{p.nombre}</span>

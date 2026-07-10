@@ -1,5 +1,14 @@
 import { useState } from 'react';
-import { Button, Spinner, Tabs, TabsContent, TabsList, TabsTrigger } from '@shared/ui';
+import {
+  Button,
+  Page,
+  PageHeader,
+  Spinner,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from '@shared/ui';
 import { useSession } from '@features/auth';
 import { useCampanas } from '@features/campanas';
 import { useUsuarios } from '../api/useUsuarios';
@@ -15,7 +24,13 @@ export function AdminPage() {
   const [crearAbierto, setCrearAbierto] = useState(false);
 
   return (
-    <div className="mx-auto grid max-w-4xl gap-4 overflow-y-auto p-4">
+    <Page width="wide" className="grid gap-6">
+      <PageHeader
+        eyebrow="Panel de control"
+        title="Administración"
+        description="Usuarios, roles y asignación de campañas a los técnicos"
+      />
+
       {user ? <MiCuenta user={user} /> : null}
 
       <Tabs defaultValue="usuarios" className="grid gap-3">
@@ -37,6 +52,6 @@ export function AdminPage() {
       </Tabs>
 
       <CrearUsuarioModal open={crearAbierto} onClose={() => setCrearAbierto(false)} />
-    </div>
+    </Page>
   );
 }

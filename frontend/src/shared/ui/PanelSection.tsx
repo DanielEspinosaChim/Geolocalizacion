@@ -12,6 +12,11 @@ interface PanelSectionProps extends PropsWithChildren {
   collapsible?: boolean;
   /** Estado inicial cuando es plegable. */
   defaultOpen?: boolean;
+  /**
+   * Se ancla al encabezado y viaja con él al hacer scroll. Para lo que debe
+   * seguir a mano mientras se recorre una lista larga: el buscador que la filtra.
+   */
+  sticky?: ReactNode;
   className?: string;
 }
 
@@ -29,6 +34,7 @@ export function PanelSection({
   grow,
   collapsible = false,
   defaultOpen = true,
+  sticky,
   className = '',
   children,
 }: PanelSectionProps) {
@@ -46,8 +52,13 @@ export function PanelSection({
       {/* Pegajoso: con todas las secciones abiertas el panel es largo, y el
           encabezado (con su chevron) debe seguir al alcance mientras se baja.
           Los márgenes negativos lo estiran de borde a borde para que el
-          contenido no asome por los lados al pasar por debajo. */}
-      <header className="sticky top-0 z-panel -mx-3 -mt-3 flex items-center justify-between gap-2 bg-surface px-3 pb-2 pt-3">
+          contenido no asome por los lados al pasar por debajo.
+
+          El slot `sticky` viaja dentro del mismo bloque, no debajo: si se
+          quedara en el contenido, el encabezado le pasaría por encima al
+          scrollar y se vería cortado a media altura. */}
+      <div className="sticky top-0 z-panel -mx-3 -mt-3 grid gap-2.5 bg-surface px-3 pb-2 pt-3">
+        <header className="flex items-center justify-between gap-2">
         {collapsible ? (
           <button
             type="button"
@@ -71,8 +82,10 @@ export function PanelSection({
             <Titulo>{title}</Titulo>
           </h2>
         )}
-        {action}
-      </header>
+          {action}
+        </header>
+        {sticky && visible ? sticky : null}
+      </div>
       {/* `hidden` como atributo no basta: la utilidad `grid` de Tailwind gana en
           la cascada y el bloque seguiría visible. Se alterna la clase. */}
       <div id={contenidoId} className={visible ? 'grid content-start gap-2.5' : 'hidden'}>

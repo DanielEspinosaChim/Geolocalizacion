@@ -53,7 +53,7 @@ export function EditorPlantilla({ plantilla, onClose }: EditorPlantillaProps) {
         <TextField label="Descripción" value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
 
         <div className="flex items-center justify-between">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-fg-subtle">
+          <span className="text-xs2 font-bold uppercase tracking-wider text-fg-subtle">
             {campos.length} campo{campos.length === 1 ? '' : 's'}
           </span>
           <Button variant="secondary" size="sm" onClick={agregar}>

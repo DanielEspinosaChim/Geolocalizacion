@@ -30,7 +30,7 @@ export function PlantillasModal({ open, onClose }: { open: boolean; onClose: () 
                   <span className="truncate">{p.nombre}</span>
                   {p.es_default ? <Badge tone="info">default</Badge> : null}
                 </div>
-                <div className="text-[10px] text-fg-subtle">
+                <div className="text-2xs text-fg-subtle">
                   {p.campos.length} campos{p.descripcion ? ` · ${p.descripcion}` : ''}
                 </div>
               </div>
