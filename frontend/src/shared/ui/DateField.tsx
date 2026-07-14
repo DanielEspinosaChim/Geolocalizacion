@@ -17,8 +17,8 @@ interface DateFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'ty
  * Campo de fecha con el aspecto del tema.
  *
  * El selector nativo del navegador no se puede tematizar, pero el icono del
- * calendario sí: `invert` lo pasa de negro a blanco para que se vea sobre la
- * superficie oscura (en tema claro se anula). Es el único retoque necesario.
+ * calendario sí: en tema oscuro `invert` lo pasa de negro a blanco para que se
+ * vea sobre la superficie oscura. Es el único retoque necesario.
  */
 export const DateField = forwardRef<HTMLInputElement, DateFieldProps>(function DateField(
   { label = '', error, size = 'md', className = '', ...rest },
@@ -50,7 +50,7 @@ export const DateField = forwardRef<HTMLInputElement, DateFieldProps>(function D
         }}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}
-        className={`w-full rounded-control border bg-bg text-fg outline-none transition-colors focus:border-primary [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-60 [&::-webkit-calendar-picker-indicator]:invert hover:[&::-webkit-calendar-picker-indicator]:opacity-100 [[data-theme=light]_&::-webkit-calendar-picker-indicator]:invert-0 ${
+        className={`w-full rounded-control border bg-bg text-fg outline-none transition-colors focus:border-primary [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-calendar-picker-indicator]:opacity-60 hover:[&::-webkit-calendar-picker-indicator]:opacity-100 [[data-theme=dark]_&::-webkit-calendar-picker-indicator]:invert ${
           error ? 'border-danger' : 'border-border'
         } ${TAMANOS[size]} ${className}`}
         {...rest}

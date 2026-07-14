@@ -16,22 +16,25 @@ const NAV_ITEMS: NavItem[] = [
   { to: '/campanas', label: 'Campañas', roles: ['admin', 'tecnico'] },
   { to: '/validacion', label: 'Validación', roles: ['admin'] },
   { to: '/indice', label: 'Índice', roles: ['admin'] },
+  { to: '/canasta', label: 'Canasta', roles: ['admin'] },
   { to: '/admin', label: 'Admin', roles: ['admin'] },
 ];
 
 export function NavTabs({ role }: { role: Role }) {
   return (
-    <nav aria-label="Secciones" className="scrollbar-none flex gap-1 overflow-x-auto px-3">
+    /* Pills tipo chip (el patrón de la fila de categorías de Google Maps):
+       la sección activa se marca con relleno indigo suave, no con subrayado. */
+    <nav aria-label="Secciones" className="scrollbar-none flex gap-1.5 overflow-x-auto px-3 py-2">
       {NAV_ITEMS.filter((item) => item.roles.includes(role)).map((item) => (
         <NavLink
           key={item.to}
           to={item.to}
           end={item.to === '/'}
           className={({ isActive }) =>
-            `whitespace-nowrap rounded-t-lg border-b-2 px-3.5 py-2.5 text-sm font-semibold transition-colors ${
+            `whitespace-nowrap rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${
               isActive
-                ? 'border-primary text-fg'
-                : 'border-transparent text-fg-muted hover:text-fg'
+                ? 'bg-primary/10 text-primary-strong'
+                : 'text-fg-muted hover:bg-surface-raised hover:text-fg'
             }`
           }
         >

@@ -6,6 +6,11 @@ interface LeyendaCapasProps {
   activas: ReadonlySet<CapaId>;
   /** Filas propias de la vista (p. ej. los colores de formalización del mapa). */
   children?: ReactNode;
+  /**
+   * 'flotante' (default) se ancla sola abajo-izquierda; 'estatica' deja el
+   * posicionamiento al contenedor (para apilarla con otros overlays del mapa).
+   */
+  posicion?: 'flotante' | 'estatica';
 }
 
 /**
@@ -15,12 +20,16 @@ interface LeyendaCapasProps {
  * Se oculta entera cuando no hay nada que explicar: una leyenda de marcadores
  * que no existen confunde más de lo que ayuda.
  */
-export function LeyendaCapas({ activas, children }: LeyendaCapasProps) {
+export function LeyendaCapas({ activas, children, posicion = 'flotante' }: LeyendaCapasProps) {
   const probabilidad = activas.has('probabilidad');
   if (!probabilidad && !children) return null;
 
   return (
-    <div className="absolute bottom-4 left-4 z-panel grid gap-1.5 rounded-card border border-border bg-surface/90 p-3 text-xs2 backdrop-blur">
+    <div
+      className={`glass-panel z-panel grid gap-1.5 rounded-card border p-3 text-xs2 ${
+        posicion === 'flotante' ? 'absolute bottom-4 left-4' : ''
+      }`}
+    >
       {children}
       {probabilidad ? (
         <>

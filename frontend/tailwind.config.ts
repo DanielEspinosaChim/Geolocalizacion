@@ -32,8 +32,8 @@ export default {
         danger: 'hsl(var(--danger) / <alpha-value>)',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+        sans: ['"Inter Variable"', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['"Montserrat Variable"', 'Montserrat', '"Inter Variable"', 'sans-serif'],
       },
       fontSize: {
         '2xs': 'var(--text-2xs)',
@@ -46,6 +46,10 @@ export default {
       boxShadow: {
         card: 'var(--shadow-card)',
         overlay: 'var(--shadow-overlay)',
+        glass: 'var(--shadow-glass)',
+      },
+      backdropBlur: {
+        glass: 'var(--blur-glass)',
       },
       transitionTimingFunction: {
         out: 'var(--ease-out)',

@@ -1,5 +1,6 @@
 import { Search, X } from 'lucide-react';
 import { useEffect, useState, type InputHTMLAttributes } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 interface SearchInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'type'> {
@@ -41,7 +42,14 @@ export function SearchInput({
         type="search"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        className={`w-full rounded-control border border-border bg-bg py-2 pl-8 pr-8 text-sm text-fg outline-none transition-colors placeholder:text-fg-subtle/60 focus:border-primary ${className}`}
+        // Píldora gris que pasa a blanco con borde de marca al enfocar — el
+        // patrón del buscador de Google Maps, en pill para todo el sistema.
+        // twMerge permite variantes por sitio (el buscador flotante del mapa
+        // trae su propia superficie) sin pelear con la cascada.
+        className={twMerge(
+          'w-full rounded-full border border-transparent bg-surface-raised py-2 pl-8 pr-8 text-sm text-fg outline-none transition-colors placeholder:text-fg-subtle/60 focus:border-primary focus:bg-surface',
+          className,
+        )}
       />
       {text ? (
         <button

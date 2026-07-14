@@ -23,7 +23,7 @@ from fastapi.responses import FileResponse
 import uvicorn
 
 from db.migrations import run_migrations
-from routers import candidatos, zonas, geo, ruta, prediccion, reportes, visitas, campanas, plantillas, admin
+from routers import candidatos, zonas, geo, ruta, prediccion, reportes, visitas, campanas, plantillas, admin, canasta
 from auth import require_any, require_admin
 
 ROOT_DIR     = Path(__file__).parent.parent
@@ -98,6 +98,7 @@ app.include_router(visitas.router,    tags=["Visitas"],     dependencies=[Depend
 app.include_router(campanas.router,   tags=["Campañas"],    dependencies=[Depends(require_any)])
 app.include_router(plantillas.router, tags=["Plantillas"],   dependencies=[Depends(require_any)])
 app.include_router(admin.router,      tags=["Admin"])
+app.include_router(canasta.router,    tags=["Canasta Básica"], dependencies=[Depends(require_any)])
 
 # ── Endpoint: info del usuario actual ────────────────────────────────────────
 @app.get("/api/me", tags=["Auth"])

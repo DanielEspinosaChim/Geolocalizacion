@@ -86,12 +86,14 @@ export function RutasPage() {
       </aside>
 
       <div className="relative hidden flex-1 md:block">
-        <MapCanvas>
+        <MapCanvas zoomPosition="bottomright">
           <CapaCandidatos candidatos={candidatos} />
           {ruta ? <RutaLayer ruta={ruta} /> : null}
           <CapasLayers activas={capas.activas} />
         </MapCanvas>
 
+        {/* Overlays consistentes en todas las vistas del mapa: capas
+            arriba-derecha, simbología abajo-izquierda. */}
         <div className="absolute right-3 top-3 z-panel">
           <CapasToggles activas={capas.activas} onToggle={capas.alternar} />
         </div>

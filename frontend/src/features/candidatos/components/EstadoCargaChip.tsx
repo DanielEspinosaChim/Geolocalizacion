@@ -7,7 +7,7 @@ interface EstadoCargaChipProps {
 
 /**
  * Chip de progreso sobre el mapa (reemplaza el badge del header legacy).
- * Va abajo a la derecha: arriba a la derecha están los toggles de capas.
+ * No se posiciona solo: MapaCandidatos lo apila abajo-derecha con la leyenda.
  */
 export function EstadoCargaChip({ cargados, estado }: EstadoCargaChipProps) {
   const listo = estado?.ready ?? false;
@@ -17,12 +17,16 @@ export function EstadoCargaChip({ cargados, estado }: EstadoCargaChipProps) {
     : `${cargados.toLocaleString('es-MX')}${enServidor > cargados ? ` de ${enServidor.toLocaleString('es-MX')}` : ''} cargando…`;
 
   return (
+    /* Píldora blanca con punto de estado (lenguaje de chips de Google Maps):
+       el color señala, el texto se lee en el color del tema. */
     <div
-      className={`absolute bottom-4 right-3 z-panel rounded-full px-3 py-1 text-xs2 font-bold text-white shadow-overlay ${
-        listo ? 'bg-success' : 'bg-warning'
-      }`}
+      className="flex items-center gap-1.5 rounded-full bg-surface px-3 py-1 text-xs2 font-bold text-fg-muted shadow-glass"
       role="status"
     >
+      <span
+        aria-hidden="true"
+        className={`h-2 w-2 rounded-full ${listo ? 'bg-success' : 'animate-pulse bg-warning'}`}
+      />
       {texto}
     </div>
   );

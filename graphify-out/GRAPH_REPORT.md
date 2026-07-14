@@ -1,16 +1,16 @@
-# Graph Report - Geolocalizacion  (2026-07-09)
+# Graph Report - Geolocalizacion  (2026-07-14)
 
 ## Corpus Check
-- 275 files · ~4,651,774 words
+- 293 files · ~4,660,216 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 2041 nodes · 3189 edges · 166 communities (144 shown, 22 thin omitted)
-- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 77 edges (avg confidence: 0.84)
+- 2069 nodes · 3411 edges · 150 communities (125 shown, 25 thin omitted)
+- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 80 edges (avg confidence: 0.83)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9aa40570`
+- Built from commit: `982b6d22`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -70,38 +70,27 @@
 - [[_COMMUNITY_Community 52|Community 52]]
 - [[_COMMUNITY_Community 53|Community 53]]
 - [[_COMMUNITY_Community 54|Community 54]]
-- [[_COMMUNITY_Community 55|Community 55]]
 - [[_COMMUNITY_Community 56|Community 56]]
 - [[_COMMUNITY_Community 57|Community 57]]
 - [[_COMMUNITY_Community 58|Community 58]]
 - [[_COMMUNITY_Community 59|Community 59]]
 - [[_COMMUNITY_Community 60|Community 60]]
-- [[_COMMUNITY_Community 61|Community 61]]
 - [[_COMMUNITY_Community 62|Community 62]]
 - [[_COMMUNITY_Community 63|Community 63]]
-- [[_COMMUNITY_Community 64|Community 64]]
 - [[_COMMUNITY_Community 65|Community 65]]
 - [[_COMMUNITY_Community 66|Community 66]]
 - [[_COMMUNITY_Community 67|Community 67]]
 - [[_COMMUNITY_Community 68|Community 68]]
 - [[_COMMUNITY_Community 69|Community 69]]
-- [[_COMMUNITY_Community 70|Community 70]]
 - [[_COMMUNITY_Community 71|Community 71]]
-- [[_COMMUNITY_Community 72|Community 72]]
 - [[_COMMUNITY_Community 73|Community 73]]
-- [[_COMMUNITY_Community 74|Community 74]]
 - [[_COMMUNITY_Community 75|Community 75]]
 - [[_COMMUNITY_Community 76|Community 76]]
-- [[_COMMUNITY_Community 77|Community 77]]
-- [[_COMMUNITY_Community 78|Community 78]]
-- [[_COMMUNITY_Community 79|Community 79]]
-- [[_COMMUNITY_Community 80|Community 80]]
 - [[_COMMUNITY_Community 81|Community 81]]
 - [[_COMMUNITY_Community 82|Community 82]]
 - [[_COMMUNITY_Community 83|Community 83]]
 - [[_COMMUNITY_Community 84|Community 84]]
 - [[_COMMUNITY_Community 85|Community 85]]
-- [[_COMMUNITY_Community 86|Community 86]]
 - [[_COMMUNITY_Community 87|Community 87]]
 - [[_COMMUNITY_Community 88|Community 88]]
 - [[_COMMUNITY_Community 89|Community 89]]
@@ -116,18 +105,14 @@
 - [[_COMMUNITY_Community 98|Community 98]]
 - [[_COMMUNITY_Community 99|Community 99]]
 - [[_COMMUNITY_Community 100|Community 100]]
-- [[_COMMUNITY_Community 101|Community 101]]
 - [[_COMMUNITY_Community 102|Community 102]]
 - [[_COMMUNITY_Community 103|Community 103]]
 - [[_COMMUNITY_Community 104|Community 104]]
-- [[_COMMUNITY_Community 106|Community 106]]
 - [[_COMMUNITY_Community 107|Community 107]]
-- [[_COMMUNITY_Community 108|Community 108]]
 - [[_COMMUNITY_Community 109|Community 109]]
 - [[_COMMUNITY_Community 110|Community 110]]
 - [[_COMMUNITY_Community 111|Community 111]]
 - [[_COMMUNITY_Community 112|Community 112]]
-- [[_COMMUNITY_Community 113|Community 113]]
 - [[_COMMUNITY_Community 114|Community 114]]
 - [[_COMMUNITY_Community 115|Community 115]]
 - [[_COMMUNITY_Community 116|Community 116]]
@@ -147,7 +132,6 @@
 - [[_COMMUNITY_Community 135|Community 135]]
 - [[_COMMUNITY_Community 136|Community 136]]
 - [[_COMMUNITY_Community 137|Community 137]]
-- [[_COMMUNITY_Community 138|Community 138]]
 - [[_COMMUNITY_Community 140|Community 140]]
 - [[_COMMUNITY_Community 197|Community 197]]
 - [[_COMMUNITY_Community 227|Community 227]]
@@ -174,7 +158,7 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `col()` - 30 edges
-2. `Candidato` - 23 edges
+2. `Candidato` - 26 edges
 3. `compilerOptions` - 21 edges
 4. `doc_to_dict()` - 19 edges
 5. `_get_candidatos()` - 17 edges
@@ -182,7 +166,7 @@
 7. `compilerOptions` - 12 edges
 8. `main()` - 12 edges
 9. `1. Auditoría de reusabilidad: componentes faltantes y cómo extraerlos` - 12 edges
-10. `descargar_places_merida()` - 11 edges
+10. `tipoDe()` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `ResNet50 U-Net Semantic Segmentation` --semantically_similar_to--> `ML Pipeline (Random Forest + XGBoost)`  [INFERRED] [semantically similar]
@@ -213,19 +197,19 @@
 - **Formalization Prediction ML Pipeline** — concept_formalization_prediction, concept_pct_recientes_1a, mapas_curva_roc_formalizacion, mapas_importancia_variables_formalizacion [EXTRACTED 1.00]
 - **Field Visit Photo Upload Pattern** — concept_visit_record, uploads_visita_5t4oodtl_20260529_011153_person_portrait, uploads_visita_knepCf4w_20260529_002823_person_portrait, uploads_visita_knepCf4w_20260529_052947_person_portrait, uploads_visita_knepCf4w_20260528_143113_resnet50_diagram [INFERRED 0.85]
 
-## Communities (166 total, 22 thin omitted)
+## Communities (150 total, 25 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.06
-Nodes (67): candidatosKeys, useCandidatos(), useCargaProgresiva(), GuardarTipoInput, GuardarTipoResponse, useGuardarTipo(), useMetricas(), useMuestraValidacion() (+59 more)
+Cohesion: 0.05
+Nodes (70): candidatosKeys, useCandidatos(), useCargaProgresiva(), GuardarTipoInput, GuardarTipoResponse, useGuardarTipo(), useMetricas(), useMuestraValidacion() (+62 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.08
-Nodes (23): FlyTo(), FlyToProps, MapCanvas(), MapCanvasProps, MERIDA_CENTER, MapPopup(), MapPopupProps, Card (+15 more)
+Nodes (25): FlyTo(), FlyToProps, MapCanvas(), MapCanvasProps, MERIDA_CENTER, MapPopup(), MapPopupProps, Card (+17 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.09
-Nodes (40): reverseGeocode(), capturarGPS(), NuevoReporte, reportesKeys, useActualizarReporte(), useCrearReporte(), useEliminarReporte(), useReportes() (+32 more)
+Nodes (39): reverseGeocode(), capturarGPS(), NuevoReporte, reportesKeys, useActualizarReporte(), useCrearReporte(), useEliminarReporte(), useReportes() (+31 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.67
@@ -236,24 +220,24 @@ Cohesion: 0.12
 Nodes (35): bool, int, str, Firestore Database, add_negocios_to_campana(), col(), create_campana(), create_reporte() (+27 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.11
-Nodes (19): actualizar_negocio_campana(), actualizar_plantilla(), actualizar_reporte(), actualizar_status_campana(), asignar_campana(), cache_status(), eliminar_campana(), eliminar_plantilla() (+11 more)
+Cohesion: 0.13
+Nodes (15): actualizar_negocio_campana(), actualizar_plantilla(), actualizar_reporte(), actualizar_status_campana(), asignar_campana(), eliminar_campana(), eliminar_plantilla(), eliminar_reporte() (+7 more)
 
 ### Community 6 - "Community 6"
 Cohesion: 0.13
 Nodes (21): require_admin(), int, str, asignar_campana(), AsignarCampanaBody, cambiar_role(), CambiarRoleBody, crear_usuario() (+13 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.20
-Nodes (12): _build_route, _get_candidatos, _prewarm_cache, _build_route(), calcular_ruta(), GET /api/candidatos, get_metricas(), guardar_tipo() (+4 more)
+Cohesion: 0.29
+Nodes (8): _build_route, _osrm_route, _build_route(), calcular_ruta(), _osrm_route(), ruta_colonia(), _tsp_nn(), OSRM Public Routing Service
 
 ### Community 8 - "Community 8"
-Cohesion: 0.17
-Nodes (16): _osrm_route, _tsp_nn, OSRM Public Routing Service, TSP Nearest Neighbor Heuristic, nearest_neighbor_tsp(), Ordena puntos con el heurístico del vecino más cercano (TSP)., _calcular_con_osrm, _calcular_con_osrm() (+8 more)
+Cohesion: 0.13
+Nodes (19): bool, BaseModel, CampanaOut, PrediccionNegocioResponse, PrediccionZonaResponse, SinDatosResponse, _calcular_con_osrm, _calcular_con_osrm() (+11 more)
 
 ### Community 9 - "Community 9"
-Cohesion: 0.16
-Nodes (14): _haversine (root app.py), float, float, Haversine Distance Formula, SQLite negocios.db, Connection, get_db(), haversine() (+6 more)
+Cohesion: 0.13
+Nodes (18): _haversine (root app.py), _tsp_nn, float, float, Haversine Distance Formula, SQLite negocios.db, TSP Nearest Neighbor Heuristic, Connection (+10 more)
 
 ### Community 10 - "Community 10"
 Cohesion: 0.14
@@ -288,8 +272,8 @@ Cohesion: 0.21
 Nodes (12): _load_geojson, get_agebs_geojson(), get_colonias_geojson(), get_datos_geograficos(), get_municipio_geojson(), get_municipios_yucatan(), _load_geojson(), GeoJSON con polígonos de colonias de Mérida (OSM + generados desde candidatos). (+4 more)
 
 ### Community 18 - "Community 18"
-Cohesion: 0.23
-Nodes (12): int, str, actualizar_negocio_campana(), actualizar_status_campana(), ActualizarNegocioBody, agregar_negocios(), CampanaCreate, crear_campana() (+4 more)
+Cohesion: 0.18
+Nodes (16): int, str, actualizar_negocio_campana(), actualizar_status_campana(), ActualizarNegocioBody, agregar_negocios(), CampanaCreate, crear_campana() (+8 more)
 
 ### Community 19 - "Community 19"
 Cohesion: 0.20
@@ -300,12 +284,12 @@ Cohesion: 0.18
 Nodes (12): me(), get_current_user(), _get_uid_and_role(), _is_auth_enabled(), bool, str, Autenticación y roles con Firebase Auth + Firestore.  Roles:   admin   — acce, Detecta si Firebase Auth está habilitado en el proyecto. (+4 more)
 
 ### Community 21 - "Community 21"
-Cohesion: 0.11
-Nodes (19): int, str, bool, BaseModel, CampanaOut, actualizar_tipo(), ActualizarTipoBody, ActualizarTipoResponse (+11 more)
+Cohesion: 0.19
+Nodes (10): int, str, actualizar_tipo(), ActualizarTipoBody, ActualizarTipoResponse, cache_status(), Candidato, get_candidatos() (+2 more)
 
 ### Community 22 - "Community 22"
 Cohesion: 0.06
-Nodes (31): indiceKeys, useIndice(), useMuestraValidacion(), usePredecir(), IndiceCalculadora(), pctDe(), ComoSeEstima(), ConjuntosDeDatos() (+23 more)
+Nodes (33): indiceKeys, useIndice(), useMuestraValidacion(), usePredecir(), Conteo(), IndiceCalculadora(), pctDe(), ComoSeEstima() (+25 more)
 
 ### Community 23 - "Community 23"
 Cohesion: 0.19
@@ -316,12 +300,12 @@ Cohesion: 0.10
 Nodes (23): useAsignarCampana(), ERRORES, useCambiarPassword(), { patch }, useUsuarioMutations(), useUsuarios(), usuariosKey, AsignacionesList() (+15 more)
 
 ### Community 25 - "Community 25"
-Cohesion: 0.07
-Nodes (38): useColonias(), useGeoJsonLayer(), useZonas(), AgebProps, AgebsLayer(), CapasLayers(), CapasLayersProps, CapaId (+30 more)
+Cohesion: 0.08
+Nodes (36): useColonias(), useGeoJsonLayer(), useZonas(), AgebProps, AgebsLayer(), CapasLayers(), CapasLayersProps, CapaId (+28 more)
 
 ### Community 26 - "Community 26"
-Cohesion: 0.25
-Nodes (10): float, int, str, UploadFile, actualizar_status(), ActualizarStatusBody, crear_reporte(), eliminar_reporte() (+2 more)
+Cohesion: 0.15
+Nodes (15): float, int, str, UploadFile, str, Sube las imagenes de data/uploads/ a Firebase Storage (canaco-info-reportes) co, Sube archivo a GCS con un Firebase download token y devuelve la URL publica., upload_with_token() (+7 more)
 
 ### Community 27 - "Community 27"
 Cohesion: 0.27
@@ -344,100 +328,84 @@ Cohesion: 0.39
 Nodes (8): _cargar_datos(), _color(), consultar(), distancia_m(), _encontrar_zona(), main(), _negocios_cercanos(), Consulta de formalidad por coordenadas =======================================
 
 ### Community 32 - "Community 32"
-Cohesion: 0.12
-Nodes (17): places/ChIJ24eRQwBvVo8R-kEhvgOSH-U, lat, lng, name, price, rating, reviews, status (+9 more)
+Cohesion: 0.06
+Nodes (51): descargarExcelCanasta(), useEscanearFactura(), canastaKeys, useCanasta(), useActualizarPrecio(), useAgregarProducto(), useEliminarProducto(), useSeedCanasta() (+43 more)
 
 ### Community 33 - "Community 33"
-Cohesion: 0.04
-Nodes (49): places/ChIJ4zHgdNVvVo8Ru8vfer9Dr90, lat, lng, name, price, rating, status, types (+41 more)
+Cohesion: 0.13
+Nodes (15): places/ChIJBY5q4q9tVo8RLlJiB4WdBwQ, lat, name, price, reviews, status, types, places/ChIJp_mgZBdtVo8RlUbxV_kZgPY (+7 more)
 
 ### Community 34 - "Community 34"
-Cohesion: 0.09
-Nodes (18): CAMERA_ERRORS, CameraModal(), CameraModalProps, FotoField(), FotoFieldProps, Button, ButtonProps, COLONIAS (+10 more)
+Cohesion: 0.11
+Nodes (16): CAMERA_ERRORS, CameraModal(), CameraModalProps, FotoField(), FotoFieldProps, Alert(), AlertProps, TONE_CLASSES (+8 more)
 
 ### Community 35 - "Community 35"
-Cohesion: 0.11
-Nodes (17): DataTable(), DataTableProps, paginar(), useFiltrado(), PanelSection(), PanelSectionProps, SearchInput(), SearchInputProps (+9 more)
+Cohesion: 0.10
+Nodes (17): Column, DataTable(), DataTableProps, paginar(), columnas, Fila, filas, useFiltrado() (+9 more)
 
 ### Community 36 - "Community 36"
 Cohesion: 0.14
 Nodes (15): Combobox(), ComboboxOption, ComboboxProps, contenidoDelCampo(), DisparadorProps, TAMANOS, usaFiltro(), useCombobox() (+7 more)
 
 ### Community 37 - "Community 37"
-Cohesion: 0.25
-Nodes (8): places/ChIJp_mgZBdtVo8RlUbxV_kZgPY, lat, lng, name, price, rating, reviews, status
+Cohesion: 0.09
+Nodes (22): places/ChIJ6dRTdQBtVo8RSi6t7z0gSC4, lat, lng, price, status, types, rating, places/ChIJdVxZLTVtVo8R0f3oiXono1Y (+14 more)
 
 ### Community 38 - "Community 38"
-Cohesion: 0.25
-Nodes (8): places/ChIJBY5q4q9tVo8RLlJiB4WdBwQ, lat, lng, name, price, reviews, status, types
+Cohesion: 0.27
+Nodes (8): indexLoader(), redirectIfAuthed(), requireAuth(), requireRole(), admin, { getSessionUser }, tecnico, RouteError()
 
 ### Community 39 - "Community 39"
-Cohesion: 0.14
-Nodes (15): places/ChIJbVuTllJvVo8RXZIdPBVktzs, lat, lng, name, price, status, types, places/ChIJTRPFqkBtVo8RzosA4xOSP7c (+7 more)
+Cohesion: 0.07
+Nodes (33): price, places/ChIJbVuTllJvVo8RXZIdPBVktzs, lat, name, price, status, places/ChIJd9RvxI5tVo8RvAi0gSCy4k4, lat (+25 more)
 
 ### Community 40 - "Community 40"
-Cohesion: 0.22
-Nodes (9): places/ChIJ9wZfRWNuVo8RVtzR4yXcJBc, lat, lng, name, price, rating, reviews, status (+1 more)
+Cohesion: 0.06
+Nodes (33): places/ChIJ9wZfRWNuVo8RVtzR4yXcJBc, lat, lng, name, price, rating, reviews, status (+25 more)
 
 ### Community 41 - "Community 41"
-Cohesion: 0.12
-Nodes (16): places/ChIJd7bnmwhtVo8RlmA-VOCgNtk, lat, lng, name, rating, reviews, status, types (+8 more)
+Cohesion: 0.16
+Nodes (10): COLONIAS, MUCHAS, ConfirmContext, ConfirmFn, ConfirmOptions, ConfirmProvider(), useConfirm(), Modal() (+2 more)
 
 ### Community 42 - "Community 42"
-Cohesion: 0.25
-Nodes (8): types, places/ChIJu5VPNq9vVo8RCAfmqhXxDMI, lat, lng, name, price, rating, status
+Cohesion: 0.15
+Nodes (13): price, name, places/ChIJedC3EedtVo8R82lfXZW4KyU, lat, lng, rating, reviews, places/ChIJI9ULeABtVo8RevFE83erdA4 (+5 more)
 
 ### Community 43 - "Community 43"
-Cohesion: 0.25
-Nodes (8): places/ChIJ6dRTdQBtVo8RSi6t7z0gSC4, lat, lng, price, reviews, status, types, rating
+Cohesion: 0.15
+Nodes (15): campanasKeys, useCampana(), NuevaCampana, useCampanaMutations(), AgregarNegocios(), AgregarNegociosProps, Cabecera(), CabeceraProps (+7 more)
 
 ### Community 44 - "Community 44"
-Cohesion: 0.22
-Nodes (9): places/ChIJD58WaQBtVo8RvXZQonQz4A4, lat, lng, name, price, rating, reviews, status (+1 more)
+Cohesion: 0.09
+Nodes (23): places/ChIJD58WaQBtVo8RvXZQonQz4A4, lat, lng, name, price, reviews, status, types (+15 more)
 
 ### Community 45 - "Community 45"
-Cohesion: 0.13
-Nodes (15): places/ChIJg5qtzXxuVo8Rgu8wpNqSKv4, lat, lng, name, price, reviews, status, types (+7 more)
-
-### Community 46 - "Community 46"
-Cohesion: 0.19
-Nodes (9): Alert(), AlertProps, TONE_CLASSES, EmptyState(), EmptyStateProps, QueryBoundary(), QueryBoundaryProps, Spinner() (+1 more)
+Cohesion: 0.12
+Nodes (17): places/ChIJE36TB-BsVo8RrUO7JfU5r9c, lat, lng, name, price, rating, reviews, status (+9 more)
 
 ### Community 47 - "Community 47"
-Cohesion: 0.22
-Nodes (9): places/ChIJ-VRv1kNtVo8R1N0U6va4cEg, lat, lng, name, price, rating, reviews, status (+1 more)
+Cohesion: 0.13
+Nodes (15): places/ChIJ4zHgdNVvVo8Ru8vfer9Dr90, lat, name, price, rating, status, types, places/ChIJ-VRv1kNtVo8R1N0U6va4cEg (+7 more)
 
 ### Community 48 - "Community 48"
-Cohesion: 0.22
-Nodes (9): places/ChIJE36TB-BsVo8RrUO7JfU5r9c, lat, lng, name, price, rating, reviews, status (+1 more)
+Cohesion: 0.10
+Nodes (21): places/ChIJ6xeMylRtVo8RfWBEcd8MsMk, lat, lng, name, rating, reviews, types, types (+13 more)
 
 ### Community 49 - "Community 49"
-Cohesion: 0.25
-Nodes (8): places/ChIJ6xeMylRtVo8RfWBEcd8MsMk, lat, lng, name, rating, reviews, status, price
+Cohesion: 0.13
+Nodes (15): status, places/ChIJt_IHwmFuVo8R8JTkKYXsTYM, lat, lng, name, price, reviews, status (+7 more)
 
 ### Community 50 - "Community 50"
 Cohesion: 0.07
 Nodes (26): compilerOptions, allowImportingTsExtensions, baseUrl, esModuleInterop, jsx, lib, module, moduleDetection (+18 more)
 
-### Community 51 - "Community 51"
-Cohesion: 0.05
-Nodes (39): places/ChIJedC3EedtVo8R82lfXZW4KyU, lat, lng, name, price, rating, reviews, types (+31 more)
-
 ### Community 52 - "Community 52"
-Cohesion: 0.25
-Nodes (8): places/ChIJg-XgU31uVo8R59QeJWeXqnk, lat, name, price, rating, reviews, status, types
+Cohesion: 0.24
+Nodes (5): ErrorBoundary, State, rootElement, AppProviders(), router
 
 ### Community 53 - "Community 53"
-Cohesion: 0.22
-Nodes (9): places/ChIJFzQBp3ltVo8RzRmG93Eks0k, lat, lng, name, price, rating, reviews, status (+1 more)
-
-### Community 54 - "Community 54"
-Cohesion: 0.25
-Nodes (8): lng, places/ChIJv8mYJABtVo8Rgpkxkl6Txd0, lat, name, price, rating, reviews, status
-
-### Community 55 - "Community 55"
-Cohesion: 0.25
-Nodes (8): places/ChIJHx0n_nduVo8RIzp1ibpIUR8, lat, lng, name, price, reviews, status, types
+Cohesion: 0.09
+Nodes (25): places/ChIJ4-7rLmNuVo8RYp9NftWgx2A, lat, lng, name, places/ChIJ57KiAtZtVo8Rl9gGeB8AM1M, lng, name, price (+17 more)
 
 ### Community 56 - "Community 56"
 Cohesion: 0.07
@@ -448,108 +416,68 @@ Cohesion: 0.13
 Nodes (11): _lifespan(), _load_disk_cache(), FastAPI, Carga el slim JSON desde disco (si existe) — instante, sin Firestore., Startup: carga disco primero (instante) y luego Firestore en background., lifespan(), Backend — Mapa de Candidatos Informales + Predicción + Rutas ==================, FastAPI (+3 more)
 
 ### Community 58 - "Community 58"
-Cohesion: 0.22
-Nodes (9): places/ChIJhTxqUiRvVo8RoJcpuktmfzM, lat, lng, name, price, rating, reviews, status (+1 more)
+Cohesion: 0.14
+Nodes (14): places/ChIJFaet-HduVo8RdQbASfBkqsk, lat, lng, price, rating, reviews, status, types (+6 more)
 
 ### Community 59 - "Community 59"
-Cohesion: 0.21
-Nodes (15): Opciones, useCampanas(), CampanaCard(), CampanaCardProps, CampanasList(), CampanasListProps, Campana, campanaListSchema (+7 more)
+Cohesion: 0.17
+Nodes (16): Opciones, useCampanas(), CampanaCard(), CampanaCardProps, CampanasList(), CampanasListProps, ProgresoHero(), Campana (+8 more)
 
 ### Community 60 - "Community 60"
-Cohesion: 0.13
-Nodes (17): usePatchNegocio(), AgregarNegociosProps, Fila(), ChecklistItem(), ChecklistItemProps, lineaMeta(), navUrls(), ChecklistTecnico() (+9 more)
-
-### Community 61 - "Community 61"
-Cohesion: 0.13
-Nodes (15): campanasKeys, useCampana(), NuevaCampana, useCampanaMutations(), AgregarNegocios(), Cabecera(), CabeceraProps, CampanaDetalle() (+7 more)
+Cohesion: 0.11
+Nodes (20): usePatchNegocio(), renderBuscador(), renderDetalle(), ChecklistItem(), ChecklistItemProps, lineaMeta(), navUrls(), ChecklistTecnico() (+12 more)
 
 ### Community 62 - "Community 62"
-Cohesion: 0.29
-Nodes (7): places/ChIJgfVn7ottVo8RG9CAVVaPhvQ, lat, rating, reviews, status, types, lng
+Cohesion: 0.10
+Nodes (21): places/ChIJ24eRQwBvVo8R-kEhvgOSH-U, lat, lng, price, rating, reviews, places/ChIJeRtkkoltVo8R2JlpLwrX9Sw, lat (+13 more)
 
 ### Community 63 - "Community 63"
-Cohesion: 0.22
-Nodes (9): places/ChIJiwFeWVFtVo8RCHc9Lf790wQ, lat, lng, name, price, rating, reviews, status (+1 more)
-
-### Community 64 - "Community 64"
-Cohesion: 0.12
-Nodes (16): places/ChIJeRtkkoltVo8R2JlpLwrX9Sw, lat, lng, name, price, rating, reviews, places/ChIJj2-fpgJtVo8ROvc8n53Y_HM (+8 more)
+Cohesion: 0.26
+Nodes (13): add_product(), _col(), delete_product(), export_excel(), get_canasta(), _get_products(), get_summary(), _match_catalog() (+5 more)
 
 ### Community 65 - "Community 65"
-Cohesion: 0.29
-Nodes (7): places/ChIJJeMsHq1tVo8RF19ZoI1GQB8, lng, price, rating, reviews, status, types
+Cohesion: 0.38
+Nodes (4): NAV_ITEMS, NavItem, NavTabs(), UserMenu()
 
 ### Community 66 - "Community 66"
-Cohesion: 0.40
-Nodes (4): Badge(), BadgeProps, BadgeTone, TONE_CLASSES
+Cohesion: 0.17
+Nodes (9): Badge(), BadgeProps, BadgeTone, TONE_CLASSES, PanelSection(), PanelSectionProps, TabsContent(), TabsList() (+1 more)
 
 ### Community 67 - "Community 67"
-Cohesion: 0.25
-Nodes (8): places/ChIJL8Q5z9RtVo8R5IUY-tjg8eA, lat, lng, name, price, reviews, status, types
+Cohesion: 0.10
+Nodes (21): reviews, places/ChIJ8xcKKg1tVo8RGQoLIbwyQvc, lat, price, rating, status, types, places/ChIJI4zdqX1uVo8RNmIP3ZZVkFw (+13 more)
 
 ### Community 68 - "Community 68"
-Cohesion: 0.09
-Nodes (24): places/ChIJdVxZLTVtVo8R0f3oiXono1Y, lat, lng, name, price, rating, reviews, status (+16 more)
+Cohesion: 0.15
+Nodes (14): places/ChIJLS7_FgBvVo8RV0ychptd8U0, lat, name, price, rating, reviews, status, types (+6 more)
 
 ### Community 69 - "Community 69"
-Cohesion: 0.22
-Nodes (9): places/ChIJlW-4UwBvVo8RGaTyPE4nSCU, lat, lng, name, price, rating, reviews, status (+1 more)
-
-### Community 70 - "Community 70"
-Cohesion: 0.22
-Nodes (9): places/ChIJKYNgyq5tVo8ReBRdNeuo5yc, lat, lng, name, price, rating, reviews, status (+1 more)
+Cohesion: 0.09
+Nodes (23): types, places/ChIJlW-4UwBvVo8RGaTyPE4nSCU, lng, price, rating, reviews, status, places/ChIJM-6fFUptVo8RG0z3nTH6qFg (+15 more)
 
 ### Community 71 - "Community 71"
-Cohesion: 0.22
-Nodes (9): places/ChIJM-6fFUptVo8RG0z3nTH6qFg, lat, lng, name, price, rating, reviews, status (+1 more)
-
-### Community 72 - "Community 72"
-Cohesion: 0.12
-Nodes (17): places/ChIJMQUCuzNvVo8RyneF4EebAIU, lat, lng, name, price, rating, reviews, status (+9 more)
-
-### Community 73 - "Community 73"
-Cohesion: 0.12
-Nodes (17): places/ChIJd9RvxI5tVo8RvAi0gSCy4k4, lat, lng, name, price, rating, status, types (+9 more)
-
-### Community 74 - "Community 74"
-Cohesion: 0.22
-Nodes (9): places/ChIJNV2YGX9uVo8RXaismVkkq9U, lat, lng, name, price, rating, reviews, status (+1 more)
+Cohesion: 0.08
+Nodes (29): places/ChIJf0mYwK1vVo8RzqF6EHvhkPk, lng, name, price, rating, reviews, places/ChIJiwFeWVFtVo8RCHc9Lf790wQ, lat (+21 more)
 
 ### Community 75 - "Community 75"
-Cohesion: 0.16
-Nodes (14): descargarReporteVisita(), useCalcularRuta(), useCalcularRutaColonia(), RutaInfo(), RutaLayer(), RutaLista(), RutaListaProps, CANDIDATOS (+6 more)
+Cohesion: 0.15
+Nodes (15): descargarReporteVisita(), useCalcularRuta(), useCalcularRutaColonia(), RutaInfo(), RutaLayer(), RutaLista(), RutaListaProps, CANDIDATOS (+7 more)
 
 ### Community 76 - "Community 76"
-Cohesion: 0.22
-Nodes (9): places/ChIJoT7lamNuVo8RjAWNI0aNM0U, lat, lng, name, price, rating, reviews, status (+1 more)
-
-### Community 77 - "Community 77"
-Cohesion: 0.22
-Nodes (9): places/ChIJOX4hNGNuVo8R0bjtkuhZMaA, lat, lng, name, price, rating, reviews, status (+1 more)
-
-### Community 78 - "Community 78"
-Cohesion: 0.50
-Nodes (3): renderDetalle(), renderGrid(), renderPanel()
-
-### Community 79 - "Community 79"
-Cohesion: 0.22
-Nodes (9): places/ChIJ57KiAtZtVo8Rl9gGeB8AM1M, lng, name, price, rating, reviews, status, types (+1 more)
-
-### Community 80 - "Community 80"
-Cohesion: 0.22
-Nodes (9): places/ChIJqTCiGfNtVo8RAkmuS0RQONY, lat, lng, name, price, rating, reviews, status (+1 more)
+Cohesion: 0.13
+Nodes (15): types, reviews, places/ChIJKYNgyq5tVo8ReBRdNeuo5yc, lat, lng, name, price, rating (+7 more)
 
 ### Community 81 - "Community 81"
-Cohesion: 0.22
-Nodes (9): places/ChIJt_IHwmFuVo8R8JTkKYXsTYM, lat, lng, name, price, rating, reviews, status (+1 more)
+Cohesion: 0.11
+Nodes (19): lng, places/ChIJ5UUfZABtVo8RcyybxG97Kig, lat, name, rating, reviews, types, places/ChIJ89o7XwBtVo8R55kwxx5kQSI (+11 more)
 
 ### Community 82 - "Community 82"
 Cohesion: 0.23
 Nodes (15): activarAppCheck(), getFirebaseAuth(), changePassword(), ensureWatcher(), getFreshToken(), getSessionSnapshot(), getSessionUser(), listeners (+7 more)
 
 ### Community 83 - "Community 83"
-Cohesion: 0.17
-Nodes (13): agregar_negocios_campana(), _get_candidatos(), get_colonias(), get_reportes(), muestra_validacion(), _prewarm_cache(), int, Carga candidatos de Firestore en background al iniciar. (+5 more)
+Cohesion: 0.12
+Nodes (19): _get_candidatos, _prewarm_cache, agregar_negocios_campana(), _get_candidatos(), GET /api/candidatos, get_colonias(), get_metricas(), get_reportes() (+11 more)
 
 ### Community 84 - "Community 84"
 Cohesion: 0.12
@@ -558,10 +486,6 @@ Nodes (14): Anatomía de una feature, Arquitectura del frontend, Reglas de depen
 ### Community 85 - "Community 85"
 Cohesion: 0.25
 Nodes (10): colonias_merida.geojson (INEGI/SEPOMEX/OSM polygons), encontrar_colonia (OSM Firestore), cargar_colonias(), encontrar_colonia(), procesar_candidatos(), punto_en_bbox(), Carga polígonos de colonias y prepara para búsqueda., Verifica si un punto está dentro del bounding box. (+2 more)
-
-### Community 86 - "Community 86"
-Cohesion: 0.22
-Nodes (8): Column, columnas, Fila, filas, pintar(), paginasVisibles(), Pagination(), PaginationProps
 
 ### Community 87 - "Community 87"
 Cohesion: 0.33
@@ -580,8 +504,8 @@ Cohesion: 0.29
 Nodes (6): OSM Colonia Naming for Voronoi Zones, KMeans Clustering for Zone Centroids, Importar colonias de Mérida — Voronoi tessellation sobre candidatos  Genera zo, Obtiene el polígono Voronoi de un punto y lo recorta al área de Mérida., voronoi_finite_polygon(), Voronoi Tessellation for Non-Overlapping Zones
 
 ### Community 91 - "Community 91"
-Cohesion: 0.11
-Nodes (19): dependencies, axios, class-variance-authority, firebase, @hookform/resolvers, leaflet, leaflet.markercluster, lucide-react (+11 more)
+Cohesion: 0.09
+Nodes (22): dependencies, apexcharts, axios, class-variance-authority, firebase, @fontsource-variable/inter, @fontsource-variable/montserrat, @hookform/resolvers (+14 more)
 
 ### Community 92 - "Community 92"
 Cohesion: 0.31
@@ -592,8 +516,8 @@ Cohesion: 0.33
 Nodes (11): _verify_token, actualizar_usuario(), crear_usuario(), eliminar_usuario(), get_usuarios(), Fuerza recarga del GeoJSON de colonias desde disco (sin reiniciar servidor)., reload_colonias(), require_admin() (+3 more)
 
 ### Community 94 - "Community 94"
-Cohesion: 0.15
-Nodes (15): crear_reporte(), guardar_visita_negocio(), _haversine(), predecir(), float, UploadFile, str, Sube las imagenes de data/uploads/ a Firebase Storage (canaco-info-reportes) co (+7 more)
+Cohesion: 0.33
+Nodes (6): crear_reporte(), guardar_visita_negocio(), _haversine(), predecir(), float, UploadFile
 
 ### Community 95 - "Community 95"
 Cohesion: 0.08
@@ -619,10 +543,6 @@ Nodes (6): Field Visit Record with Photo Evidence, Portrait Photo (Report Upload
 Cohesion: 0.33
 Nodes (5): archivos_inegi, archivos_procesados, fuentes, inegi_api, sepomex
 
-### Community 101 - "Community 101"
-Cohesion: 0.33
-Nodes (5): places/ChIJ4-7rLmNuVo8RYp9NftWgx2A, lat, lng, name, types
-
 ### Community 102 - "Community 102"
 Cohesion: 0.40
 Nodes (4): datos, metadatos, Fuente_informacion_estadistica, numReg
@@ -635,17 +555,9 @@ Nodes (11): GuardarVisitaInput, useGuardarVisita(), CampoVisita(), CampoVisitaPr
 Cohesion: 0.14
 Nodes (13): compilerOptions, lib, module, moduleDetection, moduleResolution, noEmit, skipLibCheck, strict (+5 more)
 
-### Community 106 - "Community 106"
-Cohesion: 0.27
-Nodes (8): indexLoader(), redirectIfAuthed(), requireAuth(), requireRole(), admin, { getSessionUser }, tecnico, RouteError()
-
 ### Community 107 - "Community 107"
 Cohesion: 0.39
 Nodes (4): useCierrePorInactividad(), useSession(), AppShell(), LoginPage()
-
-### Community 108 - "Community 108"
-Cohesion: 0.24
-Nodes (5): ErrorBoundary, State, rootElement, AppProviders(), router
 
 ### Community 109 - "Community 109"
 Cohesion: 0.22
@@ -662,10 +574,6 @@ Nodes (7): limpiar_nombre(), make_doc_id(), normalizar(), quitar_acentos(), Impo
 ### Community 112 - "Community 112"
 Cohesion: 0.39
 Nodes (6): es_cadena(), es_institucion(), es_nombre_no_negocio(), normalizar(), quitar_acentos(), Test de filtros pre-cruce sobre el dataset Google Maps. Reproduce la logica de
-
-### Community 113 - "Community 113"
-Cohesion: 0.38
-Nodes (4): NAV_ITEMS, NavItem, NavTabs(), UserMenu()
 
 ### Community 114 - "Community 114"
 Cohesion: 0.29
@@ -752,24 +660,24 @@ Cohesion: 0.33
 Nodes (6): _load_cache_background(), Persiste el slim JSON a disco para warm-start en el próximo arranque., Proyecta campos slim, serializa a JSON y precomprime con gzip., Carga Firestore paginado en background; actualiza _cands_cache cada 50 docs., _rebuild_slim_json(), _save_disk_cache()
 
 ## Knowledge Gaps
-- **747 isolated node(s):** `deploy.sh script`, `singleQuote`, `semi`, `printWidth`, `trailingComma` (+742 more)
+- **644 isolated node(s):** `deploy.sh script`, `singleQuote`, `semi`, `printWidth`, `trailingComma` (+639 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **22 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **25 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
+- **Why does `useConfirm()` connect `Community 41` to `Community 32`, `Community 1`, `Community 2`, `Community 43`, `Community 24`?**
+  _High betweenness centrality (0.123) - this node is a cross-community bridge._
 - **Why does `getFirebaseAuth()` connect `Community 82` to `Community 97`?**
-  _High betweenness centrality (0.106) - this node is a cross-community bridge._
-- **Why does `renderForm()` connect `Community 121` to `Community 78`?**
-  _High betweenness centrality (0.087) - this node is a cross-community bridge._
-- **Why does `useConfirm()` connect `Community 2` to `Community 24`, `Community 1`, `Community 34`, `Community 61`?**
-  _High betweenness centrality (0.065) - this node is a cross-community bridge._
+  _High betweenness centrality (0.100) - this node is a cross-community bridge._
+- **Why does `renderForm()` connect `Community 121` to `Community 60`?**
+  _High betweenness centrality (0.085) - this node is a cross-community bridge._
 - **What connects `Analisis del dataset de negocios para detectar establecimientos formales que se`, `APP WEB — GeoFormal · Mapa de Candidatos Informales ===========================`, `Carga el slim JSON desde disco (si existe) — instante, sin Firestore.` to the rest of the system?**
-  _881 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _779 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.05648625429553265 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.054358377014172 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.07807807807807808 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07957957957957958 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.08665269042627533 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08853410740203194 - nodes in this community are weakly interconnected._

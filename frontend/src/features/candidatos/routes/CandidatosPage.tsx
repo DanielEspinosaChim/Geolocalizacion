@@ -27,7 +27,9 @@ export function CandidatosPage() {
   return (
     <div className="flex h-full flex-col">
       <VistaMovilToggle vista={vista} onChange={setVista} />
-      <div className="flex min-h-0 flex-1">
+      {/* `relative`: en desktop el panel sale del flujo y flota sobre el mapa
+          (el efecto glass necesita el mapa detrás para difuminarlo). */}
+      <div className="relative flex min-h-0 flex-1">
         <PanelLateral
           visible={vista === 'lista'}
           filtros={filtros}
@@ -47,6 +49,8 @@ export function CandidatosPage() {
           onColoniaPoligono={onColoniaPoligono}
           seleccionado={seleccionado}
           onSelect={setSeleccionado}
+          busqueda={filtros.q}
+          onBusqueda={(q) => setFiltros((f) => ({ ...f, q }))}
         />
       </div>
     </div>

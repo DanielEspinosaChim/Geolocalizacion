@@ -73,6 +73,26 @@
 }
 
 @layer components {
+  /* ── Superficies flotantes (estilo Google Maps) ──────────────────────────
+     Blanco sólido elevado por sombra — sin backdrop-filter: la transparencia
+     dependía de la aceleración GPU del navegador y se veía inconsistente.
+     Los colores salen de los tokens --glass-* (tokens.css), así que el tema
+     oscuro las redefine sin tocar estas clases.
+
+     Fijan border-color por sí mismas: el consumidor pone `border` a secas,
+     NUNCA `border-border` (la utilidad ganaría en la cascada). */
+  .glass-panel {
+    background-color: hsl(var(--glass-surface));
+    border-color: hsl(var(--glass-border) / 0.7);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-card {
+    background-color: hsl(var(--glass-surface));
+    border-color: hsl(var(--glass-border) / 0.7);
+    box-shadow: var(--shadow-card);
+  }
+
   /* Variantes del scrollbar: se ponen en el contenedor que scrollea y funcionan
      redefiniendo tokens, no duplicando las reglas de @layer base. */
 
@@ -147,6 +167,31 @@
   background: hsl(var(--surface-raised));
 }
 
+/* ── Controles de Leaflet al estilo del tema (blanco elevado, como Google) ──
+   El prefijo `.leaflet-container.z-map` (clases que pone MapCanvas) da más
+   especificidad que las reglas `.leaflet-touch .leaflet-bar` de leaflet.css,
+   así ganamos sin depender del orden de carga de los chunks. */
+.leaflet-container.z-map .leaflet-bar {
+  border: none;
+  border-radius: var(--radius-control);
+  box-shadow: var(--shadow-glass);
+  overflow: hidden;
+}
+.leaflet-container.z-map .leaflet-bar a {
+  background-color: hsl(var(--surface));
+  color: hsl(var(--fg-muted));
+  border-bottom: 1px solid hsl(var(--border) / 0.6);
+  transition: background-color var(--duration-fast) var(--ease-out);
+}
+.leaflet-container.z-map .leaflet-bar a:hover {
+  background-color: hsl(var(--surface-raised));
+  color: hsl(var(--fg));
+}
+.leaflet-container.z-map .leaflet-bar a.leaflet-disabled {
+  background-color: hsl(var(--surface));
+  color: hsl(var(--border));
+}
+
 /* ── Clusters de Leaflet con la paleta semántica (paridad con el legacy) ── */
 .marker-cluster-small {
   background-color: hsl(var(--danger) / 0.5);
@@ -185,4 +230,15 @@
 .sin-ojo-nativo::-ms-reveal,
 .sin-ojo-nativo::-ms-clear {
   display: none;
+}
+
+/*
+ * `type="search"` hace que WebKit/Blink pinten su propia equis de limpiar, que
+ * se solapaba con el botón X de SearchInput (dos equis). Ocultamos la nativa:
+ * la nuestra es accesible (tiene aria-label) y funciona en todos los navegadores.
+ */
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
 }

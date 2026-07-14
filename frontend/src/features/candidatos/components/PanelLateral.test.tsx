@@ -45,20 +45,16 @@ describe('PanelLateral', () => {
       'Tipos de negocio',
       'Filtrar por colonia',
       'Filtrar por estado',
-      'Buscar negocio',
+      'Negocios',
     ]);
   });
 
-  it('plegar "Buscar negocio" oculta el input y también la lista de negocios', () => {
+  it('plegar "Negocios" oculta la lista de resultados', () => {
     renderPanel();
-    expect(estaOculto(screen.getByRole('searchbox'))).toBe(false);
     expect(estaOculto(screen.getByText('YULINEY'))).toBe(false);
 
-    fireEvent.click(screen.getByRole('button', { name: /buscar negocio/i }));
+    fireEvent.click(screen.getByRole('button', { name: /^negocios$/i }));
 
-    // El buscador va en el slot `sticky`, que no se renderiza al plegar; la
-    // lista es el resultado de la búsqueda y se pliega con ella, no aparte.
-    expect(screen.queryByRole('searchbox')).toBeNull();
     expect(estaOculto(screen.getByText('YULINEY'))).toBe(true);
   });
 

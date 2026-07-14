@@ -57,6 +57,11 @@ export const router = createBrowserRouter([
         lazy: async () => ({ Component: (await import('@features/indice')).IndicePage }),
       },
       {
+        path: 'canasta',
+        loader: requireRole('admin'),
+        lazy: async () => ({ Component: (await import('@features/canasta')).CanastaPage }),
+      },
+      {
         path: 'admin',
         loader: requireRole('admin'), // ◀── solo admin (el backend re-valida igual)
         lazy: async () => ({ Component: (await import('@features/admin')).AdminPage }),

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { formatNumero } from '@shared/lib/format';
-import { PanelSection, SearchInput, Spinner } from '@shared/ui';
+import { PanelSection, Spinner } from '@shared/ui';
 import { ColoniaSelect } from '@features/colonias-zonas';
 import type { Candidato } from '../model/candidato';
 import { calcularMetricas, type Filtros } from '../model/filtros';
@@ -60,11 +60,12 @@ export function PanelLateral({
         <FiltroEstado valor={filtros.tipo} onChange={(tipo) => onFiltros({ ...filtros, tipo })} />
       </PanelSection>
 
-      {/* La lista vive dentro de esta sección: es el resultado de la búsqueda,
-          así que plegar el buscador también esconde los negocios. Sin `grow`:
-          el panel es el único contenedor con scroll y el título no se va con él. */}
+      {/* La búsqueda por nombre vive en el buscador flotante sobre el mapa
+          (BuscadorNegocios); esta sección lista los resultados de los filtros.
+          Sin `grow`: el panel es el único contenedor con scroll y el título no
+          se va con él. */}
       <PanelSection
-        title="Buscar negocio"
+        title="Negocios"
         collapsible
         action={
           isPending ? null : (
@@ -72,15 +73,6 @@ export function PanelLateral({
               {formatNumero(filtrados.length)}
             </span>
           )
-        }
-        sticky={
-          <SearchInput
-            value={filtros.q}
-            onChange={(q) => onFiltros({ ...filtros, q })}
-            debounceMs={200}
-            placeholder="Nombre del negocio…"
-            aria-label="Buscar negocio por nombre"
-          />
         }
       >
         {isPending ? (

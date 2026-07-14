@@ -2,6 +2,8 @@ import { History } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router';
 import { FlyTo, MapCanvas, PanelSection } from '@shared/ui';
+import { Simbologia } from '@features/candidatos';
+import { CapasLayers, CapasToggles, useCapas } from '@features/colonias-zonas';
 import { reverseGeocode } from '../api/reverseGeocode';
 import { useReportes } from '../api/useReportes';
 import { ReporteForm, type Ubicacion } from '../components/ReporteForm';
@@ -20,6 +22,7 @@ export function ReportesPage() {
   const [modoMapa, setModoMapa] = useState(false);
   const [creado, setCreado] = useState<Reporte | null>(null);
   const [foco, setFoco] = useState<Reporte | null>(null);
+  const capas = useCapas();
 
   async function onPick(lat: number, lng: number) {
     setModoMapa(false);
@@ -62,14 +65,23 @@ export function ReportesPage() {
       </aside>
 
       <div className="relative hidden flex-1 md:block">
-        <MapCanvas>
+        <MapCanvas zoomPosition="bottomright">
           <ReportesLayer reportes={reportes} onSelect={setFoco} />
+          <CapasLayers activas={capas.activas} />
           <UbicacionPicker activo={modoMapa} onPick={(lat, lng) => void onPick(lat, lng)} />
           {ubicacion ? <UbicacionTemporal lat={ubicacion.lat} lng={ubicacion.lng} /> : null}
           {foco?.lat != null && foco.lng != null ? (
             <FlyTo lat={foco.lat} lng={foco.lng} zoom={17} />
           ) : null}
         </MapCanvas>
+
+        {/* Overlays consistentes en todas las vistas del mapa: capas
+            arriba-derecha, simbología abajo-izquierda. */}
+        <div className="absolute right-3 top-3 z-panel">
+          <CapasToggles activas={capas.activas} onToggle={capas.alternar} />
+        </div>
+        <Simbologia capas={capas.activas} />
+
         {modoMapa ? (
           <div className="absolute left-1/2 top-3 z-panel -translate-x-1/2 rounded-full bg-warning px-3 py-1 text-xs2 font-bold text-white shadow-overlay">
             Haz clic en el mapa para ubicar el reporte
