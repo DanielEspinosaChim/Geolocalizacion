@@ -18,7 +18,7 @@ from firebase_admin import auth as fb_auth
 from backend.core import cache
 from backend.core.config import FRONT, UPLOADS_DIR, GCS_BUCKET
 from backend.core.firebase import firebase_ok, gcs_client
-from backend.routers import admin, campanas, candidatos, geo, metricas, reportes, ruta
+from backend.routers import admin, campanas, candidatos, canasta, geo, metricas, reportes, ruta
 
 
 # ── Lifespan: warm-start desde disco y carga Firestore en background ──────────
@@ -101,14 +101,19 @@ app.include_router(metricas.router)
 app.include_router(ruta.router)
 app.include_router(reportes.router)
 app.include_router(campanas.router)
+app.include_router(canasta.router)
 app.include_router(admin.router)
 
 
 # ── OpenAPI schema con candados en Swagger ────────────────────────────────────
 # Se genera DESPUÉS de registrar rutas para que aparezcan todos los endpoints.
 
+_OPENAPI_TAGS = [
+    {"name": "Canasta Básica", "description": "Comparativo de costos de la canasta básica · CANACO SERVYTUR Mérida. Precios mensuales, exportación Excel e infografía, escaneo de facturas con Gemini 3.5 Flash."},
+]
+
 def _build_secure_schema():
-    schema = get_openapi(title="GeoFormal", version="0.1.0", routes=app.routes)
+    schema = get_openapi(title="GeoFormal", version="1.0.0", routes=app.routes, tags=_OPENAPI_TAGS)
     schema.setdefault("components", {})["securitySchemes"] = {
         "BearerAuth": {"type": "http", "scheme": "bearer", "bearerFormat": "JWT (Firebase)"}
     }

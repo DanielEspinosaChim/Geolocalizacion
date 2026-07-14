@@ -22,6 +22,7 @@
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/css/styles.css?v=6"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <!-- Firebase Auth SDK -->
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
@@ -70,6 +71,10 @@
   <button class="tab" onclick="showTab('campanas',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
     <span class="tab-text">Campañas</span>
+  </button>
+  <button class="tab" onclick="showTab('canasta',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+    <span class="tab-text">Canasta</span>
   </button>
   <button class="tab" onclick="showTab('val',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
@@ -974,6 +979,244 @@
     </div>
   </div>
 
+  <!-- ══ Panel Canasta Básica ══════════════════════════════════════════════ -->
+  <div id="canasta-panel" style="display:none;flex-direction:column;flex:1;overflow:hidden;background:#070f1f">
+
+    <!-- Header -->
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;
+                gap:12px;padding:18px 20px 14px;border-bottom:1px solid #1a2d56;flex-shrink:0">
+      <div>
+        <div style="font-size:10px;font-weight:700;color:#3b82f6;text-transform:uppercase;
+                    letter-spacing:1.5px;margin-bottom:3px">CANACO SERVYTUR Mérida</div>
+        <div style="font-size:18px;font-weight:800;color:#dde9ff;letter-spacing:-.3px">
+          Comparativo Costo Canasta Básica
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+        <select id="can-year"
+                style="background:#0d1830;border:1px solid #1a2d56;color:#dde9ff;
+                       padding:7px 12px;border-radius:8px;font-size:13px;font-weight:600;
+                       font-family:'Inter',sans-serif;cursor:pointer;outline:none"
+                onchange="cargarCanasta(this.value)">
+        </select>
+        <button onclick="abrirModalCanasta()"
+                style="background:#0d1830;border:1px solid #1a2d56;color:#93c5fd;
+                       padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;
+                       cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap">
+          + Producto
+        </button>
+        <button onclick="_abrirCamara('can-file-input', _procesarImagenCanasta)"
+                style="background:#1e3a5f;border:1px solid #2563eb;color:#93c5fd;
+                       padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;
+                       cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap">
+          📸 Cámara
+        </button>
+        <label style="background:#0d1830;border:1px solid #1a2d56;color:#64748b;
+                      padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;
+                      cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap">
+          🖼 Galería
+          <input id="can-file-input" type="file" accept="image/*"
+                 style="display:none"
+                 onchange="_procesarImagenCanasta(this.files[0])"/>
+        </label>
+        <button onclick="descargarExcelCanasta()"
+                style="background:#064e3b;border:1px solid #10b981;color:#6ee7b7;
+                       padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;
+                       cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap">
+          ⬇ Excel
+        </button>
+        <button onclick="generarInfografiaCanasta()"
+                style="background:#1e1b4b;border:1px solid #6366f1;color:#a5b4fc;
+                       padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;
+                       cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap">
+          📊 Imagen
+        </button>
+        <button onclick="seedCanasta()"
+                style="background:#0d1830;border:1px solid #1e3a5f;color:#475569;
+                       padding:7px 14px;border-radius:8px;font-size:12px;font-weight:600;
+                       cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap"
+                title="Cargar datos históricos 2026 (solo primera vez)">
+          Inicializar 2026
+        </button>
+      </div>
+    </div>
+
+    <!-- Tabla -->
+    <div style="flex:1;overflow:auto;padding:16px 20px">
+      <div id="can-loading"
+           style="display:flex;align-items:center;justify-content:center;height:200px;
+                  color:#475569;font-size:13px;gap:8px">
+        <span style="animation:spin 1s linear infinite;display:inline-block">⏳</span> Cargando…
+      </div>
+      <div id="can-tabla-wrap" style="display:none;overflow-x:auto">
+        <table id="can-tabla"
+               style="border-collapse:collapse;font-size:12px;white-space:nowrap;min-width:100%">
+        </table>
+      </div>
+    </div>
+
+    <!-- Gráfica % mensual -->
+    <div id="can-resumen"
+         style="display:none;flex-shrink:0;padding:16px 20px 20px;
+                border-top:1px solid #1a2d56;background:#070f1f">
+      <div style="font-size:10px;font-weight:700;color:#334155;text-transform:uppercase;
+                  letter-spacing:.08em;margin-bottom:10px">
+        Incremento / Decremento respecto al mes inmediato anterior
+      </div>
+      <div style="position:relative;height:140px">
+        <canvas id="can-chart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal escaneo IA -->
+  <div id="modal-scan"
+       style="display:none;position:fixed;inset:0;z-index:5100;background:rgba(0,0,0,.8);
+              align-items:center;justify-content:center;padding:16px;box-sizing:border-box">
+    <div style="background:#0d1830;border:1px solid #1a2d56;border-radius:16px;padding:24px;
+                width:640px;max-width:100%;max-height:90vh;display:flex;flex-direction:column;gap:16px">
+
+      <!-- Header -->
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <div>
+          <div style="font-size:15px;font-weight:700;color:#dde9ff">Resultados del escaneo IA</div>
+          <div style="font-size:11px;color:#475569;margin-top:2px">
+            Revisa los productos detectados y selecciona cuáles guardar
+          </div>
+        </div>
+        <button onclick="cerrarModalScan()"
+                style="background:transparent;border:none;color:#475569;font-size:20px;
+                       cursor:pointer;line-height:1;padding:4px">✕</button>
+      </div>
+
+      <!-- Mes destino -->
+      <div style="display:flex;align-items:center;gap:10px;background:#070f1f;
+                  border:1px solid #1a2d56;border-radius:10px;padding:12px 16px">
+        <span style="font-size:12px;color:#94a3b8;font-weight:600;white-space:nowrap">
+          ¿De qué mes son estos precios?
+        </span>
+        <select id="scan-mes"
+                style="background:#0d1830;border:1px solid #1a2d56;color:#dde9ff;
+                       padding:6px 10px;border-radius:7px;font-size:13px;font-weight:600;
+                       font-family:'Inter',sans-serif;outline:none;cursor:pointer;flex:1">
+          <option value="jan">Enero</option>
+          <option value="feb">Febrero</option>
+          <option value="mar">Marzo</option>
+          <option value="apr">Abril</option>
+          <option value="may">Mayo</option>
+          <option value="jun">Junio</option>
+          <option value="jul">Julio</option>
+          <option value="aug">Agosto</option>
+          <option value="sep">Septiembre</option>
+          <option value="oct">Octubre</option>
+          <option value="nov">Noviembre</option>
+          <option value="dec">Diciembre</option>
+        </select>
+      </div>
+
+      <!-- Tabla resultados -->
+      <div style="overflow-y:auto;flex:1;border:1px solid #1a2d56;border-radius:10px">
+        <table id="scan-tabla" style="width:100%;border-collapse:collapse;font-size:12px">
+          <thead>
+            <tr style="background:#070f1f;position:sticky;top:0;z-index:1">
+              <th style="padding:9px 12px;text-align:left;color:#475569;font-weight:700;
+                         font-size:10px;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #1a2d56">
+                <input type="checkbox" id="scan-check-all" onchange="_scanToggleAll(this.checked)"
+                       style="cursor:pointer"/>
+              </th>
+              <th style="padding:9px 12px;text-align:left;color:#475569;font-weight:700;
+                         font-size:10px;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #1a2d56">
+                Detectado
+              </th>
+              <th style="padding:9px 12px;text-align:left;color:#475569;font-weight:700;
+                         font-size:10px;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #1a2d56">
+                Mapeado a
+              </th>
+              <th style="padding:9px 12px;text-align:right;color:#475569;font-weight:700;
+                         font-size:10px;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #1a2d56">
+                Precio
+              </th>
+              <th style="padding:9px 12px;text-align:center;color:#475569;font-weight:700;
+                         font-size:10px;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid #1a2d56">
+                Confianza
+              </th>
+            </tr>
+          </thead>
+          <tbody id="scan-tbody"></tbody>
+        </table>
+      </div>
+
+      <!-- Acciones -->
+      <div id="scan-msg" style="display:none;font-size:12px;border-radius:6px;padding:8px 12px"></div>
+      <div style="display:flex;gap:10px;justify-content:flex-end">
+        <button onclick="cerrarModalScan()"
+                style="background:transparent;border:1px solid #1a2d56;color:#64748b;
+                       border-radius:8px;padding:9px 18px;font-size:13px;cursor:pointer;
+                       font-family:'Inter',sans-serif">Cancelar</button>
+        <button onclick="guardarEscaneo()"
+                style="background:#2563eb;color:#fff;border:none;border-radius:8px;
+                       padding:9px 20px;font-size:13px;font-weight:600;cursor:pointer;
+                       font-family:'Inter',sans-serif">Guardar seleccionados</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal agregar producto -->
+  <div id="modal-canasta"
+       style="display:none;position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.7);
+              align-items:center;justify-content:center">
+    <div style="background:#0d1830;border:1px solid #1a2d56;border-radius:16px;padding:28px;
+                width:380px;max-width:95vw">
+      <div id="can-modal-title" style="font-size:15px;font-weight:700;color:#dde9ff;margin-bottom:20px">
+        Agregar producto
+      </div>
+      <div style="margin-bottom:12px">
+        <label style="color:#475569;font-size:10px;font-weight:700;display:block;margin-bottom:5px;
+                      text-transform:uppercase;letter-spacing:.5px">Nombre</label>
+        <input id="can-new-name" placeholder="Ej: MANGO" autocomplete="off"
+               style="width:100%;background:#0a1428;border:1px solid #1a2d56;color:#dde9ff;
+                      padding:10px 12px;border-radius:8px;font-size:13px;outline:none;
+                      box-sizing:border-box;font-family:'Inter',sans-serif"/>
+      </div>
+      <div style="margin-bottom:12px">
+        <label style="color:#475569;font-size:10px;font-weight:700;display:block;margin-bottom:5px;
+                      text-transform:uppercase;letter-spacing:.5px">Categoría</label>
+        <select id="can-new-cat"
+                style="width:100%;background:#0a1428;border:1px solid #1a2d56;color:#dde9ff;
+                       padding:10px 12px;border-radius:8px;font-size:13px;outline:none;
+                       box-sizing:border-box;font-family:'Inter',sans-serif;cursor:pointer">
+          <option value="FRUTAS">FRUTAS</option>
+          <option value="VEGETALES">VEGETALES</option>
+          <option value="ABARROTES">ABARROTES</option>
+          <option value="CARNES">CARNES</option>
+          <option value="LECHES">LECHES</option>
+          <option value="HIGIENE">HIGIENE</option>
+          <option value="FARMACÉUTICOS">FARMACÉUTICOS</option>
+        </select>
+      </div>
+      <div style="margin-bottom:20px">
+        <label style="color:#475569;font-size:10px;font-weight:700;display:block;margin-bottom:5px;
+                      text-transform:uppercase;letter-spacing:.5px">Presentación / Unidad</label>
+        <input id="can-new-unit" placeholder="Ej: KILO" autocomplete="off"
+               style="width:100%;background:#0a1428;border:1px solid #1a2d56;color:#dde9ff;
+                      padding:10px 12px;border-radius:8px;font-size:13px;outline:none;
+                      box-sizing:border-box;font-family:'Inter',sans-serif"/>
+      </div>
+      <div id="can-modal-msg" style="display:none;margin-bottom:14px;font-size:12px;
+                                     border-radius:6px;padding:8px 12px"></div>
+      <div style="display:flex;gap:10px;justify-content:flex-end">
+        <button onclick="cerrarModalCanasta()"
+                style="background:transparent;border:1px solid #1a2d56;color:#64748b;
+                       border-radius:8px;padding:9px 18px;font-size:13px;cursor:pointer;
+                       font-family:'Inter',sans-serif">Cancelar</button>
+        <button onclick="confirmarAgregarProducto()"
+                style="background:#2563eb;color:#fff;border:none;border-radius:8px;
+                       padding:9px 20px;font-size:13px;font-weight:600;cursor:pointer;
+                       font-family:'Inter',sans-serif">Agregar</button>
+      </div>
+    </div>
+  </div>
+
   <!-- ══ Panel Admin ═══════════════════════════════════════════════════════ -->
   <div id="admin-panel" style="display:none;flex-direction:column;flex:1;overflow-y:auto;background:#0f172a;padding:24px;gap:24px">
 
@@ -1128,12 +1371,13 @@
 <script src="/js/campanas-visita.js?v=4"></script>
 <script src="/js/campanas-plantillas.js?v=4"></script>
 <script src="/js/admin.js?v=3"></script>
+<script src="/js/canasta.js?v=4"></script>
 <script>
 // Extender showTab para manejar tabs nuevas (reportes, campañas)
 const _showTabOriginal = showTab;
 showTab = function(tab, btn) {
   // Ocultar paneles de tabs nuevas
-  ["reportes-panel", "campanas-panel", "admin-panel"].forEach(id => {
+  ["reportes-panel", "campanas-panel", "canasta-panel", "admin-panel"].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.style.display = "none";
   });
@@ -1170,6 +1414,11 @@ showTab = function(tab, btn) {
     cp.style.display = "flex";
     cp.style.width   = "100%";
     cargarCampanas();
+  } else if (tab === "canasta") {
+    const cp = document.getElementById("canasta-panel");
+    cp.style.display = "flex";
+    cp.style.width   = "100%";
+    cargarCanasta(document.getElementById("can-year").value);
   } else if (tab === "admin") {
     const ap = document.getElementById("admin-panel");
     ap.style.display = "flex";
