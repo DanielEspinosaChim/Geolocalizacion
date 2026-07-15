@@ -287,7 +287,7 @@ _MONTH_NAMES = ['ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO',
         "Primeras 3 columnas + encabezado congelados (D2)."
     ),
 )
-def export_excel(year: str, compare: str = None):
+def export_excel(year: str, compare: str = None, meses: str = None):
     if fdb is None:
         raise HTTPException(503, "Firestore no disponible")
     try:
@@ -300,6 +300,9 @@ def export_excel(year: str, compare: str = None):
         products = _get_products(year)
         # Meses con al menos un precio
         active_months = [m for m in MONTHS if any(p.get("prices", {}).get(m) is not None for p in products)]
+        if meses:
+            filtro = set(meses.split(','))
+            active_months = [m for m in active_months if m in filtro]
 
         wb = openpyxl.Workbook()
         ws = wb.active

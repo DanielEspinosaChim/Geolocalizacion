@@ -570,7 +570,10 @@ function _renderResumen(productos) {
 
 async function descargarExcelCanasta() {
   try {
-    const endpoint = `/api/canasta/${_canYear}/export/excel` + (_canYearB ? `?compare=${_canYearB}` : '');
+    const meses   = [..._canMesesSeleccionados].join(',');
+    const params  = new URLSearchParams({ meses });
+    if (_canYearB) params.set('compare', _canYearB);
+    const endpoint = `/api/canasta/${_canYear}/export/excel?${params}`;
     const res = await fetch(endpoint);
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));
