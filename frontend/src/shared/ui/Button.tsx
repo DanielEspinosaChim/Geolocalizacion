@@ -17,7 +17,9 @@ const button = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-primary-strong text-primary-fg shadow-lg shadow-primary/25 hover:bg-primary',
+        // Acento interactivo = ocre de marca (--secondary). El navy (--primary)
+        // queda para estructura (header) y acentos de texto.
+        primary: 'bg-secondary-strong text-secondary-fg shadow-lg shadow-secondary/25 hover:bg-secondary',
         secondary: 'border border-border bg-surface-raised text-fg hover:border-fg-subtle',
         outline: 'border border-border bg-transparent text-fg hover:bg-surface-raised',
         ghost: 'text-fg-muted hover:text-fg',

@@ -28,6 +28,13 @@
   --secondary-strong: 31 64% 40%;
   --secondary-fg: 0 0% 100%;
 
+  /* Barra de aplicación (header): marino fijo en AMBOS temas, para que el texto
+     blanco de las pestañas/controles siempre contraste. No se ata a --primary,
+     que en oscuro se aclara para servir de acento. */
+  --appbar: 227 63% 18%;
+  --appbar-strong: 227 64% 12%;
+  --appbar-fg: 0 0% 100%;
+
   /* semánticos (estado de formalización, alertas) */
   --success: 138 68% 30%; /* ≈ #188038 — formal */
   --warning: 31 100% 35%; /* ≈ #b55d00 — en proceso */
@@ -94,14 +101,17 @@
 /* Tema oscuro (identidad anterior de GeoFormal): solo se reescriben tokens,
    ninguna clase cambia. */
 [data-theme='dark'] {
-  --bg: 222 63% 7%; /* ≈ #070f1f */
-  --surface: 221 57% 12%; /* ≈ #0d1830 */
-  --surface-raised: 221 52% 16%;
-  --border: 221 54% 22%; /* ≈ #1a2d56 */
+  /* Marino profundo derivado del brand (#111E4C, hue 227). Los pasos de
+     superficie y los textos suben de luminosidad para contrastar bien con el
+     modo claro y entre sí. */
+  --bg: 226 45% 8%; /* casi negro azulado */
+  --surface: 226 38% 13%;
+  --surface-raised: 226 33% 18%;
+  --border: 226 26% 28%; /* más claro y menos saturado: separa tarjetas */
 
-  --fg: 213 100% 93%; /* ≈ #dde9ff */
-  --fg-muted: 215 25% 65%; /* ≈ #94a3b8 */
-  --fg-subtle: 216 51% 47%; /* ≈ #3b6ab5 */
+  --fg: 214 100% 95%; /* texto principal muy claro */
+  --fg-muted: 215 22% 74%; /* secundario legible */
+  --fg-subtle: 216 18% 60%; /* terciario aún legible (antes quedaba apagado) */
 
   /* En oscuro el marino se aclara para leerse como acento sobre fondo oscuro;
      el ocre sube un poco de luminosidad por la misma razón. */
@@ -119,9 +129,9 @@
 
   /* superficies flotantes sobre fondo oscuro: superficie y borde del tema,
      sombra negra más profunda para que la elevación se lea. */
-  --glass-surface: 221 57% 12%;
-  --glass-border: 221 54% 22%;
-  --shadow-glass: 0 1px 2px hsl(222 63% 4% / 0.5), 0 2px 8px 2px hsl(222 63% 4% / 0.4);
+  --glass-surface: 226 38% 13%;
+  --glass-border: 226 26% 28%;
+  --shadow-glass: 0 1px 2px hsl(226 45% 4% / 0.5), 0 2px 8px 2px hsl(226 45% 4% / 0.4);
 
   --shadow-card: 0 1px 3px hsl(var(--bg) / 0.4);
   --shadow-overlay: 0 25px 50px -12px hsl(var(--bg) / 0.7);

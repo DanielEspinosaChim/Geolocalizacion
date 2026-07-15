@@ -14,12 +14,13 @@ const chip = cva(
   'inline-flex items-center gap-1 rounded-control border px-2 py-0.5 text-xs2 font-bold transition-colors',
   {
     variants: {
-      tone: { neutral: '', primary: '', danger: '', warning: '', success: '' },
+      tone: { neutral: '', primary: '', secondary: '', danger: '', warning: '', success: '' },
       active: { true: '', false: 'border-border text-fg-muted hover:text-fg' },
     },
     compoundVariants: [
       { tone: 'neutral', active: true, class: 'border-fg-subtle bg-surface-raised text-fg' },
       { tone: 'primary', active: true, class: 'border-primary bg-primary/15 text-primary' },
+      { tone: 'secondary', active: true, class: 'border-secondary bg-secondary/15 text-secondary' },
       { tone: 'danger', active: true, class: 'border-danger bg-danger/15 text-danger' },
       { tone: 'warning', active: true, class: 'border-warning bg-warning/15 text-warning' },
       { tone: 'success', active: true, class: 'border-success bg-success/15 text-success' },

@@ -45,7 +45,7 @@ export function CapasToggles({ activas, onToggle, orientation = 'column' }: Capa
             onClick={() => onToggle(id)}
             className={`flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-control border px-3 py-1.5 text-xs2 font-bold shadow-overlay transition-colors ${
               activa
-                ? 'border-primary bg-primary/20 text-primary'
+                ? 'border-secondary bg-secondary/20 text-secondary'
                 : 'border-border bg-surface text-fg-muted hover:text-fg'
             }`}
           >

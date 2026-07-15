@@ -32,6 +32,11 @@ export default {
           strong: 'hsl(var(--secondary-strong) / <alpha-value>)',
           fg: 'hsl(var(--secondary-fg) / <alpha-value>)',
         },
+        appbar: {
+          DEFAULT: 'hsl(var(--appbar) / <alpha-value>)',
+          strong: 'hsl(var(--appbar-strong) / <alpha-value>)',
+          fg: 'hsl(var(--appbar-fg) / <alpha-value>)',
+        },
         success: 'hsl(var(--success) / <alpha-value>)',
         warning: 'hsl(var(--warning) / <alpha-value>)',
         danger: 'hsl(var(--danger) / <alpha-value>)',
