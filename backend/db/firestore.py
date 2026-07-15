@@ -282,6 +282,16 @@ def update_negocio_campana(campana_id: str, negocio_id: str, campos: dict) -> di
     return doc_to_dict(snap.reference.get())
 
 
+def delete_negocio_campana(campana_id: str, negocio_id: str) -> bool:
+    """Quita un negocio de la campaña borrando su documento de la subcolección."""
+    ref   = col("campanas").document(campana_id).collection("negocios")
+    snaps = [s for s in ref.stream() if doc_to_dict(s).get("negocio_id") == negocio_id]
+    if not snaps:
+        return False
+    snaps[0].reference.delete()
+    return True
+
+
 def get_negocio_campana(campana_id: str, negocio_id: str) -> dict | None:
     ref   = col("campanas").document(campana_id).collection("negocios")
     snaps = [s for s in ref.stream() if doc_to_dict(s).get("negocio_id") == negocio_id]

@@ -1,0 +1,171 @@
+/* ════════════════════════════════════════════════════════════════════
+   Animaciones del sistema de diseño — ÚNICA fuente de keyframes y
+   clases de movimiento propias. Las micro-transiciones de estado
+   (hover, data-state de Radix) siguen siendo de tailwindcss-animate;
+   aquí viven los efectos de entrada, énfasis y decorativos.
+
+   Todas respetan `prefers-reduced-motion` vía el override global de
+   index.css (@layer base), que reduce duraciones a 0.01ms.
+   ════════════════════════════════════════════════════════════════════ */
+
+@layer components {
+  /* ── Entradas ─────────────────────────────────────────────────────── */
+
+  /* Aparece subiendo — para contenido de página y cards al montar. */
+  .anim-fade-up {
+    animation: anim-fade-up 0.45s var(--ease-out) both;
+  }
+
+  /* Aparece bajando — para headers/toolbars. */
+  .anim-fade-down {
+    animation: anim-fade-down 0.45s var(--ease-out) both;
+  }
+
+  /* Zoom sutil — para modales/hero al montar. */
+  .anim-scale-in {
+    animation: anim-scale-in 0.35s var(--ease-out) both;
+  }
+
+  /* Cajón móvil: sube desde el borde inferior (BottomSheet). */
+  .anim-slide-up {
+    animation: anim-slide-up 0.35s var(--ease-out) both;
+  }
+
+  /* Escalonado para grids/listas: cada hijo entra con un pequeño retraso.
+     Se pone en el CONTENEDOR; cubre hasta 12 hijos y del 13 en adelante
+     entran juntos (suficiente: lo escalonado solo importa en el viewport). */
+  .anim-stagger > * {
+    animation: anim-fade-up 0.45s var(--ease-out) both;
+  }
+  .anim-stagger > *:nth-child(1) { animation-delay: 0ms; }
+  .anim-stagger > *:nth-child(2) { animation-delay: 40ms; }
+  .anim-stagger > *:nth-child(3) { animation-delay: 80ms; }
+  .anim-stagger > *:nth-child(4) { animation-delay: 120ms; }
+  .anim-stagger > *:nth-child(5) { animation-delay: 160ms; }
+  .anim-stagger > *:nth-child(6) { animation-delay: 200ms; }
+  .anim-stagger > *:nth-child(7) { animation-delay: 240ms; }
+  .anim-stagger > *:nth-child(8) { animation-delay: 280ms; }
+  .anim-stagger > *:nth-child(9) { animation-delay: 320ms; }
+  .anim-stagger > *:nth-child(10) { animation-delay: 360ms; }
+  .anim-stagger > *:nth-child(11) { animation-delay: 400ms; }
+  .anim-stagger > *:nth-child(12) { animation-delay: 440ms; }
+
+  /* ── Énfasis / interacción ────────────────────────────────────────── */
+
+  /* Levanta la superficie al pasar el cursor (cards clicables). */
+  .hover-lift {
+    transition:
+      transform 0.2s var(--ease-out),
+      box-shadow 0.2s var(--ease-out),
+      border-color 0.2s var(--ease-out);
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-overlay);
+  }
+  .hover-lift:active {
+    transform: translateY(0);
+  }
+
+  /* Brillo de carga (skeletons, placeholders). */
+  .anim-shimmer {
+    background: linear-gradient(
+      100deg,
+      transparent 30%,
+      hsl(var(--fg) / 0.06) 50%,
+      transparent 70%
+    );
+    background-size: 200% 100%;
+    animation: anim-shimmer 1.6s linear infinite;
+  }
+
+  /* ── Decorativas (fondo del login) ────────────────────────────────── */
+
+  /* Gradiente de marca en movimiento lento. */
+  .anim-gradient {
+    background-size: 200% 200%;
+    animation: anim-gradient 14s ease-in-out infinite;
+  }
+
+  /* Manchas difuminadas que flotan detrás de la tarjeta del login. */
+  .anim-float {
+    animation: anim-float 9s ease-in-out infinite;
+  }
+  .anim-float-slow {
+    animation: anim-float 14s ease-in-out infinite reverse;
+  }
+}
+
+@keyframes anim-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes anim-fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes anim-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes anim-slide-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes anim-shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes anim-gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes anim-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(24px, -18px, 0) scale(1.06);
+  }
+  66% {
+    transform: translate3d(-16px, 14px, 0) scale(0.97);
+  }
+}

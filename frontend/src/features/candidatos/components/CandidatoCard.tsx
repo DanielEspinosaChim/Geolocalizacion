@@ -1,5 +1,5 @@
 import { Car, MapPin } from 'lucide-react';
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { Badge, Button, Card, Combobox } from '@shared/ui';
 import { useGuardarTipo } from '../api/useGuardarTipo';
 import { TIPO_LABELS, TIPO_TONES, TIPOS, tipoDe, type Candidato, type Tipo } from '../model/candidato';
@@ -8,13 +8,15 @@ import { PuntoTipo } from './PuntoTipo';
 
 interface CandidatoCardProps {
   candidato: Candidato;
+  /** Acción contextual al pie (p. ej. "Registrar visita" desde una ruta de campaña). */
+  accion?: ReactNode;
 }
 
 /**
  * Detalle del negocio (reemplaza el popupHtml del legacy). Va dentro de un
  * `MapPopup`, que ya aporta el cierre; por eso no trae botón propio.
  */
-export function CandidatoCard({ candidato }: CandidatoCardProps) {
+export function CandidatoCard({ candidato, accion }: CandidatoCardProps) {
   const [tipo, setTipo] = useState<Tipo>(tipoDe(candidato));
   const guardar = useGuardarTipo();
   const gmapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${candidato.lat},${candidato.lng}`;
@@ -62,6 +64,7 @@ export function CandidatoCard({ candidato }: CandidatoCardProps) {
           <Car className="h-4 w-4" aria-hidden="true" /> Waze
         </a>
       </div>
+      {accion ? <div className="mt-3">{accion}</div> : null}
     </Card>
   );
 }

@@ -1,16 +1,15 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import { X } from 'lucide-react';
 import { useState, type PropsWithChildren } from 'react';
+import { MODAL_SIZES, type ModalSize } from './modal-sizes';
 import { PortalContainerContext } from './PortalContainer';
-
-const WIDTH_CLASSES = { sm: 'max-w-sm', md: 'max-w-lg', lg: 'max-w-2xl' } as const;
 
 interface ModalProps extends PropsWithChildren {
   open: boolean;
   onClose: () => void;
   title: string;
   description?: string;
-  width?: keyof typeof WIDTH_CLASSES;
+  width?: ModalSize;
 }
 
 /**
@@ -42,7 +41,7 @@ export function Modal({ open, onClose, title, description, width = 'md', childre
           <Dialog.Content
             ref={setContenido}
             aria-describedby={description ? undefined : ''}
-            className={`pointer-events-auto max-h-[85vh] w-full overflow-y-auto rounded-card border border-border bg-surface p-6 shadow-overlay duration-fast data-[state=closed]:animate-out data-[state=open]:animate-in data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 ${WIDTH_CLASSES[width]}`}
+            className={`pointer-events-auto max-h-[85vh] w-full overflow-y-auto rounded-card border border-border bg-surface p-6 shadow-overlay duration-fast data-[state=closed]:animate-out data-[state=open]:animate-in data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 ${MODAL_SIZES[width]}`}
           >
             <header className="flex items-start justify-between gap-4">
               <div>

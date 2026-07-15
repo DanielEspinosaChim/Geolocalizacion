@@ -15,8 +15,14 @@ function iconoNumerado(n: number): L.DivIcon {
   });
 }
 
+interface RutaLayerProps {
+  ruta: RutaCalculada;
+  /** Click en una parada: abre el popup completo (lo pinta la página). */
+  onParadaClick?: (placeId: string) => void;
+}
+
 /** Línea de la ruta + marcadores numerados por orden de visita. */
-export function RutaLayer({ ruta }: { ruta: RutaCalculada }) {
+export function RutaLayer({ ruta, onParadaClick }: RutaLayerProps) {
   const map = useMap();
 
   useEffect(() => {
@@ -25,9 +31,13 @@ export function RutaLayer({ ruta }: { ruta: RutaCalculada }) {
       style: { color: '#2563eb', weight: 5, opacity: 0.85 },
     }).addTo(grupo);
     ruta.waypoints_ordenados.forEach((pt, i) => {
-      L.marker([pt.lat, pt.lng], { icon: iconoNumerado(i + 1) })
+      const marker = L.marker([pt.lat, pt.lng], { icon: iconoNumerado(i + 1) })
         .bindTooltip(`${i + 1}. ${pt.nombre}`)
         .addTo(grupo);
+      if (onParadaClick && pt.place_id) {
+        const placeId = pt.place_id;
+        marker.on('click', () => onParadaClick(placeId));
+      }
     });
     map.addLayer(grupo);
     const bounds = linea.getBounds();
@@ -35,7 +45,7 @@ export function RutaLayer({ ruta }: { ruta: RutaCalculada }) {
     return () => {
       map.removeLayer(grupo);
     };
-  }, [map, ruta]);
+  }, [map, ruta, onParadaClick]);
 
   return null;
 }

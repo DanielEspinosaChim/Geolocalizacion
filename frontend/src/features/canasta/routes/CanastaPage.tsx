@@ -1,22 +1,61 @@
 import { Camera, Plus } from 'lucide-react';
-import { useRef, useState } from 'react';
-import { Button, Page, PageHeader, QueryBoundary, SelectField, Spinner } from '@shared/ui';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Button, Chip, Page, PageHeader, QueryBoundary, SelectField, Spinner } from '@shared/ui';
 import { useCanasta } from '../api/useCanasta';
 import { useEscanearFactura } from '../api/scanInvoice';
 import { AgregarProductoModal } from '../components/AgregarProductoModal';
 import { CanastaContenido } from '../components/CanastaContenido';
 import { EscaneoModal } from '../components/EscaneoModal';
-import { aniosDisponibles, mesesVisibles, type ScanItem } from '../model/canasta';
+import {
+  aniosDisponibles,
+  mesesVisibles,
+  mesLabel,
+  type Mes,
+  type ScanItem,
+  type VistaCanasta,
+} from '../model/canasta';
+
+const VISTAS: { id: VistaCanasta; label: string }[] = [
+  { id: 'precios', label: 'Precios' },
+  { id: 'variacion', label: 'Variación %' },
+  { id: 'trimestres', label: 'Trimestres' },
+];
 
 export function CanastaPage() {
   const [year, setYear] = useState(() => new Date().getFullYear().toString());
+  const [yearB, setYearB] = useState<string>('');
+  const [vista, setVista] = useState<VistaCanasta>('precios');
+  const [mesesSel, setMesesSel] = useState<Set<Mes>>(new Set());
   const [modalAgregar, setModalAgregar] = useState(false);
   const [scan, setScan] = useState<{ open: boolean; items: ScanItem[] }>({ open: false, items: [] });
   const fileRef = useRef<HTMLInputElement>(null);
 
   const canasta = useCanasta(year);
+  const canastaB = useCanasta(yearB, { enabled: yearB !== '' });
   const escanear = useEscanearFactura(year);
-  const meses = mesesVisibles(year);
+  const meses = useMemo(() => mesesVisibles(year), [year]);
+
+  // Al cambiar de año (o cargar por primera vez) se seleccionan todos los
+  // meses disponibles, igual que el módulo original.
+  useEffect(() => {
+    setMesesSel(new Set(meses));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [year]);
+
+  const mesesTabla = meses.filter((m) => mesesSel.has(m));
+  const aniosB = aniosDisponibles().filter((a) => a !== year);
+
+  function toggleMes(m: Mes) {
+    setMesesSel((prev) => {
+      const next = new Set(prev);
+      if (next.has(m)) {
+        if (next.size > 1) next.delete(m); // siempre queda al menos un mes visible
+      } else {
+        next.add(m);
+      }
+      return next;
+    });
+  }
 
   function onArchivo(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -42,6 +81,21 @@ export function CanastaPage() {
                 ))}
               </SelectField>
             </div>
+            <div className="w-32">
+              <SelectField
+                label=""
+                aria-label="Comparar con año"
+                value={yearB}
+                onChange={(e) => setYearB(e.target.value)}
+              >
+                <option value="">— sin comparar —</option>
+                {aniosB.map((a) => (
+                  <option key={a} value={a}>
+                    vs {a}
+                  </option>
+                ))}
+              </SelectField>
+            </div>
             <Button variant="secondary" size="sm" onClick={() => setModalAgregar(true)}>
               <Plus className="h-4 w-4" aria-hidden="true" /> Producto
             </Button>
@@ -60,12 +114,33 @@ export function CanastaPage() {
         }
       />
 
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex items-center gap-1.5" role="group" aria-label="Modo de vista">
+          {VISTAS.map((v) => (
+            <Chip key={v.id} tone="primary" active={vista === v.id} onClick={() => setVista(v.id)}>
+              {v.label}
+            </Chip>
+          ))}
+        </div>
+        <div className="flex flex-wrap items-center gap-1.5" role="group" aria-label="Meses visibles">
+          {meses.map((m) => (
+            <Chip key={m} tone="primary" active={mesesSel.has(m)} onClick={() => toggleMes(m)}>
+              {mesLabel(m)}
+            </Chip>
+          ))}
+        </div>
+      </div>
+
       <QueryBoundary query={canasta}>
         {(productos) => (
           <CanastaContenido
             productos={productos}
             year={year}
             meses={meses}
+            mesesTabla={mesesTabla}
+            vista={vista}
+            yearB={yearB || null}
+            productosB={yearB ? (canastaB.data ?? null) : null}
             onAgregar={() => setModalAgregar(true)}
           />
         )}

@@ -18,6 +18,31 @@ export function useActualizarPrecio(year: string) {
   });
 }
 
+/**
+ * Metadata de compra de una celda (tienda + fecha). El PUT del backend es el
+ * mismo de precio, así que se reenvía el precio vigente para no borrarlo.
+ */
+export function useActualizarMetadata(year: string) {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: (body: {
+      id: string;
+      month: Mes;
+      price: number | null;
+      tienda: string | null;
+      fecha_compra: string | null;
+    }) =>
+      apiClient.put(`/canasta/${year}/${body.id}`, {
+        month: body.month,
+        price: body.price,
+        tienda: body.tienda,
+        fecha_compra: body.fecha_compra,
+      }),
+    onSuccess: () => qc.invalidateQueries({ queryKey: canastaKeys.year(year) }),
+    meta: { errorMessage: 'No se pudo guardar la tienda/fecha' },
+  });
+}
+
 export function useAgregarProducto(year: string) {
   const qc = useQueryClient();
   return useMutation({

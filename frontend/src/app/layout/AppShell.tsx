@@ -1,6 +1,8 @@
 import { MapPinned } from 'lucide-react';
 import { Outlet } from 'react-router';
 import { useCierrePorInactividad, useSession } from '@features/auth';
+import { VERSION_LABEL } from '@shared/lib/version';
+import { ThemeToggle } from '@shared/ui';
 import { NavTabs } from './NavTabs';
 import { UserMenu } from './UserMenu';
 
@@ -19,14 +21,22 @@ export function AppShell() {
             <MapPinned className="h-5 w-5" aria-hidden="true" />
           </span>
           <div className="leading-tight">
-            <h1 className="font-display text-base font-extrabold tracking-tight">GeoFormal</h1>
+            <h1 className="flex items-center gap-2 font-display text-base font-extrabold tracking-tight">
+              GeoFormal
+              <span className="rounded-full border border-white/25 bg-white/15 px-1.5 py-px text-2xs font-bold text-white/85">
+                {VERSION_LABEL}
+              </span>
+            </h1>
             {/* Se oculta en móvil: el espacio lo necesita el menú de usuario. */}
             <p className="hidden text-2xs text-white/70 sm:block">
               Mérida, Yucatán · Google Maps vs DENUE
             </p>
           </div>
         </div>
-        {user ? <UserMenu user={user} /> : null}
+        <div className="flex items-center gap-1.5">
+          <ThemeToggle className="text-white/80 hover:bg-white/15 hover:text-white" />
+          {user ? <UserMenu user={user} /> : null}
+        </div>
       </header>
       {user ? (
         /* La sombra (no un borde) separa la barra del contenido: es la única

@@ -1,9 +1,11 @@
 import { useMemo, useState } from 'react';
+import { formatNumero } from '@shared/lib/format';
+import { BottomSheet } from '@shared/ui';
 import { buscarColoniaMatch, useCapas, useColonias } from '@features/colonias-zonas';
 import { useCandidatos } from '../api/useCandidatos';
 import { useCargaProgresiva } from '../api/useCargaProgresiva';
 import { MapaCandidatos } from '../components/MapaCandidatos';
-import { PanelLateral } from '../components/PanelLateral';
+import { PanelLateral, PanelLateralContenido } from '../components/PanelLateral';
 import type { Candidato } from '../model/candidato';
 import { filtrarCandidatos, SIN_FILTROS, type Filtros } from '../model/filtros';
 
@@ -12,7 +14,6 @@ export function CandidatosPage() {
   const { data: colonias = [] } = useColonias();
   const estado = useCargaProgresiva();
   const [filtros, setFiltros] = useState<Filtros>(SIN_FILTROS);
-  const [vista, setVista] = useState<'lista' | 'mapa'>('mapa');
   const capas = useCapas();
   const [seleccionado, setSeleccionado] = useState<Candidato | null>(null);
 
@@ -24,61 +25,47 @@ export function CandidatosPage() {
     setFiltros((f) => ({ ...f, colonia: match?.id ?? nombreUpper }));
   }
 
-  return (
-    <div className="flex h-full flex-col">
-      <VistaMovilToggle vista={vista} onChange={setVista} />
-      {/* `relative`: en desktop el panel sale del flujo y flota sobre el mapa
-          (el efecto glass necesita el mapa detrás para difuminarlo). */}
-      <div className="relative flex min-h-0 flex-1">
-        <PanelLateral
-          visible={vista === 'lista'}
-          filtros={filtros}
-          onFiltros={setFiltros}
-          filtrados={filtrados}
-          isPending={isPending}
-          seleccionadoId={seleccionado?.place_id ?? null}
-          onSelect={setSeleccionado}
-        />
-        <MapaCandidatos
-          visible={vista === 'mapa'}
-          filtrados={filtrados}
-          totalCargados={candidatos.length}
-          estado={estado}
-          capas={capas}
-          coloniaSeleccionada={filtros.colonia}
-          onColoniaPoligono={onColoniaPoligono}
-          seleccionado={seleccionado}
-          onSelect={setSeleccionado}
-          busqueda={filtros.q}
-          onBusqueda={(q) => setFiltros((f) => ({ ...f, q }))}
-        />
-      </div>
-    </div>
-  );
-}
+  const panelProps = {
+    filtros,
+    onFiltros: setFiltros,
+    filtrados,
+    isPending,
+    seleccionadoId: seleccionado?.place_id ?? null,
+    onSelect: setSeleccionado,
+  };
 
-function VistaMovilToggle({
-  vista,
-  onChange,
-}: {
-  vista: 'lista' | 'mapa';
-  onChange: (v: 'lista' | 'mapa') => void;
-}) {
   return (
-    <div className="flex gap-1 border-b border-border bg-surface p-2 md:hidden">
-      {(['mapa', 'lista'] as const).map((v) => (
-        <button
-          key={v}
-          type="button"
-          aria-pressed={vista === v}
-          onClick={() => onChange(v)}
-          className={`flex-1 rounded-control py-1.5 text-xs font-bold capitalize transition-colors ${
-            vista === v ? 'bg-primary-strong text-primary-fg' : 'text-fg-muted'
-          }`}
-        >
-          {v}
-        </button>
-      ))}
+    /* `relative`: en desktop el panel sale del flujo y flota sobre el mapa; en
+       móvil el mapa ocupa todo y las herramientas van en el cajón inferior
+       (patrón Google Maps), en vez del viejo toggle mapa/lista. */
+    <div className="relative flex h-full min-h-0">
+      <PanelLateral {...panelProps} />
+      <MapaCandidatos
+        visible
+        filtrados={filtrados}
+        totalCargados={candidatos.length}
+        estado={estado}
+        capas={capas}
+        coloniaSeleccionada={filtros.colonia}
+        onColoniaPoligono={onColoniaPoligono}
+        seleccionado={seleccionado}
+        onSelect={setSeleccionado}
+        busqueda={filtros.q}
+        onBusqueda={(q) => setFiltros((f) => ({ ...f, q }))}
+      />
+      <BottomSheet
+        className="md:hidden"
+        title={
+          <>
+            Negocios
+            <span className="text-xs font-semibold tabular-nums text-fg-muted">
+              {isPending ? '…' : formatNumero(filtrados.length)}
+            </span>
+          </>
+        }
+      >
+        <PanelLateralContenido {...panelProps} />
+      </BottomSheet>
     </div>
   );
 }

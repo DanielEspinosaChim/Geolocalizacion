@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Query, Depends, Request, Form, File, UploadFile
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 from typing import List, Optional
 from datetime import datetime
 from pathlib import Path
@@ -59,6 +59,11 @@ class NegociosCampanaBody(BaseModel):
     )
 
 class ActualizarNegocioBody(BaseModel):
+    # El frontend envía la clave "_quitar"; Pydantic ignora los campos que
+    # empiezan con guion bajo, así que se mapea vía alias.
+    model_config = ConfigDict(populate_by_name=True)
+
+    quitar:      Optional[bool] = Field(None, alias="_quitar", description="true = quitar el negocio de la campaña (borra el registro)")
     completado:  Optional[bool] = Field(None, description="true = visita completada, false = pendiente")
     notas:       Optional[str]  = Field(None, description="Observaciones del inspector durante la visita")
     fecha_visita: Optional[str] = Field(None, description="Fecha real de visita (YYYY-MM-DD)")
@@ -232,6 +237,7 @@ Solo se actualizan los campos que envíes en el body (los demás quedan igual).
 - `notas`: observaciones del inspector (ej: "dueño ausente, volver mañana")
 - `fecha_visita`: fecha en que se realizó la visita (`YYYY-MM-DD`)
 - `checklist_json`: JSON actualizado con los ítems del checklist marcados
+- `_quitar`: `true` = quita el negocio de la campaña (borra su registro)
 
 **Caso de uso:** el inspector visita el negocio en campo, marca los ítems
 del checklist como completados y agrega notas, todo desde la app móvil.
@@ -239,7 +245,12 @@ del checklist como completados y agrega notas, todo desde la app móvil.
     responses={404: {"description": "No se encontró ese negocio en esa campaña"}},
 )
 def actualizar_negocio_campana(campana_id: str, negocio_id: str, body: ActualizarNegocioBody):
-    campos = {k: v for k, v in body.model_dump().items() if v is not None}
+    # Quitar negocio de la campaña (el frontend manda {_quitar: true})
+    if body.quitar:
+        if not fs.delete_negocio_campana(campana_id, negocio_id):
+            raise HTTPException(status_code=404, detail=f"Negocio '{negocio_id}' no está en la campaña {campana_id}")
+        return {"ok": True, "eliminado": negocio_id}
+    campos = {k: v for k, v in body.model_dump(exclude={"quitar"}).items() if v is not None}
     updated = fs.update_negocio_campana(campana_id, negocio_id, campos)
     if updated is None:
         raise HTTPException(status_code=404, detail=f"Negocio '{negocio_id}' no está en la campaña {campana_id}")

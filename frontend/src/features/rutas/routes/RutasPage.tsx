@@ -1,9 +1,24 @@
-import { Car, Route } from 'lucide-react';
+import { Car, ClipboardCheck, Route } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import { formatNumero } from '@shared/lib/format';
-import { Button, MapCanvas, PanelSection, SearchInput, TextField, toast } from '@shared/ui';
-import { CapaCandidatos, Simbologia, useCandidatos, type Candidato } from '@features/candidatos';
+import {
+  BottomSheet,
+  Button,
+  MapCanvas,
+  MapPopup,
+  PanelSection,
+  SearchInput,
+  TextField,
+  toast,
+} from '@shared/ui';
+import {
+  CandidatoCard,
+  CapaCandidatos,
+  Simbologia,
+  useCandidatos,
+  type Candidato,
+} from '@features/candidatos';
 import {
   CapasLayers,
   CapasToggles,
@@ -18,11 +33,17 @@ import { RutaLista } from '../components/RutaLista';
 import { MAX_PUNTOS_RUTA, MIN_PARADAS_RUTA as MIN_PARADAS, togglePunto } from '../model/ruta';
 
 export function RutasPage() {
-  // "Ver ruta" en una campaña navega aquí con los negocios en el state.
+  // "Ver ruta" en una campaña navega aquí con los negocios (y su id) en el state.
   const location = useLocation();
-  const rutaCampana = (location.state as { rutaCampana?: string[] } | null)?.rutaCampana;
+  const navigate = useNavigate();
+  const state = location.state as { rutaCampana?: string[]; campanaId?: string } | null;
+  const rutaCampana = state?.rutaCampana;
+  const campanaOrigen = state?.campanaId ?? null;
 
   const { data: candidatos = [] } = useCandidatos();
+  // Parada de la ruta con el popup abierto (se resuelve contra los candidatos
+  // cargados para tener el tipo actualizado, como hacía el legacy).
+  const [parada, setParada] = useState<Candidato | null>(null);
   const [q, setQ] = useState('');
   const [seleccion, setSeleccion] = useState<ReadonlySet<string>>(() => new Set(rutaCampana ?? []));
   const calcular = useCalcularRuta();
@@ -58,38 +79,77 @@ export function RutasPage() {
     calcular.mutate([...seleccion]);
   }
 
+  function onParadaClick(placeId: string) {
+    const candidato = candidatos.find((c) => c.place_id === placeId);
+    if (candidato) setParada(candidato);
+  }
+
+  /** Desde una ruta de campaña: salta al detalle y abre el modal de visita. */
+  function registrarVisita(placeId: string) {
+    void navigate('/campanas', {
+      state: { abrirCampana: campanaOrigen, registrarNegocio: placeId },
+    });
+  }
+
+  const herramientas = (
+    <>
+      <RutaPorColonia
+        calculando={calculando}
+        onCalcular={(colonia, limite) => calcularColonia.mutate({ colonia, limite })}
+      />
+
+      <SeleccionManual
+        total={seleccion.size}
+        calculando={calculando}
+        onLimpiar={() => setSeleccion(new Set())}
+        onCalcular={calcularManual}
+      />
+
+      {ruta ? <RutaInfo ruta={ruta} /> : null}
+
+      <BuscadorNegocios
+        total={candidatos.length}
+        q={q}
+        onQ={setQ}
+        candidatos={candidatos}
+        seleccion={seleccion}
+        onToggle={toggle}
+      />
+    </>
+  );
+
   return (
-    <div className="flex h-full">
-      <aside className="scrollbar-slim flex w-full flex-col overflow-y-auto border-r border-border bg-surface md:w-96">
-        <RutaPorColonia
-          calculando={calculando}
-          onCalcular={(colonia, limite) => calcularColonia.mutate({ colonia, limite })}
-        />
-
-        <SeleccionManual
-          total={seleccion.size}
-          calculando={calculando}
-          onLimpiar={() => setSeleccion(new Set())}
-          onCalcular={calcularManual}
-        />
-
-        {ruta ? <RutaInfo ruta={ruta} /> : null}
-
-        <BuscadorNegocios
-          total={candidatos.length}
-          q={q}
-          onQ={setQ}
-          candidatos={candidatos}
-          seleccion={seleccion}
-          onToggle={toggle}
-        />
+    /* En móvil el mapa ya no se oculta: las herramientas van en el cajón
+       inferior (BottomSheet), como en la vista de candidatos. */
+    <div className="relative flex h-full">
+      <aside className="scrollbar-slim flex w-96 shrink-0 flex-col overflow-y-auto border-r border-border bg-surface max-md:hidden">
+        {herramientas}
       </aside>
 
-      <div className="relative hidden flex-1 md:block">
+      <div className="relative min-w-0 flex-1">
         <MapCanvas zoomPosition="bottomright">
           <CapaCandidatos candidatos={candidatos} />
-          {ruta ? <RutaLayer ruta={ruta} /> : null}
+          {ruta ? <RutaLayer ruta={ruta} onParadaClick={onParadaClick} /> : null}
           <CapasLayers activas={capas.activas} />
+          {parada?.lat != null && parada.lng != null ? (
+            <MapPopup
+              key={parada.place_id}
+              lat={parada.lat}
+              lng={parada.lng}
+              onClose={() => setParada(null)}
+            >
+              <CandidatoCard
+                candidato={parada}
+                accion={
+                  campanaOrigen ? (
+                    <Button full size="sm" onClick={() => registrarVisita(parada.place_id)}>
+                      <ClipboardCheck className="h-4 w-4" aria-hidden="true" /> Registrar visita
+                    </Button>
+                  ) : null
+                }
+              />
+            </MapPopup>
+          ) : null}
         </MapCanvas>
 
         {/* Overlays consistentes en todas las vistas del mapa: capas
@@ -99,6 +159,21 @@ export function RutasPage() {
         </div>
         <Simbologia capas={capas.activas} />
       </div>
+
+      <BottomSheet
+        className="md:hidden"
+        initialSnap={rutaCampana ? 'peek' : 'half'}
+        title={
+          <>
+            Herramientas de ruta
+            <span className="text-xs font-semibold tabular-nums text-fg-muted">
+              {seleccion.size > 0 ? `${seleccion.size} seleccionados` : null}
+            </span>
+          </>
+        }
+      >
+        {herramientas}
+      </BottomSheet>
     </div>
   );
 }

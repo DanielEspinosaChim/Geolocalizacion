@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { apiClient } from '@shared/api';
-import { Button, Checkbox, Modal, ModalFooter, SelectField, toast } from '@shared/ui';
+import { Button, Checkbox, Modal, ModalFooter, SelectField, TextField, toast } from '@shared/ui';
 import { canastaKeys } from '../api/useCanasta';
 import {
   MESES,
@@ -32,6 +32,7 @@ interface EscaneoModalProps {
 export function EscaneoModal({ year, items, open, onClose }: EscaneoModalProps) {
   const qc = useQueryClient();
   const [mes, setMes] = useState<Mes>(() => mesActual());
+  const [tienda, setTienda] = useState('');
   const [marcados, setMarcados] = useState<ReadonlySet<number>>(new Set());
   const [guardando, setGuardando] = useState(false);
 
@@ -39,6 +40,7 @@ export function EscaneoModal({ year, items, open, onClose }: EscaneoModalProps) 
   useEffect(() => {
     const pre = items.map((it, i) => (it.confidence !== 'low' ? i : -1)).filter((i) => i >= 0);
     setMarcados(new Set(pre));
+    setTienda('');
   }, [items]);
 
   function toggle(i: number) {
@@ -59,12 +61,16 @@ export function EscaneoModal({ year, items, open, onClose }: EscaneoModalProps) 
       return;
     }
     setGuardando(true);
+    const tiendaNorm = tienda.trim() ? tienda.trim().toUpperCase() : null;
+    const fechaHoy = new Date().toISOString().slice(0, 10);
     try {
       await Promise.all(
         seleccionados.map((it) =>
           apiClient.put(`/canasta/${year}/${it.matched_id}`, {
             month: mes,
             price: it.detected_price,
+            tienda: tiendaNorm,
+            fecha_compra: fechaHoy,
           }),
         ),
       );
@@ -86,14 +92,25 @@ export function EscaneoModal({ year, items, open, onClose }: EscaneoModalProps) 
       description="La IA leyó estos productos de la factura. Confirma cuáles aplicar."
       width="lg"
     >
-      <div className="mb-3 w-40">
-        <SelectField label="Aplicar al mes" value={mes} onChange={(e) => setMes(e.target.value as Mes)}>
-          {MESES.map((m) => (
-            <option key={m} value={m}>
-              {mesLabel(m)}
-            </option>
-          ))}
-        </SelectField>
+      <div className="mb-3 flex flex-wrap items-end gap-3">
+        <div className="w-40">
+          <SelectField label="Aplicar al mes" value={mes} onChange={(e) => setMes(e.target.value as Mes)}>
+            {MESES.map((m) => (
+              <option key={m} value={m}>
+                {mesLabel(m)}
+              </option>
+            ))}
+          </SelectField>
+        </div>
+        <div className="w-48">
+          <TextField
+            label="Tienda (opcional)"
+            value={tienda}
+            onChange={(e) => setTienda(e.target.value)}
+            placeholder="Ej. CHEDRAUI"
+            className="uppercase"
+          />
+        </div>
       </div>
 
       {items.length === 0 ? (

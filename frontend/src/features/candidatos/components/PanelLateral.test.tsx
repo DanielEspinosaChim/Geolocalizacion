@@ -17,7 +17,6 @@ const CANDIDATOS: Candidato[] = [
 function renderPanel() {
   return render(
     <PanelLateral
-      visible
       filtros={SIN_FILTROS}
       onFiltros={vi.fn()}
       filtrados={CANDIDATOS}

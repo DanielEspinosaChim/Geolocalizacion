@@ -2,7 +2,7 @@ import { LocateFixed, MapPin, Send, X } from 'lucide-react';
 import { useState } from 'react';
 import { obtenerGPS } from '@shared/lib/geo';
 import { Button, Combobox, FotoField, TextField, TextareaField, toast } from '@shared/ui';
-import { reverseGeocode } from '../api/reverseGeocode';
+import { reverseGeocode } from '@shared/api';
 import { useCrearReporte } from '../api/useReportes';
 import { REPORTE_META, TIPOS_REPORTE, type Reporte, type TipoReporte } from '../model/reporte';
 

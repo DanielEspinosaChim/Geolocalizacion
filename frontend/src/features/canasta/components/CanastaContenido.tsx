@@ -1,24 +1,42 @@
 import { Database, FileSpreadsheet, ImageDown, Plus } from 'lucide-react';
+import { useState } from 'react';
 import { Button, Card, EmptyState, toast } from '@shared/ui';
 import { descargarExcelCanasta } from '../api/descargarExcel';
 import { useEliminarProducto, useActualizarPrecio, useSeedCanasta } from '../api/useCanastaMutations';
 import { generarInfografia } from '../lib/generarInfografia';
-import type { Mes, Producto } from '../model/canasta';
+import type { Mes, Producto, VistaCanasta } from '../model/canasta';
 import { CanastaTabla } from './CanastaTabla';
+import { MetadataModal } from './MetadataModal';
 import { ResumenCanasta } from './ResumenCanasta';
 
 interface CanastaContenidoProps {
   productos: Producto[];
   year: string;
+  /** Meses visibles del año (para la gráfica de resumen). */
   meses: Mes[];
+  /** Meses visibles ∩ seleccionados por chips (para la tabla y el Excel). */
+  mesesTabla: Mes[];
+  vista: VistaCanasta;
+  yearB: string | null;
+  productosB: Producto[] | null;
   onAgregar: () => void;
 }
 
 /** Cuerpo de la vista: estado vacío, o gráfica de resumen (arriba) + tabla editable. */
-export function CanastaContenido({ productos, year, meses, onAgregar }: CanastaContenidoProps) {
+export function CanastaContenido({
+  productos,
+  year,
+  meses,
+  mesesTabla,
+  vista,
+  yearB,
+  productosB,
+  onAgregar,
+}: CanastaContenidoProps) {
   const guardarPrecio = useActualizarPrecio(year);
   const eliminar = useEliminarProducto(year);
   const seed = useSeedCanasta(year);
+  const [meta, setMeta] = useState<{ producto: Producto; month: Mes } | null>(null);
 
   if (productos.length === 0) {
     return (
@@ -60,26 +78,46 @@ export function CanastaContenido({ productos, year, meses, onAgregar }: CanastaC
       <ResumenCanasta
         productos={productos}
         meses={meses}
-        acciones={<AccionesExporta productos={productos} year={year} />}
+        acciones={
+          <AccionesExporta productos={productos} year={year} meses={mesesTabla} yearB={yearB} />
+        }
       />
       <CanastaTabla
         productos={productos}
-        meses={meses}
+        meses={mesesTabla}
+        vista={vista}
+        year={year}
+        yearB={yearB}
+        productosB={productosB}
         onGuardarPrecio={(id, month, price) => guardarPrecio.mutate({ id, month, price })}
         onEliminar={(id) => eliminar.mutate(id)}
+        onEditarMetadata={(producto, month) => setMeta({ producto, month })}
       />
+      <MetadataModal year={year} target={meta} onClose={() => setMeta(null)} />
     </div>
   );
 }
 
-function AccionesExporta({ productos, year }: { productos: Producto[]; year: string }) {
+function AccionesExporta({
+  productos,
+  year,
+  meses,
+  yearB,
+}: {
+  productos: Producto[];
+  year: string;
+  meses: Mes[];
+  yearB: string | null;
+}) {
   return (
     <>
       <Button
         variant="outline"
         size="sm"
         onClick={() =>
-          void descargarExcelCanasta(year).catch(() => toast.error('No se pudo generar el Excel.'))
+          void descargarExcelCanasta(year, meses, yearB).catch(() =>
+            toast.error('No se pudo generar el Excel.'),
+          )
         }
       >
         <FileSpreadsheet className="h-4 w-4" aria-hidden="true" /> Excel

@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { apiClient } from '@shared/api';
+import { apiClient, reverseGeocode } from '@shared/api';
 import { haversineM, obtenerGPS } from '@shared/lib/geo';
 import { toast } from '@shared/ui';
 import type { NegocioCampana } from '../model/campana';
@@ -67,6 +67,9 @@ async function capturarGPS(base: string, negocio: NegocioCampana, onDone: () => 
       const dist = haversineM(negocio.lat, negocio.lng, pos.lat, pos.lng);
       if (dist < 10_000) gps.visita_distancia = dist;
     }
+    // Dirección legible del punto de la visita (paridad con el legacy).
+    // reverseGeocode nunca lanza: si Nominatim falla devuelve "lat, lng".
+    gps.visita_direccion = await reverseGeocode(pos.lat, pos.lng);
     await apiClient.patch(base, gps);
     onDone();
   } catch {

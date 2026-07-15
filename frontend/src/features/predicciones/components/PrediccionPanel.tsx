@@ -12,7 +12,8 @@ interface PrediccionPanelProps {
   resultado: Prediccion | undefined;
 }
 
-/** Sidebar de la vista Predicción: modo clic, coordenadas manuales y resultado. */
+/** Contenido del panel: modo clic, coordenadas manuales y resultado. Se usa
+ * tanto en el sidebar de escritorio como dentro del BottomSheet móvil. */
 export function PrediccionPanel({
   modo,
   onToggleModo,
@@ -21,7 +22,7 @@ export function PrediccionPanel({
   resultado,
 }: PrediccionPanelProps) {
   return (
-    <aside className="scrollbar-slim flex w-full flex-col overflow-y-auto border-r border-border bg-surface md:w-96">
+    <>
       <PanelSection title="Clic en el mapa">
         <Button full variant={modo ? 'secondary' : 'primary'} aria-pressed={modo} onClick={onToggleModo}>
           {modo ? (
@@ -53,7 +54,7 @@ export function PrediccionPanel({
           <p className="text-2xs text-fg-subtle">Haz clic en el mapa o ingresa coordenadas.</p>
         )}
       </PanelSection>
-    </aside>
+    </>
   );
 }
 

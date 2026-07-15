@@ -7,10 +7,15 @@ export const canastaKeys = {
   year: (year: string) => ['canasta', year] as const,
 };
 
-/** Productos activos del año, ya ordenados por categoría y sort_order (backend). */
-export function useCanasta(year: string) {
+/**
+ * Productos activos del año, ya ordenados por categoría y sort_order (backend).
+ * `enabled: false` deja la query en pausa (para el año B de comparación,
+ * que es opcional).
+ */
+export function useCanasta(year: string, opts?: { enabled?: boolean }) {
   const queryClient = useQueryClient();
   return useQuery({
+    enabled: opts?.enabled ?? true,
     queryKey: canastaKeys.year(year),
     queryFn: async ({ signal }) => {
       try {

@@ -64,6 +64,9 @@ export const productoSchema = z.object({
   active: z.boolean().catch(true),
   // Precios por mes; ausente o null = sin capturar.
   prices: z.record(z.string(), z.number().nullable()).catch({}),
+  // Metadata de compra por mes: dónde y qué día se levantó el precio.
+  tiendas: z.record(z.string(), z.string().nullable()).catch({}),
+  fechas_compra: z.record(z.string(), z.string().nullable()).catch({}),
 });
 export type Producto = z.infer<typeof productoSchema>;
 
@@ -137,6 +140,88 @@ export function variaciones(totales: (number | null)[], meses: readonly Mes[]): 
     });
   });
   return out;
+}
+
+/** Modo de vista de la tabla: precios capturados, variación % o trimestres. */
+export type VistaCanasta = 'precios' | 'variacion' | 'trimestres';
+
+export interface Trimestre {
+  key: string;
+  label: string;
+  months: readonly Mes[];
+}
+
+/** Trimestres calendario (mismos cortes que el módulo original). */
+export const QUARTERS: readonly Trimestre[] = [
+  { key: 'Q1', label: 'Q1 · ENE–MAR', months: ['jan', 'feb', 'mar'] },
+  { key: 'Q2', label: 'Q2 · ABR–JUN', months: ['apr', 'may', 'jun'] },
+  { key: 'Q3', label: 'Q3 · JUL–SEP', months: ['jul', 'aug', 'sep'] },
+  { key: 'Q4', label: 'Q4 · OCT–DIC', months: ['oct', 'nov', 'dec'] },
+];
+
+/**
+ * Trimestres con al menos un mes seleccionado. Si hay más de uno, agrega la
+ * columna sintética "PROMEDIO ANUAL" que abarca todos los meses activos.
+ */
+export function trimestresActivos(meses: readonly Mes[]): Trimestre[] {
+  const activos = QUARTERS.filter((q) => q.months.some((m) => meses.includes(m)));
+  if (activos.length > 1) {
+    const all = activos.flatMap((q) => q.months.filter((m) => meses.includes(m)));
+    activos.push({ key: 'ANUAL', label: 'PROMEDIO ANUAL', months: all });
+  }
+  return activos;
+}
+
+/**
+ * Promedio simple por trimestre de los precios de un producto, considerando
+ * solo los meses seleccionados; null si el trimestre no tiene ningún precio.
+ */
+export function promediosTrimestrales(
+  prices: Producto['prices'],
+  trimestres: readonly Trimestre[],
+  meses: readonly Mes[],
+): (number | null)[] {
+  return trimestres.map((q) => {
+    const vals = q.months
+      .filter((m) => meses.includes(m))
+      .map((m) => prices[m])
+      .filter((v): v is number => v != null);
+    if (!vals.length) return null;
+    return Math.round((vals.reduce((a, b) => a + b, 0) / vals.length) * 100) / 100;
+  });
+}
+
+/**
+ * Fila trimestral del pie: promedia los TOTALES mensuales de la canasta (no
+ * los promedios por producto), igual que el módulo original.
+ */
+export function promediosTrimestralesCanasta(
+  productos: Producto[],
+  trimestres: readonly Trimestre[],
+  meses: readonly Mes[],
+): (number | null)[] {
+  const totales = totalesPorMes(productos, meses);
+  return trimestres.map((q) => {
+    const vals = q.months
+      .filter((m) => meses.includes(m))
+      .map((m) => totales[meses.indexOf(m)])
+      .filter((v): v is number => v != null);
+    if (!vals.length) return null;
+    return Math.round((vals.reduce((a, b) => a + b, 0) / vals.length) * 100) / 100;
+  });
+}
+
+/** Día del mes (1–31) de una fecha `YYYY-MM-DD`; null si no hay o es inválida. */
+export function diaDeFecha(fecha: string | null | undefined): number | null {
+  if (!fecha) return null;
+  const dia = Number(fecha.split('-')[2]);
+  return Number.isInteger(dia) && dia >= 1 && dia <= 31 ? dia : null;
+}
+
+/** Fecha de compra `YYYY-MM-DD` a partir de año, mes de la columna y día capturado. */
+export function fechaCompra(year: string, month: Mes, dia: number): string {
+  const mm = String(MESES.indexOf(month) + 1).padStart(2, '0');
+  return `${year}-${mm}-${String(dia).padStart(2, '0')}`;
 }
 
 /** ID de producto derivado del nombre, igual que el backend (minúsculas, _). */

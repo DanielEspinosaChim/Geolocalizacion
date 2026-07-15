@@ -1,15 +1,35 @@
 import { describe, expect, it } from 'vitest';
 import {
   aniosDisponibles,
+  diaDeFecha,
+  fechaCompra,
   mesesVisibles,
+  promediosTrimestrales,
+  promediosTrimestralesCanasta,
   slugProducto,
   totalesPorMes,
+  trimestresActivos,
   variaciones,
+  type Mes,
   type Producto,
 } from './canasta';
 
-function producto(id: string, prices: Record<string, number | null>): Producto {
-  return { id, name: id, category: 'ABARROTES', unit: 'KILO', sort_order: 1, active: true, prices };
+function producto(
+  id: string,
+  prices: Record<string, number | null>,
+  extra: Partial<Pick<Producto, 'tiendas' | 'fechas_compra'>> = {},
+): Producto {
+  return {
+    id,
+    name: id,
+    category: 'ABARROTES',
+    unit: 'KILO',
+    sort_order: 1,
+    active: true,
+    prices,
+    tiendas: extra.tiendas ?? {},
+    fechas_compra: extra.fechas_compra ?? {},
+  };
 }
 
 describe('mesesVisibles', () => {

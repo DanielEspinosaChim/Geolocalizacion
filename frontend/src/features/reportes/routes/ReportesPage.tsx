@@ -1,10 +1,10 @@
 import { History } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router';
-import { FlyTo, MapCanvas, PanelSection } from '@shared/ui';
+import { BottomSheet, FlyTo, MapCanvas, PanelSection } from '@shared/ui';
 import { Simbologia } from '@features/candidatos';
 import { CapasLayers, CapasToggles, useCapas } from '@features/colonias-zonas';
-import { reverseGeocode } from '../api/reverseGeocode';
+import { reverseGeocode } from '@shared/api';
 import { useReportes } from '../api/useReportes';
 import { ReporteForm, type Ubicacion } from '../components/ReporteForm';
 import { ReporteItem } from '../components/ReporteItem';
@@ -30,41 +30,49 @@ export function ReportesPage() {
     setUbicacion({ lat, lng, direccion: await reverseGeocode(lat, lng) });
   }
 
+  const contenido = (
+    <>
+      <PanelSection title="Nuevo reporte ciudadano">
+        <ReporteForm
+          ubicacion={ubicacion}
+          onUbicacion={setUbicacion}
+          modoMapa={modoMapa}
+          onToggleModoMapa={() => setModoMapa((m) => !m)}
+          onCreado={(r) => {
+            setCreado(r);
+            setFoco(r);
+          }}
+        />
+      </PanelSection>
+
+      {creado ? (
+        <PanelSection title="Reporte enviado">
+          <div className="-mx-3">
+            <ReporteItem reporte={creado} onIr={setFoco} />
+          </div>
+        </PanelSection>
+      ) : null}
+
+      <PanelSection title="Reportes anteriores">
+        <Link
+          to="/reportes/historial"
+          className="flex items-center justify-center gap-2 rounded-control border border-border py-2 text-xs font-bold text-fg-muted transition duration-fast ease-out hover:bg-surface-raised hover:text-fg"
+        >
+          <History className="h-4 w-4" aria-hidden="true" /> Ver historial ({reportes.length})
+        </Link>
+      </PanelSection>
+    </>
+  );
+
   return (
-    <div className="flex h-full">
-      <aside className="scrollbar-slim flex w-full flex-col overflow-y-auto border-r border-border bg-surface md:w-96">
-        <PanelSection title="Nuevo reporte ciudadano">
-          <ReporteForm
-            ubicacion={ubicacion}
-            onUbicacion={setUbicacion}
-            modoMapa={modoMapa}
-            onToggleModoMapa={() => setModoMapa((m) => !m)}
-            onCreado={(r) => {
-              setCreado(r);
-              setFoco(r);
-            }}
-          />
-        </PanelSection>
-
-        {creado ? (
-          <PanelSection title="Reporte enviado">
-            <div className="-mx-3">
-              <ReporteItem reporte={creado} onIr={setFoco} />
-            </div>
-          </PanelSection>
-        ) : null}
-
-        <PanelSection title="Reportes anteriores">
-          <Link
-            to="/reportes/historial"
-            className="flex items-center justify-center gap-2 rounded-control border border-border py-2 text-xs font-bold text-fg-muted transition duration-fast ease-out hover:bg-surface-raised hover:text-fg"
-          >
-            <History className="h-4 w-4" aria-hidden="true" /> Ver historial ({reportes.length})
-          </Link>
-        </PanelSection>
+    // El mapa manda incluso en móvil: ahí se elige la ubicación del reporte.
+    // El formulario vive en el cajón inferior, igual que en Candidatos/Rutas.
+    <div className="relative flex h-full">
+      <aside className="scrollbar-slim flex w-96 shrink-0 flex-col overflow-y-auto border-r border-border bg-surface max-md:hidden">
+        {contenido}
       </aside>
 
-      <div className="relative hidden flex-1 md:block">
+      <div className="relative min-w-0 flex-1">
         <MapCanvas zoomPosition="bottomright">
           <ReportesLayer reportes={reportes} onSelect={setFoco} />
           <CapasLayers activas={capas.activas} />
@@ -88,6 +96,10 @@ export function ReportesPage() {
           </div>
         ) : null}
       </div>
+
+      <BottomSheet className="md:hidden" title="Nuevo reporte">
+        {contenido}
+      </BottomSheet>
     </div>
   );
 }

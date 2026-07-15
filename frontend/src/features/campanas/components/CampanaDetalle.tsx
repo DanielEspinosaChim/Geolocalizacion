@@ -1,5 +1,5 @@
 import { ArrowLeft, FileText, LayoutTemplate, Route } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Badge, Button, Page, Spinner, toast, useConfirm } from '@shared/ui';
 import { descargarReporteVisita } from '@features/rutas';
@@ -22,15 +22,35 @@ interface CampanaDetalleProps {
   campanaId: string;
   esTecnico: boolean;
   onVolver: () => void;
+  /** Abre el modal de visita de este negocio al cargar (flujo popup de ruta). */
+  registrarNegocioId?: string | null;
 }
 
-export function CampanaDetalle({ campanaId, esTecnico, onVolver }: CampanaDetalleProps) {
+export function CampanaDetalle({
+  campanaId,
+  esTecnico,
+  onVolver,
+  registrarNegocioId = null,
+}: CampanaDetalleProps) {
   const navigate = useNavigate();
   const { data, isPending } = useCampana(campanaId);
   const { cambiarStatus, eliminar } = useCampanaMutations(campanaId);
   const confirm = useConfirm();
   const [visita, setVisita] = useState<NegocioCampana | null>(null);
   const [plantillasAbierto, setPlantillasAbierto] = useState(false);
+
+  // Al llegar desde el popup de una ruta de campaña, abre la visita una sola
+  // vez cuando los negocios ya están cargados; la ref evita reabrirla si el
+  // usuario la cierra y la query se revalida.
+  const visitaAbierta = useRef(false);
+  useEffect(() => {
+    if (!registrarNegocioId || visitaAbierta.current || !data) return;
+    const negocio = data.negocios.find((n) => n.negocio_id === registrarNegocioId);
+    if (negocio) {
+      visitaAbierta.current = true;
+      setVisita(negocio);
+    }
+  }, [registrarNegocioId, data]);
 
   if (isPending || !data) {
     return (
@@ -49,7 +69,7 @@ export function CampanaDetalle({ campanaId, esTecnico, onVolver }: CampanaDetall
       toast.error(`Se necesitan al menos ${MIN_PARADAS_CAMPANA} negocios con ubicación para la ruta.`);
       return;
     }
-    void navigate('/rutas', { state: { rutaCampana: ids } });
+    void navigate('/rutas', { state: { rutaCampana: ids, campanaId } });
   }
 
   async function finalizar() {
@@ -59,6 +79,16 @@ export function CampanaDetalle({ campanaId, esTecnico, onVolver }: CampanaDetall
       confirmLabel: 'Finalizar',
     });
     if (ok) cambiarStatus.mutate('cerrada', { onSuccess: onVolver });
+  }
+
+  /** Una campaña finalizada puede volver a activa (paridad con el legacy). */
+  async function reactivar() {
+    const ok = await confirm({
+      title: 'Reactivar campaña',
+      description: '¿Volver a poner esta campaña como activa?',
+      confirmLabel: 'Reactivar',
+    });
+    if (ok) cambiarStatus.mutate('activa');
   }
 
   async function borrar() {
@@ -81,6 +111,7 @@ export function CampanaDetalle({ campanaId, esTecnico, onVolver }: CampanaDetall
         onReporte={() => void descargarReporteVisita(negocios.map((n) => n.negocio_id), campanaId)}
         onPlantillas={() => setPlantillasAbierto(true)}
         onFinalizar={() => void finalizar()}
+        onReactivar={() => void reactivar()}
         onEliminar={() => void borrar()}
       />
 
@@ -109,6 +140,7 @@ interface CabeceraProps {
   onReporte: () => void;
   onPlantillas: () => void;
   onFinalizar: () => void;
+  onReactivar: () => void;
   onEliminar: () => void;
 }
 
@@ -120,10 +152,12 @@ function Cabecera({
   onReporte,
   onPlantillas,
   onFinalizar,
+  onReactivar,
   onEliminar,
 }: CabeceraProps) {
   const progreso = progresoDe(campana);
   const meta = STATUS_META[campana.status];
+  const cerrada = campana.status === 'cerrada';
 
   return (
     <header className="grid gap-3">
@@ -132,8 +166,9 @@ function Cabecera({
           <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Campañas
         </Button>
         <div className="ml-auto flex gap-2">
-          <Button variant="ghost" size="sm" onClick={onFinalizar}>
-            Finalizar
+          {/* El botón alterna según el estado, como en el legacy. */}
+          <Button variant="ghost" size="sm" onClick={cerrada ? onReactivar : onFinalizar}>
+            {cerrada ? 'Reactivar' : 'Finalizar'}
           </Button>
           {!esTecnico ? (
             <Button variant="danger" size="sm" onClick={onEliminar}>
