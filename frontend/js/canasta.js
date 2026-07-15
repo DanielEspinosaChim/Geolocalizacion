@@ -5,9 +5,60 @@
 const CAN_MONTHS = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
 const CAN_LABELS = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
 
+function _latestFecha(product) {
+  const fechas = product.fechas_compra || {};
+  for (let i = CAN_MONTHS.length - 1; i >= 0; i--) {
+    const f = fechas[CAN_MONTHS[i]];
+    if (f) return f;
+  }
+  return null;
+}
+
+function _formatFecha(dateStr) {
+  if (!dateStr) return '—';
+  try {
+    const [, m, d] = dateStr.split('-');
+    const mn = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+    return `${parseInt(d)}/${mn[parseInt(m) - 1]}`;
+  } catch { return '—'; }
+}
+
 let _canData    = [];   // productos cargados
 let _canYear    = '2026';
 let _canLoaded  = false;
+let _canViewMode = 'precios'; // 'precios' | 'variacion' | 'trimestres'
+let _canMesesSeleccionados = new Set(CAN_MONTHS);
+let _canYearB  = null;
+let _canDataB  = null;
+
+const _QUARTERS = [
+  { key:'Q1', label:'Q1  ENE–MAR', months:['jan','feb','mar'] },
+  { key:'Q2', label:'Q2  ABR–JUN', months:['apr','may','jun'] },
+  { key:'Q3', label:'Q3  JUL–SEP', months:['jul','aug','sep'] },
+  { key:'Q4', label:'Q4  OCT–DIC', months:['oct','nov','dec'] },
+];
+
+function _trimestresActivos(meses) {
+  const activos = _QUARTERS.filter(q => q.months.some(m => meses.includes(m)));
+  if (activos.length > 1) {
+    const all = activos.flatMap(q => q.months.filter(m => meses.includes(m)));
+    activos.push({ key:'ANUAL', label:'PROMEDIO ANUAL', months: all });
+  }
+  return activos;
+}
+
+function cambiarVistaCanasta(mode) {
+  _canViewMode = mode;
+  ['precios','variacion','trimestres'].forEach(m => {
+    const el = document.getElementById('can-pill-' + m);
+    if (!el) return;
+    const on = m === mode;
+    el.style.background  = on ? '#1e3a5f' : 'transparent';
+    el.style.color       = on ? '#93c5fd' : '#475569';
+    el.style.borderColor = on ? '#2563eb' : '#1a2d56';
+  });
+  if (_canData.length) _renderTabla(_canData);
+}
 
 // ── Carga principal ──────────────────────────────────────────────────────────
 
@@ -29,6 +80,8 @@ async function cargarCanasta(year) {
     if (!res.ok) throw new Error(await res.text());
     _canData   = await res.json();
     _canLoaded = true;
+    _canMesesSeleccionados = new Set(_mesesDisponibles());
+    _inicializarChipsMeses();
     _renderTabla(_canData);
     _renderResumen(_canData);
   } catch (e) {
@@ -40,13 +93,82 @@ async function cargarCanasta(year) {
 
 // ── Meses visibles según año ─────────────────────────────────────────────────
 
-function _mesesVisibles() {
-  const hoy        = new Date();
+function _mesesDisponibles() {
+  const hoy = new Date();
   const anioActual = hoy.getFullYear().toString();
-  const mesActual  = hoy.getMonth(); // 0-based
-  if (_canYear < anioActual) return CAN_MONTHS;                        // año pasado: 12 meses
-  if (_canYear === anioActual) return CAN_MONTHS.slice(0, mesActual + 1); // solo hasta el mes actual
-  return [];                                                             // año futuro: nada
+  const mesActual  = hoy.getMonth();
+  if (_canYear < anioActual)  return CAN_MONTHS;
+  if (_canYear === anioActual) return CAN_MONTHS.slice(0, mesActual + 1);
+  return [];
+}
+
+function _mesesVisibles() {
+  return _mesesDisponibles().filter(m => _canMesesSeleccionados.has(m));
+}
+
+// ── Chips de meses ───────────────────────────────────────────────────────────
+
+function _inicializarChipsMeses() {
+  const wrap = document.getElementById('can-chips-wrap');
+  if (!wrap) return;
+  const disponibles = _mesesDisponibles();
+  wrap.innerHTML = disponibles.map(m => {
+    const label = CAN_LABELS[CAN_MONTHS.indexOf(m)];
+    const sel   = _canMesesSeleccionados.has(m);
+    return `<button id="can-chip-${m}" onclick="toggleMesCanasta('${m}')"
+              style="padding:3px 11px;border-radius:12px;font-size:10px;font-weight:700;
+                     cursor:pointer;font-family:'Inter',sans-serif;letter-spacing:.05em;
+                     transition:all .12s;
+                     background:${sel ? '#1e3a5f' : 'transparent'};
+                     color:${sel ? '#93c5fd' : '#334155'};
+                     border:1px solid ${sel ? '#2563eb' : '#0f1f3d'}">
+              ${label}
+            </button>`;
+  }).join('');
+
+  // Poblar selector año B con los años disponibles (excluyendo el actual)
+  const selB = document.getElementById('can-year-b');
+  if (selB) {
+    const anioActual = new Date().getFullYear();
+    selB.innerHTML = '<option value="">— ninguno —</option>';
+    for (let a = anioActual; a >= 2024; a--) {
+      if (a.toString() === _canYear) continue;
+      const opt = document.createElement('option');
+      opt.value = a;
+      opt.textContent = a;
+      if (a.toString() === _canYearB) opt.selected = true;
+      selB.appendChild(opt);
+    }
+  }
+}
+
+function toggleMesCanasta(mes) {
+  if (_canMesesSeleccionados.has(mes)) {
+    if (_canMesesSeleccionados.size > 1) _canMesesSeleccionados.delete(mes);
+  } else {
+    _canMesesSeleccionados.add(mes);
+  }
+  CAN_MONTHS.forEach(m => {
+    const chip = document.getElementById('can-chip-' + m);
+    if (!chip) return;
+    const sel = _canMesesSeleccionados.has(m);
+    chip.style.background  = sel ? '#1e3a5f' : 'transparent';
+    chip.style.color       = sel ? '#93c5fd' : '#334155';
+    chip.style.borderColor = sel ? '#2563eb' : '#0f1f3d';
+  });
+  if (_canData.length) _renderTabla(_canData);
+}
+
+async function cambiarAnioComparacion(yearB) {
+  _canYearB = yearB || null;
+  _canDataB = null;
+  if (_canYearB) {
+    try {
+      const res = await fetch(`/api/canasta/${_canYearB}`);
+      if (res.ok) _canDataB = await res.json();
+    } catch {}
+  }
+  if (_canData.length) _renderTabla(_canData);
 }
 
 function _inicializarSelectorAnio() {
@@ -84,22 +206,35 @@ function _renderTabla(productos) {
 }
 
 function _buildThead(meses) {
-  const thMeses = meses.map((m, i) =>
-    `<th style="${_thStyle()}">${CAN_LABELS[CAN_MONTHS.indexOf(m)]}</th>`
-  ).join('');
+  let cols;
+  if (_canViewMode === 'trimestres') {
+    cols = _trimestresActivos(meses).map(q =>
+      `<th style="${_thStyle()}">${q.label}</th>`
+    ).join('');
+  } else {
+    cols = meses.map(m =>
+      `<th style="${_thStyle()}">${CAN_LABELS[CAN_MONTHS.indexOf(m)]}</th>`
+    ).join('');
+  }
   return `
     <thead>
       <tr>
         <th style="${_thStyle()}">CATEGORÍA</th>
         <th style="${_thStyle()}">SUMINISTRO</th>
         <th style="${_thStyle()}">PRES.</th>
-        ${thMeses}
+        ${cols}
         <th style="${_thStyle('48px')}"></th>
       </tr>
     </thead>`;
 }
 
 function _buildTbody(productos, meses) {
+  if (_canViewMode === 'variacion')  return _buildTbodyVariacion(productos, meses);
+  if (_canViewMode === 'trimestres') return _buildTbodyTrimestres(productos, meses);
+  return _buildTbodyPrecios(productos, meses);
+}
+
+function _buildTbodyPrecios(productos, meses) {
   let html = '<tbody>';
   let lastCat = null;
   for (const p of productos) {
@@ -110,18 +245,46 @@ function _buildTbody(productos, meses) {
       : `<td style="${_tdStyle()};color:#475569">${p.category}</td>`;
 
     const priceCells = meses.map(m => {
-      const val = p.prices ? p.prices[m] : null;
+      const val     = p.prices ? p.prices[m] : null;
       const display = val != null ? val.toFixed(2) : '';
-      return `<td style="${_tdStyle()};text-align:right;padding-right:10px">
-        <span class="can-cell"
-              contenteditable="true"
-              data-id="${p.id}" data-month="${m}"
-              onblur="guardarPrecioCanasta(this)"
-              onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur()}"
-              style="display:inline-block;min-width:52px;outline:none;cursor:text;
-                     border-radius:4px;padding:2px 4px;
-                     ${val == null ? 'color:#334155' : 'color:#dde9ff'}"
-        >${display}</span>
+      const tienda    = p.tiendas       ? (p.tiendas[m]       || null) : null;
+      const fechaRaw  = p.fechas_compra ? (p.fechas_compra[m] || null) : null;
+      const dia       = fechaRaw ? parseInt(fechaRaw.split('-')[2]) : null;
+      const tiendaShort = tienda ? tienda.substring(0, 9) : '';
+      const badgeText   = tienda ? (tiendaShort + (dia ? ' · ' + dia : '')) : '+ tienda';
+      const tooltip     = tienda ? (tienda + (dia ? ', día ' + dia : '')) : 'Agregar tienda y fecha';
+      return `<td style="${_tdStyle()};text-align:right;padding-right:10px;padding-top:3px;padding-bottom:3px">
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px">
+          <span class="can-cell"
+                contenteditable="true"
+                data-id="${p.id}" data-month="${m}"
+                onblur="guardarPrecioCanasta(this)"
+                onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur()}"
+                style="display:inline-block;min-width:52px;outline:none;cursor:text;
+                       border-radius:4px;padding:2px 4px;
+                       ${val == null ? 'color:#334155' : 'color:#dde9ff'}"
+          >${display}</span>
+          ${(() => {
+            if (!_canYearB || !_canDataB) return '';
+            const pB   = _canDataB.find(x => x.id === p.id);
+            const valB = pB?.prices?.[m];
+            if (!valB || !val) return '';
+            const pctStr = (() => { const p2 = ((val - valB) / valB * 100); return (p2 > 0 ? '+' : '') + p2.toFixed(1) + '%'; })();
+            const col = val > valB ? '#ef4444' : val < valB ? '#22c55e' : '#475569';
+            return `<span style="font-size:9px;color:${col};line-height:1.2;font-weight:600">
+              ${_canYearB}: $${valB.toFixed(2)} (${pctStr})</span>`;
+          })()}
+          <span class="can-meta"
+                onclick="editarMetadataCanasta('${p.id}','${m}')"
+                title="${tooltip}"
+                style="font-size:9px;cursor:pointer;border-radius:3px;padding:1px 5px;
+                       line-height:1.3;user-select:none;
+                       ${tienda
+                         ? 'color:#3b82f6;background:#3b82f620;border:1px solid #3b82f640'
+                         : 'color:#334155;background:#0f1f3d;border:1px solid #1a2d56'}">
+            ${badgeText}
+          </span>
+        </div>
       </td>`;
     }).join('');
 
@@ -144,7 +307,105 @@ function _buildTbody(productos, meses) {
   return html;
 }
 
+function _buildTbodyVariacion(productos, meses) {
+  let html = '<tbody>';
+  let lastCat = null;
+  for (const p of productos) {
+    const isNewCat = p.category !== lastCat;
+    lastCat = p.category;
+    const catCell = isNewCat
+      ? `<td style="${_tdStyle()};font-weight:700;color:#dde9ff">${p.category}</td>`
+      : `<td style="${_tdStyle()};color:#475569">${p.category}</td>`;
+
+    const cells = meses.map((m, i) => {
+      const val   = p.prices && p.prices[m]         != null ? p.prices[m]         : null;
+      const prev  = i > 0 && p.prices && p.prices[meses[i-1]] != null ? p.prices[meses[i-1]] : null;
+      if (i === 0 || val == null || prev == null || prev === 0) {
+        return `<td style="${_tdStyle()};text-align:right;padding-right:10px">
+          <span style="color:#1a2d56">—</span></td>`;
+      }
+      const pct   = ((val - prev) / prev) * 100;
+      const sign  = pct > 0 ? '+' : '';
+      const color = pct > 0 ? '#ef4444' : pct < 0 ? '#22c55e' : '#475569';
+      const bg    = pct > 0 ? '#2d1010' : pct < 0 ? '#0d2d1a' : '#0f1f3d';
+      return `<td style="${_tdStyle()};text-align:right;padding-right:10px">
+        <span style="display:inline-block;padding:2px 8px;border-radius:4px;
+                     background:${bg};color:${color};font-weight:700;font-size:11px">
+          ${sign}${pct.toFixed(1)}%
+        </span></td>`;
+    }).join('');
+
+    html += `<tr style="border-bottom:1px solid #0f1f3d">
+      ${catCell}
+      <td style="${_tdStyle()};color:#94a3b8">${p.name}</td>
+      <td style="${_tdStyle()};color:#475569">${p.unit}</td>
+      ${cells}
+      <td style="${_tdStyle()}"></td>
+    </tr>`;
+  }
+  html += '</tbody>';
+  return html;
+}
+
+function _buildTbodyTrimestres(productos, meses) {
+  const quarters = _trimestresActivos(meses);
+  let html = '<tbody>';
+  let lastCat = null;
+  for (const p of productos) {
+    const isNewCat = p.category !== lastCat;
+    lastCat = p.category;
+    const catCell = isNewCat
+      ? `<td style="${_tdStyle()};font-weight:700;color:#dde9ff">${p.category}</td>`
+      : `<td style="${_tdStyle()};color:#475569">${p.category}</td>`;
+
+    const cells = quarters.map(q => {
+      const vals = q.months
+        .filter(m => meses.includes(m))
+        .map(m => p.prices && p.prices[m] != null ? p.prices[m] : null)
+        .filter(v => v != null);
+      if (!vals.length) {
+        return `<td style="${_tdStyle()};text-align:right;padding-right:10px;color:#1a2d56">—</td>`;
+      }
+      const avg = vals.reduce((a, b) => a + b, 0) / vals.length;
+      return `<td style="${_tdStyle()};text-align:right;padding-right:10px;color:#dde9ff">
+        ${avg.toFixed(2)}</td>`;
+    }).join('');
+
+    html += `<tr style="border-bottom:1px solid #0f1f3d">
+      ${catCell}
+      <td style="${_tdStyle()};color:#94a3b8">${p.name}</td>
+      <td style="${_tdStyle()};color:#475569">${p.unit}</td>
+      ${cells}
+      <td style="${_tdStyle()}"></td>
+    </tr>`;
+  }
+  html += '</tbody>';
+  return html;
+}
+
 function _buildTfoot(productos, meses) {
+  if (_canViewMode === 'trimestres') {
+    const quarters = _trimestresActivos(meses);
+    const monthTotals = {};
+    for (const m of meses) {
+      const vals = productos.filter(p => p.prices && p.prices[m] != null).map(p => p.prices[m]);
+      monthTotals[m] = vals.length ? vals.reduce((a, b) => a + b, 0) : null;
+    }
+    const totales = quarters.map(q => {
+      const qM = q.months.filter(m => meses.includes(m) && monthTotals[m] != null);
+      if (!qM.length) return null;
+      return qM.reduce((a, m) => a + monthTotals[m], 0) / qM.length;
+    });
+    return `<tfoot>
+      <tr style="border-top:2px solid #1a2d56;background:#0a1428">
+        <td colspan="3" style="${_tdStyle()};font-weight:700;color:#dde9ff">PROMEDIO CANASTA</td>
+        ${totales.map(t => `<td style="${_tdStyle()};text-align:right;padding-right:10px;
+          font-weight:700;color:#dde9ff">${t != null ? '$ ' + t.toFixed(2) : ''}</td>`).join('')}
+        <td style="${_tdStyle()}"></td>
+      </tr>
+    </tfoot>`;
+  }
+
   const totales = meses.map(m => {
     const precios = productos.filter(p => p.prices && p.prices[m] != null).map(p => p.prices[m]);
     return precios.length ? precios.reduce((a, b) => a + b, 0) : null;
@@ -185,7 +446,38 @@ function _buildTfoot(productos, meses) {
     <td style="${_tdStyle()}"></td>
   </tr>`;
 
-  return `<tfoot>${totalRow}${difRow}${pctRow}</tfoot>`;
+  // Fila de comparación con año B
+  let yearBRow = '';
+  if (_canYearB && _canDataB) {
+    const totalesB = meses.map(m => {
+      const precios = _canDataB.filter(p => p.prices && p.prices[m] != null).map(p => p.prices[m]);
+      return precios.length ? precios.reduce((a, b) => a + b, 0) : null;
+    });
+    yearBRow = `<tr style="background:#0a1428;border-bottom:1px solid #1a2d56">
+      <td colspan="3" style="${_tdStyle()};color:#64748b;font-size:11px">
+        <span style="color:#3b82f6;font-weight:700">${_canYear}</span>
+        <span style="color:#334155"> vs </span>
+        <span style="color:#64748b;font-weight:700">${_canYearB}</span>
+        <span style="color:#334155;font-size:10px"> — diferencia anual</span>
+      </td>
+      ${totalesB.map((tB, i) => {
+        if (tB == null) return `<td style="${_tdStyle()}"></td>`;
+        const tA  = totales[i];
+        if (tA == null) return `<td style="${_tdStyle()};text-align:right;padding-right:10px;
+          color:#334155">$${tB.toFixed(2)}</td>`;
+        const pct  = tB > 0 ? ((tA - tB) / tB * 100) : null;
+        const pctLabel = pct != null ? ((pct > 0 ? '+' : '') + pct.toFixed(1) + '%') : '—';
+        const col = pct != null ? (pct > 0 ? '#ef4444' : pct < 0 ? '#22c55e' : '#475569') : '#475569';
+        return `<td style="${_tdStyle()};text-align:right;padding-right:10px">
+          <span style="color:#334155;font-size:10px">$${tB.toFixed(2)} → </span>
+          <span style="color:${col};font-weight:700;font-size:12px">${pctLabel}</span>
+        </td>`;
+      }).join('')}
+      <td style="${_tdStyle()}"></td>
+    </tr>`;
+  }
+
+  return `<tfoot>${totalRow}${yearBRow}${difRow}${pctRow}</tfoot>`;
 }
 
 function _thStyle(w) {
@@ -278,7 +570,8 @@ function _renderResumen(productos) {
 
 async function descargarExcelCanasta() {
   try {
-    const res = await fetch(`/api/canasta/${_canYear}/export/excel`);
+    const endpoint = `/api/canasta/${_canYear}/export/excel` + (_canYearB ? `?compare=${_canYearB}` : '');
+    const res = await fetch(endpoint);
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));
       alert('Error al generar Excel: ' + (err.detail || res.statusText));
@@ -530,12 +823,18 @@ async function guardarEscaneo() {
     return;
   }
 
+  const tiendaScan = (() => {
+    const el = document.getElementById('scan-tienda');
+    return el && el.value.trim() ? el.value.trim().toUpperCase() : null;
+  })();
+  const fechaScan = new Date().toISOString().slice(0, 10);
+
   // Guardar en paralelo
   const saves = seleccionados.map(item =>
     fetch(`/api/canasta/${_canYear}/${item.matched_id}`, {
       method:  'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify({ month: mes, price: item.detected_price }),
+      body:    JSON.stringify({ month: mes, price: item.detected_price, tienda: tiendaScan, fecha_compra: fechaScan }),
     })
   );
 
@@ -716,6 +1015,68 @@ function generarInfografiaCanasta() {
     a.click();
     URL.revokeObjectURL(url);
   }, 'image/png');
+}
+
+// ── Metadata: tienda + fecha de compra ──────────────────────────────────────
+
+function editarMetadataCanasta(productId, month) {
+  const prod   = _canData.find(p => p.id === productId);
+  const tienda = prod && prod.tiendas       ? (prod.tiendas[month]       || '') : '';
+  const fecha  = prod && prod.fechas_compra ? (prod.fechas_compra[month] || '') : '';
+  // Pre-fill dia from existing fecha (YYYY-MM-DD → day number)
+  const dia = fecha ? parseInt(fecha.split('-')[2]) || '' : '';
+
+  document.getElementById('meta-product-id').value = productId;
+  document.getElementById('meta-month').value       = month;
+  document.getElementById('meta-tienda').value      = tienda;
+  document.getElementById('meta-dia').value         = dia;
+  document.getElementById('meta-label').textContent =
+    `${prod ? prod.name : productId} · ${CAN_LABELS[CAN_MONTHS.indexOf(month)]} ${_canYear}`;
+
+  document.getElementById('modal-meta').style.display = 'flex';
+  setTimeout(() => document.getElementById('meta-tienda').focus(), 50);
+}
+
+function cerrarModalMeta() {
+  document.getElementById('modal-meta').style.display = 'none';
+}
+
+async function guardarMetadataCanasta() {
+  const productId = document.getElementById('meta-product-id').value;
+  const month     = document.getElementById('meta-month').value;
+  const tienda    = document.getElementById('meta-tienda').value.trim().toUpperCase() || null;
+  const diaRaw    = parseInt(document.getElementById('meta-dia').value);
+
+  // Año del selector + mes de la columna clicada + día ingresado
+  let fecha = null;
+  if (diaRaw >= 1 && diaRaw <= 31) {
+    const monthNum = String(CAN_MONTHS.indexOf(month) + 1).padStart(2, '0');
+    fecha = `${_canYear}-${monthNum}-${String(diaRaw).padStart(2, '0')}`;
+  }
+
+  const prod  = _canData.find(p => p.id === productId);
+  const price = prod && prod.prices ? prod.prices[month] : null;
+
+  try {
+    const r = await fetch(`/api/canasta/${_canYear}/${productId}`, {
+      method:  'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ month, price, tienda, fecha_compra: fecha }),
+    });
+    if (!r.ok) throw new Error(await r.text());
+
+    if (prod) {
+      if (!prod.tiendas)       prod.tiendas = {};
+      if (!prod.fechas_compra) prod.fechas_compra = {};
+      prod.tiendas[month]       = tienda;
+      prod.fechas_compra[month] = fecha;
+    }
+
+    cerrarModalMeta();
+    _renderTabla(_canData);
+  } catch (e) {
+    alert('Error al guardar: ' + e.message);
+  }
 }
 
 // ── Seed de datos históricos 2026 ────────────────────────────────────────────

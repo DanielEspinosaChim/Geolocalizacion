@@ -102,12 +102,13 @@ def get_canasta(year: str):
         "Actualiza o borra el precio de un producto para el mes indicado. "
         "Si ya existía un valor lo sobreescribe. "
         "Enviar `price: null` borra el valor del mes. "
+        "Campos opcionales: `tienda` (string) y `fecha_compra` (YYYY-MM-DD). "
         "Meses válidos: jan feb mar apr may jun jul aug sep oct nov dec."
     ),
 )
 def update_precio(year: str, product_id: str, body: dict = Body(
     ...,
-    example={"month": "aug", "price": 85.00},
+    example={"month": "aug", "price": 85.00, "tienda": "WALMART", "fecha_compra": "2026-08-05"},
 )):
     if fdb is None:
         raise HTTPException(503, "Firestore no disponible")
@@ -117,10 +118,18 @@ def update_precio(year: str, product_id: str, body: dict = Body(
         raise HTTPException(400, f"Mes inválido: {month}")
     try:
         price_val = float(price) if price not in (None, "", "-") else None
-        _col(year).document(product_id).update({
+        update_data = {
             f"prices.{month}": price_val,
             "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        })
+        }
+        # Tienda y fecha_compra son opcionales — solo se actualizan si vienen en el body
+        if "tienda" in body:
+            tienda = body["tienda"]
+            update_data[f"tiendas.{month}"] = tienda.strip().upper() if tienda else None
+        if "fecha_compra" in body:
+            fecha = body["fecha_compra"]
+            update_data[f"fechas_compra.{month}"] = fecha if fecha else None
+        _col(year).document(product_id).update(update_data)
         return {"ok": True}
     except Exception as e:
         raise HTTPException(500, str(e))
@@ -159,6 +168,8 @@ def add_product(year: str, body: dict = Body(
             "sort_order": max_order + 1,
             "active": True,
             "prices": {m: None for m in MONTHS},
+            "tiendas": {},
+            "fechas_compra": {},
             "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         })
         return {"ok": True, "id": product_id}
@@ -248,6 +259,8 @@ def seed_canasta(year: str):
                 "sort_order": p["sort_order"],
                 "active": True,
                 "prices": {**{m: None for m in MONTHS}, **p["prices"]},
+                "tiendas": {},
+                "fechas_compra": {},
                 "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             }
             col.document(p["id"]).set(doc)
@@ -274,7 +287,7 @@ _MONTH_NAMES = ['ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO',
         "Primeras 3 columnas + encabezado congelados (D2)."
     ),
 )
-def export_excel(year: str):
+def export_excel(year: str, compare: str = None):
     if fdb is None:
         raise HTTPException(503, "Firestore no disponible")
     try:
@@ -403,6 +416,289 @@ def export_excel(year: str):
 
         # ── Congelar encabezado ──────────────────────────────────────────────
         ws.freeze_panes = "D2"
+
+        # ── Hoja "Tienda y Fecha" — misma estructura que precios ────────────────
+        ws2 = wb.create_sheet("Tienda y Fecha")
+        hdr_border2 = Border(bottom=Side(style="medium", color="1E3A6E"))
+        for col_i, h in enumerate(headers, 1):
+            cell2 = ws2.cell(row=1, column=col_i, value=h)
+            cell2.fill      = hdr_fill
+            cell2.font      = hdr_font
+            cell2.alignment = center
+            cell2.border    = hdr_border2
+
+        ws2.column_dimensions["A"].width = 16
+        ws2.column_dimensions["B"].width = 28
+        ws2.column_dimensions["C"].width = 12
+        for ci2 in range(4, 4 + len(active_months)):
+            ws2.column_dimensions[openpyxl.utils.get_column_letter(ci2)].width = 20
+
+        last_cat2 = None
+        row2 = 2
+        for p in products:
+            cat = p.get("category", "")
+            fill_hex2 = CAT_FILLS.get(cat, "FFFFFF")
+            row_fill2 = PatternFill("solid", fgColor=fill_hex2)
+            is_new2   = cat != last_cat2
+            last_cat2 = cat
+
+            side_border = Border(bottom=thin, right=Side(style="thin", color="D1D9F0"))
+            c2a = ws2.cell(row=row2, column=1, value=cat if is_new2 else "")
+            c2a.font      = cat_font if is_new2 else Font(color="AAAAAA", size=9)
+            c2a.fill      = row_fill2
+            c2a.border    = side_border
+            c2b = ws2.cell(row=row2, column=2, value=p["name"])
+            c2b.fill      = row_fill2
+            c2b.font      = Font(size=10, bold=True, color="1E293B")
+            c2b.border    = side_border
+            c2c = ws2.cell(row=row2, column=3, value=p.get("unit", ""))
+            c2c.fill      = row_fill2
+            c2c.alignment = center
+            c2c.font      = Font(size=9, color="64748B")
+            c2c.border    = Border(bottom=thin, right=Side(style="medium", color="B0B8D0"))
+
+            for ci2, m in enumerate(active_months, 4):
+                tienda_v = ((p.get("tiendas") or {}).get(m) or "").strip()
+                fecha_v  = (p.get("fechas_compra") or {}).get(m) or ""
+                try:
+                    dia = str(int(fecha_v.split("-")[2])) if fecha_v else ""
+                except Exception:
+                    dia = ""
+                if tienda_v and dia:
+                    val2 = f"{tienda_v}  ·  Día {dia}"
+                elif tienda_v:
+                    val2 = tienda_v
+                elif dia:
+                    val2 = f"Día {dia}"
+                else:
+                    val2 = "—"
+                c2 = ws2.cell(row=row2, column=ci2, value=val2)
+                c2.fill      = row_fill2
+                c2.alignment = center
+                c2.border    = Border(bottom=thin, right=Side(style="thin", color="E0E7FF"))
+                c2.font      = Font(
+                    size=10,
+                    color="2563EB" if (tienda_v or dia) else "C8D3E8",
+                    bold=bool(tienda_v),
+                )
+
+            row2 += 1
+
+        ws2.freeze_panes = "D2"
+        ws2.row_dimensions[1].height = 22
+
+        # ── Hoja "Variación %" ───────────────────────────────────────────────
+        ws3 = wb.create_sheet("Variación %")
+        for col_i, h in enumerate(headers, 1):
+            c = ws3.cell(row=1, column=col_i, value=h)
+            c.fill = hdr_fill; c.font = hdr_font; c.alignment = center
+            c.border = Border(bottom=Side(style="medium", color="1E3A6E"))
+
+        ws3.column_dimensions["A"].width = 16
+        ws3.column_dimensions["B"].width = 26
+        ws3.column_dimensions["C"].width = 12
+        for ci in range(4, 4 + len(active_months)):
+            ws3.column_dimensions[openpyxl.utils.get_column_letter(ci)].width = 13
+
+        row3 = 2
+        last_cat3 = None
+        tot3_rows = []
+        for p in products:
+            cat = p.get("category", "")
+            fill_hex3 = CAT_FILLS.get(cat, "FFFFFF")
+            rf3 = PatternFill("solid", fgColor=fill_hex3)
+            is_new3 = cat != last_cat3; last_cat3 = cat
+            ws3.cell(row=row3, column=1, value=cat if is_new3 else "").fill = rf3
+            ws3.cell(row=row3, column=1).font = cat_font if is_new3 else Font(color="AAAAAA", size=9)
+            ws3.cell(row=row3, column=2, value=p["name"]).fill = rf3
+            ws3.cell(row=row3, column=2).font = Font(size=10, bold=True, color="1E293B")
+            ws3.cell(row=row3, column=3, value=p.get("unit","")).fill = rf3
+            ws3.cell(row=row3, column=3).alignment = center
+            ws3.cell(row=row3, column=3).font = Font(size=9, color="64748B")
+
+            row_pcts = []
+            for i, (ci, m) in enumerate(zip(range(4, 4 + len(active_months)), active_months)):
+                val  = p.get("prices", {}).get(m)
+                prev = p.get("prices", {}).get(active_months[i-1]) if i > 0 else None
+                c3   = ws3.cell(row=row3, column=ci)
+                c3.fill = rf3
+                c3.alignment = right_al
+                c3.border = Border(bottom=thin, right=Side(style="thin", color="E0E7FF"))
+                if i > 0 and val is not None and prev is not None and prev != 0:
+                    pct = (val - prev) / prev
+                    c3.value = pct
+                    c3.number_format = '+0.0%;-0.0%'
+                    c3.font = Font(color="C00000" if pct > 0 else "00B050", bold=True, size=10)
+                    row_pcts.append(pct)
+                else:
+                    c3.value = "—" if i == 0 else ""
+                    c3.font = Font(color="CCCCCC", size=9)
+            tot3_rows.append(row_pcts)
+            row3 += 1
+
+        # Fila total variación
+        ws3.cell(row=row3, column=3, value="% TOTAL CANASTA").font = Font(bold=True, size=10, color="FFFFFF")
+        ws3.cell(row=row3, column=3).fill = PatternFill("solid", fgColor="1F3864")
+        ws3.cell(row=row3, column=3).alignment = center
+        for i, (ci, m) in enumerate(zip(range(4, 4 + len(active_months)), active_months)):
+            t  = totales[i] if i < len(totales) else None
+            tp = totales[i-1] if i > 0 and (i-1) < len(totales) else None
+            c3 = ws3.cell(row=row3, column=ci)
+            c3.fill = PatternFill("solid", fgColor="1F3864")
+            if t and tp and tp != 0:
+                pct = (t - tp) / tp
+                c3.value = pct
+                c3.number_format = '+0.0%;-0.0%'
+                c3.font = Font(color="FF9999" if pct > 0 else "99FFB3", bold=True, size=10)
+                c3.alignment = right_al
+        ws3.freeze_panes = "D2"
+
+        # ── Hoja "Trimestres" ────────────────────────────────────────────────
+        QUARTERS_DEF = [
+            ("Q1  ENE–MAR", ["jan","feb","mar"]),
+            ("Q2  ABR–JUN", ["apr","may","jun"]),
+            ("Q3  JUL–SEP", ["jul","aug","sep"]),
+            ("Q4  OCT–DIC", ["oct","nov","dec"]),
+        ]
+        active_q = [(lbl, [m for m in months if m in active_months])
+                    for lbl, months in QUARTERS_DEF
+                    if any(m in active_months for m in months)]
+        if len(active_q) > 1:
+            all_qm = [m for _, ms in active_q for m in ms]
+            active_q.append(("PROMEDIO ANUAL", all_qm))
+
+        ws4 = wb.create_sheet("Trimestres")
+        hdr4 = ["CATEGORIA","SUMINISTRO","PRESENTACION"] + [lbl for lbl, _ in active_q]
+        for col_i, h in enumerate(hdr4, 1):
+            c = ws4.cell(row=1, column=col_i, value=h)
+            c.fill = hdr_fill; c.font = hdr_font; c.alignment = center
+            c.border = Border(bottom=Side(style="medium", color="1E3A6E"))
+
+        ws4.column_dimensions["A"].width = 16
+        ws4.column_dimensions["B"].width = 26
+        ws4.column_dimensions["C"].width = 12
+        for ci in range(4, 4 + len(active_q)):
+            ws4.column_dimensions[openpyxl.utils.get_column_letter(ci)].width = 18
+
+        row4 = 2
+        last_cat4 = None
+        qtotals = [0.0] * len(active_q)
+        qcounts = [0]   * len(active_q)
+        for p in products:
+            cat = p.get("category","")
+            rf4 = PatternFill("solid", fgColor=CAT_FILLS.get(cat,"FFFFFF"))
+            is_new4 = cat != last_cat4; last_cat4 = cat
+            ws4.cell(row=row4, column=1, value=cat if is_new4 else "").fill = rf4
+            ws4.cell(row=row4, column=1).font = cat_font if is_new4 else Font(color="AAAAAA", size=9)
+            ws4.cell(row=row4, column=2, value=p["name"]).fill = rf4
+            ws4.cell(row=row4, column=2).font = Font(size=10, bold=True, color="1E293B")
+            ws4.cell(row=row4, column=3, value=p.get("unit","")).fill = rf4
+            ws4.cell(row=row4, column=3).alignment = center
+
+            for qi, (_, qmonths) in enumerate(active_q):
+                vals = [p.get("prices",{}).get(m) for m in qmonths if p.get("prices",{}).get(m) is not None]
+                c4 = ws4.cell(row=row4, column=4+qi)
+                c4.fill = rf4
+                c4.alignment = right_al
+                c4.border = Border(bottom=thin, right=Side(style="thin", color="E0E7FF"))
+                if vals:
+                    avg = round(sum(vals)/len(vals), 2)
+                    c4.value = avg
+                    c4.number_format = num_fmt
+                    c4.font = Font(size=10, color="1E293B")
+                    qtotals[qi] += avg
+                    qcounts[qi] += 1
+                else:
+                    c4.value = ""; c4.font = Font(color="CCCCCC", size=9)
+            row4 += 1
+
+        # Fila total trimestres
+        ws4.cell(row=row4, column=3, value="TOTAL CANASTA").font = Font(color="FFFFFF", bold=True, size=10)
+        ws4.cell(row=row4, column=3).fill = PatternFill("solid", fgColor="1F3864")
+        ws4.cell(row=row4, column=3).alignment = center
+        for qi in range(len(active_q)):
+            c4 = ws4.cell(row=row4, column=4+qi, value=round(qtotals[qi],2) if qcounts[qi] else "")
+            c4.fill = PatternFill("solid", fgColor="1F3864")
+            c4.font = Font(color="FFFFFF", bold=True, size=10)
+            c4.alignment = right_al
+            if qcounts[qi]: c4.number_format = num_fmt
+        ws4.freeze_panes = "D2"
+
+        # ── Hoja "vs {compare}" — solo si se pidió comparación ───────────────
+        if compare and compare != year:
+            products_b = _get_products(compare)
+            prices_b   = {p["id"]: p.get("prices", {}) for p in products_b}
+
+            ws5 = wb.create_sheet(f"{year} vs {compare}")
+            for col_i, h in enumerate(headers, 1):
+                c = ws5.cell(row=1, column=col_i, value=h)
+                c.fill = hdr_fill; c.font = hdr_font; c.alignment = center
+                c.border = Border(bottom=Side(style="medium", color="1E3A6E"))
+            # Sub-encabezado con años
+            ws5.cell(row=2, column=3, value=f"← {year}  ·  {compare} →").font = Font(size=9, color="64748B", italic=True)
+            ws5.cell(row=2, column=3).alignment = center
+
+            ws5.column_dimensions["A"].width = 16
+            ws5.column_dimensions["B"].width = 26
+            ws5.column_dimensions["C"].width = 12
+            for ci in range(4, 4 + len(active_months)):
+                ws5.column_dimensions[openpyxl.utils.get_column_letter(ci)].width = 20
+
+            row5 = 3
+            last_cat5 = None
+            for p in products:
+                cat = p.get("category", "")
+                rf5 = PatternFill("solid", fgColor=CAT_FILLS.get(cat, "FFFFFF"))
+                is_new5 = cat != last_cat5; last_cat5 = cat
+                ws5.cell(row=row5, column=1, value=cat if is_new5 else "").fill = rf5
+                ws5.cell(row=row5, column=1).font = cat_font if is_new5 else Font(color="AAAAAA", size=9)
+                ws5.cell(row=row5, column=2, value=p["name"]).fill = rf5
+                ws5.cell(row=row5, column=2).font = Font(size=10, bold=True, color="1E293B")
+                ws5.cell(row=row5, column=3, value=p.get("unit","")).fill = rf5
+                ws5.cell(row=row5, column=3).alignment = center
+
+                pb = prices_b.get(p["id"], {})
+                for ci, m in enumerate(active_months, 4):
+                    va = p.get("prices", {}).get(m)
+                    vb = pb.get(m)
+                    c5 = ws5.cell(row=row5, column=ci)
+                    c5.fill   = rf5
+                    c5.border = Border(bottom=thin, right=Side(style="thin", color="E0E7FF"))
+                    if va is not None and vb and vb != 0:
+                        pct = (va - vb) / vb
+                        label = f"${va:.2f}  /  ${vb:.2f}  ({'+' if pct>0 else ''}{pct*100:.1f}%)"
+                        c5.value     = label
+                        c5.font      = Font(size=9,
+                                            color="C00000" if pct > 0 else ("00B050" if pct < 0 else "475569"),
+                                            bold=True)
+                        c5.alignment = center
+                    elif va is not None:
+                        c5.value = f"${va:.2f}  /  s/d"
+                        c5.font  = Font(size=9, color="94A3B8")
+                        c5.alignment = center
+                    else:
+                        c5.value = ""; c5.font = Font(color="CCCCCC", size=9)
+                row5 += 1
+
+            # Fila totales comparación
+            ws5.cell(row=row5, column=3, value="TOTAL CANASTA").font = Font(color="FFFFFF", bold=True, size=10)
+            ws5.cell(row=row5, column=3).fill = PatternFill("solid", fgColor="1F3864")
+            ws5.cell(row=row5, column=3).alignment = center
+            for ci, (m, ta) in enumerate(zip(active_months, totales), 4):
+                vals_b = [p2["prices"][m] for p2 in products_b if p2.get("prices", {}).get(m) is not None]
+                tb = round(sum(vals_b), 2) if vals_b else None
+                c5 = ws5.cell(row=row5, column=ci)
+                c5.fill = PatternFill("solid", fgColor="1F3864")
+                c5.alignment = center
+                if ta and tb and tb != 0:
+                    pct = (ta - tb) / tb
+                    label = f"${ta:.2f}  /  ${tb:.2f}  ({'+' if pct>0 else ''}{pct*100:.1f}%)"
+                    c5.value = label
+                    c5.font  = Font(color="FF9999" if pct > 0 else "99FFB3", bold=True, size=10)
+                else:
+                    c5.value = f"${ta:.2f}" if ta else ""
+                    c5.font  = Font(color="FFFFFF", bold=True, size=10)
+            ws5.freeze_panes = "D3"
 
         output = io.BytesIO()
         wb.save(output)
