@@ -8,7 +8,10 @@ import { twMerge } from 'tailwind-merge';
  * `rounded-full border px-2.5 py-1 …` con su propio mapa de tonos.
  */
 const chip = cva(
-  'inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs2 font-bold transition-colors',
+  // Radio moderado y centralizado (--radius-control): coherente con los botones,
+  // no una pastilla totalmente redonda. Cambiar el token ajusta todos los controles.
+  // Padding compacto para que no compitan en tamaño con los títulos de sección.
+  'inline-flex items-center gap-1 rounded-control border px-2 py-0.5 text-xs2 font-bold transition-colors',
   {
     variants: {
       tone: { neutral: '', primary: '', danger: '', warning: '', success: '' },

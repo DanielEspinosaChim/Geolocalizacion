@@ -1,7 +1,16 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { apiClient } from '@shared/api';
-import { Button, Checkbox, Modal, ModalFooter, SelectField, TextField, toast } from '@shared/ui';
+import {
+  Button,
+  Checkbox,
+  Modal,
+  ModalFooter,
+  SelectField,
+  Spinner,
+  TextField,
+  toast,
+} from '@shared/ui';
 import { canastaKeys } from '../api/useCanasta';
 import {
   MESES,
@@ -92,26 +101,7 @@ export function EscaneoModal({ year, items, open, onClose }: EscaneoModalProps) 
       description="La IA leyó estos productos de la factura. Confirma cuáles aplicar."
       width="lg"
     >
-      <div className="mb-3 flex flex-wrap items-end gap-3">
-        <div className="w-40">
-          <SelectField label="Aplicar al mes" value={mes} onChange={(e) => setMes(e.target.value as Mes)}>
-            {MESES.map((m) => (
-              <option key={m} value={m}>
-                {mesLabel(m)}
-              </option>
-            ))}
-          </SelectField>
-        </div>
-        <div className="w-48">
-          <TextField
-            label="Tienda (opcional)"
-            value={tienda}
-            onChange={(e) => setTienda(e.target.value)}
-            placeholder="Ej. CHEDRAUI"
-            className="uppercase"
-          />
-        </div>
-      </div>
+      <EscaneoControles mes={mes} onMes={setMes} tienda={tienda} onTienda={setTienda} />
 
       {items.length === 0 ? (
         <p className="py-6 text-center text-sm text-fg-muted">
@@ -130,6 +120,53 @@ export function EscaneoModal({ year, items, open, onClose }: EscaneoModalProps) 
         </Button>
       </ModalFooter>
     </Modal>
+  );
+}
+
+/** Controles superiores del modal: mes destino y tienda (opcional). */
+function EscaneoControles({
+  mes,
+  onMes,
+  tienda,
+  onTienda,
+}: {
+  mes: Mes;
+  onMes: (mes: Mes) => void;
+  tienda: string;
+  onTienda: (tienda: string) => void;
+}) {
+  return (
+    <div className="mb-3 flex flex-wrap items-end gap-3">
+      <div className="w-40">
+        <SelectField label="Aplicar al mes" value={mes} onChange={(e) => onMes(e.target.value as Mes)}>
+          {MESES.map((m) => (
+            <option key={m} value={m}>
+              {mesLabel(m)}
+            </option>
+          ))}
+        </SelectField>
+      </div>
+      <div className="w-48">
+        <TextField
+          label="Tienda (opcional)"
+          value={tienda}
+          onChange={(e) => onTienda(e.target.value)}
+          placeholder="Ej. CHEDRAUI"
+          className="uppercase"
+        />
+      </div>
+    </div>
+  );
+}
+
+/** Overlay a pantalla completa mientras la IA analiza la factura subida. */
+export function EscaneoOverlay({ activo }: { activo: boolean }) {
+  if (!activo) return null;
+  return (
+    <div className="fixed inset-0 z-modal flex flex-col items-center justify-center gap-3 bg-black/50">
+      <Spinner className="h-10 w-10 text-white" />
+      <p className="text-sm font-semibold text-white">Analizando la factura con IA…</p>
+    </div>
   );
 }
 

@@ -20,7 +20,7 @@ export function EstadoCargaChip({ cargados, estado }: EstadoCargaChipProps) {
     /* Píldora blanca con punto de estado (lenguaje de chips de Google Maps):
        el color señala, el texto se lee en el color del tema. */
     <div
-      className="flex items-center gap-1.5 rounded-full bg-surface px-3 py-1 text-xs2 font-bold text-fg-muted shadow-glass"
+      className="flex items-center gap-1.5 rounded-control bg-surface px-3 py-1 text-xs2 font-bold text-fg-muted shadow-glass"
       role="status"
     >
       <span

@@ -16,6 +16,8 @@ export function CandidatosPage() {
   const [filtros, setFiltros] = useState<Filtros>(SIN_FILTROS);
   const capas = useCapas();
   const [seleccionado, setSeleccionado] = useState<Candidato | null>(null);
+  // En móvil el buscador ocupa toda la pantalla; ocultamos el cajón entonces.
+  const [buscando, setBuscando] = useState(false);
 
   const filtrados = useMemo(() => filtrarCandidatos(candidatos, filtros), [candidatos, filtros]);
 
@@ -52,20 +54,24 @@ export function CandidatosPage() {
         onSelect={setSeleccionado}
         busqueda={filtros.q}
         onBusqueda={(q) => setFiltros((f) => ({ ...f, q }))}
+        buscando={buscando}
+        onBuscando={setBuscando}
       />
-      <BottomSheet
-        className="md:hidden"
-        title={
-          <>
-            Negocios
-            <span className="text-xs font-semibold tabular-nums text-fg-muted">
-              {isPending ? '…' : formatNumero(filtrados.length)}
-            </span>
-          </>
-        }
-      >
-        <PanelLateralContenido {...panelProps} />
-      </BottomSheet>
+      {buscando ? null : (
+        <BottomSheet
+          className="md:hidden"
+          title={
+            <>
+              Negocios
+              <span className="text-xs font-semibold tabular-nums text-fg-muted">
+                {isPending ? '…' : formatNumero(filtrados.length)}
+              </span>
+            </>
+          }
+        >
+          <PanelLateralContenido {...panelProps} />
+        </BottomSheet>
+      )}
     </div>
   );
 }

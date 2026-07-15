@@ -2,13 +2,49 @@ import { ArrowDown, ArrowUp, ShoppingBasket } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { Card } from '@shared/ui';
 import { mesLabel, totalesPorMes, type Mes, type Producto } from '../model/canasta';
-import { CostoChart } from './CostoChart';
+import { CostoChart, type SerieCosto } from './CostoChart';
 
 interface ResumenCanastaProps {
   productos: Producto[];
   meses: Mes[];
+  year: string;
+  /** Año B de comparación y sus productos; si vienen, la gráfica muestra 2 series. */
+  yearB?: string | null;
+  productosB?: Producto[] | null;
   /** Acciones del pie (Excel, Infografía…). */
   acciones?: ReactNode;
+}
+
+/**
+ * Datos para la gráfica. Al comparar usa TODOS los meses (con huecos donde
+ * falte dato) y dos series; si no, solo los meses con precio, sin huecos.
+ */
+function datosGrafica({
+  meses,
+  totales,
+  year,
+  yearB,
+  productosB,
+}: {
+  meses: Mes[];
+  totales: (number | null)[];
+  year: string;
+  yearB: string | null;
+  productosB: Producto[] | null;
+}): { labels: string[]; series: SerieCosto[] } {
+  if (yearB != null && productosB != null) {
+    return {
+      labels: meses.map(mesLabel),
+      series: [
+        { name: year, data: totales },
+        { name: yearB, data: totalesPorMes(productosB, meses) },
+      ],
+    };
+  }
+  const conDatos = meses
+    .map((m, i) => ({ m, t: totales[i] }))
+    .filter((x): x is { m: Mes; t: number } => x.t != null);
+  return { labels: conDatos.map((x) => mesLabel(x.m)), series: [{ name: year, data: conDatos.map((x) => x.t) }] };
 }
 
 /**
@@ -16,7 +52,14 @@ interface ResumenCanastaProps {
  * vs el anterior y gráfica de columnas. Sigue el patrón de "stat card": la
  * variación se marca con un chip de marca (indigo), no con rojo/verde.
  */
-export function ResumenCanasta({ productos, meses, acciones }: ResumenCanastaProps) {
+export function ResumenCanasta({
+  productos,
+  meses,
+  year,
+  yearB = null,
+  productosB = null,
+  acciones,
+}: ResumenCanastaProps) {
   const totales = totalesPorMes(productos, meses);
   const conDatos = meses
     .map((m, i) => ({ m, t: totales[i] }))
@@ -29,6 +72,14 @@ export function ResumenCanasta({ productos, meses, acciones }: ResumenCanastaPro
   const previo = conDatos.at(-2);
   const pct = previo ? ((ultimo.t - previo.t) / previo.t) * 100 : null;
   const sube = (pct ?? 0) > 0;
+
+  const { labels: chartLabels, series: chartSeries } = datosGrafica({
+    meses,
+    totales,
+    year,
+    yearB,
+    productosB,
+  });
 
   return (
     <Card className="grid gap-4 p-4 md:p-6">
@@ -70,7 +121,7 @@ export function ResumenCanasta({ productos, meses, acciones }: ResumenCanastaPro
         </dl>
       </div>
 
-      <CostoChart labels={conDatos.map((x) => mesLabel(x.m))} valores={conDatos.map((x) => x.t)} />
+      <CostoChart labels={chartLabels} series={chartSeries} />
 
       {acciones ? (
         <div className="flex items-center justify-end gap-2 border-t border-border pt-4">

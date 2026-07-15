@@ -102,7 +102,7 @@ function Acento() {
 
 function Titulo({ children }: { children: ReactNode }) {
   return (
-    <span className="truncate text-2xs font-bold uppercase tracking-wider text-fg-subtle">
+    <span className="truncate text-xs font-bold uppercase tracking-wider text-fg-subtle">
       {children}
     </span>
   );

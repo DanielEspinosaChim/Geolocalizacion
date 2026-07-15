@@ -20,11 +20,14 @@ interface MapaCandidatosProps {
   onSelect: (c: Candidato | null) => void;
   busqueda: string;
   onBusqueda: (q: string) => void;
+  /** El buscador está enfocado (en móvil ocupa toda la pantalla). */
+  buscando: boolean;
+  onBuscando: (b: boolean) => void;
 }
 
 /** Mapa con clusters, capas geográficas opcionales y globo de detalle. */
 export function MapaCandidatos(props: MapaCandidatosProps) {
-  const { visible, filtrados, seleccionado, onSelect, capas } = props;
+  const { visible, filtrados, seleccionado, onSelect, capas, buscando } = props;
   return (
     <div className={`relative flex-1 md:block ${visible ? 'block' : 'hidden'}`}>
       {/* Zoom abajo-derecha (patrón Google Maps); la izquierda es del panel. */}
@@ -52,29 +55,37 @@ export function MapaCandidatos(props: MapaCandidatosProps) {
         ) : null}
       </MapCanvas>
 
-      {/* Columna flotante arriba-izquierda: buscador y, debajo, el contador de
-          candidatos. El ancho deja sitio a los toggles de capas de la derecha;
-          las sugerencias del buscador flotan por encima del contador. */}
-      <div className="absolute left-3 top-3 z-panel flex w-[min(22rem,calc(100%-5rem))] flex-col gap-2">
+      {/* Columna flotante superior: buscador y, debajo, el contador. En móvil
+          ocupa casi todo el ancho y las capas van en fila junto al contador;
+          en escritorio es una caja a la izquierda y las capas se van a la
+          derecha (bloque de abajo). */}
+      <div className="absolute inset-x-2 top-2 z-panel flex flex-col gap-2 md:inset-x-auto md:left-3 md:top-3 md:w-[min(22rem,calc(100%-7rem))]">
         <BuscadorNegocios
           q={props.busqueda}
           onQ={props.onBusqueda}
           resultados={filtrados}
           onSelect={onSelect}
+          onFocoChange={props.onBuscando}
         />
-        <div className="self-start">
+        {/* Móvil: solo las capas en fila (el contador se omite: el botón
+            "Negocios" del cajón ya muestra el total). */}
+        <div className="md:hidden">
+          <CapasToggles activas={capas.activas} onToggle={capas.alternar} orientation="row" />
+        </div>
+        {/* Escritorio: el contador aquí; las capas van a la derecha. */}
+        <div className="hidden self-start md:block">
           <EstadoCargaChip cargados={props.totalCargados} estado={props.estado} />
         </div>
       </div>
 
-      {/* Toggles de capas: arriba-derecha en todas las vistas del mapa. */}
-      <div className="absolute right-3 top-3 z-panel">
+      {/* Toggles de capas a la derecha (solo escritorio). */}
+      <div className="absolute right-3 top-3 z-panel hidden md:block">
         <CapasToggles activas={capas.activas} onToggle={capas.alternar} />
       </div>
 
-      {/* Simbología: abajo-izquierda en todas las vistas (posición por defecto
-          de LeyendaCapas). */}
-      <Simbologia capas={capas.activas} />
+      {/* Simbología: abajo-izquierda. Se oculta mientras se busca para no
+          asomar bajo el overlay del buscador en móvil. */}
+      {buscando ? null : <Simbologia capas={capas.activas} />}
     </div>
   );
 }

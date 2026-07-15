@@ -12,16 +12,27 @@ const CAPAS: { id: CapaId; label: string; Icon: LucideIcon }[] = [
 interface CapasTogglesProps {
   activas: ReadonlySet<CapaId>;
   onToggle: (capa: CapaId) => void;
+  /**
+   * `column` (por defecto): pila vertical a la derecha del mapa (escritorio).
+   * `row`: tira horizontal de chips (móvil), para no tapar el buscador ni el
+   * globo de detalle.
+   */
+  orientation?: 'column' | 'row';
 }
 
-/**
- * Botones para prender/apagar capas geográficas. Se apilan en columna y el
- * consumidor los ancla a la derecha del mapa: en fila y a la izquierda tapaban
- * los controles de zoom de Leaflet.
- */
-export function CapasToggles({ activas, onToggle }: CapasTogglesProps) {
+/** Botones para prender/apagar capas geográficas (probabilidad, colonias…). */
+export function CapasToggles({ activas, onToggle, orientation = 'column' }: CapasTogglesProps) {
+  const fila = orientation === 'row';
   return (
-    <div className="flex flex-col items-stretch gap-1.5" role="group" aria-label="Capas del mapa">
+    <div
+      role="group"
+      aria-label="Capas del mapa"
+      className={
+        fila
+          ? 'scrollbar-none flex items-center gap-1.5 overflow-x-auto'
+          : 'flex flex-col items-end gap-1.5'
+      }
+    >
       {CAPAS.map(({ id, label, Icon }) => {
         const activa = activas.has(id);
         return (
@@ -29,8 +40,10 @@ export function CapasToggles({ activas, onToggle }: CapasTogglesProps) {
             key={id}
             type="button"
             aria-pressed={activa}
+            aria-label={label}
+            title={label}
             onClick={() => onToggle(id)}
-            className={`flex items-center gap-2 rounded-control border px-3 py-1.5 text-xs2 font-bold shadow-overlay transition-colors ${
+            className={`flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-control border px-3 py-1.5 text-xs2 font-bold shadow-overlay transition-colors ${
               activa
                 ? 'border-primary bg-primary/20 text-primary'
                 : 'border-border bg-surface text-fg-muted hover:text-fg'

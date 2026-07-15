@@ -1,6 +1,7 @@
 import ApexCharts from 'apexcharts';
 import type { ApexOptions } from 'apexcharts';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useSyncExternalStore } from 'react';
+import { getTheme, subscribeTheme } from '@core/theme';
 
 /** Lee un token HSL del tema (`239 62% 55%`) y lo vuelve un color CSS válido. */
 function tokenColor(name: string, fallback: string): string {
@@ -8,17 +9,26 @@ function tokenColor(name: string, fallback: string): string {
   return v ? `hsl(${v.replace(/\s+/g, ', ')})` : fallback;
 }
 
+export interface SerieCosto {
+  name: string;
+  data: (number | null)[];
+}
+
 interface CostoChartProps {
   labels: string[];
-  valores: number[];
+  /** Una serie (año actual) o dos cuando se compara con otro año. */
+  series: SerieCosto[];
 }
 
 /**
  * Gráfica de columnas (ApexCharts) del costo total de la canasta por mes.
- * Toma el color de marca del tema, así que respeta claro/oscuro sin recompilar.
+ * Toma los colores del tema y se vuelve a pintar al cambiar claro/oscuro
+ * (se suscribe al store de tema), así nunca queda con el color del tema previo.
  */
-export function CostoChart({ labels, valores }: CostoChartProps) {
+export function CostoChart({ labels, series }: CostoChartProps) {
   const ref = useRef<HTMLDivElement>(null);
+  // Redibuja al alternar tema: los colores salen de tokens resueltos en runtime.
+  const theme = useSyncExternalStore(subscribeTheme, getTheme, () => 'light' as const);
 
   useEffect(() => {
     const nodo = ref.current;
@@ -26,10 +36,14 @@ export function CostoChart({ labels, valores }: CostoChartProps) {
 
     const brand = tokenColor('--primary', '#4648d4');
     const muted = tokenColor('--fg-muted', '#5f6368');
+    // La segunda serie (año de comparación) va en un gris del tema para que el
+    // año actual (marca) resalte.
+    const comparado = tokenColor('--fg-subtle', '#80868b');
+    const comparando = series.length > 1;
 
     const options: ApexOptions = {
-      series: [{ name: 'Costo total', data: valores }],
-      colors: [brand],
+      series,
+      colors: comparando ? [brand, comparado] : [brand],
       chart: {
         type: 'bar',
         height: 280,
@@ -39,21 +53,39 @@ export function CostoChart({ labels, valores }: CostoChartProps) {
       plotOptions: {
         bar: {
           horizontal: false,
-          columnWidth: '58%',
+          columnWidth: comparando ? '70%' : '58%',
           borderRadiusApplication: 'end',
-          borderRadius: 8,
+          borderRadius: 6,
+          // Etiqueta del total encima de cada barra (como las gráficas de CANACO).
+          dataLabels: { position: 'top' },
         },
       },
-      dataLabels: { enabled: false },
-      legend: { show: false },
-      grid: { show: false, padding: { left: 2, right: 2, top: -14 } },
+      // Al comparar dos años las etiquetas se encimarían, así que solo se
+      // muestran con una serie.
+      dataLabels: {
+        enabled: !comparando,
+        offsetY: -18,
+        formatter: (v: number) => (v == null ? '' : `$${Math.round(v).toLocaleString('es-MX')}`),
+        style: { fontSize: '10px', fontFamily: 'Inter, sans-serif', colors: [muted], fontWeight: '700' },
+      },
+      legend: {
+        show: comparando,
+        position: 'top',
+        horizontalAlign: 'right',
+        fontFamily: 'Inter, sans-serif',
+        labels: { colors: muted },
+        markers: { radius: 4 },
+      },
+      // Espacio arriba para las etiquetas de total sobre las barras.
+      grid: { show: false, padding: { left: 2, right: 2, top: comparando ? 0 : 14 } },
       stroke: { show: true, width: 0, colors: ['transparent'] },
       states: { hover: { filter: { type: 'darken', value: 0.9 } } },
       tooltip: {
         shared: true,
         intersect: false,
+        theme,
         style: { fontFamily: 'Inter, sans-serif' },
-        y: { formatter: (v: number) => `$${v.toFixed(2)}` },
+        y: { formatter: (v: number) => (v == null ? '—' : `$${v.toFixed(2)}`) },
       },
       xaxis: {
         categories: labels,
@@ -68,7 +100,7 @@ export function CostoChart({ labels, valores }: CostoChartProps) {
     const chart = new ApexCharts(nodo, options);
     void chart.render();
     return () => chart.destroy();
-  }, [labels, valores]);
+  }, [labels, series, theme]);
 
   return <div ref={ref} className="w-full" />;
 }

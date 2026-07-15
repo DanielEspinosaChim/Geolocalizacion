@@ -21,11 +21,13 @@ export function IndicePanel() {
       {(data) => (
         <div className="grid gap-6">
           <Encabezado indice={data} />
-          <ConjuntosDeDatos indice={data} />
-          <ComoSeEstima indice={data} />
+          {/* El resultado va primero (hero): es lo que se viene a ver. La
+              metodología y las referencias quedan debajo para quien profundiza. */}
           <Resultado indice={data} />
           <ValidacionInegi indice={data} />
           <Sensibilidad indice={data} />
+          <ComoSeEstima indice={data} />
+          <ConjuntosDeDatos indice={data} />
           <Referencias indice={data} />
           <IndiceCalculadora indice={data} />
         </div>
@@ -46,25 +48,37 @@ function Encabezado({ indice }: { indice: Indice }) {
 
 function Resultado({ indice }: { indice: Indice }) {
   return (
-    <div className="grid gap-4 sm:grid-cols-2">
-      <Card raised className="grid gap-1.5 p-6 text-center">
-        <div className="text-2xs font-bold uppercase tracking-widest text-primary">
-          Estimación central (α=0.65)
-        </div>
-        <div className="font-display text-5xl font-extrabold text-danger">
+    // Hero del índice: la cifra manda a la izquierda; a la derecha, un panel
+    // oscuro de marca con los KPIs de soporte (IC 95% y método).
+    <Card className="grid items-stretch gap-0 overflow-hidden md:grid-cols-[1.1fr_1fr]">
+      <div className="grid content-center gap-2 p-8 text-center md:text-left">
+        <span className="text-xs font-bold uppercase tracking-widest text-primary">
+          Estimación central · α = 0.65
+        </span>
+        <span className="font-display text-6xl font-extrabold leading-none text-danger">
           {indice.central_indice_pct}%
-        </div>
-        <div className="text-2xs text-fg-subtle">negocios son informales</div>
-      </Card>
-      <Card raised className="grid gap-1.5 p-6 text-center">
-        <div className="text-2xs font-bold uppercase tracking-widest text-primary">
-          IC 95% · Límite inferior
-        </div>
-        <div className="font-display text-4xl font-extrabold text-fg-muted">
-          {indice.ic95_indice_inferior.low}–{indice.ic95_indice_inferior.high}%
-        </div>
-        <div className="text-2xs text-fg-subtle">intervalo de confianza (método delta)</div>
-      </Card>
+        </span>
+        <span className="text-sm text-fg-muted">
+          de los negocios de Mérida son <b className="text-fg">informales</b>
+        </span>
+      </div>
+      <div className="grid content-center gap-4 bg-gradient-to-br from-primary-strong to-primary p-8 text-primary-fg">
+        <Kpi
+          etiqueta="IC 95% (método delta)"
+          valor={`${indice.ic95_indice_inferior.low}–${indice.ic95_indice_inferior.high}%`}
+        />
+        <div className="h-px bg-white/20" />
+        <Kpi etiqueta="Método de estimación" valor={indice.metodo} />
+      </div>
+    </Card>
+  );
+}
+
+function Kpi({ etiqueta, valor }: { etiqueta: string; valor: string }) {
+  return (
+    <div className="grid gap-0.5">
+      <span className="text-2xs font-bold uppercase tracking-widest text-white/70">{etiqueta}</span>
+      <span className="font-display text-2xl font-extrabold tabular-nums">{valor}</span>
     </div>
   );
 }

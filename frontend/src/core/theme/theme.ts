@@ -24,6 +24,9 @@ function aplicar(theme: Theme) {
   actual = theme;
   document.documentElement.dataset.theme = theme;
   try {
+    // La regla prohíbe guardar tokens/estado sensible; la preferencia de tema
+    // (solo 'light' | 'dark') no lo es y es el uso canónico de localStorage.
+    // eslint-disable-next-line no-restricted-properties
     localStorage.setItem(STORAGE_KEY, theme);
   } catch {
     /* sin persistencia no pasa nada: la sesión actual sí cambia. */

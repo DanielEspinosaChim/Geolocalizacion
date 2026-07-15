@@ -1,50 +1,38 @@
 import { MapPinned } from 'lucide-react';
 import { Outlet } from 'react-router';
-import { useCierrePorInactividad, useSession } from '@features/auth';
-import { VERSION_LABEL } from '@shared/lib/version';
 import { ThemeToggle } from '@shared/ui';
+import { useCierrePorInactividad, useSession } from '@features/auth';
 import { NavTabs } from './NavTabs';
 import { UserMenu } from './UserMenu';
 
-/** Layout protegido: header + tabs + contenido. El loader requireAuth ya corrió. */
+/** Layout protegido: una sola barra (logo + pestañas + usuario) + contenido. */
 export function AppShell() {
   const { user } = useSession();
   useCierrePorInactividad(Boolean(user));
 
   return (
     <div className="flex h-full flex-col">
-      {/* App bar indigo: rompe el exceso de blanco y refuerza la marca. Texto e
-          iconos en claro; el menú de usuario está pensado para este fondo. */}
-      <header className="z-panel flex h-14 shrink-0 items-center justify-between gap-4 bg-gradient-to-r from-primary-strong to-primary px-4 text-primary-fg shadow-card sm:px-5">
-        <div className="flex items-center gap-3">
+      {/* Barra única indigo: logo + título a la izquierda, las secciones en el
+          centro y el tema + usuario a la derecha. Sin subtítulo ni versión: el
+          espacio libre lo aprovechan las pestañas. */}
+      <header className="relative z-overlay flex h-14 shrink-0 items-center gap-2 bg-gradient-to-r from-primary-strong to-primary px-3 text-primary-fg shadow-card sm:gap-4 sm:px-5">
+        <div className="flex shrink-0 items-center gap-2.5">
           <span className="flex h-9 w-9 items-center justify-center rounded-control bg-white/15 text-white">
             <MapPinned className="h-5 w-5" aria-hidden="true" />
           </span>
-          <div className="leading-tight">
-            <h1 className="flex items-center gap-2 font-display text-base font-extrabold tracking-tight">
-              GeoFormal
-              <span className="rounded-full border border-white/25 bg-white/15 px-1.5 py-px text-2xs font-bold text-white/85">
-                {VERSION_LABEL}
-              </span>
-            </h1>
-            {/* Se oculta en móvil: el espacio lo necesita el menú de usuario. */}
-            <p className="hidden text-2xs text-white/70 sm:block">
-              Mérida, Yucatán · Google Maps vs DENUE
-            </p>
-          </div>
+          {/* El título se oculta en móvil: ahí el espacio lo necesitan las pestañas. */}
+          <h1 className="hidden font-display text-lg font-extrabold tracking-tight sm:block">
+            GeoFormal
+          </h1>
         </div>
-        <div className="flex items-center gap-1.5">
+
+        {user ? <NavTabs role={user.role} variant="brand" /> : <div className="flex-1" />}
+
+        <div className="flex shrink-0 items-center gap-1">
           <ThemeToggle className="text-white/80 hover:bg-white/15 hover:text-white" />
           {user ? <UserMenu user={user} /> : null}
         </div>
       </header>
-      {user ? (
-        /* La sombra (no un borde) separa la barra del contenido: es la única
-           elevación del shell, como la cabecera blanca de Google Maps. */
-        <div className="z-panel shrink-0 bg-surface shadow-card">
-          <NavTabs role={user.role} />
-        </div>
-      ) : null}
       <div className="min-h-0 flex-1">
         <Outlet />
       </div>

@@ -47,7 +47,7 @@ export function SearchInput({
         // twMerge permite variantes por sitio (el buscador flotante del mapa
         // trae su propia superficie) sin pelear con la cascada.
         className={twMerge(
-          'w-full rounded-full border border-transparent bg-surface-raised py-2 pl-8 pr-8 text-sm text-fg outline-none transition-colors placeholder:text-fg-subtle/60 focus:border-primary focus:bg-surface',
+          'w-full rounded-control border border-transparent bg-surface-raised py-2 pl-8 pr-8 text-sm text-fg outline-none transition-colors placeholder:text-fg-subtle/60 focus:border-primary focus:bg-surface',
           className,
         )}
       />

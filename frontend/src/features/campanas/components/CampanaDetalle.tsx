@@ -1,10 +1,10 @@
 import { ArrowLeft, FileText, LayoutTemplate, Route } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
-import { Badge, Button, Page, Spinner, toast, useConfirm } from '@shared/ui';
+import { Badge, Button, Page, Spinner, toast } from '@shared/ui';
 import { descargarReporteVisita } from '@features/rutas';
+import { useAccionesCampana } from '../api/useAccionesCampana';
 import { useCampana } from '../api/useCampana';
-import { useCampanaMutations } from '../api/useCampanaMutations';
 import {
   MIN_PARADAS_CAMPANA,
   progresoDe,
@@ -34,8 +34,7 @@ export function CampanaDetalle({
 }: CampanaDetalleProps) {
   const navigate = useNavigate();
   const { data, isPending } = useCampana(campanaId);
-  const { cambiarStatus, eliminar } = useCampanaMutations(campanaId);
-  const confirm = useConfirm();
+  const { finalizar, reactivar, borrar } = useAccionesCampana(campanaId, onVolver);
   const [visita, setVisita] = useState<NegocioCampana | null>(null);
   const [plantillasAbierto, setPlantillasAbierto] = useState(false);
 
@@ -70,35 +69,6 @@ export function CampanaDetalle({
       return;
     }
     void navigate('/rutas', { state: { rutaCampana: ids, campanaId } });
-  }
-
-  async function finalizar() {
-    const ok = await confirm({
-      title: 'Finalizar campaña',
-      description: '¿Marcar esta campaña como finalizada?',
-      confirmLabel: 'Finalizar',
-    });
-    if (ok) cambiarStatus.mutate('cerrada', { onSuccess: onVolver });
-  }
-
-  /** Una campaña finalizada puede volver a activa (paridad con el legacy). */
-  async function reactivar() {
-    const ok = await confirm({
-      title: 'Reactivar campaña',
-      description: '¿Volver a poner esta campaña como activa?',
-      confirmLabel: 'Reactivar',
-    });
-    if (ok) cambiarStatus.mutate('activa');
-  }
-
-  async function borrar() {
-    const ok = await confirm({
-      title: 'Eliminar campaña',
-      description: 'Se eliminará permanentemente. Esta acción no se puede deshacer.',
-      tone: 'danger',
-      confirmLabel: 'Eliminar',
-    });
-    if (ok) eliminar.mutate(undefined, { onSuccess: onVolver });
   }
 
   return (

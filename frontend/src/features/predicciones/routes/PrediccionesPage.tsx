@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapCanvas } from '@shared/ui';
+import { BottomSheet, MapCanvas } from '@shared/ui';
 import { CapaCandidatos, Simbologia, useCandidatos } from '@features/candidatos';
 import { CapasLayers, CapasToggles, useCapas } from '@features/colonias-zonas';
 import { usePredecir } from '../api/usePredicciones';
@@ -19,16 +19,25 @@ export function PrediccionesPage() {
     predecir.mutate({ lat, lng });
   }
 
+  const panel = (
+    <PrediccionPanel
+      modo={modo}
+      onToggleModo={() => setModo((m) => !m)}
+      onPredecir={onPredict}
+      cargando={predecir.isPending}
+      resultado={predecir.data}
+    />
+  );
+
   return (
-    <div className="flex h-full">
-      <PrediccionPanel
-        modo={modo}
-        onToggleModo={() => setModo((m) => !m)}
-        onPredecir={onPredict}
-        cargando={predecir.isPending}
-        resultado={predecir.data}
-      />
-      <div className="relative hidden flex-1 md:block">
+    // En móvil el mapa manda (ahí se hace clic para predecir); el panel vive en
+    // el cajón inferior, igual que en Candidatos/Rutas/Reportes.
+    <div className="relative flex h-full">
+      <aside className="scrollbar-slim flex w-96 shrink-0 flex-col overflow-y-auto border-r border-border bg-surface max-md:hidden">
+        {panel}
+      </aside>
+
+      <div className="relative min-w-0 flex-1">
         <MapCanvas zoomPosition="bottomright">
           <CapaCandidatos candidatos={candidatos} interactivo={!modo} />
           <PredictLayer activo={modo} punto={punto} onPredict={onPredict} />
@@ -48,6 +57,10 @@ export function PrediccionesPage() {
           </div>
         ) : null}
       </div>
+
+      <BottomSheet className="md:hidden" title="Predicción">
+        {panel}
+      </BottomSheet>
     </div>
   );
 }

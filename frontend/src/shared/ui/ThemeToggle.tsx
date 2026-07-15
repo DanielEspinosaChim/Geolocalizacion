@@ -12,9 +12,11 @@ export function ThemeToggle({ className }: { className?: string }) {
   const oscuro = theme === 'dark';
 
   return (
+    // El icono representa el modo ACTUAL (sol en claro, luna en oscuro); el
+    // aria-label sí dice a qué modo se cambiará al pulsar.
     <IconButton
       variant="ghost"
-      icon={oscuro ? Sun : Moon}
+      icon={oscuro ? Moon : Sun}
       label={oscuro ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
       onClick={toggleTheme}
       className={className}

@@ -58,7 +58,7 @@ function NegocioCard({
     // `min-w-0`: sin él, un nombre largo agranda su columna del grid (el mínimo
     // de una pista es `auto`) y la tarjeta se sale de la fila.
     <Card raised className="grid min-w-0 content-start gap-3 p-3">
-      <div className="flex items-start gap-2.5">
+      <div className="flex min-w-0 items-start gap-2.5">
         <Checkbox
           className="mt-0.5 shrink-0"
           checked={n.completado}

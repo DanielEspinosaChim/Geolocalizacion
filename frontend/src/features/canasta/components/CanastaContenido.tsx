@@ -77,7 +77,10 @@ export function CanastaContenido({
     <div className="grid gap-5">
       <ResumenCanasta
         productos={productos}
-        meses={meses}
+        meses={mesesTabla}
+        year={year}
+        yearB={yearB}
+        productosB={productosB}
         acciones={
           <AccionesExporta productos={productos} year={year} meses={mesesTabla} yearB={yearB} />
         }

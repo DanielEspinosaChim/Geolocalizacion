@@ -38,6 +38,17 @@
   /* Elevación flotante de Google (rgba(60,64,67,…) ≈ hsl(206 6% 25%)). */
   --shadow-glass: 0 1px 2px hsl(206 6% 25% / 0.3), 0 2px 6px 2px hsl(206 6% 25% / 0.15);
 
+  /* tintes de fila por categoría de la canasta (pasteles suaves del Excel de
+     CANACO). Como fondo de tabla, se redefinen en el tema oscuro para no quedar
+     claros sobre texto claro. */
+  --cat-frutas: 205 63% 96%;
+  --cat-vegetales: 147 45% 95%;
+  --cat-abarrotes: 46 77% 95%;
+  --cat-carnes: 6 76% 96%;
+  --cat-leches: 288 38% 95%;
+  --cat-higiene: 224 100% 97%;
+  --cat-farmaceuticos: 30 79% 95%;
+
   /* forma — tarjetas contenidas, controles suaves, pills para chips/nav */
   --radius-card: 12px;
   --radius-control: 8px;
@@ -107,4 +118,14 @@
   /* Sobre fondo oscuro el pulgar necesita menos opacidad para leerse igual. */
   --scrollbar-thumb-color: hsl(var(--fg-subtle) / 0.35);
   --scrollbar-thumb-color-hover: hsl(var(--fg-subtle) / 0.65);
+
+  /* Tintes de categoría en oscuro: mismo matiz, muy baja luminosidad para que
+     apenas se distingan de la superficie y el texto claro siga legible. */
+  --cat-frutas: 205 35% 14%;
+  --cat-vegetales: 147 30% 13%;
+  --cat-abarrotes: 46 32% 14%;
+  --cat-carnes: 6 38% 15%;
+  --cat-leches: 288 25% 15%;
+  --cat-higiene: 224 40% 15%;
+  --cat-farmaceuticos: 30 38% 14%;
 }

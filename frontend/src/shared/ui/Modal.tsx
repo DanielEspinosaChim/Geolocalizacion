@@ -45,7 +45,7 @@ export function Modal({ open, onClose, title, description, width = 'md', childre
           >
             <header className="flex items-start justify-between gap-4">
               <div>
-                <Dialog.Title className="font-display text-lg font-extrabold tracking-tight">
+                <Dialog.Title className="font-display text-xl font-extrabold tracking-tight">
                   {title}
                 </Dialog.Title>
                 {description ? (
