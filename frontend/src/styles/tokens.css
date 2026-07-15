@@ -18,10 +18,15 @@
   --fg-muted: 213 5% 39%; /* ≈ #5f6368 */
   --fg-subtle: 207 5% 52%; /* ≈ #80868b */
 
-  /* marca */
-  --primary: 239 62% 55%; /* ≈ #4648d4 */
-  --primary-strong: 240 61% 46%; /* ≈ #2f2ebe */
+  /* marca — azul marino (#111E4C) como color principal, ocre (#C77B2C) como
+     secundario/acento. Cambiar estos tokens re-tinta toda la app. */
+  --primary: 227 63% 18%; /* ≈ #111E4C */
+  --primary-strong: 227 64% 13%; /* marino más profundo (gradiente/hover) */
   --primary-fg: 0 0% 100%;
+
+  --secondary: 31 64% 48%; /* ≈ #C77B2C */
+  --secondary-strong: 31 64% 40%;
+  --secondary-fg: 0 0% 100%;
 
   /* semánticos (estado de formalización, alertas) */
   --success: 138 68% 30%; /* ≈ #188038 — formal */
@@ -98,9 +103,15 @@
   --fg-muted: 215 25% 65%; /* ≈ #94a3b8 */
   --fg-subtle: 216 51% 47%; /* ≈ #3b6ab5 */
 
-  --primary: 217 91% 60%; /* ≈ #3b82f6 */
-  --primary-strong: 221 83% 53%; /* ≈ #2563eb */
-  --primary-fg: 0 0% 100%;
+  /* En oscuro el marino se aclara para leerse como acento sobre fondo oscuro;
+     el ocre sube un poco de luminosidad por la misma razón. */
+  --primary: 224 76% 64%;
+  --primary-strong: 224 70% 56%;
+  --primary-fg: 222 47% 11%;
+
+  --secondary: 31 74% 58%;
+  --secondary-strong: 31 74% 50%;
+  --secondary-fg: 222 47% 11%;
 
   --success: 142 71% 45%; /* ≈ #22c55e */
   --warning: 25 95% 53%; /* ≈ #f97316 */

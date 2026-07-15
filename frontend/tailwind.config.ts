@@ -27,6 +27,11 @@ export default {
           strong: 'hsl(var(--primary-strong) / <alpha-value>)',
           fg: 'hsl(var(--primary-fg) / <alpha-value>)',
         },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary) / <alpha-value>)',
+          strong: 'hsl(var(--secondary-strong) / <alpha-value>)',
+          fg: 'hsl(var(--secondary-fg) / <alpha-value>)',
+        },
         success: 'hsl(var(--success) / <alpha-value>)',
         warning: 'hsl(var(--warning) / <alpha-value>)',
         danger: 'hsl(var(--danger) / <alpha-value>)',

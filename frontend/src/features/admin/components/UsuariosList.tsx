@@ -129,7 +129,7 @@ function UsuarioCelda({ usuario: u }: { usuario: Usuario }) {
   return (
     <div className="flex items-center gap-3">
       <div className="flex h-9 w-9 items-center justify-center rounded-full bg-surface-raised text-sm font-bold text-fg-muted">
-        {(u.nombre || u.email)[0].toUpperCase()}
+        {(u.nombre || u.email || '?').trim()[0]?.toUpperCase() ?? '?'}
       </div>
       <div className="min-w-0">
         <div className="truncate text-sm font-semibold">{u.nombre || '—'}</div>
