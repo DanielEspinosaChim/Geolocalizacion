@@ -706,8 +706,34 @@ async function eliminarProductoCanasta(productId) {
 
 let _scanResultados = [];
 
+// Redimensiona y comprime a JPEG antes de enviar al backend.
+// Fotos de galería de teléfono pueden pesar 10-20 MB; Gemini responde mejor
+// con imágenes limpias ≤ 2 MB y resolución máxima de 1920 px en el lado mayor.
+function _comprimirImagen(file, maxPx = 1920, quality = 0.88) {
+  return new Promise(resolve => {
+    const img = new Image();
+    const blobUrl = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(blobUrl);
+      const ratio  = Math.min(1, maxPx / Math.max(img.width, img.height));
+      const canvas = document.createElement('canvas');
+      canvas.width  = Math.round(img.width  * ratio);
+      canvas.height = Math.round(img.height * ratio);
+      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+      canvas.toBlob(blob => {
+        resolve(new File([blob], 'factura.jpg', { type: 'image/jpeg' }));
+      }, 'image/jpeg', quality);
+    };
+    img.onerror = () => { URL.revokeObjectURL(blobUrl); resolve(file); }; // fallback
+    img.src = blobUrl;
+  });
+}
+
 async function _procesarImagenCanasta(file) {
   if (!file) return;
+
+  // Comprimir antes de enviar: reduce tamaño de fotos de galería y mejora la lectura de Gemini
+  file = await _comprimirImagen(file);
 
   // Spinner en botones mientras procesa
   const overlay = document.createElement('div');

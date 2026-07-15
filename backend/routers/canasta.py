@@ -721,6 +721,33 @@ def export_excel(year: str, compare: str = None, meses: str = None):
 
 # ── Escaneo de facturas con IA ────────────────────────────────────────────────
 
+# Cliente Gemini inicializado una sola vez para evitar re-autenticación por petición
+_gemini_client = None
+_gemini_types  = None
+
+def _get_gemini_client():
+    global _gemini_client, _gemini_types
+    if _gemini_client is None:
+        import os
+        from google import genai as gai
+        from google.genai import types as gtypes
+        from google.oauth2 import service_account as sa_mod
+
+        sa_file = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS", "service_account.json")
+        _creds = sa_mod.Credentials.from_service_account_file(
+            sa_file,
+            scopes=["https://www.googleapis.com/auth/cloud-platform"],
+        )
+        _gemini_client = gai.Client(
+            enterprise=True,
+            project="canaco-info",
+            location="us",
+            credentials=_creds,
+        )
+        _gemini_types = gtypes
+    return _gemini_client, _gemini_types
+
+
 def _similarity(a: str, b: str) -> float:
     return SequenceMatcher(None, a.lower().strip(), b.lower().strip()).ratio()
 
@@ -763,29 +790,15 @@ async def scan_invoice(year: str, imagen: UploadFile = File(...)):
         raise HTTPException(503, "Firestore no disponible")
 
     try:
-        from google import genai as gai
-        from google.genai import types as gtypes
+        client, gtypes = _get_gemini_client()
     except ImportError:
         raise HTTPException(503, "Instala google-genai: pip install google-genai")
+    except Exception as e:
+        raise HTTPException(503, f"No se pudo inicializar Gemini: {e}")
 
     try:
-        import os
-        from google.oauth2 import service_account as sa_mod
-
         image_bytes = await imagen.read()
         mime = imagen.content_type or "image/jpeg"
-
-        sa_file = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS", "service_account.json")
-        _creds = sa_mod.Credentials.from_service_account_file(
-            sa_file,
-            scopes=["https://www.googleapis.com/auth/cloud-platform"],
-        )
-        client = gai.Client(
-            enterprise=True,
-            project="canaco-info",
-            location="us",
-            credentials=_creds,
-        )
 
         prompt = (
             "Analiza esta imagen de una factura, ticket o recibo de supermercado mexicano. "
@@ -798,7 +811,7 @@ async def scan_invoice(year: str, imagen: UploadFile = File(...)):
             model="gemini-3.5-flash",
             contents=[
                 gtypes.Part.from_bytes(data=image_bytes, mime_type=mime),
-                prompt,
+                gtypes.Part.from_text(text=prompt),
             ],
         )
 

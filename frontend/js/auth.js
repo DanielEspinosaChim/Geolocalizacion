@@ -171,22 +171,28 @@ _auth.onAuthStateChanged(async (fbUser) => {
   window._currentUser = { uid: fbUser.uid, email: fbUser.email, role, token };
   window._authReady   = true;
 
-  // Inyectar token en todas las peticiones fetch
-  _patchFetch(token);
+  // Inyectar token en todas las peticiones fetch (solo la primera vez)
+  _patchFetch();
 
   // Renderizar la app
   _bootApp(role);
 });
 
 // ── Patch global fetch para incluir Authorization header ─────────────────────
+// Se llama una sola vez: siempre obtiene un token fresco vía getIdToken()
+// para manejar la expiración automática (1 h) sin recargar la página.
 
-function _patchFetch(token) {
-  const origFetch = window._origFetch || window.fetch;
-  window._origFetch = origFetch;
-  window.fetch = (url, opts = {}) => {
-    // Solo patchear las llamadas a nuestra API
+function _patchFetch() {
+  if (window._fetchPatched) return;
+  window._fetchPatched = true;
+  const origFetch = window.fetch;
+  window.fetch = async (url, opts = {}) => {
     if (typeof url === 'string' && url.startsWith('/api')) {
-      opts.headers = { ...(opts.headers || {}), 'Authorization': `Bearer ${token}` };
+      const user = _auth.currentUser;
+      if (user) {
+        const token = await user.getIdToken();   // refresca automáticamente si expiró
+        opts.headers = { ...(opts.headers || {}), 'Authorization': `Bearer ${token}` };
+      }
     }
     return origFetch(url, opts);
   };
