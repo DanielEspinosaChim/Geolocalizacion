@@ -20,7 +20,7 @@ interface MapaCandidatosProps {
   onSelect: (c: Candidato | null) => void;
   busqueda: string;
   onBusqueda: (q: string) => void;
-  /** El buscador está enfocado (en móvil ocupa toda la pantalla). */
+  /** El buscador está enfocado (con sugerencias desplegadas sobre el mapa). */
   buscando: boolean;
   onBuscando: (b: boolean) => void;
 }
@@ -84,7 +84,7 @@ export function MapaCandidatos(props: MapaCandidatosProps) {
       </div>
 
       {/* Simbología: abajo-izquierda. Se oculta mientras se busca para no
-          asomar bajo el overlay del buscador en móvil. */}
+          competir con el panel de sugerencias. */}
       {buscando ? null : <Simbologia capas={capas.activas} />}
     </div>
   );

@@ -1,6 +1,5 @@
-import { MapPinned } from 'lucide-react';
 import { Outlet } from 'react-router';
-import { ThemeToggle } from '@shared/ui';
+import { LogoCanaco, ThemeToggle } from '@shared/ui';
 import { useCierrePorInactividad, useSession } from '@features/auth';
 import { NavTabs } from './NavTabs';
 import { UserMenu } from './UserMenu';
@@ -17,9 +16,9 @@ export function AppShell() {
           espacio libre lo aprovechan las pestañas. */}
       <header className="relative z-overlay flex h-14 shrink-0 items-center gap-2 bg-gradient-to-r from-appbar-strong to-appbar px-3 text-appbar-fg shadow-card sm:gap-4 sm:px-5">
         <div className="flex shrink-0 items-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-control bg-white/15 text-white">
-            <MapPinned className="h-5 w-5" aria-hidden="true" />
-          </span>
+          {/* Emblema CANACO en blanco (currentColor = --appbar-fg), directo
+              sobre la barra marina — sin tile de fondo. */}
+          <LogoCanaco role="img" aria-label="CANACO Mérida" className="h-8 w-auto text-appbar-fg" />
           {/* El título se oculta en móvil: ahí el espacio lo necesitan las pestañas. */}
           <h1 className="hidden font-display text-lg font-extrabold tracking-tight sm:block">
             GeoFormal

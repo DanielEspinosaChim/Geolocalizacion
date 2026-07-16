@@ -14,6 +14,7 @@ export { DateField } from './DateField';
 export { EmptyState } from './EmptyState';
 export { FotoField } from './camera/FotoField';
 export { IconButton } from './IconButton';
+export { LogoCanaco } from './LogoCanaco';
 export { FlyTo } from './map/FlyTo';
 export { MapCanvas, MERIDA_CENTER } from './map/MapCanvas';
 export { MapPopup } from './map/MapPopup';

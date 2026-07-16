@@ -1,7 +1,6 @@
-import { Map } from 'lucide-react';
 import { useState } from 'react';
 import { VERSION_LABEL } from '@shared/lib/version';
-import { Card, ThemeToggle } from '@shared/ui';
+import { Card, LogoCanaco, ThemeToggle } from '@shared/ui';
 import { LoginForm } from '../components/LoginForm';
 
 /**
@@ -29,9 +28,13 @@ export function LoginPage() {
       <div className="relative z-panel w-full max-w-sm">
         <Card as="section" className="anim-scale-in p-9 shadow-overlay">
           <header className="mb-8 grid justify-items-center gap-1.5 text-center">
-            <div className="mb-2 flex h-13 w-13 items-center justify-center rounded-card bg-gradient-to-br from-primary-strong to-primary p-3 shadow-lg shadow-primary/40">
-              <Map className="h-7 w-7 text-white" aria-hidden="true" />
-            </div>
+            {/* Emblema CANACO en currentColor: marino sobre la tarjeta blanca
+                en tema claro, blanco sobre la tarjeta oscura (como el header). */}
+            <LogoCanaco
+              role="img"
+              aria-label="CANACO Mérida"
+              className="mb-2 h-16 w-auto text-primary dark:text-white"
+            />
             <h1 className="font-display text-xl font-extrabold tracking-tight">GeoFormal</h1>
             <p className="text-xs font-medium text-fg-subtle">
               Sistema de Geolocalización · Mérida, Yucatán

@@ -25,14 +25,26 @@ export function CanastaControles({
     <div className="flex flex-wrap items-center justify-between gap-3">
       <div className="flex items-center gap-1.5" role="group" aria-label="Modo de vista">
         {VISTAS.map((v) => (
-          <Chip key={v.id} tone="secondary" active={vista === v.id} onClick={() => onVista(v.id)}>
+          <Chip
+            key={v.id}
+            tone="secondary"
+            active={vista === v.id}
+            onClick={() => onVista(v.id)}
+            className="text-2xs"
+          >
             {v.label}
           </Chip>
         ))}
       </div>
       <div className="flex flex-wrap items-center gap-1.5" role="group" aria-label="Meses visibles">
         {meses.map((m) => (
-          <Chip key={m} tone="secondary" active={mesesSel.has(m)} onClick={() => onToggleMes(m)}>
+          <Chip
+            key={m}
+            tone="secondary"
+            active={mesesSel.has(m)}
+            onClick={() => onToggleMes(m)}
+            className="text-2xs"
+          >
             {mesLabel(m)}
           </Chip>
         ))}

@@ -1,4 +1,3 @@
-import { ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
 import { SearchInput } from '@shared/ui';
 import { tipoDe, type Candidato } from '../model/candidato';
@@ -20,9 +19,10 @@ interface BuscadorNegociosProps {
 }
 
 /**
- * Buscador flotante sobre el mapa (patrón map-first). En escritorio despliega
- * un panel de sugerencias bajo el input; en móvil, al enfocarlo ocupa toda la
- * pantalla (overlay) para buscar cómodamente, con una flecha para volver.
+ * Buscador flotante sobre el mapa (patrón map-first): caja fija arriba y
+ * panel de sugerencias desplegado bajo el input, con el mapa siempre visible
+ * detrás — el mismo comportamiento en móvil y escritorio. (Antes en móvil se
+ * expandía a un overlay de pantalla completa; se quitó por confuso.)
  */
 export function BuscadorNegocios({ q, onQ, resultados, onSelect, onFocoChange }: BuscadorNegociosProps) {
   const [conFoco, setConFoco] = useState(false);
@@ -37,52 +37,29 @@ export function BuscadorNegocios({ q, onQ, resultados, onSelect, onFocoChange }:
   function elegir(c: Candidato) {
     onSelect(c);
     cambiarFoco(false);
-    // En móvil el overlay es fixed; quitar el foco lo cierra y devuelve el mapa.
+    // Suelta el foco para cerrar el panel (y el teclado en móvil).
     (document.activeElement as HTMLElement | null)?.blur();
   }
 
   return (
     <div
-      // Al enfocar en móvil el buscador pasa a overlay a pantalla completa
-      // (fixed inset-0); en escritorio (md:) siempre es una caja flotante.
-      className={
-        conFoco
-          ? 'fixed inset-0 z-modal flex flex-col bg-bg p-3 md:relative md:inset-auto md:z-panel md:block md:bg-transparent md:p-0'
-          : 'relative'
-      }
+      className="relative"
       onFocusCapture={() => cambiarFoco(true)}
       onBlurCapture={(e) => {
         if (!e.currentTarget.contains(e.relatedTarget)) cambiarFoco(false);
       }}
     >
-      <div className="flex items-center gap-2">
-        {conFoco ? (
-          <button
-            type="button"
-            aria-label="Cerrar búsqueda"
-            onMouseDown={(e) => {
-              e.preventDefault();
-              cambiarFoco(false);
-            }}
-            className="shrink-0 rounded-full p-1.5 text-fg-muted hover:bg-surface-raised hover:text-fg md:hidden"
-          >
-            <ArrowLeft className="h-5 w-5" aria-hidden="true" />
-          </button>
-        ) : null}
-        <div className="min-w-0 flex-1">
-          <SearchInput
-            value={q}
-            onChange={onQ}
-            debounceMs={200}
-            placeholder="Buscar negocio…"
-            aria-label="Buscar negocio por nombre"
-            className="border-border/60 bg-surface py-2.5 shadow-glass focus:bg-surface"
-          />
-        </div>
-      </div>
+      <SearchInput
+        value={q}
+        onChange={onQ}
+        debounceMs={200}
+        placeholder="Buscar negocio…"
+        aria-label="Buscar negocio por nombre"
+        className="border-border/60 bg-surface py-2.5 shadow-glass focus:bg-surface"
+      />
 
       {abierto ? (
-        <div className="glass-card mt-2 flex-1 overflow-y-auto rounded-card border md:absolute md:inset-x-0 md:top-full md:z-panel md:mt-2 md:max-h-[70vh]">
+        <div className="glass-card absolute inset-x-0 top-full z-panel mt-2 max-h-[55vh] overflow-y-auto rounded-card border md:max-h-[70vh]">
           {sugerencias.map((c) => (
             <button
               key={c.place_id}

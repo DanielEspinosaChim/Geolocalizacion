@@ -276,7 +276,7 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "app_load_disk_cache",
-      "community": 5,
+      "community": 57,
       "norm_label": "_load_disk_cache()"
     },
     {
@@ -296,7 +296,7 @@
       "source_location": "L141",
       "_origin": "ast",
       "id": "app_lifespan",
-      "community": 9,
+      "community": 57,
       "norm_label": "_lifespan()"
     },
     {
@@ -306,7 +306,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "fastapi",
-      "community": 9,
+      "community": 57,
       "norm_label": "fastapi"
     },
     {
@@ -386,7 +386,7 @@
       "source_location": "L319",
       "_origin": "ast",
       "id": "app_cache_status",
-      "community": 65,
+      "community": 86,
       "norm_label": "cache_status()"
     },
     {
@@ -836,7 +836,7 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "app_rationale_112",
-      "community": 5,
+      "community": 57,
       "norm_label": "carga el slim json desde disco (si existe) \u2014 instante, sin firestore."
     },
     {
@@ -856,7 +856,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "app_rationale_142",
-      "community": 9,
+      "community": 57,
       "norm_label": "startup: carga disco primero (instante) y luego firestore en background."
     },
     {
@@ -906,7 +906,7 @@
       "source_location": "L320",
       "_origin": "ast",
       "id": "app_rationale_320",
-      "community": 65,
+      "community": 86,
       "norm_label": "devuelve el estado de carga del cache de candidatos."
     },
     {
@@ -1026,7 +1026,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_app",
-      "community": 9,
+      "community": 57,
       "norm_label": "app.py"
     },
     {
@@ -1036,7 +1036,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_app_lifespan",
-      "community": 9,
+      "community": 57,
       "norm_label": "lifespan()"
     },
     {
@@ -1056,7 +1056,7 @@
       "source_location": "L115",
       "_origin": "ast",
       "id": "backend_app_index",
-      "community": 9,
+      "community": 57,
       "norm_label": "index()"
     },
     {
@@ -1066,7 +1066,7 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "backend_app_spa_fallback",
-      "community": 9,
+      "community": 57,
       "norm_label": "spa_fallback()"
     },
     {
@@ -1076,7 +1076,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_app_rationale_1",
-      "community": 9,
+      "community": 57,
       "norm_label": "backend \u2014 mapa de candidatos informales + prediccion + rutas =================="
     },
     {
@@ -1236,7 +1236,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "db_database_haversine",
-      "community": 45,
+      "community": 9,
       "norm_label": "haversine()"
     },
     {
@@ -1246,7 +1246,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "db_database_nearest_neighbor_tsp",
-      "community": 8,
+      "community": 9,
       "norm_label": "nearest_neighbor_tsp()"
     },
     {
@@ -1276,7 +1276,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "db_database_rationale_22",
-      "community": 45,
+      "community": 9,
       "norm_label": "distancia en metros entre dos puntos (lat/lng en grados)."
     },
     {
@@ -1286,7 +1286,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "db_database_rationale_32",
-      "community": 8,
+      "community": 9,
       "norm_label": "ordena puntos con el heuristico del vecino mas cercano (tsp)."
     },
     {
@@ -1686,7 +1686,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "basemodel",
-      "community": 21,
+      "community": 8,
       "norm_label": "basemodel"
     },
     {
@@ -1956,7 +1956,7 @@
       "source_location": "L163",
       "_origin": "ast",
       "id": "routers_campanas_detalle_campana",
-      "community": 4,
+      "community": 18,
       "norm_label": "detalle_campana()"
     },
     {
@@ -2516,7 +2516,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routers_prediccion",
-      "community": 21,
+      "community": 8,
       "norm_label": "prediccion.py"
     },
     {
@@ -2526,7 +2526,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "routers_prediccion_prediccionnegocioresponse",
-      "community": 21,
+      "community": 8,
       "norm_label": "prediccionnegocioresponse"
     },
     {
@@ -2536,7 +2536,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "routers_prediccion_prediccionzonaresponse",
-      "community": 21,
+      "community": 8,
       "norm_label": "prediccionzonaresponse"
     },
     {
@@ -2546,7 +2546,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "routers_prediccion_sindatosresponse",
-      "community": 21,
+      "community": 8,
       "norm_label": "sindatosresponse"
     },
     {
@@ -2556,7 +2556,7 @@
       "source_location": "L93",
       "_origin": "ast",
       "id": "routers_prediccion_predecir",
-      "community": 45,
+      "community": 9,
       "norm_label": "predecir()"
     },
     {
@@ -2566,7 +2566,7 @@
       "source_location": "L205",
       "_origin": "ast",
       "id": "routers_prediccion_get_indice",
-      "community": 21,
+      "community": 8,
       "norm_label": "get_indice()"
     },
     {
@@ -2746,7 +2746,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routers_visitas",
-      "community": 9,
+      "community": 71,
       "norm_label": "visitas.py"
     },
     {
@@ -2756,7 +2756,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "routers_visitas_reportevisitabody",
-      "community": 9,
+      "community": 71,
       "norm_label": "reportevisitabody"
     },
     {
@@ -2766,7 +2766,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "routers_visitas_generar_reporte_visita",
-      "community": 9,
+      "community": 71,
       "norm_label": "generar_reporte_visita()"
     },
     {
@@ -2776,7 +2776,7 @@
       "source_location": "L110",
       "_origin": "ast",
       "id": "routers_visitas_render_template",
-      "community": 9,
+      "community": 71,
       "norm_label": "_render_template()"
     },
     {
@@ -2786,7 +2786,7 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "routers_visitas_rationale_111",
-      "community": 9,
+      "community": 71,
       "norm_label": "renderiza el reporte usando jinja2 si el template existe, o html inline."
     },
     {
@@ -2796,7 +2796,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "routers_zonas",
-      "community": 21,
+      "community": 8,
       "norm_label": "zonas.py"
     },
     {
@@ -2806,7 +2806,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "routers_zonas_zona",
-      "community": 21,
+      "community": 8,
       "norm_label": "zona"
     },
     {
@@ -2816,7 +2816,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "routers_zonas_colonia",
-      "community": 21,
+      "community": 8,
       "norm_label": "colonia"
     },
     {
@@ -2836,7 +2836,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "routers_zonas_get_colonias",
-      "community": 21,
+      "community": 8,
       "norm_label": "get_colonias()"
     },
     {
@@ -4074,7 +4074,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "app_errorboundary_errorboundary_render",
-      "community": 61,
+      "community": 60,
       "norm_label": ".render()"
     },
     {
@@ -4091,7 +4091,7 @@
       "label": "AppShell()",
       "file_type": "code",
       "source_file": "frontend/src/app/layout/AppShell.tsx",
-      "source_location": "L9",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "layout_appshell_appshell",
       "community": 107,
@@ -5481,7 +5481,7 @@
       "label": "LoginPage()",
       "file_type": "code",
       "source_file": "frontend/src/features/auth/routes/LoginPage.tsx",
-      "source_location": "L12",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "routes_loginpage_loginpage",
       "community": 107,
@@ -5491,7 +5491,7 @@
       "label": "DesarrolladoPor()",
       "file_type": "code",
       "source_file": "frontend/src/features/auth/routes/LoginPage.tsx",
-      "source_location": "L56",
+      "source_location": "L59",
       "_origin": "ast",
       "id": "routes_loginpage_desarrolladopor",
       "community": 107,
@@ -5504,7 +5504,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "api_keys",
-      "community": 61,
+      "community": 43,
       "norm_label": "keys.ts"
     },
     {
@@ -5514,7 +5514,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "api_keys_campanaskeys",
-      "community": 61,
+      "community": 43,
       "norm_label": "campanaskeys"
     },
     {
@@ -5544,7 +5544,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "api_usecampana",
-      "community": 61,
+      "community": 43,
       "norm_label": "usecampana.ts"
     },
     {
@@ -5684,7 +5684,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "api_useplantillas",
-      "community": 61,
+      "community": 29,
       "norm_label": "useplantillas.ts"
     },
     {
@@ -5704,7 +5704,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "api_useplantillas_plantillainput",
-      "community": 61,
+      "community": 29,
       "norm_label": "plantillainput"
     },
     {
@@ -5784,7 +5784,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "components_agregarnegocios_fila",
-      "community": 0,
+      "community": 43,
       "norm_label": "fila()"
     },
     {
@@ -5834,7 +5834,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_campanadetalle_test",
-      "community": 61,
+      "community": 43,
       "norm_label": "campanadetalle.test.tsx"
     },
     {
@@ -5844,7 +5844,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "components_campanadetalle_test_negocio",
-      "community": 61,
+      "community": 43,
       "norm_label": "negocio()"
     },
     {
@@ -5854,7 +5854,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "components_campanadetalle_test_espiaruta",
-      "community": 61,
+      "community": 43,
       "norm_label": "espiaruta()"
     },
     {
@@ -5864,7 +5864,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "components_campanadetalle_test_renderdetalle",
-      "community": 61,
+      "community": 60,
       "norm_label": "renderdetalle()"
     },
     {
@@ -6124,7 +6124,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_crearcampanamodal",
-      "community": 59,
+      "community": 43,
       "norm_label": "crearcampanamodal.tsx"
     },
     {
@@ -6134,7 +6134,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "components_crearcampanamodal_crearcampanamodalprops",
-      "community": 59,
+      "community": 43,
       "norm_label": "crearcampanamodalprops"
     },
     {
@@ -6144,7 +6144,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "components_crearcampanamodal_crearcampanamodal",
-      "community": 59,
+      "community": 43,
       "norm_label": "crearcampanamodal()"
     },
     {
@@ -6214,7 +6214,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "components_negociosgrid_test_rendergrid",
-      "community": 61,
+      "community": 60,
       "norm_label": "rendergrid()"
     },
     {
@@ -6314,7 +6314,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_progresohero",
-      "community": 43,
+      "community": 59,
       "norm_label": "progresohero.tsx"
     },
     {
@@ -6324,7 +6324,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "components_progresohero_progresohero",
-      "community": 43,
+      "community": 59,
       "norm_label": "progresohero()"
     },
     {
@@ -6504,7 +6504,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "model_campana_campanalistschema",
-      "community": 29,
+      "community": 59,
       "norm_label": "campanalistschema"
     },
     {
@@ -6544,7 +6544,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "model_campana_detallecampanaschema",
-      "community": 59,
+      "community": 43,
       "norm_label": "detallecampanaschema"
     },
     {
@@ -6554,7 +6554,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "model_campana_detallecampana",
-      "community": 61,
+      "community": 43,
       "norm_label": "detallecampana"
     },
     {
@@ -6564,7 +6564,7 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "model_campana_progreso",
-      "community": 43,
+      "community": 59,
       "norm_label": "progreso"
     },
     {
@@ -6664,7 +6664,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "model_plantilla_plantillalistschema",
-      "community": 61,
+      "community": 29,
       "norm_label": "plantillalistschema"
     },
     {
@@ -7974,7 +7974,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "api_usecandidatos_usecandidatos",
-      "community": 75,
+      "community": 0,
       "norm_label": "usecandidatos()"
     },
     {
@@ -8104,7 +8104,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "components_buscadornegocios_test_renderbuscador",
-      "community": 0,
+      "community": 60,
       "norm_label": "renderbuscador()"
     },
     {
@@ -8121,7 +8121,7 @@
       "label": "BuscadorNegociosProps",
       "file_type": "code",
       "source_file": "frontend/src/features/candidatos/components/BuscadorNegocios.tsx",
-      "source_location": "L12",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "components_buscadornegocios_buscadornegociosprops",
       "community": 0,
@@ -8444,7 +8444,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "components_panellateral_test_renderpanel",
-      "community": 61,
+      "community": 60,
       "norm_label": "renderpanel()"
     },
     {
@@ -9534,7 +9534,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "components_indicecalculadora_indicecalculadora",
-      "community": 22,
+      "community": 0,
       "norm_label": "indicecalculadora()"
     },
     {
@@ -9624,7 +9624,7 @@
       "source_location": "L170",
       "_origin": "ast",
       "id": "components_indicepanel_sensibilidad",
-      "community": 0,
+      "community": 22,
       "norm_label": "sensibilidad()"
     },
     {
@@ -9634,7 +9634,7 @@
       "source_location": "L207",
       "_origin": "ast",
       "id": "components_indicepanel_escenario",
-      "community": 0,
+      "community": 22,
       "norm_label": "escenario()"
     },
     {
@@ -10804,7 +10804,7 @@
       "source_location": "L64",
       "_origin": "ast",
       "id": "components_herramientasruta_rutaporcolonia",
-      "community": 75,
+      "community": 25,
       "norm_label": "rutaporcolonia()"
     },
     {
@@ -10824,7 +10824,7 @@
       "source_location": "L158",
       "_origin": "ast",
       "id": "components_herramientasruta_buscadornegocios",
-      "community": 0,
+      "community": 75,
       "norm_label": "buscadornegocios()"
     },
     {
@@ -11334,7 +11334,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_avatar_test",
-      "community": 86,
+      "community": 61,
       "norm_label": "avatar.test.tsx"
     },
     {
@@ -11344,7 +11344,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_avatar",
-      "community": 86,
+      "community": 61,
       "norm_label": "avatar.tsx"
     },
     {
@@ -11354,7 +11354,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "ui_avatar_tamanos",
-      "community": 86,
+      "community": 61,
       "norm_label": "tamanos"
     },
     {
@@ -11364,7 +11364,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "ui_avatar_avatarprops",
-      "community": 86,
+      "community": 61,
       "norm_label": "avatarprops"
     },
     {
@@ -11374,7 +11374,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "ui_avatar_avatar",
-      "community": 86,
+      "community": 61,
       "norm_label": "avatar()"
     },
     {
@@ -11384,7 +11384,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_badge",
-      "community": 1,
+      "community": 45,
       "norm_label": "badge.tsx"
     },
     {
@@ -11394,7 +11394,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "ui_badge_tone_classes",
-      "community": 1,
+      "community": 45,
       "norm_label": "tone_classes"
     },
     {
@@ -11404,7 +11404,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "ui_badge_badgetone",
-      "community": 1,
+      "community": 45,
       "norm_label": "badgetone"
     },
     {
@@ -11414,7 +11414,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "ui_badge_badgeprops",
-      "community": 1,
+      "community": 45,
       "norm_label": "badgeprops"
     },
     {
@@ -11424,7 +11424,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "ui_badge_badge",
-      "community": 1,
+      "community": 45,
       "norm_label": "badge()"
     },
     {
@@ -11844,7 +11844,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "ui_confirmdialog_useconfirm",
-      "community": 43,
+      "community": 2,
       "norm_label": "useconfirm()"
     },
     {
@@ -11904,7 +11904,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "ui_datatable_test_pintar",
-      "community": 35,
+      "community": 60,
       "norm_label": "pintar()"
     },
     {
@@ -11914,7 +11914,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_datatable",
-      "community": 35,
+      "community": 45,
       "norm_label": "datatable.tsx"
     },
     {
@@ -11934,7 +11934,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "ui_datatable_datatableprops",
-      "community": 35,
+      "community": 45,
       "norm_label": "datatableprops"
     },
     {
@@ -11944,7 +11944,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "ui_datatable_normalizar",
-      "community": 35,
+      "community": 45,
       "norm_label": "normalizar()"
     },
     {
@@ -11954,7 +11954,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "ui_datatable_usefiltrado",
-      "community": 35,
+      "community": 45,
       "norm_label": "usefiltrado()"
     },
     {
@@ -11964,7 +11964,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "ui_datatable_paginar",
-      "community": 35,
+      "community": 45,
       "norm_label": "paginar()"
     },
     {
@@ -11974,7 +11974,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "ui_datatable_datatable",
-      "community": 35,
+      "community": 45,
       "norm_label": "datatable()"
     },
     {
@@ -11984,7 +11984,7 @@
       "source_location": "L138",
       "_origin": "ast",
       "id": "ui_datatable_barra",
-      "community": 35,
+      "community": 45,
       "norm_label": "barra()"
     },
     {
@@ -11994,7 +11994,7 @@
       "source_location": "L170",
       "_origin": "ast",
       "id": "ui_datatable_vacio",
-      "community": 35,
+      "community": 45,
       "norm_label": "vacio()"
     },
     {
@@ -12004,7 +12004,7 @@
       "source_location": "L175",
       "_origin": "ast",
       "id": "ui_datatable_cuerpo",
-      "community": 35,
+      "community": 45,
       "norm_label": "cuerpo()"
     },
     {
@@ -12116,6 +12116,26 @@
       "id": "ui_iconbutton_iconbuttonprops",
       "community": 66,
       "norm_label": "iconbuttonprops"
+    },
+    {
+      "label": "LogoCanaco.tsx",
+      "file_type": "code",
+      "source_file": "frontend/src/shared/ui/LogoCanaco.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "ui_logocanaco",
+      "community": 1,
+      "norm_label": "logocanaco.tsx"
+    },
+    {
+      "label": "LogoCanaco()",
+      "file_type": "code",
+      "source_file": "frontend/src/shared/ui/LogoCanaco.tsx",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "ui_logocanaco_logocanaco",
+      "community": 1,
+      "norm_label": "logocanaco()"
     },
     {
       "label": "Modal.tsx",
@@ -12234,7 +12254,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_pageheader_test",
-      "community": 101,
+      "community": 1,
       "norm_label": "pageheader.test.tsx"
     },
     {
@@ -12244,7 +12264,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_pageheader",
-      "community": 101,
+      "community": 1,
       "norm_label": "pageheader.tsx"
     },
     {
@@ -12254,7 +12274,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "ui_pageheader_pageheaderprops",
-      "community": 101,
+      "community": 1,
       "norm_label": "pageheaderprops"
     },
     {
@@ -12264,7 +12284,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "ui_pageheader_pageheader",
-      "community": 101,
+      "community": 1,
       "norm_label": "pageheader()"
     },
     {
@@ -12324,7 +12344,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_panelsection",
-      "community": 1,
+      "community": 45,
       "norm_label": "panelsection.tsx"
     },
     {
@@ -12334,7 +12354,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "ui_panelsection_panelsectionprops",
-      "community": 1,
+      "community": 45,
       "norm_label": "panelsectionprops"
     },
     {
@@ -12344,7 +12364,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "ui_panelsection_panelsection",
-      "community": 1,
+      "community": 45,
       "norm_label": "panelsection()"
     },
     {
@@ -12354,7 +12374,7 @@
       "source_location": "L99",
       "_origin": "ast",
       "id": "ui_panelsection_acento",
-      "community": 1,
+      "community": 45,
       "norm_label": "acento()"
     },
     {
@@ -12364,7 +12384,7 @@
       "source_location": "L103",
       "_origin": "ast",
       "id": "ui_panelsection_titulo",
-      "community": 1,
+      "community": 45,
       "norm_label": "titulo()"
     },
     {
@@ -12484,7 +12504,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_searchinput",
-      "community": 35,
+      "community": 45,
       "norm_label": "searchinput.tsx"
     },
     {
@@ -12494,7 +12514,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "ui_searchinput_searchinputprops",
-      "community": 35,
+      "community": 45,
       "norm_label": "searchinputprops"
     },
     {
@@ -12504,7 +12524,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "ui_searchinput_searchinput",
-      "community": 35,
+      "community": 45,
       "norm_label": "searchinput()"
     },
     {
@@ -12514,7 +12534,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_selectfield",
-      "community": 106,
+      "community": 1,
       "norm_label": "selectfield.tsx"
     },
     {
@@ -12524,7 +12544,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "ui_selectfield_selectfieldprops",
-      "community": 106,
+      "community": 1,
       "norm_label": "selectfieldprops"
     },
     {
@@ -12534,7 +12554,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "ui_selectfield_selectfield",
-      "community": 106,
+      "community": 1,
       "norm_label": "selectfield"
     },
     {
@@ -12544,7 +12564,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_skeleton",
-      "community": 35,
+      "community": 45,
       "norm_label": "skeleton.tsx"
     },
     {
@@ -12554,7 +12574,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_skeleton_skeletonprops",
-      "community": 35,
+      "community": 45,
       "norm_label": "skeletonprops"
     },
     {
@@ -12564,7 +12584,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "ui_skeleton_skeleton",
-      "community": 35,
+      "community": 45,
       "norm_label": "skeleton()"
     },
     {
@@ -12604,7 +12624,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_table",
-      "community": 1,
+      "community": 45,
       "norm_label": "table.tsx"
     },
     {
@@ -12614,7 +12634,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "ui_table_tableprops",
-      "community": 1,
+      "community": 45,
       "norm_label": "tableprops"
     },
     {
@@ -12624,7 +12644,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "ui_table_table",
-      "community": 1,
+      "community": 45,
       "norm_label": "table()"
     },
     {
@@ -12634,7 +12654,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "ui_table_thead",
-      "community": 1,
+      "community": 45,
       "norm_label": "thead()"
     },
     {
@@ -12644,7 +12664,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "ui_table_tbody",
-      "community": 1,
+      "community": 45,
       "norm_label": "tbody()"
     },
     {
@@ -12654,7 +12674,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "ui_table_tr",
-      "community": 1,
+      "community": 45,
       "norm_label": "tr()"
     },
     {
@@ -12664,7 +12684,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "ui_table_th",
-      "community": 1,
+      "community": 45,
       "norm_label": "th()"
     },
     {
@@ -12674,7 +12694,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "ui_table_td",
-      "community": 1,
+      "community": 45,
       "norm_label": "td()"
     },
     {
@@ -13044,7 +13064,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "map_mappopup",
-      "community": 105,
+      "community": 1,
       "norm_label": "mappopup.tsx"
     },
     {
@@ -13054,7 +13074,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "map_mappopup_mappopupprops",
-      "community": 105,
+      "community": 1,
       "norm_label": "mappopupprops"
     },
     {
@@ -13064,7 +13084,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "map_mappopup_mappopup",
-      "community": 105,
+      "community": 1,
       "norm_label": "mappopup()"
     },
     {
@@ -13104,7 +13124,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_ui_test",
-      "community": 1,
+      "community": 45,
       "norm_label": "ui.test.tsx"
     },
     {
@@ -13114,7 +13134,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "ui_ui_test_contenidode",
-      "community": 1,
+      "community": 45,
       "norm_label": "contenidode()"
     },
     {
@@ -13744,7 +13764,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_actualizar_colonias_reales",
-      "community": 133,
+      "community": 130,
       "norm_label": "actualizar_colonias_reales.py"
     },
     {
@@ -13754,7 +13774,7 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "scripts_actualizar_colonias_reales_save_cache",
-      "community": 133,
+      "community": 130,
       "norm_label": "save_cache()"
     },
     {
@@ -13764,7 +13784,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "scripts_actualizar_colonias_reales_get_colonia",
-      "community": 133,
+      "community": 130,
       "norm_label": "get_colonia()"
     },
     {
@@ -13774,7 +13794,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_actualizar_colonias_reales_rationale_1",
-      "community": 133,
+      "community": 130,
       "norm_label": "actualizar_colonias_reales.py ============================== asigna la colonia"
     },
     {
@@ -13784,7 +13804,7 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "scripts_actualizar_colonias_reales_rationale_57",
-      "community": 133,
+      "community": 130,
       "norm_label": "reverse geocoding con nominatim. devuelve (colonia_nombre, display_name)."
     },
     {
@@ -13794,7 +13814,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_actualizar_zonas_poligonos",
-      "community": 131,
+      "community": 11,
       "norm_label": "actualizar_zonas_poligonos.py"
     },
     {
@@ -13804,7 +13824,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "scripts_actualizar_zonas_poligonos_normalize",
-      "community": 131,
+      "community": 11,
       "norm_label": "normalize()"
     },
     {
@@ -13814,7 +13834,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "scripts_actualizar_zonas_poligonos_way_to_coords",
-      "community": 131,
+      "community": 11,
       "norm_label": "way_to_coords()"
     },
     {
@@ -13824,7 +13844,7 @@
       "source_location": "L90",
       "_origin": "ast",
       "id": "scripts_actualizar_zonas_poligonos_relation_to_geom",
-      "community": 131,
+      "community": 11,
       "norm_label": "relation_to_geom()"
     },
     {
@@ -13834,7 +13854,7 @@
       "source_location": "L117",
       "_origin": "ast",
       "id": "scripts_actualizar_zonas_poligonos_way_to_geom",
-      "community": 131,
+      "community": 11,
       "norm_label": "way_to_geom()"
     },
     {
@@ -13844,7 +13864,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_actualizar_zonas_poligonos_rationale_1",
-      "community": 131,
+      "community": 11,
       "norm_label": "actualizar_zonas_poligonos.py ============================== reemplaza las bou"
     },
     {
@@ -13854,7 +13874,7 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "scripts_actualizar_zonas_poligonos_rationale_32",
-      "community": 131,
+      "community": 11,
       "norm_label": "quita acentos, minusculas, colapsa espacios."
     },
     {
@@ -13904,7 +13924,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "scripts_asignar_colonias_por_ubicacion",
-      "community": 85,
+      "community": 11,
       "norm_label": "asignar_colonias_por_ubicacion.py"
     },
     {
@@ -13914,7 +13934,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "scripts_asignar_colonias_por_ubicacion_cargar_colonias",
-      "community": 85,
+      "community": 11,
       "norm_label": "cargar_colonias()"
     },
     {
@@ -13924,7 +13944,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "scripts_asignar_colonias_por_ubicacion_punto_en_bbox",
-      "community": 85,
+      "community": 11,
       "norm_label": "punto_en_bbox()"
     },
     {
@@ -13934,7 +13954,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "scripts_asignar_colonias_por_ubicacion_encontrar_colonia",
-      "community": 85,
+      "community": 11,
       "norm_label": "encontrar_colonia()"
     },
     {
@@ -13944,7 +13964,7 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "scripts_asignar_colonias_por_ubicacion_procesar_candidatos",
-      "community": 85,
+      "community": 11,
       "norm_label": "procesar_candidatos()"
     },
     {
@@ -13954,7 +13974,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "scripts_asignar_colonias_por_ubicacion_rationale_26",
-      "community": 85,
+      "community": 11,
       "norm_label": "carga poligonos de colonias y prepara para busqueda."
     },
     {
@@ -13964,7 +13984,7 @@
       "source_location": "L60",
       "_origin": "ast",
       "id": "scripts_asignar_colonias_por_ubicacion_rationale_60",
-      "community": 85,
+      "community": 11,
       "norm_label": "verifica si un punto esta dentro del bounding box."
     },
     {
@@ -13974,7 +13994,7 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "scripts_asignar_colonias_por_ubicacion_rationale_68",
-      "community": 85,
+      "community": 11,
       "norm_label": "encuentra la colonia donde esta ubicado el punto."
     },
     {
@@ -13984,7 +14004,7 @@
       "source_location": "L89",
       "_origin": "ast",
       "id": "scripts_asignar_colonias_por_ubicacion_rationale_89",
-      "community": 85,
+      "community": 11,
       "norm_label": "procesa todos los candidatos y asigna colonia por ubicacion."
     },
     {
@@ -16272,7 +16292,7 @@
       "file_type": "code",
       "source_file": "app.py",
       "source_location": "L141",
-      "community": 9,
+      "community": 57,
       "norm_label": "fastapi",
       "id": "app_py_fastapi"
     },
@@ -16344,7 +16364,7 @@
       "file_type": "code",
       "source_file": "backend/db/database.py",
       "source_location": "L21",
-      "community": 45,
+      "community": 9,
       "norm_label": "float",
       "id": "backend_db_database_py_float"
     },
@@ -16434,7 +16454,7 @@
       "file_type": "code",
       "source_file": "backend/routers/prediccion.py",
       "source_location": "L91",
-      "community": 45,
+      "community": 9,
       "norm_label": "float",
       "id": "backend_routers_prediccion_py_float"
     },
@@ -16479,7 +16499,7 @@
       "file_type": "code",
       "source_file": "backend/routers/visitas.py",
       "source_location": "L109",
-      "community": 9,
+      "community": 71,
       "norm_label": "str",
       "id": "backend_routers_visitas_py_str"
     },
@@ -16488,7 +16508,7 @@
       "file_type": "code",
       "source_file": "backend/routers/zonas.py",
       "source_location": "L87",
-      "community": 21,
+      "community": 8,
       "norm_label": "bool",
       "id": "backend_routers_zonas_py_bool"
     },
@@ -16659,7 +16679,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 69,
+      "community": 48,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijm_6ffuptvo8rg0z3nth6qfg_lat"
     },
@@ -16686,7 +16706,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 33,
       "norm_label": "places/chije36tb-bsvo8rruo7jfu5r9c",
       "id": "raw_gmaps_places_places_chije36tb_bsvo8rruo7jfu5r9c"
     },
@@ -16695,7 +16715,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 33,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chije36tb_bsvo8rruo7jfu5r9c_name"
     },
@@ -16704,25 +16724,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 33,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chije36tb_bsvo8rruo7jfu5r9c_lat"
-    },
-    {
-      "label": "lng",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 71,
-      "norm_label": "lng",
-      "id": "raw_gmaps_places_places_chije36tb_bsvo8rruo7jfu5r9c_lng"
     },
     {
       "label": "rating",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 51,
+      "community": 33,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chije36tb_bsvo8rruo7jfu5r9c_rating"
     },
@@ -16731,7 +16742,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 33,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chije36tb_bsvo8rruo7jfu5r9c_reviews"
     },
@@ -16740,18 +16751,9 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 33,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chije36tb_bsvo8rruo7jfu5r9c_price"
-    },
-    {
-      "label": "status",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 71,
-      "norm_label": "status",
-      "id": "raw_gmaps_places_places_chije36tb_bsvo8rruo7jfu5r9c_status"
     },
     {
       "label": "places/ChIJj2-fpgJtVo8ROvc8n53Y_HM",
@@ -16781,15 +16783,6 @@
       "id": "raw_gmaps_places_places_chijj2_fpgjtvo8rovc8n53y_hm_lng"
     },
     {
-      "label": "rating",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 67,
-      "norm_label": "rating",
-      "id": "raw_gmaps_places_places_chijj2_fpgjtvo8rovc8n53y_hm_rating"
-    },
-    {
       "label": "price",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
@@ -16799,20 +16792,11 @@
       "id": "raw_gmaps_places_places_chijj2_fpgjtvo8rovc8n53y_hm_price"
     },
     {
-      "label": "status",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 71,
-      "norm_label": "status",
-      "id": "raw_gmaps_places_places_chijj2_fpgjtvo8rovc8n53y_hm_status"
-    },
-    {
       "label": "places/ChIJI9ULeABtVo8RevFE83erdA4",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 51,
+      "community": 67,
       "norm_label": "places/chiji9uleabtvo8revfe83erda4",
       "id": "raw_gmaps_places_places_chiji9uleabtvo8revfe83erda4"
     },
@@ -16821,34 +16805,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 51,
+      "community": 67,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chiji9uleabtvo8revfe83erda4_name"
-    },
-    {
-      "label": "lng",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 51,
-      "norm_label": "lng",
-      "id": "raw_gmaps_places_places_chiji9uleabtvo8revfe83erda4_lng"
-    },
-    {
-      "label": "types",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 51,
-      "norm_label": "types",
-      "id": "raw_gmaps_places_places_chiji9uleabtvo8revfe83erda4_types"
     },
     {
       "label": "reviews",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 51,
+      "community": 67,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chiji9uleabtvo8revfe83erda4_reviews"
     },
@@ -16857,7 +16823,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 51,
+      "community": 67,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chiji9uleabtvo8revfe83erda4_status"
     },
@@ -16893,7 +16859,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 40,
+      "community": 26,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chijkyngyq5tvo8rebrdneuo5yc_lng"
     },
@@ -16970,15 +16936,6 @@
       "id": "raw_gmaps_places_places_chijd9rvxi5tvo8rvai0gscy4k4_types"
     },
     {
-      "label": "rating",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 39,
-      "norm_label": "rating",
-      "id": "raw_gmaps_places_places_chijd9rvxi5tvo8rvai0gscy4k4_rating"
-    },
-    {
       "label": "status",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
@@ -16992,25 +16949,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 33,
+      "community": 65,
       "norm_label": "places/chijp_mgzbdtvo8rlubxv_kzgpy",
       "id": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy"
-    },
-    {
-      "label": "name",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 44,
-      "norm_label": "name",
-      "id": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy_name"
     },
     {
       "label": "lng",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 33,
+      "community": 62,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy_lng"
     },
@@ -17019,25 +16967,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 33,
+      "community": 65,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy_types"
-    },
-    {
-      "label": "rating",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 51,
-      "norm_label": "rating",
-      "id": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy_rating"
     },
     {
       "label": "reviews",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 33,
+      "community": 65,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy_reviews"
     },
@@ -17046,7 +16985,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 33,
+      "community": 65,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy_price"
     },
@@ -17055,7 +16994,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 33,
+      "community": 65,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy_status"
     },
@@ -17064,7 +17003,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "places/chijjemshq1tvo8rf19zoi1gqb8",
       "id": "raw_gmaps_places_places_chijjemshq1tvo8rf19zoi1gqb8"
     },
@@ -17073,7 +17012,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijjemshq1tvo8rf19zoi1gqb8_lat"
     },
@@ -17082,7 +17021,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chijjemshq1tvo8rf19zoi1gqb8_lng"
     },
@@ -17091,7 +17030,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chijjemshq1tvo8rf19zoi1gqb8_types"
     },
@@ -17100,7 +17039,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chijjemshq1tvo8rf19zoi1gqb8_rating"
     },
@@ -17109,7 +17048,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijjemshq1tvo8rf19zoi1gqb8_reviews"
     },
@@ -17118,7 +17057,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijjemshq1tvo8rf19zoi1gqb8_price"
     },
@@ -17127,7 +17066,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 69,
+      "community": 65,
       "norm_label": "places/chijqtcigfntvo8rakmus0rqony",
       "id": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony"
     },
@@ -17136,25 +17075,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 69,
+      "community": 65,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony_name"
-    },
-    {
-      "label": "lat",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 69,
-      "norm_label": "lat",
-      "id": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony_lat"
     },
     {
       "label": "lng",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 69,
+      "community": 65,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony_lng"
     },
@@ -17163,7 +17093,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 69,
+      "community": 65,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony_rating"
     },
@@ -17172,18 +17102,9 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 69,
+      "community": 65,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony_reviews"
-    },
-    {
-      "label": "price",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 69,
-      "norm_label": "price",
-      "id": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony_price"
     },
     {
       "label": "places/ChIJdVxZLTVtVo8R0f3oiXono1Y",
@@ -17217,18 +17138,9 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chijdvxzltvtvo8r0f3oixono1y_lng"
-    },
-    {
-      "label": "types",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 44,
-      "norm_label": "types",
-      "id": "raw_gmaps_places_places_chijdvxzltvtvo8r0f3oixono1y_types"
     },
     {
       "label": "rating",
@@ -17244,7 +17156,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 62,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijdvxzltvtvo8r0f3oixono1y_price"
     },
@@ -17262,25 +17174,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 77,
       "norm_label": "places/chijuuftmsrtvo8rz2zshqmdcpq",
       "id": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq"
-    },
-    {
-      "label": "name",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 38,
-      "norm_label": "name",
-      "id": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq_name"
     },
     {
       "label": "lng",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 77,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq_lng"
     },
@@ -17289,7 +17192,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 68,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq_types"
     },
@@ -17298,7 +17201,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 77,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq_rating"
     },
@@ -17307,25 +17210,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 76,
+      "community": 77,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq_reviews"
-    },
-    {
-      "label": "status",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 26,
-      "norm_label": "status",
-      "id": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq_status"
     },
     {
       "label": "places/ChIJ89o7XwBtVo8R55kwxx5kQSI",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 26,
+      "community": 39,
       "norm_label": "places/chij89o7xwbtvo8r55kwxx5kqsi",
       "id": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi"
     },
@@ -17343,36 +17237,18 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 26,
+      "community": 39,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi_lat"
-    },
-    {
-      "label": "lng",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 26,
-      "norm_label": "lng",
-      "id": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi_lng"
     },
     {
       "label": "types",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 26,
+      "community": 39,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi_types"
-    },
-    {
-      "label": "reviews",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 26,
-      "norm_label": "reviews",
-      "id": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi_reviews"
     },
     {
       "label": "price",
@@ -17388,7 +17264,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "places/chijv8myjabtvo8rgpkxkl6txd0",
       "id": "raw_gmaps_places_places_chijv8myjabtvo8rgpkxkl6txd0"
     },
@@ -17397,7 +17273,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chijv8myjabtvo8rgpkxkl6txd0_name"
     },
@@ -17406,7 +17282,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 53,
+      "community": 76,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijv8myjabtvo8rgpkxkl6txd0_lat"
     },
@@ -17415,7 +17291,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chijv8myjabtvo8rgpkxkl6txd0_rating"
     },
@@ -17424,7 +17300,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijv8myjabtvo8rgpkxkl6txd0_reviews"
     },
@@ -17433,7 +17309,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chijv8myjabtvo8rgpkxkl6txd0_status"
     },
@@ -17442,7 +17318,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 26,
+      "community": 48,
       "norm_label": "places/chij5uufzabtvo8rcyybxg97kig",
       "id": "raw_gmaps_places_places_chij5uufzabtvo8rcyybxg97kig"
     },
@@ -17451,7 +17327,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 26,
+      "community": 48,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chij5uufzabtvo8rcyybxg97kig_name"
     },
@@ -17460,7 +17336,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 26,
+      "community": 48,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chij5uufzabtvo8rcyybxg97kig_types"
     },
@@ -17469,7 +17345,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 26,
+      "community": 39,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chij5uufzabtvo8rcyybxg97kig_rating"
     },
@@ -17478,7 +17354,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 26,
+      "community": 48,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chij5uufzabtvo8rcyybxg97kig_reviews"
     },
@@ -17487,7 +17363,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 26,
+      "community": 48,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chij5uufzabtvo8rcyybxg97kig_price"
     },
@@ -17550,25 +17426,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 26,
+      "community": 48,
       "norm_label": "places/chijedc3eedtvo8r82lfxzw4kyu",
       "id": "raw_gmaps_places_places_chijedc3eedtvo8r82lfxzw4kyu"
-    },
-    {
-      "label": "lat",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 26,
-      "norm_label": "lat",
-      "id": "raw_gmaps_places_places_chijedc3eedtvo8r82lfxzw4kyu_lat"
     },
     {
       "label": "lng",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 26,
+      "community": 48,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chijedc3eedtvo8r82lfxzw4kyu_lng"
     },
@@ -17577,7 +17444,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 33,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chijedc3eedtvo8r82lfxzw4kyu_types"
     },
@@ -17586,7 +17453,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 26,
+      "community": 48,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chijedc3eedtvo8r82lfxzw4kyu_rating"
     },
@@ -17595,7 +17462,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 62,
       "norm_label": "places/chij6xemylrtvo8rfwbecd8msmk",
       "id": "raw_gmaps_places_places_chij6xemylrtvo8rfwbecd8msmk"
     },
@@ -17604,7 +17471,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 62,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chij6xemylrtvo8rfwbecd8msmk_name"
     },
@@ -17613,25 +17480,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 62,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chij6xemylrtvo8rfwbecd8msmk_lat"
-    },
-    {
-      "label": "lng",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 48,
-      "norm_label": "lng",
-      "id": "raw_gmaps_places_places_chij6xemylrtvo8rfwbecd8msmk_lng"
     },
     {
       "label": "rating",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 62,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chij6xemylrtvo8rfwbecd8msmk_rating"
     },
@@ -17640,7 +17498,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 62,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chij6xemylrtvo8rfwbecd8msmk_reviews"
     },
@@ -17649,7 +17507,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 33,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chij6xemylrtvo8rfwbecd8msmk_status"
     },
@@ -17658,7 +17516,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "places/chijorrh4rftvo8r4flhrlmkhim",
       "id": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim"
     },
@@ -17667,7 +17525,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim_types"
     },
@@ -17676,25 +17534,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim_reviews"
-    },
-    {
-      "label": "status",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 68,
-      "norm_label": "status",
-      "id": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim_status"
     },
     {
       "label": "places/ChIJn65Qqa9tVo8R3KbyvFbuTqM",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 53,
+      "community": 39,
       "norm_label": "places/chijn65qqa9tvo8r3kbyvfbutqm",
       "id": "raw_gmaps_places_places_chijn65qqa9tvo8r3kbyvfbutqm"
     },
@@ -17703,7 +17552,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 53,
+      "community": 39,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijn65qqa9tvo8r3kbyvfbutqm_lat"
     },
@@ -17712,7 +17561,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 53,
+      "community": 39,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chijn65qqa9tvo8r3kbyvfbutqm_types"
     },
@@ -17730,7 +17579,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 53,
+      "community": 39,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijn65qqa9tvo8r3kbyvfbutqm_reviews"
     },
@@ -17739,7 +17588,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 53,
+      "community": 39,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijn65qqa9tvo8r3kbyvfbutqm_price"
     },
@@ -17748,7 +17597,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 33,
       "norm_label": "places/chijm9n4inhtvo8r3v4f2fd8zdw",
       "id": "raw_gmaps_places_places_chijm9n4inhtvo8r3v4f2fd8zdw"
     },
@@ -17757,7 +17606,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 33,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chijm9n4inhtvo8r3v4f2fd8zdw_name"
     },
@@ -17766,7 +17615,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 33,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chijm9n4inhtvo8r3v4f2fd8zdw_lng"
     },
@@ -17775,7 +17624,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 33,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chijm9n4inhtvo8r3v4f2fd8zdw_rating"
     },
@@ -17784,7 +17633,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 69,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijm9n4inhtvo8r3v4f2fd8zdw_reviews"
     },
@@ -17793,7 +17642,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 33,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijm9n4inhtvo8r3v4f2fd8zdw_price"
     },
@@ -17802,7 +17651,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 33,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chijm9n4inhtvo8r3v4f2fd8zdw_status"
     },
@@ -17820,25 +17669,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 76,
+      "community": 39,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chijie_ubnftvo8r0olpvflkgim_lng"
-    },
-    {
-      "label": "types",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 76,
-      "norm_label": "types",
-      "id": "raw_gmaps_places_places_chijie_ubnftvo8r0olpvflkgim_types"
     },
     {
       "label": "rating",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 67,
+      "community": 76,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chijie_ubnftvo8r0olpvflkgim_rating"
     },
@@ -17856,7 +17696,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "places/chij8xckkg1tvo8rgqolibwyqvc",
       "id": "raw_gmaps_places_places_chij8xckkg1tvo8rgqolibwyqvc"
     },
@@ -17865,7 +17705,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chij8xckkg1tvo8rgqolibwyqvc_types"
     },
@@ -17874,25 +17714,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 77,
       "norm_label": "places/chijertkkoltvo8r2jlplwrx9sw",
       "id": "raw_gmaps_places_places_chijertkkoltvo8r2jlplwrx9sw"
-    },
-    {
-      "label": "name",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 71,
-      "norm_label": "name",
-      "id": "raw_gmaps_places_places_chijertkkoltvo8r2jlplwrx9sw_name"
     },
     {
       "label": "lat",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 40,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijertkkoltvo8r2jlplwrx9sw_lat"
     },
@@ -17901,7 +17732,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 77,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chijertkkoltvo8r2jlplwrx9sw_lng"
     },
@@ -17910,7 +17741,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 77,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chijertkkoltvo8r2jlplwrx9sw_rating"
     },
@@ -17919,7 +17750,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 77,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijertkkoltvo8r2jlplwrx9sw_reviews"
     },
@@ -17928,7 +17759,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 71,
+      "community": 77,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijertkkoltvo8r2jlplwrx9sw_price"
     },
@@ -17937,7 +17768,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 39,
+      "community": 65,
       "norm_label": "places/chijiwfewvftvo8rchc9lf790wq",
       "id": "raw_gmaps_places_places_chijiwfewvftvo8rchc9lf790wq"
     },
@@ -17946,7 +17777,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 51,
+      "community": 65,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chijiwfewvftvo8rchc9lf790wq_name"
     },
@@ -17955,7 +17786,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 39,
+      "community": 65,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijiwfewvftvo8rchc9lf790wq_lat"
     },
@@ -17964,7 +17795,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 44,
+      "community": 65,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chijiwfewvftvo8rchc9lf790wq_lng"
     },
@@ -17973,7 +17804,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 69,
+      "community": 65,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chijiwfewvftvo8rchc9lf790wq_types"
     },
@@ -17982,7 +17813,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 39,
+      "community": 65,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chijiwfewvftvo8rchc9lf790wq_rating"
     },
@@ -17991,7 +17822,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 39,
+      "community": 67,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijiwfewvftvo8rchc9lf790wq_reviews"
     },
@@ -18000,7 +17831,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 65,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijiwfewvftvo8rchc9lf790wq_price"
     },
@@ -18009,7 +17840,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 39,
+      "community": 65,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chijiwfewvftvo8rchc9lf790wq_status"
     },
@@ -18018,7 +17849,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 33,
       "norm_label": "places/chijgfvn7ottvo8rg9cavvaphvq",
       "id": "raw_gmaps_places_places_chijgfvn7ottvo8rg9cavvaphvq"
     },
@@ -18027,7 +17858,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 33,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijgfvn7ottvo8rg9cavvaphvq_lat"
     },
@@ -18036,7 +17867,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 33,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chijgfvn7ottvo8rg9cavvaphvq_types"
     },
@@ -18045,7 +17876,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 33,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chijgfvn7ottvo8rg9cavvaphvq_rating"
     },
@@ -18054,7 +17885,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 33,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijgfvn7ottvo8rg9cavvaphvq_reviews"
     },
@@ -18063,7 +17894,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 33,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chijgfvn7ottvo8rg9cavvaphvq_status"
     },
@@ -18072,7 +17903,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 44,
+      "community": 65,
       "norm_label": "places/chijd58waqbtvo8rvxzqonqz4a4",
       "id": "raw_gmaps_places_places_chijd58waqbtvo8rvxzqonqz4a4"
     },
@@ -18081,7 +17912,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 44,
+      "community": 65,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijd58waqbtvo8rvxzqonqz4a4_lat"
     },
@@ -18090,25 +17921,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 44,
+      "community": 65,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijd58waqbtvo8rvxzqonqz4a4_reviews"
-    },
-    {
-      "label": "price",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 44,
-      "norm_label": "price",
-      "id": "raw_gmaps_places_places_chijd58waqbtvo8rvxzqonqz4a4_price"
     },
     {
       "label": "status",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 44,
+      "community": 65,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chijd58waqbtvo8rvxzqonqz4a4_status"
     },
@@ -18185,24 +18007,6 @@
       "id": "raw_gmaps_places_places_chij6drtdqbtvo8rsi6t7z0gsc4"
     },
     {
-      "label": "lat",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 40,
-      "norm_label": "lat",
-      "id": "raw_gmaps_places_places_chij6drtdqbtvo8rsi6t7z0gsc4_lat"
-    },
-    {
-      "label": "lng",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 51,
-      "norm_label": "lng",
-      "id": "raw_gmaps_places_places_chij6drtdqbtvo8rsi6t7z0gsc4_lng"
-    },
-    {
       "label": "types",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
@@ -18252,7 +18056,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 39,
+      "community": 26,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chijtrpfqkbtvo8rzosa4xosp7c_name"
     },
@@ -18266,29 +18070,11 @@
       "id": "raw_gmaps_places_places_chijtrpfqkbtvo8rzosa4xosp7c_lng"
     },
     {
-      "label": "types",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 67,
-      "norm_label": "types",
-      "id": "raw_gmaps_places_places_chijtrpfqkbtvo8rzosa4xosp7c_types"
-    },
-    {
-      "label": "price",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 39,
-      "norm_label": "price",
-      "id": "raw_gmaps_places_places_chijtrpfqkbtvo8rzosa4xosp7c_price"
-    },
-    {
       "label": "places/ChIJBY5q4q9tVo8RLlJiB4WdBwQ",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 33,
+      "community": 62,
       "norm_label": "places/chijby5q4q9tvo8rlljib4wdbwq",
       "id": "raw_gmaps_places_places_chijby5q4q9tvo8rlljib4wdbwq"
     },
@@ -18297,7 +18083,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 33,
+      "community": 62,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chijby5q4q9tvo8rlljib4wdbwq_name"
     },
@@ -18306,7 +18092,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 33,
+      "community": 62,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijby5q4q9tvo8rlljib4wdbwq_lat"
     },
@@ -18315,7 +18101,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 33,
+      "community": 40,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chijby5q4q9tvo8rlljib4wdbwq_rating"
     },
@@ -18324,7 +18110,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 33,
+      "community": 62,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijby5q4q9tvo8rlljib4wdbwq_reviews"
     },
@@ -18333,7 +18119,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 33,
+      "community": 62,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijby5q4q9tvo8rlljib4wdbwq_price"
     },
@@ -18342,7 +18128,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 33,
+      "community": 77,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chijby5q4q9tvo8rlljib4wdbwq_status"
     },
@@ -18405,7 +18191,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 67,
+      "community": 33,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chij_vrv1kntvo8r1n0u6va4ceg_reviews"
     },
@@ -18423,7 +18209,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "places/chijl8q5z9rtvo8r5iuy-tjg8ea",
       "id": "raw_gmaps_places_places_chijl8q5z9rtvo8r5iuy_tjg8ea"
     },
@@ -18441,7 +18227,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijl8q5z9rtvo8r5iuy_tjg8ea_lat"
     },
@@ -18450,25 +18236,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chijl8q5z9rtvo8r5iuy_tjg8ea_types"
-    },
-    {
-      "label": "reviews",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 68,
-      "norm_label": "reviews",
-      "id": "raw_gmaps_places_places_chijl8q5z9rtvo8r5iuy_tjg8ea_reviews"
     },
     {
       "label": "price",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijl8q5z9rtvo8r5iuy_tjg8ea_price"
     },
@@ -18522,7 +18299,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 53,
+      "community": 39,
       "norm_label": "places/chijhx0n_nduvo8rizp1ibpiur8",
       "id": "raw_gmaps_places_places_chijhx0n_nduvo8rizp1ibpiur8"
     },
@@ -18531,7 +18308,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 53,
+      "community": 39,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chijhx0n_nduvo8rizp1ibpiur8_name"
     },
@@ -18540,7 +18317,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 53,
+      "community": 39,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chijhx0n_nduvo8rizp1ibpiur8_lng"
     },
@@ -18558,7 +18335,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 53,
+      "community": 39,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chijhx0n_nduvo8rizp1ibpiur8_status"
     },
@@ -18567,7 +18344,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "places/chiji4zdqx1uvo8rnmip3zzvkfw",
       "id": "raw_gmaps_places_places_chiji4zdqx1uvo8rnmip3zzvkfw"
     },
@@ -18576,7 +18353,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chiji4zdqx1uvo8rnmip3zzvkfw_lat"
     },
@@ -18585,7 +18362,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chiji4zdqx1uvo8rnmip3zzvkfw_lng"
     },
@@ -18594,7 +18371,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chiji4zdqx1uvo8rnmip3zzvkfw_rating"
     },
@@ -18603,7 +18380,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 26,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chiji4zdqx1uvo8rnmip3zzvkfw_status"
     },
@@ -18612,7 +18389,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 51,
+      "community": 65,
       "norm_label": "places/chijfaet-hduvo8rdqbasfbkqsk",
       "id": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk"
     },
@@ -18621,7 +18398,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 51,
+      "community": 65,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk_lat"
     },
@@ -18630,25 +18407,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 51,
+      "community": 65,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk_types"
-    },
-    {
-      "label": "reviews",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 51,
-      "norm_label": "reviews",
-      "id": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk_reviews"
     },
     {
       "label": "price",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 51,
+      "community": 65,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk_price"
     },
@@ -18666,7 +18434,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "places/chijt_ihwmfuvo8r8jtkkyxstym",
       "id": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym"
     },
@@ -18675,7 +18443,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 77,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym_name"
     },
@@ -18684,7 +18452,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym_lat"
     },
@@ -18693,7 +18461,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym_lng"
     },
@@ -18702,7 +18470,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym_types"
     },
@@ -18711,7 +18479,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym_reviews"
     },
@@ -18720,25 +18488,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 65,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym_price"
-    },
-    {
-      "label": "status",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 46,
-      "norm_label": "status",
-      "id": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym_status"
     },
     {
       "label": "places/ChIJNV2YGX9uVo8RXaismVkkq9U",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 44,
+      "community": 68,
       "norm_label": "places/chijnv2ygx9uvo8rxaismvkkq9u",
       "id": "raw_gmaps_places_places_chijnv2ygx9uvo8rxaismvkkq9u"
     },
@@ -18747,7 +18506,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 44,
+      "community": 68,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chijnv2ygx9uvo8rxaismvkkq9u_lng"
     },
@@ -18756,25 +18515,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 44,
+      "community": 68,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chijnv2ygx9uvo8rxaismvkkq9u_types"
-    },
-    {
-      "label": "rating",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 44,
-      "norm_label": "rating",
-      "id": "raw_gmaps_places_places_chijnv2ygx9uvo8rxaismvkkq9u_rating"
     },
     {
       "label": "reviews",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 44,
+      "community": 68,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijnv2ygx9uvo8rxaismvkkq9u_reviews"
     },
@@ -18783,7 +18533,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 44,
+      "community": 68,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijnv2ygx9uvo8rxaismvkkq9u_price"
     },
@@ -18792,7 +18542,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 44,
+      "community": 68,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chijnv2ygx9uvo8rxaismvkkq9u_status"
     },
@@ -18801,7 +18551,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "places/chij4zhgdnvvvo8ru8vfer9dr90",
       "id": "raw_gmaps_places_places_chij4zhgdnvvvo8ru8vfer9dr90"
     },
@@ -18810,25 +18560,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chij4zhgdnvvvo8ru8vfer9dr90_name"
-    },
-    {
-      "label": "lat",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 68,
-      "norm_label": "lat",
-      "id": "raw_gmaps_places_places_chij4zhgdnvvvo8ru8vfer9dr90_lat"
     },
     {
       "label": "types",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chij4zhgdnvvvo8ru8vfer9dr90_types"
     },
@@ -18837,7 +18578,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chij4zhgdnvvvo8ru8vfer9dr90_rating"
     },
@@ -18846,7 +18587,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chij4zhgdnvvvo8ru8vfer9dr90_status"
     },
@@ -18873,7 +18614,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 26,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chijp4zdoabvvo8r3gp72c_o6ri_lng"
     },
@@ -18927,25 +18668,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 26,
       "norm_label": "places/chijgwdyb8nvvo8rsl8xh05w9pu",
       "id": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu"
-    },
-    {
-      "label": "name",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 38,
-      "norm_label": "name",
-      "id": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu_name"
     },
     {
       "label": "lat",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 26,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu_lat"
     },
@@ -18954,7 +18686,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 76,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu_price"
     },
@@ -18963,7 +18695,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 77,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu_status"
     },
@@ -18972,7 +18704,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 67,
+      "community": 76,
       "norm_label": "places/chijg5qtzxxuvo8rgu8wpnqskv4",
       "id": "raw_gmaps_places_places_chijg5qtzxxuvo8rgu8wpnqskv4"
     },
@@ -18990,7 +18722,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 67,
+      "community": 76,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chijg5qtzxxuvo8rgu8wpnqskv4_types"
     },
@@ -18999,7 +18731,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 67,
+      "community": 76,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijg5qtzxxuvo8rgu8wpnqskv4_reviews"
     },
@@ -19031,24 +18763,6 @@
       "id": "raw_gmaps_places_places_chijlw_4uwbvvo8rgatype4nscu_rating"
     },
     {
-      "label": "reviews",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 69,
-      "norm_label": "reviews",
-      "id": "raw_gmaps_places_places_chijlw_4uwbvvo8rgatype4nscu_reviews"
-    },
-    {
-      "label": "price",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 69,
-      "norm_label": "price",
-      "id": "raw_gmaps_places_places_chijlw_4uwbvvo8rgatype4nscu_price"
-    },
-    {
       "label": "status",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
@@ -19062,7 +18776,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "places/chij57kiatztvo8rl9ggeb8am1m",
       "id": "raw_gmaps_places_places_chij57kiatztvo8rl9ggeb8am1m"
     },
@@ -19071,7 +18785,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chij57kiatztvo8rl9ggeb8am1m_name"
     },
@@ -19080,7 +18794,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chij57kiatztvo8rl9ggeb8am1m_lng"
     },
@@ -19089,7 +18803,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chij57kiatztvo8rl9ggeb8am1m_types"
     },
@@ -19098,7 +18812,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chij57kiatztvo8rl9ggeb8am1m_rating"
     },
@@ -19107,7 +18821,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 69,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chij57kiatztvo8rl9ggeb8am1m_price"
     },
@@ -19116,7 +18830,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 67,
+      "community": 68,
       "norm_label": "places/chijf0mywk1vvo8rzqf6ehvhkpk",
       "id": "raw_gmaps_places_places_chijf0mywk1vvo8rzqf6ehvhkpk"
     },
@@ -19125,7 +18839,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 67,
+      "community": 68,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chijf0mywk1vvo8rzqf6ehvhkpk_name"
     },
@@ -19143,7 +18857,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 67,
+      "community": 68,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chijf0mywk1vvo8rzqf6ehvhkpk_rating"
     },
@@ -19152,7 +18866,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 67,
+      "community": 68,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijf0mywk1vvo8rzqf6ehvhkpk_reviews"
     },
@@ -19161,7 +18875,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 67,
+      "community": 68,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijf0mywk1vvo8rzqf6ehvhkpk_price"
     },
@@ -19170,25 +18884,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 33,
       "norm_label": "places/chijot7lamnuvo8rjawni0anm0u",
       "id": "raw_gmaps_places_places_chijot7lamnuvo8rjawni0anm0u"
-    },
-    {
-      "label": "lat",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 76,
-      "norm_label": "lat",
-      "id": "raw_gmaps_places_places_chijot7lamnuvo8rjawni0anm0u_lat"
     },
     {
       "label": "lng",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 33,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chijot7lamnuvo8rjawni0anm0u_lng"
     },
@@ -19197,7 +18902,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 33,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chijot7lamnuvo8rjawni0anm0u_types"
     },
@@ -19206,7 +18911,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 33,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chijot7lamnuvo8rjawni0anm0u_rating"
     },
@@ -19215,7 +18920,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 33,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chijot7lamnuvo8rjawni0anm0u_status"
     },
@@ -19224,7 +18929,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 33,
       "norm_label": "places/chiju5vpnq9vvo8rcafmqhxxdmi",
       "id": "raw_gmaps_places_places_chiju5vpnq9vvo8rcafmqhxxdmi"
     },
@@ -19233,7 +18938,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 53,
+      "community": 39,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chiju5vpnq9vvo8rcafmqhxxdmi_name"
     },
@@ -19242,7 +18947,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 33,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chiju5vpnq9vvo8rcafmqhxxdmi_price"
     },
@@ -19251,7 +18956,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 77,
       "norm_label": "places/chij24erqwbvvo8r-kehvgosh-u",
       "id": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u"
     },
@@ -19260,7 +18965,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 77,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u_lat"
     },
@@ -19269,27 +18974,9 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 65,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u_lng"
-    },
-    {
-      "label": "types",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 38,
-      "norm_label": "types",
-      "id": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u_types"
-    },
-    {
-      "label": "reviews",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 38,
-      "norm_label": "reviews",
-      "id": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u_reviews"
     },
     {
       "label": "places/ChIJMQUCuzNvVo8RyneF4EebAIU",
@@ -19341,7 +19028,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 67,
+      "community": 48,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chijmqucuznvvo8rynef4eebaiu_status"
     },
@@ -19350,7 +19037,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 53,
+      "community": 76,
       "norm_label": "places/chijg-xgu31uvo8r59qejwexqnk",
       "id": "raw_gmaps_places_places_chijg_xgu31uvo8r59qejwexqnk"
     },
@@ -19368,7 +19055,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 67,
+      "community": 76,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijg_xgu31uvo8r59qejwexqnk_lat"
     },
@@ -19377,7 +19064,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 53,
+      "community": 76,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chijg_xgu31uvo8r59qejwexqnk_types"
     },
@@ -19386,7 +19073,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 53,
+      "community": 44,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chijg_xgu31uvo8r59qejwexqnk_status"
     },
@@ -19395,7 +19082,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 26,
       "norm_label": "places/chijox4hngnuvo8r0bjtkuhzmaa",
       "id": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa"
     },
@@ -19404,7 +19091,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 26,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa_name"
     },
@@ -19413,7 +19100,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 69,
+      "community": 26,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa_rating"
     },
@@ -19422,18 +19109,9 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 26,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa_reviews"
-    },
-    {
-      "label": "price",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 38,
-      "norm_label": "price",
-      "id": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa_price"
     },
     {
       "label": "places/ChIJbVuTllJvVo8RXZIdPBVktzs",
@@ -19449,7 +19127,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 39,
+      "community": 67,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijbvutlljvvo8rxzidpbvktzs_lat"
     },
@@ -19458,7 +19136,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijbvutlljvvo8rxzidpbvktzs_price"
     },
@@ -19467,7 +19145,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 46,
+      "community": 44,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chijbvutlljvvo8rxzidpbvktzs_status"
     },
@@ -19476,7 +19154,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 26,
       "norm_label": "places/chij9wzfrwnuvo8rvtzr4yxcjbc",
       "id": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc"
     },
@@ -19485,7 +19163,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 26,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_name"
     },
@@ -19494,7 +19172,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 26,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_lat"
     },
@@ -19503,7 +19181,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "lng",
       "id": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_lng"
     },
@@ -19512,7 +19190,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 26,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_types"
     },
@@ -19521,7 +19199,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 67,
       "norm_label": "rating",
       "id": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_rating"
     },
@@ -19530,7 +19208,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 76,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_price"
     },
@@ -19539,7 +19217,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 26,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_status"
     },
@@ -19548,25 +19226,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 39,
+      "community": 26,
       "norm_label": "places/chijhtxquirvvo8rojcpuktmfzm",
       "id": "raw_gmaps_places_places_chijhtxquirvvo8rojcpuktmfzm"
-    },
-    {
-      "label": "name",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 39,
-      "norm_label": "name",
-      "id": "raw_gmaps_places_places_chijhtxquirvvo8rojcpuktmfzm_name"
     },
     {
       "label": "lat",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 38,
+      "community": 26,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijhtxquirvvo8rojcpuktmfzm_lat"
     },
@@ -19575,7 +19244,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 39,
+      "community": 26,
       "norm_label": "types",
       "id": "raw_gmaps_places_places_chijhtxquirvvo8rojcpuktmfzm_types"
     },
@@ -19584,7 +19253,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 39,
+      "community": 26,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijhtxquirvvo8rojcpuktmfzm_reviews"
     },
@@ -19593,7 +19262,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 48,
+      "community": 26,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijhtxquirvvo8rojcpuktmfzm_price"
     },
@@ -19602,7 +19271,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 39,
+      "community": 26,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chijhtxquirvvo8rojcpuktmfzm_status"
     },
@@ -19611,7 +19280,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "places/chijls7_fgbvvo8rv0ychptd8u0",
       "id": "raw_gmaps_places_places_chijls7_fgbvvo8rv0ychptd8u0"
     },
@@ -19620,7 +19289,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chijls7_fgbvvo8rv0ychptd8u0_name"
     },
@@ -19629,25 +19298,16 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "lat",
       "id": "raw_gmaps_places_places_chijls7_fgbvvo8rv0ychptd8u0_lat"
-    },
-    {
-      "label": "rating",
-      "file_type": "code",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "community": 68,
-      "norm_label": "rating",
-      "id": "raw_gmaps_places_places_chijls7_fgbvvo8rv0ychptd8u0_rating"
     },
     {
       "label": "reviews",
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "reviews",
       "id": "raw_gmaps_places_places_chijls7_fgbvvo8rv0ychptd8u0_reviews"
     },
@@ -19656,7 +19316,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "price",
       "id": "raw_gmaps_places_places_chijls7_fgbvvo8rv0ychptd8u0_price"
     },
@@ -19665,7 +19325,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 68,
+      "community": 48,
       "norm_label": "status",
       "id": "raw_gmaps_places_places_chijls7_fgbvvo8rv0ychptd8u0_status"
     },
@@ -19683,7 +19343,7 @@
       "file_type": "code",
       "source_file": "data/raw/gmaps_places.json",
       "source_location": "L1",
-      "community": 53,
+      "community": 65,
       "norm_label": "name",
       "id": "raw_gmaps_places_places_chij4_7rlmnuvo8ryp9nftwgx2a_name"
     },
@@ -19833,7 +19493,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 45,
+      "community": 9,
       "norm_label": "_haversine (root app.py)",
       "id": "app__haversine"
     },
@@ -19898,7 +19558,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 9,
       "norm_label": "_tsp_nn",
       "id": "app__tsp_nn"
     },
@@ -19950,7 +19610,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 130,
       "norm_label": "_get_uid_and_role",
       "id": "backend_auth__get_uid_and_role"
     },
@@ -20080,7 +19740,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
+      "community": 71,
       "norm_label": "_render_template",
       "id": "routers_visitas__render_template"
     },
@@ -20158,7 +19818,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 8,
+      "community": 9,
       "norm_label": "tsp nearest neighbor heuristic",
       "id": "concept_tsp_heuristic"
     },
@@ -20184,7 +19844,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 130,
       "norm_label": "firebase authentication",
       "id": "concept_firebase_auth"
     },
@@ -20236,7 +19896,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 45,
+      "community": 9,
       "norm_label": "haversine distance formula",
       "id": "concept_haversine_distance"
     },
@@ -20275,7 +19935,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 62,
+      "community": 30,
       "norm_label": "_cargar_datos",
       "id": "geolocalizacion_consultar_cargar_datos"
     },
@@ -20496,7 +20156,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 62,
+      "community": 30,
       "norm_label": "main (main.py)",
       "id": "geolocalizacion_main_main"
     },
@@ -20522,7 +20182,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 140,
+      "community": 11,
       "norm_label": "descargar (osm)",
       "id": "geolocalizacion_descargar_negocios_osm_descargar"
     },
@@ -20535,7 +20195,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 130,
+      "community": 11,
       "norm_label": "encontrar_colonia (osm firestore)",
       "id": "scripts_asignar_colonias_osm_encontrar_colonia_osm"
     },
@@ -20548,7 +20208,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 20,
+      "community": 130,
       "norm_label": "crear_usuarios (script)",
       "id": "scripts_crear_usuarios_main"
     },
@@ -20561,7 +20221,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 62,
+      "community": 30,
       "norm_label": "denue (directorio estadistico nacional de unidades economicas)",
       "id": "concept_denue"
     },
@@ -20587,7 +20247,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 140,
+      "community": 11,
       "norm_label": "openstreetmap (overpass api)",
       "id": "concept_osm"
     },
@@ -20600,7 +20260,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 62,
+      "community": 30,
       "norm_label": "google maps places data",
       "id": "concept_google_maps"
     },
@@ -20626,7 +20286,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 85,
+      "community": 11,
       "norm_label": "colonias_merida.geojson (inegi/sepomex/osm polygons)",
       "id": "concept_colonias_merida_geojson"
     },
@@ -20639,7 +20299,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 133,
+      "community": 130,
       "norm_label": "nominatim reverse geocoding",
       "id": "concept_nominatim"
     },
@@ -20678,7 +20338,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 62,
+      "community": 30,
       "norm_label": "ml pipeline (random forest + xgboost formalization prediction)",
       "id": "concept_ml_pipeline"
     },
@@ -20704,7 +20364,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 140,
+      "community": 11,
       "norm_label": "data/raw/osm_negocios.json",
       "id": "data_osm_negocios_json"
     },
@@ -20717,7 +20377,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 62,
+      "community": 30,
       "norm_label": "data/raw/gmaps_places.json",
       "id": "data_gmaps_places_json"
     },
@@ -28644,9 +28304,9 @@
       "source_file": "frontend/package.json",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "frontend_package_dependencies",
-      "target": "frontend_package_dependencies_lenis",
-      "confidence_score": 1.0
+      "target": "frontend_package_dependencies_lenis"
     },
     {
       "relation": "contains",
@@ -43417,9 +43077,9 @@
       "source_file": "frontend/src/features/indice/components/ScrollSuave.tsx",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_scrollsuave",
-      "target": "components_scrollsuave_scrollsuave",
-      "confidence_score": 1.0
+      "target": "components_scrollsuave_scrollsuave"
     },
     {
       "relation": "imports_from",
@@ -43428,9 +43088,9 @@
       "source_file": "frontend/src/features/indice/routes/IndicePage.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_indicepage",
-      "target": "components_scrollsuave",
-      "confidence_score": 1.0
+      "target": "components_scrollsuave"
     },
     {
       "relation": "imports",
@@ -43439,9 +43099,9 @@
       "source_file": "frontend/src/features/indice/routes/IndicePage.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "routes_indicepage",
-      "target": "components_scrollsuave_scrollsuave",
-      "confidence_score": 1.0
+      "target": "components_scrollsuave_scrollsuave"
     },
     {
       "relation": "re_exports",
@@ -48500,6 +48160,38 @@
       "confidence_score": 1.0,
       "source": "ui_themetoggle",
       "target": "ui_iconbutton_iconbutton"
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/shared/ui/index.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_index",
+      "target": "ui_logocanaco"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/shared/ui/LogoCanaco.tsx",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_logocanaco",
+      "target": "ui_logocanaco_logocanaco"
+    },
+    {
+      "relation": "re_exports",
+      "context": "re-export",
+      "confidence": "EXTRACTED",
+      "source_file": "frontend/src/shared/ui/index.ts",
+      "source_location": "L17",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "ui_index",
+      "target": "ui_logocanaco_logocanaco"
     },
     {
       "relation": "imports_from",
@@ -55056,6 +54748,16 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijm_6ffuptvo8rg0z3nth6qfg",
+      "target": "raw_gmaps_places_places_chij57kiatztvo8rl9ggeb8am1m_price"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijm_6ffuptvo8rg0z3nth6qfg",
       "target": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk_status"
     },
     {
@@ -55086,26 +54788,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijm_6ffuptvo8rg0z3nth6qfg",
-      "target": "raw_gmaps_places_places_chijlw_4uwbvvo8rgatype4nscu_price"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijm_6ffuptvo8rg0z3nth6qfg",
-      "target": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa_rating"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijm_6ffuptvo8rg0z3nth6qfg",
       "target": "raw_gmaps_places_places_chijm_6ffuptvo8rg0z3nth6qfg_types"
     },
     {
@@ -55126,7 +54808,47 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijm_6ffuptvo8rg0z3nth6qfg",
+      "target": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa_rating"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijm_6ffuptvo8rg0z3nth6qfg",
       "target": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq_reviews"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chij4zhgdnvvvo8ru8vfer9dr90",
+      "target": "raw_gmaps_places_places_chijm_6ffuptvo8rg0z3nth6qfg_lat"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim",
+      "target": "raw_gmaps_places_places_chijm_6ffuptvo8rg0z3nth6qfg_lat"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chije36tb_bsvo8rruo7jfu5r9c",
+      "target": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_status"
     },
     {
       "relation": "contains",
@@ -55137,16 +54859,6 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chije36tb_bsvo8rruo7jfu5r9c",
       "target": "raw_gmaps_places_places_chije36tb_bsvo8rruo7jfu5r9c_lat"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chije36tb_bsvo8rruo7jfu5r9c",
-      "target": "raw_gmaps_places_places_chije36tb_bsvo8rruo7jfu5r9c_lng"
     },
     {
       "relation": "contains",
@@ -55196,7 +54908,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chije36tb_bsvo8rruo7jfu5r9c",
-      "target": "raw_gmaps_places_places_chije36tb_bsvo8rruo7jfu5r9c_status"
+      "target": "raw_gmaps_places_places_chijedc3eedtvo8r82lfxzw4kyu_types"
     },
     {
       "relation": "contains",
@@ -55206,7 +54918,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chije36tb_bsvo8rruo7jfu5r9c",
-      "target": "raw_gmaps_places_places_chijedc3eedtvo8r82lfxzw4kyu_types"
+      "target": "raw_gmaps_places_places_chijiwfewvftvo8rchc9lf790wq_lng"
     },
     {
       "relation": "contains",
@@ -55246,7 +54958,27 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijj2_fpgjtvo8rovc8n53y_hm",
+      "target": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_rating"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijj2_fpgjtvo8rovc8n53y_hm",
       "target": "raw_gmaps_places_places_chij_vrv1kntvo8r1n0u6va4ceg_types"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijj2_fpgjtvo8rovc8n53y_hm",
+      "target": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu_status"
     },
     {
       "relation": "contains",
@@ -55296,26 +55028,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijj2_fpgjtvo8rovc8n53y_hm",
-      "target": "raw_gmaps_places_places_chijj2_fpgjtvo8rovc8n53y_hm_rating"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijj2_fpgjtvo8rovc8n53y_hm",
-      "target": "raw_gmaps_places_places_chijj2_fpgjtvo8rovc8n53y_hm_status"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijj2_fpgjtvo8rovc8n53y_hm",
       "target": "raw_gmaps_places_places_chijjemshq1tvo8rf19zoi1gqb8_lat"
     },
     {
@@ -55325,28 +55037,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijmqucuznvvo8rynef4eebaiu",
-      "target": "raw_gmaps_places_places_chijj2_fpgjtvo8rovc8n53y_hm_rating"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijertkkoltvo8r2jlplwrx9sw",
-      "target": "raw_gmaps_places_places_chijj2_fpgjtvo8rovc8n53y_hm_status"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijie_ubnftvo8r0olpvflkgim",
-      "target": "raw_gmaps_places_places_chijj2_fpgjtvo8rovc8n53y_hm_status"
+      "source": "raw_gmaps_places_places_chiji9uleabtvo8revfe83erda4",
+      "target": "raw_gmaps_places_places_chijj2_fpgjtvo8rovc8n53y_hm_lng"
     },
     {
       "relation": "contains",
@@ -55356,7 +55048,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chiji9uleabtvo8revfe83erda4",
-      "target": "raw_gmaps_places_places_chijedc3eedtvo8r82lfxzw4kyu_lat"
+      "target": "raw_gmaps_places_places_chijbvutlljvvo8rxzidpbvktzs_lat"
     },
     {
       "relation": "contains",
@@ -55367,16 +55059,6 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chiji9uleabtvo8revfe83erda4",
       "target": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk_price"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chiji9uleabtvo8revfe83erda4",
-      "target": "raw_gmaps_places_places_chiji9uleabtvo8revfe83erda4_lng"
     },
     {
       "relation": "contains",
@@ -55416,7 +55098,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chiji9uleabtvo8revfe83erda4",
-      "target": "raw_gmaps_places_places_chiji9uleabtvo8revfe83erda4_types"
+      "target": "raw_gmaps_places_places_chijiwfewvftvo8rchc9lf790wq_rating"
     },
     {
       "relation": "contains",
@@ -55426,7 +55108,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chiji9uleabtvo8revfe83erda4",
-      "target": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy_rating"
+      "target": "raw_gmaps_places_places_chijl8q5z9rtvo8r5iuy_tjg8ea_types"
     },
     {
       "relation": "contains",
@@ -55436,7 +55118,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijkyngyq5tvo8rebrdneuo5yc",
-      "target": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u_types"
+      "target": "raw_gmaps_places_places_chij57kiatztvo8rl9ggeb8am1m_types"
     },
     {
       "relation": "contains",
@@ -55536,6 +55218,16 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijd9rvxi5tvo8rvai0gscy4k4",
+      "target": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_rating"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijd9rvxi5tvo8rvai0gscy4k4",
       "target": "raw_gmaps_places_places_chijd9rvxi5tvo8rvai0gscy4k4_lat"
     },
     {
@@ -55557,16 +55249,6 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijd9rvxi5tvo8rvai0gscy4k4",
       "target": "raw_gmaps_places_places_chijd9rvxi5tvo8rvai0gscy4k4_name"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijd9rvxi5tvo8rvai0gscy4k4",
-      "target": "raw_gmaps_places_places_chijd9rvxi5tvo8rvai0gscy4k4_rating"
     },
     {
       "relation": "contains",
@@ -55626,7 +55308,27 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy",
+      "target": "raw_gmaps_places_places_chij4_7rlmnuvo8ryp9nftwgx2a_name"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy",
       "target": "raw_gmaps_places_places_chij_vrv1kntvo8r1n0u6va4ceg_lat"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy",
+      "target": "raw_gmaps_places_places_chijiwfewvftvo8rchc9lf790wq_rating"
     },
     {
       "relation": "contains",
@@ -55646,27 +55348,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy",
-      "target": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy_name"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy",
       "target": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy_price"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy",
-      "target": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy_rating"
     },
     {
       "relation": "contains",
@@ -55705,8 +55387,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijd58waqbtvo8rvxzqonqz4a4",
-      "target": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy_name"
+      "source": "raw_gmaps_places_places_chij6xemylrtvo8rfwbecd8msmk",
+      "target": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy_lng"
     },
     {
       "relation": "contains",
@@ -55735,8 +55417,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu",
-      "target": "raw_gmaps_places_places_chijp_mgzbdtvo8rlubxv_kzgpy_rating"
+      "source": "raw_gmaps_places_places_chijjemshq1tvo8rf19zoi1gqb8",
+      "target": "raw_gmaps_places_places_chijdvxzltvtvo8r0f3oixono1y_status"
     },
     {
       "relation": "contains",
@@ -55787,16 +55469,6 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijjemshq1tvo8rf19zoi1gqb8",
       "target": "raw_gmaps_places_places_chijjemshq1tvo8rf19zoi1gqb8_reviews"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijjemshq1tvo8rf19zoi1gqb8",
-      "target": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym_status"
     },
     {
       "relation": "contains",
@@ -55866,6 +55538,16 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony",
+      "target": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu_lat"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony",
       "target": "raw_gmaps_places_places_chijiwfewvftvo8rchc9lf790wq_types"
     },
     {
@@ -55877,16 +55559,6 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony",
       "target": "raw_gmaps_places_places_chijmqucuznvvo8rynef4eebaiu_status"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony",
-      "target": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony_lat"
     },
     {
       "relation": "contains",
@@ -55916,16 +55588,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony",
-      "target": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony_price"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony",
       "target": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony_rating"
     },
     {
@@ -55945,8 +55607,28 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijlw_4uwbvvo8rgatype4nscu",
-      "target": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony_lat"
+      "source": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony",
+      "target": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym_price"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk",
+      "target": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony_reviews"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijg_xgu31uvo8r59qejwexqnk",
+      "target": "raw_gmaps_places_places_chijqtcigfntvo8rakmus0rqony_reviews"
     },
     {
       "relation": "contains",
@@ -56016,7 +55698,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijdvxzltvtvo8r0f3oixono1y",
-      "target": "raw_gmaps_places_places_chijdvxzltvtvo8r0f3oixono1y_types"
+      "target": "raw_gmaps_places_places_chijn65qqa9tvo8r3kbyvfbutqm_types"
     },
     {
       "relation": "contains",
@@ -56085,6 +55767,26 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym",
+      "target": "raw_gmaps_places_places_chijdvxzltvtvo8r0f3oixono1y_status"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq",
+      "target": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_price"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq",
       "target": "raw_gmaps_places_places_chijbvutlljvvo8rxzidpbvktzs_lat"
     },
@@ -56096,7 +55798,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq",
-      "target": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa_price"
+      "target": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym_name"
     },
     {
       "relation": "contains",
@@ -56107,16 +55809,6 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq",
       "target": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq_lng"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq",
-      "target": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq_name"
     },
     {
       "relation": "contains",
@@ -56146,7 +55838,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq",
-      "target": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq_status"
+      "target": "raw_gmaps_places_places_chijby5q4q9tvo8rlljib4wdbwq_status"
     },
     {
       "relation": "contains",
@@ -56156,6 +55848,36 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq",
+      "target": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq_types"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijby5q4q9tvo8rlljib4wdbwq",
+      "target": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq_types"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijf0mywk1vvo8rzqf6ehvhkpk",
+      "target": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq_types"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijtrpfqkbtvo8rzosa4xosp7c",
       "target": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq_types"
     },
     {
@@ -56185,26 +55907,6 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chij5uufzabtvo8rcyybxg97kig",
-      "target": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq_status"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi",
-      "target": "raw_gmaps_places_places_chijuuftmsrtvo8rz2zshqmdcpq_status"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi",
       "target": "raw_gmaps_places_places_chij5uufzabtvo8rcyybxg97kig_rating"
     },
@@ -56217,16 +55919,6 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi",
       "target": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi_lat"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi",
-      "target": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi_lng"
     },
     {
       "relation": "contains",
@@ -56256,7 +55948,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi",
-      "target": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi_reviews"
+      "target": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi_types"
     },
     {
       "relation": "contains",
@@ -56266,7 +55958,27 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi",
-      "target": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi_types"
+      "target": "raw_gmaps_places_places_chijie_ubnftvo8r0olpvflkgim_lng"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi",
+      "target": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa_reviews"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi",
+      "target": "raw_gmaps_places_places_chijby5q4q9tvo8rlljib4wdbwq_status"
     },
     {
       "relation": "contains",
@@ -56295,18 +56007,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chiji4zdqx1uvo8rnmip3zzvkfw",
-      "target": "raw_gmaps_places_places_chij89o7xwbtvo8r55kwxx5kqsi_reviews"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijv8myjabtvo8rgpkxkl6txd0",
-      "target": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u_types"
+      "target": "raw_gmaps_places_places_chij57kiatztvo8rl9ggeb8am1m_types"
     },
     {
       "relation": "contains",
@@ -56425,6 +56127,26 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijot7lamnuvo8rjawni0anm0u",
+      "target": "raw_gmaps_places_places_chijv8myjabtvo8rgpkxkl6txd0_lat"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijp4zdoabvvo8r3gp72c_o6ri",
+      "target": "raw_gmaps_places_places_chijv8myjabtvo8rgpkxkl6txd0_lat"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym",
       "target": "raw_gmaps_places_places_chijv8myjabtvo8rgpkxkl6txd0_rating"
     },
@@ -56525,6 +56247,16 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chij5uufzabtvo8rcyybxg97kig",
+      "target": "raw_gmaps_places_places_chijby5q4q9tvo8rlljib4wdbwq_status"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijls7_fgbvvo8rv0ychptd8u0",
       "target": "raw_gmaps_places_places_chij5uufzabtvo8rcyybxg97kig_types"
     },
@@ -56547,6 +56279,16 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijhx0n_nduvo8rizp1ibpiur8",
       "target": "raw_gmaps_places_places_chij5uufzabtvo8rcyybxg97kig_price"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijd7bnmwhtvo8rlma_vocgntk",
+      "target": "raw_gmaps_places_places_chij_vrv1kntvo8r1n0u6va4ceg_lat"
     },
     {
       "relation": "contains",
@@ -56606,16 +56348,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijd7bnmwhtvo8rlma_vocgntk",
-      "target": "raw_gmaps_places_places_chij_vrv1kntvo8r1n0u6va4ceg_lat"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijd7bnmwhtvo8rlma_vocgntk",
       "target": "raw_gmaps_places_places_chijp4zdoabvvo8r3gp72c_o6ri_price"
     },
     {
@@ -56626,7 +56358,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijedc3eedtvo8r82lfxzw4kyu",
-      "target": "raw_gmaps_places_places_chijedc3eedtvo8r82lfxzw4kyu_lat"
+      "target": "raw_gmaps_places_places_chijbvutlljvvo8rxzidpbvktzs_lat"
     },
     {
       "relation": "contains",
@@ -56656,7 +56388,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijedc3eedtvo8r82lfxzw4kyu",
-      "target": "raw_gmaps_places_places_chijgfvn7ottvo8rg9cavvaphvq_reviews"
+      "target": "raw_gmaps_places_places_chijedc3eedtvo8r82lfxzw4kyu_types"
     },
     {
       "relation": "contains",
@@ -56666,7 +56398,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijedc3eedtvo8r82lfxzw4kyu",
-      "target": "raw_gmaps_places_places_chijedc3eedtvo8r82lfxzw4kyu_types"
+      "target": "raw_gmaps_places_places_chijgfvn7ottvo8rg9cavvaphvq_reviews"
     },
     {
       "relation": "contains",
@@ -56727,16 +56459,6 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chij6xemylrtvo8rfwbecd8msmk",
       "target": "raw_gmaps_places_places_chij6xemylrtvo8rfwbecd8msmk_lat"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chij6xemylrtvo8rfwbecd8msmk",
-      "target": "raw_gmaps_places_places_chij6xemylrtvo8rfwbecd8msmk_lng"
     },
     {
       "relation": "contains",
@@ -56816,7 +56538,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim",
-      "target": "raw_gmaps_places_places_chij4zhgdnvvvo8ru8vfer9dr90_lat"
+      "target": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_lng"
     },
     {
       "relation": "contains",
@@ -56826,7 +56548,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim",
-      "target": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_lng"
+      "target": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_rating"
     },
     {
       "relation": "contains",
@@ -56856,16 +56578,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim",
-      "target": "raw_gmaps_places_places_chijls7_fgbvvo8rv0ychptd8u0_rating"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim",
       "target": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim_reviews"
     },
     {
@@ -56876,7 +56588,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim",
-      "target": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim_status"
+      "target": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim_types"
     },
     {
       "relation": "contains",
@@ -56886,7 +56598,27 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim",
-      "target": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim_types"
+      "target": "raw_gmaps_places_places_chijot7lamnuvo8rjawni0anm0u_status"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u",
+      "target": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim_reviews"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu",
+      "target": "raw_gmaps_places_places_chijorrh4rftvo8r4flhrlmkhim_reviews"
     },
     {
       "relation": "contains",
@@ -57095,8 +56827,48 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijlw_4uwbvvo8rgatype4nscu",
+      "target": "raw_gmaps_places_places_chijm9n4inhtvo8r3v4f2fd8zdw_reviews"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijie_ubnftvo8r0olpvflkgim",
+      "target": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_price"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijie_ubnftvo8r0olpvflkgim",
       "target": "raw_gmaps_places_places_chij_vrv1kntvo8r1n0u6va4ceg_lat"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijie_ubnftvo8r0olpvflkgim",
+      "target": "raw_gmaps_places_places_chijg_xgu31uvo8r59qejwexqnk_types"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijie_ubnftvo8r0olpvflkgim",
+      "target": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu_status"
     },
     {
       "relation": "contains",
@@ -57136,27 +56908,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijie_ubnftvo8r0olpvflkgim",
-      "target": "raw_gmaps_places_places_chijie_ubnftvo8r0olpvflkgim_types"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijie_ubnftvo8r0olpvflkgim",
       "target": "raw_gmaps_places_places_chijp4zdoabvvo8r3gp72c_o6ri_name"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijie_ubnftvo8r0olpvflkgim",
-      "target": "raw_gmaps_places_places_chijtrpfqkbtvo8rzosa4xosp7c_price"
     },
     {
       "relation": "contains",
@@ -57246,16 +56998,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijertkkoltvo8r2jlplwrx9sw",
-      "target": "raw_gmaps_places_places_chijertkkoltvo8r2jlplwrx9sw_name"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijertkkoltvo8r2jlplwrx9sw",
       "target": "raw_gmaps_places_places_chijertkkoltvo8r2jlplwrx9sw_price"
     },
     {
@@ -57285,8 +57027,28 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u",
-      "target": "raw_gmaps_places_places_chijertkkoltvo8r2jlplwrx9sw_name"
+      "source": "raw_gmaps_places_places_chijertkkoltvo8r2jlplwrx9sw",
+      "target": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu_status"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijertkkoltvo8r2jlplwrx9sw",
+      "target": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym_name"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chij6drtdqbtvo8rsi6t7z0gsc4",
+      "target": "raw_gmaps_places_places_chijertkkoltvo8r2jlplwrx9sw_lat"
     },
     {
       "relation": "contains",
@@ -57387,6 +57149,16 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijd58waqbtvo8rvxzqonqz4a4",
       "target": "raw_gmaps_places_places_chijiwfewvftvo8rchc9lf790wq_lng"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu",
+      "target": "raw_gmaps_places_places_chijiwfewvftvo8rchc9lf790wq_rating"
     },
     {
       "relation": "contains",
@@ -57516,6 +57288,16 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijd58waqbtvo8rvxzqonqz4a4",
+      "target": "raw_gmaps_places_places_chij4_7rlmnuvo8ryp9nftwgx2a_name"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijd58waqbtvo8rvxzqonqz4a4",
       "target": "raw_gmaps_places_places_chij4zhgdnvvvo8ru8vfer9dr90_types"
     },
     {
@@ -57536,7 +57318,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijd58waqbtvo8rvxzqonqz4a4",
-      "target": "raw_gmaps_places_places_chijd58waqbtvo8rvxzqonqz4a4_price"
+      "target": "raw_gmaps_places_places_chij57kiatztvo8rl9ggeb8am1m_price"
     },
     {
       "relation": "contains",
@@ -57566,7 +57348,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijd58waqbtvo8rvxzqonqz4a4",
-      "target": "raw_gmaps_places_places_chijnv2ygx9uvo8rxaismvkkq9u_rating"
+      "target": "raw_gmaps_places_places_chijf0mywk1vvo8rzqf6ehvhkpk_rating"
     },
     {
       "relation": "contains",
@@ -57666,17 +57448,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chij6drtdqbtvo8rsi6t7z0gsc4",
-      "target": "raw_gmaps_places_places_chij6drtdqbtvo8rsi6t7z0gsc4_lat"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chij6drtdqbtvo8rsi6t7z0gsc4",
-      "target": "raw_gmaps_places_places_chij6drtdqbtvo8rsi6t7z0gsc4_lng"
+      "target": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u_lng"
     },
     {
       "relation": "contains",
@@ -57745,8 +57517,18 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk",
-      "target": "raw_gmaps_places_places_chij6drtdqbtvo8rsi6t7z0gsc4_lng"
+      "source": "raw_gmaps_places_places_chijl8q5z9rtvo8r5iuy_tjg8ea",
+      "target": "raw_gmaps_places_places_chij6drtdqbtvo8rsi6t7z0gsc4_reviews"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijtrpfqkbtvo8rzosa4xosp7c",
+      "target": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_price"
     },
     {
       "relation": "contains",
@@ -57785,8 +57567,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijtrpfqkbtvo8rzosa4xosp7c",
-      "target": "raw_gmaps_places_places_chijtrpfqkbtvo8rzosa4xosp7c_price"
+      "source": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu",
+      "target": "raw_gmaps_places_places_chijtrpfqkbtvo8rzosa4xosp7c_name"
     },
     {
       "relation": "contains",
@@ -57795,28 +57577,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijtrpfqkbtvo8rzosa4xosp7c",
-      "target": "raw_gmaps_places_places_chijtrpfqkbtvo8rzosa4xosp7c_types"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijby5q4q9tvo8rlljib4wdbwq",
-      "target": "raw_gmaps_places_places_chijtrpfqkbtvo8rzosa4xosp7c_types"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijf0mywk1vvo8rzqf6ehvhkpk",
-      "target": "raw_gmaps_places_places_chijtrpfqkbtvo8rzosa4xosp7c_types"
+      "source": "raw_gmaps_places_places_chijhtxquirvvo8rojcpuktmfzm",
+      "target": "raw_gmaps_places_places_chijtrpfqkbtvo8rzosa4xosp7c_name"
     },
     {
       "relation": "contains",
@@ -58046,16 +57808,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijl8q5z9rtvo8r5iuy_tjg8ea",
-      "target": "raw_gmaps_places_places_chijl8q5z9rtvo8r5iuy_tjg8ea_reviews"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijl8q5z9rtvo8r5iuy_tjg8ea",
       "target": "raw_gmaps_places_places_chijl8q5z9rtvo8r5iuy_tjg8ea_types"
     },
     {
@@ -58216,7 +57968,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chiji4zdqx1uvo8rnmip3zzvkfw",
-      "target": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u_types"
+      "target": "raw_gmaps_places_places_chij57kiatztvo8rl9ggeb8am1m_types"
     },
     {
       "relation": "contains",
@@ -58265,8 +58017,28 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chiji4zdqx1uvo8rnmip3zzvkfw",
+      "target": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa_reviews"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa",
       "target": "raw_gmaps_places_places_chiji4zdqx1uvo8rnmip3zzvkfw_status"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk",
+      "target": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u_lng"
     },
     {
       "relation": "contains",
@@ -58296,16 +58068,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk",
-      "target": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk_reviews"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk",
       "target": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk_status"
     },
     {
@@ -58317,16 +58079,6 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk",
       "target": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk_types"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijg_xgu31uvo8r59qejwexqnk",
-      "target": "raw_gmaps_places_places_chijfaet_hduvo8rdqbasfbkqsk_reviews"
     },
     {
       "relation": "contains",
@@ -58386,7 +58138,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym",
-      "target": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym_status"
+      "target": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym_types"
     },
     {
       "relation": "contains",
@@ -58395,8 +58147,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym",
-      "target": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym_types"
+      "source": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u",
+      "target": "raw_gmaps_places_places_chijt_ihwmfuvo8r8jtkkyxstym_name"
     },
     {
       "relation": "contains",
@@ -58426,7 +58178,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijnv2ygx9uvo8rxaismvkkq9u",
-      "target": "raw_gmaps_places_places_chijnv2ygx9uvo8rxaismvkkq9u_rating"
+      "target": "raw_gmaps_places_places_chijf0mywk1vvo8rzqf6ehvhkpk_rating"
     },
     {
       "relation": "contains",
@@ -58457,16 +58209,6 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijnv2ygx9uvo8rxaismvkkq9u",
       "target": "raw_gmaps_places_places_chijnv2ygx9uvo8rxaismvkkq9u_types"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chij4zhgdnvvvo8ru8vfer9dr90",
-      "target": "raw_gmaps_places_places_chij4zhgdnvvvo8ru8vfer9dr90_lat"
     },
     {
       "relation": "contains",
@@ -58507,16 +58249,6 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chij4zhgdnvvvo8ru8vfer9dr90",
       "target": "raw_gmaps_places_places_chij4zhgdnvvvo8ru8vfer9dr90_types"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijp4zdoabvvo8r3gp72c_o6ri",
-      "target": "raw_gmaps_places_places_chijot7lamnuvo8rjawni0anm0u_lat"
     },
     {
       "relation": "contains",
@@ -58616,16 +58348,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu",
-      "target": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u_reviews"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu",
       "target": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_types"
     },
     {
@@ -58646,16 +58368,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu",
-      "target": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu_name"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu",
       "target": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu_price"
     },
     {
@@ -58667,6 +58379,16 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu",
       "target": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu_status"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijlw_4uwbvvo8rgatype4nscu",
+      "target": "raw_gmaps_places_places_chijgwdyb8nvvo8rsl8xh05w9pu_lat"
     },
     {
       "relation": "contains",
@@ -58756,6 +58478,16 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijlw_4uwbvvo8rgatype4nscu",
+      "target": "raw_gmaps_places_places_chij57kiatztvo8rl9ggeb8am1m_price"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijlw_4uwbvvo8rgatype4nscu",
       "target": "raw_gmaps_places_places_chijlw_4uwbvvo8rgatype4nscu_lng"
     },
     {
@@ -58766,27 +58498,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijlw_4uwbvvo8rgatype4nscu",
-      "target": "raw_gmaps_places_places_chijlw_4uwbvvo8rgatype4nscu_price"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijlw_4uwbvvo8rgatype4nscu",
       "target": "raw_gmaps_places_places_chijlw_4uwbvvo8rgatype4nscu_rating"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijlw_4uwbvvo8rgatype4nscu",
-      "target": "raw_gmaps_places_places_chijlw_4uwbvvo8rgatype4nscu_reviews"
     },
     {
       "relation": "contains",
@@ -58875,6 +58587,16 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u",
+      "target": "raw_gmaps_places_places_chij57kiatztvo8rl9ggeb8am1m_types"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijf0mywk1vvo8rzqf6ehvhkpk",
       "target": "raw_gmaps_places_places_chijf0mywk1vvo8rzqf6ehvhkpk_lng"
     },
@@ -58947,16 +58669,6 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijot7lamnuvo8rjawni0anm0u",
       "target": "raw_gmaps_places_places_chijhtxquirvvo8rojcpuktmfzm_price"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijot7lamnuvo8rjawni0anm0u",
-      "target": "raw_gmaps_places_places_chijot7lamnuvo8rjawni0anm0u_lat"
     },
     {
       "relation": "contains",
@@ -59056,26 +58768,6 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u",
-      "target": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u_reviews"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u",
-      "target": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u_types"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u",
       "target": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_price"
     },
     {
@@ -59087,6 +58779,16 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chij24erqwbvvo8r_kehvgosh_u",
       "target": "raw_gmaps_places_places_chijmqucuznvvo8rynef4eebaiu_status"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijmqucuznvvo8rynef4eebaiu",
+      "target": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_rating"
     },
     {
       "relation": "contains",
@@ -59186,6 +58888,16 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa",
+      "target": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_price"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "data/raw/gmaps_places.json",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa",
       "target": "raw_gmaps_places_places_chijhtxquirvvo8rojcpuktmfzm_lat"
     },
     {
@@ -59197,16 +58909,6 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa",
       "target": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa_name"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa",
-      "target": "raw_gmaps_places_places_chijox4hngnuvo8r0bjtkuhzmaa_price"
     },
     {
       "relation": "contains",
@@ -59345,8 +59047,8 @@
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijhtxquirvvo8rojcpuktmfzm",
-      "target": "raw_gmaps_places_places_chijhtxquirvvo8rojcpuktmfzm_lat"
+      "source": "raw_gmaps_places_places_chijls7_fgbvvo8rv0ychptd8u0",
+      "target": "raw_gmaps_places_places_chij9wzfrwnuvo8rvtzr4yxcjbc_rating"
     },
     {
       "relation": "contains",
@@ -59356,7 +59058,7 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijhtxquirvvo8rojcpuktmfzm",
-      "target": "raw_gmaps_places_places_chijhtxquirvvo8rojcpuktmfzm_name"
+      "target": "raw_gmaps_places_places_chijhtxquirvvo8rojcpuktmfzm_lat"
     },
     {
       "relation": "contains",
@@ -59427,16 +59129,6 @@
       "confidence_score": 1.0,
       "source": "raw_gmaps_places_places_chijls7_fgbvvo8rv0ychptd8u0",
       "target": "raw_gmaps_places_places_chijls7_fgbvvo8rv0ychptd8u0_price"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "data/raw/gmaps_places.json",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "raw_gmaps_places_places_chijls7_fgbvvo8rv0ychptd8u0",
-      "target": "raw_gmaps_places_places_chijls7_fgbvvo8rv0ychptd8u0_rating"
     },
     {
       "relation": "contains",
@@ -60644,5 +60336,5 @@
       "source_file": "data/uploads/visita_KnEpCf4W_20260528_143113.jpg"
     }
   ],
-  "built_at_commit": "8d6e6a57c90d5cd5a4c2e61594a5ad4ae3be9ea2"
+  "built_at_commit": "b0359d736f471fdb3038387bb5e81502cff53415"
 }

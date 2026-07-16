@@ -55,6 +55,10 @@ export function SearchInput({
         <button
           type="button"
           aria-label="Limpiar búsqueda"
+          // preventDefault en mousedown: limpiar NO roba el foco del input
+          // (en móvil el teclado sigue abierto). Sin esto, el buscador del
+          // mapa quedaba en overlay abierto pero sin foco — parecía colgado.
+          onMouseDown={(e) => e.preventDefault()}
           onClick={() => setText('')}
           className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full p-0.5 text-fg-subtle transition-colors hover:text-fg"
         >

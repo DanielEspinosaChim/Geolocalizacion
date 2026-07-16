@@ -16,7 +16,8 @@ export function CandidatosPage() {
   const [filtros, setFiltros] = useState<Filtros>(SIN_FILTROS);
   const capas = useCapas();
   const [seleccionado, setSeleccionado] = useState<Candidato | null>(null);
-  // En móvil el buscador ocupa toda la pantalla; ocultamos el cajón entonces.
+  // Mientras se busca, el cajón inferior se oculta para no competir con el
+  // panel de sugerencias del buscador.
   const [buscando, setBuscando] = useState(false);
 
   const filtrados = useMemo(() => filtrarCandidatos(candidatos, filtros), [candidatos, filtros]);
