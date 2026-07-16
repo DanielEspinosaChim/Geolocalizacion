@@ -1,0 +1,50 @@
+{
+  "fuentes": {
+    "inegi_api": "https://gaia.inegi.org.mx/wscatgeo/v2/",
+    "sepomex": "Correos de México - Datos Abiertos"
+  },
+  "archivos_inegi": [
+    {
+      "nombre": "agebs_rurales_merida.geojson",
+      "tamaño_kb": 197.9
+    },
+    {
+      "nombre": "agebs_urbanos_merida.geojson",
+      "tamaño_kb": 1230.4
+    },
+    {
+      "nombre": "colonias_yucatan_sepomex.geojson",
+      "tamaño_kb": 3828.5
+    },
+    {
+      "nombre": "estado_yucatan.geojson",
+      "tamaño_kb": 243.6
+    },
+    {
+      "nombre": "localidades_merida.geojson",
+      "tamaño_kb": 277.1
+    },
+    {
+      "nombre": "municipios_yucatan.geojson",
+      "tamaño_kb": 1819.0
+    },
+    {
+      "nombre": "municipio_merida.geojson",
+      "tamaño_kb": 61.8
+    },
+    {
+      "nombre": "asentamientos_merida.json",
+      "tamaño_kb": 95.3
+    }
+  ],
+  "archivos_procesados": [
+    {
+      "nombre": "colonias_merida.geojson",
+      "tamaño_kb": 11620.3
+    },
+    {
+      "nombre": "municipio_merida.geojson",
+      "tamaño_kb": 208.1
+    }
+  ]
+}

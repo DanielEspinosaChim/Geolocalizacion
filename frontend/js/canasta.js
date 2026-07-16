@@ -1,0 +1,1124 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   canasta.js — Comparativo Costo Canasta Básica · CANACO SERVYTUR Mérida
+   ══════════════════════════════════════════════════════════════════════════ */
+
+const CAN_MONTHS = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+const CAN_LABELS = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
+
+function _latestFecha(product) {
+  const fechas = product.fechas_compra || {};
+  for (let i = CAN_MONTHS.length - 1; i >= 0; i--) {
+    const f = fechas[CAN_MONTHS[i]];
+    if (f) return f;
+  }
+  return null;
+}
+
+function _formatFecha(dateStr) {
+  if (!dateStr) return '—';
+  try {
+    const [, m, d] = dateStr.split('-');
+    const mn = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+    return `${parseInt(d)}/${mn[parseInt(m) - 1]}`;
+  } catch { return '—'; }
+}
+
+let _canData    = [];   // productos cargados
+let _canYear    = '2026';
+let _canLoaded  = false;
+let _canViewMode = 'precios'; // 'precios' | 'variacion' | 'trimestres'
+let _canMesesSeleccionados = new Set(CAN_MONTHS);
+let _canYearB  = null;
+let _canDataB  = null;
+
+const _QUARTERS = [
+  { key:'Q1', label:'Q1  ENE–MAR', months:['jan','feb','mar'] },
+  { key:'Q2', label:'Q2  ABR–JUN', months:['apr','may','jun'] },
+  { key:'Q3', label:'Q3  JUL–SEP', months:['jul','aug','sep'] },
+  { key:'Q4', label:'Q4  OCT–DIC', months:['oct','nov','dec'] },
+];
+
+function _trimestresActivos(meses) {
+  const activos = _QUARTERS.filter(q => q.months.some(m => meses.includes(m)));
+  if (activos.length > 1) {
+    const all = activos.flatMap(q => q.months.filter(m => meses.includes(m)));
+    activos.push({ key:'ANUAL', label:'PROMEDIO ANUAL', months: all });
+  }
+  return activos;
+}
+
+function cambiarVistaCanasta(mode) {
+  _canViewMode = mode;
+  ['precios','variacion','trimestres'].forEach(m => {
+    const el = document.getElementById('can-pill-' + m);
+    if (!el) return;
+    const on = m === mode;
+    el.style.background  = on ? '#1e3a5f' : 'transparent';
+    el.style.color       = on ? '#93c5fd' : '#475569';
+    el.style.borderColor = on ? '#2563eb' : '#1a2d56';
+  });
+  if (_canData.length) _renderTabla(_canData);
+}
+
+// ── Carga principal ──────────────────────────────────────────────────────────
+
+async function cargarCanasta(year) {
+  const newYear = year || new Date().getFullYear().toString();
+  if (_canLoaded && _canData.length && _canYear === newYear) return;
+  _canYear = newYear;
+  _inicializarSelectorAnio();
+
+  const loading = document.getElementById('can-loading');
+  const wrap    = document.getElementById('can-tabla-wrap');
+  const resumen = document.getElementById('can-resumen');
+  if (loading) loading.style.display = 'flex';
+  if (wrap)    wrap.style.display    = 'none';
+  if (resumen) resumen.style.display = 'none';
+
+  try {
+    const res = await fetch(`/api/canasta/${_canYear}`);
+    if (!res.ok) throw new Error(await res.text());
+    _canData   = await res.json();
+    _canLoaded = true;
+    _canMesesSeleccionados = new Set(_mesesDisponibles());
+    _inicializarChipsMeses();
+    _renderTabla(_canData);
+    _renderResumen(_canData);
+  } catch (e) {
+    if (loading) {
+      loading.innerHTML = `<span style="color:#ef4444">Error al cargar: ${e.message}</span>`;
+    }
+  }
+}
+
+// ── Meses visibles según año ─────────────────────────────────────────────────
+
+function _mesesDisponibles() {
+  const hoy = new Date();
+  const anioActual = hoy.getFullYear().toString();
+  const mesActual  = hoy.getMonth();
+  if (_canYear < anioActual)  return CAN_MONTHS;
+  if (_canYear === anioActual) return CAN_MONTHS.slice(0, mesActual + 1);
+  return [];
+}
+
+function _mesesVisibles() {
+  return _mesesDisponibles().filter(m => _canMesesSeleccionados.has(m));
+}
+
+// ── Chips de meses ───────────────────────────────────────────────────────────
+
+function _inicializarChipsMeses() {
+  const wrap = document.getElementById('can-chips-wrap');
+  if (!wrap) return;
+  const disponibles = _mesesDisponibles();
+  wrap.innerHTML = disponibles.map(m => {
+    const label = CAN_LABELS[CAN_MONTHS.indexOf(m)];
+    const sel   = _canMesesSeleccionados.has(m);
+    return `<button id="can-chip-${m}" onclick="toggleMesCanasta('${m}')"
+              style="padding:3px 11px;border-radius:12px;font-size:10px;font-weight:700;
+                     cursor:pointer;font-family:'Inter',sans-serif;letter-spacing:.05em;
+                     transition:all .12s;
+                     background:${sel ? '#1e3a5f' : 'transparent'};
+                     color:${sel ? '#93c5fd' : '#334155'};
+                     border:1px solid ${sel ? '#2563eb' : '#0f1f3d'}">
+              ${label}
+            </button>`;
+  }).join('');
+
+  // Poblar selector año B con los años disponibles (excluyendo el actual)
+  const selB = document.getElementById('can-year-b');
+  if (selB) {
+    const anioActual = new Date().getFullYear();
+    selB.innerHTML = '<option value="">— ninguno —</option>';
+    for (let a = anioActual; a >= 2024; a--) {
+      if (a.toString() === _canYear) continue;
+      const opt = document.createElement('option');
+      opt.value = a;
+      opt.textContent = a;
+      if (a.toString() === _canYearB) opt.selected = true;
+      selB.appendChild(opt);
+    }
+  }
+}
+
+function toggleMesCanasta(mes) {
+  if (_canMesesSeleccionados.has(mes)) {
+    if (_canMesesSeleccionados.size > 1) _canMesesSeleccionados.delete(mes);
+  } else {
+    _canMesesSeleccionados.add(mes);
+  }
+  CAN_MONTHS.forEach(m => {
+    const chip = document.getElementById('can-chip-' + m);
+    if (!chip) return;
+    const sel = _canMesesSeleccionados.has(m);
+    chip.style.background  = sel ? '#1e3a5f' : 'transparent';
+    chip.style.color       = sel ? '#93c5fd' : '#334155';
+    chip.style.borderColor = sel ? '#2563eb' : '#0f1f3d';
+  });
+  if (_canData.length) _renderTabla(_canData);
+}
+
+async function cambiarAnioComparacion(yearB) {
+  _canYearB = yearB || null;
+  _canDataB = null;
+  if (_canYearB) {
+    try {
+      const res = await fetch(`/api/canasta/${_canYearB}`);
+      if (res.ok) _canDataB = await res.json();
+    } catch {}
+  }
+  if (_canData.length) _renderTabla(_canData);
+}
+
+function _inicializarSelectorAnio() {
+  const sel = document.getElementById('can-year');
+  if (!sel) return;
+  const anioActual = new Date().getFullYear();
+  const PRIMER_ANIO = 2025;
+  sel.innerHTML = '';
+  for (let a = anioActual; a >= PRIMER_ANIO; a--) {
+    const opt = document.createElement('option');
+    opt.value = a;
+    opt.textContent = a;
+    if (a.toString() === _canYear) opt.selected = true;
+    sel.appendChild(opt);
+  }
+}
+
+// ── Renderizado de tabla ─────────────────────────────────────────────────────
+
+function _renderTabla(productos) {
+  const loading = document.getElementById('can-loading');
+  const wrap    = document.getElementById('can-tabla-wrap');
+  if (loading) loading.style.display = 'none';
+
+  const mesesActivos = _mesesVisibles();
+
+  const thead = _buildThead(mesesActivos);
+  const tbody = _buildTbody(productos, mesesActivos);
+  const tfoot = _buildTfoot(productos, mesesActivos);
+
+  const tabla = document.getElementById('can-tabla');
+  tabla.innerHTML = thead + tbody + tfoot;
+
+  if (wrap) wrap.style.display = 'block';
+}
+
+function _buildThead(meses) {
+  let cols;
+  if (_canViewMode === 'trimestres') {
+    cols = _trimestresActivos(meses).map(q =>
+      `<th style="${_thStyle()}">${q.label}</th>`
+    ).join('');
+  } else {
+    cols = meses.map(m =>
+      `<th style="${_thStyle()}">${CAN_LABELS[CAN_MONTHS.indexOf(m)]}</th>`
+    ).join('');
+  }
+  return `
+    <thead>
+      <tr>
+        <th style="${_thStyle()}">CATEGORÍA</th>
+        <th style="${_thStyle()}">SUMINISTRO</th>
+        <th style="${_thStyle()}">PRES.</th>
+        ${cols}
+        <th style="${_thStyle('48px')}"></th>
+      </tr>
+    </thead>`;
+}
+
+function _buildTbody(productos, meses) {
+  if (_canViewMode === 'variacion')  return _buildTbodyVariacion(productos, meses);
+  if (_canViewMode === 'trimestres') return _buildTbodyTrimestres(productos, meses);
+  return _buildTbodyPrecios(productos, meses);
+}
+
+function _buildTbodyPrecios(productos, meses) {
+  let html = '<tbody>';
+  let lastCat = null;
+  for (const p of productos) {
+    const isNewCat = p.category !== lastCat;
+    lastCat = p.category;
+    const catCell = isNewCat
+      ? `<td style="${_tdStyle()};font-weight:700;color:#dde9ff">${p.category}</td>`
+      : `<td style="${_tdStyle()};color:#475569">${p.category}</td>`;
+
+    const priceCells = meses.map(m => {
+      const val     = p.prices ? p.prices[m] : null;
+      const display = val != null ? val.toFixed(2) : '';
+      const tienda    = p.tiendas       ? (p.tiendas[m]       || null) : null;
+      const fechaRaw  = p.fechas_compra ? (p.fechas_compra[m] || null) : null;
+      const dia       = fechaRaw ? parseInt(fechaRaw.split('-')[2]) : null;
+      const tiendaShort = tienda ? tienda.substring(0, 9) : '';
+      const badgeText   = tienda ? (tiendaShort + (dia ? ' · ' + dia : '')) : '+ tienda';
+      const tooltip     = tienda ? (tienda + (dia ? ', día ' + dia : '')) : 'Agregar tienda y fecha';
+      return `<td style="${_tdStyle()};text-align:right;padding-right:10px;padding-top:3px;padding-bottom:3px">
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px">
+          <span class="can-cell"
+                contenteditable="true"
+                data-id="${p.id}" data-month="${m}"
+                onblur="guardarPrecioCanasta(this)"
+                onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur()}"
+                style="display:inline-block;min-width:52px;outline:none;cursor:text;
+                       border-radius:4px;padding:2px 4px;
+                       ${val == null ? 'color:#334155' : 'color:#dde9ff'}"
+          >${display}</span>
+          ${(() => {
+            if (!_canYearB || !_canDataB) return '';
+            const pB   = _canDataB.find(x => x.id === p.id);
+            const valB = pB?.prices?.[m];
+            if (!valB || !val) return '';
+            const pctStr = (() => { const p2 = ((val - valB) / valB * 100); return (p2 > 0 ? '+' : '') + p2.toFixed(1) + '%'; })();
+            const col = val > valB ? '#ef4444' : val < valB ? '#22c55e' : '#475569';
+            return `<span style="font-size:9px;color:${col};line-height:1.2;font-weight:600">
+              ${_canYearB}: $${valB.toFixed(2)} (${pctStr})</span>`;
+          })()}
+          <span class="can-meta"
+                onclick="editarMetadataCanasta('${p.id}','${m}')"
+                title="${tooltip}"
+                style="font-size:9px;cursor:pointer;border-radius:3px;padding:1px 5px;
+                       line-height:1.3;user-select:none;
+                       ${tienda
+                         ? 'color:#3b82f6;background:#3b82f620;border:1px solid #3b82f640'
+                         : 'color:#334155;background:#0f1f3d;border:1px solid #1a2d56'}">
+            ${badgeText}
+          </span>
+        </div>
+      </td>`;
+    }).join('');
+
+    html += `<tr style="border-bottom:1px solid #0f1f3d">
+      ${catCell}
+      <td style="${_tdStyle()};color:#94a3b8">${p.name}</td>
+      <td style="${_tdStyle()};color:#475569">${p.unit}</td>
+      ${priceCells}
+      <td style="${_tdStyle()};text-align:center">
+        <button onclick="eliminarProductoCanasta('${p.id}')"
+                title="Desactivar producto"
+                style="background:transparent;border:none;color:#334155;cursor:pointer;
+                       font-size:14px;padding:2px 6px;border-radius:4px"
+                onmouseover="this.style.color='#ef4444'"
+                onmouseout="this.style.color='#334155'">✕</button>
+      </td>
+    </tr>`;
+  }
+  html += '</tbody>';
+  return html;
+}
+
+function _buildTbodyVariacion(productos, meses) {
+  let html = '<tbody>';
+  let lastCat = null;
+  for (const p of productos) {
+    const isNewCat = p.category !== lastCat;
+    lastCat = p.category;
+    const catCell = isNewCat
+      ? `<td style="${_tdStyle()};font-weight:700;color:#dde9ff">${p.category}</td>`
+      : `<td style="${_tdStyle()};color:#475569">${p.category}</td>`;
+
+    const cells = meses.map((m, i) => {
+      const val   = p.prices && p.prices[m]         != null ? p.prices[m]         : null;
+      const prev  = i > 0 && p.prices && p.prices[meses[i-1]] != null ? p.prices[meses[i-1]] : null;
+      if (i === 0 || val == null || prev == null || prev === 0) {
+        return `<td style="${_tdStyle()};text-align:right;padding-right:10px">
+          <span style="color:#1a2d56">—</span></td>`;
+      }
+      const pct   = ((val - prev) / prev) * 100;
+      const sign  = pct > 0 ? '+' : '';
+      const color = pct > 0 ? '#ef4444' : pct < 0 ? '#22c55e' : '#475569';
+      const bg    = pct > 0 ? '#2d1010' : pct < 0 ? '#0d2d1a' : '#0f1f3d';
+      return `<td style="${_tdStyle()};text-align:right;padding-right:10px">
+        <span style="display:inline-block;padding:2px 8px;border-radius:4px;
+                     background:${bg};color:${color};font-weight:700;font-size:11px">
+          ${sign}${pct.toFixed(1)}%
+        </span></td>`;
+    }).join('');
+
+    html += `<tr style="border-bottom:1px solid #0f1f3d">
+      ${catCell}
+      <td style="${_tdStyle()};color:#94a3b8">${p.name}</td>
+      <td style="${_tdStyle()};color:#475569">${p.unit}</td>
+      ${cells}
+      <td style="${_tdStyle()}"></td>
+    </tr>`;
+  }
+  html += '</tbody>';
+  return html;
+}
+
+function _buildTbodyTrimestres(productos, meses) {
+  const quarters = _trimestresActivos(meses);
+  let html = '<tbody>';
+  let lastCat = null;
+  for (const p of productos) {
+    const isNewCat = p.category !== lastCat;
+    lastCat = p.category;
+    const catCell = isNewCat
+      ? `<td style="${_tdStyle()};font-weight:700;color:#dde9ff">${p.category}</td>`
+      : `<td style="${_tdStyle()};color:#475569">${p.category}</td>`;
+
+    const cells = quarters.map(q => {
+      const vals = q.months
+        .filter(m => meses.includes(m))
+        .map(m => p.prices && p.prices[m] != null ? p.prices[m] : null)
+        .filter(v => v != null);
+      if (!vals.length) {
+        return `<td style="${_tdStyle()};text-align:right;padding-right:10px;color:#1a2d56">—</td>`;
+      }
+      const avg = vals.reduce((a, b) => a + b, 0) / vals.length;
+      return `<td style="${_tdStyle()};text-align:right;padding-right:10px;color:#dde9ff">
+        ${avg.toFixed(2)}</td>`;
+    }).join('');
+
+    html += `<tr style="border-bottom:1px solid #0f1f3d">
+      ${catCell}
+      <td style="${_tdStyle()};color:#94a3b8">${p.name}</td>
+      <td style="${_tdStyle()};color:#475569">${p.unit}</td>
+      ${cells}
+      <td style="${_tdStyle()}"></td>
+    </tr>`;
+  }
+  html += '</tbody>';
+  return html;
+}
+
+function _buildTfoot(productos, meses) {
+  if (_canViewMode === 'trimestres') {
+    const quarters = _trimestresActivos(meses);
+    const monthTotals = {};
+    for (const m of meses) {
+      const vals = productos.filter(p => p.prices && p.prices[m] != null).map(p => p.prices[m]);
+      monthTotals[m] = vals.length ? vals.reduce((a, b) => a + b, 0) : null;
+    }
+    const totales = quarters.map(q => {
+      const qM = q.months.filter(m => meses.includes(m) && monthTotals[m] != null);
+      if (!qM.length) return null;
+      return qM.reduce((a, m) => a + monthTotals[m], 0) / qM.length;
+    });
+    return `<tfoot>
+      <tr style="border-top:2px solid #1a2d56;background:#0a1428">
+        <td colspan="3" style="${_tdStyle()};font-weight:700;color:#dde9ff">PROMEDIO CANASTA</td>
+        ${totales.map(t => `<td style="${_tdStyle()};text-align:right;padding-right:10px;
+          font-weight:700;color:#dde9ff">${t != null ? '$ ' + t.toFixed(2) : ''}</td>`).join('')}
+        <td style="${_tdStyle()}"></td>
+      </tr>
+    </tfoot>`;
+  }
+
+  const totales = meses.map(m => {
+    const precios = productos.filter(p => p.prices && p.prices[m] != null).map(p => p.prices[m]);
+    return precios.length ? precios.reduce((a, b) => a + b, 0) : null;
+  });
+
+  const totalRow = `<tr style="border-top:2px solid #1a2d56;background:#0a1428">
+    <td colspan="3" style="${_tdStyle()};font-weight:700;color:#dde9ff">TOTAL</td>
+    ${totales.map(t => `<td style="${_tdStyle()};text-align:right;padding-right:10px;
+      font-weight:700;color:#dde9ff">${t != null ? '$ ' + t.toFixed(2) : ''}</td>`).join('')}
+    <td style="${_tdStyle()}"></td>
+  </tr>`;
+
+  const difRow = `<tr style="background:#0a1428">
+    <td colspan="3" style="${_tdStyle()};color:#475569">Diferencia vs mes anterior</td>
+    ${totales.map((t, i) => {
+      if (i === 0 || t == null || totales[i-1] == null) return `<td style="${_tdStyle()}"></td>`;
+      const diff = t - totales[i-1];
+      const color = diff > 0 ? '#ef4444' : diff < 0 ? '#22c55e' : '#475569';
+      const sign  = diff > 0 ? '+' : '';
+      return `<td style="${_tdStyle()};text-align:right;padding-right:10px;color:${color}">
+        ${sign}$ ${diff.toFixed(2)}
+      </td>`;
+    }).join('')}
+    <td style="${_tdStyle()}"></td>
+  </tr>`;
+
+  const pctRow = `<tr style="background:#0a1428;border-bottom:1px solid #1a2d56">
+    <td colspan="3" style="${_tdStyle()};color:#475569">% vs mes anterior</td>
+    ${totales.map((t, i) => {
+      if (i === 0 || t == null || totales[i-1] == null || totales[i-1] === 0)
+        return `<td style="${_tdStyle()}"></td>`;
+      const pct = ((t - totales[i-1]) / totales[i-1]) * 100;
+      const color = pct > 0 ? '#ef4444' : pct < 0 ? '#22c55e' : '#475569';
+      const sign  = pct > 0 ? '+' : '';
+      return `<td style="${_tdStyle()};text-align:right;padding-right:10px;
+        font-weight:700;color:${color}">${sign}${pct.toFixed(1)}%</td>`;
+    }).join('')}
+    <td style="${_tdStyle()}"></td>
+  </tr>`;
+
+  // Fila de comparación con año B
+  let yearBRow = '';
+  if (_canYearB && _canDataB) {
+    const totalesB = meses.map(m => {
+      const precios = _canDataB.filter(p => p.prices && p.prices[m] != null).map(p => p.prices[m]);
+      return precios.length ? precios.reduce((a, b) => a + b, 0) : null;
+    });
+    yearBRow = `<tr style="background:#0a1428;border-bottom:1px solid #1a2d56">
+      <td colspan="3" style="${_tdStyle()};color:#64748b;font-size:11px">
+        <span style="color:#3b82f6;font-weight:700">${_canYear}</span>
+        <span style="color:#334155"> vs </span>
+        <span style="color:#64748b;font-weight:700">${_canYearB}</span>
+        <span style="color:#334155;font-size:10px"> — diferencia anual</span>
+      </td>
+      ${totalesB.map((tB, i) => {
+        if (tB == null) return `<td style="${_tdStyle()}"></td>`;
+        const tA  = totales[i];
+        if (tA == null) return `<td style="${_tdStyle()};text-align:right;padding-right:10px;
+          color:#334155">$${tB.toFixed(2)}</td>`;
+        const pct  = tB > 0 ? ((tA - tB) / tB * 100) : null;
+        const pctLabel = pct != null ? ((pct > 0 ? '+' : '') + pct.toFixed(1) + '%') : '—';
+        const col = pct != null ? (pct > 0 ? '#ef4444' : pct < 0 ? '#22c55e' : '#475569') : '#475569';
+        return `<td style="${_tdStyle()};text-align:right;padding-right:10px">
+          <span style="color:#334155;font-size:10px">$${tB.toFixed(2)} → </span>
+          <span style="color:${col};font-weight:700;font-size:12px">${pctLabel}</span>
+        </td>`;
+      }).join('')}
+      <td style="${_tdStyle()}"></td>
+    </tr>`;
+  }
+
+  return `<tfoot>${totalRow}${yearBRow}${difRow}${pctRow}</tfoot>`;
+}
+
+function _thStyle(w) {
+  return `padding:10px 12px;background:#0d1830;color:#475569;font-size:10px;font-weight:700;
+    text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid #1a2d56;
+    white-space:nowrap;position:sticky;top:0;z-index:1${w ? ';width:' + w : ''}`;
+}
+
+function _tdStyle() {
+  return 'padding:8px 12px;border-bottom:1px solid #0f1f3d;font-size:12px;color:#94a3b8';
+}
+
+// ── Gráfica Chart.js ─────────────────────────────────────────────────────────
+
+let _canChart = null;
+
+function _renderResumen(productos) {
+  const resumen = document.getElementById('can-resumen');
+  const canvas  = document.getElementById('can-chart');
+  if (!resumen || !canvas) return;
+
+  const totales = CAN_MONTHS.map(m => {
+    const vals = productos.filter(p => p.prices && p.prices[m] != null).map(p => p.prices[m]);
+    return vals.length ? vals.reduce((a, b) => a + b, 0) : null;
+  });
+
+  const labels = [];
+  const pcts   = [];
+  const colors = [];
+
+  totales.forEach((t, i) => {
+    if (i === 0 || t == null || totales[i - 1] == null) return;
+    const pct = parseFloat(((t - totales[i - 1]) / totales[i - 1] * 100).toFixed(1));
+    labels.push(CAN_LABELS[i]);
+    pcts.push(pct);
+    colors.push(pct > 0 ? 'rgba(239,68,68,0.85)' : 'rgba(34,197,94,0.85)');
+  });
+
+  if (!labels.length) return;
+
+  if (_canChart) { _canChart.destroy(); _canChart = null; }
+
+  _canChart = new Chart(canvas, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        data:            pcts,
+        backgroundColor: colors,
+        borderRadius:    6,
+        borderSkipped:   false,
+      }],
+    },
+    options: {
+      responsive:          true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const v = ctx.parsed.y;
+              return ` ${v > 0 ? '+' : ''}${v}%`;
+            },
+          },
+        },
+        datalabels: { display: false },
+      },
+      scales: {
+        x: {
+          grid:  { color: '#0f1f3d' },
+          ticks: { color: '#64748b', font: { size: 11, weight: '600' } },
+        },
+        y: {
+          grid:  { color: '#0f1f3d' },
+          ticks: {
+            color: '#64748b',
+            font:  { size: 10 },
+            callback: v => `${v > 0 ? '+' : ''}${v}%`,
+          },
+        },
+      },
+    },
+  });
+
+  resumen.style.display = 'block';
+}
+
+// ── Descarga Excel ───────────────────────────────────────────────────────────
+
+async function descargarExcelCanasta() {
+  try {
+    const meses   = [..._canMesesSeleccionados].join(',');
+    const params  = new URLSearchParams({ meses });
+    if (_canYearB) params.set('compare', _canYearB);
+    const endpoint = `/api/canasta/${_canYear}/export/excel?${params}`;
+    const res = await fetch(endpoint);
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      alert('Error al generar Excel: ' + (err.detail || res.statusText));
+      return;
+    }
+    const blob = await res.blob();
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = `canasta_basica_${_canYear}.xlsx`;
+    a.click();
+    URL.revokeObjectURL(url);
+  } catch (e) {
+    alert('Error: ' + e.message);
+  }
+}
+
+// ── Guardar precio (edición inline) ─────────────────────────────────────────
+
+async function guardarPrecioCanasta(cell) {
+  const id    = cell.dataset.id;
+  const month = cell.dataset.month;
+  const raw   = cell.textContent.trim().replace(',', '.');
+  const price = raw === '' ? null : parseFloat(raw);
+
+  if (raw !== '' && isNaN(price)) {
+    cell.style.color = '#ef4444';
+    setTimeout(() => { cell.style.color = '#dde9ff'; }, 800);
+    return;
+  }
+
+  cell.style.opacity = '.5';
+  try {
+    const r = await fetch(`/api/canasta/${_canYear}/${id}`, {
+      method:  'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ month, price }),
+    });
+    if (!r.ok) throw new Error();
+
+    // Actualizar dato en memoria y re-renderizar resumen
+    const prod = _canData.find(p => p.id === id);
+    if (prod) {
+      if (!prod.prices) prod.prices = {};
+      prod.prices[month] = price;
+    }
+    cell.style.color   = price == null ? '#334155' : '#dde9ff';
+    cell.style.opacity = '1';
+    cell.textContent   = price != null ? price.toFixed(2) : '';
+
+    // Refrescar fila de totales y mini barras sin recargar toda la tabla
+    _refreshTfoot();
+    _renderResumen(_canData);
+  } catch {
+    cell.style.color   = '#ef4444';
+    cell.style.opacity = '1';
+    setTimeout(() => { cell.style.color = '#dde9ff'; }, 1000);
+  }
+}
+
+function _refreshTfoot() {
+  const tabla = document.getElementById('can-tabla');
+  if (!tabla) return;
+  const tfoot = tabla.querySelector('tfoot');
+  if (!tfoot) return;
+  const mesesActivos = _mesesVisibles();
+  const nuevoTfoot = document.createElement('tfoot');
+  nuevoTfoot.innerHTML = _buildTfoot(_canData, mesesActivos)
+    .replace('<tfoot>', '').replace('</tfoot>', '');
+  tfoot.replaceWith(nuevoTfoot);
+}
+
+// ── Agregar producto ─────────────────────────────────────────────────────────
+
+function abrirModalCanasta() {
+  document.getElementById('can-new-name').value = '';
+  document.getElementById('can-new-unit').value = '';
+  document.getElementById('can-modal-msg').style.display = 'none';
+  const title = document.getElementById('can-modal-title');
+  if (title) title.textContent = `Agregar producto · ${_canYear}`;
+  document.getElementById('modal-canasta').style.display = 'flex';
+  setTimeout(() => document.getElementById('can-new-name').focus(), 50);
+}
+
+function cerrarModalCanasta() {
+  document.getElementById('modal-canasta').style.display = 'none';
+}
+
+async function confirmarAgregarProducto() {
+  const name = document.getElementById('can-new-name').value.trim();
+  const cat  = document.getElementById('can-new-cat').value;
+  const unit = document.getElementById('can-new-unit').value.trim();
+  const msg  = document.getElementById('can-modal-msg');
+
+  if (!name) {
+    msg.textContent = 'El nombre es requerido';
+    msg.style.cssText = 'display:block;background:#7f1d1d33;color:#fca5a5;border-radius:6px;padding:8px 12px;font-size:12px;margin-bottom:14px';
+    return;
+  }
+
+  try {
+    const r = await fetch(`/api/canasta/${_canYear}/product`, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ name, category: cat, unit }),
+    });
+    if (!r.ok) throw new Error(await r.text());
+    cerrarModalCanasta();
+    _canLoaded = false;
+    cargarCanasta(_canYear);
+  } catch (e) {
+    msg.textContent = `Error: ${e.message}`;
+    msg.style.cssText = 'display:block;background:#7f1d1d33;color:#fca5a5;border-radius:6px;padding:8px 12px;font-size:12px;margin-bottom:14px';
+  }
+}
+
+// ── Eliminar (desactivar) producto ───────────────────────────────────────────
+
+async function eliminarProductoCanasta(productId) {
+  if (!confirm('¿Desactivar este producto de la canasta?')) return;
+  try {
+    await fetch(`/api/canasta/${_canYear}/${productId}`, { method: 'DELETE' });
+    _canLoaded = false;
+    cargarCanasta(_canYear);
+  } catch { /* silent */ }
+}
+
+// ── Escaneo de facturas con IA ───────────────────────────────────────────────
+
+let _scanResultados = [];
+
+// Redimensiona y comprime a JPEG antes de enviar al backend.
+// Fotos de galería de teléfono pueden pesar 10-20 MB; Gemini responde mejor
+// con imágenes limpias ≤ 2 MB y resolución máxima de 1920 px en el lado mayor.
+function _comprimirImagen(file, maxPx = 1920, quality = 0.88) {
+  return new Promise(resolve => {
+    const img = new Image();
+    const blobUrl = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(blobUrl);
+      const ratio  = Math.min(1, maxPx / Math.max(img.width, img.height));
+      const canvas = document.createElement('canvas');
+      canvas.width  = Math.round(img.width  * ratio);
+      canvas.height = Math.round(img.height * ratio);
+      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+      canvas.toBlob(blob => {
+        resolve(new File([blob], 'factura.jpg', { type: 'image/jpeg' }));
+      }, 'image/jpeg', quality);
+    };
+    img.onerror = () => { URL.revokeObjectURL(blobUrl); resolve(file); }; // fallback
+    img.src = blobUrl;
+  });
+}
+
+async function _procesarImagenCanasta(file) {
+  if (!file) return;
+
+  // Comprimir antes de enviar: reduce tamaño de fotos de galería y mejora la lectura de Gemini
+  file = await _comprimirImagen(file);
+
+  // Spinner en botones mientras procesa
+  const overlay = document.createElement('div');
+  overlay.id = 'scan-overlay';
+  overlay.style.cssText = 'position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.6);' +
+    'display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px';
+  overlay.innerHTML = `
+    <div style="width:48px;height:48px;border:3px solid #1a2d56;border-top-color:#3b82f6;
+                border-radius:50%;animation:spin 0.8s linear infinite"></div>
+    <div style="color:#dde9ff;font-size:14px;font-weight:600">Analizando imagen con IA…</div>
+    <div style="color:#475569;font-size:12px">Gemini está leyendo los precios</div>`;
+  document.body.appendChild(overlay);
+
+  try {
+    const form = new FormData();
+    form.append('imagen', file);
+
+    const res = await fetch(`/api/canasta/${_canYear}/scan-invoice`, {
+      method: 'POST',
+      body:   form,
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({ detail: res.statusText }));
+      throw new Error(err.detail || res.statusText);
+    }
+
+    const data = await res.json();
+    _scanResultados = data.items || [];
+
+    document.body.removeChild(overlay);
+    _mostrarModalScan(_scanResultados);
+  } catch (e) {
+    document.body.removeChild(overlay);
+    alert('Error al escanear: ' + e.message);
+  }
+
+  // Reset file input para permitir subir la misma imagen de nuevo
+  const inp = document.getElementById('can-file-input');
+  if (inp) inp.value = '';
+}
+
+function _mostrarModalScan(items) {
+  const tbody = document.getElementById('scan-tbody');
+  const checkAll = document.getElementById('scan-check-all');
+  if (checkAll) checkAll.checked = true;
+
+  // Preseleccionar el mes actual
+  const mesActual = CAN_MONTHS[new Date().getMonth()];
+  const selMes = document.getElementById('scan-mes');
+  if (selMes) selMes.value = mesActual;
+
+  if (!items.length) {
+    tbody.innerHTML = `<tr><td colspan="5" style="padding:24px;text-align:center;color:#475569">
+      No se detectaron productos en la imagen.</td></tr>`;
+  } else {
+    tbody.innerHTML = items.map((item, i) => {
+      const conf = item.confidence;
+      const confColor = conf === 'high' ? '#22c55e' : conf === 'medium' ? '#f59e0b' : '#ef4444';
+      const confLabel = conf === 'high' ? 'Alta' : conf === 'medium' ? 'Media' : 'Baja';
+      const checked   = conf !== 'low' ? 'checked' : '';
+      const mapped    = item.matched_name || '<span style="color:#ef4444">Sin mapear</span>';
+
+      return `<tr style="border-bottom:1px solid #0f1f3d" data-idx="${i}">
+        <td style="padding:9px 12px">
+          <input type="checkbox" class="scan-item-check" data-idx="${i}" ${checked}
+                 style="cursor:pointer"/>
+        </td>
+        <td style="padding:9px 12px;color:#94a3b8">${item.detected_name}
+          <span style="color:#475569;font-size:10px;margin-left:4px">${item.detected_unit}</span>
+        </td>
+        <td style="padding:9px 12px;color:#dde9ff;font-weight:600">${mapped}</td>
+        <td style="padding:9px 12px;text-align:right;color:#dde9ff;font-weight:700">
+          $${item.detected_price.toFixed(2)}
+        </td>
+        <td style="padding:9px 12px;text-align:center">
+          <span style="font-size:10px;font-weight:700;color:${confColor};
+                       background:${confColor}18;border:1px solid ${confColor}40;
+                       border-radius:99px;padding:2px 8px">${confLabel}</span>
+        </td>
+      </tr>`;
+    }).join('');
+  }
+
+  document.getElementById('scan-msg').style.display = 'none';
+  document.getElementById('modal-scan').style.display = 'flex';
+}
+
+function _scanToggleAll(checked) {
+  document.querySelectorAll('.scan-item-check').forEach(cb => { cb.checked = checked; });
+}
+
+function cerrarModalScan() {
+  document.getElementById('modal-scan').style.display = 'none';
+  _scanResultados = [];
+}
+
+async function guardarEscaneo() {
+  const mes  = document.getElementById('scan-mes').value;
+  const msg  = document.getElementById('scan-msg');
+  const checks = document.querySelectorAll('.scan-item-check:checked');
+
+  if (!checks.length) {
+    msg.textContent = 'Selecciona al menos un producto para guardar.';
+    msg.style.cssText = 'display:block;background:#451a0340;color:#fde68a;border-radius:6px;padding:8px 12px;font-size:12px';
+    return;
+  }
+
+  const seleccionados = Array.from(checks)
+    .map(cb => _scanResultados[parseInt(cb.dataset.idx)])
+    .filter(item => item && item.matched_id);
+
+  if (!seleccionados.length) {
+    msg.textContent = 'Los productos seleccionados no tienen producto mapeado en el catálogo.';
+    msg.style.cssText = 'display:block;background:#7f1d1d33;color:#fca5a5;border-radius:6px;padding:8px 12px;font-size:12px';
+    return;
+  }
+
+  const tiendaScan = (() => {
+    const el = document.getElementById('scan-tienda');
+    return el && el.value.trim() ? el.value.trim().toUpperCase() : null;
+  })();
+  const fechaScan = new Date().toISOString().slice(0, 10);
+
+  // Guardar en paralelo
+  const saves = seleccionados.map(item =>
+    fetch(`/api/canasta/${_canYear}/${item.matched_id}`, {
+      method:  'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ month: mes, price: item.detected_price, tienda: tiendaScan, fecha_compra: fechaScan }),
+    })
+  );
+
+  try {
+    await Promise.all(saves);
+    cerrarModalScan();
+    _canLoaded = false;
+    await cargarCanasta(_canYear);
+  } catch (e) {
+    msg.textContent = 'Error al guardar: ' + e.message;
+    msg.style.cssText = 'display:block;background:#7f1d1d33;color:#fca5a5;border-radius:6px;padding:8px 12px;font-size:12px';
+  }
+}
+
+// ── Generar infografía PNG ───────────────────────────────────────────────────
+
+function generarInfografiaCanasta() {
+  if (!_canData.length) { alert('Carga los datos primero.'); return; }
+
+  // Calcular totales y variaciones
+  const totales = CAN_MONTHS.map(m => {
+    const vals = _canData.filter(p => p.prices && p.prices[m] != null).map(p => p.prices[m]);
+    return vals.length ? vals.reduce((a, b) => a + b, 0) : null;
+  });
+
+  const meses = [], pcts = [], totMeses = [];
+  totales.forEach((t, i) => {
+    if (i === 0 || t == null || totales[i - 1] == null) return;
+    meses.push(CAN_LABELS[i]);
+    pcts.push(parseFloat(((t - totales[i - 1]) / totales[i - 1] * 100).toFixed(1)));
+    totMeses.push(t);
+  });
+
+  if (!meses.length) { alert('Sin datos suficientes para generar imagen.'); return; }
+
+  const W = 1280, H = 720;
+  const cv = document.createElement('canvas');
+  cv.width = W; cv.height = H;
+  const c = cv.getContext('2d');
+
+  // ── Fondo ──────────────────────────────────────────────────────────────────
+  const bg = c.createLinearGradient(0, 0, 0, H);
+  bg.addColorStop(0, '#060d1b');
+  bg.addColorStop(1, '#0a1428');
+  c.fillStyle = bg;
+  c.fillRect(0, 0, W, H);
+
+  // Borde izquierdo azul
+  c.fillStyle = '#2563eb';
+  c.fillRect(0, 0, 6, H);
+
+  // ── Header ─────────────────────────────────────────────────────────────────
+  c.fillStyle = '#2563eb';
+  c.font = 'bold 11px Arial';
+  c.fillText('CANACO SERVYTUR MÉRIDA', 36, 46);
+
+  c.fillStyle = '#dde9ff';
+  c.font = 'bold 28px Arial';
+  c.fillText('VARIACIÓN % COSTO CANASTA BÁSICA', 36, 82);
+
+  c.fillStyle = '#475569';
+  c.font = '13px Arial';
+  c.fillText(`Variación porcentual mensual · Mérida, Yucatán · ${_canYear}`, 36, 106);
+
+  // Línea separadora
+  c.strokeStyle = '#1a2d56';
+  c.lineWidth = 1;
+  c.beginPath(); c.moveTo(36, 122); c.lineTo(W - 36, 122); c.stroke();
+
+  // ── Área del chart ─────────────────────────────────────────────────────────
+  const cx0 = 72, cy0 = 148, cW = W - 108, cH = H - 230;
+  const n = meses.length;
+  const maxAbs = Math.max(...pcts.map(Math.abs), 1);
+  const yscale = (cH * 0.44) / maxAbs;
+  const midY = cy0 + cH / 2;
+
+  // Grid horizontal
+  const step = maxAbs > 4 ? 2 : 1;
+  for (let v = -Math.ceil(maxAbs); v <= Math.ceil(maxAbs); v += step) {
+    const y = midY - v * yscale;
+    c.strokeStyle = v === 0 ? '#1e3a5f' : '#0f1a2e';
+    c.lineWidth = v === 0 ? 1.5 : 1;
+    c.beginPath(); c.moveTo(cx0, y); c.lineTo(cx0 + cW, y); c.stroke();
+
+    if (v !== 0) {
+      c.fillStyle = '#2d3f55';
+      c.font = '10px Arial';
+      c.textAlign = 'right';
+      c.fillText(`${v > 0 ? '+' : ''}${v}%`, cx0 - 8, y + 4);
+    }
+  }
+
+  // Línea cero (más visible)
+  c.strokeStyle = '#2563eb';
+  c.lineWidth = 1;
+  c.setLineDash([4, 4]);
+  c.beginPath(); c.moveTo(cx0, midY); c.lineTo(cx0 + cW, midY); c.stroke();
+  c.setLineDash([]);
+
+  // ── Barras ─────────────────────────────────────────────────────────────────
+  const slotW = cW / n;
+  const barW  = Math.min(64, slotW * 0.52);
+
+  c.textAlign = 'center';
+  meses.forEach((lbl, i) => {
+    const pct  = pcts[i];
+    const barH = Math.abs(pct) * yscale;
+    const bx   = cx0 + slotW * i + slotW / 2;
+    const by   = pct >= 0 ? midY - barH : midY;
+    const col  = pct > 0 ? '#ef4444' : '#22c55e';
+
+    // Barra con gradiente
+    const gr = c.createLinearGradient(bx - barW / 2, by, bx + barW / 2, by + barH);
+    gr.addColorStop(0, col + 'ff');
+    gr.addColorStop(1, col + '88');
+    c.fillStyle = gr;
+
+    // Rounded rect manual (top corners)
+    const r = 5;
+    c.beginPath();
+    if (pct >= 0) {
+      c.moveTo(bx - barW / 2 + r, by);
+      c.lineTo(bx + barW / 2 - r, by);
+      c.quadraticCurveTo(bx + barW / 2, by, bx + barW / 2, by + r);
+      c.lineTo(bx + barW / 2, by + barH);
+      c.lineTo(bx - barW / 2, by + barH);
+      c.lineTo(bx - barW / 2, by + r);
+      c.quadraticCurveTo(bx - barW / 2, by, bx - barW / 2 + r, by);
+    } else {
+      c.moveTo(bx - barW / 2, by);
+      c.lineTo(bx + barW / 2, by);
+      c.lineTo(bx + barW / 2, by + barH - r);
+      c.quadraticCurveTo(bx + barW / 2, by + barH, bx + barW / 2 - r, by + barH);
+      c.lineTo(bx - barW / 2 + r, by + barH);
+      c.quadraticCurveTo(bx - barW / 2, by + barH, bx - barW / 2, by + barH - r);
+      c.lineTo(bx - barW / 2, by);
+    }
+    c.closePath();
+    c.fill();
+
+    // Etiqueta % sobre/bajo la barra
+    c.fillStyle = col;
+    c.font = 'bold 15px Arial';
+    const lblY = pct >= 0 ? by - 10 : by + barH + 20;
+    c.fillText(`${pct > 0 ? '+' : ''}${pct}%`, bx, lblY);
+
+    // Total del mes debajo del mes
+    c.fillStyle = '#334155';
+    c.font = '10px Arial';
+    c.fillText(`$${totMeses[i].toFixed(0)}`, bx, cy0 + cH + 36);
+
+    // Etiqueta mes
+    c.fillStyle = '#64748b';
+    c.font = 'bold 12px Arial';
+    c.fillText(lbl, bx, cy0 + cH + 18);
+  });
+
+  // ── Footer ──────────────────────────────────────────────────────────────────
+  c.fillStyle = '#0a1020';
+  c.fillRect(0, H - 38, W, 38);
+  c.fillStyle = '#2563eb';
+  c.fillRect(0, H - 38, 4, 38);
+
+  c.fillStyle = '#334155';
+  c.font = '10px Arial';
+  c.textAlign = 'left';
+  c.fillText('CANACO SERVYTUR Mérida — Cámara Nacional de Comercio, Servicios y Turismo', 24, H - 14);
+  c.textAlign = 'right';
+  const hoy = new Date().toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
+  c.fillText(`Elaborado el ${hoy}`, W - 24, H - 14);
+
+  // ── Descargar ───────────────────────────────────────────────────────────────
+  cv.toBlob(blob => {
+    const url = URL.createObjectURL(blob);
+    const a   = document.createElement('a');
+    a.href     = url;
+    a.download = `canasta_basica_${_canYear}.png`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }, 'image/png');
+}
+
+// ── Metadata: tienda + fecha de compra ──────────────────────────────────────
+
+function editarMetadataCanasta(productId, month) {
+  const prod   = _canData.find(p => p.id === productId);
+  const tienda = prod && prod.tiendas       ? (prod.tiendas[month]       || '') : '';
+  const fecha  = prod && prod.fechas_compra ? (prod.fechas_compra[month] || '') : '';
+  // Pre-fill dia from existing fecha (YYYY-MM-DD → day number)
+  const dia = fecha ? parseInt(fecha.split('-')[2]) || '' : '';
+
+  document.getElementById('meta-product-id').value = productId;
+  document.getElementById('meta-month').value       = month;
+  document.getElementById('meta-tienda').value      = tienda;
+  document.getElementById('meta-dia').value         = dia;
+  document.getElementById('meta-label').textContent =
+    `${prod ? prod.name : productId} · ${CAN_LABELS[CAN_MONTHS.indexOf(month)]} ${_canYear}`;
+
+  document.getElementById('modal-meta').style.display = 'flex';
+  setTimeout(() => document.getElementById('meta-tienda').focus(), 50);
+}
+
+function cerrarModalMeta() {
+  document.getElementById('modal-meta').style.display = 'none';
+}
+
+async function guardarMetadataCanasta() {
+  const productId = document.getElementById('meta-product-id').value;
+  const month     = document.getElementById('meta-month').value;
+  const tienda    = document.getElementById('meta-tienda').value.trim().toUpperCase() || null;
+  const diaRaw    = parseInt(document.getElementById('meta-dia').value);
+
+  // Año del selector + mes de la columna clicada + día ingresado
+  let fecha = null;
+  if (diaRaw >= 1 && diaRaw <= 31) {
+    const monthNum = String(CAN_MONTHS.indexOf(month) + 1).padStart(2, '0');
+    fecha = `${_canYear}-${monthNum}-${String(diaRaw).padStart(2, '0')}`;
+  }
+
+  const prod  = _canData.find(p => p.id === productId);
+  const price = prod && prod.prices ? prod.prices[month] : null;
+
+  try {
+    const r = await fetch(`/api/canasta/${_canYear}/${productId}`, {
+      method:  'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ month, price, tienda, fecha_compra: fecha }),
+    });
+    if (!r.ok) throw new Error(await r.text());
+
+    if (prod) {
+      if (!prod.tiendas)       prod.tiendas = {};
+      if (!prod.fechas_compra) prod.fechas_compra = {};
+      prod.tiendas[month]       = tienda;
+      prod.fechas_compra[month] = fecha;
+    }
+
+    cerrarModalMeta();
+    _renderTabla(_canData);
+  } catch (e) {
+    alert('Error al guardar: ' + e.message);
+  }
+}
+
+// ── Seed de datos históricos 2026 ────────────────────────────────────────────
+
+async function seedCanasta() {
+  if (!confirm('¿Cargar los datos históricos 2026 (Ene–Jul)? Solo se insertan los que no existen.')) return;
+  try {
+    const r = await fetch(`/api/canasta/2026/seed`, { method: 'POST' });
+    const d = await r.json();
+    alert(`Listo. Insertados: ${d.insertados} | Ya existían: ${d.ya_existian}`);
+    _canLoaded = false;
+    cargarCanasta('2026');
+  } catch (e) {
+    alert('Error al inicializar: ' + e.message);
+  }
+}

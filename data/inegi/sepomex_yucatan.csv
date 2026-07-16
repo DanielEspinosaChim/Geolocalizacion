@@ -1,0 +1,1887 @@
+idEstado,estado,idMunicipio,municipio,ciudad,zona,cp,asentamiento,tipo
+2,"Baja California",2,Mexicali,NULL,Rural,21910,Yucatán,Ejido
+7,Chiapas,11,"Bella Vista",NULL,Rural,30135,"Nuevo Yucatán",Barrio
+5,"Coahuila de Zaragoza",9,"Francisco I. Madero",NULL,Rural,27926,Yucatán,Ejido
+5,"Coahuila de Zaragoza",18,Monclova,NULL,Rural,25851,"Salitrillos (Yucatán)",Ranchería
+12,Guerrero,53,"San Marcos",NULL,Rural,39963,"Yucatán de las Flores",Pueblo
+19,"Nuevo León",21,"General Escobedo","Ciudad General Escobedo",Urbano,66084,"Alianza Real Sector Yucatán",Colonia
+23,"Quintana Roo",4,"Othón P. Blanco",NULL,Urbano,77960,Yucatán,Colonia
+26,Sonora,29,Guaymas,"Heroica Guaymas",Urbano,85406,Yucatán,Colonia
+28,Tamaulipas,21,"El Mante","Ciudad Mante",Urbano,89867,Yucatán,Colonia
+28,Tamaulipas,21,"El Mante","Ciudad Mante",Urbano,89884,"Carolina Yucatán Dos",Colonia
+30,"Veracruz de Ignacio de la Llave",102,"Martínez de la Torre",NULL,Urbano,93607,Yucatán,Colonia
+30,"Veracruz de Ignacio de la Llave",181,Tlalixcoyan,NULL,Rural,95224,Yucatán,Ranchería
+31,Yucatán,1,Abalá,NULL,Rural,97825,Abala,Pueblo
+31,Yucatán,1,Abalá,NULL,Rural,97825,Mukuiche,Pueblo
+31,Yucatán,1,Abalá,NULL,Rural,97825,Uayalceh,Pueblo
+31,Yucatán,1,Abalá,NULL,Rural,97826,Cacao,Pueblo
+31,Yucatán,1,Abalá,NULL,Rural,97826,Peba,Pueblo
+31,Yucatán,1,Abalá,NULL,Rural,97826,Sinhuchen,Pueblo
+31,Yucatán,1,Abalá,NULL,Rural,97827,"Temozon Sur",Pueblo
+31,Yucatán,2,Acanceh,NULL,Rural,97380,Acanceh,Pueblo
+31,Yucatán,2,Acanceh,NULL,Rural,97380,Canicab,Hacienda
+31,Yucatán,2,Acanceh,NULL,Urbano,97380,"El Zapotal",Colonia
+31,Yucatán,2,Acanceh,NULL,Rural,97380,Santiago,Colonia
+31,Yucatán,2,Acanceh,NULL,Rural,97380,Ticopó,Hacienda
+31,Yucatán,2,Acanceh,NULL,Rural,97382,"Tepich Carrillo",Hacienda
+31,Yucatán,2,Acanceh,NULL,Rural,97383,Cibceh,Rancho
+31,Yucatán,2,Acanceh,NULL,Rural,97383,Petectunich,Pueblo
+31,Yucatán,2,Acanceh,NULL,Rural,97383,Sacchich,Pueblo
+31,Yucatán,2,Acanceh,NULL,Rural,97383,Sahcatzin,Pueblo
+31,Yucatán,3,Akil,NULL,Urbano,97990,"Akil Centro",Colonia
+31,Yucatán,3,Akil,NULL,Rural,97993,Kuncheil,Pueblo
+31,Yucatán,4,Baca,NULL,Rural,97450,Baca,Pueblo
+31,Yucatán,4,Baca,NULL,Rural,97452,Kankabchen,Pueblo
+31,Yucatán,4,Baca,NULL,Rural,97452,Tixkuncheil,Pueblo
+31,Yucatán,4,Baca,NULL,Rural,97453,"San Isidro Kuxub",Pueblo
+31,Yucatán,4,Baca,NULL,Rural,97453,"San Nicolás",Pueblo
+31,Yucatán,5,Bokobá,NULL,Rural,97466,Bokoba,Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97620,Buctzotz,Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97623,Chanmotul,Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97623,Ixnail,Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97623,Xbec,Ranchería
+31,Yucatán,6,Buctzotz,NULL,Rural,97624,"La Gran Lucha",Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97624,Nohyaxche,Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97624,Saknicte,Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97625,"B. Esperanza",Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97625,"Chac Pot",Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97625,Chuntzalan,Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97625,"Grano de Oro",Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97625,Muldzonot,Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97625,"San Francisco",Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97625,"U. Juárez",Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97626,"San Juan",Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97626,"San Pedro",Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97627,Hubineh,Pueblo
+31,Yucatán,6,Buctzotz,NULL,Rural,97627,"Santo Domingo",Pueblo
+31,Yucatán,7,Cacalchén,NULL,Rural,97460,Cacalchen,Pueblo
+31,Yucatán,7,Cacalchén,NULL,Urbano,97460,"Santa Teresa",Colonia
+31,Yucatán,8,Calotmul,NULL,Rural,97745,Calotmul,Ranchería
+31,Yucatán,8,Calotmul,NULL,Rural,97746,Tahcabo,Ranchería
+31,Yucatán,8,Calotmul,NULL,Rural,97747,Pocoboch,Ranchería
+31,Yucatán,8,Calotmul,NULL,Rural,97747,"Santa Adelaida",Pueblo
+31,Yucatán,8,Calotmul,NULL,Rural,97748,"Tekom Cenote",Pueblo
+31,Yucatán,8,Calotmul,NULL,Rural,97748,"U.A. Xluch",Ranchería
+31,Yucatán,8,Calotmul,NULL,Rural,97748,Yokdzonot,Pueblo
+31,Yucatán,9,Cansahcab,NULL,Rural,97410,Cansahcab,Villa
+31,Yucatán,9,Cansahcab,NULL,Rural,97414,"Santa María",Pueblo
+31,Yucatán,9,Cansahcab,NULL,Rural,97415,"Kankabchen de Molina",Pueblo
+31,Yucatán,9,Cansahcab,NULL,Rural,97415,Xiat,Pueblo
+31,Yucatán,9,Cansahcab,NULL,Rural,97416,Ekbalam,Pueblo
+31,Yucatán,9,Cansahcab,NULL,Rural,97417,"San Antonio",Pueblo
+31,Yucatán,10,Cantamayec,NULL,Rural,97915,Cantamayec,Pueblo
+31,Yucatán,10,Cantamayec,NULL,Rural,97917,Nenela,Pueblo
+31,Yucatán,10,Cantamayec,NULL,Rural,97918,Cholul,Pueblo
+31,Yucatán,11,Celestún,NULL,Rural,97367,Celestun,Pueblo
+31,Yucatán,11,Celestún,NULL,Rural,97367,"El Palmar",Pueblo
+31,Yucatán,11,Celestún,NULL,Rural,97367,Xixin,Pueblo
+31,Yucatán,11,Celestún,NULL,Rural,97368,Sinkehuel,Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97640,Cenotillo,Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97643,Chuyucu,Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97643,Flamboyanes,Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97643,Itzimna,Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97644,Obchen,Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97644,"Xal Xaan",Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97645,Afil,Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97645,Dzitox,Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97645,"E. Tixbacab",Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97645,Hunmuch,Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97645,Lobos,Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97645,Lusik,Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97645,Pom,Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97645,Tixbacab,Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97645,Tucina,Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97645,Xhualtez,Pueblo
+31,Yucatán,12,Cenotillo,NULL,Rural,97645,Xmaakaba,Pueblo
+31,Yucatán,16,Chacsinkín,NULL,Rural,97955,Chacsinkin,Pueblo
+31,Yucatán,16,Chacsinkín,NULL,Rural,97956,Xohuayan,Pueblo
+31,Yucatán,16,Chacsinkín,NULL,Rural,97957,Xbox,Pueblo
+31,Yucatán,17,Chankom,NULL,Rural,97758,Chankom,Pueblo
+31,Yucatán,17,Chankom,NULL,Rural,97758,Nicte-Ha,Pueblo
+31,Yucatán,17,Chankom,NULL,Rural,97758,Pambá,Pueblo
+31,Yucatán,17,Chankom,NULL,Rural,97758,"San Isidro",Pueblo
+31,Yucatán,17,Chankom,NULL,Rural,97758,"San Juan",Pueblo
+31,Yucatán,17,Chankom,NULL,Rural,97758,Ticimul,Pueblo
+31,Yucatán,17,Chankom,NULL,Rural,97758,Tzukmuc,Ranchería
+31,Yucatán,17,Chankom,NULL,Rural,97758,X-Bohom,Pueblo
+31,Yucatán,17,Chankom,NULL,Rural,97758,X-Cocail,Pueblo
+31,Yucatán,17,Chankom,NULL,Rural,97758,Xcabchen,Pueblo
+31,Yucatán,17,Chankom,NULL,Rural,97758,Xcatun,Pueblo
+31,Yucatán,17,Chankom,NULL,Rural,97758,Xcopteil,Pueblo
+31,Yucatán,17,Chankom,NULL,Rural,97758,Xtohil,Pueblo
+31,Yucatán,17,Chankom,NULL,Rural,97758,Yokdzonot,Pueblo
+31,Yucatán,17,Chankom,NULL,Rural,97759,Xcaladzonot,Pueblo
+31,Yucatán,18,Chapab,NULL,Rural,97857,Chapab,Pueblo
+31,Yucatán,18,Chapab,NULL,Rural,97858,Citincabchen,Pueblo
+31,Yucatán,18,Chapab,NULL,Rural,97858,Hunabchen,Pueblo
+31,Yucatán,18,Chapab,NULL,Rural,97858,"San Cristóbal",Pueblo
+31,Yucatán,19,Chemax,NULL,Semiurbano,97770,"Benito Juárez García",Colonia
+31,Yucatán,19,Chemax,NULL,Rural,97770,Chemax,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97773,Chechmil,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97773,Kuxeb,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97773,Sisbichen,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97773,Uspibil,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97773,Xalau,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97773,Xmaab,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97773,Xuneb,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97774,Cholul,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97774,Mucel,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97774,"San Andrés",Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97774,"San Juan Chen",Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97774,"San Pedro Chemax",Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97774,"San Roman",Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97774,"Santa Cruz",Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97774,"Santa Elena",Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97774,X-can,Ranchería
+31,Yucatán,19,Chemax,NULL,Rural,97774,Xcohuo,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97774,Xtejas,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97775,Buenavista,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97775,"El Cedral",Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97775,"Santa Rita",Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97776,Champolin,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97776,Pabalam,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97776,Sisbichen,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97777,Bolmay,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97777,Catzim,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97777,Chachadzonot,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97777,Chuluntan,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97777,Lolbe,Pueblo
+31,Yucatán,19,Chemax,NULL,Rural,97777,Yaxche,Pueblo
+31,Yucatán,21,Chichimilá,NULL,Rural,97760,Celtun,Pueblo
+31,Yucatán,21,Chichimilá,NULL,Rural,97760,Chay,Pueblo
+31,Yucatán,21,Chichimilá,NULL,Rural,97760,Chichimila,Pueblo
+31,Yucatán,21,Chichimilá,NULL,Rural,97760,"San José Cruz",Pueblo
+31,Yucatán,21,Chichimilá,NULL,Rural,97760,"San Pedro",Pueblo
+31,Yucatán,21,Chichimilá,NULL,Rural,97760,"Tixcancal Dzonot",Pueblo
+31,Yucatán,21,Chichimilá,NULL,Rural,97760,Xkail,Pueblo
+31,Yucatán,20,"Chicxulub Pueblo",NULL,Rural,97340,Chicxulub,Pueblo
+31,Yucatán,20,"Chicxulub Pueblo",NULL,Rural,97342,"Quintas Baspul",Fraccionamiento
+31,Yucatán,22,Chikindzonot,NULL,Rural,97940,Chikindzonot,Pueblo
+31,Yucatán,22,Chikindzonot,NULL,Rural,97943,"Chan Santa María",Pueblo
+31,Yucatán,22,Chikindzonot,NULL,Rural,97943,Chanchimila,Pueblo
+31,Yucatán,22,Chikindzonot,NULL,Rural,97943,"Ejido Santo Domingo",Ejido
+31,Yucatán,22,Chikindzonot,NULL,Rural,97943,Scocmil,Pueblo
+31,Yucatán,22,Chikindzonot,NULL,Rural,97943,Sipche,Pueblo
+31,Yucatán,22,Chikindzonot,NULL,Rural,97943,Upupexil,Pueblo
+31,Yucatán,22,Chikindzonot,NULL,Rural,97943,Xcampana,Pueblo
+31,Yucatán,22,Chikindzonot,NULL,Rural,97944,Ichmul,Pueblo
+31,Yucatán,23,Chocholá,NULL,Rural,97816,Chochola,Pueblo
+31,Yucatán,23,Chocholá,NULL,Rural,97816,"San Antonio Chable",Pueblo
+31,Yucatán,24,Chumayel,NULL,Rural,97904,Chumayel,Pueblo
+31,Yucatán,24,Chumayel,NULL,Rural,97906,"Cenote Capat",Ejido
+31,Yucatán,13,Conkal,NULL,Rural,97345,Conkal,Pueblo
+31,Yucatán,13,Conkal,NULL,Rural,97345,"Jardines de Conkal",Fraccionamiento
+31,Yucatán,13,Conkal,NULL,Rural,97345,Kantoyna,Pueblo
+31,Yucatán,13,Conkal,NULL,Rural,97345,"Los Laureles",Fraccionamiento
+31,Yucatán,13,Conkal,NULL,Urbano,97345,"Paseo del Ángel",Fraccionamiento
+31,Yucatán,13,Conkal,NULL,Urbano,97345,"Pedregales de Conkal",Fraccionamiento
+31,Yucatán,13,Conkal,NULL,Urbano,97345,"Real de Conkal",Fraccionamiento
+31,Yucatán,13,Conkal,NULL,Rural,97345,"San Francisco de Asís",Colonia
+31,Yucatán,13,Conkal,NULL,Urbano,97345,"Santa Cruz",Fraccionamiento
+31,Yucatán,13,Conkal,NULL,Rural,97345,"Verde Limón Conkal",Fraccionamiento
+31,Yucatán,13,Conkal,NULL,Rural,97345,"Villas de Conkal",Fraccionamiento
+31,Yucatán,13,Conkal,NULL,Rural,97346,"Santa María Rosas",Pueblo
+31,Yucatán,13,Conkal,NULL,Rural,97346,"Vega del Mayab",Fraccionamiento
+31,Yucatán,13,Conkal,NULL,Rural,97346,X-Cuyum,Hacienda
+31,Yucatán,14,Cuncunul,NULL,Rural,97766,Chunczalan,Pueblo
+31,Yucatán,14,Cuncunul,NULL,Rural,97766,Cuncunul,Pueblo
+31,Yucatán,14,Cuncunul,NULL,Rural,97766,"San Diego",Pueblo
+31,Yucatán,14,Cuncunul,NULL,Rural,97766,"San Francisco",Pueblo
+31,Yucatán,14,Cuncunul,NULL,Rural,97766,"Santa Eleuteria",Pueblo
+31,Yucatán,15,Cuzamá,NULL,Rural,97577,Cuzama,Pueblo
+31,Yucatán,15,Cuzamá,NULL,Rural,97577,Eknacan,Pueblo
+31,Yucatán,15,Cuzamá,NULL,Rural,97577,Nohchacan,Pueblo
+31,Yucatán,15,Cuzamá,NULL,Rural,97578,Chunkanan,Pueblo
+31,Yucatán,15,Cuzamá,NULL,Rural,97578,Sisal,Pueblo
+31,Yucatán,15,Cuzamá,NULL,Rural,97578,Yaxkukul,Pueblo
+31,Yucatán,25,Dzán,NULL,Rural,97854,Dzan,Pueblo
+31,Yucatán,26,Dzemul,NULL,Rural,97404,Dzemul,Pueblo
+31,Yucatán,26,Dzemul,NULL,Rural,97406,Caniste,Pueblo
+31,Yucatán,26,Dzemul,NULL,Rural,97406,"San Diego",Pueblo
+31,Yucatán,27,Dzidzantún,NULL,Rural,97500,Dzidzantun,Pueblo
+31,Yucatán,27,Dzidzantún,NULL,Rural,97500,"Emiliano Zapata",Colonia
+31,Yucatán,27,Dzidzantún,NULL,Rural,97500,"San Diego Chumul",Colonia
+31,Yucatán,27,Dzidzantún,NULL,Rural,97500,"San Juan",Colonia
+31,Yucatán,27,Dzidzantún,NULL,Rural,97500,"Vicente Guerrero",Colonia
+31,Yucatán,27,Dzidzantún,NULL,Rural,97504,"Santa Clara",Pueblo
+31,Yucatán,27,Dzidzantún,NULL,Rural,97506,"San Francisco Manzanilla",Hacienda
+31,Yucatán,28,"Dzilam de Bravo",NULL,Rural,97606,"Dzilam de Bravo",Pueblo
+31,Yucatán,28,"Dzilam de Bravo",NULL,Rural,97607,"Mina de Oro",Pueblo
+31,Yucatán,28,"Dzilam de Bravo",NULL,Rural,97608,Chunxcan,Pueblo
+31,Yucatán,28,"Dzilam de Bravo",NULL,Rural,97608,"V. San Francisco",Pueblo
+31,Yucatán,29,"Dzilam González",NULL,Rural,97600,"Dzilam Gonzalez",Pueblo
+31,Yucatán,29,"Dzilam González",NULL,Rural,97604,"Dzonot Sabila",Pueblo
+31,Yucatán,29,"Dzilam González",NULL,Rural,97605,Chucmichen,Pueblo
+31,Yucatán,30,Dzitás,NULL,Rural,97660,Dzitas,Pueblo
+31,Yucatán,30,Dzitás,NULL,Rural,97665,Neus,Pueblo
+31,Yucatán,30,Dzitás,NULL,Rural,97665,Uaim,Ejido
+31,Yucatán,30,Dzitás,NULL,Rural,97666,Xocempich,Pueblo
+31,Yucatán,30,Dzitás,NULL,Rural,97666,Yaxche,Ejido
+31,Yucatán,30,Dzitás,NULL,Rural,97667,"Cta. Peaje",Ejido
+31,Yucatán,31,Dzoncauich,NULL,Rural,97646,Dzoncauich,Pueblo
+31,Yucatán,31,Dzoncauich,NULL,Rural,97647,Chacmay,Pueblo
+31,Yucatán,32,Espita,NULL,Rural,97730,Espita,Villa
+31,Yucatán,32,Espita,NULL,Rural,97730,"Santa Cruz Regario",Colonia
+31,Yucatán,32,Espita,NULL,Rural,97733,Nacuche,Ranchería
+31,Yucatán,32,Espita,NULL,Rural,97734,Kunche,Pueblo
+31,Yucatán,32,Espita,NULL,Rural,97734,"San Antonio Xuilub",Pueblo
+31,Yucatán,32,Espita,NULL,Rural,97734,"San Pedro Chenchelo",Pueblo
+31,Yucatán,33,Halachó,NULL,Rural,97830,Halacho,Pueblo
+31,Yucatán,33,Halachó,NULL,Rural,97833,Chactun,Pueblo
+31,Yucatán,33,Halachó,NULL,Rural,97833,Chan-Chochola,Pueblo
+31,Yucatán,33,Halachó,NULL,Rural,97833,"La Sombrella",Pueblo
+31,Yucatán,33,Halachó,NULL,Rural,97833,"San José",Colonia
+31,Yucatán,33,Halachó,NULL,Rural,97834,Oxkinton,Pueblo
+31,Yucatán,33,Halachó,NULL,Rural,97834,"U.A. Vicente Guerrero",Pueblo
+31,Yucatán,33,Halachó,NULL,Rural,97835,Cepeda,Pueblo
+31,Yucatán,33,Halachó,NULL,Rural,97835,Concepción,Pueblo
+31,Yucatán,33,Halachó,NULL,Rural,97835,Cucholoch,Pueblo
+31,Yucatán,33,Halachó,NULL,Rural,97835,Guadalupe,Pueblo
+31,Yucatán,33,Halachó,NULL,Rural,97835,Siho,Hacienda
+31,Yucatán,33,Halachó,NULL,Rural,97835,Tankuche,Pueblo
+31,Yucatán,33,Halachó,NULL,Rural,97836,Dzbzibachi,Pueblo
+31,Yucatán,33,Halachó,NULL,Rural,97836,Kankabchen,Pueblo
+31,Yucatán,33,Halachó,NULL,Rural,97836,"San Mateo",Pueblo
+31,Yucatán,33,Halachó,NULL,Rural,97837,"Santa Maria Acu",Hacienda
+31,Yucatán,33,Halachó,NULL,Rural,97837,"Santa Sofia",Pueblo
+31,Yucatán,34,Hocabá,NULL,Rural,97560,Hocaba,Pueblo
+31,Yucatán,34,Hocabá,NULL,Rural,97563,"El Nance",Pueblo
+31,Yucatán,34,Hocabá,NULL,Rural,97564,Sahcaba,Pueblo
+31,Yucatán,35,Hoctún,NULL,Rural,97480,Hoctun,Pueblo
+31,Yucatán,35,Hoctún,NULL,Rural,97483,Dziuche,Pueblo
+31,Yucatán,35,Hoctún,NULL,Rural,97486,"San José Oriente",Pueblo
+31,Yucatán,36,Homún,NULL,Rural,97580,Homun,Pueblo
+31,Yucatán,36,Homún,NULL,Urbano,97582,Viva,Fraccionamiento
+31,Yucatán,36,Homún,NULL,Rural,97583,Pavia,Pueblo
+31,Yucatán,36,Homún,NULL,Rural,97583,Poloban,Pueblo
+31,Yucatán,36,Homún,NULL,Rural,97583,"San Benito",Pueblo
+31,Yucatán,36,Homún,NULL,Rural,97584,Chacsikin,Pueblo
+31,Yucatán,36,Homún,NULL,Rural,97584,Chichihua,Pueblo
+31,Yucatán,36,Homún,NULL,Rural,97584,Yahomal,Pueblo
+31,Yucatán,36,Homún,NULL,Rural,97585,Chachay,Pueblo
+31,Yucatán,36,Homún,NULL,Rural,97585,Yalahau,Pueblo
+31,Yucatán,36,Homún,NULL,Rural,97586,"San Isidro",Hacienda
+31,Yucatán,37,Huhí,NULL,Rural,97590,Huhi,Estación
+31,Yucatán,37,Huhí,NULL,Rural,97593,"San Lorenzo",Pueblo
+31,Yucatán,37,Huhí,NULL,Rural,97594,"San Miguel",Pueblo
+31,Yucatán,37,Huhí,NULL,Rural,97596,"Tixcacal Quintero",Hacienda
+31,Yucatán,37,Huhí,NULL,Rural,97597,Boxactun,Pueblo
+31,Yucatán,38,Hunucmá,NULL,Urbano,97350,"Centro Hunucmá",Colonia
+31,Yucatán,38,Hunucmá,NULL,Urbano,97350,Papagayos,Colonia
+31,Yucatán,38,Hunucmá,NULL,Urbano,97350,"Paseos de Chenku",Fraccionamiento
+31,Yucatán,38,Hunucmá,NULL,Rural,97353,Hunkanab,Pueblo
+31,Yucatán,38,Hunucmá,NULL,Rural,97353,"San Antonio Chel",Pueblo
+31,Yucatán,38,Hunucmá,NULL,Rural,97353,"Texán de Palomeque",Pueblo
+31,Yucatán,38,Hunucmá,NULL,Rural,97355,"San Eduardo",Pueblo
+31,Yucatán,38,Hunucmá,NULL,Rural,97356,"Punta Paz",Pueblo
+31,Yucatán,38,Hunucmá,NULL,Rural,97356,Sisal,Pueblo
+31,Yucatán,39,Ixil,NULL,Rural,97343,Concepción,Pueblo
+31,Yucatán,39,Ixil,NULL,Rural,97343,Ixil,Pueblo
+31,Yucatán,39,Ixil,NULL,Rural,97343,Picayoc,Pueblo
+31,Yucatán,39,Ixil,NULL,Rural,97343,"San Miguel",Pueblo
+31,Yucatán,39,Ixil,NULL,Rural,97343,"San Rafael",Pueblo
+31,Yucatán,39,Ixil,NULL,Rural,97344,"San Benito",Pueblo
+31,Yucatán,39,Ixil,NULL,Rural,97344,Uaymitun,Pueblo
+31,Yucatán,40,Izamal,NULL,Rural,97540,Izamal,Ciudad
+31,Yucatán,40,Izamal,NULL,Rural,97540,"Real del Sol",Ciudad
+31,Yucatán,40,Izamal,NULL,Urbano,97540,"San Juan Izamal",Ciudad
+31,Yucatán,40,Izamal,NULL,Urbano,97542,"Benito Juárez",Colonia
+31,Yucatán,40,Izamal,NULL,Urbano,97542,"Quinta Real",Fraccionamiento
+31,Yucatán,40,Izamal,NULL,Urbano,97542,"San Genaro",Colonia
+31,Yucatán,40,Izamal,NULL,Rural,97545,Sitilpech,Pueblo
+31,Yucatán,40,Izamal,NULL,Rural,97550,Citilcum,Pueblo
+31,Yucatán,40,Izamal,NULL,Rural,97550,Kimbila,Pueblo
+31,Yucatán,40,Izamal,NULL,Rural,97553,"San Isidro",Pueblo
+31,Yucatán,40,Izamal,NULL,Rural,97553,"San José Kanán",Pueblo
+31,Yucatán,40,Izamal,NULL,Rural,97554,Ekmul,Pueblo
+31,Yucatán,40,Izamal,NULL,Rural,97554,Tiholop,Pueblo
+31,Yucatán,40,Izamal,NULL,Rural,97555,Cuauhtémoc,Pueblo
+31,Yucatán,40,Izamal,NULL,Rural,97556,Pitbuch,Pueblo
+31,Yucatán,40,Izamal,NULL,Rural,97556,Popolá,Pueblo
+31,Yucatán,40,Izamal,NULL,Rural,97556,Xanabá,Pueblo
+31,Yucatán,40,Izamal,NULL,Rural,97556,Yaxché,Pueblo
+31,Yucatán,40,Izamal,NULL,Rural,97557,"San Antonio",Pueblo
+31,Yucatán,40,Izamal,NULL,Rural,97557,"San José",Pueblo
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Álamos de Oriente",Colonia
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"Amalia Solorzano II",Ampliación
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"Amalia Solórzano III",Colonia
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"Ampliación Hector Victoria",Ampliación
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,Arecas,Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"Bosques de Kanasín",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Brisas de Oriente",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Brisas del Mayab",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Cecilio Chi",Colonia
+31,Yucatán,41,Kanasín,NULL,Rural,97370,Colibrí,Colonia
+31,Yucatán,41,Kanasín,NULL,Rural,97370,CROC,Colonia
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,Cuauhtémoc,Colonia
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"Flor de Mayo",Colonia
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Fontana I",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"Francisco Villa Oriente",Colonia
+31,Yucatán,41,Kanasín,Kanasín,Urbano,97370,Girasoles,Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"Hector Victoria",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Jardines de Kanasín",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Jardines de Mulchechen",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Jardines de San Pedro Noh Pat",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"Kanasín Centro",Colonia
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"La Ceiba",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"La Joya",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Las Flores",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Las Haciendas",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Las Palmas Yucatán",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Las Palmeras",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"Leona Vicario",Colonia
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Leona Vicario II",Colonia
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"Los Almendros",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Los Arcos de Kanasín",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"Los Encinos",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Los Pinos de Mulchechen",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Los Robles",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Los Robles III",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Los Tulipanes",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,Montecarlos,Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Rural,97370,Mulchechen,Colonia
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"Pablo Moreno",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Palmas San Pedro",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Pedregales de Kanasín II",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Pedregales de Mulchechen Kanasín",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Pedregales del Oriente",Colonia
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Privada del Sol",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"Privada Lomas Campestre",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"Privada los Naranjos",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Puerta del Sol",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Puerta Esmeralda",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Reparto Las Granjas",Colonia
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"San Ángel",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"San Antonio Kaua III",Colonia
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"San Camilo",Colonia
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"San Haroldo San José Tzal",Colonia
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"San Pedro Noh Pat",Hacienda
+31,Yucatán,41,Kanasín,NULL,Rural,97370,"San Pedro Oriente",Colonia
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Santa Cecilia",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Valle Azul",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Valle Oriente",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Villas del Oriente",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Urbano,97370,"Villas Turquesa",Fraccionamiento
+31,Yucatán,41,Kanasín,NULL,Rural,97373,Huxectaman,Pueblo
+31,Yucatán,41,Kanasín,NULL,Rural,97373,"Santa Isabel",Colonia
+31,Yucatán,41,Kanasín,NULL,Urbano,97374,"San Aroldo",Pueblo
+31,Yucatán,41,Kanasín,NULL,Rural,97374,"San Pedro",Pueblo
+31,Yucatán,41,Kanasín,NULL,Rural,97374,Teya,Pueblo
+31,Yucatán,41,Kanasín,NULL,Rural,97376,"San Antonio Tehuitz",Pueblo
+31,Yucatán,42,Kantunil,NULL,Rural,97670,Kantunil,Pueblo
+31,Yucatán,42,Kantunil,NULL,Rural,97674,Suxutunich,Pueblo
+31,Yucatán,42,Kantunil,NULL,Rural,97675,Holca,Pueblo
+31,Yucatán,42,Kantunil,NULL,Rural,97675,Kamcabchen,Pueblo
+31,Yucatán,43,Kaua,NULL,Rural,97764,Kaua,Pueblo
+31,Yucatán,43,Kaua,NULL,Rural,97764,Xtzeal,Pueblo
+31,Yucatán,43,Kaua,NULL,Rural,97765,"San Esteban",Pueblo
+31,Yucatán,43,Kaua,NULL,Rural,97765,"San Lorenzo",Pueblo
+31,Yucatán,44,Kinchil,NULL,Rural,97360,Kinchil,Pueblo
+31,Yucatán,44,Kinchil,NULL,Rural,97362,Tamchén,Pueblo
+31,Yucatán,44,Kinchil,NULL,Rural,97363,"Bella Flor",Pueblo
+31,Yucatán,45,Kopomá,NULL,Rural,97818,Kopoma,Pueblo
+31,Yucatán,45,Kopomá,NULL,Rural,97818,"San Bernardo",Pueblo
+31,Yucatán,46,Mama,NULL,Rural,97900,Mama,Pueblo
+31,Yucatán,47,Maní,NULL,Rural,97850,Mani,Pueblo
+31,Yucatán,47,Maní,NULL,Rural,97851,Tipikal,Pueblo
+31,Yucatán,48,Maxcanú,NULL,Rural,97800,Guadalupe,Colonia
+31,Yucatán,48,Maxcanú,NULL,Urbano,97800,"La Sirena",Colonia
+31,Yucatán,48,Maxcanú,NULL,Rural,97800,Maxcanu,Pueblo
+31,Yucatán,48,Maxcanú,NULL,Rural,97803,"Granada (Chican Granada)",Pueblo
+31,Yucatán,48,Maxcanú,NULL,Rural,97803,Kanachén,Pueblo
+31,Yucatán,48,Maxcanú,NULL,Rural,97803,"Santa Cruz",Pueblo
+31,Yucatán,48,Maxcanú,NULL,Rural,97804,Cacal,Pueblo
+31,Yucatán,48,Maxcanú,NULL,Rural,97804,Cárdenas,Pueblo
+31,Yucatán,48,Maxcanú,NULL,Rural,97804,Coahuila,Pueblo
+31,Yucatán,48,Maxcanú,NULL,Rural,97804,Kochol,Pueblo
+31,Yucatán,48,Maxcanú,NULL,Rural,97804,Paraíso,Pueblo
+31,Yucatán,48,Maxcanú,NULL,Rural,97804,"San Fernando",Hacienda
+31,Yucatán,48,Maxcanú,NULL,Rural,97804,"San Lázaro",Pueblo
+31,Yucatán,48,Maxcanú,NULL,Rural,97804,"Santa Rosa",Ranchería
+31,Yucatán,48,Maxcanú,NULL,Rural,97804,"Santo Domingo",Hacienda
+31,Yucatán,48,Maxcanú,NULL,Rural,97804,Yaxcaba,Pueblo
+31,Yucatán,48,Maxcanú,NULL,Rural,97805,Chunchucmil,Hacienda
+31,Yucatán,48,Maxcanú,NULL,Rural,97805,"El Naranjo",Pueblo
+31,Yucatán,48,Maxcanú,NULL,Rural,97805,"San Simón Sinkehuel",Pueblo
+31,Yucatán,48,Maxcanú,NULL,Rural,97806,"San Rafael",Pueblo
+31,Yucatán,48,Maxcanú,NULL,Rural,97807,Chencoh,Pueblo
+31,Yucatán,49,Mayapán,NULL,Rural,97908,"Cenote Isila",Pueblo
+31,Yucatán,49,Mayapán,NULL,Rural,97908,Mayapan,Pueblo
+31,Yucatán,50,Mérida,Mérida,Urbano,97000,"Jardines de San Sebastian",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97000,"La Quinta",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97000,"Los Cocos",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97000,"Merida Centro",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97000,"Privada Del Maestro",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97000,"Privada Garcia Gineres C - 29",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97003,"Los Reyes",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97050,"Alcalá Martín",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97050,"Conjunto Residencial Del Norte",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97050,Yucatan,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97059,Señorial,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97060,"Carrillo Ancona",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97068,Itzaes,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97069,Inalámbrica,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97070,"Dolores Patron",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97070,"El Pedregal",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97070,"Garcia Gineres",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97080,"La Huerta",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97088,"Santa Cecilia",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97089,Cupules,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97098,Lourdes,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97099,Waspa,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97100,Itzimna,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97100,Itzimna,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97100,"Itzimna 2",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97100,"Rinconada Itzmina",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97107,Manola,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97108,"Las Arboledas",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97109,Ferrocarrileros,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97109,"Jesús Carranza",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97110,"Unidad Habitacional Revolución I (Cordemex)",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97110,"Unidad Revolución",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97113,"Gran Royal Altabrisa",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97113,Montebello,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97113,"Montebello II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97113,"San Antonio",Residencial
+31,Yucatán,50,Mérida,Mérida,Urbano,97113,"Sol Campestre",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97113,Xaman-Tan,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97114,"Monte Alban",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97114,"Privada Monterreal Plus",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97114,"Residencial Sol Campestre",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97115,"Ampliación Cordemex",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97115,"Ampliación Revolución",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97115,Cordemex,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97115,"Gonzalo Guerrero",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97115,"Hacienda Dzodzil",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97115,"Montes de Ame",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97115,"Residencial Montejo Norte",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97115,"Residencial San Angelo",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97115,Revolución,Ampliación
+31,Yucatán,50,Mérida,Mérida,Urbano,97115,"Royal del Norte",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97116,"Privada San Antonio Cucul",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97116,"San Antonio Cucul",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97117,"San Ramon Norte",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97117,"San Ramon Norte I",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97117,"San Ramon Sur",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97117,Villareal,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97117,Xaman-Kab,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97118,"Ampliación Plan de Ayala (Villas del Sol)",Ampliación
+31,Yucatán,50,Mérida,Mérida,Urbano,97118,"Plan de Ayala",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97118,"Plan de Ayala",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97118,"Villas Del Sol",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97119,"Benito Juárez Nte",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97119,"Gonzalo Guerrero",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97119,"Villas del Rey",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97119,"Villas La Hacienda",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97120,"Ampliación del Norte (1a. Ampliación)",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97120,Campestre,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97120,"Del Norte",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97120,Tecnológico,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97121,"Centro Sct Yucatán","Gran usuario"
+31,Yucatán,50,Mérida,Mérida,Urbano,97125,México,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97125,"Privada Nuevo México",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97127,Buenavista,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97127,Montejo,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97128,"México Norte",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97128,"Privada Mediterráneo",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97128,"Privada Real México",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97128,"Residencial Colonia México",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97129,"Emiliano Zapata Nte",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97130,Altabrisa,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97130,"Cumbres de Altabrisa",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97130,"Diaz Ordaz",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97130,"Missan II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97130,Montecarlo,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97130,"Montecarlo Norte",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97130,"Privada Maya",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97130,"Privada Vista Alegre",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97130,"Residencial Palmerales de Altabrisa",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97130,"San Carlos",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97130,"San Remo",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97130,"Santa Rita Cholul",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97130,Torremolinos,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97130,"Vista Alegre",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97130,"Vista Alegre",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97130,"Vista Alegre Norte",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97133,"Camara de Comercio Norte",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97133,"Los Palmares de Altabrisa",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97133,Montecristo,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97133,Monterreal,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97133,Montevideo,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97133,"Residencial Camara de Comercio Norte",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97134,"Jose Maria Iturralde",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97134,Maya,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97134,"Paraíso Maya",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97134,"Privada Villa Cholul",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97135,"Jardines de Mérida",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97136,"Felipe Carrillo Puerto Nte",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97137,"México Oriente",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97138,"El Arco",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97138,"Jardines de Vista Alegre",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97138,"Jardines de Vista Alegre II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97138,"Jardines del Noreste",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97138,"Jardines Del Norte",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97138,"La Florida",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97138,"Los Álamos",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97138,"Los Pinos",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97138,"Los Pinos",Ampliación
+31,Yucatán,50,Mérida,Mérida,Urbano,97138,"Pinos Norte II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97138,"Residencial Bancarios",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97138,"Residencial Del Arco",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97138,"San Pedro Cholul",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97138,"Santa Maria",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97138,"Vista Alegre Lotificacion",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97139,"Jardines Del Norte",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97139,"Mail Express","Gran usuario"
+31,Yucatán,50,Mérida,Mérida,Urbano,97139,"Prado Norte",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97139,"San Antonio Cinta",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97139,"San Antonio Cinta II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97139,"San Antonio Cinta III",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97140,"Lopez Mateos",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97140,"San Luis",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97140,"San Luis",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97140,"San Miguel",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97142,"Antonia Jimenez Trava",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97142,"Antonia Jimenez Trava II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97142,"Polígono CTM",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97142,"San Vicente Oriente",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97142,"Unidad Habitacional CTM",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97143,"Boulevares de Oriente",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97143,"Brisas Del Bosque",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97143,"Bulevares de Oriente",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97143,"Confederación de Trabajadores Del Estado de Yucatán",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97143,"Itzimna 108",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97143,"La Isla",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97143,"Leandro Valle",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97143,"Luis Donaldo Colosio",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97143,"Polígono 108",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97143,"San Vicente",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97143,"Vicente Guerrero",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97144,"Ampliación las Brisas",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97144,"Emiliano Zapata Ote",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97144,"Las Brisas",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97144,"Las Brisas Del Norte",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97145,"Las Palmas",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97145,"Los Álamos Alemán",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97145,"Noria II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97145,"Nueva Alemán",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97145,"Nueva Alemán Etapa III Pet-kanche",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97145,Pet-kanche,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97145,Petkanche,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97145,"San Juan Grande",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97146,"Las Flores",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97146,"Nueva Alemán",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97147,"Nuevo Yucatán",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97147,"San Nicolás",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97147,"San Nicolás Del Norte",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97148,"Miguel Alemán",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97149,"San Esteban",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97149,"San Esteban",Ampliación
+31,Yucatán,50,Mérida,Mérida,Urbano,97150,Industrial,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97150,"Trava Quintero",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97155,Fenix,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97155,"Lourdes Industrial",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97155,"Villa Fontana",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97156,"Los Reyes",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97157,"Lázaro Cárdenas Ote",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97157,"Nueva Mayapan",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97158,Chuminopolis,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97159,"Lotificacion las Brisas",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97159,"Manuel Avila Camacho",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97159,"Máximo Ancona",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97159,Mayapan,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97159,"Nueva Mayapan",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97159,"Nueva Pacabtun",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97160,"Del Parque",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97160,"Manuel Avila Camacho",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97160,Pacabtun,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97160,"Privada Del Autotransporte CTM",Colonia
+31,Yucatán,50,Mérida,Mérida,Rural,97165,"Melchor Ocampo",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97165,"Melchor Ocampo II",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97166,"Fidel Velázquez",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97166,"Fidel Velázquez 2a Etapa",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97166,"Salvador Alvarado Oriente",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97167,"Bosques de Oriente",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97167,"Emilio Portes Gil",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97167,"Privada Emilio Portes Gil",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97168,Cerillera,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97168,"Cortes Sarmiento",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97168,"Del Carmen",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97168,"Jardines de Miraflores",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97168,Madrid,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97169,Esperanza,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97169,Wallis,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97170,Chichen-itza,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97170,"Nueva Chichen-itza",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97173,"Misne III",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97173,"Real San José",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97173,"San Jose Vergel",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97173,"Vergel I",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97173,"Vergel II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97173,"Vergel III",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97173,"Vergel IV",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97174,"Azcorra II",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97174,"Morelos Oriente",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97174,"Villas La Macarena",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97175,"Amalia Solorzano",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97176,Aquaparque,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97176,"Hacienda el Vergel",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97176,"Misné II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97176,"Paseos Del Vergel",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97176,"San Antonio Kaua",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97176,"San Pablo Oriente",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97176,"Unidad Habitacional Ricardo Flores Magón",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97176,"Vergel 65",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97177,Azcorra,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97178,"Benito Juárez Ote",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97179,Miraflores,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97179,"Privada Miraflores",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97180,"Vicente Solis",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97189,Canto,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97189,"San Jose",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97190,Morelos,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97190,"Morelos Issste Fovissste",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97195,"Jardines de San Antonio Kaua",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97195,"Miraflores II",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97195,"Nueva Kukulkan",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97195,"San Antonio Kaua",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97195,"San Antonio Kaua I",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97195,"San Antonio Kaua II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97196,"Ampliación Salvador Alvarado Sur",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97196,Militar,"Unidad habitacional"
+31,Yucatán,50,Mérida,Mérida,Urbano,97196,"Salvador Alvarado Sur",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97196,"Salvador Alvarado Sur II",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97196,"San Antonio Del Sur",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97197,Granjas,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97198,"Ampliación Granjas",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97198,Kukulcan,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97198,"Reparto Granjas",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97199,"Maria Luisa",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,Almendros,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Ampliación Francisco de Montejo",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Arboledas Chuburna",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Arcos del Sol",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,Arekas,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Aurea Residencial",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Brisas de Chuburna",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Camara de La Construcción",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Chuburna de Hidalgo III",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Chuburna de Hidalgo IV",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Chuburna de Hidalgo V",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,Cocoteros,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Cordeleros de Chuburna",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Del Bosque",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"El Conquistador",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"El Prado",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Francisco de Montejo",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Francisco de Montejo II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Francisco de Montejo III",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Francisco de Montejo IV",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Francisco de Montejo V",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Semiurbano,97203,"Industrias No Contaminantes",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"La Castellana",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Las Haciendas III",Residencial
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Lotificacion Chuburna de Hidalgo I",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Lotificacion Chuburna de Hidalgo II",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,Magnolias,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,Mérida,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Nueva San Jose Chuburna",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Nuevo San José",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,Platino,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Privada Chuburna de Hidalgo (II)",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Privada Chuburna Plus",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Privada las Palmas",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Privada Palma Corozal",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Privada Villa Palma Real",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Puesta del Sol",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Rincón Colonial",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"San Francisco Chuburna II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"San Pablo",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"San Pedro Uxmal",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,Terranova,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Tulias de Chuburna",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Villas Del Prado",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Villas las Palmas",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97203,"Vista Alegre de Chuburna",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97204,"Residencial Galerias",Residencial
+31,Yucatán,50,Mérida,Mérida,Urbano,97204,"Residencial Piedrasul",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97204,Revolución,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97204,"Vía Montejo",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97204,Xcumpich,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Boulevares de Chuburna",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,Bugambilias,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Chuburna de Hidalgo",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Chuburna Inn",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"El Campanario",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"El Cortijo I",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"El Cortijo II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,Floresta,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Juan B Sosa",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Las Hadas",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Loma Bonita",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Loma Bonita Xcumpich",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Paseo de Montejo",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,Pinzon,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Privada Arboledas",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Privada Campestre Chuburna",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Privada Chuburna de Hidalgo I",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Privada Cortijo",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Privada las Flores",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Privada Pedregal II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Privada Turquesa",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Residencial Hacienda Real",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"San Ángel",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"San Luis Chuburna",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,Tabachines,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97205,"Villa Carmencita",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"El Rosario",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"Las Dalias",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"Las Dalias II y III",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"Lotificacion San Vicente Chuburna",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"Mérida (Elefante Grande)",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,Paraíso,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"Privada Cipreses",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"Privada La Hacienda",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"Privada San Ángel Chuburna",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"Privada San Jose",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"Residencial La Noria",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"Residencial Turquesa",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"San Francisco Chuburna",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"San Francisco I",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"San Jose I",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"San Jose II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"San Vicente Chuburna",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,"Villas Chuburna IV",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97206,Yaxche,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97207,"Callejones de Chuburna",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97207,"Villas de Chuburna",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97208,"60 Norte",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97208,"Chuburna de Hidalgo",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97208,"El Cedral",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97208,"Felipe Carrillo Puerto",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97208,Malaga,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97208,Malaga,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97208,"Privada Chuburna de Hidalgo",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97208,"Resid. Las Quintas (Chuburna)",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97208,"Residencial Atlantis",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97208,"Rinconada de Chuburna",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97209,"Jardines de Chuburna",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97209,"Privada San Jorge (Chuburna)",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97210,"Joaquín Ceballos Mimenza",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97210,"Pedregales de Tanlum",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97210,Tanlum,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97215,"Águilas Chuburna",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97215,"Colonial Buenavista",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97215,"Colonial Chuburna",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97217,Fovissste,"Unidad habitacional"
+31,Yucatán,50,Mérida,Mérida,Urbano,97217,"Francisco El Porvenir",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97217,"Pensiones Norte",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97217,"Residencial Pensiones I y II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97217,"Residencial Pensiones III",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97217,"Residencial Pensiones III (1)",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97217,"Residencial Pensiones III (II)",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97217,"Residencial Pensiones IV",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97217,"Residencial Pensiones V",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97217,"Residencial Pensiones VI",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97218,"Conjunto los Naranjos",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97218,"Lotificacion San Damián",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97218,"Privada San Damián",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97218,"Residencial Roma",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97218,Roma,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97218,"San Damián",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97218,"San Isidro",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,Amapola,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Ampliación Lindavista (Elefante Chico)",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Ampliación Pedregales de Lindavista",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,Chenku,Residencial
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Francisco Villa",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,Hidráulica,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Jardines de Lindavista",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Jardines de Pensiones",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Lázaro Cárdenas",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,Limones,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,Lindavista,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Lindavista II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Lotificacion San Damiancito I",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Lotificacion San Damiancito II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Paseos de Chenku",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Paseos de Pensiones",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Pedregal Lindavista",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,Pensiones,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Privada Pensiones",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Quinta Versalles",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Residencial Del Bosque Chenku",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Residencial Del Norte",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Residencial Pensiones VII",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"San Damiancito",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97219,"Unidad Habitacional Mérida Issste",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97220,Atlante,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97220,Atlántida,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97220,"La Vaca Feliz",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97220,"Miguel Hidalgo",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97220,"Nueva Hidalgo",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97220,"Zona Dorada",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97225,"Paseo de las Fuentes",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97225,"Privada San Pedro",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97226,"El Porvenir",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97227,"Jacinto Canek",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97227,"Las Vigas",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97229,"15 de Mayo",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97229,"Ampliación Roma (Luis Echeverría)",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97229,"Hacienda Inn",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97229,"Hacienda San Antonio",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97229,"Luis Echeverría Alvarez",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97229,"Villa Zona Dorada",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97229,Xcom,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97229,"Zona Dorada II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97230,"Armando Avila Gurrutia",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97230,Bojorquez,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97237,"Central de Abasto","Zona comercial"
+31,Yucatán,50,Mérida,Mérida,Urbano,97238,"Brisas del Poniente (Yucalpeten)",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97238,"Jardines de Yucalpeten",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97238,"Nora Quintana",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97238,"Residencial Casa Blanca",Residencial
+31,Yucatán,50,Mérida,Mérida,Urbano,97238,"Villas de Yacalpeten",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97238,Yucalpeten,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97239,"Yucalpeten Secc Florida",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97240,"Francisco I Madero",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97245,"Lopez Portillo",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97245,"Xoclan Canto",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97245,"Xoclan Santos",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Ampliación Juan Pablo II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Anexo Juan Pablo II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Angeles II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Bosques de Mulsay",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Bosques de Yucalpeten",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Bosques Del Poniente",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Granja Fruticola Susula",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Hacienda Mulsay",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Jardines de Nueva Mulsay",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Juan Pablo II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Juan Pablo II Cardenales",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Juan Pablo II Secc. Mérida 2000",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"La Reja",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Los Ángeles",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"México Poniente",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,Mulsay,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Mulsay de La Magdalena",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Mulsay Polígono",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Mulsay Solidaridad",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Paseos de Opichen",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"San Jose Xoclan",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Villas de Tixcacal",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,Xoclan,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Xoclan Carmelitas",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Xoclan Rejas",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97246,"Xoclan Xbech",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97247,"San Cayetano",Colonia
+31,Yucatán,50,Mérida,Mérida,Semiurbano,97247,"San Lorenzo",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Ampliación Tixcacal Opichen",Ampliación
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Cinturón Verde",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Diamante Paseos de Opichen",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Girasoles de Opichen",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Hacienda Opichen",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Hacienda Opichen",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Jardines de Nueva Mulsay II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Jardines de Nueva Mulsay III",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,Mulsay,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Núcleo Mulsay",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Nueva Mulsay",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Nueva Mulsay I",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Nueva Reforma Agraria",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Pedregales de Nueva Mulsay Etapa",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Plantel México",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Residencial Valparaiso",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Tixcacal Opichen",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Tulipanes Opichen",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Villa Magna",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Villa Magna II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Xoclan Susula",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97249,"Xoclan Susula (El Convento)",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97250,"Nueva Sambula",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97250,Sambula,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97255,Bicentenario,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97255,"El Roble",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97255,"Manuel Crescencio Rejon",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97255,"Roble Agrícola III",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97255,"Roble II",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97255,"Santa Bárbara",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97256,"Álvaro Torres",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97256,"Graciano Ricalde",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97256,"Industrial Bridec",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97256,"Libertad II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97256,"Libertad III",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97256,Lol-Be,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97256,"Pino Suárez",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97256,"Renacimiento I",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97256,"Renacimiento II",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97256,"Residencial Nicte",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97256,"Villas Mérida",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97258,"Salvador Alvarado",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97259,Itzaez,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97260,"Circuito Colonias","Conjunto habitaciona"
+31,Yucatán,50,Mérida,Mérida,Urbano,97260,"Nueva Obrera",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97260,Obrera,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97260,"Villa de la Obrera II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97260,"Villa Moderna",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97260,"Villas del Mayab",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97267,"Manzana 115",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97268,"Delio Moreno Canton",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97268,"Quinta Valencia",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97269,"Las Palmeras II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97269,"Meliton Salazar",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97269,"Santa Maria de Guadalupe",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97270,"Dolores Otero",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97277,"Mercedes Barrera",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97278,"Bosques Del Pedregal",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97278,"Castilla Camara",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97279,"Quinta Santa Rosa",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97279,"Santa Rosa",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97280,"5 Colonias",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97280,"Santa Rita",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97284,Lindavista,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97284,"Lomas Del Sur",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,"Álamos del Sur",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,Bellavista,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,"Jardines del Sur",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,"Las Nubes",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,"Lotificacion Serapio Rendón 1",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,"Palmas del Sur",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,"Plan de Ayala Sur",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,"Plan de Ayala Sur III",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,"San Carlos Del Sur",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,"San Carlos Del Sur II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,"San José Tzal",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,"Serapio Rendón",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,"Serapio Rendón II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,"Serapio Rendón III",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,"Villa Bonita",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,"Villa Magna del Sur",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97285,"Villas Del Sur",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97286,"Las Brisas Del Sur",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97287,"Del Sur",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97288,"Ampliación Ciudad Industrial",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97288,"Ciudad Industrial","Zona industrial"
+31,Yucatán,50,Mérida,Mérida,Urbano,97289,"La Hacienda",Ampliación
+31,Yucatán,50,Mérida,Mérida,Urbano,97289,"La Hacienda",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97289,"San Nicolás Del Sur",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97290,"La Guadalupana",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97290,"Nueva San Jose Tecoh",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97290,"San Antonio Xluch",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97290,"San Antonio Xluch II",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97290,"San Luis Sur",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97295,"El Roble Agrícola",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97295,"Mérida (Lic. Manuel Crescencio Rejon)",Aeropuerto
+31,Yucatán,50,Mérida,Mérida,Urbano,97295,"San Marcos",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97295,"Santa Cruz",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97296,"San Marcos Nocoh",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97296,"San Marcos Nocoh II",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97297,"Emiliano Zapata Sur",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97297,"Emiliano Zapata Sur II",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97297,"Emiliano Zapata Sur III",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97297,Metropolitana,Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97297,"San Antonio Xluch III",Colonia
+31,Yucatán,50,Mérida,Mérida,Rural,97297,"San Luis Sur",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97297,"Villas Quetzal",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97298,"Brisas de San José",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97298,"Privada Zuzil - Ha",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97298,"San Jose Tecoh Sur",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97298,Zacilha,Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97298,"Zazil - Ha II",Fraccionamiento
+31,Yucatán,50,Mérida,Mérida,Urbano,97299,"San Antonio Tecoh",Colonia
+31,Yucatán,50,Mérida,Mérida,Urbano,97299,"San Jose Tecoh",Colonia
+31,Yucatán,50,Mérida,NULL,Rural,97300,"Ejido de Chuburna",Ejido
+31,Yucatán,50,Mérida,NULL,Rural,97302,Chablekal,Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97302,"Club de Golf La Ceiba",Colonia
+31,Yucatán,50,Mérida,NULL,Rural,97302,Dzidzilché,Hacienda
+31,Yucatán,50,Mérida,NULL,Urbano,97302,Dzityá,Pueblo
+31,Yucatán,50,Mérida,NULL,Urbano,97302,Komchén,Pueblo
+31,Yucatán,50,Mérida,NULL,Urbano,97302,"Las Américas",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97302,"Las Américas II",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97302,"Las Fincas",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97302,"Los Tamarindos",Colonia
+31,Yucatán,50,Mérida,NULL,Urbano,97302,"Núcleo Sodzil",Colonia
+31,Yucatán,50,Mérida,NULL,Urbano,97302,Palmequén,Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97302,"Piedra Antigua",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97302,"Real Montejo",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97302,"Residencial del Mayab",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97302,"Residencial La Alborada",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97302,"Residencial Xcanatún",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97302,"Royal del Parque",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97302,Sac-Nicté,Pueblo
+31,Yucatán,50,Mérida,NULL,Urbano,97302,"San Antonio Residencial",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97302,"Sierra Papacal",Pueblo
+31,Yucatán,50,Mérida,NULL,Urbano,97302,"Temozon Norte",Pueblo
+31,Yucatán,50,Mérida,NULL,Urbano,97302,Xcanatún,Hacienda
+31,Yucatán,50,Mérida,NULL,Urbano,97302,Xotik,Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97303,Cheumán,Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97303,Cosgaya,Hacienda
+31,Yucatán,50,Mérida,NULL,Rural,97303,Kikteil,Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97303,"Noc Ac",Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97304,Tamanché,Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97304,Xcunyá,Hacienda
+31,Yucatán,50,Mérida,NULL,Semiurbano,97305,"Algarrobos Desarrollo Residencial",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97305,Altavista,Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97305,Bogdan,Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97305,Cholul,Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97305,Cholul,Pueblo
+31,Yucatán,50,Mérida,NULL,Semiurbano,97305,Cocoyoles,Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97305,Dzibilchaltún,Pueblo
+31,Yucatán,50,Mérida,NULL,Urbano,97305,"Gran San Pedro Cholul",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97305,"Granjas Cholul",Colonia
+31,Yucatán,50,Mérida,NULL,Urbano,97305,Jalapa,Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Semiurbano,97305,"Las Margaritas de Cholul",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Semiurbano,97305,"Paraíso las Margaritas",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97305,"Parque Central",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97305,"Residencial Anturio",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97305,"Residencial Campestre Viladiu",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97305,"San Luis Cholul",Colonia
+31,Yucatán,50,Mérida,NULL,Semiurbano,97305,"Santa Gertrudis Copo",Ranchería
+31,Yucatán,50,Mérida,NULL,Urbano,97305,"Sian Kaan",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97305,"Villas Cholul",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97306,"Chichi Díaz",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97306,"Chichi Suárez",Pueblo
+31,Yucatán,50,Mérida,NULL,Urbano,97306,"Los Héroes",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97306,"Santa María Chí",Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97306,Sitpach,Pueblo
+31,Yucatán,50,Mérida,NULL,Semiurbano,97306,"Villas de Oriente",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97307,"La Rejoyada",Condominio
+31,Yucatán,50,Mérida,NULL,Rural,97308,"Santa María Yaxché",Rancho
+31,Yucatán,50,Mérida,NULL,Rural,97308,"Yucatán Country Club",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97309,Cordemex,"Zona industrial"
+31,Yucatán,50,Mérida,NULL,Rural,97309,"Yaxché Casares",Ranchería
+31,Yucatán,50,Mérida,NULL,Urbano,97310,Oncán,Hacienda
+31,Yucatán,50,Mérida,NULL,Rural,97312,Chalmuch,Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97312,"Los Faisanes de Tixcacal",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97312,Tixcacal,Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97314,Arboleda,Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Balcones II",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,Boulevares,Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,Caucel,Pueblo
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Caucel II",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Centenario Cámara de Comercio Caucel",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Cerradas de la Herradura",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Ciricotes de Caucel",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Ciudad Caucel",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Gran Herradura",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,"Gran Santa Fe",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Hacienda Caucel",Hacienda
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Hogares Caucel",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,"Horizontes de Caucel",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,"Jardines de Caucel",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,"Jardines de Poniente",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,"Jardines del Caucel II",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"La Ceiba",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,"La Herradura",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,"La Herradura II",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"La Herradura III",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"La Herradura IV",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"La Perla Ciudad Caucel",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,"Las Torres",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,"Las Torres I",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Las Torres II",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,"Las Torres III",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,"Los Almendros",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,"Los Balcones",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Los Cocos de Caucel",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Paseos de Opichen la Joya",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,"Pedregales de Ciudad Caucel",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Rinconada de Caucel",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,Sasula,Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97314,"Sol Caucel",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Sol Caucel III",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,Susulá,Pueblo
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Terranova Caucel",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Villa Jardín",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97314,"Villas de Caucel",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97314,"Viva Caucel",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97315,Dzununcán,Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97315,Dzununcan,Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97315,Hunxectamán,Pueblo
+31,Yucatán,50,Mérida,NULL,Urbano,97315,"La Guadalupana",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97315,Molas,Pueblo
+31,Yucatán,50,Mérida,NULL,Urbano,97315,"Nuevo San José Tecoh",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Urbano,97315,"Nuevo San José Tecoh III",Fraccionamiento
+31,Yucatán,50,Mérida,NULL,Rural,97315,Petac,Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97315,"San Antonio Tzacalá",Hacienda
+31,Yucatán,50,Mérida,NULL,Rural,97315,"San José Tzal",Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97315,"San Pedro Chimay",Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97315,"Santa Cruz Palomeque",Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97315,Tahdzibichén,Hacienda
+31,Yucatán,50,Mérida,NULL,Rural,97315,"Texán Cámara",Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97315,Xmatkuil,Colonia
+31,Yucatán,50,Mérida,NULL,Rural,97316,Dzoyaxché,Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97316,"San Ignacio Tesip",Pueblo
+31,Yucatán,50,Mérida,NULL,Rural,97316,Yaxnic,Pueblo
+31,Yucatán,51,Mocochá,NULL,Rural,97454,Mococha,Pueblo
+31,Yucatán,51,Mocochá,NULL,Rural,97455,Carolina,Pueblo
+31,Yucatán,51,Mocochá,NULL,Rural,97455,Too,Hacienda
+31,Yucatán,51,Mocochá,NULL,Rural,97456,Tekat,Pueblo
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97430,"Motul de Carrillo Puerto Centro",Colonia
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97430,Sambula,Colonia
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97432,"Felipe Carrillo Puerto",Colonia
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97432,Infonavit,Colonia
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97432,"Las Huertas",Fraccionamiento
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97432,Londres,Colonia
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97432,"Mario H Cuevas",Colonia
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97432,Mayab,Fraccionamiento
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97432,"Perla de La Costa",Colonia
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97432,"Puesta Del Sol",Fraccionamiento
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97432,"Real del Mayab",Fraccionamiento
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97433,"San Carlos",Colonia
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97433,"San Juan",Colonia
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Urbano,97433,"Santa Cruz Pachón",Fraccionamiento
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97433,"Santiago Castillo",Colonia
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97434,"Edesio Carrillo",Colonia
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Urbano,97434,"El Roble",Fraccionamiento
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97434,"La Herradura",Fraccionamiento
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97434,Residencial,Fraccionamiento
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97434,"Rogelio Chale",Colonia
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Semiurbano,97434,"San Roque",Colonia
+31,Yucatán,52,Motul,"Motul de Carrillo Puerto",Urbano,97434,Vivah,Fraccionamiento
+31,Yucatán,52,Motul,NULL,Rural,97436,Pacchen,Pueblo
+31,Yucatán,52,Motul,NULL,Rural,97436,Sacapuc,Hacienda
+31,Yucatán,52,Motul,NULL,Rural,97436,Timul,Hacienda
+31,Yucatán,52,Motul,NULL,Rural,97437,Kini,Pueblo
+31,Yucatán,52,Motul,NULL,Rural,97440,Kancabchen,Pueblo
+31,Yucatán,52,Motul,NULL,Rural,97440,"Komchén Martínez",Pueblo
+31,Yucatán,52,Motul,NULL,Rural,97440,"Santa Teresa",Pueblo
+31,Yucatán,52,Motul,NULL,Rural,97440,Uci,Pueblo
+31,Yucatán,52,Motul,NULL,Rural,97443,Chacabol,Pueblo
+31,Yucatán,52,Motul,NULL,Rural,97443,Kancabal,Pueblo
+31,Yucatán,52,Motul,NULL,Rural,97443,Tanya,Ranchería
+31,Yucatán,52,Motul,NULL,Rural,97444,Dzununcan,Pueblo
+31,Yucatán,52,Motul,NULL,Rural,97444,Kambul,Pueblo
+31,Yucatán,52,Motul,NULL,Rural,97444,"Kancabchén Uci",Pueblo
+31,Yucatán,52,Motul,NULL,Rural,97444,Kaxatah,Ranchería
+31,Yucatán,52,Motul,NULL,Rural,97444,Kopte,Ranchería
+31,Yucatán,52,Motul,NULL,Rural,97444,Mesatunich,Ranchería
+31,Yucatán,52,Motul,NULL,Rural,97444,"San Pedro Camara",Pueblo
+31,Yucatán,52,Motul,NULL,Rural,97445,Dzina,Pueblo
+31,Yucatán,52,Motul,NULL,Rural,97445,Dzunul,Pueblo
+31,Yucatán,52,Motul,NULL,Rural,97446,Hili,Hacienda
+31,Yucatán,52,Motul,NULL,Rural,97446,Sakolá,Pueblo
+31,Yucatán,53,Muna,NULL,Rural,97840,"Benito Juárez",Colonia
+31,Yucatán,53,Muna,NULL,Rural,97840,"Muna de Leopoldo Arana Cabrera",Pueblo
+31,Yucatán,53,Muna,NULL,Rural,97840,"San Bernardo",Colonia
+31,Yucatán,53,Muna,NULL,Rural,97840,"San Gregorio",Colonia
+31,Yucatán,53,Muna,NULL,Rural,97840,"San Mateo",Colonia
+31,Yucatán,53,Muna,NULL,Rural,97840,"San Sebastián",Colonia
+31,Yucatán,53,Muna,NULL,Rural,97840,"Santa Maria",Colonia
+31,Yucatán,53,Muna,NULL,Rural,97840,"Victor Cervera",Colonia
+31,Yucatán,53,Muna,NULL,Rural,97843,Choyob,Pueblo
+31,Yucatán,53,Muna,NULL,Rural,97843,Yaxha,Pueblo
+31,Yucatán,53,Muna,NULL,Rural,97844,"San Jose Tipceh",Pueblo
+31,Yucatán,53,Muna,NULL,Rural,97844,"U.F. Lázaro Cárdenas",Pueblo
+31,Yucatán,54,Muxupip,NULL,Rural,97457,Muxupip,Pueblo
+31,Yucatán,54,Muxupip,NULL,Rural,97457,Saccitan,Pueblo
+31,Yucatán,54,Muxupip,NULL,Rural,97458,"San José Grande",Pueblo
+31,Yucatán,54,Muxupip,NULL,Rural,97458,"San Juan Koop",Pueblo
+31,Yucatán,55,Opichén,NULL,Rural,97813,Opichen,Pueblo
+31,Yucatán,55,Opichén,NULL,Rural,97814,Calcehtoc,Pueblo
+31,Yucatán,55,Opichén,NULL,Rural,97814,Grutas,Ejido
+31,Yucatán,55,Opichén,NULL,Rural,97814,"U.P. Huolcah",Ejido
+31,Yucatán,55,Opichén,NULL,Rural,97814,"U.R. Salinas",Ejido
+31,Yucatán,55,Opichén,NULL,Rural,97815,"U.A.S Alvarado",Ejido
+31,Yucatán,55,Opichén,NULL,Rural,97815,"U.P. Justicia",Ejido
+31,Yucatán,55,Opichén,NULL,Rural,97815,"U.P. Xmutuy",Ejido
+31,Yucatán,55,Opichén,NULL,Rural,97815,Yaxkel,Ejido
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97880,Oxkutzcab,Pueblo
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97883,"Emiliano Zapata",Pueblo
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97883,Lol-Tún,Ejido
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97883,Sayil,Ejido
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97883,"U.A. Benito Juárez",Ejido
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97883,"U.F. San José",Ejido
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97883,Xohuayan,Pueblo
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97883,Yaaxhom,Pueblo
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97884,Sacamucuy,Pueblo
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97884,Xobenhaltun,Pueblo
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97884,Xul,Pueblo
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97885,Huntochac,Pueblo
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97886,Kihuic,Pueblo
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97886,Yaxhacchen,Pueblo
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97887,Kabah,Ejido
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97887,Labna,Ejido
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97887,"San Andres",Pueblo
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97887,Tabi,Pueblo
+31,Yucatán,56,Oxkutzcab,NULL,Rural,97887,Xlapak,Ejido
+31,Yucatán,57,Panabá,NULL,Rural,97610,Panaba,Pueblo
+31,Yucatán,57,Panabá,NULL,Rural,97614,Chamizal,Pueblo
+31,Yucatán,57,Panabá,NULL,Rural,97614,Loche,Pueblo
+31,Yucatán,57,Panabá,NULL,Rural,97614,"San Francisco",Pueblo
+31,Yucatán,57,Panabá,NULL,Rural,97614,"Santa Flor",Pueblo
+31,Yucatán,57,Panabá,NULL,Rural,97615,"J.F. Kennedy",Pueblo
+31,Yucatán,57,Panabá,NULL,Rural,97615,Noczal,Pueblo
+31,Yucatán,57,Panabá,NULL,Rural,97615,"San Antonio",Hacienda
+31,Yucatán,57,Panabá,NULL,Rural,97615,"Vista Alegre",Pueblo
+31,Yucatán,57,Panabá,NULL,Rural,97615,Yalsihon,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97930,"3 Cruces",Colonia
+31,Yucatán,58,Peto,NULL,Rural,97930,"Benito Juárez",Colonia
+31,Yucatán,58,Peto,NULL,Rural,97930,Ciprés,Colonia
+31,Yucatán,58,Peto,NULL,Rural,97930,"Felipe Carrillo Puerto",Colonia
+31,Yucatán,58,Peto,NULL,Rural,97930,"Francisco I Madero",Colonia
+31,Yucatán,58,Peto,NULL,Rural,97930,"Francisco Sarabia",Colonia
+31,Yucatán,58,Peto,NULL,Rural,97930,"Jacinto Kanek",Colonia
+31,Yucatán,58,Peto,NULL,Rural,97930,Miraflores,Colonia
+31,Yucatán,58,Peto,NULL,Rural,97930,"Morelos y Fátima",Colonia
+31,Yucatán,58,Peto,NULL,Rural,97930,Peto,Ranchería
+31,Yucatán,58,Peto,NULL,Rural,97930,Trinidad,Colonia
+31,Yucatán,58,Peto,NULL,Rural,97933,Progresito,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97933,"San Gregorio",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97933,"San Pedro",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97933,Temozon,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97933,Tixhualactun,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97933,"U.A. Bachilleres",Ejido
+31,Yucatán,58,Peto,NULL,Rural,97933,Yaxcopil,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97934,Candelaria,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97934,Coplamar,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97934,Guadalupe,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97934,"San Bernabe",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97934,"San Diego",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97934,"San Nicolás Yoactún",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97934,"San Pedro",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97934,"San Tomás",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97934,"Santa Rosa",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97934,Tinuncah,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97934,Xcabanchen,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97934,"Xto Gil",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97935,Colotmul,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97935,Dzonotchel,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97935,Papacal,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97935,"San Francisco",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97935,"San Mateo",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97935,"Santa Cruz",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97935,"Santa Elena",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97936,Abal,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97936,Kambul,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97936,"La Esperanza",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97936,Petulillo,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97936,Polinkin,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97936,"San Dionisio",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97936,"San Sebastián",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97937,"Justicia Social",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97937,Macmay,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97937,"San Miguel",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97937,"San Pedro Candelaria",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97937,"San Salvador",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97937,"Santa Rosa",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97937,"Santa Ursula",Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97937,Tobxila,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97937,Trapiche,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97937,Uitzina,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97937,Xpechil,Pueblo
+31,Yucatán,58,Peto,NULL,Rural,97937,Yaxcopil,Pueblo
+31,Yucatán,59,Progreso,NULL,Rural,97320,"23 de Noviembre","Unidad habitacional"
+31,Yucatán,59,Progreso,NULL,Rural,97320,"Ciénega 2000",Fraccionamiento
+31,Yucatán,59,Progreso,NULL,Rural,97320,"Costa Azul",Fraccionamiento
+31,Yucatán,59,Progreso,NULL,Rural,97320,"Costa Azul",Colonia
+31,Yucatán,59,Progreso,NULL,Rural,97320,"F Canul Reyes",Colonia
+31,Yucatán,59,Progreso,NULL,Rural,97320,Fovissste,Fraccionamiento
+31,Yucatán,59,Progreso,NULL,Rural,97320,"Fovissste Brisas",Fraccionamiento
+31,Yucatán,59,Progreso,NULL,Rural,97320,"Francisco I. Madero",Colonia
+31,Yucatán,59,Progreso,NULL,Rural,97320,"Hector Victoria",Fraccionamiento
+31,Yucatán,59,Progreso,NULL,Rural,97320,"Ismael Garcia",Colonia
+31,Yucatán,59,Progreso,NULL,Rural,97320,"Juan Montalvo",Colonia
+31,Yucatán,59,Progreso,NULL,Rural,97320,"La Fuente",Fraccionamiento
+31,Yucatán,59,Progreso,NULL,Urbano,97320,"Las Fuentes II",Colonia
+31,Yucatán,59,Progreso,NULL,Rural,97320,"Las Palmas",Fraccionamiento
+31,Yucatán,59,Progreso,NULL,Rural,97320,"Nueva Yucalpeten",Colonia
+31,Yucatán,59,Progreso,NULL,Rural,97320,"Progreso de Castro Centro",Colonia
+31,Yucatán,59,Progreso,NULL,Rural,97320,Revolución,Colonia
+31,Yucatán,59,Progreso,NULL,Urbano,97320,"Vicente Guerrero",Colonia
+31,Yucatán,59,Progreso,NULL,Rural,97324,Flamboyanes,Fraccionamiento
+31,Yucatán,59,Progreso,NULL,Rural,97330,"Chicxulub Puerto",Pueblo
+31,Yucatán,59,Progreso,NULL,Rural,97333,Misnebalam,Pueblo
+31,Yucatán,59,Progreso,NULL,Rural,97334,"San Ignacio",Pueblo
+31,Yucatán,59,Progreso,NULL,Rural,97336,Chelem,Pueblo
+31,Yucatán,59,Progreso,NULL,Rural,97336,"Chuburna Puerto",Pueblo
+31,Yucatán,59,Progreso,NULL,Rural,97336,Yucalpeten,Pueblo
+31,Yucatán,59,Progreso,NULL,Rural,97337,"Muelle y Puerto de Altura","Zona federal"
+31,Yucatán,60,"Quintana Roo",NULL,Rural,97655,"Quintana Roo",Estación
+31,Yucatán,61,"Río Lagartos",NULL,Rural,97720,"Rio Lagartos",Pueblo
+31,Yucatán,61,"Río Lagartos",NULL,Rural,97723,"Punta Holchit",Ejido
+31,Yucatán,61,"Río Lagartos",NULL,Rural,97724,Yorim,Pueblo
+31,Yucatán,61,"Río Lagartos",NULL,Rural,97725,"Jesús Nazareno",Pueblo
+31,Yucatán,61,"Río Lagartos",NULL,Rural,97726,"San Juan del Río",Pueblo
+31,Yucatán,61,"Río Lagartos",NULL,Rural,97726,Xquinientos,Pueblo
+31,Yucatán,62,Sacalum,NULL,Rural,97845,Sacalum,Pueblo
+31,Yucatán,62,Sacalum,NULL,Rural,97847,"San Antonio Sodzil",Pueblo
+31,Yucatán,62,Sacalum,NULL,Rural,97848,Yunku,Pueblo
+31,Yucatán,63,Samahil,NULL,Rural,97810,Kuchel,Hacienda
+31,Yucatán,63,Samahil,NULL,Rural,97810,Samahil,Pueblo
+31,Yucatán,63,Samahil,NULL,Rural,97812,Cenketok,Pueblo
+31,Yucatán,63,Samahil,NULL,Rural,97812,"San Antonio Tedzidz",Pueblo
+31,Yucatán,63,Samahil,NULL,Rural,97812,"San Pedro",Pueblo
+31,Yucatán,65,"San Felipe",NULL,Rural,97616,"Puerto de San Felipe",Pueblo
+31,Yucatán,65,"San Felipe",NULL,Rural,97616,"San Felipe",Pueblo
+31,Yucatán,65,"San Felipe",NULL,Rural,97617,"Punta Bachul",Ejido
+31,Yucatán,65,"San Felipe",NULL,Rural,97617,"Punta Nichili",Ejido
+31,Yucatán,65,"San Felipe",NULL,Rural,97618,"Ejido San Felipe",Ejido
+31,Yucatán,64,Sanahcat,NULL,Rural,97587,Sanahcat,Pueblo
+31,Yucatán,66,"Santa Elena",NULL,Rural,97890,"Santa Elena",Pueblo
+31,Yucatán,66,"Santa Elena",NULL,Rural,97893,"San Agustín",Pueblo
+31,Yucatán,66,"Santa Elena",NULL,Rural,97894,"U.A.F.C. Puerto",Ejido
+31,Yucatán,66,"Santa Elena",NULL,Rural,97895,"San Simón",Pueblo
+31,Yucatán,66,"Santa Elena",NULL,Rural,97895,Xkulak,Pueblo
+31,Yucatán,66,"Santa Elena",NULL,Rural,97896,"U.A. Lázaro Cárdenas",Ejido
+31,Yucatán,66,"Santa Elena",NULL,Rural,97899,"Hotel Hacienda Uxmal","Gran usuario"
+31,Yucatán,67,Seyé,NULL,Rural,97570,Seyé,Estación
+31,Yucatán,67,Seyé,NULL,Urbano,97570,"Vicente Guerrero",Colonia
+31,Yucatán,67,Seyé,NULL,Rural,97573,Holactun,Hacienda
+31,Yucatán,67,Seyé,NULL,Rural,97574,Xucu,Pueblo
+31,Yucatán,67,Seyé,NULL,Rural,97575,Nohcham,Pueblo
+31,Yucatán,68,Sinanché,NULL,Rural,97420,"Miguel Aleman",Colonia
+31,Yucatán,68,Sinanché,NULL,Rural,97420,Sinanche,Pueblo
+31,Yucatán,68,Sinanché,NULL,Rural,97424,"San Crisanto",Pueblo
+31,Yucatán,69,Sotuta,NULL,Rural,97690,Sotuta,Pueblo
+31,Yucatán,69,Sotuta,NULL,Rural,97694,Tibolon,Pueblo
+31,Yucatán,69,Sotuta,NULL,Rural,97695,Tabi,Pueblo
+31,Yucatán,69,Sotuta,NULL,Rural,97697,Zavala,Pueblo
+31,Yucatán,70,Sucilá,NULL,Rural,97630,Sucila,Pueblo
+31,Yucatán,70,Sucilá,NULL,Rural,97633,"U.G. Chuc Xajas",Ejido
+31,Yucatán,70,Sucilá,NULL,Rural,97634,"Chan Panaba",Pueblo
+31,Yucatán,70,Sucilá,NULL,Rural,97636,"A.G. San Martín",Ejido
+31,Yucatán,70,Sucilá,NULL,Rural,97636,Lolkah,Pueblo
+31,Yucatán,71,Sudzal,NULL,Rural,97676,Sudzal,Pueblo
+31,Yucatán,71,Sudzal,NULL,Rural,97677,Brasil,Pueblo
+31,Yucatán,71,Sudzal,NULL,Rural,97677,"Emiliano Zapata",Pueblo
+31,Yucatán,71,Sudzal,NULL,Rural,97677,"San Antonio",Pueblo
+31,Yucatán,71,Sudzal,NULL,Rural,97677,"San Felipe",Pueblo
+31,Yucatán,71,Sudzal,NULL,Rural,97677,"San Juan",Pueblo
+31,Yucatán,71,Sudzal,NULL,Rural,97677,"San Martín",Pueblo
+31,Yucatán,71,Sudzal,NULL,Rural,97677,Tlacante,Pueblo
+31,Yucatán,71,Sudzal,NULL,Rural,97677,Tzalam,Pueblo
+31,Yucatán,71,Sudzal,NULL,Rural,97678,Chumbec,Pueblo
+31,Yucatán,71,Sudzal,NULL,Rural,97678,Dzulutoc,Pueblo
+31,Yucatán,71,Sudzal,NULL,Rural,97678,Kamcabchen,Pueblo
+31,Yucatán,71,Sudzal,NULL,Rural,97678,Kopchen,Pueblo
+31,Yucatán,71,Sudzal,NULL,Rural,97678,"San Isidro",Pueblo
+31,Yucatán,71,Sudzal,NULL,Rural,97678,"San José",Pueblo
+31,Yucatán,72,Suma,NULL,Rural,97527,"San Nicolás",Pueblo
+31,Yucatán,72,Suma,NULL,Rural,97527,Suma,Pueblo
+31,Yucatán,73,Tahdziú,NULL,Rural,97945,Tahdziu,Pueblo
+31,Yucatán,73,Tahdziú,NULL,Rural,97946,"San Fernando",Pueblo
+31,Yucatán,73,Tahdziú,NULL,Rural,97947,Cisteka,Pueblo
+31,Yucatán,73,Tahdziú,NULL,Rural,97947,Kantirix,Pueblo
+31,Yucatán,73,Tahdziú,NULL,Rural,97947,Sisbic,Pueblo
+31,Yucatán,73,Tahdziú,NULL,Rural,97947,Timul,Pueblo
+31,Yucatán,73,Tahdziú,NULL,Rural,97948,Mocté,Pueblo
+31,Yucatán,73,Tahdziú,NULL,Rural,97948,"San Ignacio",Pueblo
+31,Yucatán,74,Tahmek,NULL,Rural,97490,Tahmek,Pueblo
+31,Yucatán,75,Teabo,NULL,Rural,97910,Teabo,Pueblo
+31,Yucatán,76,Tecoh,NULL,Rural,97820,Tecoh,Estación
+31,Yucatán,76,Tecoh,NULL,Rural,97822,Itzincab,Pueblo
+31,Yucatán,76,Tecoh,NULL,Rural,97822,Lepan,Hacienda
+31,Yucatán,76,Tecoh,NULL,Rural,97822,Oxtapacab,Pueblo
+31,Yucatán,76,Tecoh,NULL,Rural,97822,"Sotuta de Peón",Pueblo
+31,Yucatán,76,Tecoh,NULL,Rural,97823,Chinkilá,Pueblo
+31,Yucatán,76,Tecoh,NULL,Rural,97823,Pixyah,Pueblo
+31,Yucatán,76,Tecoh,NULL,Rural,97823,Sabacchen,Pueblo
+31,Yucatán,76,Tecoh,NULL,Rural,97824,Mahzucil,Pueblo
+31,Yucatán,76,Tecoh,NULL,Rural,97824,Mayapan,Pueblo
+31,Yucatán,76,Tecoh,NULL,Rural,97824,Telchaquillo,Pueblo
+31,Yucatán,76,Tecoh,NULL,Rural,97824,Xcanchakan,Hacienda
+31,Yucatán,77,"Tekal de Venegas",NULL,Rural,97535,"Tekal de Venegas",Pueblo
+31,Yucatán,77,"Tekal de Venegas",NULL,Rural,97536,"El Ancla",Ejido
+31,Yucatán,77,"Tekal de Venegas",NULL,Rural,97536,"San Felipe",Pueblo
+31,Yucatán,77,"Tekal de Venegas",NULL,Rural,97536,Tohoku,Pueblo
+31,Yucatán,78,Tekantó,NULL,Rural,97520,Tekanto,Pueblo
+31,Yucatán,78,Tekantó,NULL,Rural,97522,Sanlatah,Pueblo
+31,Yucatán,78,Tekantó,NULL,Rural,97522,Tixkocho,Pueblo
+31,Yucatán,78,Tekantó,NULL,Rural,97523,"San Francisco Dzan",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97970,"Benito Juárez",Colonia
+31,Yucatán,79,Tekax,NULL,Rural,97970,Chobenche,Colonia
+31,Yucatán,79,Tekax,NULL,Rural,97970,Chunchucun,Colonia
+31,Yucatán,79,Tekax,NULL,Rural,97970,Cifres,Colonia
+31,Yucatán,79,Tekax,NULL,Rural,97970,Ermita,Colonia
+31,Yucatán,79,Tekax,NULL,Rural,97970,Esperanza,Colonia
+31,Yucatán,79,Tekax,NULL,Rural,97970,Fovissste,"Unidad habitacional"
+31,Yucatán,79,Tekax,NULL,Rural,97970,"Francisco I Madero",Colonia
+31,Yucatán,79,Tekax,NULL,Urbano,97970,"Los Cedros",Fraccionamiento
+31,Yucatán,79,Tekax,NULL,Rural,97970,"Modulo Social 1",Fraccionamiento
+31,Yucatán,79,Tekax,NULL,Rural,97970,"Padre Eterno",Colonia
+31,Yucatán,79,Tekax,NULL,Rural,97970,"Sam Jacinto",Colonia
+31,Yucatán,79,Tekax,NULL,Rural,97970,"San Ignacio",Colonia
+31,Yucatán,79,Tekax,NULL,Rural,97970,"Tekax de Álvaro Obregón",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97970,Yocchenkax,Colonia
+31,Yucatán,79,Tekax,NULL,Rural,97973,Kinil,Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97973,Penkuyut,Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97973,Tixcuytun,Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97973,Xaya,Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97974,Ticum,Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97974,"U.A. Cepeda Peraza",Ejido
+31,Yucatán,79,Tekax,NULL,Rural,97975,Kantemo,Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97975,"San Marcos",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97976,Nohcacab,Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97977,Canek,Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97977,Chacmultun,Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97977,Kancab,Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97980,"Benito Juárez",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97980,Dzinup,Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97980,"San Agustín (Salvador Alvarado)",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97980,"San Martín Hili",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97980,"San Pedro Zula",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97983,"Chan Dzinup",Ranchería
+31,Yucatán,79,Tekax,NULL,Rural,97983,"Mac-Yan (San Isidro Mac-Yan)",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97983,Pocoboh,Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97983,"Popola Nuevo",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97983,"San Isidro Yaxche",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97983,"San Salvador",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97983,"Santa Cruz Cutza",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97984,Becanchen,Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97984,"San Diego Buenavista",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97984,"San Gaspar",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97984,"San Pedro",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97985,Nohalal,Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97986,Xquiritz,Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97987,Mesatunich,Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97987,"San Felipe",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97987,"San Juan Tekax",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97987,"San Pedro Xtokil",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97987,"San Rufino",Pueblo
+31,Yucatán,79,Tekax,NULL,Rural,97989,"Sudzal Chico",Ranchería
+31,Yucatán,80,Tekit,NULL,Rural,97680,Tekit,Pueblo
+31,Yucatán,80,Tekit,NULL,Rural,97683,Cenotes,Ejido
+31,Yucatán,80,Tekit,NULL,Rural,97684,Henequenales,Ejido
+31,Yucatán,80,Tekit,NULL,Rural,97684,Susula,Pueblo
+31,Yucatán,80,Tekit,NULL,Rural,97686,Yaxic,Pueblo
+31,Yucatán,80,Tekit,NULL,Rural,97687,Cenotes,Ejido
+31,Yucatán,81,Tekom,NULL,Rural,97768,"San Antonio",Pueblo
+31,Yucatán,81,Tekom,NULL,Rural,97768,"San Fernando",Pueblo
+31,Yucatán,81,Tekom,NULL,Rural,97768,Sisilche,Pueblo
+31,Yucatán,81,Tekom,NULL,Rural,97768,Suytun,Pueblo
+31,Yucatán,81,Tekom,NULL,Rural,97768,Tekom,Pueblo
+31,Yucatán,81,Tekom,NULL,Rural,97769,Chebalam,Pueblo
+31,Yucatán,81,Tekom,NULL,Rural,97769,Chibilub,Pueblo
+31,Yucatán,81,Tekom,NULL,Rural,97769,Chindzonot,Pueblo
+31,Yucatán,81,Tekom,NULL,Rural,97769,Muchucuxcah,Pueblo
+31,Yucatán,81,Tekom,NULL,Rural,97769,Pocbichen,Pueblo
+31,Yucatán,81,Tekom,NULL,Rural,97769,Sisbic,Pueblo
+31,Yucatán,81,Tekom,NULL,Rural,97769,Xamlah,Pueblo
+31,Yucatán,81,Tekom,NULL,Rural,97769,Xuxcab,Pueblo
+31,Yucatán,82,"Telchac Pueblo",NULL,Urbano,97400,"Centro Telchac Pueblo",Colonia
+31,Yucatán,82,"Telchac Pueblo",NULL,Rural,97403,"San Eduardo",Pueblo
+31,Yucatán,83,"Telchac Puerto",NULL,Rural,97407,"Complejo Turistico Nuevo Yucatán",Pueblo
+31,Yucatán,83,"Telchac Puerto",NULL,Rural,97407,"Telchac Puerto",Pueblo
+31,Yucatán,83,"Telchac Puerto",NULL,Rural,97407,Xtampu,Pueblo
+31,Yucatán,83,"Telchac Puerto",NULL,Rural,97408,Xcambo,Pueblo
+31,Yucatán,84,Temax,NULL,Rural,97510,"Rastro Nuevo",Colonia
+31,Yucatán,84,Temax,NULL,Rural,97510,Temax,Pueblo
+31,Yucatán,84,Temax,NULL,Rural,97513,"San Antonio Camara",Pueblo
+31,Yucatán,84,Temax,NULL,Rural,97515,"Chenche de Las Torres",Pueblo
+31,Yucatán,84,Temax,NULL,Rural,97515,Chucmichén,Rancho
+31,Yucatán,84,Temax,NULL,Rural,97516,"Santa Ursula",Pueblo
+31,Yucatán,85,Temozón,NULL,Rural,97740,Temozon,Pueblo
+31,Yucatán,85,Temozón,NULL,Rural,97743,Actuncah,Pueblo
+31,Yucatán,85,Temozón,NULL,Rural,97743,Ekbalam,Pueblo
+31,Yucatán,85,Temozón,NULL,Rural,97743,Kante,Pueblo
+31,Yucatán,85,Temozón,NULL,Rural,97743,"Santa Rita",Ranchería
+31,Yucatán,85,Temozón,NULL,Rural,97743,Xeb,Pueblo
+31,Yucatán,85,Temozón,NULL,Rural,97743,Xuch,Pueblo
+31,Yucatán,85,Temozón,NULL,Rural,97744,Dzalbay,Pueblo
+31,Yucatán,85,Temozón,NULL,Rural,97744,Hunucu,Pueblo
+31,Yucatán,85,Temozón,NULL,Rural,97744,Nabalan,Ranchería
+31,Yucatán,85,Temozón,NULL,Rural,97744,Xcanchechen,Pueblo
+31,Yucatán,85,Temozón,NULL,Rural,97744,Xtut,Pueblo
+31,Yucatán,85,Temozón,NULL,Rural,97744,"Yokdzonot Presentado",Pueblo
+31,Yucatán,86,Tepakán,NULL,Rural,97530,Tepakan,Pueblo
+31,Yucatán,86,Tepakán,NULL,Rural,97532,Kantirix,"Poblado comunal"
+31,Yucatán,87,Tetiz,NULL,Rural,97364,Tetiz,Pueblo
+31,Yucatán,87,Tetiz,NULL,Rural,97365,Nohuayun,Pueblo
+31,Yucatán,88,Teya,NULL,Rural,97524,Teya,Pueblo
+31,Yucatán,89,Ticul,Ticul,Urbano,97860,"Ticul Centro",Colonia
+31,Yucatán,89,Ticul,Ticul,Urbano,97862,Campestre,Fraccionamiento
+31,Yucatán,89,Ticul,Ticul,Urbano,97862,"De los Electricistas",Fraccionamiento
+31,Yucatán,89,Ticul,Ticul,Urbano,97862,"Deportivo Campestre",Fraccionamiento
+31,Yucatán,89,Ticul,Ticul,Urbano,97862,Guadalupe,Colonia
+31,Yucatán,89,Ticul,Ticul,Urbano,97862,Mejorada,Colonia
+31,Yucatán,89,Ticul,Ticul,Urbano,97862,Obrera,Colonia
+31,Yucatán,89,Ticul,Ticul,Urbano,97863,"San Juan",Colonia
+31,Yucatán,89,Ticul,Ticul,Urbano,97864,"Las Tinajas",Fraccionamiento
+31,Yucatán,89,Ticul,Ticul,Urbano,97864,"San Benito",Colonia
+31,Yucatán,89,Ticul,Ticul,Urbano,97864,"San Enrique",Colonia
+31,Yucatán,89,Ticul,Ticul,Urbano,97864,"San Joaquín",Colonia
+31,Yucatán,89,Ticul,Ticul,Urbano,97864,"San Román",Colonia
+31,Yucatán,89,Ticul,Ticul,Urbano,97864,"Santa Maria",Colonia
+31,Yucatán,89,Ticul,Ticul,Urbano,97864,Santiago,Colonia
+31,Yucatán,89,Ticul,NULL,Rural,97867,"San Isidro",Pueblo
+31,Yucatán,89,Ticul,NULL,Rural,97867,"Unidad Valle",Pueblo
+31,Yucatán,89,Ticul,NULL,Rural,97870,Pustunich,Pueblo
+31,Yucatán,89,Ticul,NULL,Rural,97873,Yotholin,Pueblo
+31,Yucatán,90,Timucuy,NULL,Rural,97377,"Tekik de Regil",Hacienda
+31,Yucatán,90,Timucuy,NULL,Rural,97377,Timucuy,Pueblo
+31,Yucatán,90,Timucuy,NULL,Rural,97378,Subincancab,Hacienda
+31,Yucatán,91,Tinum,NULL,Rural,97750,Tinum,Pueblo
+31,Yucatán,91,Tinum,NULL,Rural,97751,Piste,Pueblo
+31,Yucatán,91,Tinum,NULL,Rural,97753,Poom,Pueblo
+31,Yucatán,91,Tinum,NULL,Rural,97753,"Santa Rosa",Pueblo
+31,Yucatán,91,Tinum,NULL,Rural,97754,Balantun,Pueblo
+31,Yucatán,91,Tinum,NULL,Rural,97754,Chumacab,Pueblo
+31,Yucatán,91,Tinum,NULL,Rural,97754,Mupila,Pueblo
+31,Yucatán,91,Tinum,NULL,Rural,97755,"San Francisco",Ranchería
+31,Yucatán,91,Tinum,NULL,Rural,97755,Tohopku,Ranchería
+31,Yucatán,91,Tinum,NULL,Rural,97756,"San Felipe",Pueblo
+31,Yucatán,91,Tinum,NULL,Rural,97756,Xcalakoop,Pueblo
+31,Yucatán,91,Tinum,NULL,Rural,97757,Chichen-itza,Pueblo
+31,Yucatán,92,Tixcacalcupul,NULL,Rural,97762,"Nuevo Xjabin",Pueblo
+31,Yucatán,92,Tixcacalcupul,NULL,Rural,97762,Tixcacalcupul,Pueblo
+31,Yucatán,92,Tixcacalcupul,NULL,Rural,97763,Carolina,Pueblo
+31,Yucatán,92,Tixcacalcupul,NULL,Rural,97763,Ekpedz,Pueblo
+31,Yucatán,92,Tixcacalcupul,NULL,Rural,97763,Mahas,Pueblo
+31,Yucatán,92,Tixcacalcupul,NULL,Rural,97763,"Monte Verde",Pueblo
+31,Yucatán,92,Tixcacalcupul,NULL,Rural,97763,Nohyaxche,Pueblo
+31,Yucatán,92,Tixcacalcupul,NULL,Rural,97763,Poop,Pueblo
+31,Yucatán,92,Tixcacalcupul,NULL,Rural,97763,"San José",Pueblo
+31,Yucatán,92,Tixcacalcupul,NULL,Rural,97763,Xcauich,Pueblo
+31,Yucatán,92,Tixcacalcupul,NULL,Rural,97763,Xtobil,Pueblo
+31,Yucatán,93,Tixkokob,NULL,Rural,97470,Tixkokob,Pueblo
+31,Yucatán,93,Tixkokob,NULL,Rural,97473,Kankabchen,Pueblo
+31,Yucatán,93,Tixkokob,NULL,Rural,97473,"San José",Pueblo
+31,Yucatán,93,Tixkokob,NULL,Rural,97474,Ekmul,Pueblo
+31,Yucatán,93,Tixkokob,NULL,Rural,97474,Euan,Pueblo
+31,Yucatán,93,Tixkokob,NULL,Rural,97474,"Ruinas de Ake",Hacienda
+31,Yucatán,93,Tixkokob,NULL,Rural,97475,Hubila,Hacienda
+31,Yucatán,93,Tixkokob,NULL,Rural,97476,"San Antonio Millet Peón",Hacienda
+31,Yucatán,93,Tixkokob,NULL,Rural,97477,Nolo,Pueblo
+31,Yucatán,94,Tixmehuac,NULL,Rural,97950,Tixmehuac,Pueblo
+31,Yucatán,94,Tixmehuac,NULL,Rural,97953,Chactun,Pueblo
+31,Yucatán,94,Tixmehuac,NULL,Rural,97953,Chican,Pueblo
+31,Yucatán,94,Tixmehuac,NULL,Rural,97953,Chuchub,Pueblo
+31,Yucatán,94,Tixmehuac,NULL,Rural,97953,Kimbila,Pueblo
+31,Yucatán,94,Tixmehuac,NULL,Rural,97953,Muchte,Pueblo
+31,Yucatán,94,Tixmehuac,NULL,Rural,97953,"Puhuy Dzutoh",Pueblo
+31,Yucatán,94,Tixmehuac,NULL,Rural,97953,Sabacche,Pueblo
+31,Yucatán,94,Tixmehuac,NULL,Rural,97953,"U.F. Sisbic",Pueblo
+31,Yucatán,94,Tixmehuac,NULL,Rural,97954,Nohbalche,Pueblo
+31,Yucatán,94,Tixmehuac,NULL,Rural,97954,Sacchacan,Pueblo
+31,Yucatán,95,Tixpéhual,NULL,Rural,97386,Tixpehual,Pueblo
+31,Yucatán,95,Tixpéhual,NULL,Rural,97387,Chocho,Hacienda
+31,Yucatán,95,Tixpéhual,NULL,Rural,97387,Kilinche,Pueblo
+31,Yucatán,95,Tixpéhual,NULL,Rural,97388,Cuca,Pueblo
+31,Yucatán,95,Tixpéhual,NULL,Rural,97388,Sahe,Hacienda
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97700,"Santa Cruz",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97700,"Tizimin Centro",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97702,"8 Calles",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97702,Aviación,Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97702,"Benito Juárez",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97702,"Campestre San Francisco",Fraccionamiento
+31,Yucatán,96,Tizimín,Tizimín,Urbano,97702,Comichén,Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97702,"Cruz Roja",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97702,Fovissste,Fraccionamiento
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97702,"Jacinto Canek",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97702,"Justo Sierra",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Urbano,97702,"Las Palmas",Fraccionamiento
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97702,"Los Aguacates",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97702,"Los Reyes",Fraccionamiento
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97702,"Placita de Toros",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Urbano,97702,"Residencial Tizimín",Fraccionamiento
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97702,"San Martin",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97702,"Santa Maria",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97702,"Villas Campestre",Fraccionamiento
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97702,Viva,Fraccionamiento
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97702,Zoológico,Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97703,"Adolfo Lopez Mateos",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97703,Almendros,Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97703,Huayita,Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97703,"Lázaro Cárdenas",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97703,"Los Reyes",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97703,"Niños Héroes",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97703,"San Carlos",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97703,"San Jose Nabalam",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97703,"Santo Domingo",Colonia
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97704,"Residencial Del Parque",Fraccionamiento
+31,Yucatán,96,Tizimín,Tizimín,Semiurbano,97704,"Santa Maria de Lima",Colonia
+31,Yucatán,96,Tizimín,NULL,Rural,97705,"Chan San Antonio",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97705,Kikil,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97705,Sucopó,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97705,X-Pambihá,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97705,"Yokdzonot Meneses",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97706,Bondzonot,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97706,"Buena Esperanza",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97706,Chenkekén,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97706,Chunsubul,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97706,"Dzadz Palma",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97706,Dzonot,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97706,"Dzonot Tigre",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97706,"Libre Unión",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97706,"San Antonio",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97706,"San Román",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97706,"Santa Clara Dzibalkú",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97706,X-Cail,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97706,X-Lal,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97706,X-Panhatoro,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97706,"Xkalax de Dzibalkú",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97707,"Benito Juárez",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97707,Dolores,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97707,"Dzonot Carretero",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97707,"El Cuyo",Hacienda
+31,Yucatán,96,Tizimín,NULL,Rural,97707,"Emiliano Zapata",Ranchería
+31,Yucatán,96,Tizimín,NULL,Rural,97707,"Las Coloradas",Ranchería
+31,Yucatán,96,Tizimín,NULL,Rural,97707,Moctezuma,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97707,"San Francisco",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97707,"San Juan",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97707,"Yohactún de Hidalgo",Ranchería
+31,Yucatán,96,Tizimín,NULL,Semiurbano,97709,"Santa Rita",Colonia
+31,Yucatán,96,Tizimín,NULL,Rural,97710,Buytzuc,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97710,Cabichen,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97710,"Colonia Yucatán",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97710,"Dzonot Aké",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97710,"El Ramonal",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97710,"Felipe Carrillo Puerto Dos",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97710,"La Sierra",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97710,"Lázaro Cárdenas",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97710,Orizaba,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97710,"San Enrique",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97710,"San Isidro Chuncopó",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97710,"San Luis Tzuctuk",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97710,"San Pedro Juárez",Ranchería
+31,Yucatán,96,Tizimín,NULL,Rural,97710,Teapa,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97710,Yaxchekú,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97712,"Santa Rosa Concepción",Ranchería
+31,Yucatán,96,Tizimín,NULL,Rural,97713,"Benito Juárez",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97713,"Cenote Azul",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97713,"La Libertad",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97713,Paraíso,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97713,"Rancho Grande",Ranchería
+31,Yucatán,96,Tizimín,NULL,Rural,97713,Samaria,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97713,"San Miguel",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97713,"Santa Ana",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97713,"Santa Isabel",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97713,"Santa Pilar",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97713,"Santa Rosa",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97714,"Nuevo Mundo",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97714,"Nuevo Tekat",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97714,"San Pedro Sacboc",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97714,"Santa María",Ranchería
+31,Yucatán,96,Tizimín,NULL,Rural,97715,"El Limonar",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97715,"Francisco Villa",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97715,"Luis Rosado Vega",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97715,"Manuel Cepeda Peraza",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97715,"Nuevo León",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97715,"Nuevo Tezoco",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97715,"San Arturo",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97715,"San Hipólito",Ranchería
+31,Yucatán,96,Tizimín,NULL,Rural,97715,"San Juan",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97715,"San Pedro Bacab",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97715,"Santa Clara",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97715,"Santa Elena",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97715,"Tres Marias",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97716,"Adolfo López Mateos",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97716,"Chan Tres Reyes",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97716,"El Edén",Ranchería
+31,Yucatán,96,Tizimín,NULL,Rural,97716,"Felipe Carrillo Puerto Número Uno",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97716,"La Esperanza",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97716,Papoinah,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97716,Quintana,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97716,"San Isidro",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97716,"San Isidro",Ranchería
+31,Yucatán,96,Tizimín,NULL,Rural,97716,"San José Montecristo",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97716,"San Manuel",Ranchería
+31,Yucatán,96,Tizimín,NULL,Rural,97716,"Santa Rosa",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97717,Altamirano,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97717,"Chan Cenote",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97717,"Dzonot Mezo",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97717,"San Isidro",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97717,"San Lorenzo",Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97717,Tixcancal,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97717,Trascorral,Pueblo
+31,Yucatán,96,Tizimín,NULL,Rural,97717,"U.G. Chiquila",Pueblo
+31,Yucatán,97,Tunkás,NULL,Rural,97650,Tunkas,Estación
+31,Yucatán,97,Tunkás,NULL,Rural,97653,Chabak,Pueblo
+31,Yucatán,97,Tunkás,NULL,Rural,97653,"Corredor Ganadero",Ejido
+31,Yucatán,97,Tunkás,NULL,Rural,97653,Pabihoc,Pueblo
+31,Yucatán,97,Tunkás,NULL,Rural,97653,Puhila,Pueblo
+31,Yucatán,97,Tunkás,NULL,Rural,97653,"San José Pibtuch",Ranchería
+31,Yucatán,97,Tunkás,NULL,Rural,97654,"Chakan Ebula",Pueblo
+31,Yucatán,97,Tunkás,NULL,Rural,97654,Dzotzil,Pueblo
+31,Yucatán,97,Tunkás,NULL,Rural,97654,Kankabchen,Pueblo
+31,Yucatán,97,Tunkás,NULL,Rural,97654,Mactun,Pueblo
+31,Yucatán,97,Tunkás,NULL,Rural,97654,"Nicte Ha",Pueblo
+31,Yucatán,97,Tunkás,NULL,Rural,97654,"Noc Ac",Pueblo
+31,Yucatán,97,Tunkás,NULL,Rural,97654,Onichen,Pueblo
+31,Yucatán,97,Tunkás,NULL,Rural,97654,"San Antonio Chuc",Pueblo
+31,Yucatán,97,Tunkás,NULL,Rural,97654,"San Román",Pueblo
+31,Yucatán,97,Tunkás,NULL,Rural,97654,"Santa Rosa",Pueblo
+31,Yucatán,97,Tunkás,NULL,Rural,97654,Yaxha,Pueblo
+31,Yucatán,98,Tzucacab,NULL,Urbano,97960,"México Primero",Colonia
+31,Yucatán,98,Tzucacab,NULL,Urbano,97960,"Tzucacab Centro",Colonia
+31,Yucatán,98,Tzucacab,NULL,Rural,97963,Dzi,Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97963,Ekbalam,Ranchería
+31,Yucatán,98,Tzucacab,NULL,Rural,97963,Kakalnah,Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97963,Solidaridad,Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97964,Bichcopo,Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97964,Hobonil,Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97964,Noh-bec,Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97964,Polhuaczil,Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97964,Sacbecan,Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97965,Ayim,Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97965,"Blanca Flor",Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97965,Corral,Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97965,"El Escondido",Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97965,"Sudzal Chico",Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97965,"Tigre Grande",Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97966,Esperanza,Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97966,Pisteakal,Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97966,Sacpukenha,Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97966,"San Isidro",Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97967,"Alfonso Caso",Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97967,"Emiliano Zapata",Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97967,Kaxaytuk,Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97967,"Lázaro Cárdenas",Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97967,Thul,Pueblo
+31,Yucatán,98,Tzucacab,NULL,Rural,97969,Catmis,Ingenio
+31,Yucatán,99,Uayma,NULL,Rural,97796,Uayma,Pueblo
+31,Yucatán,99,Uayma,NULL,Rural,97798,"Santa María",Pueblo
+31,Yucatán,100,Ucú,NULL,Urbano,97357,"San Juan",Colonia
+31,Yucatán,100,Ucú,NULL,Rural,97357,Ucu,Pueblo
+31,Yucatán,100,Ucú,NULL,Rural,97357,"Yaxche de Peón",Hacienda
+31,Yucatán,101,Umán,NULL,Urbano,97390,"Acim I",Fraccionamiento
+31,Yucatán,101,Umán,NULL,Urbano,97390,"Acim II",Fraccionamiento
+31,Yucatán,101,Umán,NULL,Semiurbano,97390,"Bosques de Uman",Fraccionamiento
+31,Yucatán,101,Umán,NULL,Urbano,97390,"Brisas de Umán",Fraccionamiento
+31,Yucatán,101,Umán,NULL,Urbano,97390,"Camino Real",Fraccionamiento
+31,Yucatán,101,Umán,NULL,Semiurbano,97390,Candelaria,Colonia
+31,Yucatán,101,Umán,NULL,Semiurbano,97390,Ceibo,Colonia
+31,Yucatán,101,Umán,NULL,Urbano,97390,"Centro Umán",Colonia
+31,Yucatán,101,Umán,NULL,Semiurbano,97390,"Cepeda Peraza",Colonia
+31,Yucatán,101,Umán,NULL,Semiurbano,97390,"Ciudad Industrial",Ampliación
+31,Yucatán,101,Umán,NULL,Rural,97390,Dubical,Colonia
+31,Yucatán,101,Umán,NULL,Urbano,97390,"El Oasis",Fraccionamiento
+31,Yucatán,101,Umán,NULL,Semiurbano,97390,Guadalupe,Colonia
+31,Yucatán,101,Umán,NULL,Urbano,97390,"Jardines de Umán",Colonia
+31,Yucatán,101,Umán,NULL,Urbano,97390,"Las Perlas de Umán",Fraccionamiento
+31,Yucatán,101,Umán,NULL,Urbano,97390,"Los Arcos II",Fraccionamiento
+31,Yucatán,101,Umán,NULL,Semiurbano,97390,Mejorada,Colonia
+31,Yucatán,101,Umán,NULL,Semiurbano,97390,"Miguel Hidalgo",Colonia
+31,Yucatán,101,Umán,NULL,Urbano,97390,"San Carlos Umán",Colonia
+31,Yucatán,101,Umán,NULL,Rural,97390,"San Cosme",Colonia
+31,Yucatán,101,Umán,NULL,Semiurbano,97390,"San Francisco",Colonia
+31,Yucatán,101,Umán,NULL,Semiurbano,97390,"San Lázaro",Colonia
+31,Yucatán,101,Umán,NULL,Semiurbano,97390,"San Lorenzo",Fraccionamiento
+31,Yucatán,101,Umán,NULL,Rural,97390,"San Salvador",Colonia
+31,Yucatán,101,Umán,NULL,Semiurbano,97390,"Santa Elena",Colonia
+31,Yucatán,101,Umán,NULL,Semiurbano,97390,Santana,Colonia
+31,Yucatán,101,Umán,NULL,Rural,97390,Soledad,Colonia
+31,Yucatán,101,Umán,NULL,Rural,97392,Itzincab,Fraccionamiento
+31,Yucatán,101,Umán,NULL,Urbano,97392,"Piedra de Agua",Fraccionamiento
+31,Yucatán,101,Umán,NULL,Rural,97393,Dzibikak,Pueblo
+31,Yucatán,101,Umán,NULL,Rural,97393,Oxcum,Pueblo
+31,Yucatán,101,Umán,NULL,Rural,97394,Petecbiltun,Pueblo
+31,Yucatán,101,Umán,NULL,Rural,97394,Tebec,Pueblo
+31,Yucatán,101,Umán,NULL,Rural,97394,Ticimul,Pueblo
+31,Yucatán,101,Umán,NULL,Rural,97394,Xtepen,Pueblo
+31,Yucatán,101,Umán,NULL,Rural,97395,Hotzuc,Pueblo
+31,Yucatán,101,Umán,NULL,Rural,97396,Dzich,Pueblo
+31,Yucatán,101,Umán,NULL,Rural,97396,Sahcaba,Pueblo
+31,Yucatán,101,Umán,NULL,Rural,97396,Sambula,Pueblo
+31,Yucatán,101,Umán,NULL,Rural,97396,"San Antonio Mulix",Pueblo
+31,Yucatán,101,Umán,NULL,Rural,97396,Xtohil,Pueblo
+31,Yucatán,101,Umán,NULL,Rural,97396,Yaxcopoil,Hacienda
+31,Yucatán,101,Umán,NULL,Rural,97397,Bolon,Pueblo
+31,Yucatán,101,Umán,NULL,Rural,97397,Oxholon,Pueblo
+31,Yucatán,101,Umán,NULL,Rural,97397,Poxila,Pueblo
+31,Yucatán,101,Umán,NULL,Rural,97397,"San Antonio Chun",Pueblo
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97780,"Valladolid Centro",Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97782,Candelaria,Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97782,"Cervera Pacheco",Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97782,"Fernando Novelo",Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97782,"Flor Campestre",Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97782,"Jardines Del Oriente",Fraccionamiento
+31,Yucatán,102,Valladolid,Valladolid,Urbano,97782,"Las Palmas",Fraccionamiento
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97782,Lol-beh,Fraccionamiento
+31,Yucatán,102,Valladolid,Valladolid,Urbano,97782,"Los Cipreses",Fraccionamiento
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97782,"Maximiliano R Bonilla",Fraccionamiento
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97782,Militar,Colonia
+31,Yucatán,102,Valladolid,Valladolid,Urbano,97782,Orquídeas,Fraccionamiento
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97782,"Residencial Campestre",Colonia
+31,Yucatán,102,Valladolid,Valladolid,Rural,97782,"San Isidro",Fraccionamiento
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97782,"Santa Ana",Fraccionamiento
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97782,"Santa Ana",Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97782,"Santa Cruz",Fraccionamiento
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97782,"Santa Lucia",Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97783,"Leonardo R A",Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97783,Militar,"Unidad habitacional"
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97783,Oaxaqueña,Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97783,Sacyabil,Fraccionamiento
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97783,"San Antonio",Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97783,"San Francisco",Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97783,"San Juan",Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97783,"San Vicente",Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97783,Santana,Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97783,"Unidad Habitacional",Fraccionamiento
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97783,Xlapac,Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97784,Bacalar,Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97784,Capules,Fraccionamiento
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97784,Colonos,Fraccionamiento
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97784,"Cruz Verde",Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97784,"Emiliano Zapata",Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97784,Flamboyanes,Fraccionamiento
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97784,"Puesta Del Sol",Fraccionamiento
+31,Yucatán,102,Valladolid,Valladolid,Urbano,97784,"Residencial del Bosque",Fraccionamiento
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97784,"San Carlos",Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97784,Sisal,Colonia
+31,Yucatán,102,Valladolid,Valladolid,Semiurbano,97784,Xcorazon,Fraccionamiento
+31,Yucatán,102,Valladolid,NULL,Rural,97785,Batun,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97785,Kampepén,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97785,Kanxoc,Ranchería
+31,Yucatán,102,Valladolid,NULL,Rural,97785,Xocen,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97786,Dzoc,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97786,"Sidra Kin",Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97786,Timas,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97787,Chamul,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97787,Dzitox,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97787,Kinich,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97787,Nohsuytun,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97787,"San Silverio",Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97787,"Santa Cruz",Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97787,Villahermosa,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97787,Xcatic,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97787,Xuilib,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97787,Yaxche,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97790,Pixoy,Ranchería
+31,Yucatán,102,Valladolid,NULL,Rural,97790,Popola,Ranchería
+31,Yucatán,102,Valladolid,NULL,Rural,97793,Chauyudzonot,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97793,"Dzodzil Chen",Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97793,Tahmuy,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97793,Tepakan,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97793,Tesoco,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97793,Ticuch,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97793,Yunchen,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97794,Chiople,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97794,"San Andres Bac",Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97794,Yalcoba,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97795,"Cenote Keken",Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97795,Ebtun,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97795,Tixhualatun,Pueblo
+31,Yucatán,102,Valladolid,NULL,Rural,97795,Yalcon,Pueblo
+31,Yucatán,103,Xocchel,NULL,Rural,97566,Xocchel,Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97920,Yaxcaba,Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97922,Yokdzonot,Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97923,"Cenote Xtohil",Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97923,"Libre Unión",Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97924,"Cenote Aban",Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97924,"Chen Dzonot",Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97924,Chimay,Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97924,Popola,Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97924,"San Marcos",Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97924,Xmexil,Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97924,Yaxuna,Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97924,"Z.A. Yaxuna",Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97925,"Huechen Balam",Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97925,Kancabzdonot,Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97925,"Sahcaba Nuevo",Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97925,"San Pedro",Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97925,"Santa Maria",Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97925,"Santo Domingo",Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97925,Tiholop,Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97925,"Yokdzonot Hu",Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97926,Cacalchen,Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97926,Canakom,Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97927,Tahdzibichen,Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97927,Tixcacaltuyub,Pueblo
+31,Yucatán,104,Yaxcabá,NULL,Rural,97929,Tinuncah,Ranchería
+31,Yucatán,105,Yaxkukul,NULL,Rural,97348,Yaxkukul,Pueblo
+31,Yucatán,106,Yobaín,NULL,Rural,97425,Yobain,Pueblo
+31,Yucatán,106,Yobaín,NULL,Rural,97426,Chabihau,Pueblo
+31,Yucatán,106,Yobaín,NULL,Rural,97426,"San Genaro",Pueblo
+31,Yucatán,106,Yobaín,NULL,Rural,97426,"Santa Ursula",Pueblo

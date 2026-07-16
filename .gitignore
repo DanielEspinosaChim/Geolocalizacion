@@ -17,3 +17,30 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+
+# Logs
+*.log
+server.log
+server_dev.log
+server_err.log
+firebase-debug.log
+
+# Cache y uploads temporales
+cache/
+data/uploads/
+data/procesado/candidatos_slim_cache.json.gz
+data/data/
+
+# Base de datos binaria (usar migraciones en su lugar)
+data/procesado/negocios.db
+
+# Claude — config local de máquina
+.claude/settings.local.json
+.claude/settings.json
+
+# Graphify — archivos internos generados
+graphify-out/.graphify_*
+graphify-out/cache/
+graphify-out/cost.json
+graphify-out/manifest.json
+graphify-out/20*/

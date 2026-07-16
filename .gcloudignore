@@ -1,0 +1,31 @@
+#!include:.gitignore
+!service_account.json
+
+# Archivos grandes que no van al contenedor
+data/raw/
+data/uploads/
+data/data/
+data/procesado/denue_merida.csv
+data/procesado/denue_merida_limpio.csv
+data/procesado/negocios.db
+data/procesado/modelo_randomforest.pkl
+data/procesado/modelo_xgboost.pkl
+data/procesado/candidatos_informales.csv
+data/procesado/candidatos_con_colonia.csv
+data/procesado/features_zonas.csv
+
+# Herramientas de desarrollo
+graphify-out/
+cache/
+*.log
+server.log
+server_err.log
+firebase-debug.log
+
+# Scripts locales
+fix_urls.py
+migrate_uploads.py
+cruce.py
+descargar_negocios_osm.py
+reporte_geolocalizacion.md
+
