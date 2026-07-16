@@ -6,6 +6,7 @@ COPY requirements.prod.txt .
 RUN pip install --no-cache-dir -r requirements.prod.txt
 
 COPY app.py .
+COPY backend/ backend/
 COPY service_account.json .
 COPY frontend/ frontend/
 COPY data/procesado/predicciones_zonas.csv data/procesado/

@@ -25,7 +25,7 @@ cargar precios desde facturas.
 
 ### F2 — Escaneo de facturas con IA
 - El usuario sube foto de la cámara o galería
-- Backend manda la imagen a Claude Vision (claude-haiku-4-5)
+- Backend manda la imagen a  Gemini 3.5-flash
 - La IA extrae productos y precios en JSON estructurado
 - Mapeo automático al catálogo existente (fuzzy matching)
 - Modal de confirmación con semáforo: verde = seguro, amarillo = revisar, rojo = no encontrado
