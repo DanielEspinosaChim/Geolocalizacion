@@ -1,8 +1,10 @@
 import { Plus } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Sortable from 'sortablejs';
 import { Button, Modal, ModalFooter, TextField, toast } from '@shared/ui';
 import { usePlantillaMutations } from '../api/usePlantillas';
-import { nuevaKeyCampo, slugify, type Campo, type Plantilla } from '../model/plantilla';
+import { useReordenCampos } from '../api/useReordenCampos';
+import { slugify, type Campo, type Plantilla } from '../model/plantilla';
 import { CampoEditor } from './CampoEditor';
 
 interface EditorPlantillaProps {
@@ -10,48 +12,13 @@ interface EditorPlantillaProps {
   onClose: () => void;
 }
 
-function moverEnArray<T>(arr: T[], from: number, dir: -1 | 1): T[] {
-  const to = from + dir;
-  if (to < 0 || to >= arr.length) return arr;
-  const copia = [...arr];
-  [copia[from], copia[to]] = [copia[to], copia[from]];
-  return copia;
-}
-
-/** Saca el elemento de `from` y lo inserta en `to` (arrastrar y soltar). */
-function reubicar<T>(arr: T[], from: number, to: number): T[] {
-  if (from === to || to < 0 || to >= arr.length) return arr;
-  const copia = [...arr];
-  const [movido] = copia.splice(from, 1);
-  if (movido === undefined) return arr;
-  copia.splice(to, 0, movido);
-  return copia;
-}
-
 export function EditorPlantilla({ plantilla, onClose }: EditorPlantillaProps) {
   const [nombre, setNombre] = useState(plantilla?.nombre ?? '');
   const [descripcion, setDescripcion] = useState(plantilla?.descripcion ?? '');
-  const [campos, setCampos] = useState<Campo[]>(plantilla?.campos ?? []);
-  const [arrastrado, setArrastrado] = useState<number | null>(null);
-  const origen = useRef<number | null>(null);
+  const { campos, movidoKey, actualizar, agregar, quitar, mover, reordenar } = useReordenCampos(
+    plantilla?.campos ?? [],
+  );
   const { guardar } = usePlantillaMutations();
-
-  function actualizar(i: number, patch: Partial<Campo>) {
-    setCampos((prev) => prev.map((c, j) => (j === i ? { ...c, ...patch } : c)));
-  }
-
-  function agregar() {
-    setCampos((prev) => [...prev, { key: nuevaKeyCampo(), label: '', tipo: 'texto' }]);
-  }
-
-  /** Al pasar por encima de otra tarjeta, se reordena en vivo. */
-  function alEntrar(i: number) {
-    if (origen.current === null || origen.current === i) return;
-    const desde = origen.current;
-    setCampos((prev) => reubicar(prev, desde, i));
-    origen.current = i;
-    setArrastrado(i);
-  }
 
   function submit() {
     if (!nombre.trim()) {
@@ -94,19 +61,11 @@ export function EditorPlantilla({ plantilla, onClose }: EditorPlantillaProps) {
 
         <ListaCampos
           campos={campos}
-          arrastrado={arrastrado}
+          movidoKey={movidoKey}
           onActualizar={actualizar}
-          onMover={(i, dir) => setCampos((prev) => moverEnArray(prev, i, dir))}
-          onQuitar={(i) => setCampos((prev) => prev.filter((_, j) => j !== i))}
-          onDragStart={(i) => {
-            origen.current = i;
-            setArrastrado(i);
-          }}
-          onDragEnter={alEntrar}
-          onDragEnd={() => {
-            origen.current = null;
-            setArrastrado(null);
-          }}
+          onMover={mover}
+          onQuitar={quitar}
+          onReordenar={reordenar}
         />
 
         <ModalFooter>
@@ -122,50 +81,71 @@ export function EditorPlantilla({ plantilla, onClose }: EditorPlantillaProps) {
   );
 }
 
-/** Las tarjetas de campos, reordenables arrastrando o con las flechas. */
+/** Las tarjetas de campos, reordenables arrastrando (SortableJS) o con flechas. */
 function ListaCampos({
   campos,
-  arrastrado,
+  movidoKey,
   onActualizar,
   onMover,
   onQuitar,
-  onDragStart,
-  onDragEnter,
-  onDragEnd,
+  onReordenar,
 }: {
   campos: Campo[];
-  arrastrado: number | null;
+  movidoKey: string | null;
   onActualizar: (i: number, patch: Partial<Campo>) => void;
   onMover: (i: number, dir: -1 | 1) => void;
   onQuitar: (i: number) => void;
-  onDragStart: (i: number) => void;
-  onDragEnter: (i: number) => void;
-  onDragEnd: () => void;
+  onReordenar: (from: number, to: number) => void;
 }) {
-  if (campos.length === 0) {
-    return (
-      <p className="rounded-card border border-dashed border-border p-5 text-center text-sm text-fg-subtle">
-        Sin campos aún
-      </p>
-    );
-  }
+  const ref = useRef<HTMLDivElement>(null);
+  // Ref al callback para crear Sortable UNA sola vez sin recrearlo en cada render.
+  const onReordenarRef = useRef(onReordenar);
+  onReordenarRef.current = onReordenar;
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const sortable = Sortable.create(el, {
+      // Se arrastra desde cualquier parte de la card MENOS los controles.
+      filter: 'input, textarea, button, a, select',
+      preventOnFilter: false, // los clics en inputs/botones siguen funcionando
+      animation: 160,
+      forceFallback: true, // clon propio que sí podemos inclinar por CSS
+      fallbackClass: 'campo-arrastre',
+      ghostClass: 'campo-fantasma',
+      onEnd: (e) => {
+        const { oldIndex, newIndex, item } = e;
+        if (oldIndex == null || newIndex == null || oldIndex === newIndex) return;
+        // SortableJS ya movió el nodo en el DOM; lo revertimos para que React sea
+        // la única fuente de orden (si no, choca con su reconciliación y truena).
+        el.removeChild(item);
+        el.insertBefore(item, el.children[oldIndex] ?? null);
+        onReordenarRef.current(oldIndex, newIndex);
+      },
+    });
+    return () => sortable.destroy();
+  }, []);
+
   return (
-    <div className="scrollbar-slim grid max-h-80 gap-2 overflow-y-auto">
-      {campos.map((campo, i) => (
-        <CampoEditor
-          key={campo.key}
-          campo={campo}
-          esPrimero={i === 0}
-          esUltimo={i === campos.length - 1}
-          arrastrando={arrastrado === i}
-          onChange={(patch) => onActualizar(i, patch)}
-          onMover={(dir) => onMover(i, dir)}
-          onQuitar={() => onQuitar(i)}
-          onDragStart={() => onDragStart(i)}
-          onDragEnter={() => onDragEnter(i)}
-          onDragEnd={onDragEnd}
-        />
-      ))}
+    <div ref={ref} className="scrollbar-slim grid max-h-80 gap-2 overflow-y-auto">
+      {campos.length === 0 ? (
+        <p className="rounded-card border border-dashed border-border p-5 text-center text-sm text-fg-subtle">
+          Sin campos aún
+        </p>
+      ) : (
+        campos.map((campo, i) => (
+          <CampoEditor
+            key={campo.key}
+            campo={campo}
+            esPrimero={i === 0}
+            esUltimo={i === campos.length - 1}
+            recienMovido={movidoKey === campo.key}
+            onChange={(patch) => onActualizar(i, patch)}
+            onMover={(dir) => onMover(i, dir)}
+            onQuitar={() => onQuitar(i)}
+          />
+        ))
+      )}
     </div>
   );
 }

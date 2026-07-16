@@ -61,6 +61,13 @@ export function useControladorRuta() {
     campanaOrigen,
     ...seleccion,
     calcularColonia: (colonia: string, limite: number) => calcularColonia.mutate({ colonia, limite }),
+    // Limpiar debe borrar TAMBIÉN la ruta calculada (distancia/tiempo), no solo
+    // la selección: reseteamos ambas mutaciones para que RutaInfo desaparezca.
+    limpiar: () => {
+      seleccion.limpiar();
+      calcular.reset();
+      calcularColonia.reset();
+    },
     onParadaClick,
     cerrarParada: () => setParada(null),
     registrarVisita,

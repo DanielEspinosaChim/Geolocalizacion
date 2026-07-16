@@ -59,7 +59,7 @@ export function CampanasList({ esTecnico, uid, onAbrir }: CampanasListProps) {
           title={esTecnico ? 'No tienes campañas asignadas aún.' : 'No hay campañas aún.'}
         />
       ) : (
-        <div className="anim-stagger grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="anim-stagger grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {campanas.map((c) => (
             <CampanaCard key={c.id} campana={c} onClick={() => onAbrir(c.id)} />
           ))}

@@ -54,10 +54,10 @@ export function CanastaAcciones({
       </div>
 
       <div className="flex items-center gap-2">
-        <Button variant="secondary" size="sm" onClick={onAgregar}>
+        <Button variant="secondary" onClick={onAgregar}>
           <Plus className="h-4 w-4" aria-hidden="true" /> Producto
         </Button>
-        <Button size="sm" loading={escaneando} onClick={() => fileRef.current?.click()}>
+        <Button loading={escaneando} onClick={() => fileRef.current?.click()}>
           <Camera className="h-4 w-4" aria-hidden="true" /> Escanear factura
         </Button>
         <input

@@ -1,4 +1,4 @@
-import { AlertTriangle } from 'lucide-react';
+import { AlertTriangle, MapPin } from 'lucide-react';
 import { Badge, Card } from '@shared/ui';
 import { giroLabel } from '@features/candidatos';
 import { PREDICCION_META, type Prediccion } from '../model/prediccion';
@@ -26,6 +26,13 @@ export function PrediccionResultado({ prediccion }: { prediccion: Prediccion }) 
         <>
           <div className="font-display font-bold">Potencial {prediccion.zona_nivel}</div>
           <div className="text-xs text-fg-muted">Probabilidad: {prediccion.zona_score}%</div>
+          {prediccion.lat != null && prediccion.lng != null ? (
+            <div className="flex items-center justify-center gap-1 text-2xs text-fg-subtle">
+              <MapPin className="h-3 w-3" aria-hidden="true" />
+              Centro de zona: {prediccion.lat.toFixed(5)}, {prediccion.lng.toFixed(5)}
+              {prediccion.dist_zona_m != null ? ` · a ${prediccion.dist_zona_m} m` : ''}
+            </div>
+          ) : null}
           {prediccion.estimado ? (
             <div className="flex items-center justify-center gap-1 text-2xs text-warning">
               <AlertTriangle className="h-3 w-3" aria-hidden="true" /> Estimación extrapolada por ML

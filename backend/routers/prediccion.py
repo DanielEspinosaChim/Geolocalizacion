@@ -22,6 +22,8 @@ class PrediccionZonaResponse(BaseModel):
     zona_score: int = Field(..., description="Score de la zona según el modelo ML (0–100). Más alto = más informalidad potencial")
     zona_nivel: str = Field(..., description="Nivel de riesgo: 'Bajo' | 'Medio' | 'Alto' | 'Muy Alto'")
     dist_zona_m: float = Field(..., description="Distancia en metros al centro de la zona ML más cercana")
+    lat: float = Field(..., description="Latitud del centro de la zona ML")
+    lng: float = Field(..., description="Longitud del centro de la zona ML")
 
 class SinDatosResponse(BaseModel):
     status: str = Field("sin_datos", description="No hay negocios ni zonas con datos en ese punto")
@@ -132,6 +134,8 @@ def predecir(
                 "zona_score":  int(z.score_100),
                 "zona_nivel":  str(z.nivel),
                 "dist_zona_m": round(float(dz[idx_z]), 1),
+                "lat":         round(float(z.lat_centro), 6),
+                "lng":         round(float(z.lon_centro), 6),
             }
         return {"status": "sin_datos"}
 

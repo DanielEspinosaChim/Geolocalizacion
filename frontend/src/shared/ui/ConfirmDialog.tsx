@@ -55,12 +55,11 @@ export function ConfirmProvider({ children }: PropsWithChildren) {
         width="sm"
       >
         <div className="mt-2 flex justify-end gap-2">
-          <Button variant="secondary" size="sm" onClick={() => settle(false)}>
+          <Button variant="secondary" onClick={() => settle(false)}>
             {options?.cancelLabel ?? 'Cancelar'}
           </Button>
           <Button
             variant={options?.tone === 'danger' ? 'danger' : 'primary'}
-            size="sm"
             onClick={() => settle(true)}
           >
             {options?.confirmLabel ?? 'Confirmar'}

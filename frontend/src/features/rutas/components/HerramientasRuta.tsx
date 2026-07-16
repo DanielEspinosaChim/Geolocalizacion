@@ -185,13 +185,11 @@ function BuscadorNegocios({
         />
       }
     >
-      <RutaLista
-        className="-mx-3 -mb-3"
-        candidatos={candidatos}
-        q={q}
-        seleccion={seleccion}
-        onToggle={onToggle}
-      />
+      {/* Alto acotado con scroll propio: al escribir, la lista no empuja el
+          resto del panel ni hace "crecer" el buscador. */}
+      <div className="scrollbar-slim -mx-3 -mb-3 max-h-80 overflow-y-auto">
+        <RutaLista candidatos={candidatos} q={q} seleccion={seleccion} onToggle={onToggle} />
+      </div>
     </PanelSection>
   );
 }

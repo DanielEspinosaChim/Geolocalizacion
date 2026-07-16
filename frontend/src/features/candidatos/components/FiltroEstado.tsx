@@ -1,4 +1,4 @@
-import { Chip } from '@shared/ui';
+import { Button } from '@shared/ui';
 import { TIPO_LABELS, TIPOS, type Tipo } from '../model/candidato';
 import { PuntoTipo } from './PuntoTipo';
 
@@ -8,20 +8,28 @@ interface FiltroEstadoProps {
 }
 
 /**
- * Chips de formalización. Volver a pulsar el chip activo quita el filtro.
- * El chip activo se pinta con el color de marca secundario (ocre); el estado lo
- * distingue el punto de color, que replica el del marcador en el mapa.
+ * Filtro de formalización con el mismo formato de botón que los controles de
+ * Reportes ("Mi ubicación" / "Clic en mapa"): botones de ancho igual en rejilla.
+ * El activo se rellena con el acento de marca (primary = ocre); el punto de
+ * color replica el del marcador del mapa. Volver a pulsarlo quita el filtro.
  */
 export function FiltroEstado({ valor, onChange }: FiltroEstadoProps) {
   return (
-    <div className="flex gap-1.5" role="group" aria-label="Filtrar por formalización">
+    <div className="grid grid-cols-3 gap-2" role="group" aria-label="Filtrar por formalización">
       {TIPOS.map((t) => {
         const activo = valor === t;
         return (
-          <Chip key={t} tone="secondary" active={activo} onClick={() => onChange(activo ? null : t)}>
+          <Button
+            key={t}
+            type="button"
+            variant={activo ? 'primary' : 'secondary'}
+            size="sm"
+            aria-pressed={activo}
+            onClick={() => onChange(activo ? null : t)}
+          >
             <PuntoTipo tipo={t} />
             {TIPO_LABELS[t]}
-          </Chip>
+          </Button>
         );
       })}
     </div>

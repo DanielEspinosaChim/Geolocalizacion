@@ -1,5 +1,5 @@
 import { ChevronDown, ChevronUp, GripVertical, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Card, Chip, IconButton } from '@shared/ui';
 import { CAMPO_TIPO_LABELS, CAMPO_TIPOS, type Campo } from '../model/plantilla';
 
@@ -7,42 +7,39 @@ interface CampoEditorProps {
   campo: Campo;
   esPrimero: boolean;
   esUltimo: boolean;
-  arrastrando: boolean;
+  /** Se acaba de reordenar con las flechas: dispara el pulso de realce. */
+  recienMovido: boolean;
   onChange: (patch: Partial<Campo>) => void;
   onMover: (dir: -1 | 1) => void;
   onQuitar: () => void;
-  /** Arrastrar y soltar para reordenar con el ratón. */
-  onDragStart: () => void;
-  onDragEnter: () => void;
-  onDragEnd: () => void;
 }
 
 export function CampoEditor({
   campo,
   esPrimero,
   esUltimo,
-  arrastrando,
+  recienMovido,
   onChange,
   onMover,
   onQuitar,
-  onDragStart,
-  onDragEnter,
-  onDragEnd,
 }: CampoEditorProps) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  // Al reordenar con flechas, si el campo queda fuera de vista el scroll no lo
+  // seguía; lo traemos a la vista dentro del contenedor con scroll.
+  useEffect(() => {
+    if (recienMovido) ref.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }, [recienMovido]);
+
   return (
+    // `cursor-grab` en toda la card: se arrastra desde cualquier parte menos los
+    // controles (SortableJS los excluye por `filter`). Los inputs/botones
+    // conservan su propio cursor.
     <Card
       raised
-      draggable
-      onDragStart={onDragStart}
-      onDragEnter={onDragEnter}
-      onDragEnd={onDragEnd}
-      // Sin preventDefault el navegador no permite soltar sobre este elemento.
-      onDragOver={(e: React.DragEvent) => e.preventDefault()}
-      className={`grid cursor-grab gap-2 p-3 active:cursor-grabbing ${
-        arrastrando ? 'opacity-50 ring-1 ring-primary' : ''
-      }`}
+      className={`grid cursor-grab gap-2 p-3 active:cursor-grabbing ${recienMovido ? 'anim-nudge' : ''}`}
     >
-      <div className="flex items-center gap-1.5">
+      <div ref={ref} className="flex items-center gap-1.5">
         <GripVertical className="h-4 w-4 shrink-0 text-fg-subtle" aria-hidden="true" />
         {/* Las flechas se quedan: arrastrar no es accesible por teclado. */}
         <div className="flex flex-col">
@@ -79,6 +76,9 @@ export function CampoEditor({
             key={t}
             tone="primary"
             active={campo.tipo === t}
+            // twMerge no reconoce text-xs2/text-2xs (tokens custom) como clases en
+            // conflicto, así que no descarta la del componente base: forzamos con !.
+            className="!text-2xs"
             onClick={() => onChange({ tipo: t, ...(t !== 'opciones' ? { opciones: null } : {}) })}
           >
             {CAMPO_TIPO_LABELS[t]}

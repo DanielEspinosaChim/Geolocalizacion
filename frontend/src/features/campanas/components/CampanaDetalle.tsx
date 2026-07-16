@@ -85,13 +85,18 @@ export function CampanaDetalle({
         onEliminar={() => void borrar()}
       />
 
-      {/* En su propia fila: cerrado es un botón, abierto un panel a todo el ancho. */}
+      {/* En su propia fila: cerrado es un botón (a la derecha), abierto un panel. */}
       {!esTecnico ? <AgregarNegocios campanaId={campanaId} yaEnCampana={negocios} /> : null}
 
       {esTecnico ? (
         <ChecklistTecnico campanaId={campanaId} negocios={negocios} onRegistrar={setVisita} />
       ) : (
-        <NegociosGrid campanaId={campanaId} negocios={negocios} onRegistrar={setVisita} />
+        <NegociosGrid
+          campanaId={campanaId}
+          negocios={negocios}
+          finalizada={campana.status === 'cerrada'}
+          onRegistrar={setVisita}
+        />
       )}
 
       {visita ? (
@@ -132,16 +137,16 @@ function Cabecera({
   return (
     <header className="grid gap-3">
       <div className="flex items-center gap-3">
-        <Button variant="ghost" size="sm" onClick={onVolver}>
+        <Button variant="ghost" onClick={onVolver}>
           <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Campañas
         </Button>
         <div className="ml-auto flex gap-2">
           {/* El botón alterna según el estado, como en el legacy. */}
-          <Button variant="ghost" size="sm" onClick={cerrada ? onReactivar : onFinalizar}>
-            {cerrada ? 'Reactivar' : 'Finalizar'}
+          <Button variant="secondary" onClick={cerrada ? onReactivar : onFinalizar}>
+            {cerrada ? 'Reactivar campaña' : 'Finalizar campaña'}
           </Button>
           {!esTecnico ? (
-            <Button variant="danger" size="sm" onClick={onEliminar}>
+            <Button variant="danger" onClick={onEliminar}>
               Eliminar
             </Button>
           ) : null}
@@ -149,7 +154,9 @@ function Cabecera({
       </div>
 
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-        <h1 className="font-display text-2xl font-extrabold text-fg">{campana.nombre}</h1>
+        <h1 className="font-display text-3xl font-extrabold tracking-tight text-fg">
+          {campana.nombre}
+        </h1>
         <Badge tone={meta.tone}>{meta.label}</Badge>
         <span className="text-xs2 text-fg-muted">
           {campana.colonia ? `${campana.colonia} · ` : ''}
@@ -159,14 +166,14 @@ function Cabecera({
       </div>
 
       <div className="flex flex-wrap items-center gap-2">
-        <Button variant="secondary" size="sm" onClick={onVerRuta}>
+        <Button variant="secondary" onClick={onVerRuta}>
           <Route className="h-4 w-4" aria-hidden="true" /> Ver ruta
         </Button>
-        <Button variant="secondary" size="sm" onClick={onReporte}>
+        <Button variant="secondary" onClick={onReporte}>
           <FileText className="h-4 w-4" aria-hidden="true" /> Exportar reporte
         </Button>
         {!esTecnico ? (
-          <Button variant="secondary" size="sm" onClick={onPlantillas}>
+          <Button variant="secondary" onClick={onPlantillas}>
             <LayoutTemplate className="h-4 w-4" aria-hidden="true" /> Plantillas
           </Button>
         ) : null}

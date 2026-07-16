@@ -27,10 +27,12 @@ export function PageHeader({ eyebrow, title, description, actions }: PageHeaderP
     <header className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
       <div className="grid min-w-0 gap-2">
         {eyebrow ? (
-          <p className="text-2xs font-bold uppercase tracking-widest text-secondary">{eyebrow}</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-secondary">{eyebrow}</p>
         ) : null}
-        <h1 className="font-display text-3xl font-extrabold text-fg">{title}</h1>
-        {description ? <p className="text-sm text-fg-muted">{description}</p> : null}
+        <h1 className="font-display text-3xl font-extrabold tracking-tight text-fg sm:text-4xl">
+          {title}
+        </h1>
+        {description ? <p className="max-w-2xl text-base text-fg-muted">{description}</p> : null}
       </div>
       {actions ? <div className="flex shrink-0 items-center gap-2">{actions}</div> : null}
     </header>

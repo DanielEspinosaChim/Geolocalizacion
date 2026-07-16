@@ -11,6 +11,9 @@ export const prediccionSchema = z.object({
   zona_score: z.number().nullish(),
   dist_zona_m: z.number().nullish(),
   estimado: z.boolean().nullish(),
+  /** Centro de la zona ML (lo devuelve el backend para la respuesta 'zona'). */
+  lat: z.number().nullish(),
+  lng: z.number().nullish(),
 });
 export type Prediccion = z.infer<typeof prediccionSchema>;
 

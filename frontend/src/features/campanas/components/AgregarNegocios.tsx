@@ -33,9 +33,11 @@ export function AgregarNegocios({ campanaId, yaEnCampana }: AgregarNegociosProps
 
   if (!abierto) {
     return (
-      <Button full onClick={() => setAbierto(true)}>
-        <Plus className="h-4 w-4" aria-hidden="true" /> Agregar negocio
-      </Button>
+      <div className="flex justify-end">
+        <Button onClick={() => setAbierto(true)}>
+          <Plus className="h-4 w-4" aria-hidden="true" /> Agregar negocio
+        </Button>
+      </div>
     );
   }
 

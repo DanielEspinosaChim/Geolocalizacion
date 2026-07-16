@@ -7,8 +7,8 @@ import type { PropsWithChildren } from 'react';
 const ANCHOS = {
   /** Tablas, rejillas de tarjetas, cualquier cosa que gane con el espacio. */
   full: 'max-w-none',
-  /** Formularios y paneles densos. */
-  wide: 'max-w-6xl',
+  /** Formularios y paneles densos: ancho generoso para no verse comprimido. */
+  wide: 'max-w-7xl',
   /** Documentos con párrafos largos (metodologías, informes). */
   prose: 'max-w-4xl',
 } as const;
@@ -31,7 +31,9 @@ interface PageProps extends PropsWithChildren {
 export function Page({ width = 'full', className = '', children }: PageProps) {
   return (
     <div className="scrollbar-slim h-full overflow-y-auto">
-      <div className={`mx-auto w-full ${ANCHOS[width]} p-4 sm:p-6 ${className}`}>{children}</div>
+      <div className={`mx-auto w-full ${ANCHOS[width]} p-4 sm:p-6 lg:p-8 ${className}`}>
+        {children}
+      </div>
     </div>
   );
 }
