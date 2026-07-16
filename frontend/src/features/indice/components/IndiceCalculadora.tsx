@@ -1,14 +1,19 @@
-import { BarChart3 } from 'lucide-react';
+import { ArrowDown, ArrowUp, BarChart3 } from 'lucide-react';
 import { useMemo } from 'react';
 import { formatNumero } from '@shared/lib/format';
 import { Card } from '@shared/ui';
 import { tipoDe, useCandidatos } from '@features/candidatos';
-import { recalcularIndice, type Indice } from '../model/indice';
+import { recalcularIndice, type EscenarioVivo, type Indice } from '../model/indice';
 
 /**
- * Recalcula el índice con los negocios que el equipo ya marcó en el mapa como
- * formales o en proceso. Los conteos salen del dataset de candidatos ya cargado,
- * así que la cifra se mueve en cuanto alguien reclasifica un negocio.
+ * "Estimación viva": recalcula el multiplier method con los negocios que el
+ * equipo ya marcó como formales o en proceso en el mapa (Firestore). El
+ * Chapman no se mueve — solo depende de Google Maps y OSM, no de las
+ * validaciones manuales — así que se muestra como ancla fija de referencia.
+ *
+ * Un solo color de marca para todo (sin rainbow): el Chapman se distingue por
+ * ser más tenue (fijo, no reacciona a los datos de campo), no por un tono
+ * distinto.
  */
 export function IndiceCalculadora({ indice }: { indice: Indice }) {
   const { data: candidatos = [] } = useCandidatos();
@@ -29,97 +34,130 @@ export function IndiceCalculadora({ indice }: { indice: Indice }) {
     [indice, formales, enProceso],
   );
 
-  const signo = r.deltaPp > 0 ? '+' : '';
-
   return (
-    <Card raised className="grid gap-4 p-6">
+    <Card raised className="grid gap-5 p-6">
       <header className="grid gap-1">
-        <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
-          <BarChart3 className="h-4 w-4" aria-hidden="true" /> Estimación actualizada
-        </h3>
-        <p className="text-2xs text-fg-subtle">
-          Se recalcula automáticamente con los negocios que hayas marcado como formal o en proceso
-          en el mapa.
+        <h2 className="flex items-center gap-2 text-2xs font-bold uppercase tracking-widest text-primary">
+          <BarChart3 className="h-4 w-4" aria-hidden="true" /> Estimación viva · validaciones de campo
+        </h2>
+        <p className="text-xs leading-relaxed text-fg-muted">
+          Se recalcula con los candidatos marcados en el mapa (Firestore). El{' '}
+          <b className="text-fg">Chapman no cambia</b> — solo depende de Google Maps y OSM, no de las
+          validaciones manuales.
         </p>
       </header>
 
       <div className="grid gap-3 sm:grid-cols-3">
-        <Barra
-          label="Informales obs."
-          valor={formatNumero(r.ninfObs)}
-          base={`base: ${formatNumero(r.ninfObsBase)}`}
-          pct={pctDe(r.ninfObs, r.ninfObsBase)}
-          color="bg-danger"
+        <Conteo label="Informales obs." valor={r.ninfObs} nota="Firestore" />
+        <Conteo label="Confirmados formales" valor={formales} nota="validados campo" />
+        <Conteo label="En proceso" valor={enProceso} nota="pendientes" />
+      </div>
+
+      <div className="grid gap-2.5">
+        <FilaEscenario
+          etiqueta="Chapman · Captura-Recaptura"
+          detalle="Fijo — no usa validaciones de campo (solo GMaps/OSM)"
+          pct={r.chapmanPct}
+          notaDerecha="ancla · sin supuestos"
+          fijo
         />
-        <Barra
-          label="N inf. estimado"
-          valor={formatNumero(r.ninfEstimado)}
-          base={`base: ${formatNumero(r.ninfEstimadoBase)}`}
-          pct={pctDe(r.ninfEstimado, r.ninfEstimadoBase)}
-          color="bg-warning"
+        <FilaEscenario
+          etiqueta={
+            <>
+              Multiplicador · α = 0.65 <span className="font-normal text-fg-subtle">(central)</span>
+            </>
+          }
+          detalle={`${formatNumero(r.ninfObs)} inf. obs. × factor → ${formatNumero(r.central.nInfEstimado)} est.`}
+          escenario={r.central}
         />
-        <Barra
-          label="Índice"
-          valor={`${r.indicePct}%`}
-          base={`${signo}${r.deltaPp}pp vs base`}
-          pct={pctDe(r.indicePct, r.indiceBasePct)}
-          color="bg-success"
+        <FilaEscenario
+          etiqueta={
+            <>
+              Multiplicador · α = 0.40{' '}
+              <span className="font-normal text-fg-subtle">(límite superior)</span>
+            </>
+          }
+          detalle={`${formatNumero(r.ninfObs)} inf. obs. × factor → ${formatNumero(r.limiteSuperior.nInfEstimado)} est.`}
+          escenario={r.limiteSuperior}
         />
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
-        <Conteo label="Formales" valor={formales} />
-        <Conteo label="En proceso" valor={enProceso} />
-      </div>
-
-      <p className="text-2xs leading-relaxed text-fg-muted">
-        Con <b className="text-fg">{formatNumero(formales)}</b> formales y{' '}
-        <b className="text-fg">{formatNumero(enProceso)}</b> en proceso, el índice estimado es{' '}
-        <b className="text-fg">{r.indicePct}%</b> ({signo}
-        {r.deltaPp}pp respecto al cálculo base de {r.indiceBasePct}%).
-      </p>
+      {formales === 0 && enProceso === 0 ? (
+        <p className="rounded-card border border-dashed border-border p-3 text-center text-xs text-fg-muted">
+          Marca candidatos en el mapa para ver cómo cambian los escenarios con tus validaciones reales.
+        </p>
+      ) : null}
     </Card>
   );
 }
 
-/** Proporción del valor actual contra la línea base, acotada a [0, 100]. */
-function pctDe(valor: number, base: number): number {
-  if (base <= 0) return 0;
-  return Math.min(100, Math.max(0, (valor / base) * 100));
+function Conteo({ label, valor, nota }: { label: string; valor: number; nota: string }) {
+  return (
+    <Card className="grid gap-0.5 p-3 text-center">
+      <div className="text-xs2 font-bold uppercase tracking-wide text-fg-muted">{label}</div>
+      <div className="font-display text-xl font-extrabold tabular-nums text-fg">
+        {formatNumero(valor)}
+      </div>
+      <div className="text-xs text-fg-muted">{nota}</div>
+    </Card>
+  );
 }
 
-function Barra({
-  label,
-  valor,
-  base,
+function FilaEscenario({
+  etiqueta,
+  detalle,
   pct,
-  color,
+  notaDerecha,
+  fijo = false,
+  escenario,
 }: {
-  label: string;
-  valor: string;
-  base: string;
-  pct: number;
-  color: string;
+  etiqueta: React.ReactNode;
+  detalle: string;
+  /** Escenario fijo (Chapman): pasa el % directo, sin base ni delta. */
+  pct?: number;
+  notaDerecha?: string;
+  fijo?: boolean;
+  /** Escenario en vivo: trae % + base + delta. */
+  escenario?: EscenarioVivo;
 }) {
+  const valorPct = fijo ? (pct ?? 0) : (escenario?.indicePct ?? 0);
+  const barra = fijo ? 'bg-fg-subtle/40' : 'bg-primary';
+
   return (
-    <div className="grid gap-1.5">
-      <div className="text-2xs uppercase tracking-wide text-fg-subtle">{label}</div>
-      <div className="font-display text-2xl font-extrabold tabular-nums text-fg">{valor}</div>
-      <div className="text-2xs text-fg-subtle">{base}</div>
-      <div className="h-1 overflow-hidden rounded-full bg-bg">
-        <div className={`h-full rounded-full ${color}`} style={{ width: `${pct}%` }} />
+    <div
+      className={`grid grid-cols-[1fr_auto] items-center gap-4 rounded-card border p-4 ${
+        fijo ? 'border-border bg-bg' : 'border-primary/20 bg-bg'
+      }`}
+    >
+      <div className="grid gap-1.5">
+        <span className="text-xs font-bold text-fg">{etiqueta}</span>
+        <span className="text-xs text-fg-muted">{detalle}</span>
+        {escenario ? <DeltaChip deltaPp={escenario.deltaPp} /> : null}
+        <div className="h-2 overflow-hidden rounded-full bg-border">
+          <div className={`h-full rounded-full ${barra}`} style={{ width: `${Math.min(100, valorPct * 1.2)}%` }} />
+        </div>
+      </div>
+      <div className="text-right">
+        <div className="font-display text-2xl font-extrabold tabular-nums text-fg">{valorPct}%</div>
+        <div className="text-xs text-fg-muted">
+          {fijo ? notaDerecha : `base: ${escenario?.basePct}%`}
+        </div>
       </div>
     </div>
   );
 }
 
-function Conteo({ label, valor }: { label: string; valor: number }) {
+function DeltaChip({ deltaPp }: { deltaPp: number }) {
+  const sube = deltaPp > 0;
   return (
-    <Card className="grid gap-0.5 p-3 text-center">
-      <div className="text-2xs uppercase tracking-wide text-fg-subtle">{label}</div>
-      <div className="font-display text-xl font-extrabold tabular-nums text-fg">
-        {formatNumero(valor)}
-      </div>
-    </Card>
+    <span className="inline-flex w-fit items-center gap-1 text-2xs font-bold text-primary-strong">
+      {sube ? (
+        <ArrowUp className="h-3 w-3" aria-hidden="true" />
+      ) : (
+        <ArrowDown className="h-3 w-3" aria-hidden="true" />
+      )}
+      {sube ? '+' : ''}
+      {deltaPp}pp vs base
+    </span>
   );
 }

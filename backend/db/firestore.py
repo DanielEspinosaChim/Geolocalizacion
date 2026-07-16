@@ -100,7 +100,7 @@ def update_candidato_tipo_local(place_id: str, tipo: str, fecha: str):
 
 # ── Candidatos ────────────────────────────────────────────────────────────────
 
-def get_candidatos(tipo=None, colonia_id=None, limit=2000):
+def get_candidatos(tipo=None, colonia_id=None, limit=10_000):
     global _cand_ts
     now = time.time()
 

@@ -117,10 +117,15 @@ def index():
 
 
 # SPA fallback: rutas de cliente (React Router) devuelven index.html.
+# Los archivos de `frontend/public` (logo, favicon…) quedan en la RAÍZ del
+# build, fuera de /assets — si la ruta existe como archivo, se sirve tal cual.
 @app.get("/{full_path:path}", include_in_schema=False)
 def spa_fallback(full_path: str):
     if full_path.startswith(("api/", "uploads/", "assets/")):
         raise HTTPException(404, "No encontrado")
+    archivo = (FRONTEND_DIR / full_path).resolve()
+    if full_path and archivo.is_file() and archivo.is_relative_to(FRONTEND_DIR.resolve()):
+        return FileResponse(str(archivo))
     return FileResponse(str(FRONTEND_DIR / "index.html"))
 
 

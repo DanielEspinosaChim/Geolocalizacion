@@ -13,8 +13,8 @@ interface NegociosGridProps {
 }
 
 /**
- * Negocios de la campaña como tarjetas en rejilla (vista admin). Cada tarjeta:
- * marcar visitado, registrar/editar la visita, fijar fecha y quitarlo. Las ya
+ * Negocios de la campaña como filas (vista admin). Cada fila: marcar
+ * visitado, registrar/editar la visita, fijar fecha y quitarlo. Las ya
  * visitadas (o todas, si la campaña está finalizada) se atenúan.
  */
 export function NegociosGrid({ campanaId, negocios, finalizada = false, onRegistrar }: NegociosGridProps) {
@@ -29,7 +29,7 @@ export function NegociosGrid({ campanaId, negocios, finalizada = false, onRegist
   }
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+    <div className="flex flex-col gap-3">
       {negocios.map((n) => (
         <NegocioCard
           key={n.negocio_id}
@@ -62,10 +62,11 @@ function NegocioCard({
   const apagada = visitado || atenuada;
 
   return (
-    // `min-w-0`: un nombre largo no debe estirar la columna del grid.
-    // Acento izquierdo verde al visitar; la tarjeta apagada baja opacidad.
+    // Fila de ancho completo: el nombre tiene todo el espacio disponible antes
+    // de llegar a las acciones, así no necesita truncarse ni desbordarse.
+    // Acento izquierdo verde al visitar; la fila apagada baja opacidad.
     <Card
-      className={`relative grid min-w-0 content-start gap-3 overflow-hidden p-4 shadow-card transition-opacity ${
+      className={`relative flex flex-wrap items-center gap-3 overflow-hidden p-3 pl-4 shadow-card transition-opacity ${
         apagada ? 'opacity-60' : ''
       }`}
     >
@@ -74,43 +75,41 @@ function NegocioCard({
         className={`absolute inset-y-0 left-0 w-1 ${visitado ? 'bg-success' : 'bg-secondary/40'}`}
       />
 
-      <div className="flex items-start gap-2.5">
-        <Checkbox
-          className="mt-0.5 shrink-0"
-          checked={visitado}
-          onChange={(e) =>
-            patch.mutate({ negocioId: n.negocio_id, updates: { completado: e.target.checked } })
-          }
-          aria-label={`Marcar ${n.nombre} como visitado`}
-        />
-        <div className="min-w-0 flex-1">
-          <div className="truncate text-sm font-bold" title={n.nombre}>
-            {n.nombre}
+      <Checkbox
+        className="shrink-0"
+        checked={visitado}
+        onChange={(e) =>
+          patch.mutate({ negocioId: n.negocio_id, updates: { completado: e.target.checked } })
+        }
+        aria-label={`Marcar ${n.nombre} como visitado`}
+      />
+
+      <MiniaturaVisita negocio={n} />
+
+      <div className="min-w-0 flex-1">
+        <div className="break-words text-sm font-bold">{n.nombre}</div>
+        <div className="text-2xs uppercase tracking-wide text-fg-subtle">{n.tipo ?? 'informal'}</div>
+        {visitado ? (
+          <Badge tone="success" className="mt-1.5">
+            <Check className="h-3 w-3" aria-hidden="true" /> Visitado
+          </Badge>
+        ) : null}
+        {n.visita_distancia != null ? (
+          <div
+            className={`mt-1.5 flex items-center gap-1 text-2xs font-semibold ${
+              TONE_TEXT[toneVerificacion(n.visita_distancia)]
+            }`}
+          >
+            <MapPin className="h-3 w-3 shrink-0" aria-hidden="true" />
+            <span className="truncate">
+              {n.visita_direccion ?? ''} · a {n.visita_distancia} m
+            </span>
           </div>
-          <div className="text-2xs uppercase tracking-wide text-fg-subtle">{n.tipo ?? 'informal'}</div>
-          {visitado ? (
-            <Badge tone="success" className="mt-1.5">
-              <Check className="h-3 w-3" aria-hidden="true" /> Visitado
-            </Badge>
-          ) : null}
-          {n.visita_distancia != null ? (
-            <div
-              className={`mt-1.5 flex items-center gap-1 text-2xs font-semibold ${
-                TONE_TEXT[toneVerificacion(n.visita_distancia)]
-              }`}
-            >
-              <MapPin className="h-3 w-3 shrink-0" aria-hidden="true" />
-              <span className="truncate">
-                {n.visita_direccion ?? ''} · a {n.visita_distancia} m
-              </span>
-            </div>
-          ) : null}
-        </div>
-        <MiniaturaVisita negocio={n} />
+        ) : null}
       </div>
 
-      <div className="flex items-center gap-2 border-t border-border pt-3">
-        <Button variant="secondary" size="sm" className="flex-1" onClick={onRegistrar}>
+      <div className="flex w-full shrink-0 items-center gap-2 sm:w-auto">
+        <Button variant="secondary" size="sm" onClick={onRegistrar}>
           <Pencil className="h-4 w-4" aria-hidden="true" /> {visitado ? 'Editar' : 'Registrar'}
         </Button>
         <DateField

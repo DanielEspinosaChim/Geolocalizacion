@@ -241,3 +241,8 @@ export function aniosDisponibles(hoy = new Date()): string[] {
 export function mesActual(hoy = new Date()): Mes {
   return MESES[hoy.getMonth()];
 }
+
+/** Monto con separador de miles y 2 decimales, ej. "$1,210.31". */
+export function formatoMoneda(v: number): string {
+  return `$${v.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+}

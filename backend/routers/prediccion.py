@@ -157,15 +157,28 @@ _M_OVERLAP         = 8_901    # GM ∩ DENUE (decision_fuente=formal_denue)
 _N_FORMALES_OTROS  = 4_616    # formal_cadena + formal_tipo_gmaps + formal_institucion
 _N_FORMALES_BASE   = 3_809    # formal_base: match contra BASE.xlsx (RFC + licencias)
 _N_INF_OBSERVADOS  = 5_966    # es_informal=True tras cruzar con BASE.xlsx
-_N_GMAPS_NEGOCIOS  = 23_292   # negocios reales en GMaps (sin parques/escuelas/iglesias)
-_N_GMAPS_CSV       = 29_234   # filas crudas del CSV descargado
+_N_GMAPS_NEGOCIOS  = 23_292   # negocios reales, GMaps + OSM combinados (sin parques/escuelas/iglesias)
+_N_GMAPS_CSV       = 29_234   # filas crudas del CSV descargado (GMaps + OSM)
 
 _ESCENARIOS = [
     (1.00, "Límite inferior"),
     (0.80, "Conservador"),
     (0.65, "Estimación central"),
     (0.50, "Límite superior"),
+    (0.40, "Límite superior realista"),
 ]
+
+# ── Chapman (captura-recaptura GMaps × OSM) ───────────────────────────────────
+# Segunda estimación, independiente del multiplier method: usa OSM como fuente
+# separada de Google Maps y el solapamiento entre ambas (a <150m, fuzzy≥80) para
+# estimar el universo real sin asumir ningún α de visibilidad. Anclas del mismo
+# cruce.py + BASE.xlsx que las constantes de arriba — no se recalculan por request.
+_OSM_TOTAL          = 2_556   # negocios OSM únicos (fuente=osm, sin excluidos)
+_OSM_OVERLAP        = 402     # OSM ∩ GMaps a <150m con nombre similar (fuzzy≥80)
+_N_DENUE_MERIDA     = 56_014  # DENUE filtrado a municipio=Mérida (vs 144,576 de la zona metropolitana completa)
+_N_CANACO_TOTAL     = 11_968  # directorio CANACO Mérida, deduplicado (BASE.xlsx)
+_OSM_N_DENUE        = 1_010   # OSM ∩ DENUE (subconjunto de _M_OVERLAP que vino de OSM)
+_OSM_N_CANACO       = 243     # OSM ∩ CANACO (subconjunto de _N_FORMALES_BASE que vino de OSM)
 
 
 @router.get(
@@ -214,6 +227,13 @@ def get_indice():
     ci_low  = max(0.0, _N_INF_OBSERVADOS * multiplicador - 1.96 * se_n)
     ci_high = _N_INF_OBSERVADOS * multiplicador + 1.96 * se_n
 
+    # Chapman: estimador insesgado de captura-recaptura sobre dos muestras
+    # (GMaps limpio y OSM) con solapamiento conocido. N̂ = (n1+1)(n2+1)/(m+1) − 1.
+    n1_chapman = _N_GMAPS_NEGOCIOS - _OSM_TOTAL  # GMaps limpio sin los negocios que ya vinieron de OSM
+    n_estimado_chapman = round((n1_chapman + 1) * (_OSM_TOTAL + 1) / (_OSM_OVERLAP + 1) - 1)
+    n_inf_chapman = n_estimado_chapman - _N_DENUE_MERIDA
+    chapman_indice_pct = round(n_inf_chapman / n_estimado_chapman * 100, 1) if n_estimado_chapman else 0.0
+
     return {
         "datos_entrada": {
             "N1_denue":         _N1_DENUE,
@@ -233,6 +253,28 @@ def get_indice():
             "high": round(ci_high / (_N1_DENUE + ci_high) * 100, 1),
         },
         "central_indice_pct": escenarios[2]["indice_pct"],
+        "fuentes": {
+            "gmaps_csv":     _N_GMAPS_CSV,               # 29,234 — GMaps + OSM crudo
+            "gmaps_raw":     _N_GMAPS_CSV - _OSM_TOTAL,  # 26,678 — solo GMaps, sin limpiar
+            "gmaps_limpio":  n1_chapman,                 # 20,736 — GMaps sin parques/escuelas/iglesias
+            "osm_total":     _OSM_TOTAL,                 # 2,556
+            "osm_denue":     _OSM_N_DENUE,                # 1,010
+            "osm_canaco":    _OSM_N_CANACO,               # 243
+            "gm_denue":      _M_OVERLAP - _OSM_N_DENUE,   # 7,891
+            "gm_canaco":     _N_FORMALES_BASE - _OSM_N_CANACO,  # 3,566
+            "denue_total":   _N1_DENUE,                  # 144,576 — zona metropolitana completa
+            "canaco_total":  _N_CANACO_TOTAL,             # 11,968
+            "gm_osm_overlap": _OSM_OVERLAP,               # 402
+        },
+        "chapman": {
+            "n1_gmaps_limpio":  n1_chapman,
+            "n2_osm":           _OSM_TOTAL,
+            "overlap":          _OSM_OVERLAP,
+            "n_denue_ancla":    _N_DENUE_MERIDA,
+            "N_estimado_total": n_estimado_chapman,
+            "N_inf_estimado":   max(0, n_inf_chapman),
+            "indice_pct":       chapman_indice_pct,
+        },
         "referencia_inegi":   "57–60% informalidad laboral Yucatán (INEGI 2023)",
         "metodo":             "Estimador de Razón / Multiplier Method",
         "referencias": [

@@ -7,6 +7,32 @@ const escenarioSchema = z.object({
   N_inf_estimado: z.number().catch(0),
 });
 
+/** Las 4 fuentes y sus cruces — insumo de los pasos 1 a 4 de la metodología. */
+const fuentesSchema = z.object({
+  gmaps_csv: z.number().catch(0),
+  gmaps_raw: z.number().catch(0),
+  gmaps_limpio: z.number().catch(0),
+  osm_total: z.number().catch(0),
+  osm_denue: z.number().catch(0),
+  osm_canaco: z.number().catch(0),
+  gm_denue: z.number().catch(0),
+  gm_canaco: z.number().catch(0),
+  denue_total: z.number().catch(0),
+  canaco_total: z.number().catch(0),
+  gm_osm_overlap: z.number().catch(0),
+});
+
+/** Captura-recaptura (Chapman): GMaps × OSM, sin asumir ningún α de visibilidad. */
+const chapmanSchema = z.object({
+  n1_gmaps_limpio: z.number().catch(0),
+  n2_osm: z.number().catch(0),
+  overlap: z.number().catch(0),
+  n_denue_ancla: z.number().catch(0),
+  N_estimado_total: z.number().catch(0),
+  N_inf_estimado: z.number().catch(0),
+  indice_pct: z.number().catch(0),
+});
+
 export const indiceSchema = z.object({
   datos_entrada: z.object({
     N1_denue: z.number().catch(0),
@@ -28,54 +54,92 @@ export const indiceSchema = z.object({
   metodo: z.string().catch(''),
   referencia_inegi: z.string().nullish(),
   referencias: z.array(z.string()).catch([]),
+  fuentes: fuentesSchema.catch({
+    gmaps_csv: 0,
+    gmaps_raw: 0,
+    gmaps_limpio: 0,
+    osm_total: 0,
+    osm_denue: 0,
+    osm_canaco: 0,
+    gm_denue: 0,
+    gm_canaco: 0,
+    denue_total: 0,
+    canaco_total: 0,
+    gm_osm_overlap: 0,
+  }),
+  chapman: chapmanSchema.catch({
+    n1_gmaps_limpio: 0,
+    n2_osm: 0,
+    overlap: 0,
+    n_denue_ancla: 0,
+    N_estimado_total: 0,
+    N_inf_estimado: 0,
+    indice_pct: 0,
+  }),
 });
 export type Indice = z.infer<typeof indiceSchema>;
 
-/** Colores por escenario (índice inferior → superior). */
-export const ESCENARIO_COLORS = ['#94a3b8', '#60a5fa', '#f59e0b', '#f87171'];
+export interface EscenarioVivo {
+  /** Informales estimados con los conteos de campo ya aplicados. */
+  nInfEstimado: number;
+  indicePct: number;
+  /** Cifra base (sin validaciones de campo) del mismo escenario, para comparar. */
+  basePct: number;
+  /** Diferencia en puntos porcentuales contra esa base. */
+  deltaPp: number;
+}
 
 export interface IndiceRecalculado {
   /** Informales observados tras descontar los ya marcados formal / en proceso. */
   ninfObs: number;
   ninfObsBase: number;
-  ninfEstimado: number;
-  ninfEstimadoBase: number;
-  indicePct: number;
-  indiceBasePct: number;
-  /** Diferencia en puntos porcentuales contra el cálculo base. */
-  deltaPp: number;
+  formales: number;
+  enProceso: number;
+  /** Chapman no usa validaciones de campo (solo GMaps/OSM): es fijo. */
+  chapmanPct: number;
+  central: EscenarioVivo;
+  limiteSuperior: EscenarioVivo;
+}
+
+function escenarioVivo(indice: Indice, alpha: number, ninfObs: number, basePct: number): EscenarioVivo {
+  const pFormal = indice.cobertura_gmaps_pct / 100;
+  const pInf = alpha * pFormal;
+  const nInfEstimado = pInf > 0 ? Math.round(ninfObs / pInf) : 0;
+  const n1 = indice.datos_entrada.N1_denue;
+  const indicePct = nInfEstimado + n1 > 0 ? (nInfEstimado / (n1 + nInfEstimado)) * 100 : 0;
+  return {
+    nInfEstimado,
+    indicePct: Math.round(indicePct * 10) / 10,
+    basePct,
+    // `|| 0` normaliza el -0 que produce Math.round sobre diferencias negativas ínfimas.
+    deltaPp: Math.round((indicePct - basePct) * 10) / 10 || 0,
+  };
 }
 
 /**
- * Reaplica el estimador de razón descontando los negocios que el equipo ya marcó
+ * Reaplica el multiplier method descontando los negocios que el equipo ya marcó
  * como formales o en proceso en el mapa: cada uno deja de contar como informal
- * observado y, multiplicado por el factor N1/m, mueve la estimación del universo.
- *
- * Se compara contra el escenario α=1.0 (límite inferior), que es el que no asume
- * ningún sesgo de visibilidad y por tanto sirve de línea base conservadora.
+ * observado y mueve la estimación de los escenarios α=0.65 (central) y α=0.40
+ * (límite superior realista). El Chapman queda fuera: solo depende de GMaps/OSM,
+ * no de las validaciones manuales, así que se pasa igual que llegó de la API.
  */
 export function recalcularIndice(
   indice: Indice,
   formales: number,
   enProceso: number,
 ): IndiceRecalculado {
-  const { N1_denue: n1, m_overlap: m, n_inf_observados: ninfObsBase } = indice.datos_entrada;
-  const base = indice.escenarios[0];
-
+  const ninfObsBase = indice.datos_entrada.n_inf_observados;
   const ninfObs = Math.max(0, ninfObsBase - formales - enProceso);
-  const multiplicador = m > 0 ? n1 / m : 0;
-  const ninfEstimado = Math.round(ninfObs * multiplicador);
-  const indicePct = ninfEstimado + n1 > 0 ? (ninfEstimado / (ninfEstimado + n1)) * 100 : 0;
-  const indiceBasePct = base?.indice_pct ?? 0;
+  const baseCentral = indice.escenarios.find((e) => e.alpha === 0.65)?.indice_pct ?? 0;
+  const baseSuperior = indice.escenarios.find((e) => e.alpha === 0.4)?.indice_pct ?? 0;
 
   return {
     ninfObs,
     ninfObsBase,
-    ninfEstimado,
-    ninfEstimadoBase: base?.N_inf_estimado ?? Math.round(ninfObsBase * multiplicador),
-    indicePct: Math.round(indicePct * 10) / 10,
-    indiceBasePct,
-    // `|| 0` normaliza el -0 que produce Math.round sobre diferencias negativas ínfimas.
-    deltaPp: Math.round((indicePct - indiceBasePct) * 10) / 10 || 0,
+    formales,
+    enProceso,
+    chapmanPct: indice.chapman.indice_pct,
+    central: escenarioVivo(indice, 0.65, ninfObs, baseCentral),
+    limiteSuperior: escenarioVivo(indice, 0.4, ninfObs, baseSuperior),
   };
 }

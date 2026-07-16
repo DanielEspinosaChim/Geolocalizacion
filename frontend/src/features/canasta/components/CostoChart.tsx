@@ -2,6 +2,7 @@ import ApexCharts from 'apexcharts';
 import type { ApexOptions } from 'apexcharts';
 import { useEffect, useRef, useSyncExternalStore } from 'react';
 import { getTheme, subscribeTheme } from '@core/theme';
+import { formatoMoneda } from '../model/canasta';
 
 /** Lee un token HSL del tema (`239 62% 55%`) y lo vuelve un color CSS válido. */
 function tokenColor(name: string, fallback: string): string {
@@ -36,9 +37,8 @@ export function CostoChart({ labels, series }: CostoChartProps) {
 
     const brand = tokenColor('--primary', '#4648d4');
     const muted = tokenColor('--fg-muted', '#5f6368');
-    // La segunda serie (año de comparación) va en un gris del tema para que el
-    // año actual (marca) resalte.
-    const comparado = tokenColor('--fg-subtle', '#80868b');
+    // La segunda serie (año de comparación) va en el naranja de marca (--secondary).
+    const comparado = tokenColor('--secondary', '#c77b2c');
     const comparando = series.length > 1;
 
     const options: ApexOptions = {
@@ -60,10 +60,8 @@ export function CostoChart({ labels, series }: CostoChartProps) {
           dataLabels: { position: 'top' },
         },
       },
-      // Al comparar dos años las etiquetas se encimarían, así que solo se
-      // muestran con una serie.
       dataLabels: {
-        enabled: !comparando,
+        enabled: true,
         offsetY: -18,
         formatter: (v: number) => (v == null ? '' : `$${Math.round(v).toLocaleString('es-MX')}`),
         style: { fontSize: '10px', fontFamily: 'Inter, sans-serif', colors: [muted], fontWeight: '700' },
@@ -77,7 +75,7 @@ export function CostoChart({ labels, series }: CostoChartProps) {
         markers: { radius: 4 },
       },
       // Espacio arriba para las etiquetas de total sobre las barras.
-      grid: { show: false, padding: { left: 2, right: 2, top: comparando ? 0 : 14 } },
+      grid: { show: false, padding: { left: 2, right: 2, top: 14 } },
       stroke: { show: true, width: 0, colors: ['transparent'] },
       states: { hover: { filter: { type: 'darken', value: 0.9 } } },
       tooltip: {
@@ -85,7 +83,7 @@ export function CostoChart({ labels, series }: CostoChartProps) {
         intersect: false,
         theme,
         style: { fontFamily: 'Inter, sans-serif' },
-        y: { formatter: (v: number) => (v == null ? '—' : `$${v.toFixed(2)}`) },
+        y: { formatter: (v: number) => (v == null ? '—' : formatoMoneda(v)) },
       },
       xaxis: {
         categories: labels,

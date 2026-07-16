@@ -67,7 +67,7 @@ en el DENUE** (padrón oficial del INEGI), es decir, candidatos a ser negocios i
 
 **Filtros disponibles:**
 - `tipo`: filtra por estado de formalización (`informal`, `en_proceso`, `formal`)
-- `limit`: máximo de registros a retornar (default 2000)
+- `limit`: máximo de registros a retornar (default 10000 — cubre el total actual sin truncar)
 
 Cada candidato trae su colonia como texto (`colonia_nombre`, o `colonia_denue` si
 falta la primera). El filtrado por colonia se hace en el cliente contra ese nombre;
@@ -77,7 +77,7 @@ el catálogo con los conteos está en `GET /api/colonias`.
 """,
 )
 def get_candidatos(
-    limit: int = 2000,
+    limit: int = 10_000,
     tipo: Optional[str] = None,
 ):
     if tipo and tipo not in ("informal", "en_proceso", "formal"):

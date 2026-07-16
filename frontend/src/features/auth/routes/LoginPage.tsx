@@ -1,4 +1,5 @@
 import { Map } from 'lucide-react';
+import { useState } from 'react';
 import { VERSION_LABEL } from '@shared/lib/version';
 import { Card, ThemeToggle } from '@shared/ui';
 import { LoginForm } from '../components/LoginForm';
@@ -25,21 +26,48 @@ export function LoginPage() {
 
       <ThemeToggle className="absolute right-4 top-4 z-panel" />
 
-      <Card as="section" className="anim-scale-in relative z-panel w-full max-w-sm p-9 shadow-overlay">
-        <header className="mb-8 grid justify-items-center gap-1.5 text-center">
-          <div className="mb-2 flex h-13 w-13 items-center justify-center rounded-card bg-gradient-to-br from-primary-strong to-primary p-3 shadow-lg shadow-primary/40">
-            <Map className="h-7 w-7 text-white" aria-hidden="true" />
-          </div>
-          <h1 className="font-display text-xl font-extrabold tracking-tight">GeoFormal</h1>
-          <p className="text-xs font-medium text-fg-subtle">
-            Sistema de Geolocalización · Mérida, Yucatán
+      <div className="relative z-panel w-full max-w-sm">
+        <Card as="section" className="anim-scale-in p-9 shadow-overlay">
+          <header className="mb-8 grid justify-items-center gap-1.5 text-center">
+            <div className="mb-2 flex h-13 w-13 items-center justify-center rounded-card bg-gradient-to-br from-primary-strong to-primary p-3 shadow-lg shadow-primary/40">
+              <Map className="h-7 w-7 text-white" aria-hidden="true" />
+            </div>
+            <h1 className="font-display text-xl font-extrabold tracking-tight">GeoFormal</h1>
+            <p className="text-xs font-medium text-fg-subtle">
+              Sistema de Geolocalización · Mérida, Yucatán
+            </p>
+          </header>
+          <LoginForm />
+          <p className="mt-6 text-center text-xs2 font-medium text-fg-subtle/70">
+            Municipio de Mérida, Yucatán · Uso interno · {VERSION_LABEL}
           </p>
-        </header>
-        <LoginForm />
-        <p className="mt-6 text-center text-xs2 font-medium text-fg-subtle/70">
-          Municipio de Mérida, Yucatán · Uso interno · {VERSION_LABEL}
-        </p>
-      </Card>
+        </Card>
+        <DesarrolladoPor />
+      </div>
     </main>
+  );
+}
+
+/**
+ * Crédito "Desarrollado por Techmaleon", debajo de la tarjeta de acceso.
+ * El logo vive en `frontend/public/logo-techmaleon.png` (fuera del build de
+ * Vite); si por algo no carga, se oculta la imagen y queda el texto.
+ */
+function DesarrolladoPor() {
+  const [logoOk, setLogoOk] = useState(true);
+  return (
+    <div className="mt-5 flex flex-col items-center gap-1.5">
+      <span className="text-xs font-medium text-fg-subtle">
+        Desarrollado por{logoOk ? ':' : ' Techmaleon'}
+      </span>
+      {logoOk ? (
+        <img
+          src="/logo-techmaleon.png"
+          alt="Techmaleon"
+          className="h-7 w-auto"
+          onError={() => setLogoOk(false)}
+        />
+      ) : null}
+    </div>
   );
 }

@@ -1,10 +1,10 @@
-import { Page } from '@shared/ui';
 import { IndicePanel } from '../components/IndicePanel';
+import { ScrollSuave } from '../components/ScrollSuave';
 
 export function IndicePage() {
   return (
-    <Page width="wide">
+    <ScrollSuave>
       <IndicePanel />
-    </Page>
+    </ScrollSuave>
   );
 }

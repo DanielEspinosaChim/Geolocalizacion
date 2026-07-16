@@ -81,6 +81,7 @@ export function CanastaContenido({
         year={year}
         yearB={yearB}
         productosB={productosB}
+        vista={vista}
         acciones={
           <AccionesExporta productos={productos} year={year} meses={mesesTabla} yearB={yearB} />
         }
