@@ -1,7 +1,10 @@
 import { useState } from 'react';
-import { Button, Modal, ModalFooter, SelectField, TextField, toast } from '@shared/ui';
+import { Button, Combobox, Modal, ModalFooter, TextField, toast, type ComboboxOption } from '@shared/ui';
 import { useAgregarProducto } from '../api/useCanastaMutations';
 import { CATEGORIAS, type Categoria } from '../model/canasta';
+
+/** Categorías como opciones del Combobox (el select global del sistema). */
+const OPCIONES_CATEGORIA: ComboboxOption[] = CATEGORIAS.map((c) => ({ value: c, label: c }));
 
 interface AgregarProductoModalProps {
   year: string;
@@ -42,17 +45,13 @@ export function AgregarProductoModal({ year, open, onClose }: AgregarProductoMod
           onChange={(e) => setName(e.target.value)}
           placeholder="Ej. PAPAYA"
         />
-        <SelectField
+        <Combobox
           label="Categoría"
+          options={OPCIONES_CATEGORIA}
           value={category}
-          onChange={(e) => setCategory(e.target.value as Categoria)}
-        >
-          {CATEGORIAS.map((c) => (
-            <option key={c} value={c}>
-              {c}
-            </option>
-          ))}
-        </SelectField>
+          onChange={(v) => setCategory((v as Categoria) ?? CATEGORIAS[0])}
+          clearable={false}
+        />
         <TextField
           label="Presentación"
           value={unit}
@@ -61,10 +60,10 @@ export function AgregarProductoModal({ year, open, onClose }: AgregarProductoMod
         />
       </div>
       <ModalFooter>
-        <Button variant="secondary" size="sm" onClick={onClose}>
+        <Button variant="secondary" onClick={onClose}>
           Cancelar
         </Button>
-        <Button size="sm" loading={agregar.isPending} onClick={guardar}>
+        <Button loading={agregar.isPending} onClick={guardar}>
           Agregar
         </Button>
       </ModalFooter>

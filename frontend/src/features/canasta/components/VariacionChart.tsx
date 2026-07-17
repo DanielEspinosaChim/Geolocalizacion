@@ -47,6 +47,13 @@ export function VariacionChart({ datos }: VariacionChartProps) {
         height: 280,
         fontFamily: 'Inter, sans-serif',
         toolbar: { show: false },
+        // Barras que crecen al montar y transición suave al cambiar de datos.
+        animations: {
+          enabled: true,
+          speed: 900,
+          animateGradually: { enabled: true, delay: 120 },
+          dynamicAnimation: { enabled: true, speed: 350 },
+        },
       },
       plotOptions: {
         bar: {

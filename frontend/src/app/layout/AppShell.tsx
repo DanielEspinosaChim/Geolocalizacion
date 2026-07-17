@@ -15,14 +15,15 @@ export function AppShell() {
           centro y el tema + usuario a la derecha. Sin subtítulo ni versión: el
           espacio libre lo aprovechan las pestañas. */}
       <header className="relative z-overlay flex h-14 shrink-0 items-center gap-2 bg-gradient-to-r from-appbar-strong to-appbar px-3 text-appbar-fg shadow-card sm:gap-4 sm:px-5">
-        <div className="flex shrink-0 items-center gap-2.5">
-          {/* Emblema CANACO en blanco (currentColor = --appbar-fg), directo
-              sobre la barra marina — sin tile de fondo. */}
-          <LogoCanaco role="img" aria-label="CANACO Mérida" className="h-8 w-auto text-appbar-fg" />
-          {/* El título se oculta en móvil: ahí el espacio lo necesitan las pestañas. */}
-          <h1 className="hidden font-display text-lg font-extrabold tracking-tight sm:block">
-            GeoFormal
-          </h1>
+        <div className="flex shrink-0 items-center">
+          {/* Solo el triángulo CANACO (variant mark) en blanco: el logotipo
+              completo no cabe en una barra de 56px. Sin texto "GeoFormal". */}
+          <LogoCanaco
+            variant="mark"
+            role="img"
+            aria-label="CANACO SERVYTUR Mérida"
+            className="h-7 w-auto text-appbar-fg"
+          />
         </div>
 
         {user ? <NavTabs role={user.role} variant="brand" /> : <div className="flex-1" />}

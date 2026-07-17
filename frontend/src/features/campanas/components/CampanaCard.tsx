@@ -1,6 +1,7 @@
 import { Calendar, ChevronRight, MapPin, Store } from 'lucide-react';
 import { Badge } from '@shared/ui';
 import { progresoDe, STATUS_META, type Campana } from '../model/campana';
+import { AnilloProgreso } from './AnilloProgreso';
 
 interface CampanaCardProps {
   campana: Campana;
@@ -42,7 +43,12 @@ export function CampanaCard({ campana, onClick }: CampanaCardProps) {
             {campana.nombre}
           </h3>
         </div>
-        <AnilloProgreso pct={pct} completa={completa} />
+        <AnilloProgreso
+          pct={pct}
+          color={completa ? 'hsl(var(--success))' : 'hsl(var(--secondary))'}
+        >
+          {pct}%
+        </AnilloProgreso>
       </div>
 
       <div className="grid gap-1 text-xs text-fg-muted">
@@ -71,26 +77,5 @@ export function CampanaCard({ campana, onClick }: CampanaCardProps) {
         </span>
       </div>
     </button>
-  );
-}
-
-/**
- * Progreso como anillo cónico (paridad con el detalle técnico del legacy).
- * Es solo decorativo: el dato accesible va en el texto "hecho / total".
- */
-function AnilloProgreso({ pct, completa }: { pct: number; completa: boolean }) {
-  const color = completa ? 'hsl(var(--success))' : 'hsl(var(--secondary))';
-  return (
-    <span
-      aria-hidden="true"
-      className="grid h-14 w-14 shrink-0 place-items-center rounded-full"
-      style={{
-        background: `conic-gradient(${color} ${pct * 3.6}deg, hsl(var(--border) / 0.5) 0deg)`,
-      }}
-    >
-      <span className="grid h-11 w-11 place-items-center rounded-full bg-surface text-xs font-extrabold tabular-nums">
-        {pct}%
-      </span>
-    </span>
   );
 }

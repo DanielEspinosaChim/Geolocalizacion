@@ -1,5 +1,7 @@
 import { Check, Clock, MapPin, PartyPopper } from 'lucide-react';
+import { motion, useReducedMotion } from 'motion/react';
 import type { Progreso } from '../model/campana';
+import { AnilloProgreso } from './AnilloProgreso';
 
 /** Hero de progreso para el técnico: anillo + pendientes/hechos. */
 export function ProgresoHero({ progreso, colonia }: { progreso: Progreso; colonia?: string | null }) {
@@ -17,14 +19,9 @@ export function ProgresoHero({ progreso, colonia }: { progreso: Progreso; coloni
 
   return (
     <div className="flex items-center gap-4">
-      <div
-        className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
-        style={{ background: `conic-gradient(hsl(var(--primary)) ${progreso.pct * 3.6}deg, hsl(var(--bg)) 0deg)` }}
-      >
-        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-surface text-xs font-extrabold text-primary">
-          {progreso.pct}%
-        </div>
-      </div>
+      <AnilloProgreso pct={progreso.pct} color="hsl(var(--primary))">
+        <span className="text-primary">{progreso.pct}%</span>
+      </AnilloProgreso>
       <div className="min-w-0 flex-1">
         <div className="mb-1.5 flex flex-wrap gap-3 text-xs">
           <span className="flex items-center gap-1 font-bold text-warning">
@@ -39,10 +36,24 @@ export function ProgresoHero({ progreso, colonia }: { progreso: Progreso; coloni
             <MapPin className="h-3 w-3" aria-hidden="true" /> {colonia}
           </div>
         ) : null}
-        <div className="h-1.5 overflow-hidden rounded-full bg-bg">
-          <div className="h-full rounded-full bg-primary-strong transition-all" style={{ width: `${progreso.pct}%` }} />
-        </div>
+        <BarraProgreso pct={progreso.pct} />
       </div>
+    </div>
+  );
+}
+
+/** Barra de avance animada (motion): se llena de 0 → pct al entrar en vista. */
+function BarraProgreso({ pct }: { pct: number }) {
+  const sinMovimiento = useReducedMotion();
+  return (
+    <div className="h-1.5 overflow-hidden rounded-full bg-bg">
+      <motion.div
+        className="h-full rounded-full bg-primary-strong"
+        initial={{ width: sinMovimiento ? `${pct}%` : '0%' }}
+        whileInView={{ width: `${pct}%` }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+      />
     </div>
   );
 }

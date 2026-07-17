@@ -5,6 +5,7 @@ import { Card, PageHeader, QueryBoundary, Spinner } from '@shared/ui';
 import { useIndice } from '../api/useIndice';
 import type { Indice } from '../model/indice';
 import { IndiceCalculadora } from './IndiceCalculadora';
+import { CurvaSensibilidad, IndiceDashboard } from './IndiceDashboard';
 import { Paso1Fuentes, Paso2Limpieza, PasoHeader } from './IndicePasos';
 import { Paso3Cruce, Paso4Resultado, Paso5Chapman } from './IndicePasosResultado';
 import { Reveal } from './Reveal';
@@ -30,6 +31,9 @@ export function IndicePanel() {
               Cada sección entra en escena al llegar al viewport (Reveal). */}
           <Reveal>
             <Conclusion indice={data} />
+          </Reveal>
+          <Reveal>
+            <IndiceDashboard indice={data} />
           </Reveal>
           <Reveal>
             <IndiceCalculadora indice={data} />
@@ -193,6 +197,16 @@ function Sensibilidad({ indice }: { indice: Indice }) {
             <b className="text-fg">informales observados ÷ tasa efectiva de captura</b>.
           </p>
         ) : null}
+      </div>
+
+      {/* La misma sensibilidad, en curva: índice % contra α, con el Chapman
+          como referencia punteada — se dibuja al llegar al viewport. */}
+      <div className="rounded-card border border-border bg-bg p-4">
+        <h3 className="mb-1 text-sm font-bold text-fg">Índice según α</h3>
+        <p className="mb-2 text-2xs text-fg-subtle">
+          a menor visibilidad asumida del informal, mayor índice estimado
+        </p>
+        <CurvaSensibilidad indice={indice} />
       </div>
 
       <div className="grid gap-2">

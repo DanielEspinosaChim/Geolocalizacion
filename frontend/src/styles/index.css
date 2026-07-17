@@ -193,24 +193,29 @@
   color: hsl(var(--border));
 }
 
-/* ── Clusters de Leaflet con la paleta semántica (paridad con el legacy) ── */
+/* ── Clusters de Leaflet: rojo/naranja/azul fijos, iguales en ambos temas ──
+   Antes usaban los tokens semánticos (--danger/--warning/--primary), que se
+   redefinen por tema: en claro --primary es marino oscuro y el cluster grande
+   se leía casi negro sobre el mapa. Mismos hex que TIPO_COLORS (candidato.ts)
+   para informal/en_proceso — los puntos individuales y los clusters comparten
+   paleta — más un azul nuevo (sin equivalente semántico) para "muchos". */
 .marker-cluster-small {
-  background-color: hsl(var(--danger) / 0.5);
+  background-color: rgb(220 38 38 / 0.5); /* #dc2626 */
 }
 .marker-cluster-small div {
-  background-color: hsl(var(--danger) / 0.8);
+  background-color: rgb(220 38 38 / 0.85);
 }
 .marker-cluster-medium {
-  background-color: hsl(var(--warning) / 0.5);
+  background-color: rgb(249 115 22 / 0.5); /* #f97316 */
 }
 .marker-cluster-medium div {
-  background-color: hsl(var(--warning) / 0.8);
+  background-color: rgb(249 115 22 / 0.85);
 }
 .marker-cluster-large {
-  background-color: hsl(var(--primary) / 0.5);
+  background-color: rgb(93 131 233 / 0.5); /* #5d83e9 */
 }
 .marker-cluster-large div {
-  background-color: hsl(var(--primary) / 0.8);
+  background-color: rgb(93 131 233 / 0.85);
 }
 .marker-cluster,
 .marker-cluster div {

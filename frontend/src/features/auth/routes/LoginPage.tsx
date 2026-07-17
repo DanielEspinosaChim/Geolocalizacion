@@ -25,17 +25,17 @@ export function LoginPage() {
 
       <ThemeToggle className="absolute right-4 top-4 z-panel" />
 
-      <div className="relative z-panel w-full max-w-sm">
+      <div className="relative z-panel w-full max-w-md">
         <Card as="section" className="anim-scale-in p-9 shadow-overlay">
-          <header className="mb-8 grid justify-items-center gap-1.5 text-center">
-            {/* Emblema CANACO en currentColor: marino sobre la tarjeta blanca
-                en tema claro, blanco sobre la tarjeta oscura (como el header). */}
+          <header className="mb-8 grid justify-items-center gap-3 text-center">
+            {/* Logotipo completo CANACO SERVYTUR Mérida en currentColor: marino
+                sobre la tarjeta blanca en claro, blanco sobre la oscura. */}
             <LogoCanaco
+              variant="lockup"
               role="img"
-              aria-label="CANACO Mérida"
-              className="mb-2 h-16 w-auto text-primary dark:text-white"
+              aria-label="CANACO SERVYTUR Mérida"
+              className="h-32 w-auto text-primary dark:text-white"
             />
-            <h1 className="font-display text-xl font-extrabold tracking-tight">GeoFormal</h1>
             <p className="text-xs font-medium text-fg-subtle">
               Sistema de Geolocalización · Mérida, Yucatán
             </p>

@@ -1,3 +1,4 @@
+import { ChevronDown } from 'lucide-react';
 import { forwardRef, useId, type SelectHTMLAttributes } from 'react';
 
 interface SelectFieldProps extends SelectHTMLAttributes<HTMLSelectElement> {
@@ -6,7 +7,12 @@ interface SelectFieldProps extends SelectHTMLAttributes<HTMLSelectElement> {
   error?: string;
 }
 
-/** Select nativo con label y error accesibles (los filtros del legacy usan muchos). */
+/**
+ * Select nativo con label y error accesibles (los filtros del legacy usan
+ * muchos), pero con el mismo aspecto que el resto de campos: `appearance-none`
+ * quita la flecha del sistema operativo (rompía el formato — cada navegador la
+ * dibuja distinto) y se reemplaza por el mismo `ChevronDown` del Combobox.
+ */
 export const SelectField = forwardRef<HTMLSelectElement, SelectFieldProps>(function SelectField(
   { label, error, className = '', children, ...rest },
   ref,
@@ -23,16 +29,22 @@ export const SelectField = forwardRef<HTMLSelectElement, SelectFieldProps>(funct
           {label}
         </label>
       ) : null}
-      <select
-        ref={ref}
-        id={id}
-        aria-invalid={error ? true : undefined}
-        aria-describedby={error ? errorId : undefined}
-        className={`w-full rounded-control border bg-bg px-3 py-2.5 text-sm text-fg outline-none transition-colors focus:border-primary ${error ? 'border-danger' : 'border-border'} ${className}`}
-        {...rest}
-      >
-        {children}
-      </select>
+      <div className="relative">
+        <select
+          ref={ref}
+          id={id}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={error ? errorId : undefined}
+          className={`w-full appearance-none rounded-control border bg-bg px-3 py-2.5 pr-9 text-sm text-fg outline-none transition-colors focus:border-primary ${error ? 'border-danger' : 'border-border'} ${className}`}
+          {...rest}
+        >
+          {children}
+        </select>
+        <ChevronDown
+          aria-hidden="true"
+          className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-fg-subtle"
+        />
+      </div>
       {error ? (
         <p id={errorId} className="text-xs text-danger">
           {error}
