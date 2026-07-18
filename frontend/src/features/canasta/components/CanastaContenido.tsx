@@ -6,6 +6,7 @@ import { useEliminarProducto, useActualizarPrecio, useSeedCanasta } from '../api
 import { generarInfografia } from '../lib/generarInfografia';
 import type { Mes, Producto, VistaCanasta } from '../model/canasta';
 import { CanastaTabla } from './CanastaTabla';
+import { EditarProductoModal } from './EditarProductoModal';
 import { MetadataModal } from './MetadataModal';
 import { ResumenCanasta } from './ResumenCanasta';
 
@@ -37,6 +38,8 @@ export function CanastaContenido({
   const eliminar = useEliminarProducto(year);
   const seed = useSeedCanasta(year);
   const [meta, setMeta] = useState<{ producto: Producto; month: Mes } | null>(null);
+  // Producto en edición completa (todos sus meses en un solo modal).
+  const [editando, setEditando] = useState<Producto | null>(null);
 
   if (productos.length === 0) {
     return (
@@ -96,8 +99,15 @@ export function CanastaContenido({
         onGuardarPrecio={(id, month, price) => guardarPrecio.mutate({ id, month, price })}
         onEliminar={(id) => eliminar.mutate(id)}
         onEditarMetadata={(producto, month) => setMeta({ producto, month })}
+        onEditarProducto={setEditando}
       />
       <MetadataModal year={year} target={meta} onClose={() => setMeta(null)} />
+      <EditarProductoModal
+        year={year}
+        producto={editando}
+        meses={mesesTabla}
+        onClose={() => setEditando(null)}
+      />
     </div>
   );
 }

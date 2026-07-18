@@ -74,6 +74,7 @@ export function PanelLateralContenido({
       <PanelSection
         title="Negocios"
         collapsible
+        defaultOpen={false}
         action={
           isPending ? null : (
             <span className="text-2xs tabular-nums text-fg-subtle">

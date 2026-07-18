@@ -8,6 +8,7 @@ import {
   type Trimestre,
   type VistaCanasta,
 } from '../model/canasta';
+import { CanastaCards } from './CanastaCards';
 import { FilaProducto } from './CanastaFila';
 import { PieTabla, PieTrimestres } from './CanastaPie';
 
@@ -22,6 +23,8 @@ interface CanastaTablaProps {
   onGuardarPrecio: (id: string, month: Mes, price: number | null) => void;
   onEliminar: (id: string) => void;
   onEditarMetadata: (producto: Producto, month: Mes) => void;
+  /** Abre el editor completo del producto (todos los meses en un modal). */
+  onEditarProducto: (producto: Producto) => void;
 }
 
 export function CanastaTabla({
@@ -34,6 +37,7 @@ export function CanastaTabla({
   onGuardarPrecio,
   onEliminar,
   onEditarMetadata,
+  onEditarProducto,
 }: CanastaTablaProps) {
   const confirm = useConfirm();
   const totales = totalesPorMes(productos, meses);
@@ -53,43 +57,59 @@ export function CanastaTabla({
   let ultimaCat: string | null = null;
 
   return (
-    <div className="overflow-x-auto rounded-card border border-border">
-      <table className="w-full border-collapse text-left">
-        <EncabezadoTabla meses={meses} trimestres={trimestres} />
-        <tbody>
-          {productos.map((p) => {
-            const nuevaCat = p.category !== ultimaCat;
-            ultimaCat = p.category;
-            return (
-              <FilaProducto
-                key={p.id}
-                producto={p}
-                productoB={comparando ? (productosB.find((x) => x.id === p.id) ?? null) : null}
-                yearB={comparando ? yearB : null}
-                meses={meses}
-                vista={vista}
-                trimestres={trimestres}
-                nuevaCat={nuevaCat}
-                onGuardarPrecio={onGuardarPrecio}
-                onEditarMetadata={onEditarMetadata}
-                onEliminar={() => void pedirEliminar(p)}
-              />
-            );
-          })}
-        </tbody>
-        {trimestres ? (
-          <PieTrimestres productos={productos} trimestres={trimestres} meses={meses} />
-        ) : (
-          <PieTabla
-            meses={meses}
-            totales={totales}
-            year={year}
-            yearB={comparando ? yearB : null}
-            totalesB={comparando ? totalesPorMes(productosB, meses) : null}
-          />
-        )}
-      </table>
-    </div>
+    <>
+      {/* Móvil: tarjetas (la tabla ancha es incómoda en pantalla chica). */}
+      <div className="md:hidden">
+        <CanastaCards
+          productos={productos}
+          meses={meses}
+          vista={vista}
+          year={year}
+          onEditarProducto={onEditarProducto}
+          onEliminar={(p) => void pedirEliminar(p)}
+        />
+      </div>
+
+      {/* Escritorio: la tabla densa de siempre. */}
+      <div className="hidden overflow-x-auto rounded-card border border-border md:block">
+        <table className="w-full border-collapse text-left">
+          <EncabezadoTabla meses={meses} trimestres={trimestres} />
+          <tbody>
+            {productos.map((p) => {
+              const nuevaCat = p.category !== ultimaCat;
+              ultimaCat = p.category;
+              return (
+                <FilaProducto
+                  key={p.id}
+                  producto={p}
+                  productoB={comparando ? (productosB.find((x) => x.id === p.id) ?? null) : null}
+                  yearB={comparando ? yearB : null}
+                  meses={meses}
+                  vista={vista}
+                  trimestres={trimestres}
+                  nuevaCat={nuevaCat}
+                  onGuardarPrecio={onGuardarPrecio}
+                  onEditarMetadata={onEditarMetadata}
+                  onEditarProducto={() => onEditarProducto(p)}
+                  onEliminar={() => void pedirEliminar(p)}
+                />
+              );
+            })}
+          </tbody>
+          {trimestres ? (
+            <PieTrimestres productos={productos} trimestres={trimestres} meses={meses} />
+          ) : (
+            <PieTabla
+              meses={meses}
+              totales={totales}
+              year={year}
+              yearB={comparando ? yearB : null}
+              totalesB={comparando ? totalesPorMes(productosB, meses) : null}
+            />
+          )}
+        </table>
+      </div>
+    </>
   );
 }
 
@@ -111,7 +131,7 @@ function EncabezadoTabla({ meses, trimestres }: { meses: Mes[]; trimestres: Trim
                 {mesLabel(m)}
               </Th>
             ))}
-        <Th className="w-10" />
+        <Th className="w-16" />
       </tr>
     </thead>
   );

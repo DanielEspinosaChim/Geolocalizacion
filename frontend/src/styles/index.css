@@ -193,6 +193,15 @@
   color: hsl(var(--border));
 }
 
+/* En móvil el pellizco (pinch-to-zoom) ya hace zoom; los botones +/- solo
+   ocupan espacio y compiten con el cajón inferior. Mismo corte que `md:` de
+   Tailwind (768px) para que coincida con el resto de la UI responsiva. */
+@media (max-width: 767px) {
+  .leaflet-container.z-map .leaflet-control-zoom {
+    display: none;
+  }
+}
+
 /* ── Clusters de Leaflet: rojo/naranja/azul fijos, iguales en ambos temas ──
    Antes usaban los tokens semánticos (--danger/--warning/--primary), que se
    redefinen por tema: en claro --primary es marino oscuro y el cluster grande

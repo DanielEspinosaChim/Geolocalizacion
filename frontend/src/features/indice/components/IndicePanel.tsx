@@ -1,4 +1,5 @@
 import { BarChart3 } from 'lucide-react';
+import { motion, useReducedMotion } from 'motion/react';
 import type { ReactNode } from 'react';
 import { formatNumero } from '@shared/lib/format';
 import { Card, PageHeader, QueryBoundary, Spinner } from '@shared/ui';
@@ -219,6 +220,8 @@ function Sensibilidad({ indice }: { indice: Indice }) {
 }
 
 function Escenario({ escenario }: { escenario: Indice['escenarios'][number] }) {
+  const sinMovimiento = useReducedMotion();
+  const ancho = `${Math.min(100, escenario.indice_pct * 1.2)}%`;
   return (
     <div className="grid gap-1.5">
       <div className="flex items-baseline justify-between gap-2">
@@ -233,10 +236,16 @@ function Escenario({ escenario }: { escenario: Indice['escenarios'][number] }) {
           </span>
         </span>
       </div>
+      {/* Riel + barra animada (motion): crece de 0 al valor al entrar en
+          vista, igual que el resto de las barras de progreso del sistema
+          (ProgresoHero, AnilloProgreso). */}
       <div className="h-2 overflow-hidden rounded-full bg-border">
-        <div
+        <motion.div
           className="h-full rounded-full bg-primary"
-          style={{ width: `${Math.min(100, escenario.indice_pct * 1.2)}%` }}
+          initial={{ width: sinMovimiento ? ancho : '0%' }}
+          whileInView={{ width: ancho }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         />
       </div>
     </div>

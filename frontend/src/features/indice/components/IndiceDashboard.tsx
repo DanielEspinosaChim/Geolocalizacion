@@ -243,10 +243,10 @@ function DonutComposicion({ formales, informales }: { formales: number; informal
             size: '62%',
             labels: {
               show: true,
-              // Al pasar el mouse, el centro muestra el nombre y el valor de la
-              // rebanada: tinta del tema y número con separador de miles (sin
-              // esto Apex pintaba "17326" crudo y el nombre se desbordaba).
-              name: { fontSize: '12px', fontFamily: 'Inter, sans-serif', color: muted },
+              // Solo números en el centro: el nombre de la serie ("Formales
+              // confirmados") es más ancho que el hueco y se desbordaba sobre
+              // el anillo. La simbología de abajo ya identifica cada color.
+              name: { show: false },
               value: {
                 fontSize: '20px',
                 fontFamily: 'Inter, sans-serif',
@@ -477,20 +477,33 @@ function CurvaSensibilidadChart({ indice }: { indice: Indice }) {
             strokeDashArray: 5,
             label: {
               text: `Chapman ${indice.chapman.indice_pct}% (sin supuestos)`,
-              position: 'left',
-              textAnchor: 'start',
+              // 'right': el primer tramo de la curva (α bajas) suele pasar MUY
+              // cerca del Chapman — la etiqueta ahí se encima con el punto y
+              // su dataLabel. A la derecha, donde el índice ya bajó bastante,
+              // queda lejos de cualquier marcador.
+              position: 'right',
+              textAnchor: 'end',
+              offsetY: -8,
               style: { color: ocre, background: surface, fontFamily: 'Inter, sans-serif', fontWeight: 700 },
             },
           },
         ],
       },
-      grid: { borderColor: `${muted}22`, padding: { top: 10 } },
+      // Padding lateral generoso: el dataLabel del primer punto se centra
+      // sobre su marcador, que vive justo en x=0 — la mitad izquierda del
+      // texto invade el hueco de las etiquetas del eje Y si el padding es
+      // corto. 36px es lo que necesita un rótulo tipo "62.6%" para no tocarlas.
+      grid: { borderColor: `${muted}22`, padding: { top: 24, left: 36, right: 20 } },
       xaxis: {
         labels: { style: { fontFamily: 'Inter, sans-serif', colors: muted, fontSize: '12px' } },
         axisBorder: { show: false },
         axisTicks: { show: false },
       },
       yaxis: {
+        // Techo con aire extra sobre el punto más alto: si el eje termina justo
+        // en el valor máximo, su dataLabel (que flota arriba del marcador)
+        // queda cortado o pegado al tick superior.
+        max: (max: number) => Math.ceil((max + 6) / 5) * 5,
         labels: {
           formatter: (v: number) => `${Math.round(v)}%`,
           style: { fontFamily: 'Inter, sans-serif', colors: muted, fontSize: '11px' },

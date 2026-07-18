@@ -48,17 +48,20 @@ describe('PanelLateral', () => {
     ]);
   });
 
-  it('plegar "Negocios" oculta la lista de resultados', () => {
+  it('"Negocios" arranca plegada; un clic despliega la lista de resultados', () => {
     renderPanel();
-    expect(estaOculto(screen.getByText('YULINEY'))).toBe(false);
+    // Arranca cerrada: la lista es larga y no debe saturar el panel al entrar.
+    expect(estaOculto(screen.getByText('YULINEY'))).toBe(true);
 
     fireEvent.click(screen.getByRole('button', { name: /^negocios$/i }));
 
-    expect(estaOculto(screen.getByText('YULINEY'))).toBe(true);
+    expect(estaOculto(screen.getByText('YULINEY'))).toBe(false);
   });
 
   it('plegar una sección no afecta a las demás', () => {
     renderPanel();
+    // "Negocios" ya arranca plegada; abrirla no debe afectar a "Candidatos".
+    fireEvent.click(screen.getByRole('button', { name: /^negocios$/i }));
     fireEvent.click(screen.getByRole('button', { name: /^candidatos$/i }));
     expect(estaOculto(screen.getByText('Total'))).toBe(true);
     expect(estaOculto(screen.getByText('YULINEY'))).toBe(false);

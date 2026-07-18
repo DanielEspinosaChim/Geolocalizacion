@@ -10,7 +10,9 @@ import { useEffect, useRef, type PropsWithChildren } from 'react';
  * los `Reveal` entran siempre en movimiento, nunca de golpe.
  *
  * Sustituye a `Page` solo en esta vista (replica su ancho `wide` y padding).
- * Con `prefers-reduced-motion` queda como scroll nativo normal.
+ * Con `prefers-reduced-motion`, o en pantallas táctiles, queda como scroll
+ * nativo normal: en el móvil el scroll suave secuestra el gesto del dedo y
+ * mata el "momentum" nativo — se siente peor, no mejor.
  */
 export function ScrollSuave({ children }: PropsWithChildren) {
   const ref = useRef<HTMLDivElement>(null);
@@ -19,6 +21,9 @@ export function ScrollSuave({ children }: PropsWithChildren) {
   useEffect(() => {
     const wrapper = ref.current;
     if (!wrapper || sinMovimiento) return;
+    // Puntero grueso (dedo) → sin Lenis: el navegador ya hace scroll táctil
+    // fluido con inercia, y Lenis lo entorpecería.
+    if (window.matchMedia('(pointer: coarse)').matches) return;
 
     const lenis = new Lenis({
       wrapper,

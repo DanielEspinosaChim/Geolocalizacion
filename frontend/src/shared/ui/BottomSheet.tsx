@@ -1,5 +1,12 @@
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import { useRef, useState, type PointerEvent, type PropsWithChildren, type ReactNode } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  type PointerEvent,
+  type PropsWithChildren,
+  type ReactNode,
+} from 'react';
 
 export type SheetSnap = 'peek' | 'half' | 'full';
 
@@ -111,21 +118,41 @@ interface BottomSheetProps extends PropsWithChildren {
 export function BottomSheet({ title, initialSnap = 'half', className = '', children }: BottomSheetProps) {
   const { sheetRef, snap, oculto, offsetPx, ocultar, restaurar, handlers } = useSheetDrag(initialSnap);
 
+  // Entrada por transición, NO por keyframe: `anim-slide-up` con fill-mode
+  // `both` dejaba fijo `translateY(0)` al terminar y pisaba el snap (el cajón
+  // se abría a pantalla completa en vez de a la mitad). Al montar arranca fuera
+  // de pantalla (100%) y en el siguiente frame salta al snap → la
+  // `transition-transform` de abajo lo desliza hasta su sitio.
+  const [montado, setMontado] = useState(false);
+  useEffect(() => {
+    if (oculto) {
+      setMontado(false);
+      return;
+    }
+    const id = requestAnimationFrame(() => setMontado(true));
+    return () => cancelAnimationFrame(id);
+  }, [oculto]);
+
   if (oculto) {
     return <PastillaReabrir title={title} className={className} onReabrir={restaurar} />;
   }
 
   const arrastrando = offsetPx !== null;
+  const desplazamiento = arrastrando
+    ? `${offsetPx}px`
+    : montado
+      ? SNAP_OFFSET[snap]
+      : '100%';
 
   return (
     <div className={`pointer-events-none absolute inset-0 z-panel overflow-hidden ${className}`}>
       <section
         ref={sheetRef}
         aria-label={typeof title === 'string' ? title : 'Panel de herramientas'}
-        className={`anim-slide-up pointer-events-auto absolute inset-x-0 top-0 flex h-full flex-col rounded-t-2xl border border-b-0 glass-panel ${
+        className={`pointer-events-auto absolute inset-x-0 top-0 flex h-full flex-col rounded-t-2xl border border-b-0 glass-panel ${
           arrastrando ? '' : 'transition-transform duration-300 ease-out'
         }`}
-        style={{ transform: `translateY(${arrastrando ? `${offsetPx}px` : SNAP_OFFSET[snap]})` }}
+        style={{ transform: `translateY(${desplazamiento})` }}
       >
         {/* Asa de arrastre. `touch-none`: el gesto vertical es del cajón, no del
             scroll de la página. El botón de la derecha lo oculta del todo. */}

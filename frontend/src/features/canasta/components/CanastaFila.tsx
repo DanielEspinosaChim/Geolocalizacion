@@ -1,4 +1,4 @@
-import { Trash2 } from 'lucide-react';
+import { Pencil, Trash2 } from 'lucide-react';
 import {
   promediosTrimestrales,
   type Mes,
@@ -39,6 +39,7 @@ export function FilaProducto({
   nuevaCat,
   onGuardarPrecio,
   onEditarMetadata,
+  onEditarProducto,
   onEliminar,
 }: {
   producto: Producto;
@@ -50,6 +51,7 @@ export function FilaProducto({
   nuevaCat: boolean;
   onGuardarPrecio: (id: string, month: Mes, price: number | null) => void;
   onEditarMetadata: (producto: Producto, month: Mes) => void;
+  onEditarProducto: () => void;
   onEliminar: () => void;
 }) {
   return (
@@ -96,16 +98,26 @@ export function FilaProducto({
           </td>
         ))}
 
-      <td className="px-1 py-1 text-center">
+      <td className="px-1 py-1">
         {vista === 'precios' ? (
-          <button
-            type="button"
-            onClick={onEliminar}
-            aria-label={`Desactivar ${p.name}`}
-            className="rounded-control p-1 text-fg-subtle transition-colors hover:bg-danger/10 hover:text-danger"
-          >
-            <Trash2 className="h-3.5 w-3.5" aria-hidden="true" />
-          </button>
+          <div className="flex items-center justify-center gap-0.5">
+            <button
+              type="button"
+              onClick={onEditarProducto}
+              aria-label={`Editar ${p.name}`}
+              className="rounded-control p-1 text-fg-subtle transition-colors hover:bg-primary/10 hover:text-primary"
+            >
+              <Pencil className="h-3.5 w-3.5" aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              onClick={onEliminar}
+              aria-label={`Desactivar ${p.name}`}
+              className="rounded-control p-1 text-fg-subtle transition-colors hover:bg-danger/10 hover:text-danger"
+            >
+              <Trash2 className="h-3.5 w-3.5" aria-hidden="true" />
+            </button>
+          </div>
         ) : null}
       </td>
     </tr>
