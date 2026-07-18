@@ -23,7 +23,7 @@ function useThemeTick() {
  * barras que crecen, dona que se dibuja. Se dispara al montar — por eso cada
  * tile monta su gráfica hasta que entra al viewport (useInView de motion).
  */
-const ANIMACION: ApexOptions['chart'] = {
+export const ANIMACION: ApexOptions['chart'] = {
   animations: {
     enabled: true,
     speed: 900,
@@ -120,7 +120,11 @@ export function IndiceDashboard({ indice }: { indice: Indice }) {
 
 /* ────────────────────────── piezas ────────────────────────── */
 
-/** KPI con contador animado (motion): cuenta de 0 al valor al entrar en vista. */
+/**
+ * KPI con contador animado (motion): cuenta de 0 al valor al entrar en vista.
+ * El color va en la etiqueta, no en el número (ver MiniStat) — cuatro KPIs de
+ * colores distintos lado a lado se leen como "arcoíris".
+ */
 function Kpi({
   etiqueta,
   valor,
@@ -128,7 +132,7 @@ function Kpi({
   prefijo = '',
   sufijo = '',
   decimales = 0,
-  tono = 'text-fg',
+  tono = 'text-fg-muted',
 }: {
   etiqueta: string;
   valor: number;
@@ -164,8 +168,8 @@ function Kpi({
 
   return (
     <div className="grid content-start gap-0.5 rounded-card border border-border bg-bg p-4">
-      <span className="text-2xs font-bold uppercase tracking-wide text-fg-muted">{etiqueta}</span>
-      <span ref={ref} className={`font-display text-2xl font-extrabold tabular-nums ${tono}`}>
+      <span className={`text-2xs font-bold uppercase tracking-wide ${tono}`}>{etiqueta}</span>
+      <span ref={ref} className="font-display text-2xl font-extrabold tabular-nums text-fg">
         {formato(0)}
       </span>
       <span className="text-2xs text-fg-subtle">{nota}</span>

@@ -179,11 +179,24 @@ export function Paso2Limpieza({ indice }: { indice: Indice }) {
   );
 }
 
-export function MiniStat({ valor, etiqueta, tono = 'text-fg' }: { valor: string; etiqueta: string; tono?: string }) {
+/**
+ * El color va en la ETIQUETA, nunca en el número: una fila de stats con cada
+ * valor de un color distinto se lee como "arcoíris" y el ojo no sabe a cuál
+ * prestarle atención. El número siempre es tinta neutra (`text-fg`).
+ */
+export function MiniStat({
+  valor,
+  etiqueta,
+  tono = 'text-fg-muted',
+}: {
+  valor: string;
+  etiqueta: string;
+  tono?: string;
+}) {
   return (
     <div>
-      <div className={`font-display text-xl font-extrabold tabular-nums ${tono}`}>{valor}</div>
-      <div className="text-xs text-fg-muted">{etiqueta}</div>
+      <div className="font-display text-xl font-extrabold tabular-nums text-fg">{valor}</div>
+      <div className={`text-xs font-semibold ${tono}`}>{etiqueta}</div>
     </div>
   );
 }
